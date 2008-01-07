@@ -1,0 +1,119 @@
+/*!  @file  rdiParser.cpp
+     @brief implementation of rdiParser.h
+     
+     @author  Matt McCormick <matt@mmmccormick.com>
+     @date   Mon Jun 18 2007
+     
+  */
+  
+#include "rdiParser.h"
+
+rdiParser::rdiParser(std::string filename) :
+  its_input(filename + ".rdi")
+{
+  
+}
+
+rdiParser::~rdiParser()
+{
+}
+
+rdiParserData rdiParser::parse()
+{
+ 
+  rule_t yada_line_p = *(bs::print_p | bs::blank_p| bs::ch_p(static_cast<char>(0xb5)) )>> bs::eol_p;  // 0x  b5 aka 181 aka mu aka micro
+ 
+  
+  rule_t image_info_p =  bs::str_p("=== IMAGE INFO ===") >> bs::eol_p >>
+                   bs::str_p("Study Name") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd.its_study_name) ] ^ bs::eol_p) >> bs::eol_p >> 
+                   bs::str_p("Image Label") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd.its_image_label) ] ^ bs::eol_p) >> bs::eol_p >>
+                   bs::str_p("Image Frames") >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a(its_rpd.its_image_frames) ] >> bs::eol_p >>
+                   bs::str_p("Image Lines") >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a(its_rpd.its_image_lines) ] >>  bs::eol_p >>
+                   bs::str_p("Image Acquisition Per Line") >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a(its_rpd.its_image_acquisition_per_line) ] >> bs::eol_p >>
+                   bs::str_p("Image Acquisition Size") >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a(its_rpd.its_image_acquisition_size) ] >> bs::ch_p(',') >> bs::str_p("bytes") >> bs::eol_p >>
+                   bs::str_p("Animal ID") >> bs::ch_p(',') >> *(bs::anychar_p ^ bs::eol_p) >> bs::eol_p >>
+                   bs::str_p("Acquisition Mode") >> bs::ch_p(',') >> *(bs::anychar_p ^ bs::eol_p) >> bs::eol_p >>
+                   bs::str_p("Acquisition Date") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd.its_acquisition_date) ] ^ bs::eol_p) >> bs::eol_p >>
+                   bs::str_p("Acquisition Time") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd.its_acquisition_time) ] ^ bs::eol_p) >> bs::eol_p >>  
+                   bs::str_p("Acquisition Operator") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd.its_acquisition_operator) ] ^ bs::eol_p) >> bs::eol_p 
+                   ;
+                   
+  rule_t image_data_p =  bs::str_p("=== IMAGE DATA ===") >> bs::eol_p >>
+                   * (yada_line_p ^ ( bs::str_p("=== IMAGE PARAMETERS ===") >> bs::eol_p ) ) // XOR, Match a or b, but not both
+                   ;
+                   
+  stored_rule_t image_parameters_p = bs::str_p("=== IMAGE PARAMETERS ===") >> bs::eol_p ;
+                  // bs::repeat_p(3)[ yada_line_p ] >>
+				     
+//                  (bs::str_p("RF-Mode/ActiveProbe/Focal-Length") >> bs::ch_p(',') >> bs::real_p[ bs::assign_a( its_rpd.its_rf_mode_activeprobe_focal_length) ] >> bs::ch_p(',') >> bs::str_p("mm") >> bs::eol_p) 
+  step_through_until_find_next( image_parameters_p, "RF-Mode/RX/RF-Gain", "dB", its_rpd.its_rf_mode_rx_rf_gain);
+  step_through_until_find_next( image_parameters_p, "RF-Mode/Rx/V-Digi-Depth-Imaging", "mm", its_rpd.its_rf_mode_rx_v_digi_depth_imaging);
+  step_through_until_find_next( image_parameters_p, "RF-Mode/ActiveProbe/F-Number", its_rpd.its_rf_mode_activeprobe_f_number); 
+  step_through_until_find_next( image_parameters_p, "RF-Mode/ActiveProbe/Pivot-Encoder-Dist", "mm", its_rpd.its_rf_mode_activeprobe_pivot_encoder_dist); 
+  step_through_until_find_next( image_parameters_p, "RF-Mode/BModeSoft/Refresh-Rate", "frames/sec", its_rpd.its_rf_mode_bmodesoft_refresh_rate);
+  step_through_until_find_next( image_parameters_p, "RF-Mode/RX/AD-Gate-Width", "samples", its_rpd.its_rf_mode_rx_ad_gate_width); 
+  step_through_until_find_next( image_parameters_p, "RF-Mode/ActiveProbe/Pivot-Transducer-Face-Dist", "mm", its_rpd.its_rf_mode_activeprobe_pivot_transducer_face_dist); 
+  step_through_until_find_next( image_parameters_p, "RF-Mode/TX/Trig-Tbl-Trigs", "trigs", its_rpd.its_rf_mode_tx_trig_tbl_trigs); 
+  step_through_until_find_next( image_parameters_p, "RF-Mode/Scan/Scan-Width", "mm", its_rpd.its_rf_mode_scan_scan_width);
+  step_through_until_find_next( image_parameters_p, "RF-Mode/RX/V-Delay-Length", "mm", its_rpd.its_rf_mode_rx_v_delay_length);
+  step_through_until_find_next( image_parameters_p, "B-Mode/RX/AD-Gate-Width", "samples", its_rpd.its_b_mode_rx_ad_gate_width);
+  step_through_until_find_next( image_parameters_p, "B-Mode/TX/Trig-Tbl-Trigs", "trigs", its_rpd.its_b_mode_tx_trig_tbl_trigs); 
+                  
+  stored_rule_t rdi_file_p = image_info_p >>
+                 image_data_p >>
+                 image_parameters_p >>
+		 * (yada_line_p | bs::eol_p)
+                 ;
+                 
+  iterator_t first( its_input.get_buffer() );
+  iterator_t last = first + its_input.get_size() ;
+/*      an alternate to the line below would be:
+  iter_policy_t iter_policy(bs::ch_p('"'));
+  scanner_policies_t policies(iter_policy);
+  scanner_t scan( first, last, policies );
+  rdi_file_p.parse(scan);
+  */
+  bs::parse_info<iterator_t> info = bs::parse< iterator_t, stored_rule_t, skip_t> ( first, last, rdi_file_p, bs::ch_p('"') );
+  if (!info.full)
+  {
+    std::ostringstream err_msg (std::ostringstream::out);
+    err_msg << "convert_visualsonics_2_mat: Not the entire input file " << its_input.get_filename() << 
+    "\n got parsed or the input parser could not recognize the input string\n" <<
+    "Only " << info.length << " characters were consumed by the parser.\n";
+    mexErrMsgTxt( err_msg.str().c_str() );
+  }
+  
+  return its_rpd;
+}
+
+
+void rdiParser::step_through_until_find_next(stored_rule_t& parser, const char* param_string, const char* param_units, unsigned int & value)
+{
+  rule_t yada_line_p = *(bs::print_p | bs::blank_p| bs::ch_p(static_cast<char>(0xb5)) )>> bs::eol_p;  // 0x  b5 aka 181 aka mu aka micro
+  
+  parser = parser.copy() >>
+    *(yada_line_p ^ bs::str_p( param_string ) ) >> 
+    bs::str_p( param_string ) >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a( value ) ] >> bs::ch_p(',') >> bs::str_p( param_units ) >> bs::eol_p ;
+
+}
+
+void rdiParser::step_through_until_find_next(stored_rule_t& parser, const char* param_string, const char* param_units, double & value)
+{
+  rule_t yada_line_p = *(bs::print_p | bs::blank_p| bs::ch_p(static_cast<char>(0xb5)) )>> bs::eol_p;  // 0x  b5 aka 181 aka mu aka micro
+  
+  parser = parser.copy() >>
+    *(yada_line_p ^ bs::str_p( param_string ) ) >> 
+    bs::str_p( param_string ) >> bs::ch_p(',') >> bs::real_p[ bs::assign_a( value ) ] >> bs::ch_p(',') >> bs::str_p( param_units ) >> bs::eol_p ;
+
+}
+
+void rdiParser::step_through_until_find_next(stored_rule_t& parser, const char* param_string, double & value)
+{
+  rule_t yada_line_p = *(bs::print_p | bs::blank_p| bs::ch_p(static_cast<char>(0xb5)) )>> bs::eol_p;  // 0x  b5 aka 181 aka mu aka micro
+  
+  parser = parser.copy() >>
+    *(yada_line_p ^ bs::str_p( param_string ) ) >> 
+    bs::str_p( param_string ) >> bs::ch_p(',') >> bs::real_p[ bs::assign_a( value ) ]  >> bs::eol_p ;
+
+}
+

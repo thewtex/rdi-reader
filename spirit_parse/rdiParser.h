@@ -1,0 +1,48 @@
+/*!  @file  rdiParser.h
+     @brief object for parsing a VisualSonics .rdi file with Boost Spirit
+     
+     @author Matt McCormick <matt@mmmccormick.com>
+     @date   Mon Jun 18 2007 
+      
+   */
+
+#ifndef _rdiParser_h
+#define _rdiParser_h
+
+#include <sstream>
+#include <string>
+
+#include "boost/spirit/core.hpp"
+#include "boost/spirit/actor/assign_actor.hpp"
+#include "boost/spirit/utility/loops.hpp"
+
+#include "mat.h"
+#include "mex.h"
+
+#include "BoostSpiritInputFile.h"
+#include "rdiParserData.h"
+
+
+/*! @class rdiParser object for parsing a VisualSonics .rdi file with Boost Spirit */
+class rdiParser
+{
+public:
+
+  /*! constructor
+     @param file_name filename (and path if needed) of the file to be parsed
+  */
+  rdiParser(std::string filename);
+  //! destructor
+  ~rdiParser();
+  rdiParserData parse();
+  
+private:
+
+  BoostSpiritInputFile its_input;
+  rdiParserData its_rpd;
+  //! to parse the angular position
+  void parse_angle();
+  
+};
+
+#endif //_rdiParser_h

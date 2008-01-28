@@ -238,5 +238,6 @@ SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "*.obj")
 
 ########### set up addition CMakeLists.txt locations #########
 ADD_SUBDIRECTORY(matlab)
+add_subdirectory(cxx)
 ADD_SUBDIRECTORY(spirit_parse)
 

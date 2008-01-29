@@ -9,15 +9,7 @@
 #ifndef _rdiParser_h
 #define _rdiParser_h
 
-#include <sstream>
 #include <string>
-
-#include "boost/spirit/core.hpp"
-#include "boost/spirit/actor/assign_actor.hpp"
-#include "boost/spirit/utility/loops.hpp"
-
-#include "mat.h"
-#include "mex.h"
 
 #include "BoostSpiritInputFile.h"
 #include "rdiParserData.h"

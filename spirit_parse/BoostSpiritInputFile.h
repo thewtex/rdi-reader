@@ -6,8 +6,8 @@
       
    */
 
-#ifndef _BoostSpiritInputFile_h
-#define _BoostSpiritInputFile_h
+#ifndef BoostSpiritInputFile_h
+#define BoostSpiritInputFile_h
 
 #include <string>
 #include <sstream>

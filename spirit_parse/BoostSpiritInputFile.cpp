@@ -8,6 +8,16 @@
   
 #include "BoostSpiritInputFile.h"
 
+#include <sstream>
+#include <fstream>
+
+
+#ifdef MATLAB_MEX_FILE
+  #include "mex.h" // for errors, memory allocation
+#else
+  #include <iostream>
+#endif
+
 BoostSpiritInputFile::BoostSpiritInputFile(std::string filename) :
 its_filename(filename)
 {
@@ -19,7 +29,11 @@ its_filename(filename)
   {
     std::ostringstream err_msg (std::ostringstream::out);
     err_msg << "\nFile: " << filename << " couldn't be opened :(\n\nPress enter gently to continue...";
+#ifdef MATLAB_MEX_FILE 
     mexErrMsgTxt( err_msg.str().c_str() );
+#else
+    std::cerr << err_msg.str() << std::endl;
+#endif
   }
     
   // get size of file
@@ -28,8 +42,11 @@ its_filename(filename)
   infile.seekg(0);
 
   // allocate memory for file content
-//   its_buffer = new char[its_size];
+#ifdef MATLAB_MEX_FILE
   its_buffer = static_cast<char *>(mxCalloc(its_size, sizeof(char)));
+#else 
+  its_buffer = new char[its_size];
+#endif
   
   // read content of infile
   infile.read(its_buffer,its_size);
@@ -40,6 +57,9 @@ its_filename(filename)
 
 BoostSpiritInputFile::~BoostSpiritInputFile()
 {
-//   delete[] its_buffer;
+#ifdef MATLAB_MEX_FILE
   mxFree(its_buffer);
+#else
+  delete[] its_buffer;
+#endif
 }

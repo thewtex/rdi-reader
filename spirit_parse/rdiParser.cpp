@@ -8,6 +8,18 @@
   
 #include "rdiParser.h"
 
+#include <sstream>
+
+#include "boost/spirit/core.hpp"
+#include "boost/spirit/actor/assign_actor.hpp"
+#include "boost/spirit/utility/loops.hpp"
+
+#ifdef MATLAB_MEX_FILE
+  #include "mex.h"
+#else
+  #include <iostream>
+#endif
+
 rdiParser::rdiParser(std::string filename) :
   its_input(filename + ".rdi")
 {
@@ -174,7 +186,11 @@ rdiParserData rdiParser::parse()
     err_msg << "convert_visualsonics_2_mat: Not the entire input file " << its_input.get_filename() << 
     "\n got parsed or the input parser could not recognize the input string\n" <<
     "Only " << info.length << " characters were consumed by the parser.\n";
+#ifdef MATLAB_MEX_FILE
     mexErrMsgTxt( err_msg.str().c_str() );
+#else
+    std::cerr << err_msg.str() << std::endl;
+#endif
   }
   
 

@@ -12,8 +12,6 @@
 #include <string>
 #include <vector>
 
-#include <matrix.h>
-
 
 /*! @class rdiParserData object for holding the extracted .rdi file data */
 class rdiParserData

@@ -5,6 +5,8 @@
      @date   14 June 2007
   */
 
+#ifdef MATLAB_MEX_FILE
+
 #include <cstring>
 #include <string>
 #include <vector>
@@ -31,6 +33,7 @@
   returns
   @b metadata info structure
   */
+#pragma GCC visibility push(default)
 void mexFunction( int nlhs, mxArray *plhs[],
                   int nrhs, const mxArray *prhs[] )
 {
@@ -60,4 +63,6 @@ void mexFunction( int nlhs, mxArray *plhs[],
     mexErrMsgTxt("Error: wrong subsref type.");
     
 } // end mexFunction
+#pragma GCC visibility pop
 
+#endif // MATLAB_MEX_FILE

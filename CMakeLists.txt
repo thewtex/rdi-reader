@@ -118,13 +118,13 @@ IF(UNIX) # all unix-like O/S's including Apple OS X and MINGW
   
   SET(CMAKE_CXX_FLAGS
 #     "-fPIC -ansi -D_GNU_SOURCE -DMATLAB_MEX_FILE -pthread -march=pentium4 -Wall -Wno-deprecated -D_FILE_OFFSET_BITS=64"
-    "-fPIC -ansi -D_GNU_SOURCE -DMATLAB_MEX_FILE -pthread -m32 -Wall -Wno-deprecated -D_FILE_OFFSET_BITS=64"  
+    "-fPIC -ansi -D_GNU_SOURCE -DMATLAB_MEX_FILE -pthread -m32 -Wall -Wno-deprecated -D_FILE_OFFSET_BITS=64 -fvisibility=hidden"  
     CACHE STRING "options output with mex -v CHANGE IN CMakeLists.txt NOT HERE!"
     FORCE
   )
   SET(CMAKE_C_FLAGS
 #     "-fPIC -ansi -D_GNU_SOURCE -DMATLAB_MEX_FILE -pthread -march=pentium4 -Wall -fexceptions -D_FILE_OFFSET_BITS=64"
-    "-fPIC -ansi -D_GNU_SOURCE -DMATLAB_MEX_FILE -pthread -m32 -Wall -fexceptions -D_FILE_OFFSET_BITS=64"  
+    "-fPIC -ansi -D_GNU_SOURCE -DMATLAB_MEX_FILE -pthread -m32 -Wall -fexceptions -D_FILE_OFFSET_BITS=64 -fvisibility=hidden"  
     CACHE STRING "options output with mex -v CHANGE IN CMakeLists.txt NOT HERE!"
     FORCE
   )

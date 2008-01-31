@@ -17,7 +17,6 @@ namespace bf = boost::filesystem;
 
 #include "vs2m_gateway_helper_functions.h"
 
-#include "rdiParser.h"
 #include "rdiParserData.h"
 
 namespace vs2m_gateway

@@ -8,6 +8,8 @@
   
 #include "vs2m_gateway_Input.h"
 
+#include "rdiParser.h"
+
 vs2m_gateway::Input::Input(const mxArray * prhs[]):
     its_prhs(prhs)
 {

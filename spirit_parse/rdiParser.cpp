@@ -240,7 +240,11 @@ void rdiParser::parse_angle()
     err_msg << "convert_visualsonics_2_mat: Not the entire angle string " << its_input.get_filename() << 
     "\n got parsed or the input parser could not recognize the input string\n" <<
     "Only " << info.length << " characters were consumed by the parser.\n";
+#ifdef MATLAB_MEX_FILE
     mexErrMsgTxt( err_msg.str().c_str() );
+#else
+    std::cerr << err_msg.str() << std::endl;
+#endif
   }
   
   assert( its_rpd.its_rf_mode_rfmodesoft_v_lines_pos_vec.size() == its_rpd.its_image_lines );

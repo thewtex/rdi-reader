@@ -1,4 +1,4 @@
-
+#include <ctime>
 #include <exception>
 #include <iostream>
 #include <string>
@@ -8,7 +8,10 @@
 
 int main()
 {
-  std::cout << "Hello World!" << std::endl;
+#ifndef NDEBUG
+  std::clock_t start,end;
+  start = std::clock();
+#endif
 
   try
   {
@@ -18,14 +21,20 @@ int main()
     
     rdiParserData rpd = rdi_parser.parse();
 
-    
-    std::cout << "Study name: " << rpd.its_study_name << "\nImage lines: " << rpd.its_image_lines << "\ntime: " << rpd.its_acquisition_time << "\nscan width: " << rpd.its_rf_mode_scan_scan_width << std::endl;
-
   }
   catch ( std::exception& e )
   {
     std::cerr << "There was a std::exception: "  << e.what() << std::endl;
   }
+
+
+#ifndef NDEBUG
+  end = std::clock();
+  double dif = static_cast<double>(end-start);
+  double time = dif/CLOCKS_PER_SEC;
+  std::cout << " the time is : " << time << "\n and end is :" << end <<  "\n and start time is : " << start << std::endl;
+  std::cout << "clocks per sec: " << CLOCKS_PER_SEC << std::endl;
+#endif
 
   return 0;
 }

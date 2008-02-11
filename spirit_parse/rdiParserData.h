@@ -12,9 +12,9 @@
 #include <string>
 #include <vector>
 
-
+#pragma GCC visibility push(default)
 /*! @class rdiParserData object for holding the extracted .rdi file data */
-class rdiParserData
+struct rdiParserData
 {
 public:
 //   rdiParserData();
@@ -84,5 +84,6 @@ public:
   
   
 };
+#pragma GCC visibility pop
 
 #endif //_rdiParserData_h

@@ -6,6 +6,8 @@
 #include "rdiParser.h"
 #include "rdiParserData.h"
 
+#include "parse_vs_rdi.h"
+
 int main()
 {
 #ifndef NDEBUG
@@ -20,6 +22,8 @@ int main()
     rdiParser rdi_parser( filename);
     
     rdiParserData rpd = rdi_parser.parse();
+
+    rdiParserData rpd_from_lib = parse_vs_rdi(filename);
 
   }
   catch ( std::exception& e )

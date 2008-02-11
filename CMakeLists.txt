@@ -153,7 +153,8 @@ IF(UNIX) # all unix-like O/S's including Apple OS X and MINGW
     FORCE
   )
   SET(CMAKE_SHARED_LINKER_FLAGS
-    "-Wl,-rpath-link,${MATLAB_LIBRARIES} -L${MATLAB_LIBRARIES} -lmx -lmex -lmat -lm -Wl,--version-script,${MATLAB_DIR}/extern/lib/glnx86/mexFunction.map -pthread -Wl,--no-undefined"
+    #    "-Wl,-rpath-link,${MATLAB_LIBRARIES} -L${MATLAB_LIBRARIES} -lmx -lmex -lmat -lm -Wl,--version-script,${MATLAB_DIR}/extern/lib/glnx86/mexFunction.map -pthread -Wl,--no-undefined"
+    ""
     CACHE STRING "CHANGE IN CMakeLists.txt NOT HERE"
     FORCE
   )

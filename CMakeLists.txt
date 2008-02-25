@@ -145,12 +145,12 @@ IF(UNIX) # all unix-like O/S's including Apple OS X and MINGW
   )
     
   SET(CMAKE_CXX_FLAGS_RELEASE 
-    "-O2 -DNDEBUG -malign-double -ffast-math -fvisibility=hidden" 
+    "-O2 -DNDEBUG -ffast-math -fvisibility=hidden" 
     CACHE STRING "CHANGE IN CMakeLists.txt NOT HERE"
     FORCE
   )
   SET(CMAKE_C_FLAGS_RELEASE 
-    "-O2 -DNDEBUG -malign-double -ffast-math -fvisibility=hidden" 
+    "-O2 -DNDEBUG -ffast-math -fvisibility=hidden" 
     CACHE STRING "CHANGE IN CMakeLists.txt NOT HERE"
     FORCE
   )

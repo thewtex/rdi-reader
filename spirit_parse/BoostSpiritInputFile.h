@@ -10,10 +10,6 @@
 #define BoostSpiritInputFile_h
 
 #include <string>
-#include <sstream>
-#include <fstream>
-
-#include "mex.h"
 
 /*! 
   @class BoostSpiritInputFile to read an input file and put it into a char*

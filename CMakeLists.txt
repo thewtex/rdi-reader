@@ -131,13 +131,15 @@ IF(UNIX) # all unix-like O/S's including Apple OS X and MINGW
     FORCE
   )
   SET(CMAKE_CXX_FLAGS_DEBUG
-    "-g -ggdb3 -pg" 
+    #"-g -ggdb3 -pg" 
+    "-g -ggdb3" 
     CACHE STRING "options output with mex -v CHANGE IN CMakeLists.txt NOT HERE!"
     FORCE
   )
   
   SET(CMAKE_C_FLAGS_DEBUG
-    "-g -ggdb3 -pg" 
+    #"-g -ggdb3 -pg" 
+    "-g -ggdb3" 
     CACHE STRING "options output with mex -v CHANGE IN CMakeLists.txt NOT HERE!"
     FORCE
   )

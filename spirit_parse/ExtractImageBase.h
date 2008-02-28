@@ -9,16 +9,18 @@
 #ifndef	EXTRACTIMAGEBASE_H
 #define EXTRACTIMAGEBASE_H
 
-#include "ExtractMetadataBase.h"
+//#include "ExtractMetadataBase.h"
 
 #include <vector>
 
 namespace visual_sonics
 {
+  class ExtractMetadataBase;
+
   class ExtractImageBase
   {
   public:
-    ExtractImageBase( );
+    ExtractImageBase(){};
 
     virtual ~ExtractImageBase(){};
 

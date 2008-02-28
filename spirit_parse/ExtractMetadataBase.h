@@ -1,4 +1,4 @@
-/*! @file   InputBase.h
+/*! @file   ExtractMetadataBase.h
  *  @brief  base class for holding and extracting VisualSonics Digital RF files and their metadata
  *
  *  @author Matt McCormick (thewtex) <matt@mmmccormick.com>
@@ -6,27 +6,26 @@
  *
  */
 
-#ifndef	INPUTBASE_H
-#define INPUTBASE_H
+#ifndef	EXTRACTMETADATABASE_H
+#define EXTRACTMETADATABASE_H
 
-#include <boost/filesystem/convenience.h>
+#include <boost/filesystem/convenience.hpp>
 
 namespace bf = boost::filesystem;
 
-#include "OutputBase.h"
 #include "rdiParserData.h"
 
 namespace visual_sonics
 {
-  class InputBase
+  class ExtractMetadataBase
   {
   public:
-    friend class OutputBase;
+    friend class ExtractImageBase;
 
-    InputBase(const bf::path& in_file_path, 
+    ExtractMetadataBase(const bf::path& in_file_path, 
 	      const bf::path& in_file_name);
 
-    virtual ~InputBase(){};
+    virtual ~ExtractMetadataBase(){};
 
     
   protected:
@@ -38,11 +37,11 @@ namespace visual_sonics
     rdiParserData its_rpd;
 
   private:
-    //! parse the .di file metadata
+    //! parse the .rdi file metadata
     void parse_metadata();
 
   };
 } // namespace visual_sonics
 
 
-#endif // INPUTBASE_H
+#endif // EXTRACTMETADATABASE_H

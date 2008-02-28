@@ -8,6 +8,8 @@
 
 #include "parse_vs_rdi.h"
 
+#include "ExtractImage.h"
+
 int main()
 {
 #ifndef NDEBUG

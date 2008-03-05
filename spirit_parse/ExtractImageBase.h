@@ -9,9 +9,8 @@
 #ifndef	EXTRACTIMAGEBASE_H
 #define EXTRACTIMAGEBASE_H
 
-//#include "ExtractMetadataBase.h"
-
 #include <vector>
+
 
 namespace visual_sonics
 {
@@ -20,11 +19,13 @@ namespace visual_sonics
   class ExtractImageBase
   {
   public:
+    ExtractImageBase( std::vector<unsigned int>& frames_to_extract ): its_frames_to_extract( frames_to_extract ) {};
     ExtractImageBase(){};
 
     virtual ~ExtractImageBase(){};
 
   protected:
+    //! this MUST be assigned in child classes
     ExtractMetadataBase* its_extract_metadata;
 
     std::vector<unsigned short> its_b_mode_image;
@@ -37,8 +38,11 @@ namespace visual_sonics
     virtual void get_rf_data_image() = 0;
 
     std::vector<unsigned int>	its_frames_to_extract;
-    virtual void get_frames_to_extract() = 0;
 
+  private:
+    //! I have no need for these at this point --write them as needed, carefully
+    ExtractImageBase( const ExtractImageBase& );
+    ExtractImageBase&  operator=( const ExtractImageBase& );
   };
 }
 

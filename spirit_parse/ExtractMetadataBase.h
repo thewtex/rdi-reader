@@ -17,10 +17,13 @@ namespace bf = boost::filesystem;
 
 namespace visual_sonics
 {
+  namespace cxx { class ExtractImage; };
+
   class ExtractMetadataBase
   {
   public:
     friend class ExtractImageBase;
+    friend class cxx::ExtractImage;
 
     ExtractMetadataBase(const bf::path& in_file_path, 
 	      const bf::path& in_file_name);

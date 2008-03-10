@@ -33,16 +33,16 @@ namespace visual_sonics
       ExtractImage(const bf::path& in_file_path, const bf::path& in_file_name);
       virtual ~ExtractImage();
 
+      virtual void extract_b_mode_image();
+      virtual void extract_saturation_image();
+      virtual void extract_rf_data_image();
+
     private:
 
       std::vector<unsigned short> its_b_mode_image;
-      virtual void get_b_mode_image();
+      std::vector<bool>	          its_saturation_image;
+      std::vector<short>          its_rf_data_image;
 
-      std::vector<bool>		its_saturation_image;
-      virtual void get_saturation_image();
-
-      std::vector<short>		its_rf_data_image;
-      virtual void get_rf_data_image();
 
       //! I have no need for these at this point --write them as needed
       ExtractImage( const ExtractImage& );

@@ -35,11 +35,11 @@ namespace visual_sonics
 
     bf::path its_rdb_file_path;
 
-    virtual void get_b_mode_image() = 0;
+    virtual void extract_b_mode_image() = 0;
 
-    virtual void get_saturation_image() = 0;
+    virtual void extract_saturation_image() = 0;
 
-    virtual void get_rf_data_image() = 0;
+    virtual void extract_rf_data_image() = 0;
 
     std::vector<unsigned int>	its_frames_to_extract;
 

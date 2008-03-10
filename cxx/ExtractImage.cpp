@@ -60,7 +60,7 @@ ExtractImage::~ExtractImage()
 
 
 
-void ExtractImage::get_b_mode_image()
+void ExtractImage::extract_b_mode_image()
 {
   std::ifstream rdb_file( its_rdb_file_path.native_file_string().c_str(), std::ios::in | std::ios::binary);
   if (!rdb_file.is_open())
@@ -94,13 +94,13 @@ void ExtractImage::get_b_mode_image()
 
 
 
-void ExtractImage::get_saturation_image()
+void ExtractImage::extract_saturation_image()
 {
 }
 
 
 
-void ExtractImage::get_rf_data_image()
+void ExtractImage::extract_rf_data_image()
 {
 }
 

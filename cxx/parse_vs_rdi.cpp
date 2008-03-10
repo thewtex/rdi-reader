@@ -6,6 +6,9 @@
 #include "rdiParser.h"
 #include "rdiParserData.h"
 
+using namespace visual_sonics;
+
+
 rdiParserData parse_vs_rdi(const std::string& filename)
 {
   try

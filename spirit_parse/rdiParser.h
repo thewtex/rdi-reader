@@ -14,27 +14,29 @@
 #include "BoostSpiritInputFile.h"
 #include "rdiParserData.h"
 
-
-/*! @class rdiParser object for parsing a VisualSonics .rdi file with Boost Spirit */
-class rdiParser
+namespace visual_sonics
 {
-public:
-
-  /*! constructor
-     @param file_name filename (and path if needed) of the file to be parsed
-  */
-  rdiParser(std::string filename);
-  //! destructor
-  ~rdiParser();
-  rdiParserData parse();
+  /*! @class rdiParser object for parsing a VisualSonics .rdi file with Boost Spirit */
+  class rdiParser
+  {
+  public:
   
-private:
-
-  BoostSpiritInputFile its_input;
-  rdiParserData its_rpd;
-  //! to parse the angular position
-  void parse_angle();
+    /*! constructor
+       @param file_name filename (and path if needed) of the file to be parsed
+    */
+    rdiParser(std::string filename);
+    //! destructor
+    ~rdiParser();
+    rdiParserData parse();
+    
+  private:
   
-};
-
+    BoostSpiritInputFile its_input;
+    rdiParserData its_rpd;
+    //! to parse the angular position
+    void parse_angle();
+    
+  };
+} //end namespace visual_sonics
+  
 #endif //_rdiParser_h

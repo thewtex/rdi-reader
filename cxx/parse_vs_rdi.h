@@ -17,7 +17,7 @@
  * omit the '.rdi' extension in the filename
  * @param filename
  */
-rdiParserData parse_vs_rdi(const std::string& filename);
+visual_sonics::rdiParserData parse_vs_rdi(const std::string& filename);
 #pragma GCC visibility pop
 
 #endif // inclusion guard

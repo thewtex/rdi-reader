@@ -20,6 +20,9 @@
   #include <iostream>
 #endif
 
+using namespace visual_sonics;
+
+
 rdiParser::rdiParser(std::string filename) :
   its_input(filename + ".rdi")
 {

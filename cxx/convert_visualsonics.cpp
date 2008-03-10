@@ -10,6 +10,8 @@
 
 #include "ExtractImage.h"
 
+using namespace visual_sonics;
+
 int main()
 {
 #ifndef NDEBUG
@@ -27,6 +29,9 @@ int main()
 
     rdiParserData rpd_from_lib = parse_vs_rdi(filename);
 
+    visual_sonics::cxx::ExtractImage ei("/mnt/research/Research/in_vivo/test_base/visual_sonics", "2007-06-08-15-57-05-328");
+
+    ei.extract_b_mode_image();
   }
   catch ( std::exception& e )
   {

@@ -22,6 +22,9 @@ ExtractImage::ExtractImage(const bf::path& in_file_path, const bf::path& in_file
 {
   its_extract_metadata = new ExtractMetadataBase( in_file_path, in_file_name);
 
+  its_rdb_file_path = its_extract_metadata->its_in_file_path / (its_extract_metadata->its_in_file_name.leaf() + ".rdb");
+
+
   // check if specified frames are valid
   unsigned int max_frame = its_extract_metadata->its_rpd.its_image_frames;
   for( std::vector<unsigned int>::const_iterator it = its_frames_to_extract.begin(); it < its_frames_to_extract.end(); it++)
@@ -59,12 +62,11 @@ ExtractImage::~ExtractImage()
 
 void ExtractImage::get_b_mode_image()
 {
-  bf::path rdb_file_path = its_extract_metadata->its_in_file_path / (its_extract_metadata->its_in_file_name.leaf() + ".rdb");
-  std::ifstream rdb_file( rdb_file_path.native_file_string().c_str(), std::ios::in | std::ios::binary);
+  std::ifstream rdb_file( its_rdb_file_path.native_file_string().c_str(), std::ios::in | std::ios::binary);
   if (!rdb_file.is_open())
   {
     std::ostringstream err_msg (std::ostringstream::out);
-    err_msg << "\nFile: " << rdb_file_path.native_file_string() << " couldn't be opened :(\n";
+    err_msg << "\nFile: " << its_rdb_file_path.native_file_string() << " couldn't be opened :(\n";
     throw std::ios_base::failure( err_msg.str() );
   }
   

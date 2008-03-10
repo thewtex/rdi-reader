@@ -12,6 +12,11 @@
 #include <vector>
 
 
+#include <boost/filesystem/convenience.hpp>
+namespace bf = boost::filesystem;
+
+
+
 namespace visual_sonics
 {
   class ExtractMetadataBase;
@@ -27,6 +32,8 @@ namespace visual_sonics
   protected:
     //! this MUST be assigned in child classes
     ExtractMetadataBase* its_extract_metadata;
+
+    bf::path its_rdb_file_path;
 
     virtual void get_b_mode_image() = 0;
 

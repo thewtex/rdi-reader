@@ -35,10 +35,13 @@ namespace visual_sonics
 
     private:
 
+      std::vector<unsigned short> its_b_mode_image;
       virtual void get_b_mode_image();
 
+      std::vector<bool>		its_saturation_image;
       virtual void get_saturation_image();
 
+      std::vector<short>		its_rf_data_image;
       virtual void get_rf_data_image();
 
       //! I have no need for these at this point --write them as needed

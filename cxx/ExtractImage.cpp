@@ -1,10 +1,16 @@
-#include <stdexcept> // out_of_range
+#include "ExtractImage.h"
+
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <stdexcept> // out_of_range, ios_base::failure
 #include <vector>
+
 
 #include <boost/filesystem/convenience.hpp>
 namespace bf = boost::filesystem;
 
-#include "ExtractImage.h"
 
 #include "ExtractMetadataBase.h"
 
@@ -53,6 +59,35 @@ ExtractImage::~ExtractImage()
 
 void ExtractImage::get_b_mode_image()
 {
+  bf::path rdb_file_path = its_extract_metadata->its_in_file_path / (its_extract_metadata->its_in_file_name.leaf() + ".rdb");
+  std::ifstream rdb_file( rdb_file_path.native_file_string().c_str(), std::ios::in | std::ios::binary);
+  if (!rdb_file.is_open())
+  {
+    std::ostringstream err_msg (std::ostringstream::out);
+    err_msg << "\nFile: " << rdb_file_path.native_file_string() << " couldn't be opened :(\n";
+    throw std::ios_base::failure( err_msg.str() );
+  }
+  
+  
+  const unsigned int samples_per_line = its_extract_metadata->its_rpd.its_rf_mode_rx_ad_gate_width;
+  const unsigned int num_lines = its_extract_metadata->its_rpd.its_rf_mode_tx_trig_tbl_trigs;
+  its_b_mode_image.resize( samples_per_line * num_lines );
+
+
+  char * u_short_data = new char[ sizeof(unsigned int) ];
+  unsigned short * u_short_data_p = reinterpret_cast< unsigned short *> (u_short_data);
+  for( unsigned int i = 0; i < num_lines; i++)
+  {
+    for( unsigned int j = 0; j < samples_per_line; j++)
+    {
+      rdb_file.read(u_short_data, sizeof(unsigned short));
+      its_b_mode_image[ i*samples_per_line + j ] = *u_short_data_p;
+    }
+  }
+  
+
+  delete[] u_short_data;
+  rdb_file.close();
 }
 
 

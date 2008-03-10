@@ -28,13 +28,10 @@ namespace visual_sonics
     //! this MUST be assigned in child classes
     ExtractMetadataBase* its_extract_metadata;
 
-    std::vector<unsigned short> its_b_mode_image;
     virtual void get_b_mode_image() = 0;
 
-    std::vector<bool>		its_saturation_image;
     virtual void get_saturation_image() = 0;
 
-    std::vector<short>		its_rf_data_image;
     virtual void get_rf_data_image() = 0;
 
     std::vector<unsigned int>	its_frames_to_extract;

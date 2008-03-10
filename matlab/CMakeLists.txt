@@ -1,12 +1,12 @@
-SET(SPIRIT_PARSE_SOURCE_DIR ${CONVERT_VISUALSONICS_2_MAT_SOURCE_DIR}/spirit_parse)
-SET(MY_MATLAB_SOURCE_DIR ${CONVERT_VISUALSONICS_2_MAT_SOURCE_DIR}/matlab)
+SET(spirit_parse_source_dir ${CONVERT_VISUALSONICS_2_MAT_SOURCE_DIR}/spirit_parse)
+SET(my_matlab_source_dir ${CONVERT_VISUALSONICS_2_MAT_SOURCE_DIR}/matlab)
 
-INCLUDE_DIRECTORIES(${SPIRIT_PARSE_SOURCE_DIR} ${MY_MATLAB_SOURCE_DIR})
+INCLUDE_DIRECTORIES(${spirit_parse_source_dir} ${my_matlab_source_dir})
 
 
-SET(SPIRIT_PARSE_SRCS ${SPIRIT_PARSE_SOURCE_DIR}/BoostSpiritInputFile.cpp
-                      ${SPIRIT_PARSE_SOURCE_DIR}/rdiParser.cpp
-                      ${SPIRIT_PARSE_SOURCE_DIR}/rdiParserData.cpp
+SET(SPIRIT_PARSE_SRCS ${spirit_parse_source_dir}/BoostSpiritInputFile.cpp
+                      ${spirit_parse_source_dir}/rdiParser.cpp
+                      ${spirit_parse_source_dir}/rdiParserData.cpp
                            )
 
 SET(CONVERT_VISUALSONICS_2_MAT_SRCS ${SPIRIT_PARSE_SRCS} 

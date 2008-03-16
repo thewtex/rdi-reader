@@ -23,15 +23,14 @@ int main()
   {
 
     std::string filename("/mnt/research/Research/in_vivo/test_base/visual_sonics/2007-06-08-15-57-05-328");
+
     rdiParser rdi_parser( filename);
-    
     rdiParserData rpd = rdi_parser.parse();
 
-    rdiParserData rpd_from_lib = parse_vs_rdi(filename);
-
     visual_sonics::cxx::ExtractImage ei("/mnt/research/Research/in_vivo/test_base/visual_sonics", "2007-06-08-15-57-05-328");
-
     ei.extract_b_mode_image();
+
+    rdiParserData rpd_from_lib = parse_vs_rdi(filename);
   }
   catch ( std::exception& e )
   {

@@ -43,6 +43,10 @@ ExtractImage::ExtractImage(const bf::path& in_file_path, const bf::path& in_file
 {
   its_extract_metadata = new ExtractMetadataBase( in_file_path, in_file_name);
 
+  its_rdb_file_path = its_extract_metadata->its_in_file_path / (its_extract_metadata->its_in_file_name.leaf() + ".rdb");
+
+
+  // default is to extract all frames
   unsigned int max_frame = its_extract_metadata->its_rpd.its_image_frames;
   its_frames_to_extract.resize( max_frame );
   for( unsigned int i = 0; i < max_frame; i++ )
@@ -86,6 +90,7 @@ void ExtractImage::extract_b_mode_image()
       its_b_mode_image[ i*samples_per_line + j ] = *u_short_data_p;
     }
   }
+
   
 
   delete[] u_short_data;

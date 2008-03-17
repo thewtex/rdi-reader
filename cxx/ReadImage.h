@@ -28,24 +28,31 @@ namespace visual_sonics
     class ReadImage: public visual_sonics::ReadImageBase
     {
     public:
+
       /*! @param in_file_path path to the .rdi/.rdb files
        *  @param in_file_name filename of the .rdi/.rdb files less the extension
        *  @param frames_to_read 
        */
-      ReadImage(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read);
-      ReadImage(const bf::path& in_file_path, const bf::path& in_file_name);
+      ReadImage( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read);
+      ReadImage( const bf::path& in_file_path, const bf::path& in_file_name);
       virtual ~ReadImage();
+
 
       virtual void read_b_mode_image();
       virtual void read_saturation_image();
-      virtual void read_rf_data_image();
+      virtual bool read_rf_data_image();
 
-    private:
 
+    protected:
+      //! scout window b-mode data.  data is stored sequentially by sample in a line, then by line
       std::vector<UInt16> its_b_mode_image;
+      //! saturation data.  data is stored sequentially by sample in a line, then by line
       std::vector<bool>   its_saturation_image;
+      //! rf data.  data is stored sequentially by sample in a line, then by line
       std::vector<Int16>  its_rf_data_image;
 
+
+    private:
 
       //! I have no need for these at this point --write them as needed
       ReadImage( const ReadImage& );

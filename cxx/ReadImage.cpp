@@ -95,6 +95,7 @@ void ReadImage::read_b_mode_image()
 
   delete[] u_short_data;
   rdb_file.close();
+
 }
 
 
@@ -105,8 +106,9 @@ void ReadImage::read_saturation_image()
 
 
 
-void ReadImage::read_rf_data_image()
+bool ReadImage::read_rf_data_image()
 {
+  return true;
 }
 
 

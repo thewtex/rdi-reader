@@ -38,18 +38,26 @@ namespace visual_sonics
   public:
     ReadImageBase( std::vector<unsigned int>& frames_to_read ): 
       its_frames_to_read( frames_to_read ),
+      its_frames_to_read_ind( 0 ),
+      its_frame_status( true ),
       its_read_method ( file_average )
 	{};
     ReadImageBase( std::vector<unsigned int>& frames_to_read, ReadMethod read_method , unsigned int specific_acquisition = 0): 
       its_frames_to_read( frames_to_read ),
+      its_frames_to_read_ind( 0 ),
+      its_frame_status( true ),
       its_read_method(read_method), 
       its_specific_acquisition( specific_acquisition )
 	{};
     ReadImageBase( ReadMethod read_method, unsigned int specific_acquisition = 0 ):
+      its_frames_to_read_ind( 0 ),
+      its_frame_status( true ),
       its_read_method( read_method ), 
       its_specific_acquisition( specific_acquisition )
 	{};
     ReadImageBase():
+      its_frames_to_read_ind( 0 ),
+      its_frame_status( true ),
       its_read_method ( file_average )
 	{};
 
@@ -62,11 +70,23 @@ namespace visual_sonics
     bf::path its_rdb_file_path;
 
 
+    //! read the b-mode data from the file and store it in the member variable
     virtual void read_b_mode_image() = 0;
+    //! read the saturation image from the file and store it in the member variable
     virtual void read_saturation_image() = 0;
-    virtual void read_rf_data_image() = 0;
+      /** read the next its_frame_to_read rf data image frame from the file and store it in the 
+       * member variable
+       * @return frame_status if there is another frame to read
+       * use it like an iterator
+       */
+    virtual bool read_rf_data_image() = 0;
 
+    //! which frames to read from the file
     std::vector<unsigned int>	its_frames_to_read;
+    //! current index of its_frames_to_read
+    unsigned int its_frames_to_read_ind;
+    //! if there is another frame to read
+    bool its_frame_status;
 
     ReadMethod its_read_method;
 

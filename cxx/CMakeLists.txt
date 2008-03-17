@@ -17,7 +17,7 @@ set(convert_visualsonics_test_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
 
 
 set(convert_visualsonics_bin_srcs  ${convert_visualsonics_test_srcs} 
-                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/cxx/convert_visualsonics_test.cpp
+                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/cxx_test.cpp
 				    )
 
 set(convert_visualsonics_lib_srcs  ${convert_visualsonics_test_srcs} 

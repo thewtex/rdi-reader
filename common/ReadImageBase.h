@@ -52,7 +52,7 @@ namespace visual_sonics
 
   protected:
     ReadMetadataBase* its_read_metadata;
-    //! @todo for use in constructors-- not -- if want to make 'virtual' see here http://www.parashift.com/c++-faq-lite/strange-inheritance.html#faq-23.6
+    //! for use in constructors--  @todo if want to make 'virtual' see here http://www.parashift.com/c++-faq-lite/strange-inheritance.html#faq-23.6
     void create_its_read_metadata( const bf::path& in_file_path, const bf::path& in_file_name);
 
     bf::path its_rdb_file_path;

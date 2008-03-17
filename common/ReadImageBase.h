@@ -19,12 +19,32 @@ namespace bf = boost::filesystem;
 
 namespace visual_sonics
 {
+  /**
+   * @enum ReadMethod Method for reading the data from the file.
+   *
+   * Since there can be multiple acquisitions per frame, there
+   * are many ways of picking or averaging the acquisitions
+   */
+  enum ReadMethod {
+    file_average,  //!< take the average of all acquisitions that exists in the file
+    specific_acquisition //!< get a specific acquisition only (must be specified)
+    };
   class ReadMetadataBase;
 
   class ReadImageBase
   {
   public:
-    ReadImageBase( std::vector<unsigned int>& frames_to_read ): its_frames_to_read( frames_to_read ) {};
+    ReadImageBase( std::vector<unsigned int>& frames_to_read ): 
+      its_frames_to_read( frames_to_read ),
+      its_read_method ( file_average )
+	{};
+    ReadImageBase( std::vector<unsigned int>& frames_to_read, ReadMethod read_method ): 
+      its_frames_to_read( frames_to_read ),
+      its_read_method(read_method)
+	{};
+    ReadImageBase( ReadMethod read_method ):
+      its_read_method( read_method )
+	{};
     ReadImageBase(){};
 
     virtual ~ReadImageBase(){};
@@ -41,6 +61,8 @@ namespace visual_sonics
     virtual void read_rf_data_image() = 0;
 
     std::vector<unsigned int>	its_frames_to_read;
+
+    ReadMethod its_read_method;
 
   private:
     //! I have no need for these at this point --write them as needed, carefully

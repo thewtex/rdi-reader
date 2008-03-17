@@ -29,6 +29,8 @@ namespace visual_sonics
     file_average,  //!< take the average of all acquisitions that exists in the file
     specific_acquisition //!< get a specific acquisition only (must be specified)
     };
+
+  // forward declaration
   class ReadMetadataBase;
 
   class ReadImageBase
@@ -38,14 +40,18 @@ namespace visual_sonics
       its_frames_to_read( frames_to_read ),
       its_read_method ( file_average )
 	{};
-    ReadImageBase( std::vector<unsigned int>& frames_to_read, ReadMethod read_method ): 
+    ReadImageBase( std::vector<unsigned int>& frames_to_read, ReadMethod read_method , unsigned int specific_acquisition = 0): 
       its_frames_to_read( frames_to_read ),
-      its_read_method(read_method)
+      its_read_method(read_method), 
+      its_specific_acquisition( specific_acquisition )
 	{};
-    ReadImageBase( ReadMethod read_method ):
-      its_read_method( read_method )
+    ReadImageBase( ReadMethod read_method, unsigned int specific_acquisition ):
+      its_read_method( read_method ), 
+      its_specific_acquisition( specific_acquisition )
 	{};
-    ReadImageBase(){};
+    ReadImageBase():
+      its_read_method ( file_average )
+	{};
 
     virtual ~ReadImageBase(){};
 
@@ -63,6 +69,9 @@ namespace visual_sonics
     std::vector<unsigned int>	its_frames_to_read;
 
     ReadMethod its_read_method;
+
+    //! used if its_read_method is specific_acquisition
+    unsigned int its_specific_acquisition;
 
   private:
     //! I have no need for these at this point --write them as needed, carefully

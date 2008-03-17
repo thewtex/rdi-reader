@@ -14,6 +14,8 @@ namespace bf = boost::filesystem;
 
 #include "ReadMetadataBase.h"
 
+#include "sized_ints.h"
+
 
 using namespace visual_sonics::cxx;
 
@@ -80,8 +82,8 @@ void ReadImage::read_b_mode_image()
   its_b_mode_image.resize( samples_per_line * num_lines );
 
 
-  char * u_short_data = new char[ sizeof(unsigned int) ];
-  unsigned short * u_short_data_p = reinterpret_cast< unsigned short *> (u_short_data);
+  char * u_short_data = new char[2];
+  UInt16 * u_short_data_p = reinterpret_cast< UInt16 *> (u_short_data);
   for( unsigned int i = 0; i < num_lines; i++)
   {
     for( unsigned int j = 0; j < samples_per_line; j++)

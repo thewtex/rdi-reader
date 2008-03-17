@@ -10,13 +10,12 @@
 #define READMETADATABASE_H
 
 #include <boost/filesystem/convenience.hpp>
-
 namespace bf = boost::filesystem;
 
-#include "rdiParserData.h"
 
 namespace visual_sonics
 {
+  class rdiParserData;
   namespace cxx { class ReadImage; };
 
   class ReadMetadataBase
@@ -28,7 +27,7 @@ namespace visual_sonics
     ReadMetadataBase(const bf::path& in_file_path, 
 	      const bf::path& in_file_name);
 
-    virtual ~ReadMetadataBase(){};
+    virtual ~ReadMetadataBase();
 
     
   protected:
@@ -37,7 +36,7 @@ namespace visual_sonics
     //! file name of the .rdi and .rdb files minus the .rdi and .rdb
     bf::path its_in_file_name;
 
-    rdiParserData its_rpd;
+    rdiParserData* its_rpd;
 
   private:
     //! parse the .rdi file metadata

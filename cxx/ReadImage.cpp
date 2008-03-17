@@ -1,4 +1,4 @@
-#include "ReadImage.h"
+#include "cxx/ReadImage.h"
 
 
 #include <iostream>
@@ -11,8 +11,8 @@
 namespace bf = boost::filesystem;
 
 
+#include "rdiParserData.h"
 #include "ReadMetadataBase.h"
-
 #include "sized_ints.h"
 
 
@@ -58,8 +58,8 @@ void ReadImage::read_b_mode_image()
   }
   
   
-  const unsigned int samples_per_line = its_read_metadata->its_rpd.its_rf_mode_rx_ad_gate_width;
-  const unsigned int num_lines = its_read_metadata->its_rpd.its_rf_mode_tx_trig_tbl_trigs;
+  const unsigned int samples_per_line = this->its_read_metadata->its_rpd->its_rf_mode_rx_ad_gate_width;
+  const unsigned int num_lines = this->its_read_metadata->its_rpd->its_rf_mode_tx_trig_tbl_trigs;
   its_b_mode_image.resize( samples_per_line * num_lines );
 
 

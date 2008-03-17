@@ -1,11 +1,11 @@
 set(spirit_parse_source_dir ${read_visualsonics_digital_rf_SOURCE_DIR}/common/spirit_parse)
 
 
-include_directories(${spirit_parse_source_dir}
-		        ${read_visualsonics_digital_rf_SOURCE_DIR}/cxx  
-		        ${read_visualsonics_digital_rf_SOURCE_DIR}/common  
-			)
-			
+include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR} 
+  ${spirit_parse_source_dir} 
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/common
+  )
+
 
 set(convert_visualsonics_test_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
                                     ${spirit_parse_source_dir}/BoostSpiritInputFile.cpp

@@ -12,10 +12,11 @@
 #include <string>
 
 #include "BoostSpiritInputFile.h"
-#include "rdiParserData.h"
 
 namespace visual_sonics
 {
+  class rdiParserData;
+
   /*! @class rdiParser object for parsing a VisualSonics .rdi file with Boost Spirit */
   class rdiParser
   {
@@ -32,7 +33,7 @@ namespace visual_sonics
   private:
   
     BoostSpiritInputFile its_input;
-    rdiParserData its_rpd;
+    rdiParserData* its_rpd;
     //! to parse the angular position
     void parse_angle();
     

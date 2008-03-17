@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef READIMAGE_H
-#define READIMAGE_H
+#ifndef CXX_READIMAGE_H
+#define CXX_READIMAGE_H
 
 #include <vector>
 
@@ -15,9 +15,9 @@
 namespace bf = boost::filesystem;
 
 
-#include "ReadImageBase.h"
+#include "common/ReadImageBase.h"
 
-#include "sized_ints.h" // Int16, UInt16
+#include "common/sized_ints.h" // Int16, UInt16
 
 
 
@@ -62,5 +62,5 @@ namespace visual_sonics
   }
 }
 
-#endif // READIMAGE_H
+#endif // CXX_READIMAGE_H
 

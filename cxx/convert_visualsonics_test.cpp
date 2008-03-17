@@ -8,7 +8,7 @@
 
 #include "parse_vs_rdi.h"
 
-#include "ExtractImage.h"
+#include "ReadImage.h"
 
 using namespace visual_sonics;
 
@@ -27,8 +27,8 @@ int main()
     rdiParser rdi_parser( filename);
     rdiParserData rpd = rdi_parser.parse();
 
-    visual_sonics::cxx::ExtractImage ei("/mnt/dataa/visualsonics/test_base/visual_sonics", "2007-06-08-15-57-05-328");
-    ei.extract_b_mode_image();
+    visual_sonics::cxx::ReadImage ei("/mnt/dataa/visualsonics/test_base/visual_sonics", "2007-06-08-15-57-05-328");
+    ei.read_b_mode_image();
 
     rdiParserData rpd_from_lib = parse_vs_rdi(filename);
   }

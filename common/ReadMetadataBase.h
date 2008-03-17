@@ -1,4 +1,4 @@
-/*! @file   ExtractMetadataBase.h
+/*! @file   ReadMetadataBase.h
  *  @brief  base class for holding and extracting VisualSonics Digital RF files and their metadata
  *
  *  @author Matt McCormick (thewtex) <matt@mmmccormick.com>
@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef	EXTRACTMETADATABASE_H
-#define EXTRACTMETADATABASE_H
+#ifndef	READMETADATABASE_H
+#define READMETADATABASE_H
 
 #include <boost/filesystem/convenience.hpp>
 
@@ -17,18 +17,18 @@ namespace bf = boost::filesystem;
 
 namespace visual_sonics
 {
-  namespace cxx { class ExtractImage; };
+  namespace cxx { class ReadImage; };
 
-  class ExtractMetadataBase
+  class ReadMetadataBase
   {
   public:
-    friend class ExtractImageBase;
-    friend class cxx::ExtractImage;
+    friend class ReadImageBase;
+    friend class cxx::ReadImage;
 
-    ExtractMetadataBase(const bf::path& in_file_path, 
+    ReadMetadataBase(const bf::path& in_file_path, 
 	      const bf::path& in_file_name);
 
-    virtual ~ExtractMetadataBase(){};
+    virtual ~ReadMetadataBase(){};
 
     
   protected:
@@ -47,4 +47,4 @@ namespace visual_sonics
 } // namespace visual_sonics
 
 
-#endif // EXTRACTMETADATABASE_H
+#endif // READMETADATABASE_H

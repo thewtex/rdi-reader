@@ -1,24 +1,28 @@
-set(SPIRIT_PARSE_SOURCE_DIR ${read_visualsonics_digital_rf_SOURCE_DIR}/spirit_parse)
+set(spirit_parse_source_dir ${read_visualsonics_digital_rf_SOURCE_DIR}/common/spirit_parse)
 
-include_directories(${SPIRIT_PARSE_SOURCE_DIR}
+
+include_directories(${spirit_parse_source_dir}
 		        ${read_visualsonics_digital_rf_SOURCE_DIR}/cxx  
+		        ${read_visualsonics_digital_rf_SOURCE_DIR}/common  
 			)
 			
-set(convert_visualsonics_srcs  ${SPIRIT_PARSE_SRCS} 
-                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/spirit_parse/rdiParser.cpp
-                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/spirit_parse/rdiParserData.cpp
-                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/spirit_parse/BoostSpiritInputFile.cpp
-                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/cxx/ExtractImage.cpp 
-                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/spirit_parse/ExtractMetadataBase.cpp 
+
+set(convert_visualsonics_test_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
+                                    ${spirit_parse_source_dir}/BoostSpiritInputFile.cpp
+                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/cxx/ReadImage.cpp 
+                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/common/ReadMetadataBase.cpp 
                                     )
 
-set(convert_visualsonics_bin_srcs  ${convert_visualsonics_srcs} 
-                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/cxx/convert_visualsonics.cpp
+
+
+set(convert_visualsonics_bin_srcs  ${convert_visualsonics_test_srcs} 
+                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/cxx/convert_visualsonics_test.cpp
 				    )
 
-set(convert_visualsonics_lib_srcs  ${convert_visualsonics_srcs} 
+set(convert_visualsonics_lib_srcs  ${convert_visualsonics_test_srcs} 
 				    ${read_visualsonics_digital_rf_SOURCE_DIR}/cxx/parse_vs_rdi.cpp
 				    )
+				  
 
 add_library( parse_vs_rdi SHARED ${convert_visualsonics_lib_srcs} )
 

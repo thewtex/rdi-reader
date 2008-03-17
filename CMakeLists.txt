@@ -29,7 +29,7 @@ ENDIF(WIN32)
 
 ############## Compiling flags ##########
 
-IF(CMAKE_COMPILER_IS_GNUCXX) # all unix-like O/S's including Apple OS X and MINGW
+IF(CMAKE_COMPILER_IS_GNUCXX) 
   
   SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall" )
   SET(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wall" )
@@ -57,5 +57,4 @@ SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "*.obj")
 ########### set up addition CMakeLists.txt locations #########
 #ADD_SUBDIRECTORY(matlab)
 add_subdirectory(cxx)
-add_subdirectory(spirit_parse)
 

@@ -6,9 +6,9 @@
 #include "rdiParser.h"
 #include "rdiParserData.h"
 
-#include "parse_vs_rdi.h"
+#include "cxx/parse_vs_rdi.h"
 
-#include "ReadImage.h"
+#include "cxx/ReadImage.h"
 
 using namespace visual_sonics;
 

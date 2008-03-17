@@ -6,16 +6,41 @@
  *
  */
 
-#ifndef READIMAGE_H
-#define READIMAGE_H
+#ifndef VTK_READIMAGE_H
+#define VTK_READIMAGE_H
 
-class ReadImage
+#include "cxx/ReadImage.h"
+
+namespace visual_sonics
 {
-public:
-  ReadImage(){};
-  ReadImage~(){};
 
-};
+  namespace vtk
+  {
+    class ReadImage: public cxx::ReadImage
+    {
+    public:
+      ReadImage( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read);
+      ReadImage(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition = 0); 
 
-#endif // READIMAGE_H inclusion guard
+      ReadImage( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition = 0 );
+      ReadImage( const bf::path& in_file_path, const bf::path& in_file_name);
+
+      virtual ~ReadImage(){};
+  
+
+      virtual void read_b_mode_image();
+      virtual void read_saturation_image();
+      virtual bool read_rf_data_image();
+
+    private:
+
+      //! I have no need for these at this point --write them as needed
+      ReadImage( const ReadImage& );
+      ReadImage&  operator=( const ReadImage& );
+  };
+
+  }
+}
+
+#endif // VTK_READIMAGE_H inclusion guard
 

@@ -45,7 +45,7 @@ namespace visual_sonics
       its_read_method(read_method), 
       its_specific_acquisition( specific_acquisition )
 	{};
-    ReadImageBase( ReadMethod read_method, unsigned int specific_acquisition ):
+    ReadImageBase( ReadMethod read_method, unsigned int specific_acquisition = 0 ):
       its_read_method( read_method ), 
       its_specific_acquisition( specific_acquisition )
 	{};

@@ -17,6 +17,9 @@ namespace bf = boost::filesystem;
 
 #include "ReadImageBase.h"
 
+#include "sized_ints.h" // Int16, UInt16
+
+
 
 namespace visual_sonics
 {
@@ -39,9 +42,9 @@ namespace visual_sonics
 
     private:
 
-      std::vector<unsigned short> its_b_mode_image;
-      std::vector<bool>	          its_saturation_image;
-      std::vector<short>          its_rf_data_image;
+      std::vector<UInt16> its_b_mode_image;
+      std::vector<bool>   its_saturation_image;
+      std::vector<Int16>  its_rf_data_image;
 
 
       //! I have no need for these at this point --write them as needed

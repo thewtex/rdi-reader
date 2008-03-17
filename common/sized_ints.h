@@ -6,8 +6,9 @@
 #ifndef SIZED_INTS_H
 #define SIZED_INTS_H
 
-
-#define CHAR_BIT 8
+#ifndef CHAR_BIT
+  #define CHAR_BIT 8
+#endif
 
 namespace internal {
 	class ERROR_inttype_not_available

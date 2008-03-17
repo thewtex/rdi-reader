@@ -10,6 +10,7 @@ include_directories(${spirit_parse_source_dir}
 set(convert_visualsonics_test_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
                                     ${spirit_parse_source_dir}/BoostSpiritInputFile.cpp
                                     ${read_visualsonics_digital_rf_SOURCE_DIR}/cxx/ReadImage.cpp 
+                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/common/ReadImageBase.cpp 
                                     ${read_visualsonics_digital_rf_SOURCE_DIR}/common/ReadMetadataBase.cpp 
                                     )
 

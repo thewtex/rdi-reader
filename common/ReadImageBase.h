@@ -36,36 +36,24 @@ namespace visual_sonics
   class ReadImageBase
   {
   public:
-    ReadImageBase( std::vector<unsigned int>& frames_to_read ): 
-      its_frames_to_read( frames_to_read ),
-      its_frames_to_read_ind( 0 ),
-      its_frame_status( true ),
-      its_read_method ( file_average )
-	{};
-    ReadImageBase( std::vector<unsigned int>& frames_to_read, ReadMethod read_method , unsigned int specific_acquisition = 0): 
-      its_frames_to_read( frames_to_read ),
-      its_frames_to_read_ind( 0 ),
-      its_frame_status( true ),
-      its_read_method(read_method), 
-      its_specific_acquisition( specific_acquisition )
-	{};
-    ReadImageBase( ReadMethod read_method, unsigned int specific_acquisition = 0 ):
-      its_frames_to_read_ind( 0 ),
-      its_frame_status( true ),
-      its_read_method( read_method ), 
-      its_specific_acquisition( specific_acquisition )
-	{};
-    ReadImageBase():
-      its_frames_to_read_ind( 0 ),
-      its_frame_status( true ),
-      its_read_method ( file_average )
-	{};
+    ReadImageBase( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>& frames_to_read );
+    ReadImageBase( const bf::path& in_file_path, //!< path to the .rdi/.rdb files
+	const bf::path& in_file_name, //!< filename of the .rdi/.rdb files less the extension 
+	std::vector<unsigned int>& frames_to_read, //!< which frames to read from the file
+	ReadMethod read_method , //!< the method for reading data from the file since there can be many acquisitions per line
+	unsigned int specific_acquisition = 0 //!< which acquisition to use with using the specific_acquisition ReadMethod
+	);
 
-    virtual ~ReadImageBase(){};
+    //! read all frames available in the file
+    ReadImageBase( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition = 0 );
+    ReadImageBase( const bf::path& in_file_path, const bf::path& in_file_name );
+
+    virtual ~ReadImageBase();
 
   protected:
-    //! this MUST be assigned in child classes
     ReadMetadataBase* its_read_metadata;
+    //! for use in constructors
+    virtual void create_its_read_metadata( const bf::path& in_file_path, const bf::path& in_file_name);
 
     bf::path its_rdb_file_path;
 
@@ -94,6 +82,13 @@ namespace visual_sonics
     unsigned int its_specific_acquisition;
 
   private:
+
+    //! for use in the constructor, checking specified frames
+    void check_if_frames_valid();
+    //! for use in constructor, set frames to all valid frames available
+    void read_all_frames();
+
+
     //! I have no need for these at this point --write them as needed, carefully
     ReadImageBase( const ReadImageBase& );
     ReadImageBase&  operator=( const ReadImageBase& );

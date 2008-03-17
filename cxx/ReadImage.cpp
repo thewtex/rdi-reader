@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <stdexcept> // out_of_range, ios_base::failure
 #include <vector>
 
 
@@ -20,48 +19,30 @@ namespace bf = boost::filesystem;
 using namespace visual_sonics::cxx;
 
 
-ReadImage::ReadImage(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read): ReadImageBase( frames_to_read )
+ReadImage::ReadImage(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read): 
+  ReadImageBase( in_file_path, in_file_name, frames_to_read )
 {
-  its_read_metadata = new ReadMetadataBase( in_file_path, in_file_name);
-
-  its_rdb_file_path = its_read_metadata->its_in_file_path / (its_read_metadata->its_in_file_name.leaf() + ".rdb");
-
-
-  // check if specified frames are valid
-  unsigned int max_frame = its_read_metadata->its_rpd.its_image_frames;
-  for( std::vector<unsigned int>::const_iterator it = its_frames_to_read.begin(); it < its_frames_to_read.end(); it++)
-  {
-    if( *it < 1 || *it > max_frame )
-    {
-      throw std::out_of_range(" specified frame is out of range ");
-    }
-  }
-
-
 }
 
 
-ReadImage::ReadImage(const bf::path& in_file_path, const bf::path& in_file_name) : ReadImageBase()
+
+ReadImage::ReadImage(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition): 
+  ReadImageBase( in_file_path, in_file_name, frames_to_read, read_method, specific_acquisition )
 {
-  its_read_metadata = new ReadMetadataBase( in_file_path, in_file_name);
-
-  its_rdb_file_path = its_read_metadata->its_in_file_path / (its_read_metadata->its_in_file_name.leaf() + ".rdb");
-
-
-  // default is to read all frames
-  unsigned int max_frame = its_read_metadata->its_rpd.its_image_frames;
-  its_frames_to_read.resize( max_frame );
-  for( unsigned int i = 0; i < max_frame; i++ )
-  {
-    its_frames_to_read[i] = i+1;
-  }
-
 }
 
 
-ReadImage::~ReadImage()
+
+ReadImage::ReadImage( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition ):
+  ReadImageBase( in_file_path, in_file_name, read_method, specific_acquisition )
 {
-  delete its_read_metadata;
+}
+
+
+
+ReadImage::ReadImage(const bf::path& in_file_path, const bf::path& in_file_name):
+  ReadImageBase( in_file_path, in_file_name )
+{
 }
 
 
@@ -88,7 +69,7 @@ void ReadImage::read_b_mode_image()
   {
     for( unsigned int j = 0; j < samples_per_line; j++)
     {
-      rdb_file.read(u_short_data, sizeof(unsigned short));
+      rdb_file.read(u_short_data, 2);
       its_b_mode_image[ i*samples_per_line + j ] = *u_short_data_p;
     }
   }

@@ -29,13 +29,13 @@ namespace visual_sonics
     {
     public:
 
-      /*! @param in_file_path path to the .rdi/.rdb files
-       *  @param in_file_name filename of the .rdi/.rdb files less the extension
-       *  @param frames_to_read 
-       */
       ReadImage( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read);
+      ReadImage(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition = 0); 
+
+      ReadImage( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition = 0 );
       ReadImage( const bf::path& in_file_path, const bf::path& in_file_name);
-      virtual ~ReadImage();
+
+      virtual ~ReadImage(){};
 
 
       virtual void read_b_mode_image();

@@ -17,12 +17,14 @@ namespace visual_sonics
 {
   class rdiParserData;
   namespace cxx { class ReadImage; };
+  namespace vtk { class ReadImage; };
 
   class ReadMetadataBase
   {
   public:
     friend class ReadImageBase;
     friend class cxx::ReadImage;
+    friend class vtk::ReadImage;
 
     ReadMetadataBase(const bf::path& in_file_path, 
 	      const bf::path& in_file_name);

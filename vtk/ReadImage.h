@@ -10,6 +10,9 @@
 #define VTK_READIMAGE_H
 
 #include "cxx/ReadImage.h"
+
+
+class vtkImageData;
 class vtkUnsignedShortArray;
 
 namespace visual_sonics
@@ -34,7 +37,8 @@ namespace visual_sonics
       virtual bool read_rf_data_image();
 
     protected:
-      vtkUnsignedShortArray* its_vtk_b_mode_image;
+      vtkUnsignedShortArray* its_vtk_b_mode_array;
+      vtkImageData* its_vtk_b_mode_image;
 
     private:
 

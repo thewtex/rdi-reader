@@ -10,6 +10,7 @@
 #define VTK_READIMAGE_H
 
 #include "cxx/ReadImage.h"
+class vtkUnsignedShortArray;
 
 namespace visual_sonics
 {
@@ -25,12 +26,15 @@ namespace visual_sonics
       ReadImage( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition = 0 );
       ReadImage( const bf::path& in_file_path, const bf::path& in_file_name);
 
-      virtual ~ReadImage(){};
+      virtual ~ReadImage();
   
 
       virtual void read_b_mode_image();
       virtual void read_saturation_image();
       virtual bool read_rf_data_image();
+
+    protected:
+      vtkUnsignedShortArray* its_vtk_b_mode_image;
 
     private:
 

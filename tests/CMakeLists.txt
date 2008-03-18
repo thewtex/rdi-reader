@@ -17,12 +17,18 @@ set(base_test_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
 
 
 set( cxx_test_srcs ${base_test_srcs} 
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/cxx_test.cpp 
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/cxx_test.cpp )
 
-add_executable( cxx_test ${convert_visualsonics_bin_srcs} )
-target_link_libraries( convert_visualsonics_test parse_vs_rdi )
+#add_executable( cxx_test ${cxx_test_srcs} )
+#target_link_libraries( convert_visualsonics_test parse_vs_rdi )
 
-				    )
+
+
+FIND_PACKAGE(VTK REQUIRED)
+IF(NOT VTK_USE_RENDERING)
+  MESSAGE(FATAL_ERROR "${PROJECT_NAME} requires VTK_USE_RENDERING.")
+ENDIF(NOT VTK_USE_RENDERING)
+INCLUDE(${VTK_USE_FILE})
 
 
 
@@ -32,3 +38,4 @@ set( vtk_test_srcs ${base_test_srcs}
   )
 
 add_executable( vtk_test ${vtk_test_srcs} )
+target_link_libraries( vtk_test vtkRendering )

@@ -57,4 +57,5 @@ SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "*.obj")
 ########### set up addition CMakeLists.txt locations #########
 #ADD_SUBDIRECTORY(matlab)
 add_subdirectory(cxx)
+add_subdirectory(tests)
 

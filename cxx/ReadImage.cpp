@@ -1,6 +1,7 @@
 #include "cxx/ReadImage.h"
 
 
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -74,6 +75,8 @@ void ReadImage::read_b_mode_image()
     }
   }
 
+  its_b_mode_max = *std::max_element( its_b_mode_image.begin(), its_b_mode_image.end() );
+  its_b_mode_min = *std::min_element( its_b_mode_image.begin(), its_b_mode_image.end() );
   
 
   delete[] u_short_data;

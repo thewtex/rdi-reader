@@ -46,6 +46,10 @@ namespace visual_sonics
     protected:
       //! scout window b-mode data.  data is stored sequentially by sample in a line, then by line
       std::vector<UInt16> its_b_mode_image;
+      //! max value in the b mode image
+      UInt16 its_b_mode_max;
+      //! min value in the b mode image
+      UInt16 its_b_mode_min;
       //! saturation data.  data is stored sequentially by sample in a line, then by line
       std::vector<bool>   its_saturation_image;
       //! rf data.  data is stored sequentially by sample in a line, then by line

@@ -20,9 +20,6 @@ using namespace visual_sonics::vtk;
 ViewImage::ViewImage( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read):
   ReadImage( in_file_path, in_file_name, frames_to_read )
 {
-  its_viewer = vtkImageViewer::New();
-  its_viewer->SetColorWindow( 4096.0 );
-  its_viewer->SetColorLevel( 2047.5 );
   its_interactor_style = vtkInteractorStyleImage::New();
   its_iren = vtkRenderWindowInteractor::New();
 }
@@ -32,9 +29,6 @@ ViewImage::ViewImage( const bf::path& in_file_path, const bf::path& in_file_name
 ViewImage::ViewImage(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition ):
   ReadImage( in_file_path, in_file_name, frames_to_read, read_method, specific_acquisition )
 {
-  its_viewer = vtkImageViewer::New();
-  its_viewer->SetColorWindow( 4096.0 );
-  its_viewer->SetColorLevel( 2047.5 );
   its_interactor_style = vtkInteractorStyleImage::New();
   its_iren = vtkRenderWindowInteractor::New();
 }
@@ -44,9 +38,6 @@ ViewImage::ViewImage(const bf::path& in_file_path, const bf::path& in_file_name,
 ViewImage::ViewImage( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition  ):
   ReadImage( in_file_path, in_file_name, read_method, specific_acquisition )
 {
-  its_viewer = vtkImageViewer::New();
-  its_viewer->SetColorWindow( 4096.0 );
-  its_viewer->SetColorLevel( 2047.5 );
   its_interactor_style = vtkInteractorStyleImage::New();
   its_iren = vtkRenderWindowInteractor::New();
 }
@@ -56,9 +47,6 @@ ViewImage::ViewImage( const bf::path& in_file_path, const bf::path& in_file_name
 ViewImage::ViewImage( const bf::path& in_file_path, const bf::path& in_file_name):
   ReadImage( in_file_path, in_file_name )
 {
-  its_viewer = vtkImageViewer::New();
-  its_viewer->SetColorWindow( 4096.0 );
-  its_viewer->SetColorLevel( 2047.5 );
   its_interactor_style = vtkInteractorStyleImage::New();
   its_iren = vtkRenderWindowInteractor::New();
 }
@@ -67,7 +55,6 @@ ViewImage::ViewImage( const bf::path& in_file_path, const bf::path& in_file_name
 
 ViewImage::~ViewImage()
 {
-  its_viewer->Delete();
   its_interactor_style->Delete();
   its_iren->Delete();
 }
@@ -79,10 +66,7 @@ void ViewImage::view_b_mode()
 
  this-> ReadImage::read_b_mode_image();
 
- //its_viewer->SetInput( its_vtk_b_mode_image );
- //its_viewer->Render();
  int* dim = its_vtk_b_mode_image->GetDimensions() ;
- its_viewer->SetSize(dim[0], dim[1]);
 
  //its_viewer->SetupInteractor(its_iren);
  vtkImageActor* ia = vtkImageActor::New();
@@ -97,9 +81,12 @@ void ViewImage::view_b_mode()
  ia->SetInput( iss->GetOutput() );
  ren->AddViewProp( ia );
 
+ ia->RotateZ(-90.0);
+ ia->SetScale( 3.0, 3.0, 1.0 );
+
  vtkRenderWindow* renwin = vtkRenderWindow::New();
  renwin->AddRenderer( ren );
- renwin->SetSize( dim[0], dim[1] );
+ renwin->SetSize( dim[1], dim[0] );
 
  its_iren->SetRenderWindow( renwin );
  its_iren->Initialize();

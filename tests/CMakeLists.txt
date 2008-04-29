@@ -1,17 +1,17 @@
-set(spirit_parse_source_dir ${read_visualsonics_digital_rf_SOURCE_DIR}/common/spirit_parse)
+set(spirit_parse_source_dir ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/spirit_parse)
 
 
-include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR} 
+include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source 
   ${spirit_parse_source_dir} 
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/common
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common
   )
 
 
 set(base_test_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
                                     ${spirit_parse_source_dir}/BoostSpiritInputFile.cpp
-                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/cxx/ReadImage.cpp 
-                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/common/ReadImageBase.cpp 
-                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/common/ReadMetadataBase.cpp 
+                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/source/cxx/ReadImage.cpp 
+                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/ReadImageBase.cpp 
+                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/ReadMetadataBase.cpp 
 				    )
 
 
@@ -33,8 +33,8 @@ INCLUDE(${VTK_USE_FILE})
 
 
 set( vtk_test_srcs ${base_test_srcs}
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/vtk/ReadImage.cpp 
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/vtk/ViewImage.cpp 
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/ReadImage.cpp 
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/ViewImage.cpp 
   ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/vtk_test.cpp 
   )
 

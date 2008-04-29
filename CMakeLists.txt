@@ -1,3 +1,6 @@
+cmake_minimum_required(VERSION 2.6)
+cmake_policy(SET CMP0003 NEW)
+
 project(read_visualsonics_digital_rf)
 
 

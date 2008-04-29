@@ -10,7 +10,6 @@
 #define VTK_READIMAGE_H
 
 #include "cxx/ReadImage.h"
-#include "vtkMedicalImageReader2.h"
 
 
 class vtkImageData;
@@ -21,7 +20,7 @@ namespace visual_sonics
 
   namespace vtk
   {
-    class ReadImage: public cxx::ReadImage, public vtkMedicalImageReader2
+    class ReadImage: public cxx::ReadImage
     {
     public:
       ReadImage( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read);

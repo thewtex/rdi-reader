@@ -1,4 +1,3 @@
-cmake_minimum_required(VERSION 2.6)
 set(spirit_parse_source_dir ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/spirit_parse)
 
 

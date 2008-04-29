@@ -24,12 +24,12 @@ set( cxx_test_srcs ${base_test_srcs}
 
 
 
-FIND_PACKAGE(VTK REQUIRED)
-IF(NOT VTK_USE_RENDERING)
-  MESSAGE(FATAL_ERROR "${PROJECT_NAME} requires VTK_USE_RENDERING.")
-ENDIF(NOT VTK_USE_RENDERING)
-INCLUDE(${VTK_USE_FILE})
-
+find_package(VTK REQUIRED)
+if(NOT VTK_USE_RENDERING)
+  message(FATAL_ERROR "${PROJECT_NAME} requires VTK_USE_RENDERING.")
+endif(NOT VTK_USE_RENDERING)
+include(${VTK_USE_FILE})
+include_directories(${VTK_INCLUDE_DIRS})
 
 
 set( vtk_test_srcs ${base_test_srcs}
@@ -40,3 +40,4 @@ set( vtk_test_srcs ${base_test_srcs}
 
 add_executable( vtk_test ${vtk_test_srcs} )
 target_link_libraries( vtk_test vtkRendering )
+add_test( vtk_tester vtk_test )

@@ -57,8 +57,30 @@ SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "*.obj")
 #MARK_AS_ADVANCED()
 
 
+########### output directories #################
+if(NOT LIBRARY_OUTPUT_PATH)
+	set(LIBRARY_OUTPUT_PATH ${read_visualsonics_digital_rf_BINARY_DIR}/lib
+		CACHE INTERNAL "single output directory for building all libraries.")
+endif(NOT LIBRARY_OUTPUT_PATH)
+if(NOT EXECUTABLE_OUTPUT_PATH)
+	set(EXECUTABLE_OUTPUT_PATH ${read_visualsonics_digital_rf_BINARY_DIR}/lib
+		CACHE INTERNAL "single output directory for building all executables.")
+endif(NOT EXECUTABLE_OUTPUT_PATH)
+
+
 ########### set up addition CMakeLists.txt locations #########
 #ADD_SUBDIRECTORY(matlab)
 add_subdirectory(source)
-add_subdirectory(tests)
+
+########### testing ############################
+
+include(CTest)
+if(BUILD_TESTING)
+	enable_testing()
+    add_subdirectory(tests)
+    if(NOT TEST_OUTPUT_PATH)
+		set(TEST_OUTPUT_PATH ${read_visualsonics_digital_rf_BINARY_DIR}/bin
+			CACHE INTERNAL "output directory for testing executables")
+	endif(NOT TEST_OUTPUT_PATH)
+endif(BUILD_TESTING)
 

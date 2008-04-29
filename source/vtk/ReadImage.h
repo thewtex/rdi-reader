@@ -10,7 +10,7 @@
 #define VTK_READIMAGE_H
 
 #include "cxx/ReadImage.h"
-#include "vtkMedicalImageReader.h"
+#include "vtkMedicalImageReader2.h"
 
 
 class vtkImageData;

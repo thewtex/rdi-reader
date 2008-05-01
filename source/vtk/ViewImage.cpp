@@ -11,14 +11,14 @@
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 
-#include "vtk/ReadImage.h"
+#include "vtk/ImageReader.h"
 
 
 using namespace visual_sonics::vtk;
 
 
 ViewImage::ViewImage( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read):
-  ReadImage( in_file_path, in_file_name, frames_to_read )
+  ImageReader( in_file_path, in_file_name, frames_to_read )
 {
   its_interactor_style = vtkInteractorStyleImage::New();
   its_iren = vtkRenderWindowInteractor::New();
@@ -27,7 +27,7 @@ ViewImage::ViewImage( const bf::path& in_file_path, const bf::path& in_file_name
 
 
 ViewImage::ViewImage(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition ):
-  ReadImage( in_file_path, in_file_name, frames_to_read, read_method, specific_acquisition )
+  ImageReader( in_file_path, in_file_name, frames_to_read, read_method, specific_acquisition )
 {
   its_interactor_style = vtkInteractorStyleImage::New();
   its_iren = vtkRenderWindowInteractor::New();
@@ -36,7 +36,7 @@ ViewImage::ViewImage(const bf::path& in_file_path, const bf::path& in_file_name,
 
 
 ViewImage::ViewImage( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition  ):
-  ReadImage( in_file_path, in_file_name, read_method, specific_acquisition )
+  ImageReader( in_file_path, in_file_name, read_method, specific_acquisition )
 {
   its_interactor_style = vtkInteractorStyleImage::New();
   its_iren = vtkRenderWindowInteractor::New();
@@ -45,7 +45,7 @@ ViewImage::ViewImage( const bf::path& in_file_path, const bf::path& in_file_name
 
 
 ViewImage::ViewImage( const bf::path& in_file_path, const bf::path& in_file_name):
-  ReadImage( in_file_path, in_file_name )
+  ImageReader( in_file_path, in_file_name )
 {
   its_interactor_style = vtkInteractorStyleImage::New();
   its_iren = vtkRenderWindowInteractor::New();
@@ -64,7 +64,7 @@ ViewImage::~ViewImage()
 void ViewImage::view_b_mode()
 {
 
- this-> ReadImage::read_b_mode_image();
+ this-> ImageReader::read_b_mode_image();
 
  int* dim = its_vtk_b_mode_image->GetDimensions() ;
 

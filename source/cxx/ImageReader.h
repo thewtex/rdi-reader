@@ -1,4 +1,4 @@
-/*! @file  ReadImage.h
+/*! @file  ImageReader.h
  *  @brief read VisualSonics Digital RF file's image data
  *
  *  @author Matt McCormick (thewtex) <matt@mmmccormick.com>
@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef CXX_READIMAGE_H
-#define CXX_READIMAGE_H
+#ifndef CXX_IMAGEREADER_H
+#define CXX_IMAGEREADER_H
 
 #include <vector>
 
@@ -15,7 +15,7 @@
 namespace bf = boost::filesystem;
 
 
-#include "common/ReadImageBase.h"
+#include "common/ImageReaderBase.h"
 
 #include "common/sized_ints.h" // Int16, UInt16
 
@@ -25,17 +25,17 @@ namespace visual_sonics
 {
   namespace cxx
   {
-    class ReadImage: public visual_sonics::ReadImageBase
+    class ImageReader: public visual_sonics::ImageReaderBase
     {
     public:
 
-      ReadImage( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read);
-      ReadImage(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition = 0); 
+      ImageReader( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read);
+      ImageReader(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition = 0);
 
-      ReadImage( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition = 0 );
-      ReadImage( const bf::path& in_file_path, const bf::path& in_file_name);
+      ImageReader( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition = 0 );
+      ImageReader( const bf::path& in_file_path, const bf::path& in_file_name);
 
-      virtual ~ReadImage(){};
+      virtual ~ImageReader(){};
 
 
       virtual void read_b_mode_image();
@@ -59,12 +59,12 @@ namespace visual_sonics
     private:
 
       //! I have no need for these at this point --write them as needed
-      ReadImage( const ReadImage& );
-      ReadImage&  operator=( const ReadImage& );
-    
+      ImageReader( const ImageReader& );
+      ImageReader&  operator=( const ImageReader& );
+
     };
   }
 }
 
-#endif // CXX_READIMAGE_H
+#endif // CXX_IMAGEREADER_H
 

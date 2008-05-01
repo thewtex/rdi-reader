@@ -1,11 +1,11 @@
 /*!  @file  vs2m_gateway_Input.cpp
      @brief implementation of vs2m_gateway_Input.h
-     
+
      @author Matt McCormick <matt@mmmccormick.com>
      @date   Wed Jul 25 2007
-     
+
   */
-  
+
 #include "vs2m_gateway_Input.h"
 
 #include "rdiParser.h"
@@ -14,7 +14,7 @@ vs2m_gateway::Input::Input(const mxArray * prhs[]):
     its_prhs(prhs)
 {
   using namespace vs2m_gateway;
-  
+
   its_rpd = parse_meta_data();
 }
 

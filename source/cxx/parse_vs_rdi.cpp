@@ -15,7 +15,7 @@ rdiParserData parse_vs_rdi(const std::string& filename)
   {
 
     rdiParser rdi_parser( filename );
-    
+
     return rdi_parser.parse();
 
   }

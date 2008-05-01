@@ -24,7 +24,7 @@ namespace internal {
 	{
 		typedef B T;
 	};
-	
+
 }	// namespace internal
 
 // Retrieves a signed/unsigned integer type with sizeof( T ) == BYTES

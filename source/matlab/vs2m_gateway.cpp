@@ -1,6 +1,6 @@
 /*!  @file  vs2m_gateway.cpp
      @brief Matlab mex file gateway for converting VisualSonics Vevo 770 Digital RF .rdb and .rdi to Matlab .mat
-            
+
      @author Matt McCormick <matt@mmmccormick.com>
      @date   14 June 2007
   */
@@ -38,21 +38,21 @@ void mexFunction( int nlhs, mxArray *plhs[],
                   int nrhs, const mxArray *prhs[] )
 {
   using namespace vs2m_gateway;
-   
+
   check_inputs(nlhs, nrhs, prhs);
-  
+
   // parse and import inputs
   Input input(prhs);
   rdiParserData rpd = input.get_rpd();
-  
+
   // generate outputs
   Output output(plhs, rpd);
-  
+
   // save data to .mat files if necessary
-  /* Allocate enough memory to hold the converted string. */ 
+  /* Allocate enough memory to hold the converted string. */
   int buflen = mxGetM(prhs[5]) * mxGetN(prhs[5]) + 1;
-  char s_1_type[buflen]; 
-  /* Copy the string data from string_array_ptr and place it into buf. */ 
+  char s_1_type[buflen];
+  /* Copy the string data from string_array_ptr and place it into buf. */
   if (mxGetString(prhs[5], s_1_type, buflen) != 0)
     mexErrMsgTxt("Could not convert string data.");
   if (!std::strcmp(s_1_type,"()"))
@@ -61,7 +61,7 @@ void mexFunction( int nlhs, mxArray *plhs[],
     ;
   else
     mexErrMsgTxt("Error: wrong subsref type.");
-    
+
 } // end mexFunction
 #pragma GCC visibility pop
 

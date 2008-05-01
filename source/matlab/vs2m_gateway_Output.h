@@ -1,9 +1,9 @@
 /*!  @file  vs2m_gateway_Output.h
-     @brief 
-     
+     @brief
+
      @author Matt McCormick <matt@mmmccormick.com>
-     @date   Wed Jul 25 2007 
-      
+     @date   Wed Jul 25 2007
+
    */
 
 #ifndef _vs2m_gateway_Output_h
@@ -23,12 +23,12 @@ namespace vs2m_gateway
   {
   public:
     Output(mxArray * plhs[], const rdiParserData & rpd);
-    
+
   private:
     mxArray ** its_plhs;
-        
+
     const rdiParserData & its_rpd;
-    
+
     // export meta data to the output structure.
     //! sections defined by the .rdi file
     void create_base_struct();
@@ -36,9 +36,9 @@ namespace vs2m_gateway
     void create_image_info_struct();
     //! === IMAGE PARAMETERS ===
     void create_image_parameters_struct();
-    
+
   };
-  
+
 } //end vs2m_gateway namespace
 
 #endif //_vs2m_gateway_Output_h

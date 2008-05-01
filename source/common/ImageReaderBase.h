@@ -1,4 +1,4 @@
-/*! @file   ReadImageBase.h
+/*! @file   ImageReaderBase.h
  *  @brief  base class for reading VisualSonics Digital RF file's image data
  *
  *  @author Matt McCormick (thewtex) <matt@mmmccormick.com>
@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef	READIMAGEBASE_H
-#define READIMAGEBASE_H
+#ifndef	IMAGEREADERBASE_H
+#define IMAGEREADERBASE_H
 
 #include <vector>
 
@@ -31,29 +31,29 @@ namespace visual_sonics
     };
 
   // forward declaration
-  class ReadMetadataBase;
+  class MetadataReaderBase;
 
-  class ReadImageBase
+  class ImageReaderBase
   {
   public:
-    ReadImageBase( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>& frames_to_read );
-    ReadImageBase( const bf::path& in_file_path, //!< path to the .rdi/.rdb files
-	const bf::path& in_file_name, //!< filename of the .rdi/.rdb files less the extension 
+    ImageReaderBase( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>& frames_to_read );
+    ImageReaderBase( const bf::path& in_file_path, //!< path to the .rdi/.rdb files
+	const bf::path& in_file_name, //!< filename of the .rdi/.rdb files less the extension
 	std::vector<unsigned int>& frames_to_read, //!< which frames to read from the file
 	ReadMethod read_method , //!< the method for reading data from the file since there can be many acquisitions per line
 	unsigned int specific_acquisition = 0 //!< which acquisition to use with using the specific_acquisition ReadMethod
 	);
 
     //! read all frames available in the file
-    ReadImageBase( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition = 0 );
-    ReadImageBase( const bf::path& in_file_path, const bf::path& in_file_name );
+    ImageReaderBase( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition = 0 );
+    ImageReaderBase( const bf::path& in_file_path, const bf::path& in_file_name );
 
-    virtual ~ReadImageBase();
+    virtual ~ImageReaderBase();
 
   protected:
-    ReadMetadataBase* its_read_metadata;
+    MetadataReaderBase* its_metadata_reader;
     //! for use in constructors--  @todo if want to make 'virtual' see here http://www.parashift.com/c++-faq-lite/strange-inheritance.html#faq-23.6
-    void create_its_read_metadata( const bf::path& in_file_path, const bf::path& in_file_name);
+    void create_its_metadata_reader( const bf::path& in_file_path, const bf::path& in_file_name);
 
     bf::path its_rdb_file_path;
 
@@ -62,7 +62,7 @@ namespace visual_sonics
     virtual void read_b_mode_image() = 0;
     //! read the saturation image from the file and store it in the member variable
     virtual void read_saturation_image() = 0;
-      /** read the next its_frame_to_read rf data image frame from the file and store it in the 
+      /** read the next its_frame_to_read rf data image frame from the file and store it in the
        * member variable
        * @return frame_status if there is another frame to read
        * use it like an iterator
@@ -90,9 +90,9 @@ namespace visual_sonics
 
 
     //! I have no need for these at this point --write them as needed, carefully
-    ReadImageBase( const ReadImageBase& );
-    ReadImageBase&  operator=( const ReadImageBase& );
+    ImageReaderBase( const ImageReaderBase& );
+    ImageReaderBase&  operator=( const ImageReaderBase& );
   };
 }
 
-#endif // READIMAGEBASE_H
+#endif // IMAGEREADERBASE_H

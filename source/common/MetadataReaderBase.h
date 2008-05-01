@@ -1,4 +1,4 @@
-/*! @file   ReadMetadataBase.h
+/*! @file   MetadataReaderBase.h
  *  @brief  base class for holding and extracting VisualSonics Digital RF files and their metadata
  *
  *  @author Matt McCormick (thewtex) <matt@mmmccormick.com>
@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef	READMETADATABASE_H
-#define READMETADATABASE_H
+#ifndef	METADATAREADERBASE_H
+#define METADATAREADERBASE_H
 
 #include <boost/filesystem/convenience.hpp>
 namespace bf = boost::filesystem;
@@ -16,22 +16,22 @@ namespace bf = boost::filesystem;
 namespace visual_sonics
 {
   class rdiParserData;
-  namespace cxx { class ReadImage; };
-  namespace vtk { class ReadImage; };
+  namespace cxx { class ImageReader; };
+  namespace vtk { class ImageReader; };
 
-  class ReadMetadataBase
+  class MetadataReaderBase
   {
   public:
-    friend class ReadImageBase;
-    friend class cxx::ReadImage;
-    friend class vtk::ReadImage;
+    friend class ImageReaderBase;
+    friend class cxx::ImageReader;
+    friend class vtk::ImageReader;
 
-    ReadMetadataBase(const bf::path& in_file_path, 
+    MetadataReaderBase(const bf::path& in_file_path,
 	      const bf::path& in_file_name);
 
-    virtual ~ReadMetadataBase();
+    virtual ~MetadataReaderBase();
 
-    
+
   protected:
     //! directory path where the .rdi and .rdb files are located
     bf::path its_in_file_path;
@@ -48,4 +48,4 @@ namespace visual_sonics
 } // namespace visual_sonics
 
 
-#endif // READMETADATABASE_H
+#endif // METADATAREADERBASE_H

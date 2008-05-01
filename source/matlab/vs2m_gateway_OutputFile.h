@@ -1,9 +1,9 @@
 /*!  @file  vs2m_gateway_OutputFile.h
-     @brief 
-     
+     @brief
+
      @author Matt McCormick <matt@mmmccormick.com>
-     @date   Wed Jul 25 2007 
-      
+     @date   Wed Jul 25 2007
+
    */
 
 #ifndef _vs2m_gateway_OutputFile_h
@@ -32,28 +32,28 @@ namespace vs2m_gateway
   public:
     OutputFile( const mxArray * prhs[], mxArray * plhs[], const rdiParserData & rpd);
     ~OutputFile();
-    
+
   private:
     const mxArray ** its_prhs;
     mxArray ** its_plhs;
     std::vector< unsigned int> its_frames;
-    
+
     const rdiParserData & its_rpd;
-    
+
     MATFile * its_output_file;
-    
+
     bf::path its_out_file_path;
     bf::path its_out_file_name;
     bf::path its_rdb_file_path;
-    
+
     /*!
       @param frame_num = 1, frame number for putting in the file name
       */
     void open_output_file(const unsigned int frame_num = 1);
-    //! check to see if the text "_frame_" is in end of the output file name 
+    //! check to see if the text "_frame_" is in end of the output file name
     //! for the manual 3D hack
     bf::path check_for_frame_in_name();
-        
+
     //! get the b_mode image from the rdb file
     //! @param frame_num = 1, frame number for putting in the file name
     void get_b_mode_image();

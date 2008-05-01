@@ -12,9 +12,9 @@ int main()
   try
   {
     ViewImage* vi = new ViewImage("/mnt/research/Research/in_vivo/test_base/visual_sonics", "2007-06-08-15-57-05-328");
-  
+
     vi->view_b_mode();
-  
+
     delete vi;
   }
   catch ( std::exception& e )

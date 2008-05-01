@@ -1,22 +1,22 @@
 /*!  @file  vs2m_gateway_Output.cpp
      @brief implementation of vs2m_gateway_Output.h
-     
+
      @author Matt McCormick <matt@mmmccormick.com>
      @date   Wed Jul 25 2007
-     
+
   */
-  
+
 #include "vs2m_gateway_Output.h"
 
 vs2m_gateway::Output::Output(mxArray * plhs[], const rdiParserData & rpd):
   its_plhs(plhs),
   its_rpd(rpd)
 {
-    
+
   create_base_struct();
-  
+
   create_image_info_struct();
-  
+
   create_image_parameters_struct();
 
 }
@@ -30,7 +30,7 @@ void vs2m_gateway::Output::create_base_struct()
                            "image_data",
                            "image_parameters"};       /* pointers to field names */
   its_plhs[0] = mxCreateStructMatrix(1, 1, (sizeof(sections)/sizeof(*sections)), sections);
-  
+
 }
 
 
@@ -49,7 +49,7 @@ void vs2m_gateway::Output::create_image_info_struct()
                                       };
   mxArray * image_info_struct = mxCreateStructMatrix(1, 1, (sizeof(image_info_fnames)/sizeof(*image_info_fnames)), image_info_fnames);
   mxSetFieldByNumber(its_plhs[0], 0, 0, image_info_struct);
-  
+
   int field_count = 0;
   mxArray * study_name = mxCreateString(its_rpd.its_study_name.c_str());
   mxSetFieldByNumber(image_info_struct, 0, field_count++, study_name);
@@ -69,7 +69,7 @@ void vs2m_gateway::Output::create_image_info_struct()
   mxSetFieldByNumber(image_info_struct, 0, field_count++, acquisition_time);
   mxArray * acquisition_operator = mxCreateString(its_rpd.its_acquisition_operator.c_str());
   mxSetFieldByNumber(image_info_struct, 0, field_count++, acquisition_operator);
-  
+
 }
 
 
@@ -93,10 +93,10 @@ void vs2m_gateway::Output::create_image_parameters_struct()
                                       "B_Mode__RX__AD_Gate_Width___samples_per_line",
                                       "B_Mode__TX__Trig_Tbl_Trigs___lines",
                                       };
-  
+
   mxArray * image_data_struct = mxCreateStructMatrix(1, 1, (sizeof(image_data_fnames)/sizeof(*image_data_fnames)), image_data_fnames);
   mxSetFieldByNumber(its_plhs[0], 0, 2, image_data_struct);
-  
+
   int field_count = 0;
   mxArray * rf_mode_activeprobe_focal_length = mxCreateDoubleScalar( static_cast<double>( its_rpd.its_rf_mode_activeprobe_focal_length ));
   mxSetFieldByNumber( image_data_struct, 0, field_count++, rf_mode_activeprobe_focal_length);
@@ -135,5 +135,5 @@ void vs2m_gateway::Output::create_image_parameters_struct()
   mxSetFieldByNumber( image_data_struct, 0, field_count++, b_mode_rx_ad_gate_width);
   mxArray * b_mode_tx_trig_tbl_trigs = mxCreateDoubleScalar( static_cast<double>( its_rpd.its_b_mode_tx_trig_tbl_trigs ));
   mxSetFieldByNumber( image_data_struct, 0, field_count++, b_mode_tx_trig_tbl_trigs);
-    
+
 }

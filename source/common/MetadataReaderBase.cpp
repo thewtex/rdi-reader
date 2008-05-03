@@ -15,6 +15,7 @@ visual_sonics::MetadataReaderBase::MetadataReaderBase(const bf::path& in_file_pa
 
 
 
+
 visual_sonics::MetadataReaderBase::~MetadataReaderBase()
 {
   delete its_rpd;

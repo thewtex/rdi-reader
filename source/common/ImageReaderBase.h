@@ -16,19 +16,11 @@
 namespace bf = boost::filesystem;
 
 
+#include "ReadMethod.h"
+
 
 namespace visual_sonics
 {
-  /**
-   * @enum ReadMethod Method for reading the data from the file.
-   *
-   * Since there can be multiple acquisitions per frame, there
-   * are many ways of picking or averaging the acquisitions
-   */
-  enum ReadMethod {
-    file_average,  //!< take the average of all acquisitions that exists in the file
-    specific_acquisition //!< get a specific acquisition only (must be specified)
-    };
 
   // forward declaration
   class MetadataReaderBase;

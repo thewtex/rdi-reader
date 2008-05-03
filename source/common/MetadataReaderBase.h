@@ -29,6 +29,9 @@ namespace visual_sonics
     MetadataReaderBase(const bf::path& in_file_path,
 	      const bf::path& in_file_name);
 
+    void set_in_file_path( const bf::path& ifp ){ its_in_file_path = ifp;};
+    void set_in_file_name( const bf::path& ifn ){ its_in_file_name = ifn;};
+
     virtual ~MetadataReaderBase();
 
 

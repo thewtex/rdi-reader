@@ -7,8 +7,10 @@ namespace bf = boost::filesystem;
 
 #include "vtkImageData.h"
 #include "vtkUnsignedShortArray.h"
+#include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 #include "vtkSetGet.h"
+#include "vtkSmartPointer.h"
 
 
 #include "cxx/ImageReader.h"
@@ -24,19 +26,9 @@ ImageReader::ImageReader()
 {
   this->SetNumberOfInputPorts(0);
   this->SetNumberOfOutputPorts(6);
-  
+
   this->SetDataByteOrderToLittleEndian();
 
-  this->its_vtk_b_mode_array = vtkUnsignedShortArray::New();
-  this->its_vtk_b_mode_array = vtkUnsignedShortArray::New();
-  this->its_vtk_b_mode_image = vtkImageData::New();
-  this->its_vtk_b_mode_image->SetScalarType(VTK_UNSIGNED_SHORT);
-  this->its_vtk_b_mode_image->SetSpacing( 1.0, 1.0, 1.0 );
-  this->its_vtk_b_mode_image->SetOrigin( 0.0, 0.0, 0.0 );
-  this->its_vtk_b_mode_image = vtkImageData::New();
-  this->its_vtk_b_mode_image->SetScalarType(VTK_UNSIGNED_SHORT);
-  this->its_vtk_b_mode_image->SetSpacing( 1.0, 1.0, 1.0 );
-  this->its_vtk_b_mode_image->SetOrigin( 0.0, 0.0, 0.0 );
 
 }
 
@@ -44,12 +36,7 @@ ImageReader::ImageReader()
 
 ImageReader::~ImageReader()
 {
-  its_vtk_b_mode_array->Delete();
-  its_vtk_b_mode_image->Delete();
-
   delete its_ir;
-
-  this->MedicalImageReader2->Delete();
 }
 
 
@@ -109,9 +96,28 @@ int ImageReader::RequestData(vtkInformation*,
   const unsigned int samples_per_line = this->its_metadata_reader->its_rpd->its_rf_mode_rx_ad_gate_width;
   const unsigned int num_lines = this->its_metadata_reader->its_rpd->its_rf_mode_tx_trig_tbl_trigs;
 
-  its_vtk_b_mode_array->SetArray( &cxx::ImageReader::its_b_mode_image[0], samples_per_line*num_lines, 1);
-  its_vtk_b_mode_image->GetPointData()->SetScalars( its_vtk_b_mode_array );
-  its_vtk_b_mode_image->SetDimensions( samples_per_line, num_lines, 1 );
+  // temporarily called sc until I really scan convert them
+  // create scout b mode scan converted
+  vtkSmartPointer<vtkImageData> vtk_b_mode_image_sc = vtkSmartPointer<vtkImageData>::New()
+  vtk_b_mode_image_sc->SetDimensions( samples_per_line, num_lines, 1 );
+  vtk_b_mode_image_sc->SetScalarTypeToUnsignedShort();
+  vtk_b_mode_image_sc->SetNumberOfScalarComponents(1);
+  vtk_b_mode_image_sc->AllocateScalars();
+  vtk_b_mode_image_sc->SetSpacing( 1.0, 1.0, 1.0 );
+  vtk_b_mode_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
+  // fill in scout b mode scan converted values
+  unsigned short* vtk_b_mode_image_sc_p = static_cast< unsigned short* > vtk_b_mode_image_sc->GetScalarPointer();
+  for( int i=0; i<num_lines; i++)
+  {
+    for( int j=0; j<samples_per_line; j++)
+    {
+      *vtk_b_mode_image_sc_p = its_ir.its_b_mode_image[ i*samples_per_line + j ] ;
+      vtk_b_mode_image_sc_p++;
+    }
+  }
+
+
+
 
 
   return 1;

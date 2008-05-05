@@ -79,12 +79,8 @@ namespace visual_sonics
 	this->its_specific_acquisition = specific_acquisition;
       }
 
-      virtual void Delete();
-
 
     protected:
-      vtkUnsignedShortArray* its_vtk_b_mode_array;
-      vtkImageData* its_vtk_b_mode_image;
 
       virtual int FillOutputPortInformation( int, vtkInformation* );
 

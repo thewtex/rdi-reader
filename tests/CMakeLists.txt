@@ -34,7 +34,7 @@ INCLUDE(${VTK_USE_FILE})
 
 set( vtk_test_srcs ${base_test_srcs}
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/ImageReader.cpp
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/ViewImage.cpp
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/ImageViewer.cpp
   ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/vtk_test.cpp
   )
 

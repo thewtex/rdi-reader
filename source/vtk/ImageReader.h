@@ -20,6 +20,8 @@ namespace bf = boost::filesystem;
 
 namespace visual_sonics
 {
+  class rdiParserData;
+
   namespace cxx
   {
     class ImageReader;
@@ -76,16 +78,10 @@ namespace visual_sonics
       //! both files must be present in the same directory
       virtual void SetFilePrefix( const char *);
 
-      void SetReadMethod(ReadMethod read_method)
-      {
-	this->its_read_method = read_method;
-      }
+      inline void SetReadMethod(ReadMethod read_method);
 
-      //! specific acquisition if its_read_method = specific_acquisition
-      void SetSpecificAcquisition(unsigned int specific_acquisition)
-      {
-	this->its_specific_acquisition = specific_acquisition;
-      }
+      //! specific acquisition if read_method = specific_acquisition
+      void SetSpecificAcquisition(unsigned int specific_acquisition);
 
 
     protected:
@@ -98,11 +94,13 @@ namespace visual_sonics
 
       cxx::ImageReader* its_ir;
 
-      const static ReadMethod its_default_read_method;
-      const static unsigned int its_default_specific_acquisition;
+      const rdiParserData* its_rpd;
 
-      ImageReader(){}
-      ~ImageReader(){}
+      const static ReadMethod its_default_read_method  = file_average;
+      const static unsigned int its_default_specific_acquisition =  0;
+
+      ImageReader();
+      ~ImageReader();
 
 
     private:

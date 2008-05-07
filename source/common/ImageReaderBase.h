@@ -42,6 +42,15 @@ namespace visual_sonics
 
     virtual ~ImageReaderBase();
 
+
+    inline void set_in_file_path( const bf::path& ifp );
+    inline void set_in_file_name( const bf::path& ifn );
+
+    inline const rdiParserData* get_rpd();
+
+    void set_read_method( ReadMethod rm ){ this->its_read_method = rm; }
+    void set_specific_acquisition( unsigned int sa ){ this->its_specific_acquisition = sa; }
+
   protected:
     MetadataReaderBase* its_metadata_reader;
     //! for use in constructors--  @todo if want to make 'virtual' see here http://www.parashift.com/c++-faq-lite/strange-inheritance.html#faq-23.6

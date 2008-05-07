@@ -77,6 +77,28 @@ ImageReaderBase::~ImageReaderBase()
 
 
 
+void ImageReaderBase::set_in_file_path( const bf::path& ifp )
+{
+  this->its_metadata_reader->set_in_file_path(ifp);
+}
+
+
+
+void ImageReaderBase::set_in_file_name( const bf::path& ifn )
+{
+  this->its_metadata_reader->set_in_file_name(ifn);
+}
+
+
+
+const rdiParserData* get_rpd()
+{
+  return this->its_metadata_reader->its_rpd;
+}
+
+
+
+
 void ImageReaderBase::create_its_metadata_reader(const bf::path& in_file_path, const bf::path& in_file_name)
 {
   its_metadata_reader = new MetadataReaderBase( in_file_path, in_file_name);

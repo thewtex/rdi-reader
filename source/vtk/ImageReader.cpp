@@ -6,6 +6,7 @@ namespace bf = boost::filesystem;
 
 
 #include "vtkImageData.h"
+#include "vtkInformation.h"
 #include "vtkUnsignedShortArray.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
@@ -22,26 +23,20 @@ using namespace visual_sonics::vtk;
 
 vtkStandardNewMacro(ImageReader);
 
-ImageReader::ImageReader():
-  its_default_read_method(file_average),
-  its_default_specific_acquisition(0)
+ImageReader::ImageReader()
 {
-
-  its_default_read_method = file_average;
-
   this->SetNumberOfInputPorts(0);
   this->SetNumberOfOutputPorts(6);
 
   this->SetDataByteOrderToLittleEndian();
-
-
 }
 
 
 
 ImageReader::~ImageReader()
 {
-  delete its_ir;
+  if( its_ir)
+    delete its_ir;
 }
 
 
@@ -50,9 +45,9 @@ ImageReader::~ImageReader()
  * set the filename prefix
  * can be full or relative path
  */
-ImageReader::SetFilePrefix( const char* fileprefix)
+void ImageReader::SetFilePrefix( const char* fileprefix)
 {
-  bf::path full_prefix_path = bs::system_complete( bs::path( fileprefix, bs::native) );
+  bf::path full_prefix_path = bf::system_complete( bf::path( fileprefix, bf::native) );
 
   if ( this->its_ir == 0 )
   {
@@ -60,13 +55,30 @@ ImageReader::SetFilePrefix( const char* fileprefix)
   }
   else
   {
-    this->its_ir->its_metadata_reader->set_in_file_name( full_prefix_path.leaf() );
-    this->its_ir->its_metadata_reader->set_in_file_path( full_prefix_path.branch_path() );
+    this->its_ir->set_in_file_name( full_prefix_path.leaf() );
+    this->its_ir->set_in_file_path( full_prefix_path.branch_path() );
   }
 
-  this->MedicalImageReader2->SetFilePrefix( fileprefix );
+  this->vtkMedicalImageReader2::SetFilePrefix( fileprefix );
 
 }
+
+
+
+void ImageReader::SetReadMethod(ReadMethod read_method)
+{
+	its_ir->set_read_method( read_method);
+}
+
+
+
+
+void ImageReader::SetSpecificAcquisition(unsigned int specific_acquisition)
+{
+	its_ir->set_specific_acquisition( specific_acquisition );
+}
+
+
 
 
 int ImageReader::FillOutputPortInformation( int port, vtkInformation* info)
@@ -96,10 +108,10 @@ int ImageReader::RequestData(vtkInformation*,
     return 0;
   }
 
-  this->cxx::ImageReader::read_b_mode_image();
+  its_ir->read_b_mode_image();
 
-  const unsigned int samples_per_line = this->its_metadata_reader->its_rpd->its_rf_mode_rx_ad_gate_width;
-  const unsigned int num_lines = this->its_metadata_reader->its_rpd->its_rf_mode_tx_trig_tbl_trigs;
+  const unsigned int samples_per_line = its_ir->its_metadata_reader->its_rpd->its_rf_mode_rx_ad_gate_width;
+  const unsigned int num_lines = its_ir->its_metadata_reader->its_rpd->its_rf_mode_tx_trig_tbl_trigs;
 
   vtkInformation* outInfo = outputVector->GetInformationObject(3);
   vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));

@@ -18,53 +18,53 @@ using namespace visual_sonics;
 
 
 
-ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>& frames_to_read ):
+ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, std::vector<unsigned int>& frames_to_read ):
       its_frames_to_read( frames_to_read ),
       its_frames_to_read_ind( 0 ),
       its_frame_status( true ),
       its_read_method ( file_average )
 {
-  create_its_metadata_reader( in_file_path, in_file_name );
-  its_rdb_file_path = its_metadata_reader->its_in_file_path / (its_metadata_reader->its_in_file_name.leaf() + ".rdb");
+  create_its_metadata_reader( in_file_path );
+  its_rdb_file_path = bf::path(its_metadata_reader->its_in_file_path.native_file_string() + ".rdb");
   check_if_frames_valid();
 }
 
 
 
-ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>& frames_to_read, ReadMethod read_method , unsigned int specific_acquisition):
+ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, std::vector<unsigned int>& frames_to_read, ReadMethod read_method , unsigned int specific_acquisition):
       its_frames_to_read( frames_to_read ),
       its_frames_to_read_ind( 0 ),
       its_frame_status( true ),
       its_read_method(read_method),
       its_specific_acquisition( specific_acquisition )
 {
-  create_its_metadata_reader( in_file_path, in_file_name );
-  its_rdb_file_path = its_metadata_reader->its_in_file_path / (its_metadata_reader->its_in_file_name.leaf() + ".rdb");
+  create_its_metadata_reader( in_file_path );
+  its_rdb_file_path = bf::path(its_metadata_reader->its_in_file_path.native_file_string() + ".rdb");
   check_if_frames_valid();
 }
 
 
 
-ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition ):
+ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition ):
       its_frames_to_read_ind( 0 ),
       its_frame_status( true ),
       its_read_method( read_method ),
       its_specific_acquisition( specific_acquisition )
 {
-  create_its_metadata_reader( in_file_path, in_file_name );
-  its_rdb_file_path = its_metadata_reader->its_in_file_path / (its_metadata_reader->its_in_file_name.leaf() + ".rdb");
+  create_its_metadata_reader( in_file_path );
+  its_rdb_file_path = bf::path(its_metadata_reader->its_in_file_path.native_file_string() + ".rdb");
   read_all_frames();
 }
 
 
 
-ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, const bf::path& in_file_name ):
+ImageReaderBase::ImageReaderBase( const bf::path& in_file_path ):
       its_frames_to_read_ind( 0 ),
       its_frame_status( true ),
       its_read_method ( file_average )
 {
-  create_its_metadata_reader( in_file_path, in_file_name );
-  its_rdb_file_path = its_metadata_reader->its_in_file_path / (its_metadata_reader->its_in_file_name.leaf() + ".rdb");
+  create_its_metadata_reader( in_file_path );
+  its_rdb_file_path = bf::path(its_metadata_reader->its_in_file_path.native_file_string() + ".rdb");
   read_all_frames();
 }
 
@@ -84,14 +84,8 @@ void ImageReaderBase::set_in_file_path( const bf::path& ifp )
 
 
 
-void ImageReaderBase::set_in_file_name( const bf::path& ifn )
-{
-  this->its_metadata_reader->set_in_file_name(ifn);
-}
 
-
-
-const rdiParserData* get_rpd()
+const rdiParserData* ImageReaderBase::get_rpd()
 {
   return this->its_metadata_reader->its_rpd;
 }
@@ -99,9 +93,9 @@ const rdiParserData* get_rpd()
 
 
 
-void ImageReaderBase::create_its_metadata_reader(const bf::path& in_file_path, const bf::path& in_file_name)
+void ImageReaderBase::create_its_metadata_reader(const bf::path& in_file_path )
 {
-  its_metadata_reader = new MetadataReaderBase( in_file_path, in_file_name);
+  its_metadata_reader = new MetadataReaderBase( in_file_path );
 }
 
 

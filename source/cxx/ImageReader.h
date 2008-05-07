@@ -29,11 +29,11 @@ namespace visual_sonics
     {
     public:
 
-      ImageReader( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read);
-      ImageReader(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition = 0);
+      ImageReader( const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read);
+      ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition = 0);
 
-      ImageReader( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition = 0 );
-      ImageReader( const bf::path& in_file_path, const bf::path& in_file_name);
+      ImageReader( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition = 0 );
+      ImageReader( const bf::path& in_file_path );
 
       virtual ~ImageReader(){};
 

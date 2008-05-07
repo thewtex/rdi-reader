@@ -26,20 +26,16 @@ namespace visual_sonics
     friend class cxx::ImageReader;
     friend class vtk::ImageReader;
 
-    MetadataReaderBase(const bf::path& in_file_path,
-	      const bf::path& in_file_name);
+    MetadataReaderBase(const bf::path& in_file_path);
 
-    void set_in_file_path( const bf::path& ifp ){ its_in_file_path = ifp;};
-    void set_in_file_name( const bf::path& ifn ){ its_in_file_name = ifn;};
+    void set_in_file_path( const bf::path& ifp );
 
     virtual ~MetadataReaderBase();
 
 
   protected:
-    //! directory path where the .rdi and .rdb files are located
+    //! directory path where the .rdi and .rdb files are located,  the file name has the .rdi and .rdb removed
     bf::path its_in_file_path;
-    //! file name of the .rdi and .rdb files minus the .rdi and .rdb
-    bf::path its_in_file_name;
 
     rdiParserData* its_rpd;
 

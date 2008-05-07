@@ -18,6 +18,10 @@ namespace bf = boost::filesystem;
 
 #include "ReadMethod.h"
 
+namespace visual_sonics
+{
+  class rdiParserData;
+}
 
 namespace visual_sonics
 {
@@ -28,23 +32,21 @@ namespace visual_sonics
   class ImageReaderBase
   {
   public:
-    ImageReaderBase( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>& frames_to_read );
-    ImageReaderBase( const bf::path& in_file_path, //!< path to the .rdi/.rdb files
-	const bf::path& in_file_name, //!< filename of the .rdi/.rdb files less the extension
+    ImageReaderBase( const bf::path& in_file_path, std::vector<unsigned int>& frames_to_read );
+    ImageReaderBase( const bf::path& in_file_path, //!< path to the .rdi/.rdb files less the extension
 	std::vector<unsigned int>& frames_to_read, //!< which frames to read from the file
 	ReadMethod read_method , //!< the method for reading data from the file since there can be many acquisitions per line
 	unsigned int specific_acquisition = 0 //!< which acquisition to use with using the specific_acquisition ReadMethod
 	);
 
     //! read all frames available in the file
-    ImageReaderBase( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition = 0 );
-    ImageReaderBase( const bf::path& in_file_path, const bf::path& in_file_name );
+    ImageReaderBase( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition = 0 );
+    ImageReaderBase( const bf::path& in_file_path );
 
     virtual ~ImageReaderBase();
 
 
     inline void set_in_file_path( const bf::path& ifp );
-    inline void set_in_file_name( const bf::path& ifn );
 
     inline const rdiParserData* get_rpd();
 
@@ -54,7 +56,7 @@ namespace visual_sonics
   protected:
     MetadataReaderBase* its_metadata_reader;
     //! for use in constructors--  @todo if want to make 'virtual' see here http://www.parashift.com/c++-faq-lite/strange-inheritance.html#faq-23.6
-    void create_its_metadata_reader( const bf::path& in_file_path, const bf::path& in_file_name);
+    void create_its_metadata_reader( const bf::path& in_file_path );
 
     bf::path its_rdb_file_path;
 

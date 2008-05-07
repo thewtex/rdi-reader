@@ -51,14 +51,14 @@ void ImageReader::SetFilePrefix( const char* fileprefix)
 
   if ( this->its_ir == 0 )
   {
-    this->its_ir = new cxx::ImageReader( full_prefix_path.branch_path(), full_prefix_path.leaf() );
+    this->its_ir = new cxx::ImageReader( full_prefix );
   }
   else
   {
-    this->its_ir->set_in_file_name( full_prefix_path.leaf() );
-    this->its_ir->set_in_file_path( full_prefix_path.branch_path() );
+    this->its_ir->set_in_file_path( full_prefix_path );
   }
 
+  its_rpd = its_ir->get_rpd();
   this->vtkMedicalImageReader2::SetFilePrefix( fileprefix );
 
 }
@@ -110,8 +110,8 @@ int ImageReader::RequestData(vtkInformation*,
 
   its_ir->read_b_mode_image();
 
-  const unsigned int samples_per_line = its_ir->its_metadata_reader->its_rpd->its_rf_mode_rx_ad_gate_width;
-  const unsigned int num_lines = its_ir->its_metadata_reader->its_rpd->its_rf_mode_tx_trig_tbl_trigs;
+  const unsigned int samples_per_line = its_rpd->its_rf_mode_rx_ad_gate_width;
+  const unsigned int num_lines = its_rpd->its_rf_mode_tx_trig_tbl_trigs;
 
   vtkInformation* outInfo = outputVector->GetInformationObject(3);
   vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));

@@ -20,29 +20,29 @@ namespace bf = boost::filesystem;
 using namespace visual_sonics::cxx;
 
 
-ImageReader::ImageReader(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read):
-  ImageReaderBase( in_file_path, in_file_name, frames_to_read )
+ImageReader::ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read):
+  ImageReaderBase( in_file_path, frames_to_read )
 {
 }
 
 
 
-ImageReader::ImageReader(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition):
-  ImageReaderBase( in_file_path, in_file_name, frames_to_read, read_method, specific_acquisition )
+ImageReader::ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition):
+  ImageReaderBase( in_file_path, frames_to_read, read_method, specific_acquisition )
 {
 }
 
 
 
-ImageReader::ImageReader( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition ):
-  ImageReaderBase( in_file_path, in_file_name, read_method, specific_acquisition )
+ImageReader::ImageReader( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition ):
+  ImageReaderBase( in_file_path, read_method, specific_acquisition )
 {
 }
 
 
 
-ImageReader::ImageReader(const bf::path& in_file_path, const bf::path& in_file_name):
-  ImageReaderBase( in_file_path, in_file_name )
+ImageReader::ImageReader(const bf::path& in_file_path ):
+  ImageReaderBase( in_file_path )
 {
 }
 

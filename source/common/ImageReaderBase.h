@@ -51,7 +51,9 @@ namespace visual_sonics
     inline const rdiParserData* get_rpd();
 
     void set_read_method( ReadMethod rm ){ this->its_read_method = rm; }
+    ReadMethod get_read_method(){ return this->its_read_method; }
     void set_specific_acquisition( unsigned int sa ){ this->its_specific_acquisition = sa; }
+    unsigned int get_specific_acquisition(){ return this->its_specific_acquisition; }
 
   protected:
     MetadataReaderBase* its_metadata_reader;

@@ -42,6 +42,8 @@ namespace visual_sonics
       virtual void read_saturation_image();
       virtual bool read_rf_data_image();
 
+      UInt16* get_b_mode_image_p(){ return &its_b_mode_image[0];} 
+
 
     protected:
       //! scout window b-mode data.  data is stored sequentially by sample in a line, then by line

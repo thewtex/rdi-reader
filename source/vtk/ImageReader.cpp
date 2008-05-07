@@ -7,6 +7,7 @@ namespace bf = boost::filesystem;
 
 #include "vtkImageData.h"
 #include "vtkInformation.h"
+#include "vtkInformationVector.h"
 #include "vtkUnsignedShortArray.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
@@ -17,6 +18,7 @@ namespace bf = boost::filesystem;
 #include "cxx/ImageReader.h"
 #include "rdiParserData.h"
 #include "MetadataReaderBase.h"
+#include "sized_ints.h"
 
 
 using namespace visual_sonics::vtk;
@@ -51,7 +53,7 @@ void ImageReader::SetFilePrefix( const char* fileprefix)
 
   if ( this->its_ir == 0 )
   {
-    this->its_ir = new cxx::ImageReader( full_prefix );
+    this->its_ir = new cxx::ImageReader( full_prefix_path );
   }
   else
   {
@@ -72,12 +74,22 @@ void ImageReader::SetReadMethod(ReadMethod read_method)
 
 
 
+visual_sonics::ReadMethod ImageReader::GetReadMethod()
+{
+  return	its_ir->get_read_method();
+}
 
 void ImageReader::SetSpecificAcquisition(unsigned int specific_acquisition)
 {
 	its_ir->set_specific_acquisition( specific_acquisition );
 }
 
+
+
+unsigned int ImageReader::GetSpecificAcquisition()
+{
+  return its_ir->get_specific_acquisition();
+}
 
 
 
@@ -127,12 +139,16 @@ int ImageReader::RequestData(vtkInformation*,
   vtk_b_mode_image_sc->SetSpacing( 1.0, 1.0, 1.0 );
   vtk_b_mode_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
   // fill in scout b mode scan converted values
-  unsigned short* vtk_b_mode_image_sc_p = static_cast< unsigned short* > vtk_b_mode_image_sc->GetScalarPointer();
-  for( int i=0; i<num_lines; i++)
+  UInt16* vtk_b_mode_image_sc_p = static_cast< UInt16* >( vtk_b_mode_image_sc->GetScalarPointer() );
+  UInt16* cxx_b_mode_image_sc_p = its_ir->get_b_mode_image_p();
+
+
+  for(unsigned int i=0; i<num_lines; i++)
   {
-    for( int j=0; j<samples_per_line; j++)
+    for(unsigned int j=0; j<samples_per_line; j++)
     {
-      *vtk_b_mode_image_sc_p = its_ir.its_b_mode_image[ i*samples_per_line + j ] ;
+      *vtk_b_mode_image_sc_p = *cxx_b_mode_image_sc_p ;
+      cxx_b_mode_image_sc_p++;
       vtk_b_mode_image_sc_p++;
     }
   }
@@ -154,6 +170,8 @@ int ImageReader::RequestData(vtkInformation*,
 
 void ImageReader::PrintSelf(ostream& os, vtkIndent indent)
 {
+  ostream << "ReadMethod:" << indent << this->GetReadMethod() << std::endl;
+  ostream << "SpecificAcquisition:" << indent << this->GetSpecificAcquisition() << std::endl;
   this->Superclass::PrintSelf(os, indent);
 }
 

@@ -79,9 +79,13 @@ namespace visual_sonics
       virtual void SetFilePrefix( const char *);
 
       inline void SetReadMethod(ReadMethod read_method);
+      inline ReadMethod GetReadMethod();
 
       //! specific acquisition if read_method = specific_acquisition
-      void SetSpecificAcquisition(unsigned int specific_acquisition);
+      inline void SetSpecificAcquisition(unsigned int specific_acquisition);
+      inline unsigned int GetSpecificAcquisition();
+
+      void PrintSelf(ostream&, vtkIndent);
 
 
     protected:

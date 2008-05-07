@@ -14,9 +14,17 @@ namespace bf = boost::filesystem;
 
 #include "vtkMedicalImageReader2.h"
 
+#include "ReadMethod.h"
+
 #include "vtkSetGet.h"
 
-class visual_sonics::cxx::ImageReader;
+namespace visual_sonics
+{
+  namespace cxx
+  {
+    class ImageReader;
+  }
+}
 
 class vtkImageData;
 class vtkUnsignedShortArray;
@@ -88,10 +96,10 @@ namespace visual_sonics
 		      vtkInformationVector**,
 		      vtkInformationVector*);
 
-      cxx::ImageReader* its_ir = 0;
+      cxx::ImageReader* its_ir;
 
-      const static ReadMethod its_default_read_method( file_average );
-      const static unsigned int its_default_specific_acquisition(0);
+      const static ReadMethod its_default_read_method;
+      const static unsigned int its_default_specific_acquisition;
 
       ImageReader(){}
       ~ImageReader(){}

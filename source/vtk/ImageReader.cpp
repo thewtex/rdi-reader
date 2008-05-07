@@ -22,8 +22,13 @@ using namespace visual_sonics::vtk;
 
 vtkStandardNewMacro(ImageReader);
 
-ImageReader::ImageReader()
+ImageReader::ImageReader():
+  its_default_read_method(file_average),
+  its_default_specific_acquisition(0)
 {
+
+  its_default_read_method = file_average;
+
   this->SetNumberOfInputPorts(0);
   this->SetNumberOfOutputPorts(6);
 
@@ -96,9 +101,13 @@ int ImageReader::RequestData(vtkInformation*,
   const unsigned int samples_per_line = this->its_metadata_reader->its_rpd->its_rf_mode_rx_ad_gate_width;
   const unsigned int num_lines = this->its_metadata_reader->its_rpd->its_rf_mode_tx_trig_tbl_trigs;
 
+  vtkInformation* outInfo = outputVector->GetInformationObject(3);
+  vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
+  if (!vtk_b_mode_image_sc)
+    return 0;
+
   // temporarily called sc until I really scan convert them
   // create scout b mode scan converted
-  vtkSmartPointer<vtkImageData> vtk_b_mode_image_sc = vtkSmartPointer<vtkImageData>::New()
   vtk_b_mode_image_sc->SetDimensions( samples_per_line, num_lines, 1 );
   vtk_b_mode_image_sc->SetScalarTypeToUnsignedShort();
   vtk_b_mode_image_sc->SetNumberOfScalarComponents(1);
@@ -115,6 +124,9 @@ int ImageReader::RequestData(vtkInformation*,
       vtk_b_mode_image_sc_p++;
     }
   }
+
+
+
 
 
 

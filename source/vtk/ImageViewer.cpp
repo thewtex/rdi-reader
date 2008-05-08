@@ -12,6 +12,7 @@ namespace bf = boost::filesystem;
 
 #include "vtkImageActor.h"
 #include "vtkImageShiftScale.h"
+#include "vtkImageViewer.h"
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 
@@ -77,6 +78,8 @@ ImageViewer::~ImageViewer()
 
 void ImageViewer::view_b_mode()
 {
+ its_image_reader->Update();
+  its_image_reader->DebugOn();
   its_image_reader->Print(cerr);
  
  vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast(its_image_reader->GetOutputDataObject(3));
@@ -84,7 +87,6 @@ void ImageViewer::view_b_mode()
  double* b_mode_range = vtk_b_mode_image_sc->GetScalarRange();
 
  //its_viewer->SetupInteractor(its_iren);
- vtkImageActor* ia = vtkImageActor::New();
  vtkImageShiftScale* iss = vtkImageShiftScale::New();
  iss->SetShift( b_mode_range[0] *-1 );
  iss->SetScale( 255.0 / static_cast<double>(b_mode_range[1] - b_mode_range[0] ) );
@@ -92,20 +94,36 @@ void ImageViewer::view_b_mode()
  iss->SetInputConnection( its_image_reader->GetOutputPort(3) );
  iss->SetOutputScalarTypeToUnsignedChar();
 
- vtkRenderer* ren = vtkRenderer::New();
- ia->SetInput( iss->GetOutput() );
- ren->AddViewProp( ia );
+ vtkImageViewer* viewer = vtkImageViewer::New();
+ viewer->SetInputConnection( iss->GetOutputPort() );
+ viewer->SetupInteractor( its_iren );
 
- ia->RotateZ(-90.0);
- ia->SetScale( 3.0, 3.0, 1.0 );
+ viewer->SetZSlice(0);
+ viewer->SetColorWindow( 256.0 );
+ viewer->SetColorLevel(127.5);
+ viewer->Render();
 
- vtkRenderWindow* renwin = vtkRenderWindow::New();
- renwin->AddRenderer( ren );
- renwin->SetSize( dim[1], dim[0] );
+ //vtkImageActor* ia = vtkImageActor::New();
+ //ia->SetInput( iss->GetOutput() );
 
- its_iren->SetRenderWindow( renwin );
+ //vtkRenderer* ren = vtkRenderer::New();
+ //ren->SetBackground(0.0,0.8,0.0);
+ //ren->AddViewProp( ia );
+
+ //ia->RotateZ(-90.0);
+ //ia->SetScale( 3.0, 3.0, 1.0 );
+
+ //vtkRenderWindow* renwin = vtkRenderWindow::New();
+ //renwin->AddRenderer( ren );
+ //renwin->SetSize( dim[1], dim[0] );
+
+ //its_iren->SetRenderWindow( renwin );
  its_iren->Initialize();
  its_iren->Start();
+
+ //ren->Delete();
+ //renwin->Delete();
+
 
 
 }

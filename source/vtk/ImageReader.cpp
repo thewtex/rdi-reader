@@ -38,7 +38,10 @@ ImageReader::ImageReader()
 ImageReader::~ImageReader()
 {
   if( its_ir)
+  {
     delete its_ir;
+    its_ir = 0;
+  }
 }
 
 
@@ -49,7 +52,7 @@ ImageReader::~ImageReader()
  */
 void ImageReader::SetFilePrefix( const char* fileprefix)
 {
-  bf::path full_prefix_path = bf::system_complete( bf::path( fileprefix, bf::native) );
+  bf::path full_prefix_path = bf::system_complete( bf::path( fileprefix ) );
 
   if ( this->its_ir == 0 )
   {
@@ -67,7 +70,7 @@ void ImageReader::SetFilePrefix( const char* fileprefix)
 
 
 
-void ImageReader::SetReadMethod(ReadMethod read_method)
+inline void ImageReader::SetReadMethod(ReadMethod read_method)
 {
 	its_ir->set_read_method( read_method);
 }
@@ -76,18 +79,20 @@ void ImageReader::SetReadMethod(ReadMethod read_method)
 
 visual_sonics::ReadMethod ImageReader::GetReadMethod()
 {
+  this->Modified();
   return	its_ir->get_read_method();
 }
 
-void ImageReader::SetSpecificAcquisition(unsigned int specific_acquisition)
+inline void ImageReader::SetSpecificAcquisition(unsigned int specific_acquisition)
 {
 	its_ir->set_specific_acquisition( specific_acquisition );
 }
 
 
 
-unsigned int ImageReader::GetSpecificAcquisition()
+inline unsigned int ImageReader::GetSpecificAcquisition()
 {
+  this->Modified();
   return its_ir->get_specific_acquisition();
 }
 
@@ -159,7 +164,6 @@ int ImageReader::RequestData(vtkInformation*,
 
 
 
-
   return 1;
 }
 
@@ -170,8 +174,8 @@ int ImageReader::RequestData(vtkInformation*,
 
 void ImageReader::PrintSelf(ostream& os, vtkIndent indent)
 {
-  ostream << "ReadMethod:" << indent << this->GetReadMethod() << std::endl;
-  ostream << "SpecificAcquisition:" << indent << this->GetSpecificAcquisition() << std::endl;
+  os << indent << "ReadMethod:" << indent << this->GetReadMethod() << std::endl;
+  os << indent << "SpecificAcquisition:" << indent << this->GetSpecificAcquisition() << std::endl;
   this->Superclass::PrintSelf(os, indent);
 }
 

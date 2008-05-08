@@ -46,9 +46,9 @@ namespace visual_sonics
     virtual ~ImageReaderBase();
 
 
-    inline void set_in_file_path( const bf::path& ifp );
+    void set_in_file_path( const bf::path& ifp );
 
-    inline const rdiParserData* get_rpd();
+    const rdiParserData* get_rpd();
 
     void set_read_method( ReadMethod rm ){ this->its_read_method = rm; }
     ReadMethod get_read_method(){ return this->its_read_method; }

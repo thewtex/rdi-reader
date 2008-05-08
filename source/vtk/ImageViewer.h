@@ -26,8 +26,8 @@ namespace visual_sonics
       //ImageViewer( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read);
       //ImageViewer(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition = 0);
 
-      ImageViewer( const bf::path& in_file_path, const bf::path& in_file_name, ReadMethod read_method, unsigned int specific_acquisition = 0 );
-      ImageViewer( const bf::path& in_file_path, const bf::path& in_file_name);
+      ImageViewer( const bf::path& in_file_path,  ReadMethod read_method, unsigned int specific_acquisition = 0 );
+      ImageViewer( const bf::path& in_file_path );
 
       virtual ~ImageViewer();
 
@@ -43,7 +43,6 @@ namespace visual_sonics
 
     };
   }
-
 }
 
 #endif // VIEWIMAGE_H inclusion guard

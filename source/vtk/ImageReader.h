@@ -78,12 +78,12 @@ namespace visual_sonics
       //! both files must be present in the same directory
       virtual void SetFilePrefix( const char *);
 
-      inline void SetReadMethod(ReadMethod read_method);
+      void SetReadMethod(ReadMethod read_method);
       inline ReadMethod GetReadMethod();
 
       //! specific acquisition if read_method = specific_acquisition
-      inline void SetSpecificAcquisition(unsigned int specific_acquisition);
-      inline unsigned int GetSpecificAcquisition();
+      void SetSpecificAcquisition(unsigned int specific_acquisition);
+      unsigned int GetSpecificAcquisition();
 
       void PrintSelf(ostream&, vtkIndent);
 

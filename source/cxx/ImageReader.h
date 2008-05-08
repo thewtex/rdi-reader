@@ -42,7 +42,11 @@ namespace visual_sonics
       virtual void read_saturation_image();
       virtual bool read_rf_data_image();
 
+      //! get the pointer to the actual b_mode_image data
       UInt16* get_b_mode_image_p(){ return &its_b_mode_image[0];} 
+
+      UInt16 get_b_mode_max(){ return its_b_mode_max; }
+      UInt16 get_b_mode_min(){ return its_b_mode_min; }
 
 
     protected:

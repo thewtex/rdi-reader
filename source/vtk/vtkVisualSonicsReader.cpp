@@ -1,4 +1,4 @@
-#include "vtk/ImageReader.h"
+#include "vtk/vtkVisualSonicsReader.h"
 
 
 #include <boost/filesystem/convenience.hpp>
@@ -23,9 +23,9 @@ namespace bf = boost::filesystem;
 
 using namespace visual_sonics::vtk;
 
-vtkStandardNewMacro(ImageReader);
+vtkStandardNewMacro(vtkVisualSonicsReader);
 
-ImageReader::ImageReader()
+vtkVisualSonicsReader::vtkVisualSonicsReader()
 {
   this->SetNumberOfInputPorts(0);
   this->SetNumberOfOutputPorts(6);
@@ -35,7 +35,7 @@ ImageReader::ImageReader()
 
 
 
-ImageReader::~ImageReader()
+vtkVisualSonicsReader::~vtkVisualSonicsReader()
 {
   if( its_ir)
   {
@@ -50,7 +50,7 @@ ImageReader::~ImageReader()
  * set the filename prefix
  * can be full or relative path
  */
-void ImageReader::SetFilePrefix( const char* fileprefix)
+void vtkVisualSonicsReader::SetFilePrefix( const char* fileprefix)
 {
   bf::path full_prefix_path = bf::system_complete( bf::path( fileprefix ) );
 
@@ -70,35 +70,35 @@ void ImageReader::SetFilePrefix( const char* fileprefix)
 
 
 
-inline void ImageReader::SetReadMethod(ReadMethod read_method)
+inline void vtkVisualSonicsReader::SetReadMethod(visual_sonics::ReadMethod read_method)
 {
-	its_ir->set_read_method( read_method);
+  this->Modified();
+  its_ir->set_read_method( read_method);
 }
 
 
 
-visual_sonics::ReadMethod ImageReader::GetReadMethod()
+inline visual_sonics::ReadMethod vtkVisualSonicsReader::GetReadMethod()
 {
-  this->Modified();
   return	its_ir->get_read_method();
 }
 
-inline void ImageReader::SetSpecificAcquisition(unsigned int specific_acquisition)
+inline void vtkVisualSonicsReader::SetSpecificAcquisition(unsigned int specific_acquisition)
 {
-	its_ir->set_specific_acquisition( specific_acquisition );
+  this->Modified();
+  its_ir->set_specific_acquisition( specific_acquisition );
 }
 
 
 
-inline unsigned int ImageReader::GetSpecificAcquisition()
+inline unsigned int vtkVisualSonicsReader::GetSpecificAcquisition()
 {
-  this->Modified();
   return its_ir->get_specific_acquisition();
 }
 
 
 
-int ImageReader::FillOutputPortInformation( int port, vtkInformation* info)
+int vtkVisualSonicsReader::FillOutputPortInformation( int port, vtkInformation* info)
 {
   if (port < 3)
   {
@@ -115,7 +115,7 @@ int ImageReader::FillOutputPortInformation( int port, vtkInformation* info)
 }
 
 
-int ImageReader::RequestData(vtkInformation*,
+int vtkVisualSonicsReader::RequestData(vtkInformation*,
 			     vtkInformationVector**,
 			     vtkInformationVector* outputVector)
 {
@@ -143,6 +143,7 @@ int ImageReader::RequestData(vtkInformation*,
   vtk_b_mode_image_sc->AllocateScalars();
   vtk_b_mode_image_sc->SetSpacing( 1.0, 1.0, 1.0 );
   vtk_b_mode_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
+  vtk_b_mode_image_sc->SetExtent(0, samples_per_line, 0, num_lines, 0, 0);
   // fill in scout b mode scan converted values
   UInt16* vtk_b_mode_image_sc_p = static_cast< UInt16* >( vtk_b_mode_image_sc->GetScalarPointer() );
   UInt16* cxx_b_mode_image_sc_p = its_ir->get_b_mode_image_p();
@@ -172,7 +173,7 @@ int ImageReader::RequestData(vtkInformation*,
 
 
 
-void ImageReader::PrintSelf(ostream& os, vtkIndent indent)
+void vtkVisualSonicsReader::PrintSelf(ostream& os, vtkIndent indent)
 {
   os << indent << "ReadMethod:" << indent << this->GetReadMethod() << std::endl;
   os << indent << "SpecificAcquisition:" << indent << this->GetSpecificAcquisition() << std::endl;

@@ -15,7 +15,7 @@ namespace bf = boost::filesystem;
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 
-#include "vtk/ImageReader.h"
+#include "vtk/vtkVisualSonicsReader.h"
 #include "common/ReadMethod.h"
 
 
@@ -24,7 +24,7 @@ using namespace visual_sonics::vtk;
 
 //ImageViewer::ImageViewer( const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read)
 //{
-  //this->its_image_reader = ImageReader::New();
+  //this->its_image_reader = vtkVisualSonicsReader::New();
   //this->its_image_reader->SetFilePrefix( (in_file_path / in_file_name).native_file_string() );
   //this->its_interactor_style = vtkInteractorStyleImage::New();
   //this->its_iren = vtkRenderWindowInteractor::New();
@@ -34,7 +34,7 @@ using namespace visual_sonics::vtk;
 
 //ImageViewer::ImageViewer(const bf::path& in_file_path, const bf::path& in_file_name, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition )
 //{
-  //this->its_image_reader = ImageReader::New();
+  //this->its_image_reader = vtkVisualSonicsReader::New();
   //this->its_image_reader->SetFilePrefix( (in_file_path / in_file_name).native_file_string() );
   //this->its_image_reader->SetReadMethod( read_method );
   //this->its_image_reader->SetSpecificAcquisition( specific_acquisition );
@@ -46,22 +46,22 @@ using namespace visual_sonics::vtk;
 
 ImageViewer::ImageViewer( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition  )
 {
-  this->its_image_reader = ImageReader::New();
-  this->its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
-  this->its_image_reader->SetReadMethod( read_method );
-  this->its_image_reader->SetSpecificAcquisition( specific_acquisition );
-  this->its_interactor_style = vtkInteractorStyleImage::New();
-  this->its_iren = vtkRenderWindowInteractor::New();
+  its_image_reader = vtkVisualSonicsReader::New();
+  its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
+  its_image_reader->SetReadMethod( read_method );
+  its_image_reader->SetSpecificAcquisition( specific_acquisition );
+  its_interactor_style = vtkInteractorStyleImage::New();
+  its_iren = vtkRenderWindowInteractor::New();
 }
 
 
 
 ImageViewer::ImageViewer( const bf::path& in_file_path )
 {
-  this->its_image_reader = ImageReader::New();
-  this->its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
-  this->its_interactor_style = vtkInteractorStyleImage::New();
-  this->its_iren = vtkRenderWindowInteractor::New();
+  its_image_reader = vtkVisualSonicsReader::New();
+  its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
+  its_interactor_style = vtkInteractorStyleImage::New();
+  its_iren = vtkRenderWindowInteractor::New();
 }
 
 
@@ -77,6 +77,7 @@ ImageViewer::~ImageViewer()
 
 void ImageViewer::view_b_mode()
 {
+  its_image_reader->Print(cerr);
  
  vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast(its_image_reader->GetOutputDataObject(3));
  int* dim = vtk_b_mode_image_sc->GetDimensions() ;

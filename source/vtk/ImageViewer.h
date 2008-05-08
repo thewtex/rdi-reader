@@ -1,5 +1,5 @@
 /*! @file  ImageViewer.h
- *  @brief render a vtk::ImageReader on the screen for visualization
+ *  @brief render a vtkVisualSonicsReader on the screen for visualization
  *
  *  @author Matt McCormick (thewtex) <matt@mmmccormick.com>
  *  @date   2008 March 17
@@ -9,7 +9,7 @@
 #ifndef VIEWIMAGE_H
 #define VIEWIMAGE_H
 
-#include "vtk/ImageReader.h"
+#include "vtk/vtkVisualSonicsReader.h"
 
 class vtkImageViewer;
 class vtkInteractorStyleImage;
@@ -35,7 +35,7 @@ namespace visual_sonics
       void view_b_mode();
 
     protected:
-      ImageReader* its_image_reader;
+      vtkVisualSonicsReader* its_image_reader;
 
       vtkImageViewer* its_viewer;
       vtkInteractorStyleImage* its_interactor_style;

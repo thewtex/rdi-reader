@@ -92,7 +92,7 @@ namespace visual_sonics
 
       virtual int FillOutputPortInformation( int, vtkInformation* );
 
-      int RequestData(vtkInformation*,
+      virtual int RequestData(vtkInformation*,
 		      vtkInformationVector**,
 		      vtkInformationVector*);
 

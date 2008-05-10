@@ -79,12 +79,15 @@ ImageViewer::~ImageViewer()
 void ImageViewer::view_b_mode()
 {
  its_image_reader->Update();
-  its_image_reader->DebugOn();
-  its_image_reader->Print(cerr);
+ its_image_reader->DebugOn();
+ its_image_reader->Print(cerr);
  
  vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast(its_image_reader->GetOutputDataObject(3));
  int* dim = vtk_b_mode_image_sc->GetDimensions() ;
  double* b_mode_range = vtk_b_mode_image_sc->GetScalarRange();
+ int xmina, xmaxa, ymina, ymaxa, zmina, zmaxa;
+ vtk_b_mode_image_sc->GetExtent( xmina, xmaxa, ymina, ymaxa, zmina, zmaxa );
+ vtk_b_mode_image_sc->Print(cerr);
 
  //its_viewer->SetupInteractor(its_iren);
  vtkImageShiftScale* iss = vtkImageShiftScale::New();
@@ -94,13 +97,18 @@ void ImageViewer::view_b_mode()
  iss->SetInputConnection( its_image_reader->GetOutputPort(3) );
  iss->SetOutputScalarTypeToUnsignedChar();
 
+
+
  vtkImageViewer* viewer = vtkImageViewer::New();
- viewer->SetInputConnection( iss->GetOutputPort() );
+ //viewer->SetInputConnection( iss->GetOutputPort() );
+ viewer->SetInput( vtk_b_mode_image_sc );
  viewer->SetupInteractor( its_iren );
 
  viewer->SetZSlice(0);
- viewer->SetColorWindow( 256.0 );
- viewer->SetColorLevel(127.5);
+ //viewer->SetColorWindow( 256.0 );
+ viewer->SetColorWindow( b_mode_range[1] - b_mode_range[0] );
+ //viewer->SetColorLevel( 127.0 );
+ viewer->SetColorLevel( (b_mode_range[1] - b_mode_range[0])/2.0 );
  viewer->Render();
 
  //vtkImageActor* ia = vtkImageActor::New();

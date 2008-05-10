@@ -138,12 +138,17 @@ int vtkVisualSonicsReader::RequestData(vtkInformation*,
   // temporarily called sc until I really scan convert them
   // create scout b mode scan converted
   vtk_b_mode_image_sc->SetDimensions( samples_per_line, num_lines, 1 );
+  this->DataExtent[0] = 0;
+  this->DataExtent[1] = samples_per_line - 1;
+  this->DataExtent[2] = 0;
+  this->DataExtent[3] = num_lines - 1;
+  // Extent should be set befor allocate scalars
+  //vtk_b_mode_image_sc->SetExtent(0, samples_per_line - 1, 0, num_lines - 1, 0, 0);
   vtk_b_mode_image_sc->SetScalarTypeToUnsignedShort();
   vtk_b_mode_image_sc->SetNumberOfScalarComponents(1);
   vtk_b_mode_image_sc->AllocateScalars();
   vtk_b_mode_image_sc->SetSpacing( 1.0, 1.0, 1.0 );
   vtk_b_mode_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
-  vtk_b_mode_image_sc->SetExtent(0, samples_per_line, 0, num_lines, 0, 0);
   // fill in scout b mode scan converted values
   UInt16* vtk_b_mode_image_sc_p = static_cast< UInt16* >( vtk_b_mode_image_sc->GetScalarPointer() );
   UInt16* cxx_b_mode_image_sc_p = its_ir->get_b_mode_image_p();

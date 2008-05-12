@@ -11,7 +11,7 @@ int main()
 {
   try
   {
-    ImageViewer* vi = new ImageViewer("/mnt/research/Research/in_vivo/test_base/visual_sonics/2007-06-08-15-57-05-328");
+    ImageViewer* vi = new ImageViewer("/mnt/dataa/visualsonics/test_base/20071105/3000e-55MHz-Gp10dB");
 
     vi->view_b_mode();
 

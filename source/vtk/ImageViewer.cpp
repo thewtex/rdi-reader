@@ -74,14 +74,15 @@ ImageViewer::~ImageViewer()
   its_iren->Delete();
 }
 
+
 #include "vtkPNGReader.h"
 
 void ImageViewer::view_b_mode()
 {
  its_image_reader->Update();
- its_image_reader->DebugOn();
+ //its_image_reader->DebugOn();
  //its_image_reader->Print(cerr);
- 
+
  vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast(its_image_reader->GetOutputDataObject(3));
  int* dim = vtk_b_mode_image_sc->GetDimensions() ;
  double* b_mode_range = vtk_b_mode_image_sc->GetScalarRange();
@@ -93,7 +94,7 @@ void ImageViewer::view_b_mode()
    dp++;
  }
  vtk_b_mode_image_sc->GetExtent( xmina, xmaxa, ymina, ymaxa, zmina, zmaxa );
- vtk_b_mode_image_sc->DebugOn();
+ //vtk_b_mode_image_sc->DebugOn();
  vtk_b_mode_image_sc->Print(cerr);
 
  //its_viewer->SetupInteractor(its_iren);
@@ -104,6 +105,13 @@ void ImageViewer::view_b_mode()
  iss->SetInputConnection( its_image_reader->GetOutputPort(3) );
  iss->SetOutputScalarTypeToUnsignedChar();
 
+ vtkPNGReader* pngr = vtkPNGReader::New();
+ pngr->SetFileName("chart.png");
+ pngr->Update();
+ vtkImageData* pngo = pngr->GetOutput();
+ pngo->Print(cerr);
+
+
 
 
 
@@ -113,6 +121,7 @@ void ImageViewer::view_b_mode()
  //pngr->SetFileName( "a07118.png" );
  //viewer->SetInput( pngr->GetOutput() );
  viewer->SetInput( vtk_b_mode_image_sc );
+ //viewer->SetInput( pngo );
  viewer->SetupInteractor( its_iren );
 
  viewer->SetZSlice(0);

@@ -86,13 +86,24 @@ public:
 
 protected:
 
+  //! define what the outputs are
   virtual int FillOutputPortInformation( int, vtkInformation* );
 
+  //! does the actual data crunching at a pipeline request
   virtual int RequestData(vtkInformation*,
 		      vtkInformationVector**,
 		      vtkInformationVector*);
 
+  //! does the heavy lifting for reading in the data
   visual_sonics::cxx::ImageReader* its_ir;
+
+  //! type of output image data type
+  enum ImageDataOutType { ImageFloat, ImageDouble };
+  ImageDataOutType its_image_data_out_type;
+
+  //! type of the coordinate types
+  enum CoordDataType { CoordFloat, CoordDouble };
+  CoordDataType its_coord_data_type ;
 
   const visual_sonics::rdiParserData* its_rpd;
 

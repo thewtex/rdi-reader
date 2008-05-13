@@ -20,11 +20,17 @@ namespace bf = boost::filesystem;
 #include "common/sized_ints.h" // Int16, UInt16
 
 
+namespace visual_sonics
+{
+  template<class ImageDataInT, class ImageDataOutT, class CoordT> class VisualSonicsTransform;
+}
+
 
 namespace visual_sonics
 {
   namespace cxx
   {
+    template <class ImageDataOutT, class CoordDataT>
     class ImageReader: public visual_sonics::ImageReaderBase
     {
     public:
@@ -61,6 +67,9 @@ namespace visual_sonics
       //! rf data.  data is stored sequentially by sample in a line, then by line
       std::vector<Int16>  its_rf_data_image;
 
+
+      //! performs scan conversion, etc
+      VisualSonicsTransform<UInt16, ImageDataOutT, CoordDataT>* its_b_mode_vs_transform;
 
     private:
 

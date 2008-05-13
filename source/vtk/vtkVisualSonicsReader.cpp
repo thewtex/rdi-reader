@@ -25,7 +25,9 @@ using namespace visual_sonics::vtk;
 
 vtkStandardNewMacro(vtkVisualSonicsReader);
 
-vtkVisualSonicsReader::vtkVisualSonicsReader()
+vtkVisualSonicsReader::vtkVisualSonicsReader():
+  its_image_data_out_type( ImageDouble ),
+  its_coord_data_type( CoordDouble )
 {
   this->SetNumberOfInputPorts(0);
   this->SetNumberOfOutputPorts(6);
@@ -56,7 +58,34 @@ void vtkVisualSonicsReader::SetFilePrefix( const char* fileprefix)
 
   if ( this->its_ir == 0 )
   {
-    this->its_ir = new cxx::ImageReader( full_prefix_path );
+    // vtk doesn't like to use templates :P
+    switch (its_image_data_out_type)
+    {
+      case ImageFloat:
+        switch (its_coord_data_type)
+	{
+	  case CoordFloat:
+	    this->its_ir = new cxx::ImageReader<float,float>( full_prefix_path );
+	    break;
+	  case CoordDouble:
+	    this->its_ir = new cxx::ImageReader<float,double>( full_prefix_path );
+	    break;
+	}
+	break;
+      case ImageDouble:
+        switch (its_coord_data_type)
+	{
+	  case CoordFloat:
+	    this->its_ir = new cxx::ImageReader<double,float>( full_prefix_path );
+	    break;
+	  case CoordDouble:
+	    this->its_ir = new cxx::ImageReader<double,double>( full_prefix_path );
+	    break;
+	}
+	break;
+    }
+
+
   }
   else
   {

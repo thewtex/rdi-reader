@@ -26,17 +26,18 @@
 #include "Bilinear.h"
 #include "NearestNeighbor.h"
 
+using namespace visual_sonics;
+
 #ifdef MATLAB_MEX_FILE 
-template <class ImageDataT, class CoordT> 
-VisualSonicsTransform<ImageDataT,CoordT>::VisualSonicsTransform( const mxArray* const image,
+template <class ImageDataInT, class ImageDataOutT, class CoordT>
+VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransform( const mxArray* const image,
 			    const mxArray* const metadata,
 			    const mxArray* const output_roi,
 			    const mxArray* const output_size,
-			    const int& interpmethod
+  			    const visual_sonics::InterpolationMethod& interpmethod = BilinearM
 	):
     its_image_rows( mxGetM( image) ),
     its_image_cols( mxGetN( image ) ),
-    its_image( its_image_rows*its_image_cols ),
     its_image_x( its_image_rows*its_image_cols ),
     its_image_y( its_image_rows*its_image_cols ),
     its_encoder_positions( its_image_cols ),
@@ -44,7 +45,6 @@ VisualSonicsTransform<ImageDataT,CoordT>::VisualSonicsTransform( const mxArray* 
     its_col_sin( its_image_cols ),
     its_theta( its_image_cols ),
     its_r( its_image_rows ),
-    its_output_roi( 4 ),
     its_transform_rows( 0 ),
     its_transform_cols( 0 ),
     its_transform( 0 ),
@@ -52,11 +52,13 @@ VisualSonicsTransform<ImageDataT,CoordT>::VisualSonicsTransform( const mxArray* 
     its_interpolation_method( interpmethod )
 {
   double* image_data_p = mxGetPr( image );
+  its_image = new std::vector<ImageDataInT>( its_image_rows*its_image_cols );
+  std::vector<ImageDataInT>* its_image_non_c = const_cast< std::vector<ImageDataInT>* > ( its_image );
   for( unsigned int i = 0; i < its_image_cols; i++ )
   {
     for( unsigned int j = 0; j < its_image_rows; j++)
     {
-      its_image[j + i*its_image_rows] = static_cast<ImageDataT>(*(image_data_p + i*its_image_rows + j));
+      *its_image_non_c[j + i*its_image_rows] = static_cast<ImageDataT>(*(image_data_p + i*its_image_rows + j));
     }
   }
 
@@ -98,6 +100,7 @@ VisualSonicsTransform<ImageDataT,CoordT>::VisualSonicsTransform( const mxArray* 
   its_sample_delta = static_cast<CoordT>(*digi_depth_p / its_image_rows);
 
 
+  its_output_roi = new unsigned int[4];
   double* output_roi_p = mxGetPr( output_roi );
   for ( unsigned int i = 0; i < 4; i++)
   {
@@ -139,14 +142,119 @@ VisualSonicsTransform<ImageDataT,CoordT>::VisualSonicsTransform( const mxArray* 
 #endif // MATLAB_MEX_FILE
 
 
-template <class ImageDataT, class CoordT>
+
+template <class ImageDataInT, class ImageDataOutT, class CoordT>
+VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransform( 
+			    const std::vector<ImageDataInT>* image,
+			    const rdiParserData const* rpd,
+			    const unsigned int const * output_roi = 0,
+			    const unsigned int const * output_size = 0,
+  			    const visual_sonics::InterpolationMethod& interpmethod = BilinearM
+	):
+    its_image_rows( mxGetM( image ) ),
+    its_image_cols( mxGetN( image ) ),
+    its_image( image ),
+    its_image_x( its_image_rows*its_image_cols ),
+    its_image_y( its_image_rows*its_image_cols ),
+    its_encoder_positions( its_image_cols ),
+    its_col_cos( its_image_cols ),
+    its_col_sin( its_image_cols ),
+    its_theta( its_image_cols ),
+    its_r( its_image_rows ),
+    its_transform_rows( 0 ),
+    its_transform_cols( 0 ),
+    its_transform( 0 ),
+    its_has_been_transformed( false ),
+    its_interpolation_method( interpmethod )
+{
+
+  mxArray* image_params_struct = mxGetField( metadata, 0, "image_parameters");
+  assert( image_params_struct != NULL );
+
+
+  mxArray* pivot_to_encoder_mxa = mxGetField( image_params_struct, 0, "RF_Mode__ActiveProbe__Pivot_Encoder_Dist___mm" );
+  assert( pivot_to_encoder_mxa != NULL );
+  const double* pivot_to_encoder_p = mxGetPr( pivot_to_encoder_mxa );
+  assert( pivot_to_encoder_p != NULL );
+  its_pivot_to_encoder_dist = static_cast<CoordT>(*pivot_to_encoder_p) ;
+
+  mxArray* shaft_length_mxa = mxGetField( image_params_struct, 0, "RF_Mode__ActiveProbe__Pivot_Transducer_Face_Dist___mm" );
+  assert( shaft_length_mxa != NULL );
+  double* shaft_length_p = mxGetPr( shaft_length_mxa );
+  double shaft_length = *shaft_length_p;
+
+  mxArray* delay_length_mxa = mxGetField( image_params_struct, 0, "RF_Mode__RX__V_Delay_Length___mm" );
+  assert ( delay_length_mxa != NULL );
+  double delay_length = *mxGetPr( delay_length_mxa );
+
+  its_pivot_to_xdcr_dist = static_cast<CoordT>(shaft_length + delay_length);
+
+  
+  mxArray* encoder_dists_mxa = mxGetField( image_params_struct, 0, "RF_Mode__RfModeSoft__V_Lines_Pos___mm" );
+  assert( encoder_dists_mxa != NULL );
+  double* encoder_dists_p = mxGetPr( encoder_dists_mxa );
+  assert( encoder_dists_p != NULL );
+  for (unsigned int i = 0; i < its_image_cols; i++ )
+  {
+    its_encoder_positions[i] = static_cast<CoordT>(*(encoder_dists_p + i));
+  }
+
+
+  mxArray* digi_depth_mxa = mxGetField( image_params_struct, 0, "RF_Mode__RX__V_Digi_Depth_Imaging___mm" );
+  double* digi_depth_p = mxGetPr( digi_depth_mxa );
+  its_sample_delta = static_cast<CoordT>(*digi_depth_p / its_image_rows);
+
+
+  its_output_roi = output_roi;
+
+  if ( its_output_roi[rows_start] == 0 )
+  {
+    its_output_roi[rows_start] = 1;
+  }
+  if ( its_output_roi[rows_end] == 0 )
+  {
+    its_output_roi[rows_end] = its_image_rows;
+  }
+  if ( its_output_roi[cols_start] == 0 )
+  {
+    its_output_roi[cols_start] = 1;
+  }
+  if ( its_output_roi[cols_end] == 0 )
+  {
+    its_output_roi[cols_end] = its_image_cols;
+  }
+
+
+  if (output_size)
+  {
+    its_transform_rows = output_size[0];
+    its_transform_cols = output_size[1];
+  }
+
+  //! default output image sizes
+  //! @todo give a proper default aspect ratio
+  if ( its_transform_rows == 0 )
+    its_transform_rows = 600;
+  if ( its_transform_cols == 0 )
+    its_transform_cols = 800;
+  
+  its_transform.resize( its_transform_rows*its_transform_cols );
+
+}
+template <class ImageDataInT, class ImageDataOutT, class CoordT>
 VisualSonicsTransform<ImageDataT,CoordT>::~VisualSonicsTransform()
 {
+
+
+#ifdef MATLAB_MEX_FILE 
+  delete[] its_output_roi;
+  delete its_image;
+#endif // MATLAB_MEX_FILE
 }
 
 
 
-template <class ImageDataT, class CoordT>
+template <class ImageDataInT, class ImageDataOutT, class CoordT>
 std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::transform()
 {
 
@@ -248,10 +356,10 @@ std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::transform()
       x_vals[rb] = its_image_x[rb_ind];  y_vals[rb] = its_image_y[rb_ind];
       x_vals[rt] = its_image_x[rt_ind];  y_vals[rt] = its_image_y[rt_ind];
 
-      data[lt] = its_image[lt_ind];
-      data[lb] = its_image[lb_ind];
-      data[rb] = its_image[rb_ind];
-      data[rt] = its_image[rt_ind];
+      data[lt] = *its_image[lt_ind];
+      data[lb] = *its_image[lb_ind];
+      data[rb] = *its_image[rb_ind];
+      data[rt] = *its_image[rt_ind];
 
       switch (its_interpolation_method)
       {
@@ -314,7 +422,8 @@ std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::transform()
 }
 
 
-template <class ImageDataT, class CoordT>
+
+template <class ImageDataInT, class ImageDataOutT, class CoordT>
 std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::get_transformed_image()
 {
   if (!its_has_been_transformed)
@@ -323,6 +432,10 @@ std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::get_transforme
   return its_transform; 
 }
 
+
+
+
 template class VisualSonicsTransform<double,double>;
 template class VisualSonicsTransform<double,float>;
 template class VisualSonicsTransform<float,float>;
+

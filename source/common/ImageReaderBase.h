@@ -31,6 +31,8 @@ namespace visual_sonics
 
   class ImageReaderBase
   {
+
+
   public:
     ImageReaderBase( const bf::path& in_file_path, std::vector<unsigned int>& frames_to_read );
     ImageReaderBase( const bf::path& in_file_path, //!< path to the .rdi/.rdb files less the extension
@@ -54,6 +56,8 @@ namespace visual_sonics
     ReadMethod get_read_method(){ return this->its_read_method; }
     void set_specific_acquisition( unsigned int sa ){ this->its_specific_acquisition = sa; }
     unsigned int get_specific_acquisition(){ return this->its_specific_acquisition; }
+
+
 
   protected:
     MetadataReaderBase* its_metadata_reader;

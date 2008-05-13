@@ -75,7 +75,6 @@ ImageViewer::~ImageViewer()
 }
 
 
-#include "vtkPNGReader.h"
 
 void ImageViewer::view_b_mode()
 {
@@ -93,49 +92,41 @@ void ImageViewer::view_b_mode()
 
  //its_viewer->SetupInteractor(its_iren);
  vtkImageShiftScale* iss = vtkImageShiftScale::New();
- iss->SetShift( b_mode_range[0] *-1 );
+ iss->SetShift( b_mode_range[0] * -1 );
  iss->SetScale( 255.0 / static_cast<double>(b_mode_range[1] - b_mode_range[0] ) );
  iss->ClampOverflowOn();
  iss->SetInputConnection( its_image_reader->GetOutputPort(3) );
  iss->SetOutputScalarTypeToUnsignedChar();
 
- vtkPNGReader* pngr = vtkPNGReader::New();
- pngr->SetFileName("chart.png");
- pngr->Update();
- vtkImageData* pngo = pngr->GetOutput();
- pngo->Print(cerr);
 
- 
-
-
- vtkImageViewer* viewer = vtkImageViewer::New();
+ //vtkImageViewer* viewer = vtkImageViewer::New();
  //viewer->SetInputConnection( iss->GetOutputPort() );
- viewer->SetInput( vtk_b_mode_image_sc );
- //viewer->SetInput( pngo );
- viewer->SetupInteractor( its_iren );
+ ////viewer->SetInput( vtk_b_mode_image_sc );
+ ////viewer->SetInput( pngo );
+ //viewer->SetupInteractor( its_iren );
 
- viewer->SetZSlice(0);
+ //viewer->SetZSlice(0);
  //viewer->SetColorWindow( 256.0 );
- viewer->SetColorWindow( b_mode_range[1] - b_mode_range[0] );
+ ////viewer->SetColorWindow( b_mode_range[1] - b_mode_range[0] );
  //viewer->SetColorLevel( 127.0 );
- viewer->SetColorLevel( (b_mode_range[1] - b_mode_range[0])/2.0 );
- viewer->Render();
+ ////viewer->SetColorLevel(b_mode_range[0] +  (b_mode_range[1] - b_mode_range[0])/2.0 );
+ //viewer->Render();
 
- //vtkImageActor* ia = vtkImageActor::New();
- //ia->SetInput( iss->GetOutput() );
+ vtkImageActor* ia = vtkImageActor::New();
+ ia->SetInput( iss->GetOutput() );
 
- //vtkRenderer* ren = vtkRenderer::New();
- //ren->SetBackground(0.0,0.8,0.0);
- //ren->AddViewProp( ia );
+ vtkRenderer* ren = vtkRenderer::New();
+ ren->SetBackground(0.0,0.8,0.0);
+ ren->AddViewProp( ia );
 
- //ia->RotateZ(-90.0);
- //ia->SetScale( 3.0, 3.0, 1.0 );
+ ia->RotateZ(-90.0);
+ ia->SetScale( 3.0, 3.0, 1.0 );
 
- //vtkRenderWindow* renwin = vtkRenderWindow::New();
- //renwin->AddRenderer( ren );
- //renwin->SetSize( dim[1], dim[0] );
+ vtkRenderWindow* renwin = vtkRenderWindow::New();
+ renwin->AddRenderer( ren );
+ renwin->SetSize( dim[1], dim[0] );
 
- //its_iren->SetRenderWindow( renwin );
+ its_iren->SetRenderWindow( renwin );
  its_iren->Initialize();
  its_iren->Start();
 

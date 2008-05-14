@@ -23,8 +23,9 @@
 #endif
 
 
-#include "Bilinear.h"
-#include "NearestNeighbor.h"
+#include "common/interpolation/Bilinear.h"
+#include "common/interpolation/NearestNeighbor.h"
+#include "common/spirit_parse/rdiParserData.h"
 
 using namespace visual_sonics;
 
@@ -38,19 +39,24 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
 	):
     its_image_rows( mxGetM( image) ),
     its_image_cols( mxGetN( image ) ),
-    its_image_x( its_image_rows*its_image_cols ),
-    its_image_y( its_image_rows*its_image_cols ),
     its_encoder_positions( its_image_cols ),
     its_col_cos( its_image_cols ),
     its_col_sin( its_image_cols ),
     its_theta( its_image_cols ),
     its_r( its_image_rows ),
+    its_default_transform_rows( 600 ),
     its_transform_rows( 0 ),
     its_transform_cols( 0 ),
     its_transform( 0 ),
     its_has_been_transformed( false ),
     its_interpolation_method( interpmethod )
 {
+
+
+  its_image_x = new std::vector<CoordT>( its_image_rows*its_image_cols );
+  its_image_y = new std::vector<CoordT>( its_image_rows*its_image_cols );
+
+
   double* image_data_p = mxGetPr( image );
   its_image = new std::vector<ImageDataInT>( its_image_rows*its_image_cols );
   std::vector<ImageDataInT>* its_image_non_c = const_cast< std::vector<ImageDataInT>* > ( its_image );
@@ -58,7 +64,7 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
   {
     for( unsigned int j = 0; j < its_image_rows; j++)
     {
-      *its_image_non_c[j + i*its_image_rows] = static_cast<ImageDataT>(*(image_data_p + i*its_image_rows + j));
+      (*its_image_non_c)[j + i*its_image_rows] = static_cast<ImageDataInT>(*(image_data_p + i*its_image_rows + j));
     }
   }
 
@@ -129,14 +135,6 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
   its_transform_rows = static_cast<unsigned int>( *output_size_p  );
   its_transform_cols = static_cast<unsigned int>( *(output_size_p+1)  );
 
-  //! default output image sizes
-  //! @todo give a proper default aspect ratio
-  if ( its_transform_rows == 0 )
-    its_transform_rows = 600;
-  if ( its_transform_cols == 0 )
-    its_transform_cols = 800;
-  
-  its_transform.resize( its_transform_rows*its_transform_cols );
 
 }
 #endif // MATLAB_MEX_FILE
@@ -146,21 +144,20 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
 VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransform( 
 			    const std::vector<ImageDataInT>* image,
-			    const rdiParserData const* rpd,
-			    const unsigned int const * output_roi = 0,
-			    const unsigned int const * output_size = 0,
-  			    const visual_sonics::InterpolationMethod& interpmethod = BilinearM
+			    const rdiParserData * const rpd,
+			    const unsigned int * const output_roi ,
+			    const unsigned int * const output_size,
+  			    const visual_sonics::InterpolationMethod& interpmethod 
 	):
-    its_image_rows( mxGetM( image ) ),
-    its_image_cols( mxGetN( image ) ),
+    its_image_rows( rpd->its_rf_mode_rx_ad_gate_width ),
+    its_image_cols( rpd->its_image_lines ),
     its_image( image ),
-    its_image_x( its_image_rows*its_image_cols ),
-    its_image_y( its_image_rows*its_image_cols ),
     its_encoder_positions( its_image_cols ),
     its_col_cos( its_image_cols ),
     its_col_sin( its_image_cols ),
     its_theta( its_image_cols ),
     its_r( its_image_rows ),
+    its_default_transform_rows( 512 ),
     its_transform_rows( 0 ),
     its_transform_cols( 0 ),
     its_transform( 0 ),
@@ -168,44 +165,25 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     its_interpolation_method( interpmethod )
 {
 
-  mxArray* image_params_struct = mxGetField( metadata, 0, "image_parameters");
-  assert( image_params_struct != NULL );
 
+  its_image_x = new std::vector<CoordT>( its_image_rows*its_image_cols );
+  its_image_y = new std::vector<CoordT>( its_image_rows*its_image_cols );
 
-  mxArray* pivot_to_encoder_mxa = mxGetField( image_params_struct, 0, "RF_Mode__ActiveProbe__Pivot_Encoder_Dist___mm" );
-  assert( pivot_to_encoder_mxa != NULL );
-  const double* pivot_to_encoder_p = mxGetPr( pivot_to_encoder_mxa );
-  assert( pivot_to_encoder_p != NULL );
-  its_pivot_to_encoder_dist = static_cast<CoordT>(*pivot_to_encoder_p) ;
+  its_pivot_to_encoder_dist = static_cast<CoordT>(rpd->its_rf_mode_activeprobe_pivot_encoder_dist) ;
 
-  mxArray* shaft_length_mxa = mxGetField( image_params_struct, 0, "RF_Mode__ActiveProbe__Pivot_Transducer_Face_Dist___mm" );
-  assert( shaft_length_mxa != NULL );
-  double* shaft_length_p = mxGetPr( shaft_length_mxa );
-  double shaft_length = *shaft_length_p;
-
-  mxArray* delay_length_mxa = mxGetField( image_params_struct, 0, "RF_Mode__RX__V_Delay_Length___mm" );
-  assert ( delay_length_mxa != NULL );
-  double delay_length = *mxGetPr( delay_length_mxa );
-
-  its_pivot_to_xdcr_dist = static_cast<CoordT>(shaft_length + delay_length);
+  its_pivot_to_xdcr_dist = static_cast<CoordT>(rpd->its_rf_mode_activeprobe_pivot_transducer_face_dist + rpd->its_rf_mode_rx_v_delay_length);
 
   
-  mxArray* encoder_dists_mxa = mxGetField( image_params_struct, 0, "RF_Mode__RfModeSoft__V_Lines_Pos___mm" );
-  assert( encoder_dists_mxa != NULL );
-  double* encoder_dists_p = mxGetPr( encoder_dists_mxa );
-  assert( encoder_dists_p != NULL );
   for (unsigned int i = 0; i < its_image_cols; i++ )
   {
-    its_encoder_positions[i] = static_cast<CoordT>(*(encoder_dists_p + i));
+    its_encoder_positions[i] = static_cast<CoordT>(rpd->its_rf_mode_rfmodesoft_v_lines_pos_vec[i]);
   }
 
 
-  mxArray* digi_depth_mxa = mxGetField( image_params_struct, 0, "RF_Mode__RX__V_Digi_Depth_Imaging___mm" );
-  double* digi_depth_p = mxGetPr( digi_depth_mxa );
-  its_sample_delta = static_cast<CoordT>(*digi_depth_p / its_image_rows);
+  its_sample_delta = static_cast<CoordT>(rpd->its_rf_mode_rx_v_digi_depth_imaging / its_image_rows);
 
 
-  its_output_roi = output_roi;
+  its_output_roi = const_cast< unsigned int *>(output_roi);
 
   if ( its_output_roi[rows_start] == 0 )
   {
@@ -231,20 +209,14 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     its_transform_cols = output_size[1];
   }
 
-  //! default output image sizes
-  //! @todo give a proper default aspect ratio
-  if ( its_transform_rows == 0 )
-    its_transform_rows = 600;
-  if ( its_transform_cols == 0 )
-    its_transform_cols = 800;
-  
-  its_transform.resize( its_transform_rows*its_transform_cols );
 
 }
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
-VisualSonicsTransform<ImageDataT,CoordT>::~VisualSonicsTransform()
+VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::~VisualSonicsTransform()
 {
 
+  delete its_image_x;
+  delete its_image_y;
 
 #ifdef MATLAB_MEX_FILE 
   delete[] its_output_roi;
@@ -254,8 +226,23 @@ VisualSonicsTransform<ImageDataT,CoordT>::~VisualSonicsTransform()
 
 
 
+
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
-std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::transform()
+void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::get_coords( const std::vector<CoordT>* x_coords, const std::vector<CoordT>* y_coords )
+{
+  this->calc_coords();
+
+
+  x_coords = its_image_x;
+  y_coords = its_image_y;
+
+}
+
+
+
+
+template <class ImageDataInT, class ImageDataOutT, class CoordT>
+void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
 {
 
   for(unsigned int i = 0; i < its_image_cols; i++)
@@ -275,30 +262,60 @@ std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::transform()
   {
     for(unsigned int j = 0; j < its_image_rows; j++)
     {
-      its_image_x[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_sin[i];
-      its_image_y[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_cos[i];
+      (*its_image_x)[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_sin[i];
+      (*its_image_y)[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_cos[i];
     }
   }
+}
+
+
+
+
+template <class ImageDataInT, class ImageDataOutT, class CoordT>
+std::vector<ImageDataOutT> VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
+{
+
+  this->calc_coords();
 
   
-  // lower left
-  const CoordT x_min = its_image_x[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_end] -1 ] ;
-  // lower right
-  const CoordT x_max = its_image_x[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end] -1 ] ;
+  // x minimum of upper left and lower left
+  const CoordT x_min_top = (*its_image_x)[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] -1 ] ;
+  const CoordT x_min_bot = (*its_image_x)[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_end] -1 ] ;
+  const CoordT x_min = std::min( x_min_top, x_min_bot );
+  // maximum of the upper right and lower right
+  const CoordT x_max_top = (*its_image_x)[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_start] -1 ] ;
+  const CoordT x_max_bot = (*its_image_x)[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end] -1 ] ;
+  const CoordT x_max = std::max( x_max_top, x_max_bot );
 
   // minimum of upper left and upper right
-  const CoordT y_min_left = its_image_y[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] - 1] ;
-  const CoordT y_min_right = its_image_y[ (its_output_roi[cols_end ] -1) * its_image_rows + its_output_roi[rows_end  ] - 1] ;
+  const CoordT y_min_left = (*its_image_y)[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] - 1] ;
+  const CoordT y_min_right = (*its_image_y)[ (its_output_roi[cols_end ] -1) * its_image_rows + its_output_roi[rows_end  ] - 1] ;
   const CoordT y_min = std::min(y_min_left, y_min_right);
 
   // maximum of values if image was off y-axis, value on y-axis otherwise
-  const CoordT y_max_left = its_image_y[  (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] -1] ;
-  const CoordT y_max_right = its_image_y[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end  ] -1] ;
+  const CoordT y_max_left = (*its_image_y)[  (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] -1] ;
+  const CoordT y_max_right = (*its_image_y)[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end  ] -1] ;
   CoordT y_max;
   if( ( x_min < 0.0 && x_max < 0.0 ) || ( x_min > 0.0 && x_max > 0.0 ) )
     y_max = std::max( y_max_left, y_max_right );
   else
     y_max = its_pivot_to_xdcr_dist + (its_image_rows-1)*its_sample_delta ;
+
+
+
+
+  // apply default values if they have not yet been given
+  if (its_transform_cols == 0 )
+  {
+    if ( its_transform_rows == 0 )
+    {
+      its_transform_rows = its_default_transform_rows;
+    }
+    // proper aspect ratio
+    its_transform_cols = static_cast< unsigned int > ( its_transform_rows * ( (x_max - x_min)/(y_max - y_min) ) );
+  }
+  its_transform.resize( its_transform_rows*its_transform_cols );
+
 
 
   // distance between points in the transformed image
@@ -321,7 +338,7 @@ std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::transform()
   enum locations { lt, lb, rb, rt };
 
   std::vector<CoordT> x_vals(4), y_vals(4);
-  std::vector<ImageDataT> data(4);
+  std::vector<ImageDataOutT> data(4);
 
   std::size_t	lt_ind, // left-top index
 		lb_ind,
@@ -351,20 +368,23 @@ std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::transform()
       rt_ind = ( (current_col - its_theta.begin()) + 1) * its_image_rows + (current_row - its_r.begin() );
       rb_ind = rt_ind + 1;
 
-      x_vals[lt] = its_image_x[lt_ind];  y_vals[lt] = its_image_y[lt_ind];
-      x_vals[lb] = its_image_x[lb_ind];  y_vals[lb] = its_image_y[lb_ind];
-      x_vals[rb] = its_image_x[rb_ind];  y_vals[rb] = its_image_y[rb_ind];
-      x_vals[rt] = its_image_x[rt_ind];  y_vals[rt] = its_image_y[rt_ind];
+      x_vals[lt] = (*its_image_x)[lt_ind];  y_vals[lt] = (*its_image_y)[lt_ind];
+      x_vals[lb] = (*its_image_x)[lb_ind];  y_vals[lb] = (*its_image_y)[lb_ind];
+      x_vals[rb] = (*its_image_x)[rb_ind];  y_vals[rb] = (*its_image_y)[rb_ind];
+      x_vals[rt] = (*its_image_x)[rt_ind];  y_vals[rt] = (*its_image_y)[rt_ind];
 
-      data[lt] = *its_image[lt_ind];
-      data[lb] = *its_image[lb_ind];
-      data[rb] = *its_image[rb_ind];
-      data[rt] = *its_image[rt_ind];
+      data[lt] = (*its_image)[lt_ind];
+      data[lb] = (*its_image)[lb_ind];
+      data[rb] = (*its_image)[rb_ind];
+      data[rt] = (*its_image)[rt_ind];
 
       switch (its_interpolation_method)
       {
-	case (0):
-	  its_interpolation = new NearestNeighbor<ImageDataT,CoordT>( x_vals, y_vals, data, x_pos, y_pos );
+	case (NearestNeighborM):
+	  its_interpolation = new NearestNeighbor<ImageDataOutT,CoordT>( x_vals, y_vals, data, x_pos, y_pos );
+	  break;
+	case (BilinearM):
+	  its_interpolation = new Bilinear<ImageDataOutT, CoordT>( x_vals, y_vals, data, x_pos, y_pos );
 	  break;
       }
 	  
@@ -377,7 +397,7 @@ std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::transform()
       //  and give the default value if we outside the bounds of the original image
       //try
       //{
-        //while ( x_pos < its_image_x.at(current_x_lower_bound) )
+        //while ( x_pos < (*its_image_x).at(current_x_lower_bound) )
 	//{
 	  //current_x_lower_bound++ ;
 	//}
@@ -424,7 +444,7 @@ std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::transform()
 
 
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
-std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::get_transformed_image()
+std::vector<ImageDataOutT> VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::get_transformed_image()
 {
   if (!its_has_been_transformed)
     return this->transform();
@@ -435,7 +455,11 @@ std::vector<ImageDataT> VisualSonicsTransform<ImageDataT,CoordT>::get_transforme
 
 
 
-template class VisualSonicsTransform<double,double>;
-template class VisualSonicsTransform<double,float>;
-template class VisualSonicsTransform<float,float>;
+template class VisualSonicsTransform<unsigned int, double, double>;
+template class VisualSonicsTransform<unsigned int, double, float>;
+template class VisualSonicsTransform<unsigned int, float, float>;
+
+template class VisualSonicsTransform<double, double, double>;
+template class VisualSonicsTransform<double, double, float>;
+template class VisualSonicsTransform<double, float, float>;
 

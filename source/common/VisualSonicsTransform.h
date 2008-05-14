@@ -26,13 +26,13 @@
 
 namespace visual_sonics
 {
+  class rdiParserData;
+
   //! ImageDataT is the type of the RF data we are working with, e.g. double, short 
   template <class ImageDataInT, class ImageDataOutT, class CoordT>
   class VisualSonicsTransform
   {
     public:
-  
-      typedef enum InterpolationMethod { NearestNeighborM, BilinearM } InterpolationMethodT;
   
   #ifdef MATLAB_MEX_FILE
       /*! @param image 
@@ -47,7 +47,7 @@ namespace visual_sonics
   			    const mxArray* const metadata,
   			    const mxArray* const output_roi,
   			    const mxArray* const output_size,
-  			    const int& interpmethod
+  			    const visual_sonics::InterpolationMethod& interpmethod
   	);
   #else
       /*! @param image 
@@ -66,9 +66,18 @@ namespace visual_sonics
   	//);
   #endif // MATLAB_MEX_FILE
   
-      VisualSonicsTransform( const std::vector<ImageDataInT>*, const rdiParserData const* );
+      VisualSonicsTransform( const std::vector<ImageDataInT>* image, 
+			     const rdiParserData * const rpd,
+			     const unsigned int * const output_roi = 0,
+			     const unsigned int * const output_size = 0,
+			     const visual_sonics::InterpolationMethod& interpmethod = BilinearM);
   
       ~VisualSonicsTransform();
+
+      //! get the x and y position of the original image points
+      void get_coords( const std::vector<CoordT>* x_coords,
+	                               const std::vector<CoordT>* y_coords );
+
       //! perform the transformation/scan conversion and return the transformed image
       std::vector<ImageDataOutT> transform();
   
@@ -79,6 +88,9 @@ namespace visual_sonics
     private:
   
   
+      //! calculates its_col_cos, its_col_sin, its_theta, its_r, its_image_x, its_image_y
+      void calc_coords();
+
   
       //! 
       //! the preconverted image data
@@ -98,9 +110,9 @@ namespace visual_sonics
      *
      */
      //! x positions for the points in the image
-      std::vector<CoordT> its_image_x;
+      std::vector<CoordT>* its_image_x;
       //! y positions fro the points in the image
-      std::vector<CoordT> its_image_y;
+      std::vector<CoordT>* its_image_y;
   
   
   
@@ -128,10 +140,15 @@ namespace visual_sonics
   
       enum output_roi_specs { rows_start, rows_end, cols_start, cols_end };
       //! [rows_start rows_end cols_start cols_end] @warning counting starts from 1 
-      std::vector<unsigned int> its_output_roi;
+      unsigned int* its_output_roi;
   
-  
+      //! default number of rows in the transformed image
+      //! the number of columns will be chosen for the proper aspect ratio
+      //! non-static so you can choose different values in different constructors
+      const unsigned int its_default_transform_rows;
+      //! number of rows in the transformed image 
       unsigned int its_transform_rows;
+      //! number of columns in the transformed image
       unsigned int its_transform_cols;
   
       //! the post-converted image data
@@ -140,11 +157,12 @@ namespace visual_sonics
   
       //! has transform() been called yet?
       bool its_has_been_transformed;
+
   
       //! interpolation method 
       visual_sonics::InterpolationMethod its_interpolation_method;
   
-      // value when you are outside the bounds of the original image
+      //! value when you are outside the bounds of the original image
       const static CoordT its_outside_bounds_value = 0.0;
   };
 } // end namespace visual_sonics

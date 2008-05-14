@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef READMETHOD_H
-#define READMETHOD_H
+#ifndef INTERPOLATIONMETHOD_H
+#define INTERPOLATIONMETHOD_H
 
 
 namespace visual_sonics

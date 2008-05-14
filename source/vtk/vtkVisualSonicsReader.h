@@ -26,7 +26,7 @@ namespace visual_sonics
 
   namespace cxx
   {
-    class ImageReader;
+    template<class ImageDataOutT, class CoordT> class ImageReader;
   }
 }
 
@@ -95,7 +95,8 @@ protected:
 		      vtkInformationVector*);
 
   //! does the heavy lifting for reading in the data
-  visual_sonics::cxx::ImageReader* its_ir;
+  //! @warning not sure if giving a type here will work
+  visual_sonics::cxx::ImageReader<class, class>* its_ir;
 
   //! type of output image data type
   enum ImageDataOutType { ImageFloat, ImageDouble };

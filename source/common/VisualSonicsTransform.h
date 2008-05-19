@@ -66,7 +66,10 @@ namespace visual_sonics
   	//);
   #endif // MATLAB_MEX_FILE
   
-      VisualSonicsTransform( const std::vector<ImageDataInT>* image, 
+        VisualSonicsTransform( const std::vector<ImageDataInT> & image, 
+			     std::vector<ImageDataOutT> & transform,
+			     std::vector<CoordT> & image_x,
+			     std::vector<CoordT> & image_y,
 			     const rdiParserData * const rpd,
 			     const unsigned int * const output_roi = 0,
 			     const unsigned int * const output_size = 0,
@@ -97,7 +100,7 @@ namespace visual_sonics
       const unsigned int its_image_rows;
       const unsigned int its_image_cols;
       //! image data
-      const std::vector<ImageDataInT>*  its_image;
+      const std::vector<ImageDataInT>  its_image;
      /*! Coordinate system:
      * Post scan conversion space
      * ------> +x
@@ -110,9 +113,9 @@ namespace visual_sonics
      *
      */
      //! x positions for the points in the image
-      std::vector<CoordT>* its_image_x;
+      std::vector<CoordT> its_image_x;
       //! y positions fro the points in the image
-      std::vector<CoordT>* its_image_y;
+      std::vector<CoordT> its_image_y;
   
   
   

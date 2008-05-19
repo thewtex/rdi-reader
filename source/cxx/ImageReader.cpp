@@ -25,6 +25,14 @@ template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read):
   ImageReaderBase( in_file_path, frames_to_read )
 {
+  its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
+										      its_b_mode_image_sc,
+										      its_b_mode_image_x,
+										      its_b_mode_image_y,
+										      this->get_rpd()
+										      );
+
+
 }
 
 
@@ -33,6 +41,12 @@ template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition):
   ImageReaderBase( in_file_path, frames_to_read, read_method, specific_acquisition )
 {
+  its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
+										      its_b_mode_image_sc,
+										      its_b_mode_image_x,
+										      its_b_mode_image_y,
+										      this->get_rpd()
+										      );
 }
 
 
@@ -41,6 +55,12 @@ template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::ImageReader( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition ):
   ImageReaderBase( in_file_path, read_method, specific_acquisition )
 {
+  its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
+										      its_b_mode_image_sc,
+										      its_b_mode_image_x,
+										      its_b_mode_image_y,
+										      this->get_rpd()
+										      );
 }
 
 
@@ -49,7 +69,22 @@ template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path ):
   ImageReaderBase( in_file_path )
 {
+  its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
+										      its_b_mode_image_sc,
+										      its_b_mode_image_x,
+										      its_b_mode_image_y,
+										      this->get_rpd()
+										      );
 }
+
+
+
+template<class ImageDataOutT, class CoordT>
+ImageReader<ImageDataOutT,CoordT>::~ImageReader()
+{
+  delete its_b_mode_vs_transform;
+}
+
 
 
 
@@ -87,6 +122,14 @@ void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
 
   delete[] u_short_data;
   rdb_file.close();
+  // finished extracting data
+
+
+  // prepare for transformation
+  its_b_mode_image_x.resize(samples_per_line * num_lines);
+  its_b_mode_image_y.resize(samples_per_line * num_lines);
+
+  its_b_mode_vs_transform->transform();
 
 }
 

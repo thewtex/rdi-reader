@@ -53,12 +53,10 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
 {
 
 
-  its_image_x = new std::vector<CoordT>( its_image_rows*its_image_cols );
-  its_image_y = new std::vector<CoordT>( its_image_rows*its_image_cols );
 
 
   double* image_data_p = mxGetPr( image );
-  its_image = new std::vector<ImageDataInT>( its_image_rows*its_image_cols );
+  its_image = std::vector<ImageDataInT>( its_image_rows*its_image_cols );
   std::vector<ImageDataInT>* its_image_non_c = const_cast< std::vector<ImageDataInT>* > ( its_image );
   for( unsigned int i = 0; i < its_image_cols; i++ )
   {
@@ -143,7 +141,10 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
 
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
 VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransform( 
-			    const std::vector<ImageDataInT>* image,
+			    const std::vector<ImageDataInT>& image,
+			    std::vector<ImageDataOutT> & transform,
+			    std::vector<CoordT> & image_x,
+			    std::vector<CoordT> & image_y,
 			    const rdiParserData * const rpd,
 			    const unsigned int * const output_roi ,
 			    const unsigned int * const output_size,
@@ -152,6 +153,8 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     its_image_rows( rpd->its_rf_mode_rx_ad_gate_width ),
     its_image_cols( rpd->its_image_lines ),
     its_image( image ),
+    its_image_x( image_x ),
+    its_image_y( image_y ),
     its_encoder_positions( its_image_cols ),
     its_col_cos( its_image_cols ),
     its_col_sin( its_image_cols ),
@@ -160,14 +163,12 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     its_default_transform_rows( 512 ),
     its_transform_rows( 0 ),
     its_transform_cols( 0 ),
-    its_transform( 0 ),
+    its_transform( transform ),
     its_has_been_transformed( false ),
     its_interpolation_method( interpmethod )
 {
 
 
-  its_image_x = new std::vector<CoordT>( its_image_rows*its_image_cols );
-  its_image_y = new std::vector<CoordT>( its_image_rows*its_image_cols );
 
   its_pivot_to_encoder_dist = static_cast<CoordT>(rpd->its_rf_mode_activeprobe_pivot_encoder_dist) ;
 
@@ -215,28 +216,13 @@ template <class ImageDataInT, class ImageDataOutT, class CoordT>
 VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::~VisualSonicsTransform()
 {
 
-  delete its_image_x;
-  delete its_image_y;
 
 #ifdef MATLAB_MEX_FILE 
   delete[] its_output_roi;
-  delete its_image;
 #endif // MATLAB_MEX_FILE
 }
 
 
-
-
-template <class ImageDataInT, class ImageDataOutT, class CoordT>
-void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::get_coords( const std::vector<CoordT>* x_coords, const std::vector<CoordT>* y_coords )
-{
-  this->calc_coords();
-
-
-  x_coords = its_image_x;
-  y_coords = its_image_y;
-
-}
 
 
 
@@ -262,8 +248,8 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
   {
     for(unsigned int j = 0; j < its_image_rows; j++)
     {
-      (*its_image_x)[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_sin[i];
-      (*its_image_y)[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_cos[i];
+      its_image_x[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_sin[i];
+      its_image_y[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_cos[i];
     }
   }
 }
@@ -279,22 +265,22 @@ std::vector<ImageDataOutT> VisualSonicsTransform<ImageDataInT, ImageDataOutT, Co
 
   
   // x minimum of upper left and lower left
-  const CoordT x_min_top = (*its_image_x)[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] -1 ] ;
-  const CoordT x_min_bot = (*its_image_x)[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_end] -1 ] ;
+  const CoordT x_min_top = its_image_x[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] -1 ] ;
+  const CoordT x_min_bot = its_image_x[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_end] -1 ] ;
   const CoordT x_min = std::min( x_min_top, x_min_bot );
   // maximum of the upper right and lower right
-  const CoordT x_max_top = (*its_image_x)[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_start] -1 ] ;
-  const CoordT x_max_bot = (*its_image_x)[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end] -1 ] ;
+  const CoordT x_max_top = its_image_x[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_start] -1 ] ;
+  const CoordT x_max_bot = its_image_x[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end] -1 ] ;
   const CoordT x_max = std::max( x_max_top, x_max_bot );
 
   // minimum of upper left and upper right
-  const CoordT y_min_left = (*its_image_y)[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] - 1] ;
-  const CoordT y_min_right = (*its_image_y)[ (its_output_roi[cols_end ] -1) * its_image_rows + its_output_roi[rows_end  ] - 1] ;
+  const CoordT y_min_left = its_image_y[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] - 1] ;
+  const CoordT y_min_right = its_image_y[ (its_output_roi[cols_end ] -1) * its_image_rows + its_output_roi[rows_end  ] - 1] ;
   const CoordT y_min = std::min(y_min_left, y_min_right);
 
   // maximum of values if image was off y-axis, value on y-axis otherwise
-  const CoordT y_max_left = (*its_image_y)[  (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] -1] ;
-  const CoordT y_max_right = (*its_image_y)[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end  ] -1] ;
+  const CoordT y_max_left = its_image_y[  (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] -1] ;
+  const CoordT y_max_right = its_image_y[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end  ] -1] ;
   CoordT y_max;
   if( ( x_min < 0.0 && x_max < 0.0 ) || ( x_min > 0.0 && x_max > 0.0 ) )
     y_max = std::max( y_max_left, y_max_right );
@@ -368,15 +354,15 @@ std::vector<ImageDataOutT> VisualSonicsTransform<ImageDataInT, ImageDataOutT, Co
       rt_ind = ( (current_col - its_theta.begin()) + 1) * its_image_rows + (current_row - its_r.begin() );
       rb_ind = rt_ind + 1;
 
-      x_vals[lt] = (*its_image_x)[lt_ind];  y_vals[lt] = (*its_image_y)[lt_ind];
-      x_vals[lb] = (*its_image_x)[lb_ind];  y_vals[lb] = (*its_image_y)[lb_ind];
-      x_vals[rb] = (*its_image_x)[rb_ind];  y_vals[rb] = (*its_image_y)[rb_ind];
-      x_vals[rt] = (*its_image_x)[rt_ind];  y_vals[rt] = (*its_image_y)[rt_ind];
+      x_vals[lt] = its_image_x[lt_ind];  y_vals[lt] = its_image_y[lt_ind];
+      x_vals[lb] = its_image_x[lb_ind];  y_vals[lb] = its_image_y[lb_ind];
+      x_vals[rb] = its_image_x[rb_ind];  y_vals[rb] = its_image_y[rb_ind];
+      x_vals[rt] = its_image_x[rt_ind];  y_vals[rt] = its_image_y[rt_ind];
 
-      data[lt] = (*its_image)[lt_ind];
-      data[lb] = (*its_image)[lb_ind];
-      data[rb] = (*its_image)[rb_ind];
-      data[rt] = (*its_image)[rt_ind];
+      data[lt] = its_image[lt_ind];
+      data[lb] = its_image[lb_ind];
+      data[rb] = its_image[rb_ind];
+      data[rt] = its_image[rt_ind];
 
       switch (its_interpolation_method)
       {
@@ -397,7 +383,7 @@ std::vector<ImageDataOutT> VisualSonicsTransform<ImageDataInT, ImageDataOutT, Co
       //  and give the default value if we outside the bounds of the original image
       //try
       //{
-        //while ( x_pos < (*its_image_x).at(current_x_lower_bound) )
+        //while ( x_pos < its_image_x.at(current_x_lower_bound) )
 	//{
 	  //current_x_lower_bound++ ;
 	//}
@@ -455,9 +441,9 @@ std::vector<ImageDataOutT> VisualSonicsTransform<ImageDataInT, ImageDataOutT, Co
 
 
 
-template class VisualSonicsTransform<unsigned int, double, double>;
-template class VisualSonicsTransform<unsigned int, double, float>;
-template class VisualSonicsTransform<unsigned int, float, float>;
+template class VisualSonicsTransform<unsigned short, double, double>;
+template class VisualSonicsTransform<unsigned short, double, float>;
+template class VisualSonicsTransform<unsigned short, float, float>;
 
 template class VisualSonicsTransform<double, double, double>;
 template class VisualSonicsTransform<double, double, float>;

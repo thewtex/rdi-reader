@@ -41,7 +41,7 @@ namespace visual_sonics
       ImageReader( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition = 0 );
       ImageReader( const bf::path& in_file_path );
 
-      virtual ~ImageReader(){};
+      virtual ~ImageReader();
 
 
       virtual void read_b_mode_image();
@@ -58,10 +58,18 @@ namespace visual_sonics
     protected:
       //! scout window b-mode data.  data is stored sequentially by sample in a line, then by line
       std::vector<UInt16> its_b_mode_image;
+      //! scout window b-mode data.  data is stored sequentially by sample in a line, then by line, scan converted
+      std::vector<ImageDataOutT> its_b_mode_image_sc;
+      //! scout window b-mode data.  x coordinates
+      std::vector<CoordDataT> its_b_mode_image_x;
+      //! scout window b-mode data.  y coordinates
+      std::vector<CoordDataT> its_b_mode_image_y;
       //! max value in the b mode image
       UInt16 its_b_mode_max;
       //! min value in the b mode image
       UInt16 its_b_mode_min;
+
+
       //! saturation data.  data is stored sequentially by sample in a line, then by line
       std::vector<bool>   its_saturation_image;
       //! rf data.  data is stored sequentially by sample in a line, then by line

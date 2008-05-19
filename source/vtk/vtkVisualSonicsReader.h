@@ -18,8 +18,6 @@ namespace bf = boost::filesystem;
 
 #include "vtkSetGet.h"
 
-#include "vtk/cxxImageReaderNonTemplated.h"
-
 
 using namespace visual_sonics;
 
@@ -98,15 +96,7 @@ protected:
 		      vtkInformationVector*);
 
   //! does the heavy lifting for reading in the data
-  vtk::cxxImageReaderNonTemplatedBase* its_ir;
-
-  //! type of output image data type
-  enum ImageDataOutType { ImageFloat, ImageDouble };
-  ImageDataOutType its_image_data_out_type;
-
-  //! type of the coordinate types
-  enum CoordDataType { CoordFloat, CoordDouble };
-  CoordDataType its_coord_data_type ;
+  cxx::ImageReader<double,double>* its_ir;
 
   const visual_sonics::rdiParserData* its_rpd;
 

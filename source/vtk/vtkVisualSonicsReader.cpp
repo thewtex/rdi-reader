@@ -65,10 +65,10 @@ void vtkVisualSonicsReader::SetFilePrefix( const char* fileprefix)
         switch (its_coord_data_type)
 	{
 	  case CoordFloat:
-	    this->its_ir = new cxx::ImageReader<float,float>( full_prefix_path );
+	    its_ir = new vtk::cxxImageReaderNonTemplatedDerived<float, float>( full_prefix_path );
 	    break;
 	  case CoordDouble:
-	    this->its_ir = new cxx::ImageReader<float,double>( full_prefix_path );
+	    its_ir = new cxx::ImageReader<float,double>( full_prefix_path );
 	    break;
 	}
 	break;

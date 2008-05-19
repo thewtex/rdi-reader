@@ -18,6 +18,9 @@ namespace bf = boost::filesystem;
 
 #include "vtkSetGet.h"
 
+#include "vtk/cxxImageReaderNonTemplated.h"
+
+
 using namespace visual_sonics;
 
 namespace visual_sonics
@@ -95,8 +98,7 @@ protected:
 		      vtkInformationVector*);
 
   //! does the heavy lifting for reading in the data
-  //! @warning not sure if giving a type here will work
-  visual_sonics::cxx::ImageReader<class, class>* its_ir;
+  vtk::cxxImageReaderNonTemplatedBase* its_ir;
 
   //! type of output image data type
   enum ImageDataOutType { ImageFloat, ImageDouble };

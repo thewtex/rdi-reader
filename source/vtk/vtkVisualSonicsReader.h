@@ -93,7 +93,12 @@ protected:
   //! does the actual data crunching at a pipeline request
   virtual int RequestData(vtkInformation*,
 		      vtkInformationVector**,
-		      vtkInformationVector*);
+		      vtkInformationVector* outputVector);
+
+  //! break this->RequestData into 3 logical sections: ReadBMode, ReadSaturation, ReadRF
+  int ReadBMode(vtkInformationVector* outputVector);
+  int ReadSaturation(vtkInformationVector* outputVector);
+  int ReadRF(vtkInformationVector* outputVector);
 
   //! does the heavy lifting for reading in the data
   cxx::ImageReader<double,double>* its_ir;

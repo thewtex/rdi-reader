@@ -8,11 +8,13 @@ namespace bf = boost::filesystem;
 #include "vtkImageData.h"
 #include "vtkInformation.h"
 #include "vtkInformationVector.h"
-#include "vtkUnsignedShortArray.h"
 #include "vtkObjectFactory.h"
 #include "vtkPointData.h"
+#include "vtkPoints.h"
 #include "vtkSetGet.h"
 #include "vtkSmartPointer.h"
+#include "vtkStructuredGrid.h"
+#include "vtkUnsignedShortArray.h"
 
 
 #include "cxx/ImageReader.h"
@@ -120,12 +122,30 @@ int vtkVisualSonicsReader::RequestData(vtkInformation*,
 			     vtkInformationVector**,
 			     vtkInformationVector* outputVector)
 {
+
+  // check to make sure its_ir has been prepared
   if(!this->its_ir)
   {
     vtkErrorMacro("A FilePrefix must be specified with SetFilePrefix( filename ).");
     return 0;
   }
 
+
+  if(!this->ReadBMode(outputVector) )
+    return 0;
+
+
+  this->Modified();
+
+  return 1;
+}
+
+
+
+
+int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
+{
+  // read in the image
   its_ir->read_b_mode_image();
 
   const unsigned int samples_per_line = its_rpd->its_rf_mode_rx_ad_gate_width;
@@ -150,7 +170,7 @@ int vtkVisualSonicsReader::RequestData(vtkInformation*,
   vtk_b_mode_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
   // fill in scout b mode scan converted values
   UInt16* vtk_b_mode_image_sc_p = static_cast< UInt16* >( vtk_b_mode_image_sc->GetScalarPointer() );
-  UInt16* cxx_b_mode_image_sc_p = its_ir->get_b_mode_image_p();
+  const UInt16* cxx_b_mode_image_sc_p = its_ir->get_b_mode_image_p();
 
   for(unsigned int i=0; i<num_lines; i++)
   {
@@ -163,14 +183,67 @@ int vtkVisualSonicsReader::RequestData(vtkInformation*,
   }
 
 
+  outInfo = outputVector->GetInformationObject(0);
+  vtkStructuredGrid* vtk_b_mode_image_raw = vtkStructuredGrid::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
+  if (!vtk_b_mode_image_raw)
+    return 0;
+
+  vtk_b_mode_image_raw->SetWholeExtent( 0, samples_per_line - 1, 0, num_lines - 1, 0, 0 );
+  vtk_b_mode_image_raw->SetDimensions( samples_per_line, num_lines, 1 );
+
+
+  vtkSmartPointer<vtkPoints> b_mode_raw_points = vtkSmartPointer<vtkPoints>::New();
+  b_mode_raw_points->SetNumberOfPoints( samples_per_line*num_lines*1 );
+
+  vtkSmartPointer<vtkUnsignedShortArray> b_mode_raw_data = vtkSmartPointer<vtkUnsignedShortArray>::New();
+  b_mode_raw_data->SetNumberOfComponents(1);
+  b_mode_raw_data->SetNumberOfTuples( samples_per_line*num_lines*1 );
+
+  
+  const UInt16* cxx_b_mode_image_p = its_ir->get_b_mode_image_p();
+  const double* cxx_b_mode_image_x_p = its_ir->get_b_mode_image_x_p();
+  const double* cxx_b_mode_image_y_p = its_ir->get_b_mode_image_y_p();
+
+  UInt16* vtk_b_mode_raw_data_p = static_cast< UInt16* >( b_mode_raw_data->GetPointer(0) );
+  for( unsigned int i=0; i<num_lines; i++)
+  {
+    for(unsigned int j=0; j<samples_per_line; j++)
+    {
+      *vtk_b_mode_raw_data_p = *cxx_b_mode_image_p;
+      vtk_b_mode_raw_data_p++;
+      cxx_b_mode_image_p++;
+
+      b_mode_raw_points->SetPoint( i*samples_per_line + j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p, 0.0);
+      cxx_b_mode_image_x_p++;
+      cxx_b_mode_image_y_p++;
+    }
+  }
+
+  vtk_b_mode_image_raw->SetPoints(b_mode_raw_points);
+  vtk_b_mode_image_raw->GetPointData()->SetScalars( b_mode_raw_data );
+
+  return 1;
+
+}
 
 
 
-  this->Modified();
+
+int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector)
+{
+
 
   return 1;
 }
 
+
+
+
+int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
+{
+
+  return 1;
+}
 
 
 

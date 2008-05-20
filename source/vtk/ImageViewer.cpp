@@ -88,7 +88,7 @@ void ImageViewer::view_b_mode()
  int xmina, xmaxa, ymina, ymaxa, zmina, zmaxa;
  vtk_b_mode_image_sc->GetExtent( xmina, xmaxa, ymina, ymaxa, zmina, zmaxa );
  //vtk_b_mode_image_sc->DebugOn();
- vtk_b_mode_image_sc->Print(cerr);
+ //vtk_b_mode_image_sc->Print(cerr);
 
  //its_viewer->SetupInteractor(its_iren);
  vtkImageShiftScale* iss = vtkImageShiftScale::New();

@@ -30,7 +30,7 @@ namespace visual_sonics
 {
   namespace cxx
   {
-    template <class ImageDataOutT, class CoordDataT>
+    template <class ImageDataOutT, class CoordT>
     class ImageReader: public visual_sonics::ImageReaderBase
     {
     public:
@@ -49,7 +49,11 @@ namespace visual_sonics
       virtual bool read_rf_data_image();
 
       //! get the pointer to the actual b_mode_image data
-      UInt16* get_b_mode_image_p(){ return &its_b_mode_image[0];} 
+      const UInt16* get_b_mode_image_p(){ return &its_b_mode_image[0];} 
+      //! get pointer to b_mode_image x coords
+      const CoordT* get_b_mode_image_x_p(){ return &its_b_mode_image_x[0];}
+      //! get pointer to b_mode_image y coords
+      const CoordT* get_b_mode_image_y_p(){ return &its_b_mode_image_y[0];}
 
       UInt16 get_b_mode_max(){ return its_b_mode_max; }
       UInt16 get_b_mode_min(){ return its_b_mode_min; }
@@ -61,9 +65,9 @@ namespace visual_sonics
       //! scout window b-mode data.  data is stored sequentially by sample in a line, then by line, scan converted
       std::vector<ImageDataOutT> its_b_mode_image_sc;
       //! scout window b-mode data.  x coordinates
-      std::vector<CoordDataT> its_b_mode_image_x;
+      std::vector<CoordT> its_b_mode_image_x;
       //! scout window b-mode data.  y coordinates
-      std::vector<CoordDataT> its_b_mode_image_y;
+      std::vector<CoordT> its_b_mode_image_y;
       //! max value in the b mode image
       UInt16 its_b_mode_max;
       //! min value in the b mode image
@@ -77,7 +81,7 @@ namespace visual_sonics
 
 
       //! performs scan conversion, etc
-      VisualSonicsTransform<UInt16, ImageDataOutT, CoordDataT>* its_b_mode_vs_transform;
+      VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>* its_b_mode_vs_transform;
 
     private:
 

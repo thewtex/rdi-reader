@@ -66,20 +66,22 @@ namespace visual_sonics
   	//);
   #endif // MATLAB_MEX_FILE
   
-        VisualSonicsTransform( const std::vector<ImageDataInT> & image, 
-			     std::vector<ImageDataOutT> & transform,
-			     std::vector<CoordT> & image_x,
-			     std::vector<CoordT> & image_y,
-			     const rdiParserData * const rpd,
-			     const unsigned int * const output_roi = 0,
-			     const unsigned int * const output_size = 0,
-			     const visual_sonics::InterpolationMethod& interpmethod = BilinearM);
+      /*! 
+       * Constructor for the class using std::vectors
+       */
+        VisualSonicsTransform( const std::vector<ImageDataInT> & image,  //!< raw data to be transformed/scan converted
+			     std::vector<ImageDataOutT> & transform, //!< where the transformed image is put @warning the reference is modified
+			     std::vector<CoordT> & image_x, //!< where the x-coordinates for the image points are put @warning the reference is modified by the class
+			     std::vector<CoordT> & image_y, //!< where the y-coordinates for the image points are put @warning the reference is modified by the class
+			     const rdiParserData * const rpd, //!< the metadata used to determine how scan conversion should take place
+			     const unsigned int * const output_roi = 0, //!< which part of the original image needs to be scan converted
+			     const unsigned int * const output_size = 0, //!< the dimensions of the output image
+			     const visual_sonics::InterpolationMethod& interpmethod = BilinearM //!< which interpolation method is used
+			     );
   
       ~VisualSonicsTransform();
 
-      //! get the x and y position of the original image points
-      void get_coords( const std::vector<CoordT>* x_coords,
-	                               const std::vector<CoordT>* y_coords );
+
 
       //! perform the transformation/scan conversion and return the transformed image
       std::vector<ImageDataOutT> transform();
@@ -100,7 +102,7 @@ namespace visual_sonics
       const unsigned int its_image_rows;
       const unsigned int its_image_cols;
       //! image data
-      const std::vector<ImageDataInT>  its_image;
+      const std::vector<ImageDataInT>&  its_image;
      /*! Coordinate system:
      * Post scan conversion space
      * ------> +x
@@ -113,9 +115,9 @@ namespace visual_sonics
      *
      */
      //! x positions for the points in the image
-      std::vector<CoordT> its_image_x;
+      std::vector<CoordT>& its_image_x;
       //! y positions fro the points in the image
-      std::vector<CoordT> its_image_y;
+      std::vector<CoordT>& its_image_y;
   
   
   
@@ -167,6 +169,10 @@ namespace visual_sonics
   
       //! value when you are outside the bounds of the original image
       const static CoordT its_outside_bounds_value = 0.0;
+
+    private:
+      //! if its_output_roi needs to have delete[] called on destruction
+      bool its_delete_output_roi;
   };
 } // end namespace visual_sonics
 

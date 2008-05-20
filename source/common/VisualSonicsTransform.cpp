@@ -50,6 +50,7 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     its_transform( 0 ),
     its_has_been_transformed( false ),
     its_interpolation_method( interpmethod )
+    its_delete_output_roi( true )
 {
 
 
@@ -165,7 +166,8 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     its_transform_cols( 0 ),
     its_transform( transform ),
     its_has_been_transformed( false ),
-    its_interpolation_method( interpmethod )
+    its_interpolation_method( interpmethod ),
+    its_delete_output_roi( false )
 {
 
 
@@ -184,7 +186,17 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
   its_sample_delta = static_cast<CoordT>(rpd->its_rf_mode_rx_v_digi_depth_imaging / its_image_rows);
 
 
-  its_output_roi = const_cast< unsigned int *>(output_roi);
+  if (!output_roi)
+  {
+    its_delete_output_roi = true;
+    its_output_roi = new unsigned int[4];
+    for( int i = 0; i<4; i++)
+      its_output_roi[i] = 0;
+  }
+  else
+  {
+    its_output_roi = const_cast< unsigned int *>(output_roi);
+  }
 
   if ( its_output_roi[rows_start] == 0 )
   {
@@ -215,13 +227,11 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
 VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::~VisualSonicsTransform()
 {
-
-
-#ifdef MATLAB_MEX_FILE 
-  delete[] its_output_roi;
-#endif // MATLAB_MEX_FILE
+  if (its_delete_output_roi )
+  {
+    delete[] its_output_roi;
+  }
 }
-
 
 
 
@@ -243,6 +253,8 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
     its_r[i] = its_pivot_to_xdcr_dist + i*its_sample_delta;
 
 
+  its_image_x.resize( its_image_cols * its_image_rows );
+  its_image_y.resize( its_image_cols * its_image_rows );
 
   for(unsigned int i = 0; i < its_image_cols; i++)
   {
@@ -374,7 +386,7 @@ std::vector<ImageDataOutT> VisualSonicsTransform<ImageDataInT, ImageDataOutT, Co
 	  break;
       }
 	  
-      its_transform[ i*its_transform_cols + j ] = its_interpolation->interpolate(); 
+      its_transform[ i*its_transform_rows + j ] = its_interpolation->interpolate(); 
 
       delete its_interpolation;
 

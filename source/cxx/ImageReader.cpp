@@ -87,7 +87,6 @@ ImageReader<ImageDataOutT,CoordT>::~ImageReader()
 
 
 
-
 template<class ImageDataOutT, class CoordT>
 void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
 {

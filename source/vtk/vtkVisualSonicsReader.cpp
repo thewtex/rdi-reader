@@ -25,7 +25,8 @@ using namespace visual_sonics::vtk;
 
 vtkStandardNewMacro(vtkVisualSonicsReader);
 
-vtkVisualSonicsReader::vtkVisualSonicsReader()
+vtkVisualSonicsReader::vtkVisualSonicsReader():
+  its_ir( 0 )
 {
   this->SetNumberOfInputPorts(0);
   this->SetNumberOfOutputPorts(6);

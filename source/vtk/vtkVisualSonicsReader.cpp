@@ -213,7 +213,7 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
       vtk_b_mode_raw_data_p++;
       cxx_b_mode_image_p++;
 
-      b_mode_raw_points->SetPoint( i*samples_per_line + j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p, 0.0);
+      b_mode_raw_points->SetPoint( i*samples_per_line + j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
       cxx_b_mode_image_x_p++;
       cxx_b_mode_image_y_p++;
     }

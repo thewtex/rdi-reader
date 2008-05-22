@@ -152,7 +152,7 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
   			    const visual_sonics::InterpolationMethod& interpmethod 
 	):
     its_image_rows( rpd->its_rf_mode_rx_ad_gate_width ),
-    its_image_cols( rpd->its_image_lines ),
+    its_image_cols( rpd->its_rf_mode_tx_trig_tbl_trigs),
     its_image( image ),
     its_image_x( image_x ),
     its_image_y( image_y ),
@@ -236,7 +236,7 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::~VisualSonicsTransfo
 
 
 
-
+#include "iostream"
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
 void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
 {
@@ -260,10 +260,26 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
   {
     for(unsigned int j = 0; j < its_image_rows; j++)
     {
-      its_image_x[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_sin[i];
-      its_image_y[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_cos[i];
+      its_image_x[j + i*its_image_rows] = its_r[j] * its_col_sin[i];
+      its_image_y[j + i*its_image_rows] = its_r[j] * its_col_cos[i];
+      //its_image_x[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_sin[i];
+      //its_image_y[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta )* its_col_cos[i];
     }
   }
+  using namespace std;
+  std::cout << "rows: " << its_image_rows << " cols: " << its_image_cols << std::endl; 
+  //for(unsigned int i = 0; i < its_image_cols; i++)
+  //{
+    //for(unsigned int j = 0; j < its_image_rows; j++)
+    //{
+
+      //cout << "the index: " << j + i* its_image_rows << " the value: " <<  its_r[j] * its_col_sin[i] << std::endl;
+      //its_image_y[j + i*its_image_rows] = its_r[j] * its_col_cos[i];
+      ////its_image_x[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_sin[i];
+      ////its_image_y[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta )* its_col_cos[i];
+    //}
+  //}
+  cout << "Transformer x: " << its_image_x[20200] << std::endl;
 }
 
 

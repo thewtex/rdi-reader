@@ -125,8 +125,8 @@ void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
 
 
   // prepare for transformation
-  its_b_mode_image_x.resize(samples_per_line * num_lines);
-  its_b_mode_image_y.resize(samples_per_line * num_lines);
+  its_b_mode_image_x.resize(samples_per_line * num_lines, 13.3);
+  its_b_mode_image_y.resize(samples_per_line * num_lines, 13.3);
 
   its_b_mode_vs_transform->transform();
 

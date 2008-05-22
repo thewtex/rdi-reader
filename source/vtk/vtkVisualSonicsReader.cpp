@@ -183,16 +183,19 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
   }
 
 
+  //---------- b_mode_image_raw -----------------
   outInfo = outputVector->GetInformationObject(0);
   vtkStructuredGrid* vtk_b_mode_image_raw = vtkStructuredGrid::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
   if (!vtk_b_mode_image_raw)
     return 0;
 
-  vtk_b_mode_image_raw->SetWholeExtent( 0, samples_per_line - 1, 0, num_lines - 1, 0, 0 );
-  vtk_b_mode_image_raw->SetDimensions( samples_per_line, num_lines, 1 );
+  vtk_b_mode_image_raw->SetWholeExtent( 0, num_lines - 1, 0, samples_per_line - 1, 0, 0 );
+  //vtk_b_mode_image_raw->SetWholeExtent( 98, 100 - 1, 148, 150 - 1, 0, 0 );
+  vtk_b_mode_image_raw->SetDimensions( num_lines, samples_per_line, 1 );
 
 
   vtkSmartPointer<vtkPoints> b_mode_raw_points = vtkSmartPointer<vtkPoints>::New();
+  b_mode_raw_points->Allocate( samples_per_line*num_lines );
   b_mode_raw_points->SetNumberOfPoints( samples_per_line*num_lines*1 );
 
   vtkSmartPointer<vtkUnsignedShortArray> b_mode_raw_data = vtkSmartPointer<vtkUnsignedShortArray>::New();
@@ -209,15 +212,51 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
   {
     for(unsigned int j=0; j<samples_per_line; j++)
     {
-      *vtk_b_mode_raw_data_p = *cxx_b_mode_image_p;
-      vtk_b_mode_raw_data_p++;
-      cxx_b_mode_image_p++;
+      vtk_b_mode_raw_data_p[ i + num_lines*j ] = cxx_b_mode_image_p[ j + samples_per_line*i ];
+      //*vtk_b_mode_raw_data_p = *cxx_b_mode_image_p;
+      //vtk_b_mode_raw_data_p++;
+      //cxx_b_mode_image_p++;
 
-      b_mode_raw_points->SetPoint( i*samples_per_line + j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
-      cxx_b_mode_image_x_p++;
-      cxx_b_mode_image_y_p++;
+      // multiply by negative unity so +y coorresponds to VTK coord sys
+      //b_mode_raw_points->SetPoint( i*samples_per_line + j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
+      //if( i < 3 )
+	//cout << "x: " << *cxx_b_mode_image_x_p << " y: " << *cxx_b_mode_image_y_p << " image: " << cxx_b_mode_image_p[ j + samples_per_line*i ] << std::endl;
+
+      //b_mode_raw_points->SetPoint( i + num_lines*j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
+      //cxx_b_mode_image_x_p++;
+      //cxx_b_mode_image_y_p++;
+      //b_mode_raw_points->SetPoint( i + num_lines*j, cxx_b_mode_image_x_p[ j + samples_per_line*i ], cxx_b_mode_image_y_p[ j + samples_per_line*i ] * -1, 0.0);
     }
   }
+ double second[3]; 
+    for(unsigned int j=0; j<samples_per_line; j++)
+  {
+  for( unsigned int i=0; i<num_lines; i++)
+    {
+      //vtk_b_mode_raw_data_p[ i + num_lines*j ] = cxx_b_mode_image_p[ j + samples_per_line*i ];
+      //*vtk_b_mode_raw_data_p = *cxx_b_mode_image_p;
+      //vtk_b_mode_raw_data_p++;
+      //cxx_b_mode_image_p++;
+
+      // multiply by negative unity so +y coorresponds to VTK coord sys
+      //b_mode_raw_points->SetPoint( i*samples_per_line + j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
+      //if( i < 3 )
+	//cout << "x: " << *cxx_b_mode_image_x_p << " y: " << *cxx_b_mode_image_y_p << " image: " << cxx_b_mode_image_p[ j + samples_per_line*i ] << std::endl;
+
+      //b_mode_raw_points->SetPoint( i + num_lines*j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
+      //cxx_b_mode_image_x_p++;
+      //cxx_b_mode_image_y_p++;
+      b_mode_raw_points->SetPoint(static_cast< vtkIdType > ( i + num_lines*j ), cxx_b_mode_image_x_p[ j + samples_per_line*i ], cxx_b_mode_image_y_p[ j + samples_per_line*i ]*-1 , 0.0);
+      b_mode_raw_points->GetPoint(i + num_lines*j, second );
+
+    }
+  }
+
+ b_mode_raw_points->GetPoint(2000, second );
+ cout << "2000 read sgrid point: x: " << second[0] << " y: " << second[1] << " z: " << second[2] << std::endl;
+ cout << "real x: " << cxx_b_mode_image_x_p[2000] << "   real y: " << cxx_b_mode_image_y_p[2000] << std::endl;
+ b_mode_raw_points->GetPoint(0, second );
+ cout << "0 read sgrid point: x: " << second[0] << " y: " << second[1] << " z: " << second[2] << std::endl;
 
   vtk_b_mode_image_raw->SetPoints(b_mode_raw_points);
   vtk_b_mode_image_raw->GetPointData()->SetScalars( b_mode_raw_data );

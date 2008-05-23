@@ -208,6 +208,7 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
   const double* cxx_b_mode_image_y_p = its_ir->get_b_mode_image_y_p();
 
   UInt16* vtk_b_mode_raw_data_p = static_cast< UInt16* >( b_mode_raw_data->GetPointer(0) );
+ double second[3]; 
   for( unsigned int i=0; i<num_lines; i++)
   {
     for(unsigned int j=0; j<samples_per_line; j++)
@@ -222,35 +223,37 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
       //if( i < 3 )
 	//cout << "x: " << *cxx_b_mode_image_x_p << " y: " << *cxx_b_mode_image_y_p << " image: " << cxx_b_mode_image_p[ j + samples_per_line*i ] << std::endl;
 
-      //b_mode_raw_points->SetPoint( i + num_lines*j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
-      //cxx_b_mode_image_x_p++;
-      //cxx_b_mode_image_y_p++;
+      b_mode_raw_points->SetPoint( i + num_lines*j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
+      cxx_b_mode_image_x_p++;
+      cxx_b_mode_image_y_p++;
+      b_mode_raw_points->GetPoint(i + num_lines*j, second );
+      //cout << "line: " << i << " samp: " << j << " x: " << second[0] << " y: " << second[1] << std::endl;
+
       //b_mode_raw_points->SetPoint( i + num_lines*j, cxx_b_mode_image_x_p[ j + samples_per_line*i ], cxx_b_mode_image_y_p[ j + samples_per_line*i ] * -1, 0.0);
     }
   }
- double second[3]; 
-    for(unsigned int j=0; j<samples_per_line; j++)
-  {
-  for( unsigned int i=0; i<num_lines; i++)
-    {
-      //vtk_b_mode_raw_data_p[ i + num_lines*j ] = cxx_b_mode_image_p[ j + samples_per_line*i ];
-      //*vtk_b_mode_raw_data_p = *cxx_b_mode_image_p;
-      //vtk_b_mode_raw_data_p++;
-      //cxx_b_mode_image_p++;
+    //for(unsigned int j=0; j<samples_per_line; j++)
+  //{
+  //for( unsigned int i=0; i<num_lines; i++)
+    //{
+      ////vtk_b_mode_raw_data_p[ i + num_lines*j ] = cxx_b_mode_image_p[ j + samples_per_line*i ];
+      ///[>vtk_b_mode_raw_data_p = *cxx_b_mode_image_p;
+      ////vtk_b_mode_raw_data_p++;
+      ////cxx_b_mode_image_p++;
 
-      // multiply by negative unity so +y coorresponds to VTK coord sys
-      //b_mode_raw_points->SetPoint( i*samples_per_line + j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
-      //if( i < 3 )
-	//cout << "x: " << *cxx_b_mode_image_x_p << " y: " << *cxx_b_mode_image_y_p << " image: " << cxx_b_mode_image_p[ j + samples_per_line*i ] << std::endl;
+      //// multiply by negative unity so +y coorresponds to VTK coord sys
+      ////b_mode_raw_points->SetPoint( i*samples_per_line + j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
+      ////if( i < 3 )
+	////cout << "x: " << *cxx_b_mode_image_x_p << " y: " << *cxx_b_mode_image_y_p << " image: " << cxx_b_mode_image_p[ j + samples_per_line*i ] << std::endl;
 
-      //b_mode_raw_points->SetPoint( i + num_lines*j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
-      //cxx_b_mode_image_x_p++;
-      //cxx_b_mode_image_y_p++;
-      b_mode_raw_points->SetPoint(static_cast< vtkIdType > ( i + num_lines*j ), cxx_b_mode_image_x_p[ j + samples_per_line*i ], cxx_b_mode_image_y_p[ j + samples_per_line*i ]*-1 , 0.0);
-      b_mode_raw_points->GetPoint(i + num_lines*j, second );
+      ////b_mode_raw_points->SetPoint( i + num_lines*j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
+      ////cxx_b_mode_image_x_p++;
+      ////cxx_b_mode_image_y_p++;
+      //b_mode_raw_points->SetPoint(static_cast< vtkIdType > ( i + num_lines*j ), cxx_b_mode_image_x_p[ j + samples_per_line*i ], cxx_b_mode_image_y_p[ j + samples_per_line*i ]*-1 , 0.0);
+      //b_mode_raw_points->GetPoint(i + num_lines*j, second );
 
-    }
-  }
+    //}
+  //}
 
  b_mode_raw_points->GetPoint(2000, second );
  cout << "2000 read sgrid point: x: " << second[0] << " y: " << second[1] << " z: " << second[2] << std::endl;

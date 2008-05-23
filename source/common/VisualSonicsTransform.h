@@ -73,9 +73,8 @@ namespace visual_sonics
 			     std::vector<ImageDataOutT> & transform, //!< where the transformed image is put @warning the reference is modified
 			     std::vector<CoordT> & image_x, //!< where the x-coordinates for the image points are put @warning the reference is modified by the class
 			     std::vector<CoordT> & image_y, //!< where the y-coordinates for the image points are put @warning the reference is modified by the class
-			     const unsigned int& image_rows, //!< number of rows (samples along a line in an image)
-			     const unsigned int& image_cols, //!< number of cols (number of scan lines)
 			     const rdiParserData * const rpd, //!< the metadata used to determine how scan conversion should take place, shaft distances and encoder angles are referenced
+			     const bool& is_scout, //!< whether or not this is a scout (b_mode or saturation) image as opposed to an raw rf image.  has an effect on how man scan lines there are in the image
 			     const unsigned int * const output_roi = 0, //!< which part of the original image needs to be scan converted
 			     const unsigned int * const output_size = 0, //!< the dimensions of the output image
 			     const visual_sonics::InterpolationMethod& interpmethod = BilinearM //!< which interpolation method is used
@@ -99,10 +98,12 @@ namespace visual_sonics
       void calc_coords();
 
   
+      //!whether or not this is a scout (b_mode or saturation) image as opposed to an raw rf image.  has an effect on how man scan lines there are in the image
+      const bool & its_is_scout;
       //! 
       //! the preconverted image data
-      const unsigned int its_image_rows;
-      const unsigned int its_image_cols;
+      unsigned int its_image_rows;
+      unsigned int its_image_cols;
       //! image data
       const std::vector<ImageDataInT>&  its_image;
      /*! Coordinate system:

@@ -146,23 +146,16 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
 			    std::vector<ImageDataOutT> & transform,
 			    std::vector<CoordT> & image_x,
 			    std::vector<CoordT> & image_y,
-			    const unsigned int& image_rows,
-			    const unsigned int& image_cols,
 			    const rdiParserData * const rpd,
+			    const bool & is_scout,
 			    const unsigned int * const output_roi ,
 			    const unsigned int * const output_size,
   			    const visual_sonics::InterpolationMethod& interpmethod 
 	):
-    its_image_rows( image_rows ),
-    its_image_cols( image_cols ),
+    its_is_scout( is_scout ),
     its_image( image ),
     its_image_x( image_x ),
     its_image_y( image_y ),
-    its_encoder_positions( its_image_cols ),
-    its_col_cos( its_image_cols ),
-    its_col_sin( its_image_cols ),
-    its_theta( its_image_cols ),
-    its_r( its_image_rows ),
     its_default_transform_rows( 512 ),
     its_transform_rows( 0 ),
     its_transform_cols( 0 ),
@@ -173,15 +166,49 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
 {
 
 
+  if (its_is_scout)
+  {
+    its_image_rows = rpd->its_rf_mode_rx_ad_gate_width;
+    its_image_cols = rpd->its_rf_mode_tx_trig_tbl_trigs;
+  }
+  else
+  {
+    its_image_rows = rpd->its_image_acquisition_size / 2 ; // sizeof( UInt16 ) = 2
+    its_image_cols = rpd->its_image_lines ;
+  }
+  
+  its_encoder_positions.resize( its_image_cols );
+  its_col_cos.resize( its_image_cols );
+  its_col_sin.resize( its_image_cols );
+  its_theta.resize( its_image_cols );
+  its_r.resize( its_image_rows );
 
   its_pivot_to_encoder_dist = static_cast<CoordT>(rpd->its_rf_mode_activeprobe_pivot_encoder_dist) ;
 
   its_pivot_to_xdcr_dist = static_cast<CoordT>(rpd->its_rf_mode_activeprobe_pivot_transducer_face_dist + rpd->its_rf_mode_rx_v_delay_length);
 
   
-  for (unsigned int i = 0; i < its_image_cols; i++ )
+  if (its_is_scout)
   {
-    its_encoder_positions[i] = static_cast<CoordT>(rpd->its_rf_mode_rfmodesoft_v_lines_pos_vec[i]);
+    CoordT encoder_start = static_cast<CoordT>( rpd->its_rf_mode_rfmodesoft_v_lines_pos_vec[0]);
+    CoordT encoder_end   = static_cast<CoordT>( rpd->its_rf_mode_rfmodesoft_v_lines_pos_vec[rpd->its_image_lines - 1 ]);
+    CoordT encoder_inc   = (encoder_end - encoder_start) / its_image_cols;
+    CoordT cur_encoder_pos = encoder_start;
+    unsigned int index = 0;
+    its_encoder_positions[index] = encoder_start;
+    while( index < its_image_cols )
+    {
+      cur_encoder_pos = cur_encoder_pos + encoder_inc;
+      index++;
+      its_encoder_positions[index] = cur_encoder_pos;
+    }
+  }
+  else // rf data
+  {
+    for (unsigned int i = 0; i < its_image_cols; i++ )
+    {
+      its_encoder_positions[i] = static_cast<CoordT>(rpd->its_rf_mode_rfmodesoft_v_lines_pos_vec[i]);
+    }
   }
 
 
@@ -223,9 +250,11 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     its_transform_rows = output_size[0];
     its_transform_cols = output_size[1];
   }
-
-
 }
+
+
+
+
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
 VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::~VisualSonicsTransform()
 {
@@ -264,8 +293,6 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
     {
       its_image_x[j + i*its_image_rows] = its_r[j] * its_col_sin[i];
       its_image_y[j + i*its_image_rows] = its_r[j] * its_col_cos[i];
-      //its_image_x[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta ) * its_col_sin[i];
-      //its_image_y[j + i*its_image_rows] = ( its_pivot_to_xdcr_dist + j*its_sample_delta )* its_col_cos[i];
     }
   }
   using namespace std;

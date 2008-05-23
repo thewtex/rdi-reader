@@ -29,9 +29,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std
 										      its_b_mode_image_sc,
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
-										      this->get_rpd()->its_rf_mode_rx_ad_gate_width, 
-										      this->get_rpd()->its_rf_mode_tx_trig_tbl_trigs,
-										      this->get_rpd()
+										      this->get_rpd(),
+										      true
 										      );
 
 
@@ -47,9 +46,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std
 										      its_b_mode_image_sc,
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
-										      this->get_rpd()->its_rf_mode_rx_ad_gate_width, 
-										      this->get_rpd()->its_rf_mode_tx_trig_tbl_trigs,
-										      this->get_rpd()
+										      this->get_rpd(),
+										      true
 										      );
 }
 
@@ -63,9 +61,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader( const bf::path& in_file_path, Re
 										      its_b_mode_image_sc,
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
-										      this->get_rpd()->its_rf_mode_rx_ad_gate_width, 
-										      this->get_rpd()->its_rf_mode_tx_trig_tbl_trigs,
-										      this->get_rpd()
+										      this->get_rpd(),
+										      true
 										      );
 }
 
@@ -79,9 +76,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path ):
 										      its_b_mode_image_sc,
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
-										      this->get_rpd()->its_rf_mode_rx_ad_gate_width, 
-										      this->get_rpd()->its_rf_mode_tx_trig_tbl_trigs,
-										      this->get_rpd()
+										      this->get_rpd(),
+										      true
 										      );
 }
 
@@ -133,8 +129,8 @@ void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
 
 
   // prepare for transformation
-  its_b_mode_image_x.resize(samples_per_line * num_lines, 13.3);
-  its_b_mode_image_y.resize(samples_per_line * num_lines, 13.3);
+  its_b_mode_image_x.resize(samples_per_line * num_lines);
+  its_b_mode_image_y.resize(samples_per_line * num_lines);
 
   its_b_mode_vs_transform->transform();
 

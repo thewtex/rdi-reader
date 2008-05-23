@@ -90,7 +90,6 @@ void ImageViewer::view_b_mode()
  //its_image_reader->Print(cerr);
  
  vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast(its_image_reader->GetOutputDataObject(3));
- int* dim = vtk_b_mode_image_sc->GetDimensions() ;
  double* b_mode_range = vtk_b_mode_image_sc->GetScalarRange();
  int xmina, xmaxa, ymina, ymaxa, zmina, zmaxa;
  vtk_b_mode_image_sc->GetExtent( xmina, xmaxa, ymina, ymaxa, zmina, zmaxa );
@@ -121,8 +120,6 @@ void ImageViewer::view_b_mode()
 
 
  vtkStructuredGrid* sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(0) );
- double* sgrange = sg->GetScalarRange();
- cout << "S Grid range:" << sgrange[0] << "  " << sgrange[1] << '\n';
  vtkDataSetMapper* dsm = vtkDataSetMapper::New();
  dsm->SetColorModeToMapScalars();
  dsm->SetScalarModeToUsePointData();
@@ -133,13 +130,11 @@ void ImageViewer::view_b_mode()
  lut->SetHueRange(0.0, 1.0);
  lut->SetSaturationRange( 0.0, 0.0);
  lut->SetValueRange( 0.0, 1.0 );
- lut->SetTableRange( b_mode_range[0], b_mode_range[1] );
+ //lut->SetTableRange( b_mode_range[0], b_mode_range[1] );
  dsm->SetLookupTable(lut);
- //dsm->SetScalarRange( b_mode_range[0], b_mode_range[1] );
  dsm->SetScalarRange( b_mode_range[0], b_mode_range[1] );
  vtkActor* pda = vtkActor::New();
  pda->SetMapper( dsm );
- cout << "lut TableRange: " << lut->GetTableRange()[0] << " " << lut->GetTableRange()[1] << std::endl;
 
  vtkImageActor* ia = vtkImageActor::New();
  ia->SetInput( iss->GetOutput() );
@@ -160,30 +155,7 @@ void ImageViewer::view_b_mode()
 
 
  double* bounds = sg->GetBounds();
- cout << "Bounds: xmin: " << bounds[0] << " xmax: " << bounds[1] << " ymin: " << bounds[2] << " ymax: " << bounds[3] << " zmin: " << bounds[4] << " zmax: " << bounds[5] << std::endl;
-
- //sg->GetPoints()->Print(cout);
- //sg->Print(cout);
  double* first = sg->GetPoints()->GetPoint(0);
-
- cout << "sgrid point: x: " << first[0] << " y: " << first[1] << " z: " << first[2] << std::endl;
- cout << "NumberOfPoints: " << sg->GetPoints()->GetNumberOfPoints() << std::endl;
-
- double second[3]; 
- sg->GetPoints()->GetPoint(2000, second );
- cout << "2000 view sgrid point: x: " << second[0] << " y: " << second[1] << " z: " << second[2] << std::endl;
- //for ( vtkIdType i = 0; i < 2000 ; i++ )
- //{
- //first = sg->GetPoints()->GetPoint(i);
- //if (!first)
-   //cout << "oooohh nooo!" << std::endl;
-
- //cout << "sgrid point: x: " << first[0] << " y: " << first[1] << " z: " << first[2] << std::endl;
- //cout << "value: " << sg->GetPointData()->GetScalars()->GetTuple1(504*79 + i) << "  ";
- //}
- cout << std::endl;
-
- first = sg->GetPoints()->GetPoint(0);
 
  vtkCamera* cam = ren->GetActiveCamera();
 

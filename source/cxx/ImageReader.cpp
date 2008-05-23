@@ -29,6 +29,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std
 										      its_b_mode_image_sc,
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
+										      this->get_rpd()->its_rf_mode_rx_ad_gate_width, 
+										      this->get_rpd()->its_rf_mode_tx_trig_tbl_trigs,
 										      this->get_rpd()
 										      );
 
@@ -45,6 +47,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std
 										      its_b_mode_image_sc,
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
+										      this->get_rpd()->its_rf_mode_rx_ad_gate_width, 
+										      this->get_rpd()->its_rf_mode_tx_trig_tbl_trigs,
 										      this->get_rpd()
 										      );
 }
@@ -59,6 +63,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader( const bf::path& in_file_path, Re
 										      its_b_mode_image_sc,
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
+										      this->get_rpd()->its_rf_mode_rx_ad_gate_width, 
+										      this->get_rpd()->its_rf_mode_tx_trig_tbl_trigs,
 										      this->get_rpd()
 										      );
 }
@@ -73,6 +79,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path ):
 										      its_b_mode_image_sc,
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
+										      this->get_rpd()->its_rf_mode_rx_ad_gate_width, 
+										      this->get_rpd()->its_rf_mode_tx_trig_tbl_trigs,
 										      this->get_rpd()
 										      );
 }

@@ -146,13 +146,15 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
 			    std::vector<ImageDataOutT> & transform,
 			    std::vector<CoordT> & image_x,
 			    std::vector<CoordT> & image_y,
+			    const unsigned int& image_rows,
+			    const unsigned int& image_cols,
 			    const rdiParserData * const rpd,
 			    const unsigned int * const output_roi ,
 			    const unsigned int * const output_size,
   			    const visual_sonics::InterpolationMethod& interpmethod 
 	):
-    its_image_rows( rpd->its_rf_mode_rx_ad_gate_width ),
-    its_image_cols( rpd->its_rf_mode_tx_trig_tbl_trigs),
+    its_image_rows( image_rows ),
+    its_image_cols( image_cols ),
     its_image( image ),
     its_image_x( image_x ),
     its_image_y( image_y ),

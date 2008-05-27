@@ -48,7 +48,6 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     its_transform_rows( 0 ),
     its_transform_cols( 0 ),
     its_transform( 0 ),
-    its_has_been_transformed( false ),
     its_interpolation_method( interpmethod )
     its_delete_output_roi( true )
 {
@@ -162,7 +161,6 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     its_transform_rows( transform_rows ),
     its_transform_cols( transform_cols ),
     its_transform( transform ),
-    its_has_been_transformed( false ),
     its_interpolation_method( interpmethod ),
     its_delete_output_roi( false )
 {
@@ -304,7 +302,7 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
 
 
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
-std::vector<ImageDataOutT> VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
+void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
 {
 
   this->calc_coords();
@@ -467,22 +465,8 @@ std::vector<ImageDataOutT> VisualSonicsTransform<ImageDataInT, ImageDataOutT, Co
 
 
 
-  its_has_been_transformed = true;
 
-  return its_transform;
 }
-
-
-
-template <class ImageDataInT, class ImageDataOutT, class CoordT>
-std::vector<ImageDataOutT> VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::get_transformed_image()
-{
-  if (!its_has_been_transformed)
-    return this->transform();
-
-  return its_transform; 
-}
-
 
 
 

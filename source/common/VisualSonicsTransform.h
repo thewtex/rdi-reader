@@ -87,10 +87,7 @@ namespace visual_sonics
 
 
       //! perform the transformation/scan conversion and return the transformed image
-      std::vector<ImageDataOutT> transform();
-  
-      //! returned the transformed image, performing the calculation only if neede 
-      std::vector<ImageDataOutT> get_transformed_image();
+      void transform();
   
   
     private:
@@ -165,9 +162,6 @@ namespace visual_sonics
       std::vector<ImageDataOutT> its_transform;
   
   
-      //! has transform() been called yet?
-      bool its_has_been_transformed;
-
   
       //! interpolation method 
       visual_sonics::InterpolationMethod its_interpolation_method;

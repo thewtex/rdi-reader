@@ -306,6 +306,7 @@ std::vector<ImageDataOutT> VisualSonicsTransform<ImageDataInT, ImageDataOutT, Co
   this->calc_coords();
 
   
+  // find extrema of the image
   // x minimum of upper left and lower left
   const CoordT x_min_top = its_image_x[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] -1 ] ;
   const CoordT x_min_bot = its_image_x[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_end] -1 ] ;
@@ -314,12 +315,10 @@ std::vector<ImageDataOutT> VisualSonicsTransform<ImageDataInT, ImageDataOutT, Co
   const CoordT x_max_top = its_image_x[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_start] -1 ] ;
   const CoordT x_max_bot = its_image_x[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end] -1 ] ;
   const CoordT x_max = std::max( x_max_top, x_max_bot );
-
   // minimum of upper left and upper right
   const CoordT y_min_left = its_image_y[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] - 1] ;
   const CoordT y_min_right = its_image_y[ (its_output_roi[cols_end ] -1) * its_image_rows + its_output_roi[rows_end  ] - 1] ;
   const CoordT y_min = std::min(y_min_left, y_min_right);
-
   // maximum of values if image was off y-axis, value on y-axis otherwise
   const CoordT y_max_left = its_image_y[  (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] -1] ;
   const CoordT y_max_right = its_image_y[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end  ] -1] ;

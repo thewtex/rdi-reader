@@ -49,11 +49,11 @@ namespace visual_sonics
       virtual bool read_rf_data_image();
 
       //! get the pointer to the actual b_mode_image data
-      const UInt16* get_b_mode_image_p(){ return &its_b_mode_image[0];} 
+      const std::vector<UInt16>&  get_b_mode_image(){ return its_b_mode_image;} 
       //! get pointer to b_mode_image x coords
-      const CoordT* get_b_mode_image_x_p(){ return &its_b_mode_image_x[0];}
-      //! get pointer to b_mode_image y coords
-      const CoordT* get_b_mode_image_y_p(){ return &its_b_mode_image_y[0];}
+      const std::vector<CoordT>& get_b_mode_image_x(){ return its_b_mode_image_x;}
+      //! get pointer to b_mode_image y coord
+      const std::vector<CoordT>& get_b_mode_image_y(){ return its_b_mode_image_y;}
 
       UInt16 get_b_mode_max(){ return its_b_mode_max; }
       UInt16 get_b_mode_min(){ return its_b_mode_min; }

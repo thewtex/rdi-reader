@@ -86,15 +86,9 @@ ImageViewer::~ImageViewer()
 void ImageViewer::view_b_mode()
 {
  its_image_reader->Update();
- //its_image_reader->DebugOn();
- //its_image_reader->Print(cerr);
  
  vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast(its_image_reader->GetOutputDataObject(3));
  double* b_mode_range = vtk_b_mode_image_sc->GetScalarRange();
- int xmina, xmaxa, ymina, ymaxa, zmina, zmaxa;
- vtk_b_mode_image_sc->GetExtent( xmina, xmaxa, ymina, ymaxa, zmina, zmaxa );
- //vtk_b_mode_image_sc->DebugOn();
- //vtk_b_mode_image_sc->Print(cerr);
 
  //its_viewer->SetupInteractor(its_iren);
  vtkImageShiftScale* iss = vtkImageShiftScale::New();
@@ -141,8 +135,8 @@ void ImageViewer::view_b_mode()
 
  vtkRenderer* ren = vtkRenderer::New();
  ren->SetBackground( 0.0, 0.367 , 0.0);
- //ren->AddViewProp( ia );
- ren->AddViewProp( pda );
+ ren->AddViewProp( ia );
+ //ren->AddViewProp( pda );
 
  ia->RotateZ(-90.0);
  ia->SetScale( 3.0, 3.0, 1.0 );
@@ -159,15 +153,15 @@ void ImageViewer::view_b_mode()
 
  vtkCamera* cam = ren->GetActiveCamera();
 
- double center_y = (bounds[2] + first[1])/2.0;
- double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
- cam->SetFocalPoint( 0.0, center_y, 0.0 );
- cam->SetPosition( 0.0, center_y, camdist ); 
- cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
- cam->ComputeViewPlaneNormal();
- ren->Render();
+ //double center_y = (bounds[2] + first[1])/2.0;
+ //double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
+ //cam->SetFocalPoint( 0.0, center_y, 0.0 );
+ //cam->SetPosition( 0.0, center_y, camdist ); 
+ //cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
+ //cam->ComputeViewPlaneNormal();
+ //ren->Render();
 
- renwin->SetSize( 512, int( (first[1] - bounds[2])/(first[0]*-2.0) * 512 ) );
+ //renwin->SetSize( 512, int( (first[1] - bounds[2])/(first[0]*-2.0) * 512 ) );
 
 
  its_iren->SetRenderWindow( renwin );

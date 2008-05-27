@@ -170,14 +170,15 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
   vtk_b_mode_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
   // fill in scout b mode scan converted values
   UInt16* vtk_b_mode_image_sc_p = static_cast< UInt16* >( vtk_b_mode_image_sc->GetScalarPointer() );
-  const UInt16* cxx_b_mode_image_sc_p = its_ir->get_b_mode_image_p();
+  const std::vector<UInt16> cxx_b_mode_image_sc_p = its_ir->get_b_mode_image();
+  std::vector<UInt16>::const_iterator b_mode_image_sc_it = cxx_b_mode_image_sc_p.begin();
 
   for(unsigned int i=0; i<num_lines; i++)
   {
     for(unsigned int j=0; j<samples_per_line; j++)
     {
-      *vtk_b_mode_image_sc_p = *cxx_b_mode_image_sc_p ;
-      cxx_b_mode_image_sc_p++;
+      *vtk_b_mode_image_sc_p = *b_mode_image_sc_it ;
+      b_mode_image_sc_it++;
       vtk_b_mode_image_sc_p++;
     }
   }
@@ -200,23 +201,23 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
   b_mode_raw_data->SetNumberOfComponents(1);
   b_mode_raw_data->SetNumberOfTuples( samples_per_line*num_lines*1 );
 
-  
-  const UInt16* cxx_b_mode_image_p = its_ir->get_b_mode_image_p();
-  const double* cxx_b_mode_image_x_p = its_ir->get_b_mode_image_x_p();
-  const double* cxx_b_mode_image_y_p = its_ir->get_b_mode_image_y_p();
+ 
+  std::vector<UInt16>::const_iterator b_mode_image_it = its_ir->get_b_mode_image().begin();
+  std::vector<double>::const_iterator b_mode_image_x = its_ir->get_b_mode_image_x().begin();
+  std::vector<double>::const_iterator b_mode_image_y = its_ir->get_b_mode_image_y().begin();
 
   UInt16* vtk_b_mode_raw_data_p = static_cast< UInt16* >( b_mode_raw_data->GetPointer(0) );
   for( unsigned int i=0; i<num_lines; i++)
   {
     for(unsigned int j=0; j<samples_per_line; j++)
     {
-      vtk_b_mode_raw_data_p[ i + num_lines*j ] = *cxx_b_mode_image_p;
-      cxx_b_mode_image_p++;
+      vtk_b_mode_raw_data_p[ i + num_lines*j ] = *b_mode_image_it;
+      b_mode_image_it++;
 
 
-      b_mode_raw_points->SetPoint( i + num_lines*j, *cxx_b_mode_image_x_p, *cxx_b_mode_image_y_p * -1, 0.0);
-      cxx_b_mode_image_x_p++;
-      cxx_b_mode_image_y_p++;
+      b_mode_raw_points->SetPoint( i + num_lines*j, *b_mode_image_x, *b_mode_image_y * -1, 0.0);
+      b_mode_image_x++;
+      b_mode_image_y++;
     }
   }
 

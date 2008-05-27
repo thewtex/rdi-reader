@@ -27,6 +27,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std
 {
   its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
 										      its_b_mode_image_sc,
+										      its_b_mode_sc_rows,
+										      its_b_mode_sc_cols,
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
 										      this->get_rpd(),
@@ -44,6 +46,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std
 {
   its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
 										      its_b_mode_image_sc,
+										      its_b_mode_sc_rows,
+										      its_b_mode_sc_cols,
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
 										      this->get_rpd(),
@@ -59,6 +63,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader( const bf::path& in_file_path, Re
 {
   its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
 										      its_b_mode_image_sc,
+										      its_b_mode_sc_rows,
+										      its_b_mode_sc_cols,
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
 										      this->get_rpd(),
@@ -74,6 +80,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path ):
 {
   its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
 										      its_b_mode_image_sc,
+										      its_b_mode_sc_rows,
+										      its_b_mode_sc_cols,
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
 										      this->get_rpd(),

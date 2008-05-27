@@ -71,6 +71,8 @@ namespace visual_sonics
        */
         VisualSonicsTransform( const std::vector<ImageDataInT> & image,  //!< raw data to be transformed/scan converted
 			     std::vector<ImageDataOutT> & transform, //!< where the transformed image is put @warning the reference is modified
+			     unsigned int & transform_rows, //!< where number of rows in the transformed image is place, will follow output_size if values are given, or will be dynamically determined otherwise, @warning the reference is modified
+			     unsigned int & transform_cols, //!< where number of cols in the transformed image is place, will follow output_size if values are given, or will be dynamically determined otherwise, @warning the reference is modified
 			     std::vector<CoordT> & image_x, //!< where the x-coordinates for the image points are put @warning the reference is modified by the class
 			     std::vector<CoordT> & image_y, //!< where the y-coordinates for the image points are put @warning the reference is modified by the class
 			     const rdiParserData * const rpd, //!< the metadata used to determine how scan conversion should take place, shaft distances and encoder angles are referenced
@@ -155,9 +157,9 @@ namespace visual_sonics
       //! non-static so you can choose different values in different constructors
       const unsigned int its_default_transform_rows;
       //! number of rows in the transformed image 
-      unsigned int its_transform_rows;
+      unsigned int& its_transform_rows;
       //! number of columns in the transformed image
-      unsigned int its_transform_cols;
+      unsigned int& its_transform_cols;
   
       //! the post-converted image data
       std::vector<ImageDataOutT> its_transform;

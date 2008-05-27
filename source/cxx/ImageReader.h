@@ -48,12 +48,14 @@ namespace visual_sonics
       virtual void read_saturation_image();
       virtual bool read_rf_data_image();
 
-      //! get the pointer to the actual b_mode_image data
+      //! get the actual b_mode_image data
       const std::vector<UInt16>&  get_b_mode_image(){ return its_b_mode_image;} 
-      //! get pointer to b_mode_image x coords
+      //! get b_mode_image x coords
       const std::vector<CoordT>& get_b_mode_image_x(){ return its_b_mode_image_x;}
-      //! get pointer to b_mode_image y coord
+      //! get b_mode_image y coord
       const std::vector<CoordT>& get_b_mode_image_y(){ return its_b_mode_image_y;}
+      //! get b_mode_image data scan converted/transformed
+      const std::vector<ImageDataOutT>& get_b_mode_image_sc(){ return its_b_mode_image_sc; }
 
       UInt16 get_b_mode_max(){ return its_b_mode_max; }
       UInt16 get_b_mode_min(){ return its_b_mode_min; }
@@ -64,6 +66,10 @@ namespace visual_sonics
       std::vector<UInt16> its_b_mode_image;
       //! scout window b-mode data.  data is stored sequentially by sample in a line, then by line, scan converted
       std::vector<ImageDataOutT> its_b_mode_image_sc;
+      //! number of rows in the b_mode scan converted image
+      unsigned int its_b_mode_sc_rows;
+      //! number of columns in the b_mode scan converted image
+      unsigned int its_b_mode_sc_cols;
       //! scout window b-mode data.  x coordinates
       std::vector<CoordT> its_b_mode_image_x;
       //! scout window b-mode data.  y coordinates

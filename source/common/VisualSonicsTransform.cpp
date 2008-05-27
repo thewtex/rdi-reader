@@ -144,6 +144,8 @@ template <class ImageDataInT, class ImageDataOutT, class CoordT>
 VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransform( 
 			    const std::vector<ImageDataInT>& image,
 			    std::vector<ImageDataOutT> & transform,
+			    unsigned int& transform_rows,
+			    unsigned int& transform_cols,
 			    std::vector<CoordT> & image_x,
 			    std::vector<CoordT> & image_y,
 			    const rdiParserData * const rpd,
@@ -157,8 +159,8 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     its_image_x( image_x ),
     its_image_y( image_y ),
     its_default_transform_rows( 512 ),
-    its_transform_rows( 0 ),
-    its_transform_cols( 0 ),
+    its_transform_rows( transform_rows ),
+    its_transform_cols( transform_cols ),
     its_transform( transform ),
     its_has_been_transformed( false ),
     its_interpolation_method( interpmethod ),
@@ -245,6 +247,8 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
   }
 
 
+  its_transform_rows = 0;
+  its_transform_cols = 0;
   if (output_size)
   {
     its_transform_rows = output_size[0];

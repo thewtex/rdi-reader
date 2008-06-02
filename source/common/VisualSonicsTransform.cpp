@@ -195,12 +195,11 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     CoordT encoder_inc   = (encoder_end - encoder_start) / its_image_cols;
     CoordT cur_encoder_pos = encoder_start;
     unsigned int index = 0;
-    its_encoder_positions[index] = encoder_start;
     while( index < its_image_cols )
     {
-      cur_encoder_pos = cur_encoder_pos + encoder_inc;
-      index++;
       its_encoder_positions[index] = cur_encoder_pos;
+      index++;
+      cur_encoder_pos = cur_encoder_pos + encoder_inc;
     }
   }
   else // rf data
@@ -268,7 +267,6 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::~VisualSonicsTransfo
 
 
 
-
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
 void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
 {
@@ -282,7 +280,9 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
   }
 
   for(unsigned int i = 0; i < its_image_rows; i++)
+  {
     its_r[i] = its_pivot_to_xdcr_dist + i*its_sample_delta;
+  }
 
 
   its_image_x.resize( its_image_cols * its_image_rows );
@@ -390,17 +390,26 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
       theta = std::atan(x_pos / y_pos); // because of the way the coordinate system is set up, it may be opposite from what we're used to 
       r = std::sqrt( x_pos*x_pos + y_pos*y_pos );
 
+      // make sure we are within bounds
+      if( theta < *its_theta.begin() || theta > *(its_theta.end()-1) || r < *its_r.begin() || r > *(its_r.end()-1) )
+      {
+	continue;
+      }
+
       current_col = std::lower_bound( its_theta.begin(), its_theta.end() , theta);
       current_row = std::lower_bound( its_r.begin()    , its_r.end()     , r    );
+//cout << "current_col: " << *current_col << " theta: " << theta << endl;
       lt_ind = (current_col - its_theta.begin() )*its_image_rows + (current_row - its_r.begin() );
       lb_ind = lt_ind + 1;
       rt_ind = ( (current_col - its_theta.begin()) + 1) * its_image_rows + (current_row - its_r.begin() );
       rb_ind = rt_ind + 1;
 
+
       x_vals[lt] = its_image_x[lt_ind];  y_vals[lt] = its_image_y[lt_ind];
       x_vals[lb] = its_image_x[lb_ind];  y_vals[lb] = its_image_y[lb_ind];
       x_vals[rb] = its_image_x[rb_ind];  y_vals[rb] = its_image_y[rb_ind];
       x_vals[rt] = its_image_x[rt_ind];  y_vals[rt] = its_image_y[rt_ind];
+
 
       data[lt] = its_image[lt_ind];
       data[lb] = its_image[lb_ind];

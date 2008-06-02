@@ -143,13 +143,15 @@ int vtkVisualSonicsReader::RequestData(vtkInformation*,
 
 
 
+#include <iostream>
+using namespace std;
 int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
 {
   // read in the image
   its_ir->read_b_mode_image();
 
-  const unsigned int samples_per_line = its_rpd->its_rf_mode_rx_ad_gate_width;
-  const unsigned int num_lines = its_rpd->its_rf_mode_tx_trig_tbl_trigs;
+  const unsigned int rows = its_ir->get_b_mode_image_sc_rows();
+  const unsigned int cols = its_ir->get_b_mode_image_sc_cols();
 
   vtkInformation* outInfo = outputVector->GetInformationObject(3);
   vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
@@ -160,23 +162,23 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
   // create scout b mode scan converted
   //
   // Extent should be set befor allocate scalars
-  vtk_b_mode_image_sc->SetWholeExtent( 0 , samples_per_line - 1, 0, num_lines - 1, 0, 0 );
+  vtk_b_mode_image_sc->SetWholeExtent( 0 , rows - 1, 0, cols - 1, 0, 0 );
   //vtk_b_mode_image_sc->SetUpdateExtent( vtk_b_mode_image_sc->GetWholeExtent() );
-  vtk_b_mode_image_sc->SetDimensions( samples_per_line, num_lines, 1 );
-  vtk_b_mode_image_sc->SetScalarTypeToUnsignedShort();
+  vtk_b_mode_image_sc->SetDimensions( rows, cols, 1 );
+  vtk_b_mode_image_sc->SetScalarTypeToDouble();
   vtk_b_mode_image_sc->SetNumberOfScalarComponents(1);
   vtk_b_mode_image_sc->AllocateScalars();
   vtk_b_mode_image_sc->SetSpacing( 1.0, 1.0, 1.0 );
   vtk_b_mode_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
   // fill in scout b mode scan converted values
-  UInt16* vtk_b_mode_image_sc_p = static_cast< UInt16* >( vtk_b_mode_image_sc->GetScalarPointer() );
-  const std::vector<UInt16> cxx_b_mode_image_sc_p = its_ir->get_b_mode_image();
-  std::vector<UInt16>::const_iterator b_mode_image_sc_it = cxx_b_mode_image_sc_p.begin();
+  double* vtk_b_mode_image_sc_p = static_cast< double* >( vtk_b_mode_image_sc->GetScalarPointer() );
+  std::vector<double>::const_iterator b_mode_image_sc_it = its_ir->get_b_mode_image_sc().begin();
 
-  for(unsigned int i=0; i<num_lines; i++)
+  for(unsigned int i=0; i<cols; i++)
   {
-    for(unsigned int j=0; j<samples_per_line; j++)
+    for(unsigned int j=0; j<rows; j++)
     {
+      cout << " i: " << i << " j: " << j << endl;
       *vtk_b_mode_image_sc_p = *b_mode_image_sc_it ;
       b_mode_image_sc_it++;
       vtk_b_mode_image_sc_p++;
@@ -189,6 +191,9 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
   vtkStructuredGrid* vtk_b_mode_image_raw = vtkStructuredGrid::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
   if (!vtk_b_mode_image_raw)
     return 0;
+
+  const unsigned int samples_per_line = its_rpd->its_rf_mode_rx_ad_gate_width;
+  const unsigned int num_lines = its_rpd->its_rf_mode_tx_trig_tbl_trigs;
 
   vtk_b_mode_image_raw->SetWholeExtent( 0, num_lines - 1, 0, samples_per_line - 1, 0, 0 );
   vtk_b_mode_image_raw->SetDimensions( num_lines, samples_per_line, 1 );

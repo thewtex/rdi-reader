@@ -56,6 +56,11 @@ namespace visual_sonics
       const std::vector<CoordT>& get_b_mode_image_y(){ return its_b_mode_image_y;}
       //! get b_mode_image data scan converted/transformed
       const std::vector<ImageDataOutT>& get_b_mode_image_sc(){ return its_b_mode_image_sc; }
+      //! get b_mode scan converted image rows
+      unsigned int get_b_mode_image_sc_rows(){ return its_b_mode_sc_rows; };
+      //! get b_mode scan converted image columns
+      unsigned int get_b_mode_image_sc_cols(){ return its_b_mode_sc_cols; };
+      
 
       UInt16 get_b_mode_max(){ return its_b_mode_max; }
       UInt16 get_b_mode_min(){ return its_b_mode_min; }

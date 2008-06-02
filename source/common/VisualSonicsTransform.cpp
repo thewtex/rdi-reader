@@ -267,6 +267,8 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::~VisualSonicsTransfo
 
 
 
+#include <iostream>
+using namespace std;
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
 void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
 {
@@ -275,6 +277,7 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
   {
     its_col_cos[i] = std::cos( its_encoder_positions[i] / its_pivot_to_encoder_dist );
     its_col_sin[i] = std::sin( its_encoder_positions[i] / its_pivot_to_encoder_dist );
+    cout << " cos: " << its_col_cos[i] << " sin: " << its_col_sin[i] << endl;
 
     its_theta[i] = its_encoder_positions[i] / its_pivot_to_encoder_dist ;
   }
@@ -301,8 +304,6 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
 
 
 
-#include <iostream>
-using namespace std;
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
 void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
 {
@@ -321,12 +322,16 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
   const CoordT x_max = std::max( x_max_top, x_max_bot );
   // minimum of upper left and upper right
   const CoordT y_min_left = its_image_y[ (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] - 1] ;
-  const CoordT y_min_right = its_image_y[ (its_output_roi[cols_end ] -1) * its_image_rows + its_output_roi[rows_end  ] - 1] ;
+  const CoordT y_min_right = its_image_y[ (its_output_roi[cols_end ] -1) * its_image_rows + its_output_roi[rows_start  ] - 1] ;
   const CoordT y_min = std::min(y_min_left, y_min_right);
   // maximum of values if image was off y-axis, value on y-axis otherwise
-  const CoordT y_max_left = its_image_y[  (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_start] -1] ;
+  const CoordT y_max_left = its_image_y[  (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_end] -1] ;
   const CoordT y_max_right = its_image_y[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end  ] -1] ;
   CoordT y_max;
+  cout << " yml: " << y_min_left << " ymr: " << y_min_right << endl;
+  cout << " iiy: " << its_image_y[0] << endl;
+  cout << " end ind: " << (its_output_roi[cols_end ] -1) * its_image_rows + its_output_roi[rows_end  ] - 1 << endl;
+  cout << " cxr: " << its_image_cols* its_image_rows << endl;
   if( ( x_min < 0.0 && x_max < 0.0 ) || ( x_min > 0.0 && x_max > 0.0 ) )
     y_max = std::max( y_max_left, y_max_right );
   else
@@ -392,8 +397,7 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
       theta = std::atan(x_pos / y_pos); // because of the way the coordinate system is set up, it may be opposite from what we're used to 
       r = std::sqrt( x_pos*x_pos + y_pos*y_pos );
 
-      cout << "theta: " << theta << " t.beg: " << *its_theta.begin() << " t.end: " << *(its_theta.end()-1) << " r: " << r << " r.beg: " << *its_r.begin() << " r.end: " << *(its_r.end()-1) << endl;
-      cout << its_encoder_positions[0] << endl << its_encoder_positions[its_image_cols - 1] << endl;
+      //cout << "theta: " << theta << " t.beg: " << *its_theta.begin() << " t.end: " << *(its_theta.end()-1) << " r: " << r << " r.beg: " << *its_r.begin() << " r.end: " << *(its_r.end()-1) << endl;
       // make sure we are within bounds
       if( theta < *its_theta.begin() || theta > *(its_theta.end()-1) || r < *its_r.begin() || r > *(its_r.end()-1) )
       {

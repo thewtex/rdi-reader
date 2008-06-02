@@ -192,7 +192,7 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
   {
     CoordT encoder_start = static_cast<CoordT>( rpd->its_rf_mode_rfmodesoft_v_lines_pos_vec[0]);
     CoordT encoder_end   = static_cast<CoordT>( rpd->its_rf_mode_rfmodesoft_v_lines_pos_vec[rpd->its_image_lines - 1 ]);
-    CoordT encoder_inc   = (encoder_end - encoder_start) / its_image_cols;
+    CoordT encoder_inc   = (encoder_end - encoder_start) / (its_image_cols - 1);
     CoordT cur_encoder_pos = encoder_start;
     unsigned int index = 0;
     while( index < its_image_cols )
@@ -301,6 +301,8 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
 
 
 
+#include <iostream>
+using namespace std;
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
 void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
 {
@@ -390,15 +392,18 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
       theta = std::atan(x_pos / y_pos); // because of the way the coordinate system is set up, it may be opposite from what we're used to 
       r = std::sqrt( x_pos*x_pos + y_pos*y_pos );
 
+      cout << "theta: " << theta << " t.beg: " << *its_theta.begin() << " t.end: " << *(its_theta.end()-1) << " r: " << r << " r.beg: " << *its_r.begin() << " r.end: " << *(its_r.end()-1) << endl;
+      cout << its_encoder_positions[0] << endl << its_encoder_positions[its_image_cols - 1] << endl;
       // make sure we are within bounds
       if( theta < *its_theta.begin() || theta > *(its_theta.end()-1) || r < *its_r.begin() || r > *(its_r.end()-1) )
       {
 	continue;
       }
+      cout << "wooop " << endl;
 
       current_col = std::lower_bound( its_theta.begin(), its_theta.end() , theta);
       current_row = std::lower_bound( its_r.begin()    , its_r.end()     , r    );
-//cout << "current_col: " << *current_col << " theta: " << theta << endl;
+
       lt_ind = (current_col - its_theta.begin() )*its_image_rows + (current_row - its_r.begin() );
       lb_ind = lt_ind + 1;
       rt_ind = ( (current_col - its_theta.begin()) + 1) * its_image_rows + (current_row - its_r.begin() );
@@ -427,6 +432,7 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
       }
 	  
       its_transform[ i*its_transform_rows + j ] = its_interpolation->interpolate(); 
+      cout << " its_transform: " << its_transform[ i* its_transform_rows ] << " i: " << i << " j: " << j << endl;
 
       delete its_interpolation;
 

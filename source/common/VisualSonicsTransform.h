@@ -159,7 +159,7 @@ namespace visual_sonics
       unsigned int& its_transform_cols;
   
       //! the post-converted image data
-      std::vector<ImageDataOutT> its_transform;
+      std::vector<ImageDataOutT>& its_transform;
   
   
   

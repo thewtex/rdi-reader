@@ -143,8 +143,6 @@ int vtkVisualSonicsReader::RequestData(vtkInformation*,
 
 
 
-#include <iostream>
-using namespace std;
 int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
 {
   // read in the image
@@ -178,7 +176,6 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
   {
     for(unsigned int j=0; j<rows; j++)
     {
-      cout << " i: " << i << " j: " << j << endl;
       *vtk_b_mode_image_sc_p = *b_mode_image_sc_it ;
       b_mode_image_sc_it++;
       vtk_b_mode_image_sc_p++;

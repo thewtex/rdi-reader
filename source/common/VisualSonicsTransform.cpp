@@ -277,7 +277,6 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
   {
     its_col_cos[i] = std::cos( its_encoder_positions[i] / its_pivot_to_encoder_dist );
     its_col_sin[i] = std::sin( its_encoder_positions[i] / its_pivot_to_encoder_dist );
-    cout << " cos: " << its_col_cos[i] << " sin: " << its_col_sin[i] << endl;
 
     its_theta[i] = its_encoder_positions[i] / its_pivot_to_encoder_dist ;
   }
@@ -328,7 +327,7 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
   const CoordT y_max_left = its_image_y[  (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_end] -1] ;
   const CoordT y_max_right = its_image_y[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end  ] -1] ;
   CoordT y_max;
-  cout << " yml: " << y_min_left << " ymr: " << y_min_right << endl;
+  cout << " yml: " << y_max_left << " ymr: " << y_max_right << endl;
   cout << " iiy: " << its_image_y[0] << endl;
   cout << " end ind: " << (its_output_roi[cols_end ] -1) * its_image_rows + its_output_roi[rows_end  ] - 1 << endl;
   cout << " cxr: " << its_image_cols* its_image_rows << endl;
@@ -373,8 +372,8 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
   //! used in referencing the values in the following x_vals, y_vals 
   enum locations { lt, lb, rb, rt };
 
-  std::vector<CoordT> x_vals(4), y_vals(4);
-  std::vector<ImageDataOutT> data(4);
+  CoordT x_vals[4], y_vals[4];
+  ImageDataOutT data[4];
 
   std::size_t	lt_ind, // left-top index
 		lb_ind,
@@ -388,6 +387,15 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
   CoordT theta = 0.0;
   CoordT r = 0.0;
 
+  switch (its_interpolation_method)
+  {
+	case (NearestNeighborM):
+	  its_interpolation = new NearestNeighbor<ImageDataOutT,CoordT>( x_vals, y_vals, data, x_pos, y_pos );
+	  break;
+	case (BilinearM):
+	  its_interpolation = new Bilinear<ImageDataOutT, CoordT>( x_vals, y_vals, data, x_pos, y_pos );
+	  break;
+  }
 
   // step through the transformed image and find values column by column
   for( unsigned int i = 0; i < its_transform_cols; i++) // for every transformed image column
@@ -397,13 +405,12 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
       theta = std::atan(x_pos / y_pos); // because of the way the coordinate system is set up, it may be opposite from what we're used to 
       r = std::sqrt( x_pos*x_pos + y_pos*y_pos );
 
-      //cout << "theta: " << theta << " t.beg: " << *its_theta.begin() << " t.end: " << *(its_theta.end()-1) << " r: " << r << " r.beg: " << *its_r.begin() << " r.end: " << *(its_r.end()-1) << endl;
       // make sure we are within bounds
       if( theta < *its_theta.begin() || theta > *(its_theta.end()-1) || r < *its_r.begin() || r > *(its_r.end()-1) )
       {
+        y_pos = y_pos + delta_y;
 	continue;
       }
-      cout << "wooop " << endl;
 
       current_col = std::lower_bound( its_theta.begin(), its_theta.end() , theta);
       current_row = std::lower_bound( its_r.begin()    , its_r.end()     , r    );
@@ -425,20 +432,10 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
       data[rb] = its_image[rb_ind];
       data[rt] = its_image[rt_ind];
 
-      switch (its_interpolation_method)
-      {
-	case (NearestNeighborM):
-	  its_interpolation = new NearestNeighbor<ImageDataOutT,CoordT>( x_vals, y_vals, data, x_pos, y_pos );
-	  break;
-	case (BilinearM):
-	  its_interpolation = new Bilinear<ImageDataOutT, CoordT>( x_vals, y_vals, data, x_pos, y_pos );
-	  break;
-      }
 	  
       its_transform[ i*its_transform_rows + j ] = its_interpolation->interpolate(); 
       cout << " its_transform: " << its_transform[ i* its_transform_rows ] << " i: " << i << " j: " << j << endl;
 
-      delete its_interpolation;
 
       // check to make sure we are within the bounds,
       //  advance which row we are in
@@ -483,6 +480,7 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
   }
 
 
+  delete its_interpolation;
 
 
 }

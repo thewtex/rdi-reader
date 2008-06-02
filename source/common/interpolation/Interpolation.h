@@ -17,9 +17,9 @@ class Interpolation
 {
   public:
 
-    Interpolation( const std::vector<CoordT>& x_vals,
-		   const std::vector<CoordT>& y_vals,
-		   const std::vector<ImageDataT>& data,
+    Interpolation( const CoordT* x_vals,
+		   const CoordT* y_vals,
+		   const ImageDataT* data,
 		   const CoordT& target_x_pos,
 		   const CoordT& target_y_pos):
 		      its_x_vals(x_vals),
@@ -35,11 +35,12 @@ class Interpolation
     virtual ImageDataT interpolate() = 0;
 
   protected:
-    const std::vector<CoordT> its_x_vals, its_y_vals;
+    const CoordT* its_x_vals;
+    const CoordT* its_y_vals;
     
-    const std::vector<ImageDataT> its_data;
+    const ImageDataT* its_data;
 
-    const CoordT its_x_pos, its_y_pos;
+    const CoordT& its_x_pos, its_y_pos;
 
 }; 
 

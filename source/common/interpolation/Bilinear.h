@@ -14,9 +14,9 @@ template<class ImageDataT = double, class CoordT = double>
 class Bilinear: public Interpolation<ImageDataT, CoordT>
 {
   public:
-    Bilinear(  const std::vector<CoordT>& x_vals,
-		      const std::vector<CoordT>& y_vals,
-		      const std::vector<ImageDataT>& data,
+    Bilinear(  const CoordT* x_vals,
+		      const CoordT* y_vals,
+		      const ImageDataT* data,
 		      const CoordT& target_x_pos,
 		      const CoordT& target_y_pos):
 			Interpolation<ImageDataT,CoordT>( x_vals, y_vals, data, target_x_pos, target_y_pos )

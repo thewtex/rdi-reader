@@ -162,6 +162,7 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     its_transform_cols( transform_cols ),
     its_transform( transform ),
     its_interpolation_method( interpmethod ),
+    its_outside_bounds_value( 0 ),
     its_delete_output_roi( false )
 {
 
@@ -327,10 +328,6 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
   const CoordT y_max_left = its_image_y[  (its_output_roi[cols_start] -1) * its_image_rows + its_output_roi[rows_end] -1] ;
   const CoordT y_max_right = its_image_y[ (its_output_roi[cols_end  ] -1) * its_image_rows + its_output_roi[rows_end  ] -1] ;
   CoordT y_max;
-  cout << " yml: " << y_max_left << " ymr: " << y_max_right << endl;
-  cout << " iiy: " << its_image_y[0] << endl;
-  cout << " end ind: " << (its_output_roi[cols_end ] -1) * its_image_rows + its_output_roi[rows_end  ] - 1 << endl;
-  cout << " cxr: " << its_image_cols* its_image_rows << endl;
   if( ( x_min < 0.0 && x_max < 0.0 ) || ( x_min > 0.0 && x_max > 0.0 ) )
     y_max = std::max( y_max_left, y_max_right );
   else
@@ -349,7 +346,7 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
     // proper aspect ratio
     its_transform_cols = static_cast< unsigned int > ( its_transform_rows * ( (x_max - x_min)/(y_max - y_min) ) );
   }
-  its_transform.resize( its_transform_rows*its_transform_cols );
+  its_transform.resize( its_transform_rows*its_transform_cols, its_outside_bounds_value );
 
 
 
@@ -387,6 +384,8 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
   CoordT theta = 0.0;
   CoordT r = 0.0;
 
+  // temp
+  its_interpolation_method = NearestNeighborM;
   switch (its_interpolation_method)
   {
 	case (NearestNeighborM):
@@ -434,7 +433,7 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
 
 	  
       its_transform[ i*its_transform_rows + j ] = its_interpolation->interpolate(); 
-      cout << " its_transform: " << its_transform[ i* its_transform_rows ] << " i: " << i << " j: " << j << endl;
+      //cout << " its_transform: " << its_transform[ i* its_transform_rows + j] << " i: " << i << " j: " << j << endl;
 
 
       // check to make sure we are within the bounds,

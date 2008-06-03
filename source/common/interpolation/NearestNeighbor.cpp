@@ -29,7 +29,6 @@ ImageDataT NearestNeighbor<ImageDataT, CoordT>::interpolate()
   }
 
   return this->its_data[loc];
-
   
 }
 

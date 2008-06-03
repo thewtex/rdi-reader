@@ -85,6 +85,8 @@ namespace visual_sonics
       ~VisualSonicsTransform();
 
 
+      //! set the value for the output that is outside the boundary of the original data
+      void set_outside_bounds_value( const ImageDataOutT& obv ) { its_outside_bounds_value = obv; }
 
       //! perform the transformation/scan conversion and return the transformed image
       void transform();
@@ -167,7 +169,7 @@ namespace visual_sonics
       visual_sonics::InterpolationMethod its_interpolation_method;
   
       //! value when you are outside the bounds of the original image
-      const static CoordT its_outside_bounds_value = 0.0;
+      ImageDataOutT its_outside_bounds_value;
 
     private:
       //! if its_output_roi needs to have delete[] called on destruction

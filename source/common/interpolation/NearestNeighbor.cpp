@@ -21,7 +21,7 @@ ImageDataT NearestNeighbor<ImageDataT, CoordT>::interpolate()
   for( int loc_it = 1; loc_it < 4; ++loc_it)
   {
     temp_distance = std::fabs(this->its_x_vals[loc_it] - this->its_x_pos) + std::fabs(this->its_y_vals[loc_it] - this->its_y_pos) ;
-    if( temp_distance < min_distance)
+    if( temp_distance < min_distance )
     {
       loc = loc_it;
       min_distance = temp_distance;

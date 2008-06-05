@@ -24,7 +24,7 @@ class Bilinear: public Interpolation<ImageDataT, CoordT>
 
     virtual ~Bilinear(){};
 
-    virtual ImageDataT interpolate(){ return 0.0;};
+    virtual ImageDataT interpolate();
 
   private:
     //! vector point locations, lt = left top, etc

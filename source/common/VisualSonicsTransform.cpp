@@ -384,8 +384,6 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
   CoordT theta = 0.0;
   CoordT r = 0.0;
 
-  // temp
-  its_interpolation_method = NearestNeighborM;
   switch (its_interpolation_method)
   {
 	case (NearestNeighborM):
@@ -433,7 +431,7 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
 
 	  
       its_transform[ i*its_transform_rows + j ] = its_interpolation->interpolate(); 
-      //cout << " its_transform: " << its_transform[ i* its_transform_rows + j] << " i: " << i << " j: " << j << endl;
+      cout << " its_transform: " << its_transform[ i* its_transform_rows + j] << " i: " << i << " j: " << j << endl;
 
 
       // check to make sure we are within the bounds,

@@ -13,7 +13,7 @@ visual_sonics::MetadataReaderBase::MetadataReaderBase(const bf::path& in_file_pa
 
 
 void visual_sonics::MetadataReaderBase::set_in_file_path( const bf::path& ifp )
-{ 
+{
   its_in_file_path = ifp;
   this->parse_metadata();
 };

@@ -1,5 +1,5 @@
 /*! @file  vtkVisualSonicsReader.h
- *  @brief read the Visual Sonics Digital RF files into a vtkImageData 
+ *  @brief read the Visual Sonics Digital RF files into a vtkImageData
  *
  *  @author Matt McCormick (thewtex) <matt@mmmccormick.com>
  *  @date   2008 March 17
@@ -18,6 +18,7 @@ namespace bf = boost::filesystem;
 
 #include "vtkSetGet.h"
 
+
 using namespace visual_sonics;
 
 namespace visual_sonics
@@ -26,7 +27,7 @@ namespace visual_sonics
 
   namespace cxx
   {
-    class ImageReader;
+    template<class ImageDataOutT, class CoordT> class ImageReader;
   }
 }
 
@@ -39,7 +40,7 @@ class vtkUnsignedShortArray;
  * has six output ports:
  *   1. raw scout window b-mode image
  *   2. raw scout window saturation image
- *   3. raw rfdata image 
+ *   3. raw rfdata image
  *   4. scan converted scout window b-mode image
  *   5. scan converted scout window saturation image
  *   6. scan converted rfdata image
@@ -86,13 +87,21 @@ public:
 
 protected:
 
+  //! define what the outputs are
   virtual int FillOutputPortInformation( int, vtkInformation* );
 
+  //! does the actual data crunching at a pipeline request
   virtual int RequestData(vtkInformation*,
 		      vtkInformationVector**,
-		      vtkInformationVector*);
+		      vtkInformationVector* outputVector);
 
-  visual_sonics::cxx::ImageReader* its_ir;
+  //! break this->RequestData into 3 logical sections: ReadBMode, ReadSaturation, ReadRF
+  int ReadBMode(vtkInformationVector* outputVector);
+  int ReadSaturation(vtkInformationVector* outputVector);
+  int ReadRF(vtkInformationVector* outputVector);
+
+  //! does the heavy lifting for reading in the data
+  cxx::ImageReader<double,double>* its_ir;
 
   const visual_sonics::rdiParserData* its_rpd;
 

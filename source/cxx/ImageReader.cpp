@@ -12,43 +12,95 @@
 namespace bf = boost::filesystem;
 
 
-#include "rdiParserData.h"
-#include "MetadataReaderBase.h"
-#include "sized_ints.h"
+#include "common/spirit_parse/rdiParserData.h"
+#include "common/MetadataReaderBase.h"
+#include "common/sized_ints.h"
+#include "common/VisualSonicsTransform.h"
 
 
 using namespace visual_sonics::cxx;
 
 
-ImageReader::ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read):
+template<class ImageDataOutT, class CoordT>
+ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read):
   ImageReaderBase( in_file_path, frames_to_read )
 {
+  its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
+										      its_b_mode_image_sc,
+										      its_b_mode_sc_rows,
+										      its_b_mode_sc_cols,
+										      its_b_mode_image_x,
+										      its_b_mode_image_y,
+										      this->get_rpd(),
+										      true
+										      );
+
+
 }
 
 
 
-ImageReader::ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition):
+template<class ImageDataOutT, class CoordT>
+ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition):
   ImageReaderBase( in_file_path, frames_to_read, read_method, specific_acquisition )
 {
+  its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
+										      its_b_mode_image_sc,
+										      its_b_mode_sc_rows,
+										      its_b_mode_sc_cols,
+										      its_b_mode_image_x,
+										      its_b_mode_image_y,
+										      this->get_rpd(),
+										      true
+										      );
 }
 
 
 
-ImageReader::ImageReader( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition ):
+template<class ImageDataOutT, class CoordT>
+ImageReader<ImageDataOutT,CoordT>::ImageReader( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition ):
   ImageReaderBase( in_file_path, read_method, specific_acquisition )
 {
+  its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
+										      its_b_mode_image_sc,
+										      its_b_mode_sc_rows,
+										      its_b_mode_sc_cols,
+										      its_b_mode_image_x,
+										      its_b_mode_image_y,
+										      this->get_rpd(),
+										      true
+										      );
 }
 
 
 
-ImageReader::ImageReader(const bf::path& in_file_path ):
+template<class ImageDataOutT, class CoordT>
+ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path ):
   ImageReaderBase( in_file_path )
 {
+  its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
+										      its_b_mode_image_sc,
+										      its_b_mode_sc_rows,
+										      its_b_mode_sc_cols,
+										      its_b_mode_image_x,
+										      its_b_mode_image_y,
+										      this->get_rpd(),
+										      true
+										      );
 }
 
 
 
-void ImageReader::read_b_mode_image()
+template<class ImageDataOutT, class CoordT>
+ImageReader<ImageDataOutT,CoordT>::~ImageReader()
+{
+  delete its_b_mode_vs_transform;
+}
+
+
+
+template<class ImageDataOutT, class CoordT>
+void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
 {
   std::ifstream rdb_file( its_rdb_file_path.native_file_string().c_str(), std::ios::in | std::ios::binary);
   if (!rdb_file.is_open())
@@ -81,21 +133,36 @@ void ImageReader::read_b_mode_image()
 
   delete[] u_short_data;
   rdb_file.close();
+  // finished extracting data
+
+
+  // prepare for transformation
+  its_b_mode_image_x.resize(samples_per_line * num_lines);
+  its_b_mode_image_y.resize(samples_per_line * num_lines);
+
+  its_b_mode_vs_transform->set_outside_bounds_value( its_b_mode_min );
+
+  its_b_mode_vs_transform->transform();
 
 }
 
 
 
-void ImageReader::read_saturation_image()
+template<class ImageDataOutT, class CoordT>
+void ImageReader<ImageDataOutT,CoordT>::read_saturation_image()
 {
 }
 
 
 
-bool ImageReader::read_rf_data_image()
+template<class ImageDataOutT, class CoordT>
+bool ImageReader<ImageDataOutT,CoordT>::read_rf_data_image()
 {
   return true;
 }
 
 
 
+template class ImageReader<double,double>;
+template class ImageReader<double,float>;
+template class ImageReader<float,float>;

@@ -16,14 +16,14 @@ namespace bf = boost::filesystem;
 namespace visual_sonics
 {
   class rdiParserData;
-  namespace cxx { class ImageReader; };
+  namespace cxx { template<class ImageDataOutT, class CoordT> class ImageReader; };
   namespace vtk { class ImageReader; };
 
   class MetadataReaderBase
   {
   public:
     friend class ImageReaderBase;
-    friend class cxx::ImageReader;
+    template< class ImageDataOutT, class CoordT > friend class cxx::ImageReader ;
     friend class vtk::ImageReader;
 
     MetadataReaderBase(const bf::path& in_file_path);

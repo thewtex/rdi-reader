@@ -9,9 +9,13 @@ include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source
 
 set(base_test_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
                                     ${spirit_parse_source_dir}/BoostSpiritInputFile.cpp
+                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/interpolation/Interpolation.cpp
+                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/interpolation/NearestNeighbor.cpp
+                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/interpolation/Bilinear.cpp
                                     ${read_visualsonics_digital_rf_SOURCE_DIR}/source/cxx/ImageReader.cpp
                                     ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/ImageReaderBase.cpp
                                     ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/MetadataReaderBase.cpp
+                                    ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/VisualSonicsTransform.cpp
 				    )
 
 

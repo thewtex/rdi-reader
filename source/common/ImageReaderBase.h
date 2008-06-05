@@ -31,6 +31,8 @@ namespace visual_sonics
 
   class ImageReaderBase
   {
+
+
   public:
     ImageReaderBase( const bf::path& in_file_path, std::vector<unsigned int>& frames_to_read );
     ImageReaderBase( const bf::path& in_file_path, //!< path to the .rdi/.rdb files less the extension
@@ -55,13 +57,6 @@ namespace visual_sonics
     void set_specific_acquisition( unsigned int sa ){ this->its_specific_acquisition = sa; }
     unsigned int get_specific_acquisition(){ return this->its_specific_acquisition; }
 
-  protected:
-    MetadataReaderBase* its_metadata_reader;
-    //! for use in constructors--  @todo if want to make 'virtual' see here http://www.parashift.com/c++-faq-lite/strange-inheritance.html#faq-23.6
-    void create_its_metadata_reader( const bf::path& in_file_path );
-
-    bf::path its_rdb_file_path;
-
 
     //! read the b-mode data from the file and store it in the member variable
     virtual void read_b_mode_image() = 0;
@@ -73,6 +68,15 @@ namespace visual_sonics
        * use it like an iterator
        */
     virtual bool read_rf_data_image() = 0;
+
+  protected:
+    MetadataReaderBase* its_metadata_reader;
+    //! for use in constructors--  @todo if want to make 'virtual' see here http://www.parashift.com/c++-faq-lite/strange-inheritance.html#faq-23.6
+    void create_its_metadata_reader( const bf::path& in_file_path );
+
+    bf::path its_rdb_file_path;
+
+
 
     //! which frames to read from the file
     std::vector<unsigned int>	its_frames_to_read;

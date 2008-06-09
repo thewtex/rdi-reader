@@ -5,10 +5,10 @@
 namespace bf = boost::filesystem;
 
 
+#include "vtkCamera.h"
 #include "vtkDataSetMapper.h"
 #include "vtkLookupTable.h"
 #include "vtkImageData.h"
-#include "vtkImageViewer.h"
 #include "vtkInteractorStyleImage.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 #include "vtkRenderer.h"
@@ -57,6 +57,7 @@ ImageViewer::ImageViewer( const bf::path& in_file_path, ReadMethod read_method, 
   its_interactor_style_image = vtkInteractorStyleImage::New();
   its_interactor_style_trackball = vtkInteractorStyleTrackballCamera::New();
   its_iren = vtkRenderWindowInteractor::New();
+  its_iren->SetRenderWindow( its_ren_win );
 }
 
 
@@ -69,6 +70,7 @@ ImageViewer::ImageViewer( const bf::path& in_file_path )
   its_interactor_style_image = vtkInteractorStyleImage::New();
   its_interactor_style_trackball = vtkInteractorStyleTrackballCamera::New();
   its_iren = vtkRenderWindowInteractor::New();
+  its_iren->SetRenderWindow( its_ren_win );
 }
 
 
@@ -83,23 +85,23 @@ ImageViewer::~ImageViewer()
 }
 
 
-#include "vtkCamera.h"
-#include "vtkPointData.h"
-#include "vtkDataArray.h"
-#include "vtkUnsignedShortArray.h"
 
 void ImageViewer::view_b_mode()
 {
+ // read the data
  its_image_reader->Update();
 
+ // get the output
  vtkStructuredGrid* vtk_b_mode_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(0) );
  double* b_mode_range = vtk_b_mode_sg->GetScalarRange();
 
+ // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
  dsm->SetColorModeToMapScalars();
  dsm->SetScalarModeToUsePointData();
  dsm->SetInputConnection( its_image_reader->GetOutputPort(0) );
 
+ // Lookup Table
  vtkSmartPointer<vtkLookupTable> lut = vtkSmartPointer<vtkLookupTable>::New();
  lut->SetNumberOfColors(65536);
  lut->SetHueRange(0.0, 1.0);
@@ -109,37 +111,31 @@ void ImageViewer::view_b_mode()
  dsm->SetLookupTable(lut);
  dsm->SetScalarRange( b_mode_range[0], b_mode_range[1] );
 
+ // actor
  vtkSmartPointer<vtkActor> pda = vtkSmartPointer<vtkActor>::New();
  pda->SetMapper( dsm );
 
+ // renderer
  vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();
- //ren->SetBackground( 0.0, 0.367 , 0.0);
  ren->SetBackground( its_background_color_red, its_background_color_green, its_background_color_blue   );
  ren->AddViewProp( pda );
-
- vtkSmartPointer<vtkRenderWindow> its_ren_win = vtkSmartPointer<vtkRenderWindow>::New();
  its_ren_win->AddRenderer( ren );
 
- ren->Render();
-
-
-
+ // adjust camera location ( otherwise includes y=0 be included by default )
  double* bounds = vtk_b_mode_sg->GetBounds();
  double* first = vtk_b_mode_sg->GetPoints()->GetPoint(0);
-
- vtkCamera* cam = ren->GetActiveCamera();
-
  double center_y = (bounds[2] + first[1])/2.0;
  double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
+
+ vtkCamera* cam = ren->GetActiveCamera();
  cam->SetFocalPoint( 0.0, center_y, 0.0 );
  cam->SetPosition( 0.0, center_y, camdist );
  cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
  cam->ComputeViewPlaneNormal();
- ren->Render();
 
  its_ren_win->SetSize( 512, int( (first[1] - bounds[2])/(first[0]*-2.0) * 512 ) );
 
- its_iren->SetRenderWindow( its_ren_win );
+ // interactor
  its_iren->SetInteractorStyle( its_interactor_style_image );
  its_iren->Initialize();
  its_iren->Start();

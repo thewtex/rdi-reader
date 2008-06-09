@@ -9,6 +9,7 @@ namespace bf = boost::filesystem;
 #include "vtkLookupTable.h"
 #include "vtkImageData.h"
 #include "vtkImageViewer.h"
+#include "vtkInteractorStyleImage.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
@@ -53,9 +54,9 @@ ImageViewer::ImageViewer( const bf::path& in_file_path, ReadMethod read_method, 
   its_image_reader->SetReadMethod( read_method );
   its_image_reader->SetSpecificAcquisition( specific_acquisition );
   its_ren_win = vtkRenderWindow::New();
-  its_interactor_style = vtkInteractorStyleTrackballCamera::New();
+  its_interactor_style_image = vtkInteractorStyleImage::New();
+  its_interactor_style_trackball = vtkInteractorStyleTrackballCamera::New();
   its_iren = vtkRenderWindowInteractor::New();
-  its_iren->SetInteractorStyle( its_interactor_style );
 }
 
 
@@ -65,9 +66,9 @@ ImageViewer::ImageViewer( const bf::path& in_file_path )
   its_image_reader = vtkVisualSonicsReader::New();
   its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
   its_ren_win = vtkRenderWindow::New();
-  its_interactor_style = vtkInteractorStyleTrackballCamera::New();
+  its_interactor_style_image = vtkInteractorStyleImage::New();
+  its_interactor_style_trackball = vtkInteractorStyleTrackballCamera::New();
   its_iren = vtkRenderWindowInteractor::New();
-  its_iren->SetInteractorStyle( its_interactor_style );
 }
 
 
@@ -76,7 +77,8 @@ ImageViewer::~ImageViewer()
 {
   its_image_reader->Delete();
   its_ren_win->Delete();
-  its_interactor_style->Delete();
+  its_interactor_style_image->Delete();
+  its_interactor_style_trackball->Delete();
   its_iren->Delete();
 }
 
@@ -85,6 +87,7 @@ ImageViewer::~ImageViewer()
 #include "vtkPointData.h"
 #include "vtkDataArray.h"
 #include "vtkUnsignedShortArray.h"
+
 void ImageViewer::view_b_mode()
 {
  its_image_reader->Update();
@@ -136,6 +139,7 @@ void ImageViewer::view_b_mode()
  its_ren_win->SetSize( 512, int( (first[1] - bounds[2])/(first[0]*-2.0) * 512 ) );
 
  its_iren->SetRenderWindow( its_ren_win );
+ its_iren->SetInteractorStyle( its_interactor_style_image );
  its_iren->Initialize();
  its_iren->Start();
 

@@ -48,6 +48,9 @@ namespace visual_sonics
       const static double its_background_color_green = 0.32;
       const static double its_background_color_blue = 0.0;
 
+      //! default width for an image viewport
+      const static int its_default_width = 512;
+
 
     };
   }

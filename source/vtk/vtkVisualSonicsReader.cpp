@@ -134,6 +134,8 @@ int vtkVisualSonicsReader::RequestData(vtkInformation*,
   if(!this->ReadBMode(outputVector) )
     return 0;
 
+  if(!this->ReadSaturation(outputVector) )
+    return 0;
 
   this->Modified();
 
@@ -148,43 +150,8 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
   // read in the image
   its_ir->read_b_mode_image();
 
-  const unsigned int rows = its_ir->get_b_mode_image_sc_rows();
-  const unsigned int cols = its_ir->get_b_mode_image_sc_cols();
-
-  vtkInformation* outInfo = outputVector->GetInformationObject(3);
-  vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
-  if (!vtk_b_mode_image_sc)
-    return 0;
-
-  // temporarily called sc until I really scan convert them
-  // create scout b mode scan converted
-  //
-  // Extent should be set befor allocate scalars
-  vtk_b_mode_image_sc->SetWholeExtent( 0 , rows - 1, 0, cols - 1, 0, 0 );
-  //vtk_b_mode_image_sc->SetUpdateExtent( vtk_b_mode_image_sc->GetWholeExtent() );
-  vtk_b_mode_image_sc->SetDimensions( rows, cols, 1 );
-  vtk_b_mode_image_sc->SetScalarTypeToDouble();
-  vtk_b_mode_image_sc->SetNumberOfScalarComponents(1);
-  vtk_b_mode_image_sc->AllocateScalars();
-  vtk_b_mode_image_sc->SetSpacing( 1.0, 1.0, 1.0 );
-  vtk_b_mode_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
-  // fill in scout b mode scan converted values
-  double* vtk_b_mode_image_sc_p = static_cast< double* >( vtk_b_mode_image_sc->GetScalarPointer() );
-  std::vector<double>::const_iterator b_mode_image_sc_it = its_ir->get_b_mode_image_sc().begin();
-
-  for(unsigned int i=0; i<cols; i++)
-  {
-    for(unsigned int j=0; j<rows; j++)
-    {
-      *vtk_b_mode_image_sc_p = *b_mode_image_sc_it ;
-      b_mode_image_sc_it++;
-      vtk_b_mode_image_sc_p++;
-    }
-  }
-
-
   //---------- b_mode_image_raw -----------------
-  outInfo = outputVector->GetInformationObject(0);
+  vtkInformation* outInfo = outputVector->GetInformationObject(0);
   vtkStructuredGrid* vtk_b_mode_image_raw = vtkStructuredGrid::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
   if (!vtk_b_mode_image_raw)
     return 0;
@@ -225,6 +192,39 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
 
   vtk_b_mode_image_raw->SetPoints(b_mode_raw_points);
   vtk_b_mode_image_raw->GetPointData()->SetScalars( b_mode_raw_data );
+
+
+  //------------- b_mode image scan converted -----
+  const unsigned int rows = its_ir->get_b_mode_image_sc_rows();
+  const unsigned int cols = its_ir->get_b_mode_image_sc_cols();
+
+  outInfo = outputVector->GetInformationObject(3);
+  vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
+  if (!vtk_b_mode_image_sc)
+    return 0;
+
+  // Extent should be set before allocate scalars
+  vtk_b_mode_image_sc->SetWholeExtent( 0 , rows - 1, 0, cols - 1, 0, 0 );
+  vtk_b_mode_image_sc->SetDimensions( rows, cols, 1 );
+  vtk_b_mode_image_sc->SetScalarTypeToDouble();
+  vtk_b_mode_image_sc->SetNumberOfScalarComponents(1);
+  vtk_b_mode_image_sc->AllocateScalars();
+  vtk_b_mode_image_sc->SetSpacing( 1.0, 1.0, 1.0 );
+  vtk_b_mode_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
+  // fill in scout b mode scan converted values
+  double* vtk_b_mode_image_sc_p = static_cast< double* >( vtk_b_mode_image_sc->GetScalarPointer() );
+  std::vector<double>::const_iterator b_mode_image_sc_it = its_ir->get_b_mode_image_sc().begin();
+
+  for(unsigned int i=0; i<cols; i++)
+  {
+    for(unsigned int j=0; j<rows; j++)
+    {
+      *vtk_b_mode_image_sc_p = *b_mode_image_sc_it ;
+      b_mode_image_sc_it++;
+      vtk_b_mode_image_sc_p++;
+    }
+  }
+
 
   return 1;
 

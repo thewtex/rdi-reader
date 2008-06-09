@@ -10,14 +10,12 @@ namespace bf = boost::filesystem;
 #include "vtkImageData.h"
 #include "vtkImageViewer.h"
 #include "vtkInteractorStyleTrackballCamera.h"
+#include "vtkRenderer.h"
+#include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
 #include "vtkSmartPointer.h"
 #include "vtkStructuredGrid.h"
 
-#include "vtkImageActor.h"
-#include "vtkImageShiftScale.h"
-#include "vtkRenderer.h"
-#include "vtkRenderWindow.h"
 
 #include "vtk/vtkVisualSonicsReader.h"
 #include "common/ReadMethod.h"
@@ -54,8 +52,10 @@ ImageViewer::ImageViewer( const bf::path& in_file_path, ReadMethod read_method, 
   its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
   its_image_reader->SetReadMethod( read_method );
   its_image_reader->SetSpecificAcquisition( specific_acquisition );
+  its_ren_win = vtkRenderWindow::New();
   its_interactor_style = vtkInteractorStyleTrackballCamera::New();
   its_iren = vtkRenderWindowInteractor::New();
+  its_iren->SetInteractorStyle( its_interactor_style );
 }
 
 
@@ -64,8 +64,10 @@ ImageViewer::ImageViewer( const bf::path& in_file_path )
 {
   its_image_reader = vtkVisualSonicsReader::New();
   its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
+  its_ren_win = vtkRenderWindow::New();
   its_interactor_style = vtkInteractorStyleTrackballCamera::New();
   its_iren = vtkRenderWindowInteractor::New();
+  its_iren->SetInteractorStyle( its_interactor_style );
 }
 
 
@@ -73,6 +75,7 @@ ImageViewer::ImageViewer( const bf::path& in_file_path )
 ImageViewer::~ImageViewer()
 {
   its_image_reader->Delete();
+  its_ren_win->Delete();
   its_interactor_style->Delete();
   its_iren->Delete();
 }
@@ -106,12 +109,12 @@ void ImageViewer::view_b_mode()
  vtkSmartPointer<vtkActor> pda = vtkSmartPointer<vtkActor>::New();
  pda->SetMapper( dsm );
 
- vtkRenderer* ren = vtkRenderer::New();
+ vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();
  ren->SetBackground( 0.0, 0.367 , 0.0);
  ren->AddViewProp( pda );
 
- vtkSmartPointer<vtkRenderWindow> renwin = vtkSmartPointer<vtkRenderWindow>::New();
- renwin->AddRenderer( ren );
+ vtkSmartPointer<vtkRenderWindow> its_ren_win = vtkSmartPointer<vtkRenderWindow>::New();
+ its_ren_win->AddRenderer( ren );
 
  ren->Render();
 
@@ -130,16 +133,11 @@ void ImageViewer::view_b_mode()
  cam->ComputeViewPlaneNormal();
  ren->Render();
 
- renwin->SetSize( 512, int( (first[1] - bounds[2])/(first[0]*-2.0) * 512 ) );
+ its_ren_win->SetSize( 512, int( (first[1] - bounds[2])/(first[0]*-2.0) * 512 ) );
 
-
- its_iren->SetRenderWindow( renwin );
- its_iren->SetInteractorStyle( its_interactor_style );
+ its_iren->SetRenderWindow( its_ren_win );
  its_iren->Initialize();
  its_iren->Start();
-
- //ren->Delete();
- //renwin->Delete();
 
 
 }

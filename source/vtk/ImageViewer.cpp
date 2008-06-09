@@ -135,8 +135,8 @@ void ImageViewer::view_b_mode()
 
  vtkRenderer* ren = vtkRenderer::New();
  ren->SetBackground( 0.0, 0.367 , 0.0);
- ren->AddViewProp( ia );
- //ren->AddViewProp( pda );
+ //ren->AddViewProp( ia );
+ ren->AddViewProp( pda );
 
  ia->RotateZ(-90.0);
  ia->SetScale( 3.0, 3.0, 1.0 );
@@ -173,16 +173,6 @@ void ImageViewer::view_b_mode()
 
  //ren->Delete();
  //renwin->Delete();
-
- vtkImageData* cd = iss->GetOutput();
- cd->Print(cerr);
- cerr << "output ports: " << iss->GetNumberOfOutputPorts() << '\n';
- unsigned char* dpc = static_cast<unsigned char*>( cd->GetScalarPointer( ) );
- for(int i= 0; i<10; i++)
- {
-   cerr << *dpc << std::endl;
-   dpc++;
-  }
 
 
 }

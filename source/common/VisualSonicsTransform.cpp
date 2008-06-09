@@ -433,41 +433,6 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
 
 
       its_transform[ i*its_transform_rows + j ] = its_interpolation->interpolate();
-      cout << " its_transform: " << its_transform[ i* its_transform_rows + j] << " i: " << i << " j: " << j << endl;
-
-
-      // check to make sure we are within the bounds,
-      //  advance which row we are in
-      //  and give the default value if we outside the bounds of the original image
-      //try
-      //{
-        //while ( x_pos < its_image_x.at(current_x_lower_bound) )
-	//{
-	  //current_x_lower_bound++ ;
-	//}
-      //}
-      //! @note cannot use std::out_of_range because of a visibility issue in gcc 4.[0-1], may be fixed in 4.2
-      //! for more info, see http://www.dribin.org/dave/blog/archives/2006/02/10/gcc_exception_bug/
- //     catch ( std::exception ) // for the last column
-      //{
-	//its_transform[ i*its_transform_rows + j ] = its_outside_bounds_value;
-	//continue;
-      //}
-//      if ( current_x_lower_bound == x_upper_bound_plus_one ) //for the other columns
-      //{
-	//its_transform[ i*its_transform_rows + j ] = its_outside_bounds_value;
-	//continue;
-      //}
-
-      //lt_x = current_x_lower_bound;
-      //lb_x = current_x_lower_bound+1;
-
-      //std::cout << " some text " <<  std::endl;
-
-
-
-
-
 
        y_pos = y_pos + delta_y;
     }

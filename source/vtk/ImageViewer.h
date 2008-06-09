@@ -43,6 +43,12 @@ namespace visual_sonics
       vtkInteractorStyleTrackballCamera* its_interactor_style_trackball;
       vtkRenderWindowInteractor* its_iren;
 
+      //! background for all render windows
+      const static double its_background_color_red = 0.0;
+      const static double its_background_color_green = 0.32;
+      const static double its_background_color_blue = 0.0;
+
+
     };
   }
 }

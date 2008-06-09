@@ -113,7 +113,8 @@ void ImageViewer::view_b_mode()
  pda->SetMapper( dsm );
 
  vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();
- ren->SetBackground( 0.0, 0.367 , 0.0);
+ //ren->SetBackground( 0.0, 0.367 , 0.0);
+ ren->SetBackground( its_background_color_red, its_background_color_green, its_background_color_blue   );
  ren->AddViewProp( pda );
 
  vtkSmartPointer<vtkRenderWindow> its_ren_win = vtkSmartPointer<vtkRenderWindow>::New();

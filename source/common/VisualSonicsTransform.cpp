@@ -410,7 +410,9 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
       }
 
       current_col = std::lower_bound( its_theta.begin(), its_theta.end() , theta);
+      current_col--;
       current_row = std::lower_bound( its_r.begin()    , its_r.end()     , r    );
+      current_row--;
 
       lt_ind = (current_col - its_theta.begin() )*its_image_rows + (current_row - its_r.begin() );
       lb_ind = lt_ind + 1;

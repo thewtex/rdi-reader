@@ -7,6 +7,10 @@
 
 #include "Bilinear.h"
 
+#ifndef NDEBUG
+#include <stdexcept>
+#endif
+
 #include <iostream>
 using namespace std;
 template<class ImageDataT, class CoordT>
@@ -25,9 +29,16 @@ ImageDataT Bilinear<ImageDataT, CoordT>::interpolate()
 
   ImageDataT interp_x_top = 1.0/(this->its_x_vals[rt] - this->its_x_vals[lt])*( this->its_data[lt] *( this->its_x_vals[rt] - this->its_x_pos) + this->its_data[rt]*( this->its_x_pos - this->its_x_vals[lt] ) );
 
-  cout << "x lb: " << this->its_x_vals[lb] << " x rb: " << this->its_x_vals[rb] <<  " x pos: " << this->its_x_pos << endl;
+  cout << "x lt: " << this->its_x_vals[lt] << " x lb: " << this->its_x_vals[lb] << " x rb: " << this->its_x_vals[rb] << " x rt: " << this->its_x_vals[rt] <<  " x pos: " << this->its_x_pos << endl;
+  cout << "y lt: " << this->its_y_vals[lt] << " y lb: " << this->its_y_vals[lb] << " y rb: " << this->its_y_vals[rb] << " y rt: " << this->its_y_vals[rt] <<  " y pos: " << this->its_y_pos << endl;
   cout << "data lt: " << this->its_data[lt] << " data lb: " << this->its_data[lb] << " data rb: " << this->its_data[rb] << " data rt: " << this->its_data[rt] << endl;
   cout << "interp x bot: " << interp_x_bot << " top: " << interp_x_top << endl;
+#ifndef NDEBUG
+  if( !( (this->its_x_pos > this->its_x_vals[lb] || this->its_x_pos > this->its_x_vals[lt]) && (this->its_x_pos < this->its_x_vals[rb] || this->its_x_pos < this->its_x_vals[rt]) ) && !( (this->its_y_pos < this->its_y_vals[lb] || this->its_y_pos < this->its_y_vals[rb]) && ( this->its_y_pos > this->its_y_vals[lt] || this->its_y_pos > this->its_y_vals[rt])) )
+  {
+    throw std::out_of_range( " interpolation cell not chosen correctly " );
+  }
+#endif
   // if it is closer to the left, use the y values on the left side, else use the y values on the right side
   ImageDataT interp;
   if ( (this->its_x_pos - this->its_x_vals[lb])/(this->its_x_vals[rb] - this->its_x_vals[lb]) < 0.5 )

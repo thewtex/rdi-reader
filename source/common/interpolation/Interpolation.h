@@ -40,7 +40,8 @@ class Interpolation
 
     const ImageDataT* its_data;
 
-    const CoordT& its_x_pos, its_y_pos;
+    const CoordT& its_x_pos;
+    const CoordT& its_y_pos;
 
 };
 

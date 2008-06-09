@@ -14,6 +14,7 @@ namespace bf = boost::filesystem;
 #include "vtkSetGet.h"
 #include "vtkSmartPointer.h"
 #include "vtkStructuredGrid.h"
+#include "vtkUnsignedCharArray.h"
 #include "vtkUnsignedShortArray.h"
 
 
@@ -235,6 +236,82 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
 
 int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector)
 {
+  // read in the image
+  its_ir->read_saturation_image();
+
+  //---------- saturation_image_raw -----------------
+  vtkInformation* outInfo = outputVector->GetInformationObject(1);
+  vtkStructuredGrid* vtk_saturation_image_raw = vtkStructuredGrid::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
+  if (!vtk_saturation_image_raw)
+    return 0;
+
+  const unsigned int samples_per_line = its_rpd->its_rf_mode_rx_ad_gate_width;
+  const unsigned int num_lines = its_rpd->its_rf_mode_tx_trig_tbl_trigs;
+
+  vtk_saturation_image_raw->SetWholeExtent( 0, num_lines - 1, 0, samples_per_line - 1, 0, 0 );
+  vtk_saturation_image_raw->SetDimensions( num_lines, samples_per_line, 1 );
+
+
+  vtkSmartPointer<vtkPoints> saturation_raw_points = vtkSmartPointer<vtkPoints>::New();
+  saturation_raw_points->SetNumberOfPoints( samples_per_line*num_lines*1 );
+
+  vtkSmartPointer<vtkUnsignedCharArray> saturation_raw_data = vtkSmartPointer<vtkUnsignedCharArray>::New();
+  saturation_raw_data->SetNumberOfComponents(1);
+  saturation_raw_data->SetNumberOfTuples( samples_per_line*num_lines*1 );
+
+
+  std::vector<bool>::const_iterator saturation_image_it = its_ir->get_saturation_image().begin();
+  std::vector<double>::const_iterator saturation_image_x = its_ir->get_saturation_image_x().begin();
+  std::vector<double>::const_iterator saturation_image_y = its_ir->get_saturation_image_y().begin();
+
+  for( unsigned int i=0; i<num_lines; i++)
+  {
+    for(unsigned int j=0; j<samples_per_line; j++)
+    {
+      saturation_raw_data->SetValue( i + num_lines*j, static_cast< unsigned char > ( *saturation_image_it ) );
+      saturation_image_it++;
+
+
+      saturation_raw_points->SetPoint( i + num_lines*j, *saturation_image_x, *saturation_image_y * -1, 0.0);
+      saturation_image_x++;
+      saturation_image_y++;
+    }
+  }
+
+  vtk_saturation_image_raw->SetPoints(saturation_raw_points);
+  vtk_saturation_image_raw->GetPointData()->SetScalars( saturation_raw_data );
+
+
+  //------------- saturation image scan converted -----
+  const unsigned int rows = its_ir->get_saturation_image_sc_rows();
+  const unsigned int cols = its_ir->get_saturation_image_sc_cols();
+
+  outInfo = outputVector->GetInformationObject(4);
+  vtkImageData* vtk_saturation_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
+  if (!vtk_saturation_image_sc)
+    return 0;
+
+  // Extent should be set before allocate scalars
+  vtk_saturation_image_sc->SetWholeExtent( 0 , rows - 1, 0, cols - 1, 0, 0 );
+  vtk_saturation_image_sc->SetDimensions( rows, cols, 1 );
+  vtk_saturation_image_sc->SetScalarTypeToUnsignedChar();
+  vtk_saturation_image_sc->SetNumberOfScalarComponents(1);
+  vtk_saturation_image_sc->AllocateScalars();
+  vtk_saturation_image_sc->SetSpacing( 1.0, 1.0, 1.0 );
+  vtk_saturation_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
+  // fill in scout b mode scan converted values
+  unsigned char* vtk_saturation_image_sc_p = static_cast< unsigned char* >( vtk_saturation_image_sc->GetScalarPointer() );
+  std::vector<bool>::const_iterator saturation_image_sc_it = its_ir->get_saturation_image_sc().begin();
+
+  for(unsigned int i=0; i<cols; i++)
+  {
+    for(unsigned int j=0; j<rows; j++)
+    {
+      *vtk_saturation_image_sc_p = static_cast< unsigned char> (*saturation_image_sc_it) ;
+      saturation_image_sc_it++;
+      vtk_saturation_image_sc_p++;
+    }
+  }
 
 
   return 1;

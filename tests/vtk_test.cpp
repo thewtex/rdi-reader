@@ -11,9 +11,10 @@ int main()
 {
   try
   {
-    ImageViewer* vi = new ImageViewer("/mnt/dataa/visualsonics/test_base/20071105/3000e-55MHz-Gp10dB");
+    ImageViewer* vi = new ImageViewer("/mnt/dataa/visualsonics/test_base/visual_sonics/2007-06-08-15-57-05-328");
 
-    vi->view_b_mode();
+    //vi->view_b_mode();
+    vi->view_saturation();
 
     delete vi;
   }

@@ -149,9 +149,9 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
 			    std::vector<CoordT> & image_y,
 			    const rdiParserData * const rpd,
 			    const bool & is_scout,
+			    const visual_sonics::InterpolationMethod& interpmethod,
 			    const unsigned int * const output_roi ,
-			    const unsigned int * const output_size,
-			    const visual_sonics::InterpolationMethod& interpmethod
+			    const unsigned int * const output_size
 			    ):
     its_is_scout( is_scout ),
     its_image( image ),
@@ -268,8 +268,6 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::~VisualSonicsTransfo
 
 
 
-#include <iostream>
-using namespace std;
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
 void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
 {
@@ -459,3 +457,5 @@ template class VisualSonicsTransform<double, double, double>;
 template class VisualSonicsTransform<double, double, float>;
 template class VisualSonicsTransform<double, float, float>;
 
+template class VisualSonicsTransform<bool, bool, float>;
+template class VisualSonicsTransform<bool, bool, double>;

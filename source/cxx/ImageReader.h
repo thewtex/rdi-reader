@@ -80,9 +80,6 @@ namespace visual_sonics
       //! get saturation scan converted image columns
       unsigned int get_saturation_image_sc_cols(){ return its_saturation_sc_cols; };
 
-      UInt16 get_saturation_max(){ return its_saturation_max; }
-      UInt16 get_saturation_min(){ return its_saturation_min; }
-
 
     protected:
       //! scout window b-mode data.  data is stored sequentially by sample in a line, then by line

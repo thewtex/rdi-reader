@@ -32,7 +32,19 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
 										      this->get_rpd(),
-										      true
+										      true,
+										      NearestNeighborM
+										      );
+
+  its_saturation_vs_transform = new VisualSonicsTransform<bool, bool, CoordT>( its_saturation_image,
+										      its_saturation_image_sc,
+										      its_saturation_sc_rows,
+										      its_saturation_sc_cols,
+										      its_saturation_image_x,
+										      its_saturation_image_y,
+										      this->get_rpd(),
+										      true,
+										      NearestNeighborM
 										      );
 
 
@@ -51,7 +63,19 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
 										      this->get_rpd(),
-										      true
+										      true,
+										      NearestNeighborM
+										      );
+
+  its_saturation_vs_transform = new VisualSonicsTransform<bool, bool, CoordT>( its_saturation_image,
+										      its_saturation_image_sc,
+										      its_saturation_sc_rows,
+										      its_saturation_sc_cols,
+										      its_saturation_image_x,
+										      its_saturation_image_y,
+										      this->get_rpd(),
+										      true,
+										      NearestNeighborM
 										      );
 }
 
@@ -68,7 +92,19 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader( const bf::path& in_file_path, Re
 										      its_b_mode_image_x,
 										      its_b_mode_image_y,
 										      this->get_rpd(),
-										      true
+										      true,
+										      NearestNeighborM
+										      );
+
+  its_saturation_vs_transform = new VisualSonicsTransform<bool, bool, CoordT>( its_saturation_image,
+										      its_saturation_image_sc,
+										      its_saturation_sc_rows,
+										      its_saturation_sc_cols,
+										      its_saturation_image_x,
+										      its_saturation_image_y,
+										      this->get_rpd(),
+										      true,
+										      NearestNeighborM
 										      );
 }
 
@@ -87,6 +123,17 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path ):
 										      this->get_rpd(),
 										      true
 										      );
+
+  its_saturation_vs_transform = new VisualSonicsTransform<bool, bool, CoordT>( its_saturation_image,
+										      its_saturation_image_sc,
+										      its_saturation_sc_rows,
+										      its_saturation_sc_cols,
+										      its_saturation_image_x,
+										      its_saturation_image_y,
+										      this->get_rpd(),
+										      true,
+										      NearestNeighborM
+										      );
 }
 
 
@@ -95,6 +142,7 @@ template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::~ImageReader()
 {
   delete its_b_mode_vs_transform;
+  delete its_saturation_vs_transform;
 }
 
 
@@ -151,6 +199,54 @@ void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
 template<class ImageDataOutT, class CoordT>
 void ImageReader<ImageDataOutT,CoordT>::read_saturation_image()
 {
+
+  std::ifstream rdb_file( its_rdb_file_path.native_file_string().c_str(), std::ios::in | std::ios::binary);
+  if (!rdb_file.is_open())
+  {
+    std::ostringstream err_msg (std::ostringstream::out);
+    err_msg << "\nFile: " << its_rdb_file_path.native_file_string() << " couldn't be opened :(\n";
+    throw std::ios_base::failure( err_msg.str() );
+  }
+
+
+  const unsigned int samples_per_line = this->its_metadata_reader->its_rpd->its_rf_mode_rx_ad_gate_width;
+  const unsigned int num_lines = this->its_metadata_reader->its_rpd->its_rf_mode_tx_trig_tbl_trigs;
+  its_saturation_image.resize( samples_per_line * num_lines );
+
+
+  rdb_file.seekg( num_lines * samples_per_line * sizeof(UInt16), std::ios::beg);
+  char * u_short_data = new char[2];
+  UInt16 * u_short_data_p = reinterpret_cast< UInt16 *> (u_short_data);
+  for( unsigned int i = 0; i < num_lines; i++)
+  {
+    for( unsigned int j = 0; j < samples_per_line; j++)
+    {
+      rdb_file.read(u_short_data, 2);
+      if( *u_short_data_p == 0 )
+      {
+        its_saturation_image[ i*samples_per_line + j ] = false;
+      }
+      else
+      {
+	its_saturation_image[ i*samples_per_line + j ] = true;
+      }
+    }
+  }
+
+
+  delete[] u_short_data;
+  rdb_file.close();
+  // finished extracting data
+
+
+  // prepare for transformation
+  its_saturation_image_x.resize(samples_per_line * num_lines);
+  its_saturation_image_y.resize(samples_per_line * num_lines);
+
+  its_saturation_vs_transform->set_outside_bounds_value( its_saturation_min );
+
+  its_saturation_vs_transform->transform();
+
 }
 
 

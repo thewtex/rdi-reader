@@ -71,9 +71,9 @@ namespace visual_sonics
 			     std::vector<CoordT> & image_y, //!< where the y-coordinates for the image points are put @warning the reference is modified by the class
 			     const rdiParserData * const rpd, //!< the metadata used to determine how scan conversion should take place, shaft distances and encoder angles are referenced
 			     const bool& is_scout, //!< whether or not this is a scout (b_mode or saturation) image as opposed to an raw rf image.  has an effect on how man scan lines there are in the image
+			     const visual_sonics::InterpolationMethod& interpmethod = BilinearM, //!< which interpolation method is used
 			     const unsigned int * const output_roi = 0, //!< which part of the original image needs to be scan converted
-			     const unsigned int * const output_size = 0, //!< the dimensions of the output image
-			     const visual_sonics::InterpolationMethod& interpmethod = BilinearM //!< which interpolation method is used
+			     const unsigned int * const output_size = 0 //!< the dimensions of the output image
 			     );
 
       ~VisualSonicsTransform();

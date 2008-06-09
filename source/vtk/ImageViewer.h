@@ -34,6 +34,8 @@ namespace visual_sonics
 
 
       void view_b_mode();
+      void view_saturation();
+
 
     protected:
       vtkVisualSonicsReader* its_image_reader;

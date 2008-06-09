@@ -12,7 +12,7 @@
 #include "vtk/vtkVisualSonicsReader.h"
 
 class vtkImageViewer;
-class vtkInteractorStyleImage;
+class vtkInteractorStyleTrackballCamera;
 class vtkRenderWindowInteractor;
 
 namespace visual_sonics
@@ -38,7 +38,7 @@ namespace visual_sonics
       vtkVisualSonicsReader* its_image_reader;
 
       vtkImageViewer* its_viewer;
-      vtkInteractorStyleImage* its_interactor_style;
+      vtkInteractorStyleTrackballCamera* its_interactor_style;
       vtkRenderWindowInteractor* its_iren;
 
     };

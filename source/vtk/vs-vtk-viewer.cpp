@@ -1,13 +1,20 @@
+/*! @file  vs-vtk-viewer.cpp
+ *  @brief command line application to view VisualSonics Digital RF files with VTK
+ *
+ *  @author Matt McCormick (thewtex) <matt@mmmccormick.com>
+ *  @date   2008 June 18
+ *
+ */
+
 #include <exception>
 #include <iostream>
-
+using namespace std;
 
 #include "vtk/ImageViewer.h"
-
 using namespace visual_sonics::vtk;
 
 
-int main()
+int main( int argc, char** argv )
 {
   try
   {
@@ -25,4 +32,7 @@ int main()
   }
 
   return 0;
-}
+
+};
+
+

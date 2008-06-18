@@ -33,41 +33,41 @@ namespace visual_sonics
   {
 
 
-  public:
-    ImageReaderBase( const bf::path& in_file_path, std::vector<unsigned int>& frames_to_read );
-    ImageReaderBase( const bf::path& in_file_path, //!< path to the .rdi/.rdb files less the extension
-	std::vector<unsigned int>& frames_to_read, //!< which frames to read from the file
-	ReadMethod read_method , //!< the method for reading data from the file since there can be many acquisitions per line
-	unsigned int specific_acquisition = 0 //!< which acquisition to use with using the specific_acquisition ReadMethod
-	);
+    public:
+      ImageReaderBase( const bf::path& in_file_path, std::vector<unsigned int>& frames_to_read );
+      ImageReaderBase( const bf::path& in_file_path, //!< path to the .rdi/.rdb files less the extension
+	  std::vector<unsigned int>& frames_to_read, //!< which frames to read from the file
+	  ReadMethod read_method , //!< the method for reading data from the file since there can be many acquisitions per line
+	  unsigned int specific_acquisition = 0 //!< which acquisition to use with using the specific_acquisition ReadMethod
+	  );
 
-    //! read all frames available in the file
-    ImageReaderBase( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition = 0 );
-    ImageReaderBase( const bf::path& in_file_path );
+      //! read all frames available in the file
+      ImageReaderBase( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition = 0 );
+      ImageReaderBase( const bf::path& in_file_path );
 
-    virtual ~ImageReaderBase();
-
-
-    void set_in_file_path( const bf::path& ifp );
-
-    const rdiParserData* get_rpd();
-
-    void set_read_method( ReadMethod rm ){ this->its_read_method = rm; }
-    ReadMethod get_read_method(){ return this->its_read_method; }
-    void set_specific_acquisition( unsigned int sa ){ this->its_specific_acquisition = sa; }
-    unsigned int get_specific_acquisition(){ return this->its_specific_acquisition; }
+      virtual ~ImageReaderBase();
 
 
-    //! read the b-mode data from the file and store it in the member variable
-    virtual void read_b_mode_image() = 0;
-    //! read the saturation image from the file and store it in the member variable
-    virtual void read_saturation_image() = 0;
+      void set_in_file_path( const bf::path& ifp );
+
+      const rdiParserData* get_rpd();
+
+      void set_read_method( ReadMethod rm ){ this->its_read_method = rm; }
+      ReadMethod get_read_method(){ return this->its_read_method; }
+      void set_specific_acquisition( unsigned int sa ){ this->its_specific_acquisition = sa; }
+      unsigned int get_specific_acquisition(){ return this->its_specific_acquisition; }
+
+
+      //! read the b-mode data from the file and store it in the member variable
+      virtual void read_b_mode_image() = 0;
+      //! read the saturation image from the file and store it in the member variable
+      virtual void read_saturation_image() = 0;
       /** read the next its_frame_to_read rf data image frame from the file and store it in the
        * member variable
        * @return frame_status if there is another frame to read
        * use it like an iterator
        */
-    virtual bool read_rf_data_image() = 0;
+      virtual bool read_rf_image() = 0;
 
   protected:
     MetadataReaderBase* its_metadata_reader;

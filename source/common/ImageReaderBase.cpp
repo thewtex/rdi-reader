@@ -10,8 +10,8 @@
 namespace bf = boost::filesystem;
 
 
-#include "MetadataReaderBase.h"
-#include "rdiParserData.h"
+#include "common/MetadataReaderBase.h"
+#include "common/spirit_parse/rdiParserData.h"
 
 
 using namespace visual_sonics;

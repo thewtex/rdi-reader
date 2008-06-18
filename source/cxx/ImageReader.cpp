@@ -252,7 +252,7 @@ void ImageReader<ImageDataOutT,CoordT>::read_saturation_image()
 
 
 template<class ImageDataOutT, class CoordT>
-bool ImageReader<ImageDataOutT,CoordT>::read_rf_data_image()
+bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
 {
   return true;
 }

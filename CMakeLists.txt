@@ -57,6 +57,12 @@ SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "*.obj")
 
 #MARK_AS_ADVANCED()
 
+########### options #########################################
+set( USE_VTK ON CACHE BOOL "Build capabilities related to the Visualization
+Toolkit www.vtk.org" )
+# where all the executables go
+set( CMAKE_RUNTIME_OUTPUT_DIRECTORY
+  ${read_visualsonics_digital_rf_BINARY_DIR}/bin )
 
 ########### set up addition CMakeLists.txt locations #########
 #ADD_SUBDIRECTORY(matlab)

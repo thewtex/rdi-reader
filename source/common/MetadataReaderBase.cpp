@@ -1,7 +1,7 @@
-#include "MetadataReaderBase.h"
+#include "common/MetadataReaderBase.h"
 
-#include "rdiParser.h"
-#include "rdiParserData.h"
+#include "common/spirit_parse/rdiParser.h"
+#include "common/spirit_parse/rdiParserData.h"
 
 
 visual_sonics::MetadataReaderBase::MetadataReaderBase(const bf::path& in_file_path):

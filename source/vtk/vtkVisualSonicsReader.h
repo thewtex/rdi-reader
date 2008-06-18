@@ -14,7 +14,7 @@ namespace bf = boost::filesystem;
 
 #include "vtkMedicalImageReader2.h"
 
-#include "ReadMethod.h"
+#include "common/ReadMethod.h"
 
 #include "vtkSetGet.h"
 

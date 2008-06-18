@@ -35,6 +35,7 @@ namespace visual_sonics
 
       void view_b_mode();
       void view_saturation();
+      void view_rf();
 
 
     protected:

@@ -6,8 +6,10 @@
  *
  */
 
+#include <cstring> // strcmp
 #include <exception>
 #include <iostream>
+#include <string>
 using namespace std;
 
 #include "vtk/ImageViewer.h"
@@ -18,12 +20,30 @@ int main( int argc, char** argv )
 {
   try
   {
-    ImageViewer* vi = new ImageViewer("/mnt/research/Research/in_vivo/test_base/visual_sonics/2007-06-08-15-57-05-328");
+    // print help
+    if( argc == 1  ||  !strcmp( argv[1], "-h") || !strcmp(argv[1], "--help") )
+    {
+      cout << "command line application to view VisualSonics Digital RF files with VTK\n\n"
+      << "pass one or more *.rdb or *.rdi files as arguments" << std::endl;
 
-    //vi->view_b_mode();
-    vi->view_saturation();
+      if( argc == 1 )
+	return 1;
+      else
+      {
+        return 0;
+      }
+    }
 
-    delete vi;
+    for( int i = 1; i < argc; i++ )
+    {
+      string file = string( argv[i] );
+      ImageViewer* vi = new ImageViewer( file );
+  
+      vi->view_b_mode();
+      //vi->view_saturation();
+
+      delete vi;
+    }
   }
   catch ( std::exception& e )
   {

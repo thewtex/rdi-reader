@@ -36,6 +36,8 @@ rdiParser::~rdiParser()
 }
 
 
+#include <iostream>
+using namespace std;
 
 rdiParserData rdiParser::parse()
 {
@@ -64,32 +66,34 @@ rdiParserData rdiParser::parse()
 
   rule_t image_info_p =  bs::str_p("=== IMAGE INFO ===") >> bs::eol_p >>
                    bs::str_p("Study Name") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd->its_study_name) ] ^ bs::eol_p) >> bs::eol_p >>
+		   // this parameter was introduced with the 3D digital rf beta software
+		   *(bs::str_p("Image Id") >> bs::ch_p(',') >> *(bs::anychar_p ^ bs::eol_p) >> bs::eol_p) >>
                    bs::str_p("Image Label") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd->its_image_label) ] ^ bs::eol_p) >> bs::eol_p >>
-                   bs::str_p("Image Frames") >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a(its_rpd->its_image_frames) ] >> bs::eol_p >>
-                   bs::str_p("Image Lines") >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a(its_rpd->its_image_lines) ] >>  bs::eol_p >>
-                   bs::str_p("Image Acquisition Per Line") >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a(its_rpd->its_image_acquisition_per_line) ] >> bs::eol_p >>
-                   bs::str_p("Image Acquisition Size") >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a(its_rpd->its_image_acquisition_size) ] >> bs::ch_p(',') >> bs::str_p("bytes") >> bs::eol_p >>
-                   bs::str_p("Animal ID") >> bs::ch_p(',') >> *(bs::anychar_p ^ bs::eol_p) >> bs::eol_p >>
-                   bs::str_p("Acquisition Mode") >> bs::ch_p(',') >> *(bs::anychar_p ^ bs::eol_p) >> bs::eol_p >>
-                   bs::str_p("Acquisition Date") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd->its_acquisition_date) ] ^ bs::eol_p) >> bs::eol_p >>
-                   bs::str_p("Acquisition Time") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd->its_acquisition_time) ] ^ bs::eol_p) >> bs::eol_p >>
-                   bs::str_p("Acquisition Operator") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd->its_acquisition_operator) ] ^ bs::eol_p) >> bs::eol_p
+		   bs::str_p("Image Frames") >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a(its_rpd->its_image_frames) ] >> bs::eol_p >>
+		   bs::str_p("Image Lines") >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a(its_rpd->its_image_lines) ] >>  bs::eol_p >>
+		   bs::str_p("Image Acquisition Per Line") >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a(its_rpd->its_image_acquisition_per_line) ] >> bs::eol_p >>
+		   bs::str_p("Image Acquisition Size") >> bs::ch_p(',') >> bs::uint_p[ bs::assign_a(its_rpd->its_image_acquisition_size) ] >> bs::ch_p(',') >> bs::str_p("bytes") >> bs::eol_p >>
+		   bs::str_p("Animal ID") >> bs::ch_p(',') >> *(bs::anychar_p ^ bs::eol_p) >> bs::eol_p >>
+		   bs::str_p("Acquisition Mode") >> bs::ch_p(',') >> *(bs::anychar_p ^ bs::eol_p) >> bs::eol_p >>
+		   bs::str_p("Acquisition Date") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd->its_acquisition_date) ] ^ bs::eol_p) >> bs::eol_p >>
+		   bs::str_p("Acquisition Time") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd->its_acquisition_time) ] ^ bs::eol_p) >> bs::eol_p >>
+		   bs::str_p("Acquisition Operator") >> bs::ch_p(',') >> *(bs::anychar_p[ bs::push_back_a(its_rpd->its_acquisition_operator) ] ^ bs::eol_p) >> bs::eol_p
                    ;
 
   rule_t image_data_p =  bs::str_p("=== IMAGE DATA ===") >> bs::eol_p >>
-                   * (yada_line_p ^ ( bs::str_p("=== IMAGE PARAMETERS ===") >> bs::eol_p ) ) // XOR, Match a or b, but not both
-                   ;
+		   * (yada_line_p ^ ( bs::str_p("=== IMAGE PARAMETERS ===") >> bs::eol_p ) ) // XOR, Match a or b, but not both
+		   ;
 
   rule_t image_parameters_p = bs::str_p("=== IMAGE PARAMETERS ===") >> bs::eol_p >>
-                  // bs::repeat_p(3)[ yada_line_p ] >>
+		  // bs::repeat_p(3)[ yada_line_p ] >>
 		  //
 		  *( yada_line_p ^ bs::str_p("RF-Mode/ActiveProbe/Focal-Length") ) >>
 		    bs::str_p("RF-Mode/ActiveProbe/Focal-Length") >> bs::ch_p(',') >>
-                    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_activeprobe_focal_length) ] >>  bs::ch_p(',') >>
+		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_activeprobe_focal_length) ] >>  bs::ch_p(',') >>
 		    bs::str_p("mm") >> bs::eol_p >>
 
 		  *( yada_line_p ^ bs::str_p("RF-Mode/RX/RF-Gain") ) >>
-                    bs::str_p("RF-Mode/RX/RF-Gain") >> bs::ch_p(',') >>
+		    bs::str_p("RF-Mode/RX/RF-Gain") >> bs::ch_p(',') >>
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_rx_rf_gain) ] >>  bs::ch_p(',') >>
 		    bs::str_p("dB") >> bs::eol_p >>
 
@@ -137,32 +141,32 @@ rdiParserData rdiParser::parse()
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_tx_frequency ) ] >> bs::ch_p(',') >>
 		    bs::str_p("MHz") >> bs::eol_p >>
 
-                  *( yada_line_p ^ bs::str_p("RF-Mode/ActiveProbe/Pivot-Transducer-Face-Dist") ) >>
+		  *( yada_line_p ^ bs::str_p("RF-Mode/ActiveProbe/Pivot-Transducer-Face-Dist") ) >>
 		    bs::str_p("RF-Mode/ActiveProbe/Pivot-Transducer-Face-Dist") >> bs::ch_p(',') >>
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_activeprobe_pivot_transducer_face_dist ) ] >> bs::ch_p(',') >>
 		    bs::str_p("mm") >> bs::eol_p >>
 
-                  *( yada_line_p ^ bs::str_p("RF-Mode/TX/Trig-Tbl-Trigs") ) >>
+		  *( yada_line_p ^ bs::str_p("RF-Mode/TX/Trig-Tbl-Trigs") ) >>
 		    bs::str_p("RF-Mode/TX/Trig-Tbl-Trigs") >> bs::ch_p(',') >>
 		    bs::uint_p[ bs::assign_a( its_rpd->its_rf_mode_tx_trig_tbl_trigs ) ] >> bs::ch_p(',') >>
 		    bs::str_p("trigs") >> bs::eol_p >>
 
-                  *( yada_line_p ^ bs::str_p("RF-Mode/Scan/Scan-Width") ) >>
+		  *( yada_line_p ^ bs::str_p("RF-Mode/Scan/Scan-Width") ) >>
 		    bs::str_p("RF-Mode/Scan/Scan-Width") >> bs::ch_p(',') >>
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_scan_scan_width) ] >> bs::ch_p(',') >>
 		    bs::str_p("mm") >> bs::eol_p >>
 
-                  *( yada_line_p ^ bs::str_p("RF-Mode/RX/V-Delay-Length") ) >>
+		  *( yada_line_p ^ bs::str_p("RF-Mode/RX/V-Delay-Length") ) >>
 		    bs::str_p("RF-Mode/RX/V-Delay-Length") >> bs::ch_p(',') >>
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_rx_v_delay_length) ] >> bs::ch_p(',') >>
 		    bs::str_p("mm") >> bs::eol_p >>
 
-                  *( yada_line_p ^ bs::str_p("B-Mode/RX/AD-Gate-Width") ) >>
+		  *( yada_line_p ^ bs::str_p("B-Mode/RX/AD-Gate-Width") ) >>
 		    bs::str_p("B-Mode/RX/AD-Gate-Width") >> bs::ch_p(',') >>
 		    bs::uint_p[ bs::assign_a( its_rpd->its_b_mode_rx_ad_gate_width ) ] >> bs::ch_p(',') >>
 		    bs::str_p("samples") >> bs::eol_p >>
 
-                  *( yada_line_p ^ bs::str_p("B-Mode/TX/Trig-Tbl-Trigs") ) >>
+		  *( yada_line_p ^ bs::str_p("B-Mode/TX/Trig-Tbl-Trigs") ) >>
 		    bs::str_p("B-Mode/TX/Trig-Tbl-Trigs") >> bs::ch_p(',') >>
 		    bs::uint_p[ bs::assign_a( its_rpd->its_b_mode_tx_trig_tbl_trigs ) ] >> bs::ch_p(',') >>
 		    bs::str_p("trigs") >> bs::eol_p
@@ -170,8 +174,8 @@ rdiParserData rdiParser::parse()
                   ;
 
   rule_t rdi_file_p = image_info_p >>
-                 image_data_p >>
-                 image_parameters_p >>
+		 image_data_p >>
+		 image_parameters_p >>
 		 *yada_line_p
                  ;
 

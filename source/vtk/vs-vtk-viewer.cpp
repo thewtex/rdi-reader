@@ -21,7 +21,8 @@ int main( int argc, char** argv )
   try
   {
     // print help
-    if( argc == 1  ||  !strcmp( argv[1], "-h") || !strcmp(argv[1], "--help") )
+    string first_arg(argv[1]);
+    if( argc == 1  ||  ( first_arg ==  "-h") || first_arg == "--help" )
     {
       cout << "command line application to view VisualSonics Digital RF files with VTK\n\n"
       << "pass one or more *.rdb or *.rdi files as arguments" << std::endl;

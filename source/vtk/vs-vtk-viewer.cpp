@@ -6,7 +6,6 @@
  *
  */
 
-#include <cstring> // strcmp
 #include <exception>
 #include <iostream>
 #include <string>
@@ -16,13 +15,14 @@ using namespace std;
 using namespace visual_sonics::vtk;
 
 
+#include <iostream>
 int main( int argc, char** argv )
 {
   try
   {
     // print help
     string first_arg(argv[1]);
-    if( argc == 1  ||  ( first_arg ==  "-h") || first_arg == "--help" )
+    if( argc == 1  ||  first_arg ==  "-h" || first_arg == "--help" )
     {
       cout << "command line application to view VisualSonics Digital RF files with VTK\n\n"
       << "pass one or more *.rdb or *.rdi files as arguments" << std::endl;
@@ -35,11 +35,12 @@ int main( int argc, char** argv )
       }
     }
 
+    string file;
     for( int i = 1; i < argc; i++ )
     {
-      string file = string( argv[i] );
+      file = string( argv[i] );
       ImageViewer* vi = new ImageViewer( file );
-  
+
       vi->view_b_mode();
       //vi->view_saturation();
 

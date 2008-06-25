@@ -30,7 +30,8 @@ if(USE_VTK)
   if(NOT VTK_USE_RENDERING)
     message(FATAL_ERROR "${PROJECT_NAME} requires VTK_USE_RENDERING.")
   endif(NOT VTK_USE_RENDERING)
-  include(${VTK_USE_FILE})
+  include_directories( ${VTK_INCLUDE_DIRS} )
+  link_directories( ${VTK_LIBRARY_DIRS} )
   
   
   set( vtk_test_srcs ${base_test_srcs}
@@ -40,5 +41,5 @@ if(USE_VTK)
     )
   
   add_executable( vtk_test ${vtk_test_srcs} )
-  target_link_libraries( vtk_test vtkRendering boost_filesystem)
+  target_link_libraries( vtk_test vtkRendering boost_filesystem )
 endif(USE_VTK)

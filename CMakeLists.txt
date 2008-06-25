@@ -1,5 +1,5 @@
-#cmake_minimum_required(VERSION 2.6)
-#cmake_policy(VERSION 2.6)
+cmake_minimum_required(VERSION 2.6)
+cmake_policy(VERSION 2.6)
 
 
 project(read_visualsonics_digital_rf)
@@ -56,6 +56,10 @@ SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "*.mex*")
 SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "*.obj")
 
 #MARK_AS_ADVANCED()
+
+############# dependencies ##################################
+find_package( Boost 1.34.1 REQUIRED COMPONENTS filesystem)
+include_directories( ${Boost_INCLUDE_DIR} )
 
 ########### options #########################################
 set( USE_VTK ON CACHE BOOL "Build capabilities related to the Visualization

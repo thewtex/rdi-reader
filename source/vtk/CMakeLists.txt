@@ -21,7 +21,8 @@ find_package(VTK REQUIRED)
 if(NOT VTK_USE_RENDERING)
   message(FATAL_ERROR "${PROJECT_NAME} requires VTK_USE_RENDERING.")
 endif(NOT VTK_USE_RENDERING)
-include(${VTK_USE_FILE})
+include_directories( ${VTK_INCLUDE_DIRS} )
+link_directories( ${VTK_LIBRARY_DIRS} )
 
 
 
@@ -32,5 +33,5 @@ set( vs-vtk-viewer_srcs ${base_srcs}
   )
 
 add_executable( vs-vtk-viewer ${vs-vtk-viewer_srcs} )
-target_link_libraries( vs-vtk-viewer vtkRendering boost_filesystem)
+target_link_libraries( vs-vtk-viewer vtkRendering boost_filesystem )
 

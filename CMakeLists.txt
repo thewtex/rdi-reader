@@ -58,8 +58,14 @@ SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "*.obj")
 #MARK_AS_ADVANCED()
 
 ############# dependencies ##################################
+set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/modules )
+
 find_package( Boost 1.34.1 REQUIRED COMPONENTS filesystem)
 include_directories( ${Boost_INCLUDE_DIR} )
+
+find_package( TBB )
+
 
 ########### options #########################################
 set( USE_VTK ON CACHE BOOL "Build capabilities related to the Visualization

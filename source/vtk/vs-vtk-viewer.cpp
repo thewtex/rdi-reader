@@ -6,16 +6,21 @@
  *
  */
 
+#include <boost/filesystem/convenience.hpp>
+namespace bf = boost::filesystem;
+
+
 #include <exception>
 #include <iostream>
 #include <string>
 using namespace std;
 
+
 #include "vtk/ImageViewer.h"
 using namespace visual_sonics::vtk;
 
 
-#include <iostream>
+
 int main( int argc, char** argv )
 {
   try
@@ -35,15 +40,14 @@ int main( int argc, char** argv )
       }
     }
 
-    string file;
+    bf::path file;
     for( int i = 1; i < argc; i++ )
     {
-      file = string( argv[i] );
+      file = argv[i];
       ImageViewer* vi = new ImageViewer( file );
 
       vi->view_b_mode();
       //vi->view_saturation();
-
       delete vi;
     }
   }

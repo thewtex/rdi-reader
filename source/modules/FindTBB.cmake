@@ -5,6 +5,7 @@
 #
 # This modules defines:
 #   TBB_DEFINITIONS, -DTBB_DO_ASSERT, added to definitions with Debug BUILD_TYPE
+#     -DTBB
 #   TBB_INCLUDE_DIR, where to find tbb/task_scheduler_init.h, etc
 #   TBB_LIBRARIES, the libraries to link against
 # COMPONENTS can be specified.
@@ -63,7 +64,7 @@ include(FindPackageHandleStandardArgs)
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(TBB DEFAULT_MSG TBB_INCLUDE_DIR TBB_LIBRARIES)
 
 # definitions
-set( TBB_DEFINITIONS -DTBB_DO_ASSERT )
+set( TBB_DEFINITIONS -DTBB )
 if( ${CMAKE_BUILD_TYPE} MATCHES Debug )
-  add_definitions( ${TBB_DEFINITIONS}  )
+  set( TBB_DEFINITIONS ${TBB_DEFINITIONS} -DTBB_DO_ASSERT )
 endif( ${CMAKE_BUILD_TYPE} MATCHES Debug )

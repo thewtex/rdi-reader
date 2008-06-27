@@ -32,6 +32,10 @@ set( vs-vtk-viewer_srcs ${base_srcs}
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vs-vtk-viewer.cpp
   )
 
+message( STATUS " var lib: ${TBB_tbb_VAR_LIBRARY}"  )
 add_executable( vs-vtk-viewer ${vs-vtk-viewer_srcs} )
-target_link_libraries( vs-vtk-viewer vtkRendering boost_filesystem )
+target_link_libraries( vs-vtk-viewer
+  vtkRendering
+  boost_filesystem
+  ${TBB_tbb_VAR_LIBRARY} )
 

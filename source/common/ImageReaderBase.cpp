@@ -22,7 +22,8 @@ ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, std::vector<unsi
       its_frames_to_read( frames_to_read ),
       its_frames_to_read_ind( 0 ),
       its_frame_status( true ),
-      its_read_method ( file_average )
+      its_read_method ( file_average ),
+      its_specific_acquisition( 1 )
 {
   create_its_metadata_reader( in_file_path );
   its_rdb_file_path = bf::path(its_metadata_reader->its_in_file_path.native_file_string() + ".rdb");
@@ -61,7 +62,8 @@ ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, ReadMethod read_
 ImageReaderBase::ImageReaderBase( const bf::path& in_file_path ):
       its_frames_to_read_ind( 0 ),
       its_frame_status( true ),
-      its_read_method ( file_average )
+      its_read_method ( file_average ),
+      its_specific_acquisition( 1 )
 {
   create_its_metadata_reader( in_file_path );
   its_rdb_file_path = bf::path(its_metadata_reader->its_in_file_path.native_file_string() + ".rdb");

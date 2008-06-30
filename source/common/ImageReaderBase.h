@@ -87,7 +87,7 @@ namespace visual_sonics
 
     ReadMethod its_read_method;
 
-    //! used if its_read_method is specific_acquisition
+    //! used if its_read_method is specific_acquisition, starts from 1
     unsigned int its_specific_acquisition;
 
   private:

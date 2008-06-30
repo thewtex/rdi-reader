@@ -63,6 +63,7 @@ namespace visual_sonics
       //! get b_mode scan converted image columns
       unsigned int get_b_mode_image_sc_cols(){ return its_b_mode_sc_cols; };
 
+
       UInt16 get_b_mode_max(){ return its_b_mode_max; }
       UInt16 get_b_mode_min(){ return its_b_mode_min; }
 

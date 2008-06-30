@@ -273,24 +273,37 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
   const unsigned int scout_num_lines = this->its_metadata_reader->its_rpd->its_rf_mode_tx_trig_tbl_trigs;
 
   rdb_file.seekg( 2 * scout_num_lines * scout_samples_per_line * sizeof(UInt16), std::ios::beg);
-  unsigned int skip_amount = samples_per_line * 2 * this->its_metadata_reader->its_rpd->its_image_acquisition_per_line;
 
-  char * short_data = new char[ sizeof( Int16 ) ];
-  Int16 * short_data_p = reinterpret_cast< Int16 *> (short_data);
-  for( unsigned int i = 0; i < num_lines; i++)
+
+  // file_average and specific_acquisition ReadMethod s
+  if( this->its_read_method == file_average || this->its_read_method == specific_acquisition )
   {
-    rdb_file.seekg( skip_amount, std::ios::cur );
-    for( unsigned int j = 0; j < samples_per_line; j++)
+    unsigned int skip_amount = samples_per_line * 2 * this->its_metadata_reader->its_rpd->its_image_acquisition_per_line;
+
+    if( this->its_read_method == specific_acquisition )
     {
-      rdb_file.read(short_data, 2);
-      its_rf_image[ i*samples_per_line + j] = *short_data_p;
+      rdb_file.seekg( (its_specific_acquisition-1) * samples_per_line *2, std::ios::cur);
     }
+  
+    char * short_data = new char[ sizeof( Int16 ) ];
+    Int16 * short_data_p = reinterpret_cast< Int16 *> (short_data);
+    for( unsigned int i = 0; i < num_lines; i++)
+    {
+      rdb_file.seekg( skip_amount, std::ios::cur );
+      for( unsigned int j = 0; j < samples_per_line; j++)
+      {
+        rdb_file.read(short_data, 2);
+        its_rf_image[ i*samples_per_line + j] = *short_data_p;
+      }
+    }
+
+    delete[] short_data;
   }
+
 
   its_rf_max = *std::max_element( its_rf_image.begin(), its_rf_image.end() );
   its_rf_min = *std::min_element( its_rf_image.begin(), its_rf_image.end() );
 
-  delete[] short_data;
   rdb_file.close();
   // finished extracting data
 

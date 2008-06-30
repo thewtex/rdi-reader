@@ -70,8 +70,6 @@ void vtkVisualSonicsReader::SetFilePrefix( const char* fileprefix)
   its_rpd = its_ir->get_rpd();
   this->vtkMedicalImageReader2::SetFilePrefix( fileprefix );
 
-  this->Modified();
-
 }
 
 

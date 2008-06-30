@@ -21,8 +21,7 @@ find_package(VTK REQUIRED)
 if(NOT VTK_USE_RENDERING)
   message(FATAL_ERROR "${PROJECT_NAME} requires VTK_USE_RENDERING.")
 endif(NOT VTK_USE_RENDERING)
-include_directories( ${VTK_INCLUDE_DIRS} )
-link_directories( ${VTK_LIBRARY_DIRS} )
+include(${VTK_USE_FILE})
 
 
 
@@ -32,10 +31,6 @@ set( vs-vtk-viewer_srcs ${base_srcs}
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vs-vtk-viewer.cpp
   )
 
-message( STATUS " var lib: ${TBB_tbb_VAR_LIBRARY}"  )
 add_executable( vs-vtk-viewer ${vs-vtk-viewer_srcs} )
-target_link_libraries( vs-vtk-viewer
-  vtkRendering
-  boost_filesystem
-  )
+target_link_libraries( vs-vtk-viewer vtkRendering boost_filesystem)
 

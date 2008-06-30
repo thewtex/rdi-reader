@@ -164,7 +164,7 @@ void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
   its_b_mode_image.resize( samples_per_line * num_lines );
 
 
-  char * u_short_data = new char[2];
+  char * u_short_data = new char[sizeof(UInt16)];
   UInt16 * u_short_data_p = reinterpret_cast< UInt16 *> (u_short_data);
   for( unsigned int i = 0; i < num_lines; i++)
   {
@@ -215,7 +215,7 @@ void ImageReader<ImageDataOutT,CoordT>::read_saturation_image()
 
 
   rdb_file.seekg( num_lines * samples_per_line * sizeof(UInt16), std::ios::beg);
-  char * u_short_data = new char[2];
+  char * u_short_data = new char[ sizeof(UInt16) ];
   UInt16 * u_short_data_p = reinterpret_cast< UInt16 *> (u_short_data);
   for( unsigned int i = 0; i < num_lines; i++)
   {
@@ -243,7 +243,7 @@ void ImageReader<ImageDataOutT,CoordT>::read_saturation_image()
   its_saturation_image_x.resize(samples_per_line * num_lines);
   its_saturation_image_y.resize(samples_per_line * num_lines);
 
-  its_saturation_vs_transform->set_outside_bounds_value( its_saturation_min );
+  its_saturation_vs_transform->set_outside_bounds_value( 0 );
 
   its_saturation_vs_transform->transform();
 
@@ -254,6 +254,55 @@ void ImageReader<ImageDataOutT,CoordT>::read_saturation_image()
 template<class ImageDataOutT, class CoordT>
 bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
 {
+
+  std::ifstream rdb_file( its_rdb_file_path.native_file_string().c_str(), std::ios::in | std::ios::binary);
+  if (!rdb_file.is_open())
+  {
+    std::ostringstream err_msg (std::ostringstream::out);
+    err_msg << "\nFile: " << its_rdb_file_path.native_file_string() << " couldn't be opened :(\n";
+    throw std::ios_base::failure( err_msg.str() );
+  }
+
+
+  const unsigned int samples_per_line = this->its_metadata_reader->its_rpd->its_image_acquisition_size / sizeof( Int16 );
+  const unsigned int num_lines = this->its_metadata_reader->its_rpd->its_image_lines;
+  its_rf_image.resize( samples_per_line * num_lines );
+
+
+  const unsigned int scout_samples_per_line = this->its_metadata_reader->its_rpd->its_rf_mode_rx_ad_gate_width;
+  const unsigned int scout_num_lines = this->its_metadata_reader->its_rpd->its_rf_mode_tx_trig_tbl_trigs;
+
+  rdb_file.seekg( 2 * scout_num_lines * scout_samples_per_line * sizeof(UInt16), std::ios::beg);
+  unsigned int skip_amount = samples_per_line * 2 * this->its_metadata_reader->its_rpd->its_image_acquisition_per_line;
+
+  char * short_data = new char[ sizeof( Int16 ) ];
+  Int16 * short_data_p = reinterpret_cast< Int16 *> (short_data);
+  for( unsigned int i = 0; i < num_lines; i++)
+  {
+    rdb_file.seekg( skip_amount, std::ios::cur );
+    for( unsigned int j = 0; j < samples_per_line; j++)
+    {
+      rdb_file.read(short_data, 2);
+      its_rf_image[ i*samples_per_line + j] = *short_data_p;
+    }
+  }
+
+  its_rf_max = *std::max_element( its_rf_image.begin(), its_rf_image.end() );
+  its_rf_min = *std::min_element( its_rf_image.begin(), its_rf_image.end() );
+
+  delete[] short_data;
+  rdb_file.close();
+  // finished extracting data
+
+
+  // prepare for transformation
+  its_rf_image_x.resize(samples_per_line * num_lines);
+  its_rf_image_y.resize(samples_per_line * num_lines);
+
+  its_rf_vs_transform->set_outside_bounds_value( 0 );
+
+  its_rf_vs_transform->transform();
+
   return true;
 }
 

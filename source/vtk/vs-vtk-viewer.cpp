@@ -6,19 +6,14 @@
  *
  */
 
-#include <boost/filesystem/convenience.hpp>
-namespace bf = boost::filesystem;
-
-
+#include <cstring> // strcmp
 #include <exception>
 #include <iostream>
 #include <string>
 using namespace std;
 
-
 #include "vtk/ImageViewer.h"
 using namespace visual_sonics::vtk;
-
 
 
 int main( int argc, char** argv )
@@ -26,8 +21,7 @@ int main( int argc, char** argv )
   try
   {
     // print help
-    string first_arg(argv[1]);
-    if( argc == 1  ||  first_arg ==  "-h" || first_arg == "--help" )
+    if( argc == 1  ||  !strcmp( argv[1], "-h") || !strcmp(argv[1], "--help") )
     {
       cout << "command line application to view VisualSonics Digital RF files with VTK\n\n"
       << "pass one or more *.rdb or *.rdi files as arguments" << std::endl;
@@ -40,14 +34,14 @@ int main( int argc, char** argv )
       }
     }
 
-    bf::path file;
     for( int i = 1; i < argc; i++ )
     {
-      file = argv[i];
+      string file = string( argv[i] );
       ImageViewer* vi = new ImageViewer( file );
-
+  
       vi->view_b_mode();
       //vi->view_saturation();
+
       delete vi;
     }
   }

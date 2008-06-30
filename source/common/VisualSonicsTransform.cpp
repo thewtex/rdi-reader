@@ -453,6 +453,10 @@ template class VisualSonicsTransform<unsigned short, double, double>;
 template class VisualSonicsTransform<unsigned short, double, float>;
 template class VisualSonicsTransform<unsigned short, float, float>;
 
+template class VisualSonicsTransform<short, double, double>;
+template class VisualSonicsTransform<short, double, float>;
+template class VisualSonicsTransform<short, float, float>;
+
 template class VisualSonicsTransform<double, double, double>;
 template class VisualSonicsTransform<double, double, float>;
 template class VisualSonicsTransform<double, float, float>;

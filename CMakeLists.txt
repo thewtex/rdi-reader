@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 2.6)
-cmake_policy(VERSION 2.6)
+#cmake_minimum_required(VERSION 2.6)
+#cmake_policy(VERSION 2.6)
 
 
 project(read_visualsonics_digital_rf)
@@ -33,25 +33,22 @@ ENDIF(WIN32)
 
 ############## Compiling flags ##########
 
-if(CMAKE_COMPILER_IS_GNUCXX)
+IF(CMAKE_COMPILER_IS_GNUCXX)
 
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall" )
-  set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wall" )
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall" )
+  SET(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wall" )
 
-  # because vtk is naughty
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated" )
+  SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb3" )
+  SET(CMAKE_C_FLAGS_DEBUG   "${CMAKE_C_FLAGS_DEBUG}   -ggdb3" )
 
-  set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb3" )
-  set(CMAKE_C_FLAGS_DEBUG   "${CMAKE_C_FLAGS_DEBUG}   -ggdb3" )
-
-  set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -DNDEBUG -ffast-math -fvisibility=hidden")
-  set(CMAKE_C_FLAGS_RELEASE   "${CMAKE_C_FLAGS_RELEASE}   -O2 -DNDEBUG -ffast-math -fvisibility=hidden" )
+  SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -DNDEBUG -ffast-math -fvisibility=hidden")
+  SET(CMAKE_C_FLAGS_RELEASE   "${CMAKE_C_FLAGS_RELEASE}   -O2 -DNDEBUG -ffast-math -fvisibility=hidden" )
 
 
-  set(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS_DEBUG} -g" )
-  set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} -O")
+  SET(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS_DEBUG} -g" )
+  SET(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} -O")
 
-endif(CMAKE_COMPILER_IS_GNUCXX)
+ENDIF(CMAKE_COMPILER_IS_GNUCXX)
 
 
 
@@ -59,16 +56,6 @@ SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "*.mex*")
 SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "*.obj")
 
 #MARK_AS_ADVANCED()
-
-############# dependencies ##################################
-set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/modules )
-
-find_package( Boost 1.34.1 REQUIRED COMPONENTS filesystem)
-include_directories( ${Boost_INCLUDE_DIR} )
-
-find_package( TBB )
-add_definitions( ${TBB_DEFINITIONS} )
 
 ########### options #########################################
 set( USE_VTK ON CACHE BOOL "Build capabilities related to the Visualization

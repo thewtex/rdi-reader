@@ -129,10 +129,6 @@ namespace visual_sonics
       std::vector<CoordT> its_saturation_image_x;
       //! scout window b-mode data.  y coordinates
       std::vector<CoordT> its_saturation_image_y;
-      //! max value in the b mode image
-      UInt16 its_saturation_max;
-      //! min value in the b mode image
-      UInt16 its_saturation_min;
 
 
       //! scout window rf data.  data is stored sequentially by sample in a line, then by line

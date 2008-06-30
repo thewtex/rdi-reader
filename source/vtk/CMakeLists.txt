@@ -37,5 +37,5 @@ add_executable( vs-vtk-viewer ${vs-vtk-viewer_srcs} )
 target_link_libraries( vs-vtk-viewer
   vtkRendering
   boost_filesystem
-  ${TBB_tbb_VAR_LIBRARY} )
+  )
 

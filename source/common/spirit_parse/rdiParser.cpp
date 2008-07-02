@@ -97,6 +97,11 @@ rdiParserData rdiParser::parse()
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_rx_rf_gain) ] >>  bs::ch_p(',') >>
 		    bs::str_p("dB") >> bs::eol_p >>
 
+		  *( yada_line_p ^ bs::str_p("RF-Mode/3D/Scan-Distance") ) >>
+		    bs::str_p("RF-Mode/3D/Scan-Distance") >> bs::ch_p(',') >>
+		    bs::uint_p[ bs::assign_a( its_rpd->its_rf_mode_3d_scan_distance ) ] >> bs::ch_p(',') >>
+		    bs::str_p("mm") >> bs::eol_p >>
+
 		  *( yada_line_p ^ bs::str_p("RF-Mode/RX/V-Digi-Depth-Imaging") ) >>
 		    bs::str_p("RF-Mode/RX/V-Digi-Depth-Imaging") >> bs::ch_p(',') >>
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_rx_v_digi_depth_imaging) ] >>  bs::ch_p(',') >>
@@ -112,7 +117,7 @@ rdiParserData rdiParser::parse()
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_activeprobe_pivot_encoder_dist) ] >> bs::ch_p(',') >>
 		    bs::str_p("mm") >> bs::eol_p >>
 
-		    *( yada_line_p ^ bs::str_p("RF-Mode/RfModeSoft/V-Lines-Pos") ) >>
+		  *( yada_line_p ^ bs::str_p("RF-Mode/RfModeSoft/V-Lines-Pos") ) >>
 		    bs::str_p("RF-Mode/RfModeSoft/V-Lines-Pos") >> bs::ch_p(',') >>
 		    *( bs::digit_p[ bs::push_back_a( its_rpd->its_rf_mode_rfmodesoft_v_lines_pos_str) ]
 			| bs::ch_p(',')[ bs::push_back_a( its_rpd->its_rf_mode_rfmodesoft_v_lines_pos_str) ]
@@ -126,11 +131,6 @@ rdiParserData rdiParser::parse()
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_bmodesoft_refresh_rate) ] >> bs::ch_p(',') >>
 		    bs::str_p("frames/sec") >> bs::eol_p >>
 		  
-		  *( yada_line_p ^ bs::str_p("RF-Mode/3D/Step-Size") ) >>
-		    bs::str_p("RF-Mode/3D/Step-Size") >> bs::ch_p(',') >>
-		    bs::uint_p[ bs::assign_a( its_rpd->its_rf_mode_3d_step_size ) ] >> bs::ch_p(',') >>
-		    bs::str_p("mm") >> bs::eol_p >>
-
 		  *( yada_line_p ^ bs::str_p("RF-Mode/ActiveProbe/Name") ) >>
 		    bs::str_p("RF-Mode/ActiveProbe/Name") >> bs::ch_p(',') >> 
 		    *(bs::anychar_p[ bs::push_back_a(its_rpd->its_rf_mode_activeprobe_name) ] ^ bs::eol_p) >> 

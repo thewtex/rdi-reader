@@ -354,7 +354,7 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
   std::vector<Int16>::const_iterator rf_image_it = its_ir->get_rf_image().begin();
   std::vector<double>::const_iterator rf_image_x = its_ir->get_rf_image_x().begin();
   std::vector<double>::const_iterator rf_image_y = its_ir->get_rf_image_y().begin();
-  const double rf_image_z_step = its_rpd->its_rf_mode_3d_step_size;
+  const double rf_image_z_step = (its_rpd->its_rf_mode_3d_scan_distance)/(frames - 1);
 
 
 

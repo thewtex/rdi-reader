@@ -50,8 +50,8 @@ namespace visual_sonics
 
 
     //! from "=== IMAGE PARAMETERS ==="
-    //! RF-Mode/3D/Step-Size (mm)
-    double its_rf_mode_3d_step_size;
+    //! RF-Mode/3D/Scan-Distance (mm)
+    double its_rf_mode_3d_scan_distance;
     //! RF-Mode/ActiveProbe/Focal-Length (mm)
     double its_rf_mode_activeprobe_focal_length;
     //! RF-Mode/ActiveProbe/Name

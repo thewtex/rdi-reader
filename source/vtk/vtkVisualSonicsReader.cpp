@@ -357,8 +357,29 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
   const double rf_image_z_step = (its_rpd->its_rf_mode_3d_scan_distance)/(frames - 1);
 
 
+  //------------- rf image scan converted ----- declarations
+  const unsigned int rows = its_ir->get_rf_image_sc_rows();
+  const unsigned int cols = its_ir->get_rf_image_sc_cols();
 
-  //---------- rf_image_raw ----------------- reading
+  outInfo = outputVector->GetInformationObject(5);
+  vtkImageData* vtk_rf_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
+  if (!vtk_rf_image_sc)
+    return 0;
+
+  // Extent should be set before allocate scalars
+  vtk_rf_image_sc->SetWholeExtent( 0 , rows - 1, 0, cols - 1, 0, frames - 1 );
+  vtk_rf_image_sc->SetDimensions( rows, cols, 1 );
+  vtk_rf_image_sc->SetScalarTypeToDouble();
+  vtk_rf_image_sc->SetNumberOfScalarComponents(1);
+  vtk_rf_image_sc->AllocateScalars();
+  vtk_rf_image_sc->SetSpacing( 1.0, 1.0, 1.0 );
+  vtk_rf_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
+  // fill in scout b mode scan converted values
+  double* vtk_rf_image_sc_p = static_cast< double* >( vtk_rf_image_sc->GetScalarPointer() );
+  std::vector<double>::const_iterator rf_image_sc_it = its_ir->get_rf_image_sc().begin();
+
+
+  //---------- rf_image_raw and scan convert ---------------- reading
   unsigned int k = 0; // frame number
   unsigned int values_in_frame = num_lines * samples_per_line;
   while( its_ir->read_rf_image() )
@@ -367,12 +388,18 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
     {
       for(unsigned int j=0; j<samples_per_line; j++)
       {
-        rf_raw_data->SetValue( i + num_lines*j + values_in_frame*k, static_cast< unsigned char > ( *rf_image_it ) );
+	// raw
+        rf_raw_data->SetValue( i + num_lines*j + values_in_frame*k, static_cast< Int16 > ( *rf_image_it ) );
         rf_image_it++;
   
         rf_raw_points->SetPoint( i + num_lines*j + values_in_frame*k, *rf_image_x, *rf_image_y * -1, rf_image_z_step*k );
         rf_image_x++;
         rf_image_y++;
+
+	// scan convert
+        *vtk_rf_image_sc_p = *rf_image_sc_it ;
+        rf_image_sc_it++;
+        vtk_rf_image_sc_p++;
       }
     }
     k++;

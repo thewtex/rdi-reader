@@ -78,16 +78,14 @@ namespace visual_sonics
 
 
 
-    //! which frames to read from the file
+    //! which frames to read from the file, starts counting from 1
     std::vector<unsigned int>	its_frames_to_read;
     //! current index of its_frames_to_read
-    unsigned int its_frames_to_read_ind;
-    //! if there is another frame to read
-    bool its_frame_status;
+    std::vector<unsigned int>::const_iterator its_frames_to_read_index;
 
     ReadMethod its_read_method;
 
-    //! used if its_read_method is specific_acquisition, starts from 0
+    //! used if its_read_method is specific_acquisition, starts counting from from 0
     unsigned int its_specific_acquisition;
 
   private:

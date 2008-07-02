@@ -190,6 +190,8 @@ void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
 
   its_b_mode_vs_transform->set_outside_bounds_value( its_b_mode_min );
 
+  its_rf_vs_transform->set_do_calc_coords( true );
+
   its_b_mode_vs_transform->transform();
 
 }
@@ -245,6 +247,8 @@ void ImageReader<ImageDataOutT,CoordT>::read_saturation_image()
 
   its_saturation_vs_transform->set_outside_bounds_value( 0 );
 
+  its_rf_vs_transform->set_do_calc_coords( true );
+
   its_saturation_vs_transform->transform();
 
 }
@@ -269,11 +273,13 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
   its_rf_image.resize( samples_per_line * num_lines );
 
 
+  //skip the b mode and saturation scout images
   const unsigned int scout_samples_per_line = this->its_metadata_reader->its_rpd->its_rf_mode_rx_ad_gate_width;
   const unsigned int scout_num_lines = this->its_metadata_reader->its_rpd->its_rf_mode_tx_trig_tbl_trigs;
-
   rdb_file.seekg( 2 * scout_num_lines * scout_samples_per_line * sizeof(UInt16), std::ios::beg);
 
+  //skip previous frames
+  rdb_file.seekg(  num_lines * samples_per_line * sizeof(Int16) * (*its_frames_to_read_index - 1), std::ios::cur );
 
   // file_average and specific_acquisition ReadMethod s
   if( this->its_read_method == file_average || this->its_read_method == specific_acquisition )
@@ -313,14 +319,32 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
 
 
   // prepare for transformation
-  its_rf_image_x.resize(samples_per_line * num_lines);
-  its_rf_image_y.resize(samples_per_line * num_lines);
+  if( its_frames_to_read_index == its_frames_to_read.begin() )
+  {
+    its_rf_image_x.resize(samples_per_line * num_lines);
+    its_rf_image_y.resize(samples_per_line * num_lines);
+  
+    its_rf_vs_transform->set_outside_bounds_value( 0 );
 
-  its_rf_vs_transform->set_outside_bounds_value( 0 );
+    its_rf_vs_transform->set_do_calc_coords( true );
+  }
+  else
+  {
+    its_rf_vs_transform->set_do_calc_coords( false );
+  }
 
   its_rf_vs_transform->transform();
 
-  return true;
+  if( its_frames_to_read_index == its_frames_to_read.end() )
+  {
+    its_frames_to_read_index = its_frames_to_read.begin();
+    return false;
+  }
+  else
+  {
+    its_frames_to_read_index++;
+    return true;
+  }
 }
 
 

@@ -153,6 +153,7 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
 			    const unsigned int * const output_roi ,
 			    const unsigned int * const output_size
 			    ):
+    its_do_calc_coords( true ),
     its_is_scout( is_scout ),
     its_image( image ),
     its_image_x( image_x ),
@@ -306,7 +307,10 @@ template <class ImageDataInT, class ImageDataOutT, class CoordT>
 void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
 {
 
-  this->calc_coords();
+  if( its_do_calc_coords )
+  {
+    this->calc_coords();
+  }
 
 
   // find extrema of the image

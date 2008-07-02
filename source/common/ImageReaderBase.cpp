@@ -20,8 +20,7 @@ using namespace visual_sonics;
 
 ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, std::vector<unsigned int>& frames_to_read ):
       its_frames_to_read( frames_to_read ),
-      its_frames_to_read_ind( 0 ),
-      its_frame_status( true ),
+      its_frames_to_read_index( its_frames_to_read.begin() ),
       its_read_method ( file_average ),
       its_specific_acquisition( 1 )
 {
@@ -34,8 +33,7 @@ ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, std::vector<unsi
 
 ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, std::vector<unsigned int>& frames_to_read, ReadMethod read_method , unsigned int specific_acquisition):
       its_frames_to_read( frames_to_read ),
-      its_frames_to_read_ind( 0 ),
-      its_frame_status( true ),
+      its_frames_to_read_index( its_frames_to_read.begin() ),
       its_read_method(read_method),
       its_specific_acquisition( specific_acquisition )
 {
@@ -47,8 +45,7 @@ ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, std::vector<unsi
 
 
 ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition ):
-      its_frames_to_read_ind( 0 ),
-      its_frame_status( true ),
+      its_frames_to_read_index( its_frames_to_read.begin() ),
       its_read_method( read_method ),
       its_specific_acquisition( specific_acquisition )
 {
@@ -60,8 +57,7 @@ ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, ReadMethod read_
 
 
 ImageReaderBase::ImageReaderBase( const bf::path& in_file_path ):
-      its_frames_to_read_ind( 0 ),
-      its_frame_status( true ),
+      its_frames_to_read_index( its_frames_to_read.begin() ),
       its_read_method ( file_average ),
       its_specific_acquisition( 1 )
 {

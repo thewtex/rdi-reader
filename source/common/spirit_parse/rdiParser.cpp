@@ -125,18 +125,28 @@ rdiParserData rdiParser::parse()
 		    bs::str_p("RF-Mode/BModeSoft/Refresh-Rate") >> bs::ch_p(',') >>
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_bmodesoft_refresh_rate) ] >> bs::ch_p(',') >>
 		    bs::str_p("frames/sec") >> bs::eol_p >>
+		  
+		  *( yada_line_p ^ bs::str_p("RF-Mode/3D/Step-Size") ) >>
+		    bs::str_p("RF-Mode/3D/Step-Size") >> bs::ch_p(',') >>
+		    bs::uint_p[ bs::assign_a( its_rpd->its_rf_mode_3d_step_size ) ] >> bs::ch_p(',') >>
+		    bs::str_p("mm") >> bs::eol_p >>
+
+		  *( yada_line_p ^ bs::str_p("RF-Mode/ActiveProbe/Name") ) >>
+		    bs::str_p("RF-Mode/ActiveProbe/Name") >> bs::ch_p(',') >> 
+		    *(bs::anychar_p[ bs::push_back_a(its_rpd->its_rf_mode_activeprobe_name) ] ^ bs::eol_p) >> 
+		    bs::eol_p >> 
 
 		  *( yada_line_p ^ bs::str_p("RF-Mode/RX/AD-Gate-Width") ) >>
 		    bs::str_p("RF-Mode/RX/AD-Gate-Width") >> bs::ch_p(',') >>
 		    bs::uint_p[ bs::assign_a( its_rpd->its_rf_mode_rx_ad_gate_width ) ] >> bs::ch_p(',') >>
 		    bs::str_p("samples") >> bs::eol_p >>
 
-		    *( yada_line_p ^ bs::str_p("RF-Mode/RX/Frequency" ) ) >>
+		  *( yada_line_p ^ bs::str_p("RF-Mode/RX/Frequency" ) ) >>
 		    bs::str_p("RF-Mode/RX/Frequency" ) >> bs::ch_p(',') >>
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_rx_frequency ) ] >> bs::ch_p(',') >>
 		    bs::str_p("MHz") >> bs::eol_p >>
 
-		    *( yada_line_p ^ bs::str_p("RF-Mode/TX/Frequency" ) ) >>
+		  *( yada_line_p ^ bs::str_p("RF-Mode/TX/Frequency" ) ) >>
 		    bs::str_p("RF-Mode/TX/Frequency" ) >> bs::ch_p(',') >>
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_tx_frequency ) ] >> bs::ch_p(',') >>
 		    bs::str_p("MHz") >> bs::eol_p >>

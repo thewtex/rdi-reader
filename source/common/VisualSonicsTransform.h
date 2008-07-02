@@ -81,6 +81,8 @@ namespace visual_sonics
 
       //! set the value for the output that is outside the boundary of the original data
       void set_outside_bounds_value( const ImageDataOutT& obv ) { its_outside_bounds_value = obv; }
+      //! set whether or not the coordintes need to be calculated 
+      void set_do_calc_coords( const bool & do_calc){ its_do_calc_coords = do_calc; }
 
       //! perform the transformation/scan conversion and return the transformed image
       void transform();
@@ -91,6 +93,8 @@ namespace visual_sonics
 
       //! calculates its_col_cos, its_col_sin, its_theta, its_r, its_image_x, its_image_y
       void calc_coords();
+      //! whether or not the coordinates need to be calculated
+      bool its_do_calc_coords;
 
 
       //!whether or not this is a scout (b_mode or saturation) image as opposed to an raw rf image.  has an effect on how man scan lines there are in the image

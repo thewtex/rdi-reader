@@ -282,7 +282,7 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
 
     if( this->its_read_method == specific_acquisition )
     {
-      rdb_file.seekg( (its_specific_acquisition-1) * samples_per_line *2, std::ios::cur);
+      rdb_file.seekg( its_specific_acquisition * samples_per_line *2, std::ios::cur);
     }
     else // skip to start on file average line
     {

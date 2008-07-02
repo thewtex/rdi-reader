@@ -284,17 +284,21 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
     {
       rdb_file.seekg( (its_specific_acquisition-1) * samples_per_line *2, std::ios::cur);
     }
+    else // skip to start on file average line
+    {
+      rdb_file.seekg( skip_amount, std::ios::cur );
+    }
   
     char * short_data = new char[ sizeof( Int16 ) ];
     Int16 * short_data_p = reinterpret_cast< Int16 *> (short_data);
     for( unsigned int i = 0; i < num_lines; i++)
     {
-      rdb_file.seekg( skip_amount, std::ios::cur );
       for( unsigned int j = 0; j < samples_per_line; j++)
       {
         rdb_file.read(short_data, 2);
         its_rf_image[ i*samples_per_line + j] = *short_data_p;
       }
+      rdb_file.seekg( skip_amount, std::ios::cur );
     }
 
     delete[] short_data;

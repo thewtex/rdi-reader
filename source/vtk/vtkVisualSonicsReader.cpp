@@ -372,7 +372,7 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
   vtk_rf_image_sc->SetScalarTypeToDouble();
   vtk_rf_image_sc->SetNumberOfScalarComponents(1);
   vtk_rf_image_sc->AllocateScalars();
-  vtk_rf_image_sc->SetSpacing( its_ir->get_rf_image_sc_delta_x(), its_ir->get_rf_image_sc_delta_y(), its_rpd->its_rf_mode_3d_scan_distance / (its_rpd->its_image_frames -1) );
+  vtk_rf_image_sc->SetSpacing( its_ir->get_rf_image_sc_delta_x(), its_ir->get_rf_image_sc_delta_y(), rf_image_z_step );
   vtk_rf_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
   // fill in scout b mode scan converted values
   double* vtk_rf_image_sc_p = static_cast< double* >( vtk_rf_image_sc->GetScalarPointer() );
@@ -384,24 +384,37 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
   unsigned int values_in_frame = num_lines * samples_per_line;
   while( its_ir->read_rf_image() )
   {
+    // raw
     for( unsigned int i=0; i<num_lines; i++)
     {
       for(unsigned int j=0; j<samples_per_line; j++)
       {
-	// raw
         rf_raw_data->SetValue( i + num_lines*j + values_in_frame*k, static_cast< Int16 > ( *rf_image_it ) );
         rf_image_it++;
   
         rf_raw_points->SetPoint( i + num_lines*j + values_in_frame*k, *rf_image_x, *rf_image_y * -1, rf_image_z_step*k );
         rf_image_x++;
         rf_image_y++;
-
+      }
+    }
+    
+    // scan converted
+    for( unsigned int i=0; i<cols; i++)
+    {
+      for( unsigned int j=0; j<rows; j++)
+      {
 	// scan convert
         *vtk_rf_image_sc_p = *rf_image_sc_it ;
         rf_image_sc_it++;
         vtk_rf_image_sc_p++;
       }
     }
+    rf_image_it = its_ir->get_rf_image().begin();
+    rf_image_x = its_ir->get_rf_image_x().begin();
+    rf_image_y = its_ir->get_rf_image_y().begin();
+
+    rf_image_sc_it = its_ir->get_rf_image_sc().begin();
+
     k++;
   }
 

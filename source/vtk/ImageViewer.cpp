@@ -209,23 +209,24 @@ void ImageViewer::view_rf()
  its_image_reader->Update();
 
  // get the output
- vtkStructuredGrid* vtk_saturation_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(1) );
+ vtkStructuredGrid* vtk_rf_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(2) );
+ double* rf_range = vtk_rf_sg->GetScalarRange();
 
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
  dsm->SetColorModeToMapScalars();
  dsm->SetScalarModeToUsePointData();
- dsm->SetInputConnection( its_image_reader->GetOutputPort(1) );
+ dsm->SetInputConnection( its_image_reader->GetOutputPort(2) );
 
  // Lookup Table
  vtkSmartPointer<vtkLookupTable> lut = vtkSmartPointer<vtkLookupTable>::New();
- lut->SetNumberOfColors(2);
- lut->SetTableValue( 0, 0.0, 0.0, 0.0 );
- // we use the same colors the VisualSonics peeps use in their software
- lut->SetTableValue( 1, 0.0, 1.0, 1.0 );
+ lut->SetNumberOfColors(65536);
+ lut->SetHueRange(0.0, 1.0);
+ lut->SetSaturationRange( 0.0, 0.0);
+ lut->SetValueRange( 0.0, 1.0 );
 
  dsm->SetLookupTable(lut);
- dsm->SetScalarRange( 0.0, 1.0 );
+ dsm->SetScalarRange( rf_range[0], rf_range[1] );
 
  // actor
  vtkSmartPointer<vtkActor> pda = vtkSmartPointer<vtkActor>::New();
@@ -238,8 +239,8 @@ void ImageViewer::view_rf()
  its_ren_win->AddRenderer( ren );
 
  // adjust camera location ( otherwise includes y=0 be included by default )
- double* bounds = vtk_saturation_sg->GetBounds();
- double* first = vtk_saturation_sg->GetPoints()->GetPoint(0);
+ double* bounds = vtk_rf_sg->GetBounds();
+ double* first = vtk_rf_sg->GetPoints()->GetPoint(0);
  double center_y = (bounds[2] + first[1])/2.0;
  double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
 

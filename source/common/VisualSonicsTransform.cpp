@@ -25,6 +25,7 @@
 
 #include "common/interpolation/Bilinear.h"
 #include "common/interpolation/NearestNeighbor.h"
+#include "common/sized_ints.h"
 #include "common/spirit_parse/rdiParserData.h"
 
 using namespace visual_sonics;
@@ -145,6 +146,8 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
 			    std::vector<ImageDataOutT> & transform,
 			    unsigned int& transform_rows,
 			    unsigned int& transform_cols,
+			    CoordT & delta_x,
+			    CoordT & delta_y,
 			    std::vector<CoordT> & image_x,
 			    std::vector<CoordT> & image_y,
 			    const rdiParserData * const rpd,
@@ -161,6 +164,8 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     its_default_transform_rows( 512 ),
     its_transform_rows( transform_rows ),
     its_transform_cols( transform_cols ),
+    its_delta_x( delta_x ),
+    its_delta_y( delta_y ),
     its_transform( transform ),
     its_interpolation_method( interpmethod ),
     its_outside_bounds_value( 0 ),
@@ -353,8 +358,8 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
 
 
   // distance between points in the transformed image
-  const CoordT delta_x = (x_max - x_min)/its_transform_cols;
-  const CoordT delta_y = (y_max - y_min)/its_transform_rows;
+  const CoordT its_delta_x = (x_max - x_min)/its_transform_cols;
+  const CoordT its_delta_y = (y_max - y_min)/its_transform_rows;
 
 
   // perform the transformation
@@ -407,7 +412,7 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
       // make sure we are within bounds
       if( theta < *its_theta.begin() || theta > *(its_theta.end()-1) || r < *its_r.begin() || r > *(its_r.end()-1) )
       {
-        y_pos = y_pos + delta_y;
+        y_pos = y_pos + its_delta_y;
 	continue;
       }
 
@@ -436,11 +441,11 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
 
       its_transform[ i*its_transform_rows + j ] = its_interpolation->interpolate();
 
-       y_pos = y_pos + delta_y;
+       y_pos = y_pos + its_delta_y;
     }
 
 
-    x_pos = x_pos + delta_x;
+    x_pos = x_pos + its_delta_x;
     y_pos = y_min;
 
   }
@@ -453,13 +458,13 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
 
 
 
-template class VisualSonicsTransform<unsigned short, double, double>;
-template class VisualSonicsTransform<unsigned short, double, float>;
-template class VisualSonicsTransform<unsigned short, float, float>;
+template class VisualSonicsTransform<UInt16, double, double>;
+template class VisualSonicsTransform<UInt16, double, float>;
+template class VisualSonicsTransform<UInt16, float, float>;
 
-template class VisualSonicsTransform<short, double, double>;
-template class VisualSonicsTransform<short, double, float>;
-template class VisualSonicsTransform<short, float, float>;
+template class VisualSonicsTransform<Int16, double, double>;
+template class VisualSonicsTransform<Int16, double, float>;
+template class VisualSonicsTransform<Int16, float, float>;
 
 template class VisualSonicsTransform<double, double, double>;
 template class VisualSonicsTransform<double, double, float>;

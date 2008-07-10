@@ -212,7 +212,7 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
   vtk_b_mode_image_sc->SetScalarTypeToDouble();
   vtk_b_mode_image_sc->SetNumberOfScalarComponents(1);
   vtk_b_mode_image_sc->AllocateScalars();
-  vtk_b_mode_image_sc->SetSpacing( 1.0, 1.0, 1.0 );
+  vtk_b_mode_image_sc->SetSpacing( its_ir->get_b_mode_image_sc_delta_x(), its_ir->get_b_mode_image_sc_delta_y(), 1.0 );
   vtk_b_mode_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
   // fill in scout b mode scan converted values
   double* vtk_b_mode_image_sc_p = static_cast< double* >( vtk_b_mode_image_sc->GetScalarPointer() );
@@ -301,7 +301,7 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector)
   vtk_saturation_image_sc->SetScalarTypeToUnsignedChar();
   vtk_saturation_image_sc->SetNumberOfScalarComponents(1);
   vtk_saturation_image_sc->AllocateScalars();
-  vtk_saturation_image_sc->SetSpacing( 1.0, 1.0, 1.0 );
+  vtk_saturation_image_sc->SetSpacing( its_ir->get_saturation_image_sc_delta_x(), its_ir->get_saturation_image_sc_delta_y(), 1.0 );
   vtk_saturation_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
   // fill in scout b mode scan converted values
   unsigned char* vtk_saturation_image_sc_p = static_cast< unsigned char* >( vtk_saturation_image_sc->GetScalarPointer() );
@@ -372,7 +372,7 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
   vtk_rf_image_sc->SetScalarTypeToDouble();
   vtk_rf_image_sc->SetNumberOfScalarComponents(1);
   vtk_rf_image_sc->AllocateScalars();
-  vtk_rf_image_sc->SetSpacing( 1.0, 1.0, 1.0 );
+  vtk_rf_image_sc->SetSpacing( its_ir->get_rf_image_sc_delta_x(), its_ir->get_rf_image_sc_delta_y(), its_rpd->its_rf_mode_3d_scan_distance / (its_rpd->its_image_frames -1) );
   vtk_rf_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
   // fill in scout b mode scan converted values
   double* vtk_rf_image_sc_p = static_cast< double* >( vtk_rf_image_sc->GetScalarPointer() );

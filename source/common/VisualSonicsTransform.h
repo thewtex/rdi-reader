@@ -65,8 +65,10 @@ namespace visual_sonics
        */
         VisualSonicsTransform( const std::vector<ImageDataInT> & image,  //!< raw data to be transformed/scan converted
 			     std::vector<ImageDataOutT> & transform, //!< where the transformed image is put @warning the reference is modified
-			     unsigned int & transform_rows, //!< where number of rows in the transformed image is place, will follow output_size if values are given, or will be dynamically determined otherwise, @warning the reference is modified
-			     unsigned int & transform_cols, //!< where number of cols in the transformed image is place, will follow output_size if values are given, or will be dynamically determined otherwise, @warning the reference is modified
+			     unsigned int & transform_rows, //!< where number of rows in the transformed image is placed, will follow output_size if values are given, or will be dynamically determined otherwise, @warning the reference is modified
+			     unsigned int & transform_cols, //!< where number of cols in the transformed image is placed, will follow output_size if values are given, or will be dynamically determined otherwise, @warning the reference is modified
+			     CoordT & delta_x, //!< where the x distance between columns is placed [mm], @warning the reference is moified
+			     CoordT & delta_y, //!< where the y distance between rows is placed [mm], @warning the reference is moified
 			     std::vector<CoordT> & image_x, //!< where the x-coordinates for the image points are put @warning the reference is modified by the class
 			     std::vector<CoordT> & image_y, //!< where the y-coordinates for the image points are put @warning the reference is modified by the class
 			     const rdiParserData * const rpd, //!< the metadata used to determine how scan conversion should take place, shaft distances and encoder angles are referenced
@@ -97,7 +99,7 @@ namespace visual_sonics
       bool its_do_calc_coords;
 
 
-      //!whether or not this is a scout (b_mode or saturation) image as opposed to an raw rf image.  has an effect on how man scan lines there are in the image
+      //!whether or not this is a scout (b_mode or saturation) image as opposed to an raw rf image.  has an effect on how many scan lines there are in the image
       const bool & its_is_scout;
       //!
       //! the preconverted image data
@@ -157,6 +159,10 @@ namespace visual_sonics
       unsigned int& its_transform_rows;
       //! number of columns in the transformed image
       unsigned int& its_transform_cols;
+      //! distance between columns
+      CoordT& its_delta_x;
+      //! distance between rows
+      CoordT& its_delta_y;
 
       //! the post-converted image data
       std::vector<ImageDataOutT>& its_transform;

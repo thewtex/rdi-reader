@@ -329,9 +329,6 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector)
 int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
 {
 
-  // read in the image
-  its_ir->read_rf_image();
-
   //---------- rf_image_raw ----------------- declarations
   vtkInformation* outInfo = outputVector->GetInformationObject(2);
   vtkStructuredGrid* vtk_rf_image_raw = vtkStructuredGrid::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
@@ -385,7 +382,7 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
 
 
   //---------- rf_image_raw and scan convert ---------------- reading
-  unsigned int k = 0; // frame number
+  unsigned int k = 0; // extracted frames' index
   unsigned int values_in_frame = num_lines * samples_per_line;
   while( its_ir->read_rf_image() )
   {

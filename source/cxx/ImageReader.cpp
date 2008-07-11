@@ -333,6 +333,8 @@ void ImageReader<ImageDataOutT,CoordT>::read_saturation_image()
 
 
 
+#include "iostream"
+using namespace std;
 template<class ImageDataOutT, class CoordT>
 bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
 {
@@ -356,6 +358,7 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
   const unsigned int scout_num_lines = this->its_metadata_reader->its_rpd->its_rf_mode_tx_trig_tbl_trigs;
   rdb_file.seekg( 2 * scout_num_lines * scout_samples_per_line * sizeof(UInt16), std::ios::beg);
 
+  cerr << "nl: " << num_lines << " spl: " << samples_per_line << " soU16 " << sizeof(Int16) << " *iftri-1: " << *its_frames_to_read_index - 1 << endl;
   //skip previous frames
   rdb_file.seekg(  num_lines * samples_per_line * sizeof(Int16) * (*its_frames_to_read_index - 1), std::ios::cur );
 
@@ -413,7 +416,7 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
 
   its_rf_vs_transform->transform();
 
-  if( its_frames_to_read_index == its_frames_to_read.end() )
+  if( !(its_frames_to_read_index < its_frames_to_read.end()) )
   {
     its_frames_to_read_index = its_frames_to_read.begin();
     return false;

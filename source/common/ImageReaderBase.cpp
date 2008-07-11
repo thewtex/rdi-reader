@@ -112,7 +112,6 @@ void ImageReaderBase::check_if_frames_valid()
 }
 
 
-
 void ImageReaderBase::read_all_frames()
 {
   // default is to read all frames
@@ -122,4 +121,5 @@ void ImageReaderBase::read_all_frames()
   {
     its_frames_to_read[i] = i+1;
   }
+  its_frames_to_read_index = its_frames_to_read.begin();
 }

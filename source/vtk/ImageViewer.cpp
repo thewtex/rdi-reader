@@ -253,7 +253,7 @@ void ImageViewer::view_rf()
  its_ren_win->SetSize( its_default_width, int( (first[1] - bounds[2])/(first[0]*-2.0) * its_default_width ) );
 
  // interactor
- its_iren->SetInteractorStyle( its_interactor_style_image );
+ its_iren->SetInteractorStyle( its_interactor_style_trackball );
  its_iren->Initialize();
  its_iren->Start();
 

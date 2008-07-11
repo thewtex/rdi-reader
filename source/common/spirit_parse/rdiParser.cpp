@@ -99,7 +99,7 @@ rdiParserData rdiParser::parse()
 
 		  *( yada_line_p ^ bs::str_p("RF-Mode/3D/Scan-Distance") ) >>
 		    bs::str_p("RF-Mode/3D/Scan-Distance") >> bs::ch_p(',') >>
-		    bs::uint_p[ bs::assign_a( its_rpd->its_rf_mode_3d_scan_distance ) ] >> bs::ch_p(',') >>
+		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_3d_scan_distance ) ] >> bs::ch_p(',') >>
 		    bs::str_p("mm") >> bs::eol_p >>
 
 		  *( yada_line_p ^ bs::str_p("RF-Mode/RX/V-Digi-Depth-Imaging") ) >>
@@ -201,7 +201,7 @@ rdiParserData rdiParser::parse()
   if (!info.full)
   {
     std::ostringstream err_msg (std::ostringstream::out);
-    err_msg << "convert_visualsonics_2_mat: Not the entire input file " << its_input.get_filename() <<
+    err_msg << "convert_visualsonics: Not the entire input file " << its_input.get_filename() <<
     "\n got parsed or the input parser could not recognize the input string\n" <<
     "Only " << info.length << " characters were consumed by the parser.\n";
     throw std::logic_error( err_msg.str() );
@@ -251,7 +251,7 @@ void rdiParser::parse_angle()
   if (!info.full)
   {
     std::ostringstream err_msg (std::ostringstream::out);
-    err_msg << "convert_visualsonics_2_mat: Not the entire angle string " << its_input.get_filename() <<
+    err_msg << "convert_visualsonics: Not the entire angle string " << its_input.get_filename() <<
     "\n got parsed or the input parser could not recognize the input string\n" <<
     "Only " << info.length << " characters were consumed by the parser.\n";
     throw std::logic_error( err_msg.str() );

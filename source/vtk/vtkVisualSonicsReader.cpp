@@ -329,6 +329,9 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector)
 int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
 {
 
+  // read in the image
+  its_ir->read_rf_image();
+
   //---------- rf_image_raw ----------------- declarations
   vtkInformation* outInfo = outputVector->GetInformationObject(2);
   vtkStructuredGrid* vtk_rf_image_raw = vtkStructuredGrid::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
@@ -384,8 +387,7 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
   //---------- rf_image_raw and scan convert ---------------- reading
   unsigned int k = 0; // extracted frames' index
   unsigned int values_in_frame = num_lines * samples_per_line;
-  while( its_ir->read_rf_image() )
-  {
+  do {
     // raw
     for( unsigned int i=0; i<num_lines; i++)
     {
@@ -393,13 +395,13 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
       {
         rf_raw_data->SetValue( i + num_lines*j + values_in_frame*k, static_cast< Int16 > ( *rf_image_it ) );
         rf_image_it++;
-  
+
         rf_raw_points->SetPoint( i + num_lines*j + values_in_frame*k, *rf_image_x, *rf_image_y * -1, rf_image_z_step*k );
         rf_image_x++;
         rf_image_y++;
       }
     }
-    
+
     // scan converted
     for( unsigned int i=0; i<cols; i++)
     {
@@ -418,7 +420,7 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
     rf_image_sc_it = its_ir->get_rf_image_sc().begin();
 
     k++;
-  }
+  } while( its_ir->read_rf_image() );
 
   vtk_rf_image_raw->SetPoints(rf_raw_points);
   vtk_rf_image_raw->GetPointData()->SetScalars( rf_raw_data );

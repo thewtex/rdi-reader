@@ -140,6 +140,9 @@ int vtkVisualSonicsReader::RequestData(vtkInformation*,
   if(!this->ReadSaturation(outputVector) )
     return 0;
 
+  if(!this->ReadRF(outputVector) )
+    return 0;
+
   this->Modified();
 
   return 1;
@@ -243,7 +246,7 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector)
 
 
   //---------- saturation image raw -----------------
-  vtkInformation* outInfo = outputVector->GetInformationObject(2);
+  vtkInformation* outInfo = outputVector->GetInformationObject(1);
   vtkStructuredGrid* vtk_saturation_image_raw = vtkStructuredGrid::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
   if (!vtk_saturation_image_raw)
     return 0;
@@ -338,6 +341,8 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
   const unsigned int samples_per_line = its_rpd->its_image_acquisition_size / sizeof( Int16 );
   const unsigned int num_lines = its_rpd->its_image_lines;
   const unsigned int frames = its_rpd->its_image_frames;
+
+  cout << "spl: " << samples_per_line << " nl: " << num_lines << " frames: " << frames << endl;
 
   vtk_rf_image_raw->SetWholeExtent( 0, num_lines - 1, 0, samples_per_line - 1, 0, frames - 1 );
   vtk_rf_image_raw->SetDimensions( num_lines, samples_per_line, frames );

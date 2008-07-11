@@ -358,8 +358,8 @@ void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::transform()
 
 
   // distance between points in the transformed image
-  const CoordT its_delta_x = (x_max - x_min)/its_transform_cols;
-  const CoordT its_delta_y = (y_max - y_min)/its_transform_rows;
+  its_delta_x = (x_max - x_min)/its_transform_cols;
+  its_delta_y = (y_max - y_min)/its_transform_rows;
 
 
   // perform the transformation

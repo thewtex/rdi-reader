@@ -244,6 +244,9 @@ void ImageViewer::view_rf()
  double center_y = (bounds[2] + first[1])/2.0;
  double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
 
+ vtk_rf_sg->Print(cout);
+ cout << "range[0]: " << rf_range[0] << " range[1]: " << rf_range[1] << std::endl;
+
  vtkCamera* cam = ren->GetActiveCamera();
  cam->SetFocalPoint( 0.0, center_y, 0.0 );
  cam->SetPosition( 0.0, center_y, camdist );

@@ -4,7 +4,7 @@ if( COMMAND cmake_policy )
 endif( COMMAND cmake_policy )
 
 
-project(read_visualsonics_digital_rf CXX)
+project(read_visualsonics_digital_rf)
 
 
 ###########  Install Prefix ############

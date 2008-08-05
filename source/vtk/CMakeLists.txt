@@ -17,11 +17,10 @@ set(base_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
 
 
 
-find_package(VTK REQUIRED)
-if(NOT VTK_USE_RENDERING)
-  message(FATAL_ERROR "${PROJECT_NAME} requires VTK_USE_RENDERING.")
-endif(NOT VTK_USE_RENDERING)
-include(${VTK_USE_FILE})
+#find_package(VTK REQUIRED)
+#if(NOT VTK_USE_RENDERING)
+  #message(FATAL_ERROR "${PROJECT_NAME} requires VTK_USE_RENDERING.")
+#endif(NOT VTK_USE_RENDERING)
 
 
 

@@ -30,7 +30,6 @@ if(USE_VTK)
   if(NOT VTK_USE_RENDERING)
     message(FATAL_ERROR "${PROJECT_NAME} requires VTK_USE_RENDERING.")
   endif(NOT VTK_USE_RENDERING)
-  include(${VTK_USE_FILE})
   
   
   set( vtk_test_srcs ${base_test_srcs}

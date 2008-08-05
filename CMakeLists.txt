@@ -67,5 +67,9 @@ set( CMAKE_RUNTIME_OUTPUT_DIRECTORY
 ########### set up addition CMakeLists.txt locations #########
 #ADD_SUBDIRECTORY(matlab)
 add_subdirectory(source)
-add_subdirectory(tests)
+
+include(CTest)
+if(BUILD_TESTING)
+  add_subdirectory(tests)
+endif(BUILD_TESTING)
 

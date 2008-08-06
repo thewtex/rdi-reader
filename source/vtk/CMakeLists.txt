@@ -1,7 +1,6 @@
 set(spirit_parse_source_dir ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/spirit_parse)
 
 
-include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source )
 
 
 set(base_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
@@ -17,12 +16,16 @@ set(base_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
 
 
 
-#find_package(VTK REQUIRED)
-#if(NOT VTK_USE_RENDERING)
-  #message(FATAL_ERROR "${PROJECT_NAME} requires VTK_USE_RENDERING.")
-#endif(NOT VTK_USE_RENDERING)
+find_package(VTK REQUIRED)
+if(NOT VTK_USE_RENDERING)
+  message(FATAL_ERROR "${PROJECT_NAME} requires VTK_USE_RENDERING.")
+endif(NOT VTK_USE_RENDERING)
 
 
+include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source 
+  ${VTK_INCLUDE_DIRS} 
+  )
+link_directories( ${VTK_LIBRARY_DIRS} )
 
 set( vs-vtk-viewer_srcs ${base_srcs}
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vtkVisualSonicsReader.cpp

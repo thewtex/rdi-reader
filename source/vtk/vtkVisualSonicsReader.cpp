@@ -348,10 +348,10 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
   vtk_rf_image_raw->SetDimensions( num_lines, samples_per_line, frames );
 
 
-  vtkSmartPointer<vtkPoints> rf_raw_points = vtkSmartPointer<vtkPoints>::New();
+  vtkPoints* rf_raw_points = vtkPoints::New();
   rf_raw_points->SetNumberOfPoints( samples_per_line*num_lines*frames );
 
-  vtkSmartPointer<vtkShortArray> rf_raw_data = vtkSmartPointer<vtkShortArray>::New();
+  vtkShortArray* rf_raw_data  = vtkShortArray::New();
   rf_raw_data->SetNumberOfComponents(1);
   rf_raw_data->SetNumberOfTuples( samples_per_line*num_lines*frames );
 
@@ -425,6 +425,9 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
 
   vtk_rf_image_raw->SetPoints(rf_raw_points);
   vtk_rf_image_raw->GetPointData()->SetScalars( rf_raw_data );
+
+  rf_raw_points->Delete();
+  rf_raw_data->Delete();
 
   return 1;
 }

@@ -45,7 +45,6 @@ ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, std::vector<unsi
 
 
 ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition ):
-      its_frames_to_read_index( its_frames_to_read.begin() ),
       its_read_method( read_method ),
       its_specific_acquisition( specific_acquisition )
 {
@@ -57,7 +56,6 @@ ImageReaderBase::ImageReaderBase( const bf::path& in_file_path, ReadMethod read_
 
 
 ImageReaderBase::ImageReaderBase( const bf::path& in_file_path ):
-      its_frames_to_read_index( its_frames_to_read.begin() ),
       its_read_method ( file_average ),
       its_specific_acquisition( 1 )
 {
@@ -122,4 +120,5 @@ void ImageReaderBase::read_all_frames()
   {
     its_frames_to_read[i] = i+1;
   }
+  its_frames_to_read_index = its_frames_to_read.begin();
 }

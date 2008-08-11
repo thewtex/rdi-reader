@@ -337,6 +337,13 @@ template<class ImageDataOutT, class CoordT>
 bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
 {
 
+  unsigned int ftr = *its_frames_to_read_index;
+  if( its_frames_to_read_index == its_frames_to_read.end() )
+  {
+    its_frames_to_read_index = its_frames_to_read.begin();
+    return false;
+  }
+
   std::ifstream rdb_file( its_rdb_file_path.native_file_string().c_str(), std::ios::in | std::ios::binary);
   if (!rdb_file.is_open())
   {
@@ -413,16 +420,8 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
 
   its_rf_vs_transform->transform();
 
-  if( its_frames_to_read_index == its_frames_to_read.end() )
-  {
-    its_frames_to_read_index = its_frames_to_read.begin();
-    return false;
-  }
-  else
-  {
-    its_frames_to_read_index++;
-    return true;
-  }
+  its_frames_to_read_index++;
+  return true;
 }
 
 

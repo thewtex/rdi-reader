@@ -337,7 +337,6 @@ template<class ImageDataOutT, class CoordT>
 bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
 {
 
-  unsigned int ftr = *its_frames_to_read_index;
   if( its_frames_to_read_index == its_frames_to_read.end() )
   {
     its_frames_to_read_index = its_frames_to_read.begin();

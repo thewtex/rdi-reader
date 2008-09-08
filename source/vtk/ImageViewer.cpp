@@ -152,6 +152,7 @@ void ImageViewer::view_saturation()
 
  // get the output
  vtkStructuredGrid* vtk_saturation_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(1) );
+ //vtkImageData* vtk_saturation_sg = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(4) );
 
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
@@ -180,8 +181,11 @@ void ImageViewer::view_saturation()
  its_ren_win->AddRenderer( ren );
 
  // adjust camera location ( otherwise includes y=0 be included by default )
+   //vtk_saturation_sg->ComputeBounds();
  double* bounds = vtk_saturation_sg->GetBounds();
  double* first = vtk_saturation_sg->GetPoints()->GetPoint(0);
+    //double* origin = vtk_saturation_sg->GetOrigin();
+    //double first[] = { 0.0, 0.0, 0.0 };
  double center_y = (bounds[2] + first[1])/2.0;
  double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
 

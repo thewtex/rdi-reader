@@ -48,8 +48,8 @@ class vtkUnsignedShortArray;
  *   1-3 output vtkStructuredGrid
  *   4-6 output vtkImageData
  *
- *   1-2, 4-5 is a 2-D image
- *   3, 6 are 3-D images where the third dimension is the frame number
+ *   1-2, 4-5 is a 2-D data set
+ *   3, 6 are 3-D data set where the third dimension is the frame number
  */
 class vtkVisualSonicsReader: public vtkMedicalImageReader2
 {
@@ -89,6 +89,11 @@ protected:
 
   //! define what the outputs are
   virtual int FillOutputPortInformation( int, vtkInformation* );
+
+  //! specifies information about the output, dimensions, etc
+  virtual int RequestInformation(vtkInformation*,
+      vtkInformationVector **,
+      vtkInformationVector *);
 
   //! does the actual data crunching at a pipeline request
   virtual int RequestData(vtkInformation*,

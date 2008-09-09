@@ -121,6 +121,14 @@ int vtkVisualSonicsReader::FillOutputPortInformation( int port, vtkInformation* 
 }
 
 
+
+int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
+    vtkInformationVector ** inputVector, 
+    vtkInformationVector *  outputVector)
+{
+
+}
+
 int vtkVisualSonicsReader::RequestData(vtkInformation*,
 			     vtkInformationVector**,
 			     vtkInformationVector* outputVector)

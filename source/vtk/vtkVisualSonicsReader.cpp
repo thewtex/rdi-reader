@@ -19,7 +19,7 @@ namespace bf = boost::filesystem;
 #include "vtkUnsignedShortArray.h"
 
 
-#include "cxx/ImageReader.h"
+#include "common/ImageReader.h"
 #include "common/spirit_parse/rdiParserData.h"
 #include "common/MetadataReaderBase.h"
 #include "common/sized_ints.h"

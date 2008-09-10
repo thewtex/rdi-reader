@@ -1,5 +1,5 @@
 
-add_subdirectory( cxx )
+add_subdirectory( common )
 
 if(USE_VTK)
   add_subdirectory( vtk )

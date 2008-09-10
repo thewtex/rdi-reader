@@ -24,7 +24,8 @@ using namespace visual_sonics::cxx;
 template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read):
   ImageReaderBase( in_file_path, frames_to_read ),
-  its_has_calc_scout_coords( false )
+  its_has_calc_scout_coords( false ),
+  its_do_scan_conv( true )
 {
   its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
 										      its_b_mode_image_sc,
@@ -70,7 +71,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std
 template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition):
   ImageReaderBase( in_file_path, frames_to_read, read_method, specific_acquisition ),
-  its_has_calc_scout_coords( false )
+  its_has_calc_scout_coords( false ),
+  its_do_scan_conv( true )
 {
   its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
 										      its_b_mode_image_sc,
@@ -114,7 +116,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std
 template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::ImageReader( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition ):
   ImageReaderBase( in_file_path, read_method, specific_acquisition ),
-  its_has_calc_scout_coords( false )
+  its_has_calc_scout_coords( false ),
+  its_do_scan_conv( true )
 {
   its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
 										      its_b_mode_image_sc,
@@ -158,7 +161,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader( const bf::path& in_file_path, Re
 template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path ):
   ImageReaderBase( in_file_path ),
-  its_has_calc_scout_coords( false )
+  its_has_calc_scout_coords( false ),
+  its_do_scan_conv( true )
 {
   its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
 										      its_b_mode_image_sc,

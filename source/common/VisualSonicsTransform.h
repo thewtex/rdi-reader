@@ -83,7 +83,8 @@ namespace visual_sonics
 
       //! set the value for the output that is outside the boundary of the original data
       void set_outside_bounds_value( const ImageDataOutT& obv ) { its_outside_bounds_value = obv; }
-      //! set whether or not the coordintes need to be calculated 
+      //! set whether or not the coordintes need to be calculated
+      //! used for preserving cycles when dealing with the scout windows (they have the same coords)
       void set_do_calc_coords( const bool & do_calc){ its_do_calc_coords = do_calc; }
 
       //! perform the transformation/scan conversion and return the transformed image

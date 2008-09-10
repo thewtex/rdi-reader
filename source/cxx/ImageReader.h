@@ -165,6 +165,10 @@ namespace visual_sonics
       Int16 its_rf_min;
 
 
+      //! whether or not to perform scan conversion during the read_*_image()
+      bool its_do_scan_conv;
+      //! whether or not to perform scan conversion during the read_*_image()
+      void set_do_scan_conv( bool& do_scan ) { its_do_scan_conv = do_scan; }
       //! performs scan conversion, etc
       VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>* its_b_mode_vs_transform;
       //! performs scan conversion, etc

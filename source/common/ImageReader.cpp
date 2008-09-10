@@ -247,6 +247,7 @@ void ImageReader<ImageDataOutT,CoordT>::set_in_file_path( const bf::path& ifp )
 }
   
 
+
 template<class ImageDataOutT, class CoordT>
 void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
 {

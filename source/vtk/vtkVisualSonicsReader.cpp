@@ -14,6 +14,7 @@ namespace bf = boost::filesystem;
 #include "vtkSetGet.h"
 #include "vtkShortArray.h"
 #include "vtkSmartPointer.h"
+#include "vtkStreamingDemandDrivenPipeline.h"
 #include "vtkStructuredGrid.h"
 #include "vtkUnsignedCharArray.h"
 #include "vtkUnsignedShortArray.h"
@@ -70,7 +71,7 @@ void vtkVisualSonicsReader::SetFilePrefix( const char* fileprefix)
 
   its_rpd = its_ir->get_rpd();
   this->vtkMedicalImageReader2::SetFilePrefix( fileprefix );
-
+  this->Modified();
 }
 
 
@@ -104,6 +105,7 @@ inline unsigned int vtkVisualSonicsReader::GetSpecificAcquisition()
 
 
 
+//! gives information on the output data set types for the filter class
 int vtkVisualSonicsReader::FillOutputPortInformation( int port, vtkInformation* info)
 {
   if (port < 3)
@@ -122,6 +124,7 @@ int vtkVisualSonicsReader::FillOutputPortInformation( int port, vtkInformation* 
 
 
 
+//! gives information on the data sets that the filter will produce for a particular instance
 int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
     vtkInformationVector ** inputVector, 
     vtkInformationVector *  outputVector)
@@ -129,6 +132,34 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
 
   /*************** b mode image raw ***************/
   vtkInformation* outInfo = outputVector->GetInformationObject(0); 
+  int whole_extent[6] = { 0,
+    static_cast< int >( its_ir->get_b_mode_image_rows() ) - 1,
+    0,
+    static_cast< int >( its_ir->get_b_mode_image_cols() ) - 1,
+    0,
+    0 };
+
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
+      whole_extent, 6);
+
+  /*************** b mode image sc  ***************/
+  outInfo = outputVector->GetInformationObject(1);
+  whole_extent[1] = static_cast< int >( its_ir->get_b_mode_image_sc_rows() ) - 1;
+  whole_extent[3] = static_cast< int >( its_ir->get_b_mode_image_sc_cols() ) - 1;
+
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
+      whole_extent, 6);
+
+  double origin[3] = { 0.0, 0.0, 0.0 };
+  outInfo->Set(vtkDataObject::ORIGIN(), origin, 3 );
+
+  double spacing[3] = { its_ir->get_b_mode_image_sc_delta_x(),
+    its_ir->get_b_mode_image_sc_delta_y(),
+    its_ir->get_rf_image_delta_z() };
+  outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
+  
+
+
 
   return 1;
 

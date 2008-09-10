@@ -106,6 +106,8 @@ namespace visual_sonics
       unsigned int get_rf_image_rows(){ return this->get_rpd()->its_image_acquisition_size / 2; }
       //! get the rf image rows ( number of samples in a line )
       unsigned int get_rf_image_cols(){ return this->get_rpd()->its_image_lines; }
+      //! get the distance between rf frames (mm)
+      CoordT get_rf_image_delta_z();
       //! get rf_image x coords
       const std::vector<CoordT>& get_rf_image_x(){ return its_rf_image_x; }
       //! get rf_image y coord
@@ -199,6 +201,24 @@ namespace visual_sonics
     };
   }
 }
+
+
+
+template<class ImageDataOutT, class CoordT>
+inline 
+CoordT visual_sonics::cxx::ImageReader<ImageDataOutT,CoordT>::get_rf_image_delta_z()
+{
+  double scan_distance = this->its_metadata_reader->its_rpd->its_rf_mode_3d_scan_distance ;
+
+  if( scan_distance != 0.0 )
+  {
+    return scan_distance / 
+      static_cast< CoordT >( this->its_metadata_reader->its_rpd->its_image_frames );
+  }
+  return this->get_b_mode_image_sc_delta_x();
+}
+
+
 
 #endif // CXX_IMAGEREADER_H
 

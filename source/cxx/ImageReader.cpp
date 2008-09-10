@@ -233,6 +233,21 @@ ImageReader<ImageDataOutT,CoordT>::~ImageReader()
 
 
 template<class ImageDataOutT, class CoordT>
+void ImageReader<ImageDataOutT,CoordT>::set_in_file_path( const bf::path& ifp )
+{
+  this->ImageReaderBase::set_in_file_path( ifp );
+  its_has_calc_scout_coords = false;
+    bool do_scan_conv_tmp = its_do_scan_conv;
+  its_do_scan_conv = true;
+  // we read in the first frame so that metadata such as the scan converted rows and columns areo  // initialized and can be probed 
+  this->read_saturation_image(); // saturation image and b_mode image have the same geometry
+  this->read_rf_image();
+  its_frames_to_read_index = its_frames_to_read.begin();
+    its_do_scan_conv = do_scan_conv_tmp;
+}
+  
+
+template<class ImageDataOutT, class CoordT>
 void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
 {
   std::ifstream rdb_file( its_rdb_file_path.native_file_string().c_str(), std::ios::in | std::ios::binary);

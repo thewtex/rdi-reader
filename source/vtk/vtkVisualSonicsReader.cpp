@@ -127,6 +127,11 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
     vtkInformationVector *  outputVector)
 {
 
+  /*************** b mode image raw ***************/
+  vtkInformation* outInfo = outputVector->GetInformationObject(0); 
+
+  return 0;
+
 }
 
 int vtkVisualSonicsReader::RequestData(vtkInformation*,
@@ -138,7 +143,7 @@ int vtkVisualSonicsReader::RequestData(vtkInformation*,
   if(!this->its_ir)
   {
     vtkErrorMacro("A FilePrefix must be specified with SetFilePrefix( filename ).");
-    return 0;
+    return 0; 
   }
 
 

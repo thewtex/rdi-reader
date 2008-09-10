@@ -43,6 +43,8 @@ namespace visual_sonics
 
       virtual ~ImageReader();
 
+      void set_in_file_path( const bf::path& ifp );
+
 
       virtual void read_b_mode_image();
       virtual void read_saturation_image();

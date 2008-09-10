@@ -36,7 +36,7 @@ namespace visual_sonics
     public:
 
       ImageReader( const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read);
-      ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition = 0);
+      ImageReader( const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition = 0);
 
       ImageReader( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition = 0 );
       ImageReader( const bf::path& in_file_path );
@@ -54,6 +54,10 @@ namespace visual_sonics
 
       //! get the actual b_mode_image data
       const std::vector<UInt16>& get_b_mode_image(){ return its_b_mode_image;}
+      //! get the b mode image columns ( number of scan lines )
+      unsigned int get_b_mode_image_rows(){ return this->get_rpd()->its_rf_mode_rx_ad_gate_width; }
+      //! get the b mode image rows ( number of samples in a line )
+      unsigned int get_b_mode_image_cols(){ return this->get_rpd()->its_rf_mode_tx_trig_tbl_trigs; }
       //! get b_mode_image x coords
       const std::vector<CoordT>& get_b_mode_image_x(){ return its_scout_image_x;}
       //! get b_mode_image y coord
@@ -76,6 +80,10 @@ namespace visual_sonics
 
       //! get the actual saturation image data
       const std::vector<bool>&  get_saturation_image(){ return its_saturation_image;}
+      //! get the saturation image columns ( number of scan lines )
+      unsigned int get_saturation_image_rows(){ return this->get_rpd()->its_rf_mode_rx_ad_gate_width; }
+      //! get the saturation image rows ( number of samples in a line )
+      unsigned int get_saturation_image_cols(){ return this->get_rpd()->its_rf_mode_tx_trig_tbl_trigs; }
       //! get saturation_image x coords
       const std::vector<CoordT>& get_saturation_image_x(){ return its_scout_image_x;}
       //! get saturation_image y coord
@@ -94,10 +102,14 @@ namespace visual_sonics
 
       //! get the actual rf_image data
       const std::vector<Int16>&  get_rf_image(){ return its_rf_image;}
+      //! get the rf image columns ( number of scan lines )
+      unsigned int get_rf_image_rows(){ return this->get_rpd()->its_image_acquisition_size / 2; }
+      //! get the rf image rows ( number of samples in a line )
+      unsigned int get_rf_image_cols(){ return this->get_rpd()->its_image_lines; }
       //! get rf_image x coords
-      const std::vector<CoordT>& get_rf_image_x(){ return its_rf_image_x;}
+      const std::vector<CoordT>& get_rf_image_x(){ return its_rf_image_x; }
       //! get rf_image y coord
-      const std::vector<CoordT>& get_rf_image_y(){ return its_rf_image_y;}
+      const std::vector<CoordT>& get_rf_image_y(){ return its_rf_image_y; }
       //! get rf_image data scan converted/transformed
       const std::vector<ImageDataOutT>& get_rf_image_sc(){ return its_rf_image_sc; }
       //! get rf scan converted image rows

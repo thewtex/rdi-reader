@@ -130,7 +130,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   /*************** b mode image raw ***************/
   vtkInformation* outInfo = outputVector->GetInformationObject(0); 
 
-  return 0;
+  return 1;
 
 }
 

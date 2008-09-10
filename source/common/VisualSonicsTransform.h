@@ -104,9 +104,11 @@ namespace visual_sonics
       const bool & its_is_scout;
       //!
       //! the preconverted image data
+      //! preconverted grid rows
       unsigned int its_image_rows;
+      //! preconverted grid columns
       unsigned int its_image_cols;
-      //! image data
+      //! preconverted grid data
       const std::vector<ImageDataInT>&  its_image;
      /*! Coordinate system:
      * Post scan conversion space
@@ -119,7 +121,6 @@ namespace visual_sonics
      * origin = pivot point (same)
      *
      */
-     //! x positions for the points in the image
       std::vector<CoordT>& its_image_x;
       //! y positions fro the points in the image
       std::vector<CoordT>& its_image_y;

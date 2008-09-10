@@ -250,23 +250,26 @@ void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
   // finished extracting data
 
 
-  // prepare for transformation
-  its_scout_image_x.resize(samples_per_line * num_lines);
-  its_scout_image_y.resize(samples_per_line * num_lines);
-
-  its_b_mode_vs_transform->set_outside_bounds_value( its_b_mode_min );
-
-  if( !its_has_calc_scout_coords )
+  if( its_do_scan_conv )
   {
-    its_b_mode_vs_transform->set_do_calc_coords( true );
-    its_has_calc_scout_coords = true;
+    // prepare for transformation
+    its_scout_image_x.resize(samples_per_line * num_lines);
+    its_scout_image_y.resize(samples_per_line * num_lines);
+  
+    its_b_mode_vs_transform->set_outside_bounds_value( its_b_mode_min );
+  
+    if( !its_has_calc_scout_coords )
+    {
+      its_b_mode_vs_transform->set_do_calc_coords( true );
+      its_has_calc_scout_coords = true;
+    }
+    else
+    {
+      its_b_mode_vs_transform->set_do_calc_coords( false );
+    }
+  
+    its_b_mode_vs_transform->transform();
   }
-  else
-  {
-    its_b_mode_vs_transform->set_do_calc_coords( false );
-  }
-
-  its_b_mode_vs_transform->transform();
 
 }
 
@@ -315,23 +318,26 @@ void ImageReader<ImageDataOutT,CoordT>::read_saturation_image()
   // finished extracting data
 
 
-  // prepare for transformation
-  its_scout_image_x.resize(samples_per_line * num_lines);
-  its_scout_image_y.resize(samples_per_line * num_lines);
-
-  its_saturation_vs_transform->set_outside_bounds_value( 0 );
-
-  if( !its_has_calc_scout_coords )
+  if ( its_do_scan_conv )
   {
-    its_saturation_vs_transform->set_do_calc_coords( true );
-    its_has_calc_scout_coords = true;
+    // prepare for transformation
+    its_scout_image_x.resize(samples_per_line * num_lines);
+    its_scout_image_y.resize(samples_per_line * num_lines);
+  
+    its_saturation_vs_transform->set_outside_bounds_value( 0 );
+  
+    if( !its_has_calc_scout_coords )
+    {
+      its_saturation_vs_transform->set_do_calc_coords( true );
+      its_has_calc_scout_coords = true;
+    }
+    else
+    {
+      its_saturation_vs_transform->set_do_calc_coords( false );
+    }
+  
+    its_saturation_vs_transform->transform();
   }
-  else
-  {
-    its_saturation_vs_transform->set_do_calc_coords( false );
-  }
-
-  its_saturation_vs_transform->transform();
 
 }
 
@@ -406,22 +412,25 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
   // finished extracting data
 
 
-  // prepare for transformation
-  if( its_frames_to_read_index == its_frames_to_read.begin() )
+  if( its_do_scan_conv )
   {
-    its_rf_image_x.resize(samples_per_line * num_lines);
-    its_rf_image_y.resize(samples_per_line * num_lines);
+    // prepare for transformation
+    if( its_frames_to_read_index == its_frames_to_read.begin() )
+    {
+      its_rf_image_x.resize(samples_per_line * num_lines);
+      its_rf_image_y.resize(samples_per_line * num_lines);
+    
+      its_rf_vs_transform->set_outside_bounds_value( 0 );
   
-    its_rf_vs_transform->set_outside_bounds_value( 0 );
-
-    its_rf_vs_transform->set_do_calc_coords( true );
+      its_rf_vs_transform->set_do_calc_coords( true );
+    }
+    else
+    {
+      its_rf_vs_transform->set_do_calc_coords( false );
+    }
+  
+    its_rf_vs_transform->transform();
   }
-  else
-  {
-    its_rf_vs_transform->set_do_calc_coords( false );
-  }
-
-  its_rf_vs_transform->transform();
 
   its_frames_to_read_index++;
   return true;

@@ -105,6 +105,39 @@ inline unsigned int vtkVisualSonicsReader::GetSpecificAcquisition()
 
 
 
+int vtkVisualSonicsReader::ProcessRequest(vtkInformation* request,
+                                      vtkInformationVector** inputVector,
+                                      vtkInformationVector* outputVector)
+{
+  // generate the data
+  if(request->Has(vtkDemandDrivenPipeline::REQUEST_DATA()))
+    {
+    return this->RequestData(request, inputVector, outputVector);
+    }
+
+  // execute information
+  if(request->Has(vtkDemandDrivenPipeline::REQUEST_INFORMATION()))
+    {
+    return this->RequestInformation(request, inputVector, outputVector);
+    }
+
+  // propagate update extent
+  if(request->Has(vtkStreamingDemandDrivenPipeline::REQUEST_UPDATE_EXTENT()))
+    {
+    return this->RequestUpdateExtent(request, inputVector, outputVector);
+    }
+
+  // specify which ports need to be updated
+  if(request->Has(vtkDemandDrivenPipeline::REQUEST_DATA_NOT_GENERATED()))
+  {
+    return this->RequestDataNotGenerated( request, inputVector, outputVector);
+  }
+
+  return this->Superclass::ProcessRequest(request, inputVector, outputVector);
+}
+
+
+
 //! gives information on the output data set types for the filter class
 int vtkVisualSonicsReader::FillOutputPortInformation( int port, vtkInformation* info)
 {
@@ -120,6 +153,34 @@ int vtkVisualSonicsReader::FillOutputPortInformation( int port, vtkInformation* 
   }
   else
     return 0;
+}
+
+
+
+int vtkVisualSonicsReader::RequestDataNotGenerated( vtkInformation* request,
+    vtkInformationVector ** inputVector, 
+    vtkInformationVector *  outputVector)
+{
+  if( request->Has(vtkExecutive::FROM_OUTPUT_PORT() ) )
+  {
+    int port;
+    port = request->Get( vtkExecutive::FROM_OUTPUT_PORT() );
+    if( port < 3 )
+    {
+      vtkInformation* outInfo;
+      for( int i=0; i<3; i++ )
+      {
+	outInfo = outputVector->GetInformationObject(i);
+	outInfo->Set( vtkDemandDrivenPipeline::DATA_NOT_GENERATED(), 1);
+      }
+    }
+  }
+  else
+  {
+    return 0;
+  }
+
+  return 1;
 }
 
 

@@ -82,6 +82,13 @@ public:
   virtual void SetSpecificAcquisition(unsigned int specific_acquisition);
   unsigned int GetSpecificAcquisition();
 
+
+  //! add implementation for vtkDemandDrivenPipeline::REQUEST_DATA_NOT_GENERATED()
+  virtual int ProcessRequest( vtkInformation*,
+      vtkInformationVector**,
+      vtkInformationVector*   );
+
+
   void PrintSelf(ostream&, vtkIndent);
 
 
@@ -94,6 +101,13 @@ protected:
   virtual int RequestInformation(vtkInformation*,
       vtkInformationVector **,
       vtkInformationVector *);
+
+  //! specifies which output ports will be updated given the request on a port
+  //! if the request is on ports 0-2, we only generate those raw grid images
+  //! if the request is on ports 3-5, we additionally generate the scan converted images
+  virtual int RequestDataNotGenerated( vtkInformation*,
+      vtkInformationVector**, 
+      vtkInformationVector* );
 
   //! does the actual data crunching at a pipeline request
   virtual int RequestData(vtkInformation*,

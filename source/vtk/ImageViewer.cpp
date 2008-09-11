@@ -88,18 +88,16 @@ ImageViewer::~ImageViewer()
 
 void ImageViewer::view_b_mode()
 {
- // read the data
- its_image_reader->Update();
-
- // get the output
- vtkStructuredGrid* vtk_b_mode_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(0) );
- double* b_mode_range = vtk_b_mode_sg->GetScalarRange();
-
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
  dsm->SetColorModeToMapScalars();
  dsm->SetScalarModeToUsePointData();
  dsm->SetInputConnection( its_image_reader->GetOutputPort(0) );
+ dsm->Update();
+
+ // get the output
+ vtkStructuredGrid* vtk_b_mode_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(0) );
+ double* b_mode_range = vtk_b_mode_sg->GetScalarRange();
 
  // Lookup Table
  vtkSmartPointer<vtkLookupTable> lut = vtkSmartPointer<vtkLookupTable>::New();
@@ -147,19 +145,18 @@ void ImageViewer::view_b_mode()
 
 void ImageViewer::view_saturation()
 {
- // read the data
- its_image_reader->Update();
-
- // get the output
- vtkStructuredGrid* vtk_saturation_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(1) );
- //vtkImageData* vtk_saturation_sg = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(4) );
 
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
  dsm->SetColorModeToMapScalars();
  dsm->SetScalarModeToUsePointData();
  dsm->SetInputConnection( its_image_reader->GetOutputPort(1) );
+ dsm->Update();
 
+ // get the output
+ vtkStructuredGrid* vtk_saturation_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(1) );
+ //vtkImageData* vtk_saturation_sg = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(4) );
+ 
  // Lookup Table
  vtkSmartPointer<vtkLookupTable> lut = vtkSmartPointer<vtkLookupTable>::New();
  lut->SetNumberOfColors(2);
@@ -209,18 +206,16 @@ void ImageViewer::view_saturation()
 
 void ImageViewer::view_rf()
 {
- // read the data
- its_image_reader->Update();
-
- // get the output
- vtkStructuredGrid* vtk_rf_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(2) );
- double* rf_range = vtk_rf_sg->GetScalarRange();
-
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
  dsm->SetColorModeToMapScalars();
  dsm->SetScalarModeToUsePointData();
  dsm->SetInputConnection( its_image_reader->GetOutputPort(2) );
+ dsm->Update();
+
+ // get the output
+ vtkStructuredGrid* vtk_rf_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(2) );
+ double* rf_range = vtk_rf_sg->GetScalarRange();
 
  // Lookup Table
  vtkSmartPointer<vtkLookupTable> lut = vtkSmartPointer<vtkLookupTable>::New();

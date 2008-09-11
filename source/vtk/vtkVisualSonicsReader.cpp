@@ -132,21 +132,38 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
 
   /*************** b mode image raw ***************/
   vtkInformation* outInfo = outputVector->GetInformationObject(0); 
+
   int whole_extent[6] = { 0,
-    static_cast< int >( its_ir->get_b_mode_image_rows() ) - 1,
-    0,
     static_cast< int >( its_ir->get_b_mode_image_cols() ) - 1,
     0,
+    static_cast< int >( its_ir->get_b_mode_image_rows() ) - 1,
+    0,
     0 };
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
+      whole_extent, 6);
 
+  /*************** saturation image raw ***************/
+  outInfo = outputVector->GetInformationObject(1);
+
+  whole_extent[1] = static_cast< int >( its_ir->get_saturation_image_cols() ) - 1;
+  whole_extent[3] = static_cast< int >( its_ir->get_saturation_image_rows() ) - 1;
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
+      whole_extent, 6);
+
+  /*************** rf image raw ***************/
+  outInfo = outputVector->GetInformationObject(2);
+
+  whole_extent[1] = static_cast< int >( its_ir->get_rf_image_cols() ) - 1;
+  whole_extent[3] = static_cast< int >( its_ir->get_rf_image_rows() ) - 1;
+  whole_extent[5] = static_cast< int >( its_ir->get_rf_image_frames() ) - 1;
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
       whole_extent, 6);
 
   /*************** b mode image sc  ***************/
-  outInfo = outputVector->GetInformationObject(1);
-  whole_extent[1] = static_cast< int >( its_ir->get_b_mode_image_sc_rows() ) - 1;
-  whole_extent[3] = static_cast< int >( its_ir->get_b_mode_image_sc_cols() ) - 1;
+  outInfo = outputVector->GetInformationObject(3);
 
+  whole_extent[1] = static_cast< int >( its_ir->get_b_mode_image_sc_cols() ) - 1;
+  whole_extent[3] = static_cast< int >( its_ir->get_b_mode_image_sc_rows() ) - 1;
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
       whole_extent, 6);
 
@@ -158,8 +175,36 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
     its_ir->get_rf_image_delta_z() };
   outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
   
+  /*************** saturation image sc ***************/
+  outInfo = outputVector->GetInformationObject(4);
 
+  whole_extent[1] = static_cast< int >( its_ir->get_saturation_image_sc_cols() ) - 1;
+  whole_extent[3] = static_cast< int >( its_ir->get_saturation_image_sc_rows() ) - 1;
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
+      whole_extent, 6);
 
+  outInfo->Set(vtkDataObject::ORIGIN(), origin, 3 );
+
+  spacing[0] = its_ir->get_saturation_image_sc_delta_x();
+  spacing[1] = its_ir->get_saturation_image_sc_delta_y();
+  spacing[2] = its_ir->get_rf_image_delta_z(); 
+  outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
+
+  /*************** rf image sc ***************/
+  outInfo = outputVector->GetInformationObject(5);
+
+  whole_extent[1] = static_cast< int >( its_ir->get_rf_image_sc_cols() ) - 1;
+  whole_extent[3] = static_cast< int >( its_ir->get_rf_image_sc_rows() ) - 1;
+  whole_extent[5] = static_cast< int >( its_ir->get_rf_image_frames() ) - 1;
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
+      whole_extent, 6);
+
+  outInfo->Set(vtkDataObject::ORIGIN(), origin, 3 );
+
+  spacing[0] = its_ir->get_rf_image_sc_delta_x();
+  spacing[1] = its_ir->get_rf_image_sc_delta_y();
+  spacing[2] = its_ir->get_rf_image_delta_z(); 
+  outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
 
   return 1;
 

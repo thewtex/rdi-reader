@@ -102,10 +102,12 @@ namespace visual_sonics
 
       //! get the actual rf_image data
       const std::vector<Int16>&  get_rf_image(){ return its_rf_image;}
-      //! get the rf image columns ( number of scan lines )
-      unsigned int get_rf_image_rows(){ return this->get_rpd()->its_image_acquisition_size / 2; }
       //! get the rf image rows ( number of samples in a line )
+      unsigned int get_rf_image_rows(){ return this->get_rpd()->its_image_acquisition_size / 2; }
+      //! get the rf image columns ( number of scan lines )
       unsigned int get_rf_image_cols(){ return this->get_rpd()->its_image_lines; }
+      //! get the rf image frames ( the number of frames specified in object creation )
+      unsigned int get_rf_image_frames();
       //! get the distance between rf frames (mm)
       CoordT get_rf_image_delta_z();
       //! get rf_image x coords
@@ -220,5 +222,12 @@ CoordT visual_sonics::cxx::ImageReader<ImageDataOutT,CoordT>::get_rf_image_delta
 
 
 
+template<class ImageDataOutT, class CoordT>
+inline 
+unsigned int visual_sonics::cxx::ImageReader<ImageDataOutT, CoordT>::get_rf_image_frames()
+{
+  return static_cast< unsigned int >( this->its_frames_to_read.size() );
+}
+  
 #endif // CXX_IMAGEREADER_H
 

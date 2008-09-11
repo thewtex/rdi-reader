@@ -109,24 +109,6 @@ int vtkVisualSonicsReader::ProcessRequest(vtkInformation* request,
                                       vtkInformationVector** inputVector,
                                       vtkInformationVector* outputVector)
 {
-  // generate the data
-  if(request->Has(vtkDemandDrivenPipeline::REQUEST_DATA()))
-    {
-    return this->RequestData(request, inputVector, outputVector);
-    }
-
-  // execute information
-  if(request->Has(vtkDemandDrivenPipeline::REQUEST_INFORMATION()))
-    {
-    return this->RequestInformation(request, inputVector, outputVector);
-    }
-
-  // propagate update extent
-  if(request->Has(vtkStreamingDemandDrivenPipeline::REQUEST_UPDATE_EXTENT()))
-    {
-    return this->RequestUpdateExtent(request, inputVector, outputVector);
-    }
-
   // specify which ports need to be updated
   if(request->Has(vtkDemandDrivenPipeline::REQUEST_DATA_NOT_GENERATED()))
   {
@@ -163,8 +145,7 @@ int vtkVisualSonicsReader::RequestDataNotGenerated( vtkInformation* request,
 {
   if( request->Has(vtkExecutive::FROM_OUTPUT_PORT() ) )
   {
-    int port;
-    port = request->Get( vtkExecutive::FROM_OUTPUT_PORT() );
+    int port = request->Get( vtkExecutive::FROM_OUTPUT_PORT() );
     if( port < 3 )
     {
       vtkInformation* outInfo;

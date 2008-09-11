@@ -263,21 +263,32 @@ int vtkVisualSonicsReader::RequestData(vtkInformation* request,
   }
 
   // do not generate the scan converted images if they are not requested
-  vtkInformation* outInfo = outputVector->GetInformationObject(5); 
-  if( outInfo->Get( vtkDemandDrivenPipeline::DATA_NOT_GENERATED() ) )
-    its_ir->set_do_scan_conv( false );
+  bool do_scan_conv;
+  if( request->Has(vtkExecutive::FROM_OUTPUT_PORT() ) )
+  {
+    int port = request->Get( vtkExecutive::FROM_OUTPUT_PORT() );
+    if( port < 3 )
+    {
+      do_scan_conv = false;
+      its_ir->set_do_scan_conv( false );
+    }
+    else
+    {
+      do_scan_conv = true;
+      its_ir->set_do_scan_conv( true );
+    }
+  }
   else
-    its_ir->set_do_scan_conv( true );
-
-
-
-  if(!this->ReadBMode(outputVector) )
     return 0;
 
-  if(!this->ReadSaturation(outputVector) )
+
+  if(!this->ReadBMode(outputVector, do_scan_conv) )
     return 0;
 
-  if(!this->ReadRF(outputVector) )
+  if(!this->ReadSaturation(outputVector, do_scan_conv) )
+    return 0;
+
+  if(!this->ReadRF(outputVector, do_scan_conv) )
     return 0;
 
   this->Modified();
@@ -288,7 +299,7 @@ int vtkVisualSonicsReader::RequestData(vtkInformation* request,
 
 
 
-int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
+int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector, const bool& do_scan_conv)
 {
   // read in the image
   its_ir->read_b_mode_image();
@@ -337,30 +348,33 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
 
 
   //------------- b_mode image scan converted -----
-  const unsigned int rows = its_ir->get_b_mode_image_sc_rows();
-  const unsigned int cols = its_ir->get_b_mode_image_sc_cols();
-
-  outInfo = outputVector->GetInformationObject(3);
-  vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
-  if (!vtk_b_mode_image_sc)
-    return 0;
-
-  // Extent should be set before allocate scalars
-  vtk_b_mode_image_sc->SetDimensions( rows, cols, 1 );
-  vtk_b_mode_image_sc->SetScalarTypeToDouble();
-  vtk_b_mode_image_sc->SetNumberOfScalarComponents(1);
-  vtk_b_mode_image_sc->AllocateScalars();
-  // fill in scout b mode scan converted values
-  double* vtk_b_mode_image_sc_p = static_cast< double* >( vtk_b_mode_image_sc->GetScalarPointer() );
-  std::vector<double>::const_iterator b_mode_image_sc_it = its_ir->get_b_mode_image_sc().begin();
-
-  for(unsigned int i=0; i<cols; i++)
+  if( do_scan_conv )
   {
-    for(unsigned int j=0; j<rows; j++)
+    const unsigned int rows = its_ir->get_b_mode_image_sc_rows();
+    const unsigned int cols = its_ir->get_b_mode_image_sc_cols();
+  
+    outInfo = outputVector->GetInformationObject(3);
+    vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
+    if (!vtk_b_mode_image_sc)
+      return 0;
+  
+    // Extent should be set before allocate scalars
+    vtk_b_mode_image_sc->SetDimensions( rows, cols, 1 );
+    vtk_b_mode_image_sc->SetScalarTypeToDouble();
+    vtk_b_mode_image_sc->SetNumberOfScalarComponents(1);
+    vtk_b_mode_image_sc->AllocateScalars();
+    // fill in scout b mode scan converted values
+    double* vtk_b_mode_image_sc_p = static_cast< double* >( vtk_b_mode_image_sc->GetScalarPointer() );
+    std::vector<double>::const_iterator b_mode_image_sc_it = its_ir->get_b_mode_image_sc().begin();
+  
+    for(unsigned int i=0; i<cols; i++)
     {
-      *vtk_b_mode_image_sc_p = *b_mode_image_sc_it ;
-      b_mode_image_sc_it++;
-      vtk_b_mode_image_sc_p++;
+      for(unsigned int j=0; j<rows; j++)
+      {
+        *vtk_b_mode_image_sc_p = *b_mode_image_sc_it ;
+        b_mode_image_sc_it++;
+        vtk_b_mode_image_sc_p++;
+      }
     }
   }
 
@@ -372,7 +386,7 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
 
 
 
-int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector)
+int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector, const bool& do_scan_conv)
 {
   // read in the image
   its_ir->read_saturation_image();
@@ -422,30 +436,33 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector)
 
 
   //------------- saturation image scan converted -----
-  const unsigned int rows = its_ir->get_saturation_image_sc_rows();
-  const unsigned int cols = its_ir->get_saturation_image_sc_cols();
-
-  outInfo = outputVector->GetInformationObject(4);
-  vtkImageData* vtk_saturation_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
-  if (!vtk_saturation_image_sc)
-    return 0;
-
-  // Extent should be set before allocate scalars
-  vtk_saturation_image_sc->SetDimensions( rows, cols, 1 );
-  vtk_saturation_image_sc->SetScalarTypeToUnsignedChar();
-  vtk_saturation_image_sc->SetNumberOfScalarComponents(1);
-  vtk_saturation_image_sc->AllocateScalars();
-  // fill in scout b mode scan converted values
-  unsigned char* vtk_saturation_image_sc_p = static_cast< unsigned char* >( vtk_saturation_image_sc->GetScalarPointer() );
-  std::vector<bool>::const_iterator saturation_image_sc_it = its_ir->get_saturation_image_sc().begin();
-
-  for(unsigned int i=0; i<cols; i++)
+  if( do_scan_conv )
   {
-    for(unsigned int j=0; j<rows; j++)
+    const unsigned int rows = its_ir->get_saturation_image_sc_rows();
+    const unsigned int cols = its_ir->get_saturation_image_sc_cols();
+  
+    outInfo = outputVector->GetInformationObject(4);
+    vtkImageData* vtk_saturation_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
+    if (!vtk_saturation_image_sc)
+      return 0;
+  
+    // Extent should be set before allocate scalars
+    vtk_saturation_image_sc->SetDimensions( rows, cols, 1 );
+    vtk_saturation_image_sc->SetScalarTypeToUnsignedChar();
+    vtk_saturation_image_sc->SetNumberOfScalarComponents(1);
+    vtk_saturation_image_sc->AllocateScalars();
+    // fill in scout b mode scan converted values
+    unsigned char* vtk_saturation_image_sc_p = static_cast< unsigned char* >( vtk_saturation_image_sc->GetScalarPointer() );
+    std::vector<bool>::const_iterator saturation_image_sc_it = its_ir->get_saturation_image_sc().begin();
+  
+    for(unsigned int i=0; i<cols; i++)
     {
-      *vtk_saturation_image_sc_p = static_cast< unsigned char> (*saturation_image_sc_it) ;
-      saturation_image_sc_it++;
-      vtk_saturation_image_sc_p++;
+      for(unsigned int j=0; j<rows; j++)
+      {
+        *vtk_saturation_image_sc_p = static_cast< unsigned char> (*saturation_image_sc_it) ;
+        saturation_image_sc_it++;
+        vtk_saturation_image_sc_p++;
+      }
     }
   }
 
@@ -455,7 +472,7 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector)
 
 
 
-int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
+int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector, const bool& do_scan_conv)
 {
 
   // read in the image
@@ -529,23 +546,26 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
     }
     
     // scan converted
-    for( unsigned int i=0; i<cols; i++)
+    if( do_scan_conv )
     {
-      for( unsigned int j=0; j<rows; j++)
+      for( unsigned int i=0; i<cols; i++)
       {
-	// scan convert
-        *vtk_rf_image_sc_p = *rf_image_sc_it ;
-        rf_image_sc_it++;
-        vtk_rf_image_sc_p++;
+        for( unsigned int j=0; j<rows; j++)
+        {
+  	// scan convert
+          *vtk_rf_image_sc_p = *rf_image_sc_it ;
+          rf_image_sc_it++;
+          vtk_rf_image_sc_p++;
+        }
       }
+      rf_image_it = its_ir->get_rf_image().begin();
+      rf_image_x = its_ir->get_rf_image_x().begin();
+      rf_image_y = its_ir->get_rf_image_y().begin();
+  
+      rf_image_sc_it = its_ir->get_rf_image_sc().begin();
     }
-    rf_image_it = its_ir->get_rf_image().begin();
-    rf_image_x = its_ir->get_rf_image_x().begin();
-    rf_image_y = its_ir->get_rf_image_y().begin();
 
-    rf_image_sc_it = its_ir->get_rf_image_sc().begin();
-
-    k++;
+    k++; // next frame
   }
 
   vtk_rf_image_raw->SetPoints(rf_raw_points);

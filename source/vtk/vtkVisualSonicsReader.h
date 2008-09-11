@@ -115,9 +115,9 @@ protected:
 		      vtkInformationVector* outputVector);
 
   //! break this->RequestData into 3 logical sections: ReadBMode, ReadSaturation, ReadRF
-  int ReadBMode(vtkInformationVector* outputVector);
-  int ReadSaturation(vtkInformationVector* outputVector);
-  int ReadRF(vtkInformationVector* outputVector);
+  int ReadBMode(vtkInformationVector* outputVector, const bool& do_scan_conv);
+  int ReadSaturation(vtkInformationVector* outputVector, const bool& do_scan_conv);
+  int ReadRF(vtkInformationVector* outputVector, const bool& do_scan_conv);
 
   //! does the heavy lifting for reading in the data
   cxx::ImageReader<double,double>* its_ir;

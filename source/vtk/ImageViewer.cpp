@@ -181,7 +181,7 @@ void ImageViewer::view_saturation()
  its_ren_win->AddRenderer( ren );
 
  // adjust camera location ( otherwise includes y=0 be included by default )
-   //vtk_saturation_sg->ComputeBounds();
+   vtk_saturation_sg->ComputeBounds();
  double* bounds = vtk_saturation_sg->GetBounds();
  double* first = vtk_saturation_sg->GetPoints()->GetPoint(0);
     //double* origin = vtk_saturation_sg->GetOrigin();

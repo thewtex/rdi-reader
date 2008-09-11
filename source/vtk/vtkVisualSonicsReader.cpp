@@ -254,7 +254,6 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
   const unsigned int samples_per_line = its_rpd->its_rf_mode_rx_ad_gate_width;
   const unsigned int num_lines = its_rpd->its_rf_mode_tx_trig_tbl_trigs;
 
-  vtk_b_mode_image_raw->SetWholeExtent( 0, num_lines - 1, 0, samples_per_line - 1, 0, 0 );
   vtk_b_mode_image_raw->SetDimensions( num_lines, samples_per_line, 1 );
 
 
@@ -299,13 +298,10 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector)
     return 0;
 
   // Extent should be set before allocate scalars
-  vtk_b_mode_image_sc->SetWholeExtent( 0 , rows - 1, 0, cols - 1, 0, 0 );
   vtk_b_mode_image_sc->SetDimensions( rows, cols, 1 );
   vtk_b_mode_image_sc->SetScalarTypeToDouble();
   vtk_b_mode_image_sc->SetNumberOfScalarComponents(1);
   vtk_b_mode_image_sc->AllocateScalars();
-  vtk_b_mode_image_sc->SetSpacing( its_ir->get_b_mode_image_sc_delta_x(), its_ir->get_b_mode_image_sc_delta_y(), 1.0 );
-  vtk_b_mode_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
   // fill in scout b mode scan converted values
   double* vtk_b_mode_image_sc_p = static_cast< double* >( vtk_b_mode_image_sc->GetScalarPointer() );
   std::vector<double>::const_iterator b_mode_image_sc_it = its_ir->get_b_mode_image_sc().begin();
@@ -343,7 +339,6 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector)
   const unsigned int samples_per_line = its_rpd->its_rf_mode_rx_ad_gate_width;
   const unsigned int num_lines = its_rpd->its_rf_mode_tx_trig_tbl_trigs;
 
-  vtk_saturation_image_raw->SetWholeExtent( 0, num_lines - 1, 0, samples_per_line - 1, 0, 0 );
   vtk_saturation_image_raw->SetDimensions( num_lines, samples_per_line, 1 );
 
 
@@ -388,13 +383,10 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector)
     return 0;
 
   // Extent should be set before allocate scalars
-  vtk_saturation_image_sc->SetWholeExtent( 0 , rows - 1, 0, cols - 1, 0, 0 );
   vtk_saturation_image_sc->SetDimensions( rows, cols, 1 );
   vtk_saturation_image_sc->SetScalarTypeToUnsignedChar();
   vtk_saturation_image_sc->SetNumberOfScalarComponents(1);
   vtk_saturation_image_sc->AllocateScalars();
-  vtk_saturation_image_sc->SetSpacing( its_ir->get_saturation_image_sc_delta_x(), its_ir->get_saturation_image_sc_delta_y(), 1.0 );
-  vtk_saturation_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
   // fill in scout b mode scan converted values
   unsigned char* vtk_saturation_image_sc_p = static_cast< unsigned char* >( vtk_saturation_image_sc->GetScalarPointer() );
   std::vector<bool>::const_iterator saturation_image_sc_it = its_ir->get_saturation_image_sc().begin();
@@ -433,7 +425,6 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
 
   cout << "spl: " << samples_per_line << " nl: " << num_lines << " frames: " << frames << endl;
 
-  vtk_rf_image_raw->SetWholeExtent( 0, num_lines - 1, 0, samples_per_line - 1, 0, frames - 1 );
   vtk_rf_image_raw->SetDimensions( num_lines, samples_per_line, frames );
 
 
@@ -461,13 +452,10 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector)
     return 0;
 
   // Extent should be set before allocate scalars
-  vtk_rf_image_sc->SetWholeExtent( 0 , rows - 1, 0, cols - 1, 0, frames - 1 );
   vtk_rf_image_sc->SetDimensions( rows, cols, 1 );
   vtk_rf_image_sc->SetScalarTypeToDouble();
   vtk_rf_image_sc->SetNumberOfScalarComponents(1);
   vtk_rf_image_sc->AllocateScalars();
-  vtk_rf_image_sc->SetSpacing( its_ir->get_rf_image_sc_delta_x(), its_ir->get_rf_image_sc_delta_y(), rf_image_z_step );
-  vtk_rf_image_sc->SetOrigin( 0.0, 0.0, 0.0 );
   // fill in scout b mode scan converted values
   double* vtk_rf_image_sc_p = static_cast< double* >( vtk_rf_image_sc->GetScalarPointer() );
   std::vector<double>::const_iterator rf_image_sc_it = its_ir->get_rf_image_sc().begin();

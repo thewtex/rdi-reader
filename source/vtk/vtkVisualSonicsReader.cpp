@@ -157,9 +157,7 @@ int vtkVisualSonicsReader::RequestDataNotGenerated( vtkInformation* request,
     }
   }
   else
-  {
     return 0;
-  }
 
   return 1;
 }
@@ -252,7 +250,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
 
 }
 
-int vtkVisualSonicsReader::RequestData(vtkInformation*,
+int vtkVisualSonicsReader::RequestData(vtkInformation* request,
 			     vtkInformationVector**,
 			     vtkInformationVector* outputVector)
 {
@@ -263,6 +261,14 @@ int vtkVisualSonicsReader::RequestData(vtkInformation*,
     vtkErrorMacro("A FilePrefix must be specified with SetFilePrefix( filename ).");
     return 0; 
   }
+
+  // do not generate the scan converted images if they are not requested
+  vtkInformation* outInfo = outputVector->GetInformationObject(5); 
+  if( outInfo->Get( vtkDemandDrivenPipeline::DATA_NOT_GENERATED() ) )
+    its_ir->set_do_scan_conv( false );
+  else
+    its_ir->set_do_scan_conv( true );
+
 
 
   if(!this->ReadBMode(outputVector) )

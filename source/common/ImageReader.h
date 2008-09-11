@@ -45,6 +45,8 @@ namespace visual_sonics
 
       void set_in_file_path( const bf::path& ifp );
 
+      //! whether or not to perform scan conversion during the read_*_image()
+      void set_do_scan_conv( const bool& do_scan ) { its_do_scan_conv = do_scan; }
 
       virtual void read_b_mode_image();
       virtual void read_saturation_image();
@@ -185,8 +187,6 @@ namespace visual_sonics
 
       //! whether or not to perform scan conversion during the read_*_image()
       bool its_do_scan_conv;
-      //! whether or not to perform scan conversion during the read_*_image()
-      void set_do_scan_conv( bool& do_scan ) { its_do_scan_conv = do_scan; }
       //! performs scan conversion, etc
       VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>* its_b_mode_vs_transform;
       //! performs scan conversion, etc

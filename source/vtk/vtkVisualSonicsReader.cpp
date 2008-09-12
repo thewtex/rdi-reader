@@ -152,7 +152,7 @@ int vtkVisualSonicsReader::RequestDataNotGenerated( vtkInformation* request,
       for( int i=0; i<3; i++ )
       {
 	outInfo = outputVector->GetInformationObject(i);
-	outInfo->Set( vtkDemandDrivenPipeline::DATA_NOT_GENERATED(), 1);
+	//outInfo->Set( vtkDemandDrivenPipeline::DATA_NOT_GENERATED(), 1);
       }
     }
   }

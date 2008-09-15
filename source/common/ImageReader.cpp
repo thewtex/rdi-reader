@@ -25,6 +25,8 @@ template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read):
   ImageReaderBase( in_file_path, frames_to_read ),
   its_has_calc_scout_coords( false ),
+  its_rf_max( -32768 ),
+  its_rf_min(  32767 ),
   its_do_scan_conv( true )
 {
   its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
@@ -76,6 +78,8 @@ template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition):
   ImageReaderBase( in_file_path, frames_to_read, read_method, specific_acquisition ),
   its_has_calc_scout_coords( false ),
+  its_rf_max( -32768 ),
+  its_rf_min(  32767 ),
   its_do_scan_conv( true )
 {
   its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
@@ -126,6 +130,8 @@ template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::ImageReader( const bf::path& in_file_path, ReadMethod read_method, unsigned int specific_acquisition ):
   ImageReaderBase( in_file_path, read_method, specific_acquisition ),
   its_has_calc_scout_coords( false ),
+  its_rf_max( -32768 ),
+  its_rf_min(  32767 ),
   its_do_scan_conv( true )
 {
   its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
@@ -176,6 +182,8 @@ template<class ImageDataOutT, class CoordT>
 ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path ):
   ImageReaderBase( in_file_path ),
   its_has_calc_scout_coords( false ),
+  its_rf_max( -32768 ),
+  its_rf_min(  32767 ),
   its_do_scan_conv( true )
 {
   its_b_mode_vs_transform = new VisualSonicsTransform<UInt16, ImageDataOutT, CoordT>( its_b_mode_image,
@@ -239,6 +247,8 @@ void ImageReader<ImageDataOutT,CoordT>::set_in_file_path( const bf::path& ifp )
   its_has_calc_scout_coords = false;
     bool do_scan_conv_tmp = its_do_scan_conv;
   its_do_scan_conv = true;
+  its_rf_min = 32767;
+  its_rf_max = -32678;
   // we read in the first frame so that metadata such as the scan converted rows and columns areo  // initialized and can be probed 
   this->read_saturation_image(); // saturation image and b_mode image have the same geometry
   this->read_rf_image();
@@ -440,8 +450,13 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
   }
 
 
-  its_rf_max = *std::max_element( its_rf_image.begin(), its_rf_image.end() );
-  its_rf_min = *std::min_element( its_rf_image.begin(), its_rf_image.end() );
+  // update the max/min values as needed
+  Int16 max = *std::max_element( its_rf_image.begin(), its_rf_image.end() );
+  if( max > its_rf_max )
+    its_rf_max = max;
+  Int16 min = *std::min_element( its_rf_image.begin(), its_rf_image.end() ); 
+  if( min < its_rf_min )
+    its_rf_min = min;
 
   rdb_file.close();
   // finished extracting data

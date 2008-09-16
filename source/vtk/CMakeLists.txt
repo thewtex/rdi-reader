@@ -33,6 +33,6 @@ set( vs-vtk-viewer_srcs ${base_srcs}
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vs-vtk-viewer.cpp
   )
 
-add_executable( vs-vtk-viewer ${vs-vtk-viewer_srcs} )
-target_link_libraries( vs-vtk-viewer vtkRendering boost_filesystem)
+#add_executable( vs-vtk-viewer ${vs-vtk-viewer_srcs} )
+#target_link_libraries( vs-vtk-viewer vtkRendering boost_filesystem)
 

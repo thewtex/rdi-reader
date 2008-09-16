@@ -123,6 +123,11 @@ int vtkVisualSonicsReader::ProcessRequest(vtkInformation* request,
 //! gives information on the output data set types for the filter class
 int vtkVisualSonicsReader::FillOutputPortInformation( int port, vtkInformation* info)
 {
+  //if( port == 2 || port == 5 )
+  //{
+    //info->Set( vtkStreamingDemandDrivenPipeline::UPDATE_EXTENT_INITIALIZED(), 1 );
+  //}
+
   if (port < 3)
   {
     info->Set(vtkDataObject::DATA_TYPE_NAME(), "vtkStructuredGrid" );
@@ -288,7 +293,7 @@ int vtkVisualSonicsReader::RequestData(vtkInformation* request,
   if(!this->ReadSaturation(outputVector, do_scan_conv) )
     return 0;
 
-  if(!this->ReadRF(outputVector, do_scan_conv) )
+  if(!this->ReadRF(request, outputVector, do_scan_conv) )
     return 0;
 
   this->Modified();
@@ -472,11 +477,10 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector, c
 
 
 
-int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector, const bool& do_scan_conv)
+int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
+    vtkInformationVector* outputVector, 
+    const bool& do_scan_conv)
 {
-
-  // read in the image
-  its_ir->read_rf_image();
 
   //---------- rf_image_raw ----------------- declarations
   vtkInformation* outInfo = outputVector->GetInformationObject(2);
@@ -484,14 +488,17 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector, const boo
   if (!vtk_rf_image_raw)
     return 0;
 
+  // temp 
+  vtk_rf_image_raw->Print(cout);
+
   const unsigned int samples_per_line = its_rpd->its_image_acquisition_size / sizeof( Int16 );
   const unsigned int num_lines = its_rpd->its_image_lines;
   const unsigned int frames = its_rpd->its_image_frames;
 
   cout << "spl: " << samples_per_line << " nl: " << num_lines << " frames: " << frames << endl;
 
-  vtk_rf_image_raw->SetDimensions( num_lines, samples_per_line, frames );
-
+  int* raw_update_extent = vtk_rf_image_raw->GetUpdateExtent();
+  vtk_rf_image_raw->SetExtent( raw_update_extent );
 
   vtkPoints* rf_raw_points = vtkPoints::New();
   rf_raw_points->SetNumberOfPoints( samples_per_line*num_lines*frames );
@@ -504,7 +511,11 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector, const boo
   std::vector<Int16>::const_iterator rf_image_it = its_ir->get_rf_image().begin();
   std::vector<double>::const_iterator rf_image_x = its_ir->get_rf_image_x().begin();
   std::vector<double>::const_iterator rf_image_y = its_ir->get_rf_image_y().begin();
-  const double rf_image_z_step = (its_rpd->its_rf_mode_3d_scan_distance)/(frames - 1);
+  double rf_image_z_step;
+  if( frames > 1 )
+    rf_image_z_step = (its_rpd->its_rf_mode_3d_scan_distance)/(frames - 1);
+  else
+    rf_image_z_step = 1.0;
 
 
   //------------- rf image scan converted ----- declarations
@@ -516,12 +527,14 @@ int vtkVisualSonicsReader::ReadRF( vtkInformationVector* outputVector, const boo
   if (!vtk_rf_image_sc)
     return 0;
 
-  // Extent should be set before allocate scalars
-  vtk_rf_image_sc->SetDimensions( rows, cols, 1 );
-  vtk_rf_image_sc->SetScalarTypeToDouble();
-  vtk_rf_image_sc->SetNumberOfScalarComponents(1);
-  vtk_rf_image_sc->AllocateScalars();
-  // fill in scout b mode scan converted values
+  if ( do_scan_conv )
+  {
+    // Extent should be set before allocate scalars
+    vtk_rf_image_sc->SetDimensions( rows, cols, 1 );
+    vtk_rf_image_sc->SetScalarTypeToDouble();
+    vtk_rf_image_sc->SetNumberOfScalarComponents(1);
+    vtk_rf_image_sc->AllocateScalars();
+  }
   double* vtk_rf_image_sc_p = static_cast< double* >( vtk_rf_image_sc->GetScalarPointer() );
   std::vector<double>::const_iterator rf_image_sc_it = its_ir->get_rf_image_sc().begin();
 

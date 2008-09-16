@@ -499,6 +499,15 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
 
   int* raw_update_extent = vtk_rf_image_raw->GetUpdateExtent();
   vtk_rf_image_raw->SetExtent( raw_update_extent );
+  // set the cxx::ImageReader frames to process to the extent we are interested in
+  std::vector< unsigned int > frames_vec( raw_update_extent[5] - raw_update_extent[4] + 1 );
+  for( int i = raw_update_extent[4], frame_counter = 0; i <= raw_update_extent[5]; i++ )
+  {
+    frames_vec[frame_counter] = static_cast< unsigned int >( i );
+    frame_counter++;
+  }
+  its_ir->set_frames_to_read( frames_vec );
+
 
   vtkPoints* rf_raw_points = vtkPoints::New();
   rf_raw_points->SetNumberOfPoints( samples_per_line*num_lines*frames );

@@ -56,6 +56,7 @@ namespace visual_sonics
       ReadMethod get_read_method(){ return this->its_read_method; }
       void set_specific_acquisition( unsigned int sa ){ this->its_specific_acquisition = sa; }
       unsigned int get_specific_acquisition(){ return this->its_specific_acquisition; }
+      void set_frames_to_read( const std::vector< unsigned int >& frames );
 
 
       //! read the b-mode data from the file and store it in the member variable
@@ -78,7 +79,7 @@ namespace visual_sonics
 
 
 
-    //! which frames to read from the file, starts counting from 1
+    //! which frames to read from the file, starts counting from 0
     std::vector<unsigned int>	its_frames_to_read;
     //! current index of its_frames_to_read
     std::vector<unsigned int>::const_iterator its_frames_to_read_index;

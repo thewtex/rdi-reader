@@ -418,7 +418,7 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
   rdb_file.seekg( 2 * scout_num_lines * scout_samples_per_line * sizeof(UInt16), std::ios::beg);
 
   //skip previous frames
-  rdb_file.seekg(  num_lines * samples_per_line * sizeof(Int16) * (*its_frames_to_read_index - 1), std::ios::cur );
+  rdb_file.seekg(  num_lines * samples_per_line * sizeof(Int16) * (*its_frames_to_read_index ), std::ios::cur );
 
   // file_average and specific_acquisition ReadMethod s
   if( this->its_read_method == file_average || this->its_read_method == specific_acquisition )

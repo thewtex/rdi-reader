@@ -89,6 +89,14 @@ const rdiParserData* ImageReaderBase::get_rpd()
 
 
 
+void ImageReaderBase::set_frames_to_read( const std::vector< unsigned int >& frames )
+{
+  its_frames_to_read = frames;
+  its_frames_to_read_index = its_frames_to_read.begin();
+}
+
+
+
 void ImageReaderBase::create_its_metadata_reader(const bf::path& in_file_path )
 {
   its_metadata_reader = new MetadataReaderBase( in_file_path );
@@ -102,7 +110,7 @@ void ImageReaderBase::check_if_frames_valid()
   unsigned int max_frame = its_metadata_reader->its_rpd->its_image_frames;
   for( std::vector<unsigned int>::const_iterator it = its_frames_to_read.begin(); it < its_frames_to_read.end(); it++)
   {
-    if( *it < 1 || *it > max_frame )
+    if( *it < 0 || *it > max_frame - 1 )
     {
       throw std::out_of_range(" specified frame is out of range ");
     }
@@ -118,7 +126,7 @@ void ImageReaderBase::read_all_frames()
   its_frames_to_read.resize( max_frame );
   for( unsigned int i = 0; i < max_frame; i++ )
   {
-    its_frames_to_read[i] = i+1;
+    its_frames_to_read[i] = i;
   }
   its_frames_to_read_index = its_frames_to_read.begin();
 }

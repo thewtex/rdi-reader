@@ -495,12 +495,12 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   const unsigned int num_lines = its_rpd->its_image_lines;
   const unsigned int frames = its_rpd->its_image_frames;
 
-  cout << "spl: " << samples_per_line << " nl: " << num_lines << " frames: " << frames << endl;
-
   int* raw_update_extent = vtk_rf_image_raw->GetUpdateExtent();
+  const unsigned int update_frames = raw_update_extent[5] - raw_update_extent[4] + 1; 
+  cout << "spl: " << samples_per_line << " nl: " << num_lines << " frames: " << update_frames << endl;
   vtk_rf_image_raw->SetExtent( raw_update_extent );
   // set the cxx::ImageReader frames to process to the extent we are interested in
-  std::vector< unsigned int > frames_vec( raw_update_extent[5] - raw_update_extent[4] + 1 );
+  std::vector< unsigned int > frames_vec( update_frames );
   for( int i = raw_update_extent[4], frame_counter = 0; i <= raw_update_extent[5]; i++ )
   {
     frames_vec[frame_counter] = static_cast< unsigned int >( i );
@@ -510,11 +510,11 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
 
 
   vtkPoints* rf_raw_points = vtkPoints::New();
-  rf_raw_points->SetNumberOfPoints( samples_per_line*num_lines*frames );
+  rf_raw_points->SetNumberOfPoints( samples_per_line*num_lines*update_frames );
 
   vtkShortArray* rf_raw_data  = vtkShortArray::New();
   rf_raw_data->SetNumberOfComponents(1);
-  rf_raw_data->SetNumberOfTuples( samples_per_line*num_lines*frames );
+  rf_raw_data->SetNumberOfTuples( samples_per_line*num_lines*update_frames );
 
 
   std::vector<Int16>::const_iterator rf_image_it = its_ir->get_rf_image().begin();
@@ -539,7 +539,7 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   if ( do_scan_conv )
   {
     // Extent should be set before allocate scalars
-    vtk_rf_image_sc->SetDimensions( rows, cols, 1 );
+    vtk_rf_image_sc->SetExtent( 0, rows, 0, cols, raw_update_extent[4], raw_update_extent[5] );
     vtk_rf_image_sc->SetScalarTypeToDouble();
     vtk_rf_image_sc->SetNumberOfScalarComponents(1);
     vtk_rf_image_sc->AllocateScalars();

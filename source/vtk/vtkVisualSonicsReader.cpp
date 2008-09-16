@@ -131,10 +131,6 @@ int vtkVisualSonicsReader::ProcessRequest(vtkInformation* request,
 //! gives information on the output data set types for the filter class
 int vtkVisualSonicsReader::FillOutputPortInformation( int port, vtkInformation* info)
 {
-  //if( port == 2 || port == 5 )
-  //{
-    //info->Set( vtkStreamingDemandDrivenPipeline::UPDATE_EXTENT_INITIALIZED(), 1 );
-  //}
 
   if (port < 3)
   {
@@ -303,8 +299,6 @@ int vtkVisualSonicsReader::RequestData(vtkInformation* request,
 
   if(!this->ReadRF(request, outputVector, do_scan_conv) )
     return 0;
-
-  this->Modified();
 
   return 1;
 }
@@ -496,16 +490,15 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   if (!vtk_rf_image_raw)
     return 0;
 
-  // temp 
-  vtk_rf_image_raw->Print(cout);
-
   const unsigned int samples_per_line = its_rpd->its_image_acquisition_size / sizeof( Int16 );
   const unsigned int num_lines = its_rpd->its_image_lines;
-  const unsigned int frames = its_rpd->its_image_frames;
 
   int* raw_update_extent = vtk_rf_image_raw->GetUpdateExtent();
   const unsigned int update_frames = raw_update_extent[5] - raw_update_extent[4] + 1; 
+
+  // tmp
   cout << "spl: " << samples_per_line << " nl: " << num_lines << " frames: " << update_frames << endl;
+
   vtk_rf_image_raw->SetExtent( raw_update_extent );
   // set the cxx::ImageReader frames to process to the extent we are interested in
   std::vector< unsigned int > frames_vec( update_frames );
@@ -528,11 +521,8 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   std::vector<Int16>::const_iterator rf_image_it = its_ir->get_rf_image().begin();
   std::vector<double>::const_iterator rf_image_x = its_ir->get_rf_image_x().begin();
   std::vector<double>::const_iterator rf_image_y = its_ir->get_rf_image_y().begin();
-  double rf_image_z_step;
-  if( frames > 1 )
-    rf_image_z_step = (its_rpd->its_rf_mode_3d_scan_distance)/(frames - 1);
-  else
-    rf_image_z_step = 1.0;
+
+  double rf_image_z_step = its_ir->get_rf_image_delta_z();
 
 
   //------------- rf image scan converted ----- declarations

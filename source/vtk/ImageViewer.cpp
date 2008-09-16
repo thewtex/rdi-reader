@@ -205,12 +205,12 @@ void ImageViewer::view_rf()
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
    dsm->SetColorModeToMapScalars();
-   dsm->SetScalarModeToUsePointData();
-   dsm->SetInputConnection( its_image_reader->GetOutputPort(2) );
+   //dsm->SetScalarModeToUsePointData();
+   dsm->SetInputConnection( its_image_reader->GetOutputPort(5) );
    dsm->Update();
 
  // get the output
- vtkStructuredGrid* vtk_rf_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(2) );
+ vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(5) );
 
  // Lookup Table
  vtkSmartPointer<vtkLookupTable> lut = vtkSmartPointer<vtkLookupTable>::New();
@@ -236,22 +236,22 @@ void ImageViewer::view_rf()
  its_ren_win->AddRenderer( ren );
 
  // adjust camera location ( otherwise includes y=0 be included by default )
- double* bounds = vtk_rf_sg->GetBounds();
- double* first = vtk_rf_sg->GetPoints()->GetPoint(0);
- double center_y = (bounds[2] + first[1])/2.0;
- double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
+ //double* bounds = vtk_rf_sg->GetBounds();
+ //double* first = vtk_rf_sg->GetPoints()->GetPoint(0);
+ //double center_y = (bounds[2] + first[1])/2.0;
+ //double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
 
- vtk_rf_sg->Print(cout);
+ vtk_rf_im->Print(cout);
  cout << "range[0]: " << rf_range[0] << " range[1]: " << rf_range[1] << std::endl;
  cout << "range_ir[0]: " << rf_range[0] << " range[1]: " << rf_range[1] << std::endl;
 
- vtkCamera* cam = ren->GetActiveCamera();
- cam->SetFocalPoint( 0.0, center_y, 0.0 );
- cam->SetPosition( 0.0, center_y, camdist );
- cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
- cam->ComputeViewPlaneNormal();
+ //vtkCamera* cam = ren->GetActiveCamera();
+ //cam->SetFocalPoint( 0.0, center_y, 0.0 );
+ //cam->SetPosition( 0.0, center_y, camdist );
+ //cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
+ //cam->ComputeViewPlaneNormal();
 
- its_ren_win->SetSize( its_default_width, int( (first[1] - bounds[2])/(first[0]*-2.0) * its_default_width ) );
+ //its_ren_win->SetSize( its_default_width, int( (first[1] - bounds[2])/(first[0]*-2.0) * its_default_width ) );
 
  // interactor
  its_iren->SetInteractorStyle( its_interactor_style_trackball );

@@ -217,6 +217,7 @@ CoordT visual_sonics::cxx::ImageReader<ImageDataOutT,CoordT>::get_rf_image_delta
     return scan_distance / 
       static_cast< CoordT >( this->its_metadata_reader->its_rpd->its_image_frames );
   }
+  //arbitrary
   return this->get_b_mode_image_sc_delta_x();
 }
 

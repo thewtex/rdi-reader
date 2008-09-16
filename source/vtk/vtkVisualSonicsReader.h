@@ -82,6 +82,9 @@ public:
   virtual void SetSpecificAcquisition(unsigned int specific_acquisition);
   unsigned int GetSpecificAcquisition();
 
+  //! puts the rf raw image min,max in the input array, must have read the image to be useful
+  virtual void GetScalarRange( double range[2] ); 
+
 
   //! add implementation for vtkDemandDrivenPipeline::REQUEST_DATA_NOT_GENERATED()
   virtual int ProcessRequest( vtkInformation*,

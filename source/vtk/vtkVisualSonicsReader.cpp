@@ -105,6 +105,14 @@ inline unsigned int vtkVisualSonicsReader::GetSpecificAcquisition()
 
 
 
+inline void vtkVisualSonicsReader::GetScalarRange( double range[2] )
+{
+  range[0] = static_cast< double > ( its_ir->get_rf_min() );
+  range[1] = static_cast< double > ( its_ir->get_rf_max() );
+}
+
+
+
 int vtkVisualSonicsReader::ProcessRequest(vtkInformation* request,
                                       vtkInformationVector** inputVector,
                                       vtkInformationVector* outputVector)

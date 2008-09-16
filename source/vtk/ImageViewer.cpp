@@ -220,7 +220,8 @@ void ImageViewer::view_rf()
    lut->SetValueRange( 0.0, 1.0 );
 
  dsm->SetLookupTable(lut);
- double* rf_range = vtk_rf_sg->GetScalarRange();
+ double rf_range[2];
+ its_image_reader->GetScalarRange( rf_range );
  //dsm->SetScalarRange( rf_range[0], rf_range[1] );
  dsm->SetScalarRange( 0.0, rf_range[1] / 6.0 );
 

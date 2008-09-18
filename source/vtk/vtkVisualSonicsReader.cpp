@@ -155,11 +155,25 @@ int vtkVisualSonicsReader::RequestDataNotGenerated( vtkInformation* request,
   if( request->Has(vtkExecutive::FROM_OUTPUT_PORT() ) )
   {
     int port = request->Get( vtkExecutive::FROM_OUTPUT_PORT() );
-    if( port > 2 )
+    vtkInformation* outInfo;
+    if( port < 3 )
     {
-      vtkInformation* outInfo;
-      for( int i=0; i<3; i++ )
+      // only generate the raw data
+      for( int i=0; i<6; i++ )
       {
+	if( i == port )
+	  continue;
+	outInfo = outputVector->GetInformationObject(i);
+	outInfo->Set( vtkDemandDrivenPipeline::DATA_NOT_GENERATED(), 1);
+      }
+    }
+    else
+    {
+      // generate the raw data and the scan converted data
+      for( int i=0; i<6; i++ )
+      {
+	if( i == port || i == port - 3 )
+	  continue;
 	outInfo = outputVector->GetInformationObject(i);
 	outInfo->Set( vtkDemandDrivenPipeline::DATA_NOT_GENERATED(), 1);
       }
@@ -273,9 +287,10 @@ int vtkVisualSonicsReader::RequestData(vtkInformation* request,
 
   // do not generate the scan converted images if they are not requested
   bool do_scan_conv;
+  int port;
   if( request->Has(vtkExecutive::FROM_OUTPUT_PORT() ) )
   {
-    int port = request->Get( vtkExecutive::FROM_OUTPUT_PORT() );
+    port = request->Get( vtkExecutive::FROM_OUTPUT_PORT() );
     if( port < 3 )
     {
       do_scan_conv = false;
@@ -291,14 +306,36 @@ int vtkVisualSonicsReader::RequestData(vtkInformation* request,
     return 0;
 
 
-  if(!this->ReadBMode(outputVector, do_scan_conv) )
-    return 0;
+  switch( port )
+  {
+    case 0:
+      if(!this->ReadBMode(outputVector, do_scan_conv) )
+        return 0;
+      break;
+    case 1:
+      if(!this->ReadSaturation(outputVector, do_scan_conv) )
+        return 0;
+      break;
+    case 2:
+      if(!this->ReadRF(request, outputVector, do_scan_conv) )
+        return 0;
+      break;
+    case 3:
+      if(!this->ReadBMode(outputVector, do_scan_conv) )
+        return 0;
+      break;
+    case 4:
+      if(!this->ReadSaturation(outputVector, do_scan_conv) )
+        return 0;
+      break;
+    case 5:
+      if(!this->ReadRF(request, outputVector, do_scan_conv) )
+        return 0;
+      break;
+    default:
+      return 0;
+  }
 
-  if(!this->ReadSaturation(outputVector, do_scan_conv) )
-    return 0;
-
-  if(!this->ReadRF(request, outputVector, do_scan_conv) )
-    return 0;
 
   return 1;
 }

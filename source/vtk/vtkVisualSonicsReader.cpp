@@ -155,13 +155,13 @@ int vtkVisualSonicsReader::RequestDataNotGenerated( vtkInformation* request,
   if( request->Has(vtkExecutive::FROM_OUTPUT_PORT() ) )
   {
     int port = request->Get( vtkExecutive::FROM_OUTPUT_PORT() );
-    if( port < 3 )
+    if( port > 2 )
     {
       vtkInformation* outInfo;
       for( int i=0; i<3; i++ )
       {
 	outInfo = outputVector->GetInformationObject(i);
-	//outInfo->Set( vtkDemandDrivenPipeline::DATA_NOT_GENERATED(), 1);
+	outInfo->Set( vtkDemandDrivenPipeline::DATA_NOT_GENERATED(), 1);
       }
     }
   }
@@ -308,6 +308,9 @@ int vtkVisualSonicsReader::RequestData(vtkInformation* request,
 
 int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector, const bool& do_scan_conv)
 {
+
+  vtkDebugMacro(<< "Executing read VisualSonics filter: b mode section" )
+
   // read in the image
   its_ir->read_b_mode_image();
 
@@ -324,17 +327,19 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector, const 
 
 
   vtkSmartPointer<vtkPoints> b_mode_raw_points = vtkSmartPointer<vtkPoints>::New();
-  b_mode_raw_points->SetNumberOfPoints( samples_per_line*num_lines*1 );
+    b_mode_raw_points->SetNumberOfPoints( samples_per_line*num_lines*1 );
 
   vtkSmartPointer<vtkUnsignedShortArray> b_mode_raw_data = vtkSmartPointer<vtkUnsignedShortArray>::New();
-  b_mode_raw_data->SetNumberOfComponents(1);
-  b_mode_raw_data->SetNumberOfTuples( samples_per_line*num_lines*1 );
+    b_mode_raw_data->SetNumberOfComponents(1);
+    b_mode_raw_data->SetNumberOfTuples( samples_per_line*num_lines*1 );
 
+  vtkDebugMacro(<< "B Mode: "
+      << " Samples per line: " << samples_per_line
+      << ", Number of lines: " << num_lines );
 
   std::vector<UInt16>::const_iterator b_mode_image_it = its_ir->get_b_mode_image().begin();
   std::vector<double>::const_iterator b_mode_image_x = its_ir->get_b_mode_image_x().begin();
   std::vector<double>::const_iterator b_mode_image_y = its_ir->get_b_mode_image_y().begin();
-
   UInt16* vtk_b_mode_raw_data_p = static_cast< UInt16* >( b_mode_raw_data->GetPointer(0) );
   for( unsigned int i=0; i<num_lines; i++)
   {
@@ -360,6 +365,10 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector, const 
     const unsigned int rows = its_ir->get_b_mode_image_sc_rows();
     const unsigned int cols = its_ir->get_b_mode_image_sc_cols();
   
+    vtkDebugMacro(<< "Saturation scan converted: "
+        << " Rows: " << rows
+        << ", Columns: " << cols );
+
     outInfo = outputVector->GetInformationObject(3);
     vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
     if (!vtk_b_mode_image_sc)
@@ -395,6 +404,9 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector, const 
 
 int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector, const bool& do_scan_conv)
 {
+
+  vtkDebugMacro(<< "Executing read VisualSonics filter: saturation section" )
+
   // read in the image
   its_ir->read_saturation_image();
 
@@ -410,19 +422,20 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector, c
 
   vtk_saturation_image_raw->SetDimensions( num_lines, samples_per_line, 1 );
 
-
   vtkSmartPointer<vtkPoints> saturation_raw_points = vtkSmartPointer<vtkPoints>::New();
-  saturation_raw_points->SetNumberOfPoints( samples_per_line*num_lines*1 );
+    saturation_raw_points->SetNumberOfPoints( samples_per_line*num_lines*1 );
 
-  vtkSmartPointer<vtkUnsignedCharArray> saturation_raw_data = vtkSmartPointer<vtkUnsignedCharArray>::New();
-  saturation_raw_data->SetNumberOfComponents(1);
-  saturation_raw_data->SetNumberOfTuples( samples_per_line*num_lines*1 );
+  vtkSmartPointer<vtkUnsignedShortArray> saturation_raw_data = vtkSmartPointer<vtkUnsignedShortArray>::New();
+    saturation_raw_data->SetNumberOfComponents(1);
+    saturation_raw_data->SetNumberOfTuples( samples_per_line*num_lines*1 );
 
+  vtkDebugMacro(<< "Saturation: "
+      << " Samples per line: " << samples_per_line
+      << ", Number of lines: " << num_lines );
 
   std::vector<bool>::const_iterator saturation_image_it = its_ir->get_saturation_image().begin();
   std::vector<double>::const_iterator saturation_image_x = its_ir->get_saturation_image_x().begin();
   std::vector<double>::const_iterator saturation_image_y = its_ir->get_saturation_image_y().begin();
-
   for( unsigned int i=0; i<num_lines; i++)
   {
     for(unsigned int j=0; j<samples_per_line; j++)
@@ -441,13 +454,16 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector, c
   vtk_saturation_image_raw->GetPointData()->SetScalars( saturation_raw_data );
 
 
-
   //------------- saturation image scan converted -----
   if( do_scan_conv )
   {
     const unsigned int rows = its_ir->get_saturation_image_sc_rows();
     const unsigned int cols = its_ir->get_saturation_image_sc_cols();
   
+    vtkDebugMacro(<< "Saturation scan converted: "
+        << " Rows: " << rows
+        << ", Columns: " << cols );
+
     outInfo = outputVector->GetInformationObject(4);
     vtkImageData* vtk_saturation_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
     if (!vtk_saturation_image_sc)
@@ -534,6 +550,8 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   if (!vtk_rf_image_sc)
     return 0;
 
+  // tmp
+  int * sc_update_extent = vtk_rf_image_sc->GetUpdateExtent();
   if ( do_scan_conv )
   {
     // Extent should be set before allocate scalars
@@ -607,4 +625,5 @@ void vtkVisualSonicsReader::PrintSelf(ostream& os, vtkIndent indent)
   os << indent << "SpecificAcquisition:" << indent << this->GetSpecificAcquisition() << std::endl;
   this->Superclass::PrintSelf(os, indent);
 }
+
 

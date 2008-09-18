@@ -53,6 +53,7 @@ ImageViewer::ImageViewer( const bf::path& in_file_path, ReadMethod read_method, 
     its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
     its_image_reader->SetReadMethod( read_method );
     its_image_reader->SetSpecificAcquisition( specific_acquisition );
+    its_image_reader->DebugOn(); // for testing
   its_ren_win = vtkRenderWindow::New();
   its_interactor_style_image = vtkInteractorStyleImage::New();
   its_interactor_style_trackball = vtkInteractorStyleTrackballCamera::New();
@@ -66,6 +67,7 @@ ImageViewer::ImageViewer( const bf::path& in_file_path )
 {
   its_image_reader = vtkVisualSonicsReader::New();
     its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
+    its_image_reader->DebugOn(); // for testing
   its_ren_win = vtkRenderWindow::New();
   its_interactor_style_image = vtkInteractorStyleImage::New();
   its_interactor_style_trackball = vtkInteractorStyleTrackballCamera::New();

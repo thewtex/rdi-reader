@@ -234,8 +234,8 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   double origin[3] = { 0.0, 0.0, 0.0 };
   outInfo->Set(vtkDataObject::ORIGIN(), origin, 3 );
 
-  double spacing[3] = { its_ir->get_b_mode_image_sc_delta_x(),
-    its_ir->get_b_mode_image_sc_delta_y(),
+  double spacing[3] = { its_ir->get_b_mode_image_sc_delta_y(),
+    its_ir->get_b_mode_image_sc_delta_x(),
     its_ir->get_rf_image_delta_z() };
   outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
 
@@ -249,24 +249,24 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
 
   outInfo->Set(vtkDataObject::ORIGIN(), origin, 3 );
 
-  spacing[0] = its_ir->get_saturation_image_sc_delta_x();
-  spacing[1] = its_ir->get_saturation_image_sc_delta_y();
+  spacing[0] = its_ir->get_saturation_image_sc_delta_y();
+  spacing[1] = its_ir->get_saturation_image_sc_delta_x();
   spacing[2] = its_ir->get_rf_image_delta_z();
   outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
 
   /*************** rf image sc ***************/
   outInfo = outputVector->GetInformationObject(5);
 
-  whole_extent[3] = static_cast< int >( its_ir->get_rf_image_sc_rows() ) - 1;
-  whole_extent[1] = static_cast< int >( its_ir->get_rf_image_sc_cols() ) - 1;
+  whole_extent[1] = static_cast< int >( its_ir->get_rf_image_sc_rows() ) - 1;
+  whole_extent[3] = static_cast< int >( its_ir->get_rf_image_sc_cols() ) - 1;
   whole_extent[5] = static_cast< int >( its_ir->get_rf_image_frames() ) - 1;
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
 
   outInfo->Set(vtkDataObject::ORIGIN(), origin, 3 );
 
-  spacing[0] = its_ir->get_rf_image_sc_delta_x();
-  spacing[1] = its_ir->get_rf_image_sc_delta_y();
+  spacing[0] = its_ir->get_rf_image_sc_delta_y();
+  spacing[1] = its_ir->get_rf_image_sc_delta_x();
   spacing[2] = its_ir->get_rf_image_delta_z();
   outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
 
@@ -615,8 +615,7 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   if ( do_scan_conv )
   {
     // Extent should be set before allocate scalars
-    //vtk_rf_image_sc->SetExtent( 0, rows, 0, cols, raw_update_extent[4], raw_update_extent[5] );
-    vtk_rf_image_sc->SetExtent( 0, cols, 0, rows, raw_update_extent[4], raw_update_extent[5] );
+    vtk_rf_image_sc->SetExtent( 0, rows, 0, cols, raw_update_extent[4], raw_update_extent[5] );
     vtk_rf_image_sc->SetScalarTypeToDouble();
     vtk_rf_image_sc->SetNumberOfScalarComponents(1);
     vtk_rf_image_sc->AllocateScalars();
@@ -650,9 +649,9 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
     if( do_scan_conv )
     {
       rf_image_sc_it = its_ir->get_rf_image_sc().begin();
-      for( unsigned int i=0; i<cols; i++)
+      for( unsigned int i=0; i<rows; i++)
       {
-        for( unsigned int j=0; j<rows; j++)
+        for( unsigned int j=0; j<cols; j++)
         {
   	// scan convert
           *vtk_rf_image_sc_p = *rf_image_sc_it ;

@@ -225,8 +225,9 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   /*************** b mode image sc  ***************/
   outInfo = outputVector->GetInformationObject(3);
 
-  whole_extent[1] = static_cast< int >( its_ir->get_b_mode_image_sc_cols() ) - 1;
-  whole_extent[3] = static_cast< int >( its_ir->get_b_mode_image_sc_rows() ) - 1;
+  // notice rows/ columns flipped from raw !
+  whole_extent[1] = static_cast< int >( its_ir->get_b_mode_image_sc_rows() ) - 1;
+  whole_extent[3] = static_cast< int >( its_ir->get_b_mode_image_sc_cols() ) - 1;
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
 
@@ -241,8 +242,8 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   /*************** saturation image sc ***************/
   outInfo = outputVector->GetInformationObject(4);
 
-  whole_extent[1] = static_cast< int >( its_ir->get_saturation_image_sc_cols() ) - 1;
-  whole_extent[3] = static_cast< int >( its_ir->get_saturation_image_sc_rows() ) - 1;
+  whole_extent[1] = static_cast< int >( its_ir->get_saturation_image_sc_rows() ) - 1;
+  whole_extent[3] = static_cast< int >( its_ir->get_saturation_image_sc_cols() ) - 1;
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
 
@@ -256,8 +257,8 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   /*************** rf image sc ***************/
   outInfo = outputVector->GetInformationObject(5);
 
-  whole_extent[1] = static_cast< int >( its_ir->get_rf_image_sc_cols() ) - 1;
   whole_extent[3] = static_cast< int >( its_ir->get_rf_image_sc_rows() ) - 1;
+  whole_extent[1] = static_cast< int >( its_ir->get_rf_image_sc_cols() ) - 1;
   whole_extent[5] = static_cast< int >( its_ir->get_rf_image_frames() ) - 1;
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
@@ -614,7 +615,8 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   if ( do_scan_conv )
   {
     // Extent should be set before allocate scalars
-    vtk_rf_image_sc->SetExtent( 0, rows, 0, cols, raw_update_extent[4], raw_update_extent[5] );
+    //vtk_rf_image_sc->SetExtent( 0, rows, 0, cols, raw_update_extent[4], raw_update_extent[5] );
+    vtk_rf_image_sc->SetExtent( 0, cols, 0, rows, raw_update_extent[4], raw_update_extent[5] );
     vtk_rf_image_sc->SetScalarTypeToDouble();
     vtk_rf_image_sc->SetNumberOfScalarComponents(1);
     vtk_rf_image_sc->AllocateScalars();

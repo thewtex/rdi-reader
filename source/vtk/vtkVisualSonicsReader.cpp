@@ -631,6 +631,9 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   while( its_ir->read_rf_image() )
   {
     // raw
+    rf_image_it = its_ir->get_rf_image().begin();
+    rf_image_x = its_ir->get_rf_image_x().begin();
+    rf_image_y = its_ir->get_rf_image_y().begin();
     for( unsigned int i=0; i<num_lines; i++)
     {
       for(unsigned int j=0; j<samples_per_line; j++)
@@ -643,10 +646,10 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
         rf_image_y++;
       }
     }
-
     // scan converted
     if( do_scan_conv )
     {
+      rf_image_sc_it = its_ir->get_rf_image_sc().begin();
       for( unsigned int i=0; i<cols; i++)
       {
         for( unsigned int j=0; j<rows; j++)
@@ -657,11 +660,6 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
           vtk_rf_image_sc_p++;
         }
       }
-      rf_image_it = its_ir->get_rf_image().begin();
-      rf_image_x = its_ir->get_rf_image_x().begin();
-      rf_image_y = its_ir->get_rf_image_y().begin();
-
-      rf_image_sc_it = its_ir->get_rf_image_sc().begin();
     }
 
     k++; // next frame

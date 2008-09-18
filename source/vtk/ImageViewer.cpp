@@ -9,6 +9,7 @@ namespace bf = boost::filesystem;
 #include "vtkDataSetMapper.h"
 #include "vtkLookupTable.h"
 #include "vtkImageData.h"
+#include "vtkImageMathematics.h"
 #include "vtkInteractorStyleImage.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 #include "vtkRenderer.h"
@@ -99,7 +100,8 @@ void ImageViewer::view_b_mode()
 
  // get the output
  //vtkStructuredGrid* vtk_b_mode_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(0) );
- vtkImageData* vtk_b_mode_sg = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(3) );
+ //! @todo check the b-mode and saturation ImageData output
+ //vtkImageData* vtk_b_mode_sg = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(3) );
  vtkStructuredGrid* vtk_b_mode_sgtmp = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(0) );
  double* b_mode_range = vtk_b_mode_sgtmp->GetScalarRange();
 
@@ -200,15 +202,34 @@ void ImageViewer::view_saturation()
 }
 
 
+#include <cmath>
 
 
 void ImageViewer::view_rf()
 {
+
+ vtkSmartPointer<vtkImageMathematics> abs = vtkSmartPointer<vtkImageMathematics>::New();
+  abs->SetInputConnection( its_image_reader->GetOutputPort(5) );
+  abs->SetOperationToAbsoluteValue();
+
+ vtkSmartPointer<vtkImageMathematics> add = vtkSmartPointer<vtkImageMathematics>::New();
+  add->SetInputConnection( abs->GetOutputPort(0) );
+  add->SetOperationToAddConstant();
+  add->SetConstantC( 1.0 );
+
+ vtkSmartPointer<vtkImageMathematics> log = vtkSmartPointer<vtkImageMathematics>::New();
+  log->SetInputConnection( add->GetOutputPort(0) );
+  log->SetOperationToLog();
+  log->SetConstantC(0.0);
+  log->DivideByZeroToCOn();
+
+
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
    dsm->SetColorModeToMapScalars();
    dsm->SetScalarModeToUsePointData();
-   dsm->SetInputConnection( its_image_reader->GetOutputPort(5) );
+   //dsm->SetInputConnection( its_image_reader->GetOutputPort(5) );
+   dsm->SetInputConnection( log->GetOutputPort(0) );
    dsm->Update();
 
  // get the output
@@ -225,11 +246,14 @@ void ImageViewer::view_rf()
  double rf_range[2];
  its_image_reader->GetScalarRange( rf_range );
  //dsm->SetScalarRange( rf_range[0], rf_range[1] );
- dsm->SetScalarRange( 0.0, rf_range[1] / 6.0 );
+ //dsm->SetScalarRange( 0.0, rf_range[1] / 6.0 );
+ double max = std::log(rf_range[1]);
+ dsm->SetScalarRange( 0.0, max  );
 
  // actor
  vtkSmartPointer<vtkActor> pda = vtkSmartPointer<vtkActor>::New();
- pda->SetMapper( dsm );
+   pda->SetMapper( dsm );
+   pda->RotateZ( -90.0 ); // to account for the different between the C/Fortran ordering
 
  // renderer
  vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();
@@ -238,22 +262,23 @@ void ImageViewer::view_rf()
  its_ren_win->AddRenderer( ren );
 
  // adjust camera location ( otherwise includes y=0 be included by default )
- //double* bounds = vtk_rf_sg->GetBounds();
- //double* first = vtk_rf_sg->GetPoints()->GetPoint(0);
- //double center_y = (bounds[2] + first[1])/2.0;
- //double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
+ double buffer = 1.2; // how much larger the window view is than the image
+ int* ext = vtk_rf_im->GetWholeExtent();
+ double* bounds = vtk_rf_im->GetBounds();
 
  vtk_rf_im->Print(cout);
- cout << "range[0]: " << rf_range[0] << " range[1]: " << rf_range[1] << std::endl;
- cout << "range_ir[0]: " << rf_range[0] << " range[1]: " << rf_range[1] << std::endl;
 
- //vtkCamera* cam = ren->GetActiveCamera();
- //cam->SetFocalPoint( 0.0, center_y, 0.0 );
- //cam->SetPosition( 0.0, center_y, camdist );
- //cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
+ its_ren_win->SetSize( static_cast<int>( (ext[3]-ext[2])*buffer ),
+     static_cast<int> ((ext[1]-ext[0])*buffer ) ) ;
+
+ ren->Render();
+ vtkCamera* cam = ren->GetActiveCamera();
+ //cam->SetFocalPoint(  (bounds[1] - bounds[0])/2.0, -1*(bounds[3] - bounds[2])/2.0,  0.0 );
+ //cam->SetPosition( (bounds[1] - bounds[0])/2.0, -1*(bounds[3] - bounds[2])/4.0,  camdist );
+ //cam->SetClippingRange( camdist - 5.0,  camdist + 5.0 );
  //cam->ComputeViewPlaneNormal();
-
- //its_ren_win->SetSize( its_default_width, int( (first[1] - bounds[2])/(first[0]*-2.0) * its_default_width ) );
+ cam->Zoom( 2.0 );
+ cam->Print(cout);
 
  // interactor
  its_iren->SetInteractorStyle( its_interactor_style_trackball );

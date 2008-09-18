@@ -22,8 +22,8 @@ if(NOT VTK_USE_RENDERING)
 endif(NOT VTK_USE_RENDERING)
 
 
-include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source 
-  ${VTK_INCLUDE_DIRS} 
+include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source
+  ${VTK_INCLUDE_DIRS}
   )
 link_directories( ${VTK_LIBRARY_DIRS} )
 

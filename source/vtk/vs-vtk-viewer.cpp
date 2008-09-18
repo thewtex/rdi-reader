@@ -38,7 +38,7 @@ int main( int argc, char** argv )
     {
       string file = string( argv[i] );
       ImageViewer* vi = new ImageViewer( file );
-  
+
       //vi->view_b_mode();
       vi->view_saturation();
       //vi->view_rf();

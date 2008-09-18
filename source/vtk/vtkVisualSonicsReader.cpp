@@ -149,7 +149,7 @@ int vtkVisualSonicsReader::FillOutputPortInformation( int port, vtkInformation* 
 
 
 int vtkVisualSonicsReader::RequestDataNotGenerated( vtkInformation* request,
-    vtkInformationVector ** inputVector, 
+    vtkInformationVector ** inputVector,
     vtkInformationVector *  outputVector)
 {
   if( request->Has(vtkExecutive::FROM_OUTPUT_PORT() ) )
@@ -189,12 +189,12 @@ int vtkVisualSonicsReader::RequestDataNotGenerated( vtkInformation* request,
 
 //! gives information on the data sets that the filter will produce for a particular instance
 int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
-    vtkInformationVector ** inputVector, 
+    vtkInformationVector ** inputVector,
     vtkInformationVector *  outputVector)
 {
 
   /*************** b mode image raw ***************/
-  vtkInformation* outInfo = outputVector->GetInformationObject(0); 
+  vtkInformation* outInfo = outputVector->GetInformationObject(0);
 
   int whole_extent[6] = { 0,
     static_cast< int >( its_ir->get_b_mode_image_cols() ) - 1,
@@ -202,7 +202,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
     static_cast< int >( its_ir->get_b_mode_image_rows() ) - 1,
     0,
     0 };
-  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
 
   /*************** saturation image raw ***************/
@@ -210,7 +210,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
 
   whole_extent[1] = static_cast< int >( its_ir->get_saturation_image_cols() ) - 1;
   whole_extent[3] = static_cast< int >( its_ir->get_saturation_image_rows() ) - 1;
-  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
 
   /*************** rf image raw ***************/
@@ -219,7 +219,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   whole_extent[1] = static_cast< int >( its_ir->get_rf_image_cols() ) - 1;
   whole_extent[3] = static_cast< int >( its_ir->get_rf_image_rows() ) - 1;
   whole_extent[5] = static_cast< int >( its_ir->get_rf_image_frames() ) - 1;
-  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
 
   /*************** b mode image sc  ***************/
@@ -227,7 +227,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
 
   whole_extent[1] = static_cast< int >( its_ir->get_b_mode_image_sc_cols() ) - 1;
   whole_extent[3] = static_cast< int >( its_ir->get_b_mode_image_sc_rows() ) - 1;
-  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
 
   double origin[3] = { 0.0, 0.0, 0.0 };
@@ -237,20 +237,20 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
     its_ir->get_b_mode_image_sc_delta_y(),
     its_ir->get_rf_image_delta_z() };
   outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
-  
+
   /*************** saturation image sc ***************/
   outInfo = outputVector->GetInformationObject(4);
 
   whole_extent[1] = static_cast< int >( its_ir->get_saturation_image_sc_cols() ) - 1;
   whole_extent[3] = static_cast< int >( its_ir->get_saturation_image_sc_rows() ) - 1;
-  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
 
   outInfo->Set(vtkDataObject::ORIGIN(), origin, 3 );
 
   spacing[0] = its_ir->get_saturation_image_sc_delta_x();
   spacing[1] = its_ir->get_saturation_image_sc_delta_y();
-  spacing[2] = its_ir->get_rf_image_delta_z(); 
+  spacing[2] = its_ir->get_rf_image_delta_z();
   outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
 
   /*************** rf image sc ***************/
@@ -259,14 +259,14 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   whole_extent[1] = static_cast< int >( its_ir->get_rf_image_sc_cols() ) - 1;
   whole_extent[3] = static_cast< int >( its_ir->get_rf_image_sc_rows() ) - 1;
   whole_extent[5] = static_cast< int >( its_ir->get_rf_image_frames() ) - 1;
-  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(), 
+  outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
 
   outInfo->Set(vtkDataObject::ORIGIN(), origin, 3 );
 
   spacing[0] = its_ir->get_rf_image_sc_delta_x();
   spacing[1] = its_ir->get_rf_image_sc_delta_y();
-  spacing[2] = its_ir->get_rf_image_delta_z(); 
+  spacing[2] = its_ir->get_rf_image_delta_z();
   outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
 
   return 1;
@@ -282,7 +282,7 @@ int vtkVisualSonicsReader::RequestData(vtkInformation* request,
   if(!this->its_ir)
   {
     vtkErrorMacro("A FilePrefix must be specified with SetFilePrefix( filename ).");
-    return 0; 
+    return 0;
   }
 
   // do not generate the scan converted images if they are not requested
@@ -401,7 +401,7 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector, const 
   {
     const unsigned int rows = its_ir->get_b_mode_image_sc_rows();
     const unsigned int cols = its_ir->get_b_mode_image_sc_cols();
-  
+
     vtkDebugMacro(<< "Saturation scan converted: "
         << " Rows: " << rows
         << ", Columns: " << cols );
@@ -410,7 +410,7 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector, const 
     vtkImageData* vtk_b_mode_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
     if (!vtk_b_mode_image_sc)
       return 0;
-  
+
     // Extent should be set before allocate scalars
     vtk_b_mode_image_sc->SetDimensions( rows, cols, 1 );
     vtk_b_mode_image_sc->SetScalarTypeToDouble();
@@ -419,7 +419,7 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector, const 
     // fill in scout b mode scan converted values
     double* vtk_b_mode_image_sc_p = static_cast< double* >( vtk_b_mode_image_sc->GetScalarPointer() );
     std::vector<double>::const_iterator b_mode_image_sc_it = its_ir->get_b_mode_image_sc().begin();
-  
+
     for(unsigned int i=0; i<cols; i++)
     {
       for(unsigned int j=0; j<rows; j++)
@@ -496,7 +496,7 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector, c
   {
     const unsigned int rows = its_ir->get_saturation_image_sc_rows();
     const unsigned int cols = its_ir->get_saturation_image_sc_cols();
-  
+
     vtkDebugMacro(<< "Saturation scan converted: "
         << " Rows: " << rows
         << ", Columns: " << cols );
@@ -505,7 +505,7 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector, c
     vtkImageData* vtk_saturation_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
     if (!vtk_saturation_image_sc)
       return 0;
-  
+
     // Extent should be set before allocate scalars
     vtk_saturation_image_sc->SetDimensions( rows, cols, 1 );
     vtk_saturation_image_sc->SetScalarTypeToUnsignedChar();
@@ -514,7 +514,7 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector, c
     // fill in scout b mode scan converted values
     unsigned char* vtk_saturation_image_sc_p = static_cast< unsigned char* >( vtk_saturation_image_sc->GetScalarPointer() );
     std::vector<bool>::const_iterator saturation_image_sc_it = its_ir->get_saturation_image_sc().begin();
-  
+
     for(unsigned int i=0; i<cols; i++)
     {
       for(unsigned int j=0; j<rows; j++)
@@ -533,26 +533,52 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector, c
 
 
 int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
-    vtkInformationVector* outputVector, 
+    vtkInformationVector* outputVector,
     const bool& do_scan_conv)
 {
 
-  //---------- rf_image_raw ----------------- declarations
+  vtkDebugMacro(<< "Executing read VisualSonics filter: rf section" )
+
   vtkInformation* outInfo = outputVector->GetInformationObject(2);
   vtkStructuredGrid* vtk_rf_image_raw = vtkStructuredGrid::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
   if (!vtk_rf_image_raw)
     return 0;
 
+  outInfo = outputVector->GetInformationObject(5);
+  vtkImageData* vtk_rf_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
+  if (!vtk_rf_image_sc)
+    return 0;
+
+  // tmp
+  vtk_rf_image_raw->Print(cout);
+  vtk_rf_image_sc->Print(cout);
+
+  //---------- determine which frames need to be updated
+  int* raw_update_extent = vtk_rf_image_raw->GetUpdateExtent();
+  int* sc_update_extent = vtk_rf_image_sc->GetUpdateExtent();
+  if( do_scan_conv )
+  {
+    raw_update_extent[4] = sc_update_extent[4];
+    raw_update_extent[5] = sc_update_extent[5];
+    vtk_rf_image_raw->SetUpdateExtent( raw_update_extent );
+  }
+  const unsigned int update_frames = raw_update_extent[5] - raw_update_extent[4] + 1;
+
+  //---------- rf_image_raw ----------------- declarations
   const unsigned int samples_per_line = its_rpd->its_image_acquisition_size / sizeof( Int16 );
   const unsigned int num_lines = its_rpd->its_image_lines;
 
-  int* raw_update_extent = vtk_rf_image_raw->GetUpdateExtent();
-  const unsigned int update_frames = raw_update_extent[5] - raw_update_extent[4] + 1; 
+  vtkDebugMacro(<< "RF: "
+      << " Samples per line: " << samples_per_line
+      << ", Number of lines: " << num_lines );
 
-  // tmp
-  cout << "spl: " << samples_per_line << " nl: " << num_lines << " frames: " << update_frames << endl;
+  vtk_rf_image_raw->SetExtent( 0,
+      num_lines,
+      0,
+      samples_per_line,
+      raw_update_extent[4],
+      raw_update_extent[5] );
 
-  vtk_rf_image_raw->SetExtent( raw_update_extent );
   // set the cxx::ImageReader frames to process to the extent we are interested in
   std::vector< unsigned int > frames_vec( update_frames );
   for( int i = raw_update_extent[4], frame_counter = 0; i <= raw_update_extent[5]; i++ )
@@ -563,18 +589,17 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   its_ir->set_frames_to_read( frames_vec );
 
 
-  vtkPoints* rf_raw_points = vtkPoints::New();
-  rf_raw_points->SetNumberOfPoints( samples_per_line*num_lines*update_frames );
+  vtkSmartPointer<vtkPoints> rf_raw_points = vtkSmartPointer<vtkPoints>::New();
+    rf_raw_points->SetNumberOfPoints( samples_per_line*num_lines*update_frames );
 
-  vtkShortArray* rf_raw_data  = vtkShortArray::New();
-  rf_raw_data->SetNumberOfComponents(1);
-  rf_raw_data->SetNumberOfTuples( samples_per_line*num_lines*update_frames );
+  vtkSmartPointer<vtkShortArray> rf_raw_data  = vtkSmartPointer<vtkShortArray>::New();
+    rf_raw_data->SetNumberOfComponents(1);
+    rf_raw_data->SetNumberOfTuples( samples_per_line*num_lines*update_frames );
 
 
   std::vector<Int16>::const_iterator rf_image_it = its_ir->get_rf_image().begin();
   std::vector<double>::const_iterator rf_image_x = its_ir->get_rf_image_x().begin();
   std::vector<double>::const_iterator rf_image_y = its_ir->get_rf_image_y().begin();
-
   double rf_image_z_step = its_ir->get_rf_image_delta_z();
 
 
@@ -582,13 +607,10 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   const unsigned int rows = its_ir->get_rf_image_sc_rows();
   const unsigned int cols = its_ir->get_rf_image_sc_cols();
 
-  outInfo = outputVector->GetInformationObject(5);
-  vtkImageData* vtk_rf_image_sc = vtkImageData::SafeDownCast( outInfo->Get(vtkDataObject::DATA_OBJECT()));
-  if (!vtk_rf_image_sc)
-    return 0;
+    vtkDebugMacro(<< "RF scan converted: "
+        << " Rows: " << rows
+        << ", Columns: " << cols );
 
-  // tmp
-  int * sc_update_extent = vtk_rf_image_sc->GetUpdateExtent();
   if ( do_scan_conv )
   {
     // Extent should be set before allocate scalars
@@ -613,13 +635,13 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
       {
         rf_raw_data->SetValue( i + num_lines*j + values_in_frame*k, static_cast< Int16 > ( *rf_image_it ) );
         rf_image_it++;
-  
+
         rf_raw_points->SetPoint( i + num_lines*j + values_in_frame*k, *rf_image_x, *rf_image_y * -1, rf_image_z_step*k );
         rf_image_x++;
         rf_image_y++;
       }
     }
-    
+
     // scan converted
     if( do_scan_conv )
     {
@@ -636,7 +658,7 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
       rf_image_it = its_ir->get_rf_image().begin();
       rf_image_x = its_ir->get_rf_image_x().begin();
       rf_image_y = its_ir->get_rf_image_y().begin();
-  
+
       rf_image_sc_it = its_ir->get_rf_image_sc().begin();
     }
 
@@ -645,9 +667,6 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
 
   vtk_rf_image_raw->SetPoints(rf_raw_points);
   vtk_rf_image_raw->GetPointData()->SetScalars( rf_raw_data );
-
-  rf_raw_points->Delete();
-  rf_raw_data->Delete();
 
   return 1;
 }

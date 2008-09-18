@@ -83,7 +83,7 @@ public:
   unsigned int GetSpecificAcquisition();
 
   //! puts the rf raw image min,max in the input array, must have read the image to be useful
-  virtual void GetScalarRange( double range[2] ); 
+  virtual void GetScalarRange( double range[2] );
 
 
   //! add implementation for vtkDemandDrivenPipeline::REQUEST_DATA_NOT_GENERATED()
@@ -109,7 +109,7 @@ protected:
   //! if the request is on ports 0-2, we only generate those raw grid images
   //! if the request is on ports 3-5, we additionally generate the scan converted images
   virtual int RequestDataNotGenerated( vtkInformation*,
-      vtkInformationVector**, 
+      vtkInformationVector**,
       vtkInformationVector* );
 
   //! does the actual data crunching at a pipeline request
@@ -121,7 +121,7 @@ protected:
   int ReadBMode(vtkInformationVector* outputVector, const bool& do_scan_conv);
   int ReadSaturation(vtkInformationVector* outputVector, const bool& do_scan_conv);
   int ReadRF(vtkInformation* request,
-      vtkInformationVector* outputVector, 
+      vtkInformationVector* outputVector,
       const bool& do_scan_conv);
 
   //! does the heavy lifting for reading in the data

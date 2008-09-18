@@ -157,7 +157,7 @@ void ImageViewer::view_saturation()
 
  // get the output
  vtkStructuredGrid* vtk_saturation_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(1) );
- 
+
  // Lookup Table
  vtkSmartPointer<vtkLookupTable> lut = vtkSmartPointer<vtkLookupTable>::New();
  lut->SetNumberOfColors(2);
@@ -207,7 +207,7 @@ void ImageViewer::view_rf()
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
    dsm->SetColorModeToMapScalars();
-   //dsm->SetScalarModeToUsePointData();
+   dsm->SetScalarModeToUsePointData();
    dsm->SetInputConnection( its_image_reader->GetOutputPort(5) );
    dsm->Update();
 

@@ -148,33 +148,33 @@ void ImageViewer::view_saturation()
 
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
- dsm->SetColorModeToMapScalars();
- dsm->SetScalarModeToUsePointData();
- dsm->SetInputConnection( its_image_reader->GetOutputPort(1) );
- dsm->Update();
+   dsm->SetColorModeToMapScalars();
+   dsm->SetScalarModeToUsePointData();
+   dsm->SetInputConnection( its_image_reader->GetOutputPort(1) );
+   dsm->Update();
+   dsm->SetScalarRange( 0.0, 1.0 );
 
  // get the output
  vtkStructuredGrid* vtk_saturation_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(1) );
 
  // Lookup Table
  vtkSmartPointer<vtkLookupTable> lut = vtkSmartPointer<vtkLookupTable>::New();
- lut->SetNumberOfColors(2);
- lut->SetTableValue( 0, 0.0, 0.0, 0.0 );
- // we use the same colors the VisualSonics peeps use in their software
- lut->SetTableValue( 1, 0.0, 1.0, 1.0 );
+   lut->SetNumberOfColors(2);
+   lut->SetTableValue( 0, 0.0, 0.0, 0.0 );
+   // we use the same colors the VisualSonics peeps use in their software
+   lut->SetTableValue( 1, 0.0, 1.0, 1.0 );
+   dsm->SetLookupTable(lut);
 
- dsm->SetLookupTable(lut);
- dsm->SetScalarRange( 0.0, 1.0 );
 
  // actor
  vtkSmartPointer<vtkActor> pda = vtkSmartPointer<vtkActor>::New();
- pda->SetMapper( dsm );
+   pda->SetMapper( dsm );
 
  // renderer
  vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();
- ren->SetBackground( its_background_color_red, its_background_color_green, its_background_color_blue   );
- ren->AddViewProp( pda );
- its_ren_win->AddRenderer( ren );
+   ren->SetBackground( its_background_color_red, its_background_color_green, its_background_color_blue   );
+   ren->AddViewProp( pda );
+   its_ren_win->AddRenderer( ren );
 
  // adjust camera location ( otherwise includes y=0 be included by default )
  double* bounds = vtk_saturation_sg->GetBounds();
@@ -183,18 +183,18 @@ void ImageViewer::view_saturation()
  double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
 
  vtkCamera* cam = ren->GetActiveCamera();
- cam->SetFocalPoint( 0.0, center_y, 0.0 );
- cam->SetPosition( 0.0, center_y, camdist );
- cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
- cam->ComputeViewPlaneNormal();
-
+   cam->SetFocalPoint( 0.0, center_y, 0.0 );
+   cam->SetPosition( 0.0, center_y, camdist );
+   cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
+   cam->ComputeViewPlaneNormal();
+  
+ // resize window
  its_ren_win->SetSize( its_default_width, int( (first[1] - bounds[2])/(first[0]*-2.0) * its_default_width ) );
 
  // interactor
  its_iren->SetInteractorStyle( its_interactor_style_image );
  its_iren->Initialize();
  its_iren->Start();
-
 }
 
 

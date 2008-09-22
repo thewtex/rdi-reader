@@ -17,7 +17,7 @@ int main()
 
     vi->view_b_mode();
     //vi->view_saturation();
-    vi->view_rf();
+    //vi->view_rf();
 
     delete vi;
   }

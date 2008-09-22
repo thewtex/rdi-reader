@@ -12,12 +12,12 @@ int main()
   try
   {
     //ImageViewer* vi = new ImageViewer("/mnt/research/Research/in_vivo/test_base/visual_sonics/2007-06-08-15-57-05-328");
-    ImageViewer* vi = new ImageViewer("/tmp/2007-06-08-15-57-05-328");
+    ImageViewer* vi = new ImageViewer("/tmp/2007-06-08-15-42-20-515-pat130-5db-40MHz-50per_pow_20frames");
     //ImageViewer* vi = new ImageViewer("/mnt/dataa/visualsonics/test_base/visual_sonics/2007-06-08-15-57-05-328");
 
-    vi->view_b_mode();
+    //vi->view_b_mode();
     //vi->view_saturation();
-    //vi->view_rf();
+    vi->view_rf();
 
     delete vi;
   }

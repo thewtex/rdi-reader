@@ -574,9 +574,9 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
       << ", Number of lines: " << num_lines );
 
   vtk_rf_image_raw->SetExtent( 0,
-      num_lines,
+      num_lines - 1,
       0,
-      samples_per_line,
+      samples_per_line - 1,
       raw_update_extent[4],
       raw_update_extent[5] );
 
@@ -615,7 +615,9 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   if ( do_scan_conv )
   {
     // Extent should be set before allocate scalars
-    vtk_rf_image_sc->SetExtent( 0, rows, 0, cols, raw_update_extent[4], raw_update_extent[5] );
+    vtk_rf_image_sc->SetExtent( 0, rows -1,
+	0, cols -1,
+	raw_update_extent[4], raw_update_extent[5] );
     vtk_rf_image_sc->SetScalarTypeToDouble();
     vtk_rf_image_sc->SetNumberOfScalarComponents(1);
     vtk_rf_image_sc->AllocateScalars();

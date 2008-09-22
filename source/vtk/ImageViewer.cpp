@@ -115,7 +115,7 @@ void ImageViewer::view_b_mode()
 
  // actor
  vtkSmartPointer<vtkActor> pda = vtkSmartPointer<vtkActor>::New();
- pda->SetMapper( dsm );
+   pda->SetMapper( dsm );
 
  // renderer
  vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();
@@ -229,7 +229,8 @@ void ImageViewer::view_rf()
 
  // actor
  vtkSmartPointer<vtkActor> pda = vtkSmartPointer<vtkActor>::New();
- pda->SetMapper( dsm );
+   pda->SetMapper( dsm );
+   pda->RotateZ( -90.0 );
 
  // renderer
  vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();

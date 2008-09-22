@@ -403,7 +403,7 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector, const 
     const unsigned int rows = its_ir->get_b_mode_image_sc_rows();
     const unsigned int cols = its_ir->get_b_mode_image_sc_cols();
 
-    vtkDebugMacro(<< "Saturation scan converted: "
+    vtkDebugMacro(<< "B Mode scan converted: "
         << " Rows: " << rows
         << ", Columns: " << cols );
 

@@ -94,23 +94,23 @@ void ImageViewer::view_b_mode()
 {
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
- dsm->SetColorModeToMapScalars();
- dsm->SetScalarModeToUsePointData();
- dsm->SetInputConnection( its_image_reader->GetOutputPort(3) );
- dsm->Update();
+   dsm->SetColorModeToMapScalars();
+   dsm->SetScalarModeToUsePointData();
+   dsm->SetInputConnection( its_image_reader->GetOutputPort(3) );
+   dsm->Update();
 
  // get the output
  //vtkStructuredGrid* vtk_b_mode_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(0) );
- //vtkImageData* vtk_b_mode_sg = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(3) );
+ vtkImageData* vtk_b_mode_sg = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(3) );
  vtkStructuredGrid* vtk_b_mode_sgtmp = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(0) );
- double* b_mode_range = vtk_b_mode_sgtmp->GetScalarRange();
+ double* b_mode_range = vtk_b_mode_sg->GetScalarRange();
 
  // Lookup Table
  vtkSmartPointer<vtkLookupTable> lut = vtkSmartPointer<vtkLookupTable>::New();
- lut->SetNumberOfColors(65536);
- lut->SetHueRange(0.0, 1.0);
- lut->SetSaturationRange( 0.0, 0.0);
- lut->SetValueRange( 0.0, 1.0 );
+   lut->SetNumberOfColors(65536);
+   lut->SetHueRange(0.0, 1.0);
+   lut->SetSaturationRange( 0.0, 0.0);
+   lut->SetValueRange( 0.0, 1.0 );
 
  dsm->SetLookupTable(lut);
  dsm->SetScalarRange( b_mode_range[0], b_mode_range[1] );
@@ -121,9 +121,9 @@ void ImageViewer::view_b_mode()
 
  // renderer
  vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();
- ren->SetBackground( its_background_color_red, its_background_color_green, its_background_color_blue   );
- ren->AddViewProp( pda );
- its_ren_win->AddRenderer( ren );
+   ren->SetBackground( its_background_color_red, its_background_color_green, its_background_color_blue   );
+   ren->AddViewProp( pda );
+   its_ren_win->AddRenderer( ren );
 
  //// adjust camera location ( otherwise includes y=0 be included by default )
  //double* bounds = vtk_b_mode_sg->GetBounds();
@@ -225,7 +225,6 @@ void ImageViewer::view_rf()
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
    dsm->SetColorModeToMapScalars();
    dsm->SetScalarModeToUsePointData();
-   //dsm->SetInputConnection( its_image_reader->GetOutputPort(5) );
    dsm->SetInputConnection( log->GetOutputPort(0) );
    dsm->Update();
 

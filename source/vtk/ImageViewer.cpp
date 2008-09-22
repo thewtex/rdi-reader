@@ -248,7 +248,6 @@ void ImageViewer::view_rf()
 
  vtk_rf_im->Print(cout);
 
- //vtkCamera* cam = ren->GetActiveCamera();
  //cam->SetFocalPoint( 0.0, center_y, 0.0 );
  //cam->SetPosition( 0.0, center_y, camdist );
  //cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
@@ -256,6 +255,13 @@ void ImageViewer::view_rf()
 
  its_ren_win->SetSize( static_cast<int>( (ext[3]-ext[2])*buffer ),
      static_cast<int>( (ext[1]-ext[0])*buffer ) );
+
+ ren->Render();
+ vtkCamera* cam = ren->GetActiveCamera();
+ cam->Zoom(2.0);
+ cam->Elevation( 15.0 );
+ cam->Azimuth( 15.0 );
+ ren->ResetCameraClippingRange();
 
  // interactor
  its_iren->SetInteractorStyle( its_interactor_style_trackball );

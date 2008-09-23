@@ -41,5 +41,5 @@ link_directories( ${VTK_LIBRARY_DIRS} )
     )
   
   add_executable( vtk_test ${vtk_test_srcs} )
-  target_link_libraries( vtk_test vtkRendering boost_filesystem)
+  target_link_libraries( vtk_test vtkRendering vtkVolumeRendering boost_filesystem)
 endif(USE_VTK)

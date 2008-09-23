@@ -13,11 +13,16 @@ namespace bf = boost::filesystem;
 #include "vtkImageMathematics.h"
 #include "vtkInteractorStyleImage.h"
 #include "vtkInteractorStyleTrackballCamera.h"
+#include "vtkPiecewiseFunction.h"
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
 #include "vtkSmartPointer.h"
 #include "vtkStructuredGrid.h"
+#include "vtkVolume.h"
+#include "vtkVolumeProperty.h"
+#include "vtkVolumeRayCastMapper.h"
+#include "vtkVolumeRayCastCompositeFunction.h"
 
 
 #include "vtk/vtkVisualSonicsReader.h"
@@ -187,7 +192,7 @@ void ImageViewer::view_saturation()
    cam->SetPosition( 0.0, center_y, camdist );
    cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
    cam->ComputeViewPlaneNormal();
-  
+
  // resize window
  its_ren_win->SetSize( its_default_width, int( (first[1] - bounds[2])/(first[0]*-2.0) * its_default_width ) );
 
@@ -217,40 +222,42 @@ void ImageViewer::view_rf()
     log->SetInputConnection( add->GetOutputPort(0) );
     log->SetOperationToLog();
 
-
- // mapper ( has internal GeometryFilter so output is PolyData )
- vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
-   dsm->SetColorModeToMapScalars();
-   dsm->SetScalarModeToUsePointData();
-   dsm->SetInputConnection( log->GetOutputPort(0) );
-   dsm->Update();
-
  // get the output
  vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(5) );
-
- // Lookup Table
- vtkSmartPointer<vtkLookupTable> lut = vtkSmartPointer<vtkLookupTable>::New();
-   lut->SetNumberOfColors(65536);
-   lut->SetHueRange(0.0, 1.0);
-   lut->SetSaturationRange( 0.0, 0.0);
-   lut->SetValueRange( 0.0, 1.0 );
-
- dsm->SetLookupTable(lut);
  double rf_range[2];
  its_image_reader->GetScalarRange( rf_range );
  double max = std::log( rf_range[1] );
- //! @todo get the right range
- dsm->SetScalarRange( max/2.0,  max );
+
+
+ // opacity transfer, color transfer
+ vtkSmartPointer<vtkPiecewiseFunction> opacityTransferFunction = vtkSmartPointer<vtkPiecewiseFunction>::New();
+  opacityTransferFunction->AddPoint( max/2.0, 0.0 );
+  opacityTransferFunction->AddPoint( max,     0.2 );
+
+ vtkSmartPointer<vtkPiecewiseFunction> colorTransferFunction = vtkSmartPointer<vtkPiecewiseFunction>::New();
+  colorTransferFunction->AddPoint( max/2.0, 0.0 );
+  colorTransferFunction->AddPoint( max,     1.0 );
+
+ vtkSmartPointer<vtkVolumeProperty> vol_prop = vtkSmartPointer<vtkVolumeProperty>::New();
+  vol_prop->SetColor( colorTransferFunction );
+  vol_prop->SetScalarOpacity( opacityTransferFunction );
+
+
+ // mapper
+ vtkSmartPointer<vtkVolumeRayCastCompositeFunction> rcf = vtkSmartPointer<vtkVolumeRayCastCompositeFunction>::New();
+ vtkSmartPointer<vtkVolumeRayCastMapper> rcm = vtkSmartPointer<vtkVolumeRayCastMapper>::New();
+  rcm->SetVolumeRayCastFunction( rcf );
+  rcm->SetInputConnection( log->GetOutputPort(0) );
 
  // actor
- vtkSmartPointer<vtkActor> pda = vtkSmartPointer<vtkActor>::New();
-   pda->SetMapper( dsm );
-   pda->RotateZ( -90.0 ); // to account for the different between the C/Fortran ordering
+ vtkSmartPointer<vtkVolume> vol = vtkSmartPointer<vtkVolume>::New();
+   vol->SetMapper( rcm );
+   vol->RotateZ( -90.0 ); // to account for the different between the C/Fortran ordering
 
  // renderer
  vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();
  ren->SetBackground( its_background_color_red, its_background_color_green, its_background_color_blue   );
- ren->AddViewProp( pda );
+ ren->AddViewProp( vol );
  its_ren_win->AddRenderer( ren );
 
  const double buffer = 1.2; // empty space around the image

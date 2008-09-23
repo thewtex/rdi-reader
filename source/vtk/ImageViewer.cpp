@@ -8,10 +8,12 @@ namespace bf = boost::filesystem;
 
 #include "vtkCamera.h"
 #include "vtkDataSetMapper.h"
+#include "vtkExtentTranslator.h"
 #include "vtkLookupTable.h"
 #include "vtkImageCast.h"
 #include "vtkImageData.h"
 #include "vtkImageMathematics.h"
+#include "vtkImageDataStreamer.h"
 #include "vtkInteractorStyleImage.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 #include "vtkPiecewiseFunction.h"
@@ -219,6 +221,16 @@ void ImageViewer::view_rf()
     cast->ClampOverflowOn();
     cast->SetInputConnection( abs->GetOutputPort() );
 
+  vtkSmartPointer<vtkImageDataStreamer> streamer = vtkSmartPointer<vtkImageDataStreamer>::New();
+    streamer->SetInputConnection( cast->GetOutputPort() );
+    streamer->UpdateInformation();
+     vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(5) );
+     int* ext = vtk_rf_im->GetWholeExtent();
+    int div  = (ext[5] - ext[4] + 1) / 1  ;
+    streamer->SetNumberOfStreamDivisions( div );
+    vtkExtentTranslator* vet = streamer->GetExtentTranslator();
+    vet->SetSplitModeToZSlab();
+
   //vtkSmartPointer<vtkImageMathematics> add = vtkSmartPointer<vtkImageMathematics>::New();
     //add->SetInputConnection( abs->GetOutputPort(0) );
     //add->SetOperationToAddConstant();
@@ -229,7 +241,6 @@ void ImageViewer::view_rf()
     //log->SetOperationToLog();
 
  // get the output
- vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(5) );
  double rf_range[2];
  its_image_reader->GetScalarRange( rf_range );
  //double max = std::log( rf_range[1] );
@@ -256,7 +267,7 @@ void ImageViewer::view_rf()
  vtkSmartPointer<vtkVolumeRayCastCompositeFunction> rcf = vtkSmartPointer<vtkVolumeRayCastCompositeFunction>::New();
  vtkSmartPointer<vtkVolumeRayCastMapper> rcm = vtkSmartPointer<vtkVolumeRayCastMapper>::New();
   rcm->SetVolumeRayCastFunction( rcf );
-  rcm->SetInputConnection( cast->GetOutputPort(0) );
+  rcm->SetInputConnection( streamer->GetOutputPort(0) );
 
  // actor
  vtkSmartPointer<vtkVolume> vol = vtkSmartPointer<vtkVolume>::New();
@@ -271,7 +282,6 @@ void ImageViewer::view_rf()
  its_ren_win->AddRenderer( ren );
 
  const double buffer = 1.2; // empty space around the image
- int* ext = vtk_rf_im->GetWholeExtent();
 
  vtk_rf_im->Print(cout);
 

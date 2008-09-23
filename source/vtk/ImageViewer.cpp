@@ -8,6 +8,7 @@ namespace bf = boost::filesystem;
 
 #include "vtkCamera.h"
 #include "vtkDataSetMapper.h"
+#include "vtkDataSetTriangleFilter.h"
 #include "vtkLookupTable.h"
 #include "vtkImageCast.h"
 #include "vtkImageData.h"
@@ -15,6 +16,7 @@ namespace bf = boost::filesystem;
 #include "vtkInteractorStyleImage.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 #include "vtkPiecewiseFunction.h"
+#include "vtkProjectedTetrahedraMapper.h"
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
@@ -22,8 +24,6 @@ namespace bf = boost::filesystem;
 #include "vtkStructuredGrid.h"
 #include "vtkVolume.h"
 #include "vtkVolumeProperty.h"
-#include "vtkVolumeRayCastMapper.h"
-#include "vtkVolumeRayCastCompositeFunction.h"
 
 
 #include "vtk/vtkVisualSonicsReader.h"
@@ -210,14 +210,14 @@ void ImageViewer::view_saturation()
 void ImageViewer::view_rf()
 {
 
-  vtkSmartPointer<vtkImageMathematics> abs = vtkSmartPointer<vtkImageMathematics>::New();
-    abs->SetInputConnection( its_image_reader->GetOutputPort(5) );
-    abs->SetOperationToAbsoluteValue();
+  //vtkSmartPointer<vtkImageMathematics> abs = vtkSmartPointer<vtkImageMathematics>::New();
+    //abs->SetInputConnection( its_image_reader->GetOutputPort(5) );
+    //abs->SetOperationToAbsoluteValue();
 
-  vtkSmartPointer<vtkImageCast> cast  = vtkSmartPointer<vtkImageCast>::New();
-    cast->SetOutputScalarTypeToUnsignedShort();
-    cast->ClampOverflowOn();
-    cast->SetInputConnection( abs->GetOutputPort() );
+  //vtkSmartPointer<vtkImageCast> cast  = vtkSmartPointer<vtkImageCast>::New();
+    //cast->SetOutputScalarTypeToUnsignedShort();
+    //cast->ClampOverflowOn();
+    //cast->SetInputConnection( abs->GetOutputPort() );
 
   //vtkSmartPointer<vtkImageMathematics> add = vtkSmartPointer<vtkImageMathematics>::New();
     //add->SetInputConnection( abs->GetOutputPort(0) );
@@ -229,7 +229,7 @@ void ImageViewer::view_rf()
     //log->SetOperationToLog();
 
  // get the output
- vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(5) );
+ vtkStructuredGrid* vtk_rf_im = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(2) );
  double rf_range[2];
  its_image_reader->GetScalarRange( rf_range );
  //double max = std::log( rf_range[1] );
@@ -253,15 +253,16 @@ void ImageViewer::view_rf()
 
 
  // mapper
- vtkSmartPointer<vtkVolumeRayCastCompositeFunction> rcf = vtkSmartPointer<vtkVolumeRayCastCompositeFunction>::New();
- vtkSmartPointer<vtkVolumeRayCastMapper> rcm = vtkSmartPointer<vtkVolumeRayCastMapper>::New();
-  rcm->SetVolumeRayCastFunction( rcf );
-  rcm->SetInputConnection( cast->GetOutputPort(0) );
+ vtkSmartPointer<vtkDataSetTriangleFilter> trif = vtkSmartPointer<vtkDataSetTriangleFilter>::New();
+  trif->SetInputConnection( its_image_reader->GetOutputPort(2) );
+
+  vtkSmartPointer<vtkProjectedTetrahedraMapper> ptm = vtkSmartPointer<vtkProjectedTetrahedraMapper>::New();
+    ptm->SetInputConnection( trif->GetOutputPort() );
+
 
  // actor
  vtkSmartPointer<vtkVolume> vol = vtkSmartPointer<vtkVolume>::New();
-   vol->SetMapper( rcm );
-   vol->RotateZ( -90.0 ); // to account for the different between the C/Fortran ordering
+   vol->SetMapper( ptm );
    vol->SetProperty( vol_prop );
 
  // renderer

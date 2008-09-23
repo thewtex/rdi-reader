@@ -9,6 +9,7 @@ namespace bf = boost::filesystem;
 #include "vtkCamera.h"
 #include "vtkDataSetMapper.h"
 #include "vtkLookupTable.h"
+#include "vtkImageCast.h"
 #include "vtkImageData.h"
 #include "vtkImageMathematics.h"
 #include "vtkInteractorStyleImage.h"
@@ -213,46 +214,55 @@ void ImageViewer::view_rf()
     abs->SetInputConnection( its_image_reader->GetOutputPort(5) );
     abs->SetOperationToAbsoluteValue();
 
-  vtkSmartPointer<vtkImageMathematics> add = vtkSmartPointer<vtkImageMathematics>::New();
-    add->SetInputConnection( abs->GetOutputPort(0) );
-    add->SetOperationToAddConstant();
-    add->SetConstantC( 1.0 );
+  vtkSmartPointer<vtkImageCast> cast  = vtkSmartPointer<vtkImageCast>::New();
+    cast->SetOutputScalarTypeToUnsignedShort();
+    cast->ClampOverflowOn();
+    cast->SetInputConnection( abs->GetOutputPort() );
 
-  vtkSmartPointer<vtkImageMathematics> log = vtkSmartPointer<vtkImageMathematics>::New();
-    log->SetInputConnection( add->GetOutputPort(0) );
-    log->SetOperationToLog();
+  //vtkSmartPointer<vtkImageMathematics> add = vtkSmartPointer<vtkImageMathematics>::New();
+    //add->SetInputConnection( abs->GetOutputPort(0) );
+    //add->SetOperationToAddConstant();
+    //add->SetConstantC( 1.0 );
+
+  //vtkSmartPointer<vtkImageMathematics> log = vtkSmartPointer<vtkImageMathematics>::New();
+    //log->SetInputConnection( add->GetOutputPort(0) );
+    //log->SetOperationToLog();
 
  // get the output
  vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(5) );
  double rf_range[2];
  its_image_reader->GetScalarRange( rf_range );
- double max = std::log( rf_range[1] );
+ //double max = std::log( rf_range[1] );
+ double max = rf_range[1]/4.0;
 
 
  // opacity transfer, color transfer
  vtkSmartPointer<vtkPiecewiseFunction> opacityTransferFunction = vtkSmartPointer<vtkPiecewiseFunction>::New();
-  opacityTransferFunction->AddPoint( max/2.0, 0.0 );
-  opacityTransferFunction->AddPoint( max,     0.2 );
+  opacityTransferFunction->AddPoint( 0.0,  0.0 );
+  opacityTransferFunction->AddPoint( max/3.0,     1.0 );
+
 
  vtkSmartPointer<vtkPiecewiseFunction> colorTransferFunction = vtkSmartPointer<vtkPiecewiseFunction>::New();
-  colorTransferFunction->AddPoint( max/2.0, 0.0 );
+  colorTransferFunction->AddPoint( 0.0,  0.0 );
   colorTransferFunction->AddPoint( max,     1.0 );
 
  vtkSmartPointer<vtkVolumeProperty> vol_prop = vtkSmartPointer<vtkVolumeProperty>::New();
   vol_prop->SetColor( colorTransferFunction );
   vol_prop->SetScalarOpacity( opacityTransferFunction );
+  vol_prop->ShadeOn();
 
 
  // mapper
  vtkSmartPointer<vtkVolumeRayCastCompositeFunction> rcf = vtkSmartPointer<vtkVolumeRayCastCompositeFunction>::New();
  vtkSmartPointer<vtkVolumeRayCastMapper> rcm = vtkSmartPointer<vtkVolumeRayCastMapper>::New();
   rcm->SetVolumeRayCastFunction( rcf );
-  rcm->SetInputConnection( log->GetOutputPort(0) );
+  rcm->SetInputConnection( cast->GetOutputPort(0) );
 
  // actor
  vtkSmartPointer<vtkVolume> vol = vtkSmartPointer<vtkVolume>::New();
    vol->SetMapper( rcm );
    vol->RotateZ( -90.0 ); // to account for the different between the C/Fortran ordering
+   vol->SetProperty( vol_prop );
 
  // renderer
  vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();
@@ -272,11 +282,13 @@ void ImageViewer::view_rf()
  // adjust camera
  ren->Render();
  vtkCamera* cam = ren->GetActiveCamera();
- cam->Zoom(1.7);
- cam->Elevation( 15.0 );
- cam->Azimuth( 15.0 );
- ren->ResetCameraClippingRange();
+   cam->Zoom(1.0);
+   cam->Elevation( 15.0 );
+   cam->Azimuth( 15.0 );
+   ren->ResetCameraClippingRange();
 
+ its_ren_win->SetSize( static_cast<int>( (ext[1]-ext[0])*buffer ),
+     static_cast<int>( (ext[1]-ext[0])*buffer ) );
  // interactor
  its_iren->SetInteractorStyle( its_interactor_style_trackball );
  its_iren->Initialize();

@@ -217,8 +217,21 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::VisualSonicsTransfor
     }
   }
 
-
   its_sample_delta = static_cast<CoordT>(rpd->its_rf_mode_rx_v_digi_depth_imaging / its_image_rows);
+
+  for(unsigned int i = 0; i < its_image_cols; i++)
+  {
+    its_col_cos[i] = std::cos( its_encoder_positions[i] / its_pivot_to_encoder_dist );
+    its_col_sin[i] = std::sin( its_encoder_positions[i] / its_pivot_to_encoder_dist );
+
+    its_theta[i] = its_encoder_positions[i] / its_pivot_to_encoder_dist ;
+  }
+
+  for(unsigned int i = 0; i < its_image_rows; i++)
+  {
+    its_r[i] = its_pivot_to_xdcr_dist + i*its_sample_delta;
+  }
+
 
 
   if (!output_roi)
@@ -277,21 +290,6 @@ VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::~VisualSonicsTransfo
 template <class ImageDataInT, class ImageDataOutT, class CoordT>
 void VisualSonicsTransform<ImageDataInT, ImageDataOutT, CoordT>::calc_coords()
 {
-
-  for(unsigned int i = 0; i < its_image_cols; i++)
-  {
-    its_col_cos[i] = std::cos( its_encoder_positions[i] / its_pivot_to_encoder_dist );
-    its_col_sin[i] = std::sin( its_encoder_positions[i] / its_pivot_to_encoder_dist );
-
-    its_theta[i] = its_encoder_positions[i] / its_pivot_to_encoder_dist ;
-  }
-
-  for(unsigned int i = 0; i < its_image_rows; i++)
-  {
-    its_r[i] = its_pivot_to_xdcr_dist + i*its_sample_delta;
-  }
-
-
   its_image_x.resize( its_image_cols * its_image_rows );
   its_image_y.resize( its_image_cols * its_image_rows );
 

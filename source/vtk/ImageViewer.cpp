@@ -1,5 +1,6 @@
 #include "ImageViewer.h"
 
+#include <cmath> // log
 
 #include <boost/filesystem/convenience.hpp>
 namespace bf = boost::filesystem;
@@ -93,51 +94,46 @@ void ImageViewer::view_b_mode()
 {
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
- dsm->SetColorModeToMapScalars();
- dsm->SetScalarModeToUsePointData();
- dsm->SetInputConnection( its_image_reader->GetOutputPort(3) );
- dsm->Update();
+   dsm->SetColorModeToMapScalars();
+   dsm->SetScalarModeToUsePointData();
+   dsm->SetInputConnection( its_image_reader->GetOutputPort(0) );
+   dsm->Update();
 
  // get the output
- //vtkStructuredGrid* vtk_b_mode_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(0) );
- //! @todo check the b-mode and saturation ImageData output
- //vtkImageData* vtk_b_mode_sg = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(3) );
- vtkStructuredGrid* vtk_b_mode_sgtmp = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(0) );
- double* b_mode_range = vtk_b_mode_sgtmp->GetScalarRange();
+ vtkStructuredGrid* vtk_b_mode_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(0) );
+   double* b_mode_range = vtk_b_mode_sg->GetScalarRange();
+   dsm->SetScalarRange( b_mode_range[0], b_mode_range[1] );
 
- // Lookup Table
+ // lookup table
  vtkSmartPointer<vtkLookupTable> lut = vtkSmartPointer<vtkLookupTable>::New();
- lut->SetNumberOfColors(65536);
- lut->SetHueRange(0.0, 1.0);
- lut->SetSaturationRange( 0.0, 0.0);
- lut->SetValueRange( 0.0, 1.0 );
-
- dsm->SetLookupTable(lut);
- dsm->SetScalarRange( b_mode_range[0], b_mode_range[1] );
+   lut->SetNumberOfColors(65536);
+   lut->SetHueRange(0.0, 1.0);
+   lut->SetSaturationRange( 0.0, 0.0);
+   lut->SetValueRange( 0.0, 1.0 );
+   dsm->SetLookupTable(lut);
 
  // actor
  vtkSmartPointer<vtkActor> pda = vtkSmartPointer<vtkActor>::New();
- pda->SetMapper( dsm );
+   pda->SetMapper( dsm );
 
  // renderer
  vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();
- ren->SetBackground( its_background_color_red, its_background_color_green, its_background_color_blue   );
- ren->AddViewProp( pda );
- its_ren_win->AddRenderer( ren );
+   ren->SetBackground( its_background_color_red, its_background_color_green, its_background_color_blue   );
+   ren->AddViewProp( pda );
+   its_ren_win->AddRenderer( ren );
 
- //// adjust camera location ( otherwise includes y=0 be included by default )
- //double* bounds = vtk_b_mode_sg->GetBounds();
- //double* first = vtk_b_mode_sg->GetPoints()->GetPoint(0);
- //double center_y = (bounds[2] + first[1])/2.0;
- //double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
+ // adjust camera location ( otherwise includes y=0 be included by default )
+ double* bounds = vtk_b_mode_sg->GetBounds();
+ double* first = vtk_b_mode_sg->GetPoints()->GetPoint(0);
+ double center_y = (bounds[2] + first[1])/2.0;
+ double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
+ vtkCamera* cam = ren->GetActiveCamera();
+   cam->SetFocalPoint( 0.0, center_y, 0.0 );
+   cam->SetPosition( 0.0, center_y, camdist );
+   cam->ComputeViewPlaneNormal();
 
- //vtkCamera* cam = ren->GetActiveCamera();
- //cam->SetFocalPoint( 0.0, center_y, 0.0 );
- //cam->SetPosition( 0.0, center_y, camdist );
- //cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
- //cam->ComputeViewPlaneNormal();
-
- //its_ren_win->SetSize( its_default_width, int( (first[1] - bounds[2])/(first[0]*-2.0) * its_default_width ) );
+ // resize window
+ its_ren_win->SetSize( its_default_width, int( (first[1] - bounds[2])/(first[0]*-2.0) * its_default_width ) );
 
  // interactor
  its_iren->SetInteractorStyle( its_interactor_style_image );
@@ -152,33 +148,33 @@ void ImageViewer::view_saturation()
 
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
- dsm->SetColorModeToMapScalars();
- dsm->SetScalarModeToUsePointData();
- dsm->SetInputConnection( its_image_reader->GetOutputPort(1) );
- dsm->Update();
+   dsm->SetColorModeToMapScalars();
+   dsm->SetScalarModeToUsePointData();
+   dsm->SetInputConnection( its_image_reader->GetOutputPort(1) );
+   dsm->Update();
+   dsm->SetScalarRange( 0.0, 1.0 );
 
  // get the output
  vtkStructuredGrid* vtk_saturation_sg = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(1) );
 
  // Lookup Table
  vtkSmartPointer<vtkLookupTable> lut = vtkSmartPointer<vtkLookupTable>::New();
- lut->SetNumberOfColors(2);
- lut->SetTableValue( 0, 0.0, 0.0, 0.0 );
- // we use the same colors the VisualSonics peeps use in their software
- lut->SetTableValue( 1, 0.0, 1.0, 1.0 );
+   lut->SetNumberOfColors(2);
+   lut->SetTableValue( 0, 0.0, 0.0, 0.0 );
+   // we use the same colors the VisualSonics peeps use in their software
+   lut->SetTableValue( 1, 0.0, 1.0, 1.0 );
+   dsm->SetLookupTable(lut);
 
- dsm->SetLookupTable(lut);
- dsm->SetScalarRange( 0.0, 1.0 );
 
  // actor
  vtkSmartPointer<vtkActor> pda = vtkSmartPointer<vtkActor>::New();
- pda->SetMapper( dsm );
+   pda->SetMapper( dsm );
 
  // renderer
  vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();
- ren->SetBackground( its_background_color_red, its_background_color_green, its_background_color_blue   );
- ren->AddViewProp( pda );
- its_ren_win->AddRenderer( ren );
+   ren->SetBackground( its_background_color_red, its_background_color_green, its_background_color_blue   );
+   ren->AddViewProp( pda );
+   its_ren_win->AddRenderer( ren );
 
  // adjust camera location ( otherwise includes y=0 be included by default )
  double* bounds = vtk_saturation_sg->GetBounds();
@@ -187,18 +183,18 @@ void ImageViewer::view_saturation()
  double camdist = ((first[1] - bounds[2]) / 0.57735)*1.2 ; // 0.57735 = tan(30 deg) = default ViewAngle
 
  vtkCamera* cam = ren->GetActiveCamera();
- cam->SetFocalPoint( 0.0, center_y, 0.0 );
- cam->SetPosition( 0.0, center_y, camdist );
- cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
- cam->ComputeViewPlaneNormal();
-
+   cam->SetFocalPoint( 0.0, center_y, 0.0 );
+   cam->SetPosition( 0.0, center_y, camdist );
+   cam->SetClippingRange( camdist - 1.0,  camdist + 1.0 );
+   cam->ComputeViewPlaneNormal();
+  
+ // resize window
  its_ren_win->SetSize( its_default_width, int( (first[1] - bounds[2])/(first[0]*-2.0) * its_default_width ) );
 
  // interactor
  its_iren->SetInteractorStyle( its_interactor_style_image );
  its_iren->Initialize();
  its_iren->Start();
-
 }
 
 
@@ -208,27 +204,24 @@ void ImageViewer::view_saturation()
 void ImageViewer::view_rf()
 {
 
- vtkSmartPointer<vtkImageMathematics> abs = vtkSmartPointer<vtkImageMathematics>::New();
-  abs->SetInputConnection( its_image_reader->GetOutputPort(5) );
-  abs->SetOperationToAbsoluteValue();
+  vtkSmartPointer<vtkImageMathematics> abs = vtkSmartPointer<vtkImageMathematics>::New();
+    abs->SetInputConnection( its_image_reader->GetOutputPort(5) );
+    abs->SetOperationToAbsoluteValue();
 
- vtkSmartPointer<vtkImageMathematics> add = vtkSmartPointer<vtkImageMathematics>::New();
-  add->SetInputConnection( abs->GetOutputPort(0) );
-  add->SetOperationToAddConstant();
-  add->SetConstantC( 1.0 );
+  vtkSmartPointer<vtkImageMathematics> add = vtkSmartPointer<vtkImageMathematics>::New();
+    add->SetInputConnection( abs->GetOutputPort(0) );
+    add->SetOperationToAddConstant();
+    add->SetConstantC( 1.0 );
 
- vtkSmartPointer<vtkImageMathematics> log = vtkSmartPointer<vtkImageMathematics>::New();
-  log->SetInputConnection( add->GetOutputPort(0) );
-  log->SetOperationToLog();
-  log->SetConstantC(0.0);
-  log->DivideByZeroToCOn();
+  vtkSmartPointer<vtkImageMathematics> log = vtkSmartPointer<vtkImageMathematics>::New();
+    log->SetInputConnection( add->GetOutputPort(0) );
+    log->SetOperationToLog();
 
 
  // mapper ( has internal GeometryFilter so output is PolyData )
  vtkSmartPointer<vtkDataSetMapper> dsm = vtkSmartPointer<vtkDataSetMapper>::New();
    dsm->SetColorModeToMapScalars();
    dsm->SetScalarModeToUsePointData();
-   //dsm->SetInputConnection( its_image_reader->GetOutputPort(5) );
    dsm->SetInputConnection( log->GetOutputPort(0) );
    dsm->Update();
 
@@ -245,10 +238,9 @@ void ImageViewer::view_rf()
  dsm->SetLookupTable(lut);
  double rf_range[2];
  its_image_reader->GetScalarRange( rf_range );
- //dsm->SetScalarRange( rf_range[0], rf_range[1] );
- //dsm->SetScalarRange( 0.0, rf_range[1] / 6.0 );
- double max = std::log(rf_range[1]);
- dsm->SetScalarRange( 0.0, max  );
+ double max = std::log( rf_range[1] );
+ //! @todo get the right range
+ dsm->SetScalarRange( max/2.0,  max );
 
  // actor
  vtkSmartPointer<vtkActor> pda = vtkSmartPointer<vtkActor>::New();
@@ -261,24 +253,22 @@ void ImageViewer::view_rf()
  ren->AddViewProp( pda );
  its_ren_win->AddRenderer( ren );
 
- // adjust camera location ( otherwise includes y=0 be included by default )
- double buffer = 1.2; // how much larger the window view is than the image
+ const double buffer = 1.2; // empty space around the image
  int* ext = vtk_rf_im->GetWholeExtent();
- double* bounds = vtk_rf_im->GetBounds();
 
  vtk_rf_im->Print(cout);
 
+ // adjust window size
  its_ren_win->SetSize( static_cast<int>( (ext[3]-ext[2])*buffer ),
-     static_cast<int> ((ext[1]-ext[0])*buffer ) ) ;
+     static_cast<int>( (ext[1]-ext[0])*buffer ) );
 
+ // adjust camera
  ren->Render();
  vtkCamera* cam = ren->GetActiveCamera();
- //cam->SetFocalPoint(  (bounds[1] - bounds[0])/2.0, -1*(bounds[3] - bounds[2])/2.0,  0.0 );
- //cam->SetPosition( (bounds[1] - bounds[0])/2.0, -1*(bounds[3] - bounds[2])/4.0,  camdist );
- //cam->SetClippingRange( camdist - 5.0,  camdist + 5.0 );
- //cam->ComputeViewPlaneNormal();
- cam->Zoom( 2.0 );
- cam->Print(cout);
+ cam->Zoom(1.7);
+ cam->Elevation( 15.0 );
+ cam->Azimuth( 15.0 );
+ ren->ResetCameraClippingRange();
 
  // interactor
  its_iren->SetInteractorStyle( its_interactor_style_trackball );

@@ -35,6 +35,8 @@ namespace visual_sonics
     {
     public:
 
+      //! @name Constructors
+      //@{
       ImageReader( const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read);
       ImageReader( const bf::path& in_file_path, std::vector<unsigned int>&  frames_to_read, ReadMethod read_method, unsigned int specific_acquisition = 0);
 
@@ -42,18 +44,29 @@ namespace visual_sonics
       ImageReader( const bf::path& in_file_path );
 
       virtual ~ImageReader();
+      //@}
 
+
+      //! @name object parameters
+      //@{
       void set_in_file_path( const bf::path& ifp );
 
       //! whether or not to perform scan conversion during the read_*_image()
       void set_do_scan_conv( const bool& do_scan ) { its_do_scan_conv = do_scan; }
+      //@}
 
+
+      //! @name controlling execution
+      //@{
       virtual void read_b_mode_image();
       virtual void read_saturation_image();
       virtual bool read_rf_image();
+      //@}
 
 
 
+      //! @name b mode accessors
+      //@{
       //! get the actual b_mode_image data
       const std::vector<UInt16>& get_b_mode_image(){ return its_b_mode_image;}
       //! get the b mode image columns ( number of scan lines )
@@ -75,11 +88,13 @@ namespace visual_sonics
       //! get b_mode scan converted distance between rows
       CoordT get_b_mode_image_sc_delta_y(){ return its_scout_sc_delta_y; };
 
-
       UInt16 get_b_mode_max(){ return its_b_mode_max; }
       UInt16 get_b_mode_min(){ return its_b_mode_min; }
+      //@}
 
 
+      //! @name saturation accessors
+      //@{
       //! get the actual saturation image data
       const std::vector<bool>&  get_saturation_image(){ return its_saturation_image;}
       //! get the saturation image columns ( number of scan lines )
@@ -100,8 +115,11 @@ namespace visual_sonics
       CoordT get_saturation_image_sc_delta_x(){ return its_scout_sc_delta_x; };
       //! get saturation scan converted distance between rows
       CoordT get_saturation_image_sc_delta_y(){ return its_scout_sc_delta_y; };
+      //@}
 
 
+      //! @name rf accessors
+      //@{
       //! get the actual rf_image data
       const std::vector<Int16>&  get_rf_image(){ return its_rf_image;}
       //! get the rf image rows ( number of samples in a line )
@@ -129,9 +147,15 @@ namespace visual_sonics
 
       Int16 get_rf_max(){ return its_rf_max; }
       Int16 get_rf_min(){ return its_rf_min; }
+      //@}
 
 
     protected:
+      /** @name scout image properities
+       * the scout image is the file's b mode or saturation image
+       * which has different dimensions than the rf image
+       */
+      //@{
       //! if the scout window (scout window = b_mode and saturation image) coordinates have been calculated yet
       bool its_has_calc_scout_coords;
       //! number of rows in the b_mode or saturation scan converted image
@@ -146,7 +170,11 @@ namespace visual_sonics
       std::vector<CoordT> its_scout_image_x;
       //! b_mode or saturation  y coordinates
       std::vector<CoordT> its_scout_image_y;
+      //@}
 
+
+      //! @name b mode data
+      //@{
       //! scout window b-mode data.  data is stored sequentially by sample in a line, then by line
       std::vector<UInt16> its_b_mode_image;
       //! scout window b-mode data.  data is stored sequentially by sample in a line, then by line, scan converted
@@ -155,14 +183,20 @@ namespace visual_sonics
       UInt16 its_b_mode_max;
       //! min value in the b mode image
       UInt16 its_b_mode_min;
+      //@}
 
 
-      //! scout window b-mode data.  data is stored sequentially by sample in a line, then by line
+      //! @name saturation data
+      //@{
+      //! scout window saturation data.  data is stored sequentially by sample in a line, then by line
       std::vector<bool> its_saturation_image;
-      //! scout window b-mode data.  data is stored sequentially by sample in a line, then by line, scan converted
+      //! scout window saturation data.  data is stored sequentially by sample in a line, then by line, scan converted
       std::vector<bool> its_saturation_image_sc;
+      //@}
 
 
+      //! @name rf data
+      //@{
       //! scout window rf data.  data is stored sequentially by sample in a line, then by line
       std::vector<Int16> its_rf_image;
       //! scout window rf data.  data is stored sequentially by sample in a line, then by line, scan converted
@@ -183,8 +217,11 @@ namespace visual_sonics
       Int16 its_rf_max;
       //! min value in the rf image
       Int16 its_rf_min;
+      //@}
 
 
+      //! @name scan conversion objects
+      //@{
       //! whether or not to perform scan conversion during the read_*_image()
       bool its_do_scan_conv;
       //! performs scan conversion, etc
@@ -193,6 +230,7 @@ namespace visual_sonics
       VisualSonicsTransform<bool, bool, CoordT>* its_saturation_vs_transform;
       //! performs scan conversion, etc
       VisualSonicsTransform<Int16, ImageDataOutT, CoordT>* its_rf_vs_transform;
+      //@}
 
     private:
 

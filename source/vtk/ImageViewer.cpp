@@ -63,7 +63,6 @@ ImageViewer::ImageViewer( const bf::path& in_file_path, ReadMethod read_method, 
     its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
     its_image_reader->SetReadMethod( read_method );
     its_image_reader->SetSpecificAcquisition( specific_acquisition );
-    its_image_reader->DebugOn(); // for testing
   its_ren_win = vtkRenderWindow::New();
   its_interactor_style_image = vtkInteractorStyleImage::New();
   its_interactor_style_trackball = vtkInteractorStyleTrackballCamera::New();
@@ -77,7 +76,6 @@ ImageViewer::ImageViewer( const bf::path& in_file_path )
 {
   its_image_reader = vtkVisualSonicsReader::New();
     its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
-    its_image_reader->DebugOn(); // for testing
   its_ren_win = vtkRenderWindow::New();
   its_interactor_style_image = vtkInteractorStyleImage::New();
   its_interactor_style_trackball = vtkInteractorStyleTrackballCamera::New();
@@ -226,7 +224,7 @@ void ImageViewer::view_rf()
     streamer->UpdateInformation();
      vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(5) );
      int* ext = vtk_rf_im->GetWholeExtent();
-    int div  = (ext[5] - ext[4] + 1) / 1  ;
+    int div  = (ext[5] - ext[4] + 1) / 2  ;
     streamer->SetNumberOfStreamDivisions( div );
     vtkExtentTranslator* vet = streamer->GetExtentTranslator();
     vet->SetSplitModeToZSlab();
@@ -282,8 +280,6 @@ void ImageViewer::view_rf()
  its_ren_win->AddRenderer( ren );
 
  const double buffer = 1.2; // empty space around the image
-
- vtk_rf_im->Print(cout);
 
  // adjust window size
  its_ren_win->SetSize( static_cast<int>( (ext[3]-ext[2])*buffer ),

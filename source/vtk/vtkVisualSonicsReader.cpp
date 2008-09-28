@@ -550,10 +550,6 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   if (!vtk_rf_image_sc)
     return 0;
 
-  // tmp
-  vtk_rf_image_raw->Print(cout);
-  vtk_rf_image_sc->Print(cout);
-
   //---------- determine which frames need to be updated
   int* raw_update_extent = vtk_rf_image_raw->GetUpdateExtent();
   int* sc_update_extent = vtk_rf_image_sc->GetUpdateExtent();

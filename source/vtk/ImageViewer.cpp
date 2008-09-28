@@ -15,8 +15,9 @@ namespace bf = boost::filesystem;
 #include "vtkImageMathematics.h"
 #include "vtkInteractorStyleImage.h"
 #include "vtkInteractorStyleTrackballCamera.h"
+#include "vtkOpenGLHAVSVolumeMapper.h"
 #include "vtkPiecewiseFunction.h"
-#include "vtkProjectedTetrahedraMapper.h"
+//#include "vtkProjectedTetrahedraMapper.h"
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
@@ -229,7 +230,7 @@ void ImageViewer::view_rf()
     //log->SetOperationToLog();
 
  // get the output
- vtkStructuredGrid* vtk_rf_im = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(2) );
+ //vtkStructuredGrid* vtk_rf_im = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(2) );
  double rf_range[2];
  its_image_reader->GetScalarRange( rf_range );
  //double max = std::log( rf_range[1] );
@@ -256,7 +257,8 @@ void ImageViewer::view_rf()
  vtkSmartPointer<vtkDataSetTriangleFilter> trif = vtkSmartPointer<vtkDataSetTriangleFilter>::New();
   trif->SetInputConnection( its_image_reader->GetOutputPort(2) );
 
-  vtkSmartPointer<vtkProjectedTetrahedraMapper> ptm = vtkSmartPointer<vtkProjectedTetrahedraMapper>::New();
+  vtkSmartPointer<vtkOpenGLHAVSVolumeMapper> ptm = vtkSmartPointer<vtkOpenGLHAVSVolumeMapper>::New();
+    ptm->SetGPUDataStructures( true );
     ptm->SetInputConnection( trif->GetOutputPort() );
 
 
@@ -271,14 +273,14 @@ void ImageViewer::view_rf()
  ren->AddViewProp( vol );
  its_ren_win->AddRenderer( ren );
 
- const double buffer = 1.2; // empty space around the image
- int* ext = vtk_rf_im->GetWholeExtent();
+ //const double buffer = 1.2; // empty space around the image
+ //int* ext = vtk_rf_im->GetWholeExtent();
 
- vtk_rf_im->Print(cout);
+ //vtk_rf_im->Print(cout);
 
- // adjust window size
- its_ren_win->SetSize( static_cast<int>( (ext[3]-ext[2])*buffer ),
-     static_cast<int>( (ext[1]-ext[0])*buffer ) );
+ //// adjust window size
+ //its_ren_win->SetSize( static_cast<int>( (ext[3]-ext[2])*buffer ),
+     //static_cast<int>( (ext[1]-ext[0])*buffer ) );
 
  // adjust camera
  ren->Render();
@@ -288,8 +290,8 @@ void ImageViewer::view_rf()
    cam->Azimuth( 15.0 );
    ren->ResetCameraClippingRange();
 
- its_ren_win->SetSize( static_cast<int>( (ext[1]-ext[0])*buffer ),
-     static_cast<int>( (ext[1]-ext[0])*buffer ) );
+ //its_ren_win->SetSize( static_cast<int>( (ext[1]-ext[0])*buffer ),
+     //static_cast<int>( (ext[1]-ext[0])*buffer ) );
  // interactor
  its_iren->SetInteractorStyle( its_interactor_style_trackball );
  its_iren->Initialize();

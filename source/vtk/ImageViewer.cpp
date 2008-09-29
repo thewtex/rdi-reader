@@ -8,11 +8,12 @@ namespace bf = boost::filesystem;
 
 #include "vtkCamera.h"
 #include "vtkDataSetMapper.h"
-#include "vtkDataSetTriangleFilter.h"
+#include "vtkExtentTranslator.h"
 #include "vtkLookupTable.h"
 #include "vtkImageCast.h"
 #include "vtkImageData.h"
 #include "vtkImageMathematics.h"
+#include "vtkImageDataStreamer.h"
 #include "vtkInteractorStyleImage.h"
 #include "vtkInteractorStyleTrackballCamera.h"
 #include "vtkOpenGLHAVSVolumeMapper.h"
@@ -62,7 +63,6 @@ ImageViewer::ImageViewer( const bf::path& in_file_path, ReadMethod read_method, 
     its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
     its_image_reader->SetReadMethod( read_method );
     its_image_reader->SetSpecificAcquisition( specific_acquisition );
-    its_image_reader->DebugOn(); // for testing
   its_ren_win = vtkRenderWindow::New();
   its_interactor_style_image = vtkInteractorStyleImage::New();
   its_interactor_style_trackball = vtkInteractorStyleTrackballCamera::New();
@@ -76,7 +76,6 @@ ImageViewer::ImageViewer( const bf::path& in_file_path )
 {
   its_image_reader = vtkVisualSonicsReader::New();
     its_image_reader->SetFilePrefix( in_file_path.native_file_string().c_str() );
-    its_image_reader->DebugOn(); // for testing
   its_ren_win = vtkRenderWindow::New();
   its_interactor_style_image = vtkInteractorStyleImage::New();
   its_interactor_style_trackball = vtkInteractorStyleTrackballCamera::New();
@@ -220,6 +219,16 @@ void ImageViewer::view_rf()
     //cast->ClampOverflowOn();
     //cast->SetInputConnection( abs->GetOutputPort() );
 
+  vtkSmartPointer<vtkImageDataStreamer> streamer = vtkSmartPointer<vtkImageDataStreamer>::New();
+    streamer->SetInputConnection( cast->GetOutputPort() );
+    streamer->UpdateInformation();
+     vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(5) );
+     int* ext = vtk_rf_im->GetWholeExtent();
+    int div  = (ext[5] - ext[4] + 1) / 2  ;
+    streamer->SetNumberOfStreamDivisions( div );
+    vtkExtentTranslator* vet = streamer->GetExtentTranslator();
+    vet->SetSplitModeToZSlab();
+
   //vtkSmartPointer<vtkImageMathematics> add = vtkSmartPointer<vtkImageMathematics>::New();
     //add->SetInputConnection( abs->GetOutputPort(0) );
     //add->SetOperationToAddConstant();
@@ -230,7 +239,7 @@ void ImageViewer::view_rf()
     //log->SetOperationToLog();
 
  // get the output
- //vtkStructuredGrid* vtk_rf_im = vtkStructuredGrid::SafeDownCast( its_image_reader->GetOutputDataObject(2) );
+ vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(5) );
  double rf_range[2];
  its_image_reader->GetScalarRange( rf_range );
  //double max = std::log( rf_range[1] );
@@ -274,9 +283,6 @@ void ImageViewer::view_rf()
  its_ren_win->AddRenderer( ren );
 
  //const double buffer = 1.2; // empty space around the image
- //int* ext = vtk_rf_im->GetWholeExtent();
-
- //vtk_rf_im->Print(cout);
 
  //// adjust window size
  //its_ren_win->SetSize( static_cast<int>( (ext[3]-ext[2])*buffer ),

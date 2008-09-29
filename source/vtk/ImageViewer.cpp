@@ -16,9 +16,7 @@ namespace bf = boost::filesystem;
 #include "vtkImageDataStreamer.h"
 #include "vtkInteractorStyleImage.h"
 #include "vtkInteractorStyleTrackballCamera.h"
-#include "vtkOpenGLHAVSVolumeMapper.h"
 #include "vtkPiecewiseFunction.h"
-//#include "vtkProjectedTetrahedraMapper.h"
 #include "vtkRenderer.h"
 #include "vtkRenderWindow.h"
 #include "vtkRenderWindowInteractor.h"
@@ -26,6 +24,7 @@ namespace bf = boost::filesystem;
 #include "vtkStructuredGrid.h"
 #include "vtkVolume.h"
 #include "vtkVolumeProperty.h"
+#include "vtkVolumeTextureMapper2D.h"
 
 
 #include "vtk/vtkVisualSonicsReader.h"
@@ -210,21 +209,21 @@ void ImageViewer::view_saturation()
 void ImageViewer::view_rf()
 {
 
-  //vtkSmartPointer<vtkImageMathematics> abs = vtkSmartPointer<vtkImageMathematics>::New();
-    //abs->SetInputConnection( its_image_reader->GetOutputPort(5) );
-    //abs->SetOperationToAbsoluteValue();
+  vtkSmartPointer<vtkImageMathematics> abs = vtkSmartPointer<vtkImageMathematics>::New();
+    abs->SetInputConnection( its_image_reader->GetOutputPort(5) );
+    abs->SetOperationToAbsoluteValue();
 
-  //vtkSmartPointer<vtkImageCast> cast  = vtkSmartPointer<vtkImageCast>::New();
-    //cast->SetOutputScalarTypeToUnsignedShort();
-    //cast->ClampOverflowOn();
-    //cast->SetInputConnection( abs->GetOutputPort() );
+  vtkSmartPointer<vtkImageCast> cast  = vtkSmartPointer<vtkImageCast>::New();
+    cast->SetOutputScalarTypeToUnsignedShort();
+    cast->ClampOverflowOn();
+    cast->SetInputConnection( abs->GetOutputPort() );
 
   vtkSmartPointer<vtkImageDataStreamer> streamer = vtkSmartPointer<vtkImageDataStreamer>::New();
     streamer->SetInputConnection( cast->GetOutputPort() );
     streamer->UpdateInformation();
      vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(5) );
      int* ext = vtk_rf_im->GetWholeExtent();
-    int div  = (ext[5] - ext[4] + 1) / 2  ;
+    int div  = (ext[5] - ext[4] + 1) / 4  ;
     streamer->SetNumberOfStreamDivisions( div );
     vtkExtentTranslator* vet = streamer->GetExtentTranslator();
     vet->SetSplitModeToZSlab();
@@ -239,7 +238,6 @@ void ImageViewer::view_rf()
     //log->SetOperationToLog();
 
  // get the output
- vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( its_image_reader->GetOutputDataObject(5) );
  double rf_range[2];
  its_image_reader->GetScalarRange( rf_range );
  //double max = std::log( rf_range[1] );
@@ -263,18 +261,14 @@ void ImageViewer::view_rf()
 
 
  // mapper
- vtkSmartPointer<vtkDataSetTriangleFilter> trif = vtkSmartPointer<vtkDataSetTriangleFilter>::New();
-  trif->SetInputConnection( its_image_reader->GetOutputPort(2) );
-
-  vtkSmartPointer<vtkOpenGLHAVSVolumeMapper> ptm = vtkSmartPointer<vtkOpenGLHAVSVolumeMapper>::New();
-    ptm->SetGPUDataStructures( true );
-    ptm->SetInputConnection( trif->GetOutputPort() );
-
+ vtkSmartPointer<vtkVolumeTextureMapper2D> trif = vtkSmartPointer<vtkVolumeTextureMapper2D>::New();
+  trif->SetInputConnection( streamer->GetOutputPort(0) );
 
  // actor
  vtkSmartPointer<vtkVolume> vol = vtkSmartPointer<vtkVolume>::New();
-   vol->SetMapper( ptm );
+   vol->SetMapper( trif );
    vol->SetProperty( vol_prop );
+   vol->RotateZ( -90.0 );
 
  // renderer
  vtkSmartPointer<vtkRenderer> ren = vtkSmartPointer<vtkRenderer>::New();
@@ -282,7 +276,7 @@ void ImageViewer::view_rf()
  ren->AddViewProp( vol );
  its_ren_win->AddRenderer( ren );
 
- //const double buffer = 1.2; // empty space around the image
+ const double buffer = 1.2; // empty space around the image
 
  //// adjust window size
  //its_ren_win->SetSize( static_cast<int>( (ext[3]-ext[2])*buffer ),
@@ -296,8 +290,9 @@ void ImageViewer::view_rf()
    cam->Azimuth( 15.0 );
    ren->ResetCameraClippingRange();
 
- //its_ren_win->SetSize( static_cast<int>( (ext[1]-ext[0])*buffer ),
-     //static_cast<int>( (ext[1]-ext[0])*buffer ) );
+ its_ren_win->SetSize( static_cast<int>( (ext[1]-ext[0])*buffer ),
+     static_cast<int>( (ext[1]-ext[0])*buffer ) );
+
  // interactor
  its_iren->SetInteractorStyle( its_interactor_style_trackball );
  its_iren->Initialize();

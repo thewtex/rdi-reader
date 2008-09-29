@@ -24,7 +24,7 @@ namespace bf = boost::filesystem;
 #include "vtkStructuredGrid.h"
 #include "vtkVolume.h"
 #include "vtkVolumeProperty.h"
-#include "vtkVolumeTextureMapper2D.h"
+#include "vtkVolumeTextureMapper3D.h"
 
 
 #include "vtk/vtkVisualSonicsReader.h"
@@ -261,7 +261,7 @@ void ImageViewer::view_rf()
 
 
  // mapper
- vtkSmartPointer<vtkVolumeTextureMapper2D> trif = vtkSmartPointer<vtkVolumeTextureMapper2D>::New();
+ vtkSmartPointer<vtkVolumeTextureMapper3D> trif = vtkSmartPointer<vtkVolumeTextureMapper3D>::New();
   trif->SetInputConnection( streamer->GetOutputPort(0) );
 
  // actor

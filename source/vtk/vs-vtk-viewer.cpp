@@ -6,33 +6,41 @@
  *
  */
 
-#include <cstring> // strcmp
 #include <exception>
 #include <iostream>
+#include <map>
 #include <string>
 using namespace std;
+
+#include "vtkmetaio/metaCommand.h"
 
 #include "vtk/ImageViewer.h"
 using namespace visual_sonics::vtk;
 
 
+
 int main( int argc, char** argv )
 {
+
+  // command line parsing
+  typedef vtkmetaio::MetaCommand vtkmc;
+  vtkmc command;
+  initialize_target_map();
+
+  command.SetOption( "target", "t", false, "target aspect of the file to display" );
+  command.AddOptionField( "target", "target", vtkmc::STRING, true, "rf-bmode-volume", "bmode-scout, saturation-scout, rf-bmode-surface, or rf-bmode-volume");
+
+  command.AddField( "in_file", "infile filename", vtkmc::STRING, true );
+
+  command.SetDescription("command line application to view VisualSonics Digital RF files with VTK\n\npass one or more *.rdb or *.rdi files as arguments");
+  command.SetAuthor("Matt McCormick (thewtex)");
+
+  if( !command.Parse( argc, argv ) )
+      return 1;
+
+
   try
   {
-    // print help
-    if( argc == 1  ||  !strcmp( argv[1], "-h") || !strcmp(argv[1], "--help") )
-    {
-      cout << "command line application to view VisualSonics Digital RF files with VTK\n\n"
-      << "pass one or more *.rdb or *.rdi files as arguments" << std::endl;
-
-      if( argc == 1 )
-	return 1;
-      else
-      {
-        return 0;
-      }
-    }
 
     for( int i = 1; i < argc; i++ )
     {
@@ -55,5 +63,4 @@ int main( int argc, char** argv )
   return 0;
 
 };
-
 

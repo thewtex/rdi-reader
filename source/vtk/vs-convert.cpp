@@ -14,7 +14,12 @@ using namespace std;
 
 #include "vtkmetaio/metaCommand.h"
 
-using namespace visual_sonics::vtk;
+#include "vtkSmartPointer.h"
+#include "vtkStructuredGridWriter.h"
+
+#include "vtkVisualSonicsReader.h"
+//using namespace visual_sonics::vtk;
+
 
 
 
@@ -54,24 +59,28 @@ int main( int argc, char** argv )
     }
 
 
+  vtkSmartPointer<vtkVisualSonicsReader> vtk_vs_reader = vtkSmartPointer<vtkVisualSonicsReader>::New();
+  vtkSmartPointer<vtkStructuredGridWriter> sgw = vtkSmartPointer<vtkStructuredGridWriter>::New();
+  sgw->SetInputConnection( vtk_vs_reader->GetOutputPort(0) );
+  sgw->SetFileTypeToASCII();
 
   // nike
   try
   {
-    ImageViewer* vi = new ImageViewer( in_file );
+    vtk_vs_reader->SetFilePrefix( in_file.c_str() );
+    sgw->SetFileName( (in_file + ".vtk").c_str() );
+    sgw->Update();
 
     std::string target = command.GetValueAsString( "target" );
-    if     ( target == "rf-bmode-volume" )
-      vi->view_rf();
-    else if( target == "rf-bmode-surface");
-      //vi->view_rf_surface();
-    else if( target == "bmode-scout" )
-      vi->view_b_mode();
-    else if( target == "saturation-scout" )
-      vi->view_saturation();
+    //if     ( target == "rf-bmode-volume" )
+      //vi->view_rf();
+    //else if( target == "rf-bmode-surface");
+      ////vi->view_rf_surface();
+    //else if( target == "bmode-scout" )
+      //vi->view_b_mode();
+    //else if( target == "saturation-scout" )
+      //vi->view_saturation();
 
-    // oh the horror
-    delete vi;
   }
   catch ( std::exception& e )
   {

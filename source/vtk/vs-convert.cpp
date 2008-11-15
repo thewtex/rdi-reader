@@ -1,5 +1,5 @@
-/*! @file  vs-vtk-viewer.cpp
- *  @brief command line application to view VisualSonics Digital RF files with VTK
+/*! @file  vs-convert.cpp
+ *  @brief command line application to VisualSonics Digital RF files to various other formats with VTK
  *
  *  @author Matt McCormick (thewtex) <matt@mmmccormick.com>
  *  @date   2008 June 18
@@ -14,7 +14,6 @@ using namespace std;
 
 #include "vtkmetaio/metaCommand.h"
 
-#include "vtk/ImageViewer.h"
 using namespace visual_sonics::vtk;
 
 
@@ -30,8 +29,9 @@ int main( int argc, char** argv )
   command.AddOptionField( "target", "target", vtkmc::STRING, true, "rf-bmode-volume", "bmode-scout, saturation-scout, rf-bmode-surface, or rf-bmode-volume");
 
   command.AddField( "in_file", "Prefix of the .rdi/.rdb set of Visual Sonics raw files that should be in the same directory.", vtkmc::STRING, true );
+  command.AddField( "out_file", "Output file name.  Extension determines output format.", vtkmc::STRING, true );
 
-  command.SetDescription("command line application to view VisualSonics Digital RF files with VTK\n\npass one or more *.rdb or *.rdi files as arguments");
+  command.SetDescription("command line application to convert VisualSonics Digital RF files with VTK\n\npass one or more *.rdb or *.rdi files as arguments");
   command.SetAuthor("Matt McCormick (thewtex)");
 
   if( !command.Parse( argc, argv ) || !command.GetOptionWasSet("in_file") )

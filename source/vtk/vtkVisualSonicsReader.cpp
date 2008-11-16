@@ -16,7 +16,6 @@ namespace bf = boost::filesystem;
 #include "vtkSmartPointer.h"
 #include "vtkStreamingDemandDrivenPipeline.h"
 #include "vtkStructuredGrid.h"
-#include "vtkUnsignedCharArray.h"
 #include "vtkUnsignedShortArray.h"
 
 

@@ -130,11 +130,11 @@ rdiParserData rdiParser::parse()
 		    bs::str_p("RF-Mode/BModeSoft/Refresh-Rate") >> bs::ch_p(',') >>
 		    bs::real_p[ bs::assign_a( its_rpd->its_rf_mode_bmodesoft_refresh_rate) ] >> bs::ch_p(',') >>
 		    bs::str_p("frames/sec") >> bs::eol_p >>
-		  
+
 		  *( yada_line_p ^ bs::str_p("RF-Mode/ActiveProbe/Name") ) >>
-		    bs::str_p("RF-Mode/ActiveProbe/Name") >> bs::ch_p(',') >> 
-		    *(bs::anychar_p[ bs::push_back_a(its_rpd->its_rf_mode_activeprobe_name) ] ^ bs::eol_p) >> 
-		    bs::eol_p >> 
+		    bs::str_p("RF-Mode/ActiveProbe/Name") >> bs::ch_p(',') >>
+		    *(bs::anychar_p[ bs::push_back_a(its_rpd->its_rf_mode_activeprobe_name) ] ^ bs::eol_p) >>
+		    bs::eol_p >>
 
 		  *( yada_line_p ^ bs::str_p("RF-Mode/RX/AD-Gate-Width") ) >>
 		    bs::str_p("RF-Mode/RX/AD-Gate-Width") >> bs::ch_p(',') >>

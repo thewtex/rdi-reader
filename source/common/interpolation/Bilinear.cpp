@@ -29,9 +29,9 @@ ImageDataT Bilinear<ImageDataT, CoordT>::interpolate()
   ImageDataT interp_x_top = 1.0/(this->its_x_vals[rt] - this->its_x_vals[lt])*( this->its_data[lt] *( this->its_x_vals[rt] - this->its_x_pos) + this->its_data[rt]*( this->its_x_pos - this->its_x_vals[lt] ) );
 
 #ifndef NDEBUG
-  if( !( (this->its_x_pos > this->its_x_vals[lb] || this->its_x_pos > this->its_x_vals[lt]) 
-	&& (this->its_x_pos < this->its_x_vals[rb] || this->its_x_pos < this->its_x_vals[rt]) ) 
-      && !( (this->its_y_pos < this->its_y_vals[lb] || this->its_y_pos < this->its_y_vals[rb]) 
+  if( !( (this->its_x_pos > this->its_x_vals[lb] || this->its_x_pos > this->its_x_vals[lt])
+	&& (this->its_x_pos < this->its_x_vals[rb] || this->its_x_pos < this->its_x_vals[rt]) )
+      && !( (this->its_y_pos < this->its_y_vals[lb] || this->its_y_pos < this->its_y_vals[rb])
 	&& ( this->its_y_pos > this->its_y_vals[lt] || this->its_y_pos > this->its_y_vals[rt])) )
   {
     throw std::out_of_range( " interpolation cell not chosen correctly " );

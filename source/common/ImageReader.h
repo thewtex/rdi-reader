@@ -245,14 +245,14 @@ namespace visual_sonics
 
 
 template<class ImageDataOutT, class CoordT>
-inline 
+inline
 CoordT visual_sonics::cxx::ImageReader<ImageDataOutT,CoordT>::get_rf_image_delta_z()
 {
   double scan_distance = this->its_metadata_reader->its_rpd->its_rf_mode_3d_scan_distance ;
 
   if( scan_distance != 0.0 )
   {
-    return scan_distance / 
+    return scan_distance /
       static_cast< CoordT >( this->its_metadata_reader->its_rpd->its_image_frames );
   }
   //arbitrary
@@ -262,11 +262,11 @@ CoordT visual_sonics::cxx::ImageReader<ImageDataOutT,CoordT>::get_rf_image_delta
 
 
 template<class ImageDataOutT, class CoordT>
-inline 
+inline
 unsigned int visual_sonics::cxx::ImageReader<ImageDataOutT, CoordT>::get_rf_image_frames()
 {
   return static_cast< unsigned int >( this->its_frames_to_read.size() );
 }
-  
+
 #endif // CXX_IMAGEREADER_H
 

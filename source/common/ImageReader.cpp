@@ -65,7 +65,7 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std
 										      false
 										      );
 
-  // we read in the first frame so that metadata such as the scan converted rows and columns areo  // initialized and can be probed 
+  // we read in the first frame so that metadata such as the scan converted rows and columns areo  // initialized and can be probed
   this->read_saturation_image(); // saturation image and b_mode image have the same geometry
   this->read_rf_image();
   its_frames_to_read_index = its_frames_to_read.begin();
@@ -118,7 +118,7 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path, std
 										      false
 										      );
 
-  // we read in the first frame so that metadata such as the scan converted rows and columns areo  // initialized and can be probed 
+  // we read in the first frame so that metadata such as the scan converted rows and columns areo  // initialized and can be probed
   this->read_saturation_image(); // saturation image and b_mode image have the same geometry
   this->read_rf_image();
   its_frames_to_read_index = its_frames_to_read.begin();
@@ -169,8 +169,8 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader( const bf::path& in_file_path, Re
 										      this->get_rpd(),
 										      false
 										      );
-  
-  // we read in the first frame so that metadata such as the scan converted rows and columns areo  // initialized and can be probed 
+
+  // we read in the first frame so that metadata such as the scan converted rows and columns areo  // initialized and can be probed
   this->read_saturation_image(); // saturation image and b_mode image have the same geometry
   this->read_rf_image();
   its_frames_to_read_index = its_frames_to_read.begin();
@@ -222,7 +222,7 @@ ImageReader<ImageDataOutT,CoordT>::ImageReader(const bf::path& in_file_path ):
 										      false
 										      );
 
-  // we read in the first frame so that metadata such as the scan converted rows and columns areo  // initialized and can be probed 
+  // we read in the first frame so that metadata such as the scan converted rows and columns areo  // initialized and can be probed
   this->read_saturation_image(); // saturation image and b_mode image have the same geometry
   this->read_rf_image();
   its_frames_to_read_index = its_frames_to_read.begin();
@@ -249,13 +249,13 @@ void ImageReader<ImageDataOutT,CoordT>::set_in_file_path( const bf::path& ifp )
   its_do_scan_conv = true;
   its_rf_min = 32767;
   its_rf_max = -32678;
-  // we read in the first frame so that metadata such as the scan converted rows and columns areo  // initialized and can be probed 
+  // we read in the first frame so that metadata such as the scan converted rows and columns areo  // initialized and can be probed
   this->read_saturation_image(); // saturation image and b_mode image have the same geometry
   this->read_rf_image();
   its_frames_to_read_index = its_frames_to_read.begin();
     its_do_scan_conv = do_scan_conv_tmp;
 }
-  
+
 
 
 template<class ImageDataOutT, class CoordT>
@@ -300,9 +300,9 @@ void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
     // prepare for transformation
     its_scout_image_x.resize(samples_per_line * num_lines);
     its_scout_image_y.resize(samples_per_line * num_lines);
-  
+
     its_b_mode_vs_transform->set_outside_bounds_value( its_b_mode_min );
-  
+
     if( !its_has_calc_scout_coords )
     {
       its_b_mode_vs_transform->set_do_calc_coords( true );
@@ -312,7 +312,7 @@ void ImageReader<ImageDataOutT,CoordT>::read_b_mode_image()
     {
       its_b_mode_vs_transform->set_do_calc_coords( false );
     }
-  
+
     its_b_mode_vs_transform->transform();
   }
 
@@ -368,9 +368,9 @@ void ImageReader<ImageDataOutT,CoordT>::read_saturation_image()
     // prepare for transformation
     its_scout_image_x.resize(samples_per_line * num_lines);
     its_scout_image_y.resize(samples_per_line * num_lines);
-  
+
     its_saturation_vs_transform->set_outside_bounds_value( 0 );
-  
+
     if( !its_has_calc_scout_coords )
     {
       its_saturation_vs_transform->set_do_calc_coords( true );
@@ -380,7 +380,7 @@ void ImageReader<ImageDataOutT,CoordT>::read_saturation_image()
     {
       its_saturation_vs_transform->set_do_calc_coords( false );
     }
-  
+
     its_saturation_vs_transform->transform();
   }
 
@@ -433,7 +433,7 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
     {
       rdb_file.seekg( skip_amount, std::ios::cur );
     }
-  
+
     char * short_data = new char[ sizeof( Int16 ) ];
     Int16 * short_data_p = reinterpret_cast< Int16 *> (short_data);
     for( unsigned int i = 0; i < num_lines; i++)
@@ -454,7 +454,7 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
   Int16 max = *std::max_element( its_rf_image.begin(), its_rf_image.end() );
   if( max > its_rf_max )
     its_rf_max = max;
-  Int16 min = *std::min_element( its_rf_image.begin(), its_rf_image.end() ); 
+  Int16 min = *std::min_element( its_rf_image.begin(), its_rf_image.end() );
   if( min < its_rf_min )
     its_rf_min = min;
 
@@ -469,16 +469,16 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
     {
       its_rf_image_x.resize(samples_per_line * num_lines);
       its_rf_image_y.resize(samples_per_line * num_lines);
-    
+
       its_rf_vs_transform->set_outside_bounds_value( 0 );
-  
+
       its_rf_vs_transform->set_do_calc_coords( true );
     }
     else
     {
       its_rf_vs_transform->set_do_calc_coords( false );
     }
-  
+
     its_rf_vs_transform->transform();
   }
 

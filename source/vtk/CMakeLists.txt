@@ -28,6 +28,7 @@ link_directories( ${VTK_LIBRARY_DIRS} )
 # .rdi/.rdb files
 set( vs-vtk-viewer_srcs ${base_srcs}
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vtkVisualSonicsReader.cpp
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vtkUnsafeStructuredGridToImage.cpp
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/ImageViewer.cpp
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vs-vtk-viewer.cpp
   )

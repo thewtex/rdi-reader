@@ -36,11 +36,6 @@ protected:
   //! define what the outputs are
   virtual int FillOutputPortInformation( int, vtkInformation* );
 
-  //! specifies information about the output, dimensions, etc
-  virtual int RequestInformation(vtkInformation*,
-      vtkInformationVector **,
-      vtkInformationVector *);
-
   //! does the actual data crunching at a pipeline request
   virtual int RequestData(vtkInformation*,
 		      vtkInformationVector**,

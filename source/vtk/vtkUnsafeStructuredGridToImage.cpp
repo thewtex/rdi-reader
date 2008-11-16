@@ -2,6 +2,8 @@
 
 #include "vtkImageData.h"
 #include "vtkInformation.h"
+#include "vtkInformationVector.h"
+#include "vtkObjectFactory.h"
 #include "vtkPointData.h"
 #include "vtkSetGet.h"
 #include "vtkStructuredGrid.h"
@@ -44,12 +46,14 @@ int vtkUnsafeStructuredGridToImage::RequestData(
   vtkInformationVector** inputVector,
   vtkInformationVector*  outputVector)
 {
-  vtkStructuredGrid* input = vtkStructuredGrid::SafeDownCast( inputVector[0]->Get( vtkDataObject::DATA_OBJECT() ));
-  vtkImageData* output = vtkImageData::SafeDownCast( outputVector->Get( vtkDataObject::DATA_OBJECT()  ));
+  vtkInformation* input_info = inputVector[0]->GetInformationObject(0);
+  vtkStructuredGrid* input = vtkStructuredGrid::SafeDownCast( input_info->Get( vtkDataObject::DATA_OBJECT() ));
+  vtkInformation* output_info = outputVector->GetInformationObject(0);
+  vtkImageData* output = vtkImageData::SafeDownCast( output_info->Get( vtkDataObject::DATA_OBJECT()  ));
   if(!input || !output)
     return 0;
 
-  output->Print();
+  output->Print(cout);
   output->DebugOn();
 
   vtkDebugMacro(<< "Doing unsafe (though intentional ;-) ) conversion from StructuredGrid to ImageData")
@@ -63,7 +67,7 @@ int vtkUnsafeStructuredGridToImage::RequestData(
   vtkPointData* output_point_data = output->GetPointData();
   output_point_data->PassData( input_point_data );
 
-  output->Print();
+  output->Print(cout);
 
 
 

@@ -203,6 +203,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
     0 };
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
+  vtkDataObject::SetPointDataActiveScalarInfo(outInfo, VTK_UNSIGNED_SHORT, 1 );
 
   /*************** saturation image raw ***************/
   outInfo = outputVector->GetInformationObject(1);
@@ -211,6 +212,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   whole_extent[3] = static_cast< int >( its_ir->get_saturation_image_rows() ) - 1;
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
+  vtkDataObject::SetPointDataActiveScalarInfo(outInfo, VTK_UNSIGNED_SHORT, 1 );
 
   /*************** rf image raw ***************/
   outInfo = outputVector->GetInformationObject(2);
@@ -220,6 +222,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   whole_extent[5] = static_cast< int >( its_ir->get_rf_image_frames() ) - 1;
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
+  vtkDataObject::SetPointDataActiveScalarInfo(outInfo, VTK_SHORT, 1 );
 
   /*************** b mode image sc  ***************/
   outInfo = outputVector->GetInformationObject(3);
@@ -237,6 +240,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
     its_ir->get_b_mode_image_sc_delta_x(),
     its_ir->get_rf_image_delta_z() };
   outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
+  vtkDataObject::SetPointDataActiveScalarInfo(outInfo, VTK_DOUBLE, 1 );
 
   /*************** saturation image sc ***************/
   outInfo = outputVector->GetInformationObject(4);
@@ -252,6 +256,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   spacing[1] = its_ir->get_saturation_image_sc_delta_x();
   spacing[2] = its_ir->get_rf_image_delta_z();
   outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
+  vtkDataObject::SetPointDataActiveScalarInfo(outInfo, VTK_UNSIGNED_CHAR, 1 );
 
   /*************** rf image sc ***************/
   outInfo = outputVector->GetInformationObject(5);
@@ -268,6 +273,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   spacing[1] = its_ir->get_rf_image_sc_delta_x();
   spacing[2] = its_ir->get_rf_image_delta_z();
   outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
+  vtkDataObject::SetPointDataActiveScalarInfo(outInfo, VTK_DOUBLE, 1 );
 
   return 1;
 

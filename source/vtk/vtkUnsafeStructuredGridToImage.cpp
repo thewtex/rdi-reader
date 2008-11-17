@@ -8,6 +8,9 @@
 #include "vtkSetGet.h"
 #include "vtkStructuredGrid.h"
 
+#include "cstring"
+
+
 vtkStandardNewMacro(vtkUnsafeStructuredGridToImage);
 
 
@@ -41,6 +44,35 @@ int vtkUnsafeStructuredGridToImage::FillOutputPortInformation(
 
 
 
+int vtkUnsafeStructuredGridToImage::RequestInformation(
+  vtkInformation* request,
+  vtkInformationVector** inputVector,
+  vtkInformationVector*  outputVector)
+{
+
+  vtkInformation *info =
+    this->GetInputArrayFieldInformation(0, inputVector);
+  if (info)
+    {
+    int scalarType = info->Get( vtkDataObject::FIELD_ARRAY_TYPE());
+    int numComp = info->Get( vtkDataObject::FIELD_NUMBER_OF_COMPONENTS());
+    vtkInformation* outInfo = outputVector->GetInformationObject(0);
+        // copy scalar type and scalar number of components
+    vtkDataObject::SetPointDataActiveScalarInfo(outInfo,
+                                                    scalarType, numComp);
+    }
+  else
+    {
+    vtkDebugMacro( << " fail in RequestInformation" )
+    //return 0;
+    }
+
+  return 1;
+
+}
+
+
+
 int vtkUnsafeStructuredGridToImage::RequestData(
   vtkInformation* request,
   vtkInformationVector** inputVector,
@@ -54,18 +86,35 @@ int vtkUnsafeStructuredGridToImage::RequestData(
     return 0;
 
   output->Print(cout);
-  output->DebugOn();
+  //output->DebugOn();
 
   vtkDebugMacro(<< "Doing unsafe (though intentional ;-) ) conversion from StructuredGrid to ImageData")
 
+  //int* update_extent = input->GetUpdateExtent();
 
-  //int* update_extent = input->
   //output->SetScalarType( input->GetScalarType() );
   //output->SetNumberOfScalarComponents( input->GetNumberOfScalarComponents() );
   //output->AllocateScalars();
-  vtkPointData* input_point_data = input->GetPointData();
-  vtkPointData* output_point_data = output->GetPointData();
-  output_point_data->PassData( input_point_data );
+  //vtkPointData* input_point_data = input->GetPointData();
+  //vtkPointData* output_point_data = output->GetPointData();
+
+  //vtkDataArray* input_data_array = input->GetPointData()->GetScalars();
+  //vtkPointData* output_data_array = output->GetPointData()->GetScalars();
+
+
+
+
+
+  //output_point_data->PassData( input_point_data );
+  output->SetExtent( input->GetExtent() );
+  output->CopyAttributes( input );
+
+  //vtkInformation* scalarInfo = vtkDataObject::GetActiveFieldInformation(input_info, vtkDataObject::FIELD_ASSOCIATION_POINTS, vtkDataSetAttributes::SCALARS);
+  //if( scalarInfo )
+    //output->SetScalarType( input->Get( vtkDataObject::FIELD_ARRAY_TYPE() ) );
+  //else
+    //return 0;
+
 
   output->Print(cout);
 

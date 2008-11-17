@@ -31,6 +31,9 @@ namespace bf = boost::filesystem;
 #include "common/ReadMethod.h"
 
 
+#include <cmath>
+#include "vtkUnsafeStructuredGridToImage.h"
+
 using namespace visual_sonics::vtk;
 
 
@@ -203,14 +206,18 @@ void ImageViewer::view_saturation()
 }
 
 
-#include <cmath>
 
 
 void ImageViewer::view_rf()
 {
+  vtkSmartPointer<vtkUnsafeStructuredGridToImage> sgti = vtkSmartPointer<vtkUnsafeStructuredGridToImage>::New();
+  sgti->DebugOn();
+  //vtkUnsafeStructuredGridToImage* test = vtkUnsafeStructuredGridToImage::New();
+    sgti->SetInputConnection( its_image_reader->GetOutputPort(2) );
 
   vtkSmartPointer<vtkImageMathematics> abs = vtkSmartPointer<vtkImageMathematics>::New();
-    abs->SetInputConnection( its_image_reader->GetOutputPort(5) );
+    //abs->SetInputConnection( its_image_reader->GetOutputPort(5) );
+    abs->SetInputConnection( sgti->GetOutputPort(0) );
     abs->SetOperationToAbsoluteValue();
 
   vtkSmartPointer<vtkImageCast> cast  = vtkSmartPointer<vtkImageCast>::New();

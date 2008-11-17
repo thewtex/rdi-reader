@@ -1,5 +1,6 @@
 #include "vtk/vtkVisualSonicsReader.h"
 
+#include <cmath>
 
 #include <boost/filesystem/convenience.hpp>
 namespace bf = boost::filesystem;
@@ -191,6 +192,8 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
     vtkInformationVector ** inputVector,
     vtkInformationVector *  outputVector)
 {
+  double origin[3] = { 0.0, 0.0, 0.0 };
+  double spacing[3];
 
   /*************** b mode image raw ***************/
   vtkInformation* outInfo = outputVector->GetInformationObject(0);
@@ -203,7 +206,31 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
     0 };
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
+  // in case converted to image
   vtkDataObject::SetPointDataActiveScalarInfo(outInfo, VTK_UNSIGNED_SHORT, 1 );
+  outInfo->Set(vtkDataObject::ORIGIN(), origin, 3 );
+  const std::vector< double > scout_image_x = its_ir->get_b_mode_image_x();
+  unsigned int scout_samples_per_line = its_ir->get_b_mode_image_rows();
+  if( scout_image_x.size() > 1 )
+  {
+    spacing[0] = fabs(scout_image_x[scout_samples_per_line] - scout_image_x[0]);
+  }
+  else
+    spacing[0] = 1.0;
+  const std::vector< double > scout_image_y = its_ir->get_b_mode_image_y();
+  if( scout_image_y.size() > 1 )
+  {
+    spacing[1] = fabs(scout_image_y[1] - scout_image_y[0]);
+  }
+  else
+    spacing[1] = 1.0;
+  if( its_ir->get_rf_image_delta_z() > 0.0 )
+    spacing[2] = its_ir->get_rf_image_delta_z();
+  else
+    spacing[2] = 1.0;
+  outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
+  
+
 
   /*************** saturation image raw ***************/
   outInfo = outputVector->GetInformationObject(1);
@@ -213,6 +240,8 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
   vtkDataObject::SetPointDataActiveScalarInfo(outInfo, VTK_UNSIGNED_SHORT, 1 );
+  outInfo->Set(vtkDataObject::ORIGIN(), origin, 3 );
+  outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
 
   /*************** rf image raw ***************/
   outInfo = outputVector->GetInformationObject(2);
@@ -223,6 +252,27 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
   vtkDataObject::SetPointDataActiveScalarInfo(outInfo, VTK_SHORT, 1 );
+  outInfo->Set(vtkDataObject::ORIGIN(), origin, 3 );
+  const std::vector< double > rf_image_x = its_ir->get_rf_image_x();
+  unsigned int rf_samples_per_line = its_ir->get_rf_image_rows();
+  if( rf_image_x.size() > 1 )
+  {
+    spacing[0] = fabs(rf_image_x[rf_samples_per_line] - rf_image_x[0]);
+  }
+  else
+    spacing[0] = 1.0;
+  const std::vector< double > rf_image_y = its_ir->get_rf_image_y();
+  if( rf_image_y.size() > 1 )
+  {
+    spacing[1] = fabs(rf_image_y[1] - rf_image_y[0]);
+  }
+  else
+    spacing[1] = 1.0;
+  if( its_ir->get_rf_image_delta_z() > 0.0 )
+    spacing[2] = its_ir->get_rf_image_delta_z();
+  else
+    spacing[2] = 1.0;
+  outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
 
   /*************** b mode image sc  ***************/
   outInfo = outputVector->GetInformationObject(3);
@@ -233,12 +283,11 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
 
-  double origin[3] = { 0.0, 0.0, 0.0 };
   outInfo->Set(vtkDataObject::ORIGIN(), origin, 3 );
 
-  double spacing[3] = { its_ir->get_b_mode_image_sc_delta_y(),
-    its_ir->get_b_mode_image_sc_delta_x(),
-    its_ir->get_rf_image_delta_z() };
+  spacing[0] = its_ir->get_b_mode_image_sc_delta_y();
+  spacing[1] = its_ir->get_b_mode_image_sc_delta_x();
+  spacing[2] = its_ir->get_rf_image_delta_z();
   outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
   vtkDataObject::SetPointDataActiveScalarInfo(outInfo, VTK_DOUBLE, 1 );
 

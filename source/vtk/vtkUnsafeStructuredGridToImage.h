@@ -1,5 +1,6 @@
 /*! @file  vtkUnsafeStructuredGridToImage.h
  *  @brief Passes data in a StructuredGrid to an ImageData without interpolation.  Preserves topology but not geometry.
+ * @warning does not define origin or spacing!
  *
  *  @author Matt McCormick (thewtex) <matt@mmmccormick.com>
  *  @date   2008 November 15
@@ -19,6 +20,7 @@
  * No interpolation is applied.
  * Only Scalars are copied.
  * Preserves topology but not geometry.
+ * @warning does not define origin or spacing!
  *
  */
 class vtkUnsafeStructuredGridToImage : public vtkImageAlgorithm

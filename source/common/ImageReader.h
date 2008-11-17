@@ -69,9 +69,9 @@ namespace visual_sonics
       //@{
       //! get the actual b_mode_image data
       const std::vector<UInt16>& get_b_mode_image(){ return its_b_mode_image;}
-      //! get the b mode image columns ( number of scan lines )
-      unsigned int get_b_mode_image_rows(){ return this->get_rpd()->its_rf_mode_rx_ad_gate_width; }
       //! get the b mode image rows ( number of samples in a line )
+      unsigned int get_b_mode_image_rows(){ return this->get_rpd()->its_rf_mode_rx_ad_gate_width; }
+      //! get the b mode image columns ( number of scan lines )
       unsigned int get_b_mode_image_cols(){ return this->get_rpd()->its_rf_mode_tx_trig_tbl_trigs; }
       //! get b_mode_image x coords
       const std::vector<CoordT>& get_b_mode_image_x(){ return its_scout_image_x;}
@@ -97,9 +97,9 @@ namespace visual_sonics
       //@{
       //! get the actual saturation image data
       const std::vector<bool>&  get_saturation_image(){ return its_saturation_image;}
-      //! get the saturation image columns ( number of scan lines )
-      unsigned int get_saturation_image_rows(){ return this->get_rpd()->its_rf_mode_rx_ad_gate_width; }
       //! get the saturation image rows ( number of samples in a line )
+      unsigned int get_saturation_image_rows(){ return this->get_rpd()->its_rf_mode_rx_ad_gate_width; }
+      //! get the saturation image columns ( number of scan lines )
       unsigned int get_saturation_image_cols(){ return this->get_rpd()->its_rf_mode_tx_trig_tbl_trigs; }
       //! get saturation_image x coords
       const std::vector<CoordT>& get_saturation_image_x(){ return its_scout_image_x;}

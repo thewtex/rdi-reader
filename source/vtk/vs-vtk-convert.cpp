@@ -23,22 +23,20 @@ using namespace std;
 #include "vtkXMLImageDataWriter.h"
 
 #include "vtkVisualSonicsReader.h"
-
-using std::string;
-using std::cerr;
-using std::cout;
-using std::endl;
+//using namespace visual_sonics::vtk;
 
 
-//! create the appropriate writer for the file format implied by the extension
-int CreateWriter( vtkAlgorithm* writer, const string& out_file, const string& target );
 
 //! perform the ->Write() action
 void Write( vtkAlgorithm* );
 
-
 int main( int argc, char** argv )
 {
+  using std::string;
+  using std::cerr;
+  using std::cout;
+  using std::endl;
+
   // command line parsing
   typedef vtkmetaio::MetaCommand vtkmc;
   vtkmc command;
@@ -71,52 +69,9 @@ int main( int argc, char** argv )
       }
     }
 
+  string target = command.GetValueAsString( "target" );
   vtkAlgorithm* writer;
   string out_file = command.GetValueAsString( "out_file" );
-  string target = command.GetValueAsString( "target" );
-  // create the Writer object with appropriate type given the extension
-  if( CreateWriter( writer, out_file, target ) )
-    return 1;
-
-  vtkSmartPointer<vtkVisualSonicsReader> vtk_vs_reader = vtkSmartPointer<vtkVisualSonicsReader>::New();
-  vtkSmartPointer<vtkUnsafeStructuredGridToImage> usgti = vtkSmartPointer<vtkUnsafeStructuredGridToImage>::New();
-  //vtkSmartPointer<vtkImageCast> caster = vtkSmartPointer<vtkImageCast>::New();
-  //caster->ClampOverflowOn();
-  // nike
-  try
-  {
-    vtk_vs_reader->SetFilePrefix( in_file.c_str() );
-
-    if     ( target == "bmode" )
-      {
-      //caster->SetOutputScalarTypeToUnsignedShort();
-      //caster->SetInputConnection( vtk_vs_reader->GetOutputPort(3) );
-      //writer->SetInputConnection( caster->GetOutputPort() );
-      writer->SetInputConnection( vtk_vs_reader->GetOutputPort(3) );
-      }
-    ////else if( target == "rf-bmode-surface");
-      //////vi->view_rf_surface();
-    ////else if( target == "bmode-scout" )
-      ////vi->view_b_mode();
-    ////else if( target == "saturation-scout" )
-      ////vi->view_saturation();
-
-    Write(writer);
-
-  }
-  catch ( std::exception& e )
-  {
-    std::cerr << "There was a std::exception: "  << e.what() << std::endl;
-    return 1;
-  }
-
-  return 0;
-
-};
-
-
-int CreateWriter( vtkAlgorithm* writer, const string& out_file, const string& target )
-{
   size_t out_file_l = out_file.length();
   if( out_file_l > 4 )
     {
@@ -171,8 +126,43 @@ int CreateWriter( vtkAlgorithm* writer, const string& out_file, const string& ta
     std::cerr << "Filename + extension not found! in " << out_file << std::endl;
     return 1;
     }
+
+
+  vtkSmartPointer<vtkVisualSonicsReader> vtk_vs_reader = vtkSmartPointer<vtkVisualSonicsReader>::New();
+  vtkSmartPointer<vtkUnsafeStructuredGridToImage> usgti = vtkSmartPointer<vtkUnsafeStructuredGridToImage>::New();
+  //vtkSmartPointer<vtkImageCast> caster = vtkSmartPointer<vtkImageCast>::New();
+  //caster->ClampOverflowOn();
+  // nike
+  try
+  {
+    vtk_vs_reader->SetFilePrefix( in_file.c_str() );
+
+    if     ( target == "bmode" )
+      {
+      //caster->SetOutputScalarTypeToUnsignedShort();
+      //caster->SetInputConnection( vtk_vs_reader->GetOutputPort(3) );
+      //writer->SetInputConnection( caster->GetOutputPort() );
+      writer->SetInputConnection( vtk_vs_reader->GetOutputPort(3) );
+      }
+    ////else if( target == "rf-bmode-surface");
+      //////vi->view_rf_surface();
+    ////else if( target == "bmode-scout" )
+      ////vi->view_b_mode();
+    ////else if( target == "saturation-scout" )
+      ////vi->view_saturation();
+
+    Write(writer);
+
+  }
+  catch ( std::exception& e )
+  {
+    std::cerr << "There was a std::exception: "  << e.what() << std::endl;
+    return 1;
+  }
+
   return 0;
-}
+
+};
 
 
 

@@ -62,7 +62,7 @@ int vtkUnsafeStructuredGridToImage::RequestInformation(
     }
   else
     {
-    vtkDebugMacro( << " fail in RequestInformation" )
+    vtkDebugMacro( << "vtkUnsafeStructuredGridToImage fail in RequestInformation!" )
     return 0;
     }
 
@@ -84,15 +84,10 @@ int vtkUnsafeStructuredGridToImage::RequestData(
   if(!input || !output)
     return 0;
 
-  output->Print(cout);
-  //output->DebugOn();
-
   vtkDebugMacro(<< "Doing unsafe (though intentional ;-) ) conversion from StructuredGrid to ImageData")
 
   output->SetExtent( input->GetExtent() );
   output->CopyAttributes( input );
-
-  output->Print(cout);
 
   return 1;
 }

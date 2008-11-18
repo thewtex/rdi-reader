@@ -237,6 +237,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
 
   whole_extent[1] = static_cast< int >( its_ir->get_saturation_image_cols() ) - 1;
   whole_extent[3] = static_cast< int >( its_ir->get_saturation_image_rows() ) - 1;
+  whole_extent[5] = 0;
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
   vtkDataObject::SetPointDataActiveScalarInfo(outInfo, VTK_UNSIGNED_SHORT, 1 );
@@ -280,6 +281,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   // notice rows/ columns flipped from raw !
   whole_extent[1] = static_cast< int >( its_ir->get_b_mode_image_sc_rows() ) - 1;
   whole_extent[3] = static_cast< int >( its_ir->get_b_mode_image_sc_cols() ) - 1;
+  whole_extent[5] = 0;
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
 
@@ -296,6 +298,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
 
   whole_extent[1] = static_cast< int >( its_ir->get_saturation_image_sc_rows() ) - 1;
   whole_extent[3] = static_cast< int >( its_ir->get_saturation_image_sc_cols() ) - 1;
+  whole_extent[5] = 0;
   outInfo->Set(vtkStreamingDemandDrivenPipeline::WHOLE_EXTENT(),
       whole_extent, 6);
 

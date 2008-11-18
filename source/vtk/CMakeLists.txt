@@ -28,7 +28,6 @@ link_directories( ${VTK_LIBRARY_DIRS} )
 # .rdi/.rdb files
 set( vs-vtk-viewer_srcs ${base_srcs}
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vtkVisualSonicsReader.cpp
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vtkUnsafeStructuredGridToImage.cpp
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/ImageViewer.cpp
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vs-vtk-viewer.cpp
   )
@@ -42,11 +41,12 @@ target_link_libraries( vs-vtk-viewer vtkRendering vtkVolumeRendering boost_files
 # other image formats
 set( vs-convert_srcs ${base_srcs}
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vtkVisualSonicsReader.cpp
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vtkUnsafeStructuredGridToImage.cpp
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vs-convert.cpp
   )
 
 add_executable( vs-convert ${vs-convert_srcs} )
-target_link_libraries( vs-convert boost_filesystem vtkCommon vtkIO)
+target_link_libraries( vs-convert boost_filesystem vtkCommon vtkImaging vtkIO)
 
 
 install( TARGETS vs-vtk-viewer vs-convert

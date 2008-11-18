@@ -36,7 +36,6 @@ link_directories( ${VTK_LIBRARY_DIRS} )
   
   set( vtk_test_srcs ${base_test_srcs}
     ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vtkVisualSonicsReader.cpp
-    ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vtkUnsafeStructuredGridToImage.cpp
     ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/ImageViewer.cpp
     ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/vtk_test.cpp
     )

@@ -14,8 +14,12 @@ using namespace std;
 
 #include "vtkmetaio/metaCommand.h"
 
+#include "vtkImageCast.h"
+#include "vtkMetaImageWriter.h"
 #include "vtkSmartPointer.h"
-#include "vtkStructuredGridWriter.h"
+#include "vtkStructuredPointsWriter.h"
+#include "vtkUnsafeStructuredGridToImage.h"
+#include "vtkXMLImageDataWriter.h"
 
 #include "vtkVisualSonicsReader.h"
 //using namespace visual_sonics::vtk;
@@ -31,7 +35,7 @@ int main( int argc, char** argv )
   vtkmc command;
 
   command.SetOption( "target", "t", false, "target aspect of the file to display" );
-  command.AddOptionField( "target", "target", vtkmc::STRING, true, "rf-bmode-volume", "bmode-scout, saturation-scout, rf-bmode-surface, or rf-bmode-volume");
+  command.AddOptionField( "target", "target", vtkmc::STRING, true, "rf", "bmode, saturation, rf, bmode-no-scan-convert, saturation-no-scan-convert, or rf-no-scan-convert");
 
   command.AddField( "in_file", "Prefix of the .rdi/.rdb set of Visual Sonics raw files that should be in the same directory.", vtkmc::STRING, true );
   command.AddField( "out_file", "Output file name.  Extension determines output format.", vtkmc::STRING, true );
@@ -58,28 +62,93 @@ int main( int argc, char** argv )
       }
     }
 
+  vtkAlgorithm* writer;
+  std::string out_file = command.GetValueAsString( "out_file" );
+  size_t out_file_l = out_file.length();
+  if( out_file_l > 4 )
+    {
+    std::string extension = out_file.substr( out_file_l - 4, 4 );
+    //if( extension == ".tif" || extension == "tiff")
+      //{
+      //writer = vtkTIFFWriter::New();
+      //vtkTIFFWriter* writer_t = dynamic_cast<vtkTIFFWriter*>( writer );
+      //writer_t->SetCompressionToPackBits();
+      //}
+    if( extension == ".vti" || extension == "pvti" )
+      {
+      writer = vtkXMLImageDataWriter::New();
+      }
+    else if( extension == ".mhd" || extension == ".mha" )
+      {
+      writer = vtkMetaImageWriter::New();
+      }
+    else if( extension == ".vtk" )
+      {
+      writer = vtkStructuredPointsWriter::New();
+      }
+    else
+      {
+      std::cerr << "Unrecognized extension: " << extension << std::endl;
+      return 1;
+      }
+
+
+    if( extension == ".vti" || extension == "pvti" )
+      {
+      vtkXMLWriter* writer_t = dynamic_cast<vtkXMLWriter*>( writer );
+      writer_t->SetFileName( out_file.c_str() );
+      }
+    else if( extension == ".vtk" )
+      {
+      vtkStructuredPointsWriter* writer_t = dynamic_cast<vtkStructuredPointsWriter*>( writer );
+      writer_t->SetFileName( out_file.c_str() );
+      //writer_t->SetFileTypeToASCII();
+      //writer_t->SetFileTypeToBinary();
+      }
+    else if( extension == ".mha" || extension == ".mhd" )
+      {
+      vtkMetaImageWriter* writer_t = dynamic_cast<vtkMetaImageWriter*>( writer );
+      writer_t->SetFileName( out_file.c_str() );
+      writer_t->SetRAWFileName( (out_file.substr(0, out_file_l - 4) + ".raw").c_str() );
+      }
+    else
+      {
+      vtkImageWriter* writer_t = dynamic_cast<vtkImageWriter*>( writer );
+      writer_t->SetFileName( out_file.c_str() );
+      }
+    }
+  else
+    {
+    std::cerr << "Filename + extension not found! in " << out_file << std::endl;
+    return 1;
+    }
+
 
   vtkSmartPointer<vtkVisualSonicsReader> vtk_vs_reader = vtkSmartPointer<vtkVisualSonicsReader>::New();
-  vtkSmartPointer<vtkStructuredGridWriter> sgw = vtkSmartPointer<vtkStructuredGridWriter>::New();
-  sgw->SetInputConnection( vtk_vs_reader->GetOutputPort(0) );
-  sgw->SetFileTypeToASCII();
-
+  vtkSmartPointer<vtkUnsafeStructuredGridToImage> usgti = vtkSmartPointer<vtkUnsafeStructuredGridToImage>::New();
+  //vtkSmartPointer<vtkImageCast> caster = vtkSmartPointer<vtkImageCast>::New();
+  //caster->ClampOverflowOn();
   // nike
   try
   {
     vtk_vs_reader->SetFilePrefix( in_file.c_str() );
-    sgw->SetFileName( (in_file + ".vtk").c_str() );
-    sgw->Update();
 
     std::string target = command.GetValueAsString( "target" );
-    //if     ( target == "rf-bmode-volume" )
-      //vi->view_rf();
-    //else if( target == "rf-bmode-surface");
-      ////vi->view_rf_surface();
-    //else if( target == "bmode-scout" )
-      //vi->view_b_mode();
-    //else if( target == "saturation-scout" )
-      //vi->view_saturation();
+    if     ( target == "bmode" )
+      {
+      //caster->SetOutputScalarTypeToUnsignedShort();
+      //caster->SetInputConnection( vtk_vs_reader->GetOutputPort(3) );
+      //writer->SetInputConnection( caster->GetOutputPort() );
+      writer->SetInputConnection( vtk_vs_reader->GetOutputPort(3) );
+      }
+    ////else if( target == "rf-bmode-surface");
+      //////vi->view_rf_surface();
+    ////else if( target == "bmode-scout" )
+      ////vi->view_b_mode();
+    ////else if( target == "saturation-scout" )
+      ////vi->view_saturation();
+
+    writer->Update();
 
   }
   catch ( std::exception& e )

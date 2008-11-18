@@ -37,19 +37,19 @@ target_link_libraries( vs-vtk-viewer vtkRendering vtkVolumeRendering boost_files
 
 
 
-# vs-convert, a simple cli app to convert Visual Sonics .rdi/.rdb files to
+# vs-vtk-convert, a simple cli app to convert Visual Sonics .rdi/.rdb files to
 # other image formats
-set( vs-convert_srcs ${base_srcs}
+set( vs-vtk-convert_srcs ${base_srcs}
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vtkVisualSonicsReader.cpp
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vtkUnsafeStructuredGridToImage.cpp
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vs-convert.cpp
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vs-vtk-convert.cpp
   )
 
-add_executable( vs-convert ${vs-convert_srcs} )
-target_link_libraries( vs-convert boost_filesystem vtkCommon vtkImaging vtkIO)
+add_executable( vs-vtk-convert ${vs-vtk-convert_srcs} )
+target_link_libraries( vs-vtk-convert boost_filesystem vtkCommon vtkImaging vtkIO)
 
 
-install( TARGETS vs-vtk-viewer vs-convert
+install( TARGETS vs-vtk-viewer vs-vtk-convert
   DESTINATION bin
   )
 

@@ -81,7 +81,7 @@ int main( int argc, char** argv )
     if( extension == ".vti" || extension == "pvti" )
     {
       if( target == "bmode-no-scan-convert" ||
-	  target == "saturation-no-scan-convert" || 
+	  target == "saturation-no-scan-convert" ||
 	  target == "rf-no-scan-convert" )
       {
 	cerr << "The VTK XML ImageData format only supports raster images, not general structured grids." << endl;
@@ -94,7 +94,7 @@ int main( int argc, char** argv )
     else if( extension == ".vts" || extension == "pvts" )
     {
       if( ! (target == "bmode-no-scan-convert" ||
-	  target == "saturation-no-scan-convert" || 
+	  target == "saturation-no-scan-convert" ||
 	  target == "rf-no-scan-convert" ))
       {
 	cerr << "The VTK XML StructuredGrid only supports general structured grids." << endl;
@@ -107,7 +107,7 @@ int main( int argc, char** argv )
     else if( extension == ".mhd" || extension == ".mha" )
     {
       if( target == "bmode-no-scan-convert" ||
-	  target == "saturation-no-scan-convert" || 
+	  target == "saturation-no-scan-convert" ||
 	  target == "rf-no-scan-convert" )
       {
 	cerr << "The MetaImage format only supports raster images, not general structured grids." << endl;
@@ -119,9 +119,9 @@ int main( int argc, char** argv )
       writer_t->SetRAWFileName( (out_file.substr(0, out_file_l - 4) + ".raw").c_str() );
       writer_t->SetCompression( false );
     }
-    else if( extension == ".vtk" && 
+    else if( extension == ".vtk" &&
 	( target == "bmode-no-scan-convert" ||
-	  target == "saturation-no-scan-convert" || 
+	  target == "saturation-no-scan-convert" ||
 	  target == "rf-no-scan-convert"))
     {
       writer = vtkStructuredGridWriter::New();

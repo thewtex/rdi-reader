@@ -69,7 +69,6 @@ void vtkVisualSonicsReader::SetFilePrefix( const char* fileprefix)
     this->its_ir->set_in_file_path( full_prefix_path );
   }
 
-  its_rpd = its_ir->get_rpd();
   this->vtkMedicalImageReader2::SetFilePrefix( fileprefix );
   this->Modified();
 }
@@ -229,7 +228,7 @@ int vtkVisualSonicsReader::RequestInformation( vtkInformation* request,
   else
     spacing[2] = 1.0;
   outInfo->Set(vtkDataObject::SPACING(), spacing, 3);
-  
+
 
 
   /*************** saturation image raw ***************/
@@ -415,8 +414,8 @@ int vtkVisualSonicsReader::ReadBMode( vtkInformationVector* outputVector, const 
   if (!vtk_b_mode_image_raw)
     return 0;
 
-  const unsigned int samples_per_line = its_rpd->its_rf_mode_rx_ad_gate_width;
-  const unsigned int num_lines = its_rpd->its_rf_mode_tx_trig_tbl_trigs;
+  const unsigned int num_lines = its_ir->get_b_mode_image_cols();
+  const unsigned int samples_per_line = its_ir->get_b_mode_image_rows();
 
   vtk_b_mode_image_raw->SetDimensions( num_lines, samples_per_line, 1 );
 
@@ -512,8 +511,8 @@ int vtkVisualSonicsReader::ReadSaturation( vtkInformationVector* outputVector, c
   if (!vtk_saturation_image_raw)
     return 0;
 
-  const unsigned int samples_per_line = its_rpd->its_rf_mode_rx_ad_gate_width;
-  const unsigned int num_lines = its_rpd->its_rf_mode_tx_trig_tbl_trigs;
+  const unsigned int num_lines = its_ir->get_saturation_image_cols();
+  const unsigned int samples_per_line = its_ir->get_saturation_image_rows();
 
   vtk_saturation_image_raw->SetDimensions( num_lines, samples_per_line, 1 );
 
@@ -619,8 +618,8 @@ int vtkVisualSonicsReader::ReadRF( vtkInformation* request,
   const unsigned int update_frames = raw_update_extent[5] - raw_update_extent[4] + 1;
 
   //---------- rf_image_raw ----------------- declarations
-  const unsigned int samples_per_line = its_rpd->its_image_acquisition_size / sizeof( Int16 );
-  const unsigned int num_lines = its_rpd->its_image_lines;
+  const unsigned int num_lines = its_ir->get_rf_image_cols();
+  const unsigned int samples_per_line = its_ir->get_rf_image_rows();
 
   vtkDebugMacro(<< "RF: "
       << " Samples per line: " << samples_per_line

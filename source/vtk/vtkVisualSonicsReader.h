@@ -127,8 +127,6 @@ protected:
   //! does the heavy lifting for reading in the data
   cxx::ImageReader<double,double>* its_ir;
 
-  const visual_sonics::rdiParserData* its_rpd;
-
   const static visual_sonics::ReadMethod its_default_read_method  = file_average;
   const static unsigned int its_default_specific_acquisition =  0;
 

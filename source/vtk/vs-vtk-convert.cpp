@@ -38,12 +38,12 @@ int main( int argc, char** argv )
   using std::cout;
   using std::endl;
 
-  // command line parsing
+  /*************** command line parsing ***************/
   typedef vtkmetaio::MetaCommand vtkmc;
   vtkmc command;
 
-  command.SetOption( "target", "t", false, "target aspect of the file to convert to.  Options listed include scan converted ImageData, StructuredGrid, and non-scan converted ImageData (data is not interpolated, but geometry is not correct)" );
-  command.AddOptionField( "target", "target", vtkmc::STRING, true, "rf", "bmode, saturation, rf, bmode-no-scan-convert, saturation-no-scan-convert, rf-no-scan-convert, bmode-no-scan-convert-image, saturation-no-scan-convert-image, or rf-no-scan-convert-image");
+  command.SetOption( "target", "t", false, "target aspect of the file to convert to.\n  Options listed include scan converted ImageData, StructuredGrid, and non-scan converted ImageData (data is not interpolated, but geometry is not correct)" );
+  command.AddOptionField( "target", "target", vtkmc::STRING, true, "rf-no-scan-convert-image", "\nbmode, \nsaturation, \nrf, \nbmode-no-scan-convert, \nsaturation-no-scan-convert, \nrf-no-scan-convert, \nbmode-no-scan-convert-image, \nsaturation-no-scan-convert-image, \nor rf-no-scan-convert-image\n");
 
   command.AddField( "in_file", "Prefix of the .rdi/.rdb set of Visual Sonics raw files that should be in the same directory.", vtkmc::STRING, true );
   command.AddField( "out_file", "Output file name.  Extension determines output format.", vtkmc::STRING, true );
@@ -116,7 +116,8 @@ int main( int argc, char** argv )
       writer = vtkMetaImageWriter::New();
       vtkMetaImageWriter* writer_t = dynamic_cast<vtkMetaImageWriter*>( writer );
       writer_t->SetFileName( out_file.c_str() );
-      //writer_t->SetRAWFileName( (out_file.substr(0, out_file_l - 4) + ".raw").c_str() );
+      writer_t->SetRAWFileName( (out_file.substr(0, out_file_l - 4) + ".raw").c_str() );
+      writer_t->SetCompression( false );
     }
     else if( extension == ".vtk" && 
 	( target == "bmode-no-scan-convert" ||
@@ -154,7 +155,7 @@ int main( int argc, char** argv )
   vtkSmartPointer<vtkUnsafeStructuredGridToImage> usgti = vtkSmartPointer<vtkUnsafeStructuredGridToImage>::New();
   //vtkSmartPointer<vtkImageCast> caster = vtkSmartPointer<vtkImageCast>::New();
   //caster->ClampOverflowOn();
-  // nike
+   /*************** nike ***************/
   try
   {
     vtk_vs_reader->SetFilePrefix( in_file.c_str() );

@@ -418,12 +418,18 @@ bool ImageReader<ImageDataOutT,CoordT>::read_rf_image()
   rdb_file.seekg( 2 * scout_num_lines * scout_samples_per_line * sizeof(UInt16), std::ios::beg);
 
   //skip previous frames
-  rdb_file.seekg(  (this->its_metadata_reader->its_rpd->its_image_acquisition_per_line + 1) * num_lines * samples_per_line * sizeof(Int16) * (*its_frames_to_read_index ), std::ios::cur );
+  if( this->its_metadata_reader->its_rpd->its_image_acquisition_per_line > 1 )
+    rdb_file.seekg(  (this->its_metadata_reader->its_rpd->its_image_acquisition_per_line + 1) * num_lines * samples_per_line * sizeof(Int16) * (*its_frames_to_read_index ), std::ios::cur );
+  else
+    rdb_file.seekg(  num_lines * samples_per_line * sizeof(Int16) * (*its_frames_to_read_index ), std::ios::cur );
+
 
   // file_average and specific_acquisition ReadMethod s
   if( this->its_read_method == file_average || this->its_read_method == specific_acquisition )
   {
-    unsigned int skip_amount = samples_per_line * 2 * this->its_metadata_reader->its_rpd->its_image_acquisition_per_line;
+    unsigned int skip_amount = 0;
+    if( this->its_metadata_reader->its_rpd->its_image_acquisition_per_line > 1 )
+      skip_amount = samples_per_line * 2 * this->its_metadata_reader->its_rpd->its_image_acquisition_per_line;
 
     if( this->its_read_method == specific_acquisition )
     {

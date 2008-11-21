@@ -16,10 +16,12 @@ using namespace std;
 
 #include "vtkExtentTranslator.h"
 #include "vtkImageCast.h"
+#include "vtkImageClip.h"
 #include "vtkImageData.h"
 #include "vtkMetaImageWriter.h"
 #include "vtkMINCImageWriter.h"
 #include "vtkSmartPointer.h"
+#include "vtkStructuredGridClip.h"
 #include "vtkStructuredGridWriter.h"
 #include "vtkStructuredPointsWriter.h"
 #include "vtkUnsafeStructuredGridToImage.h"
@@ -55,6 +57,7 @@ int main( int argc, char** argv )
     "target aspect of the file to convert to.\n \
     Options listed include scan converted ImageData, StructuredGrid, and non-scan converted ImageData (data is not interpolated, but geometry is not correct)"
     );
+  command.SetOptionLongTag( "target", "target" );
   command.AddOptionField( "target", "target", vtkmc::STRING, true,
     "rf-no-scan-convert-image",
     "\nbmode, \
@@ -67,6 +70,14 @@ int main( int argc, char** argv )
     \nsaturation-no-scan-convert-image, \
     \nor rf-no-scan-convert-image\n"
     );
+
+  command.SetOption( "frame_range", "f", false,
+    "range of frames to be extracted", vtkmc::FLAG, "all" );
+  command.SetOptionLongTag( "frame_range", "frames");
+  command.AddOptionField( "frame_range", "start_frame",
+    vtkmc::INT, true );
+  command.AddOptionField( "frame_range", "end_frame",
+    vtkmc::INT, true );
 
   command.AddField( "in_file",
     "Prefix of the .rdi/.rdb set of Visual Sonics raw files that should be in the same directory.",
@@ -124,7 +135,6 @@ int main( int argc, char** argv )
 	vtkXMLPImageDataWriter* writer_t = dynamic_cast<vtkXMLPImageDataWriter*>( writer );
         writer_t->SetFileName( out_file.c_str() );
         vtk_vs_reader->UpdateInformation();
-        vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( vtk_vs_reader->GetOutputDataObject(5) );
         vtkExtentTranslator* vet = writer_t->GetExtentTranslator();
         vet->SetSplitModeToZSlab();
     }
@@ -154,7 +164,6 @@ int main( int argc, char** argv )
       vtkXMLPStructuredGridWriter* writer_t = dynamic_cast<vtkXMLPStructuredGridWriter*>( writer );
         writer_t->SetFileName( out_file.c_str() );
         vtk_vs_reader->UpdateInformation();
-        vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( vtk_vs_reader->GetOutputDataObject(5) );
         vtkExtentTranslator* vet = writer_t->GetExtentTranslator();
         vet->SetSplitModeToZSlab();
     }
@@ -201,7 +210,7 @@ int main( int argc, char** argv )
     else
     {
       std::cerr << "Unrecognized extension: " << extension << std::endl;
-      return 1;
+
     }
   }
   else
@@ -210,6 +219,29 @@ int main( int argc, char** argv )
     return 1;
   }
 
+
+  /*************** extract only a frame range if requested ***************/
+  vtkSmartPointer<vtkStructuredGridClip> sgc = vtkSmartPointer<vtkStructuredGridClip>::New();
+  vtkSmartPointer<vtkImageClip> ic = vtkSmartPointer<vtkImageClip>::New();
+  int start_frame, end_frame;
+  bool frame_range_set = command.GetOptionWasSet( "frame_range" );
+  if( frame_range_set )
+    {
+    start_frame = command.GetValueAsInt( "frame_range", "start_frame" );
+    end_frame = command.GetValueAsInt( "frame_range", "end_frame" );
+    sgc->ClipDataOn();
+    ic->ClipDataOn();
+    }
+  else
+    {
+    vtk_vs_reader->UpdateInformation();
+    vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( vtk_vs_reader->GetOutputDataObject(5) );
+    int* ext = vtk_rf_im->GetWholeExtent();
+    start_frame = ext[4];
+    end_frame = ext[5];
+    //sgc->ResetOutputWholeExtent();
+    //ic->ResetOutputWholeExtent();
+    }
 
   vtkSmartPointer<vtkUnsafeStructuredGridToImage> usgti = vtkSmartPointer<vtkUnsafeStructuredGridToImage>::New();
   //vtkSmartPointer<vtkImageCast> caster = vtkSmartPointer<vtkImageCast>::New();
@@ -231,7 +263,15 @@ int main( int argc, char** argv )
     }
     else if( target == "rf" )
     {
-      writer->SetInputConnection( vtk_vs_reader->GetOutputPort(5) );
+    if( frame_range_set )
+      {
+      vtk_vs_reader->UpdateInformation();
+      vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( vtk_vs_reader->GetOutputDataObject(5) );
+      int* ext = vtk_rf_im->GetWholeExtent();
+      ic->SetOutputWholeExtent( ext[0], ext[1], ext[2], ext[3], start_frame, end_frame );
+      }
+      ic->SetInputConnection( vtk_vs_reader->GetOutputPort(5) );
+      writer->SetInputConnection( ic->GetOutputPort() );
     }
     else if( target == "bmode-no-scan-convert" )
     {
@@ -243,7 +283,15 @@ int main( int argc, char** argv )
     }
     else if( target == "rf-no-scan-convert" )
     {
-      writer->SetInputConnection( vtk_vs_reader->GetOutputPort(2) );
+    if( frame_range_set )
+      {
+      vtk_vs_reader->UpdateInformation();
+      vtkStructuredGrid* vtk_rf_im = vtkStructuredGrid::SafeDownCast( vtk_vs_reader->GetOutputDataObject(2) );
+      int* ext = vtk_rf_im->GetWholeExtent();
+      sgc->SetOutputWholeExtent( ext[0], ext[1], ext[2], ext[3], start_frame, end_frame );
+      }
+      sgc->SetInputConnection( vtk_vs_reader->GetOutputPort(2) );
+      writer->SetInputConnection( sgc->GetOutputPort(2) );
     }
     else if( target == "bmode-no-scan-convert-image" )
     {
@@ -257,7 +305,15 @@ int main( int argc, char** argv )
     }
     else if( target == "rf-no-scan-convert-image" )
     {
-      usgti->SetInputConnection( vtk_vs_reader->GetOutputPort(2) );
+    if( frame_range_set )
+      {
+      vtk_vs_reader->UpdateInformation();
+      vtkStructuredGrid* vtk_rf_im = vtkStructuredGrid::SafeDownCast( vtk_vs_reader->GetOutputDataObject(2) );
+      int* ext = vtk_rf_im->GetWholeExtent();
+      sgc->SetOutputWholeExtent( ext[0], ext[1], ext[2], ext[3], start_frame, end_frame );
+      }
+      sgc->SetInputConnection( vtk_vs_reader->GetOutputPort(2) );
+      usgti->SetInputConnection( sgc->GetOutputPort() );
       writer->SetInputConnection( usgti->GetOutputPort() );
     }
     else

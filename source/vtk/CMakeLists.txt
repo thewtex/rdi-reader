@@ -49,6 +49,7 @@ add_executable( vs-vtk-convert ${vs-vtk-convert_srcs} )
 target_link_libraries( vs-vtk-convert
   boost_filesystem
   vtkCommon
+  vtkGraphics #StructuredGridClip
   vtkImaging
   vtkIO)
 

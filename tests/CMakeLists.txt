@@ -28,18 +28,18 @@ if(USE_VTK)
   if(NOT VTK_USE_RENDERING)
     message(FATAL_ERROR "${PROJECT_NAME} requires VTK_USE_RENDERING.")
   endif(NOT VTK_USE_RENDERING)
-  
-include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source 
-  ${VTK_INCLUDE_DIRS} 
+
+include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source
+  ${VTK_INCLUDE_DIRS}
   )
 link_directories( ${VTK_LIBRARY_DIRS} )
-  
+
   set( vtk_test_srcs ${base_test_srcs}
     ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/vtkVisualSonicsReader.cpp
     ${read_visualsonics_digital_rf_SOURCE_DIR}/source/vtk/ImageViewer.cpp
     ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/vtk_test.cpp
     )
-  
+
   add_executable( vtk_test ${vtk_test_srcs} )
   target_link_libraries( vtk_test vtkRendering vtkVolumeRendering boost_filesystem)
 endif(USE_VTK)

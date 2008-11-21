@@ -14,41 +14,69 @@ using namespace std;
 
 #include "vtkmetaio/metaCommand.h"
 
+#include "vtkExtentTranslator.h"
 #include "vtkImageCast.h"
+#include "vtkImageData.h"
 #include "vtkMetaImageWriter.h"
+#include "vtkMINCImageWriter.h"
 #include "vtkSmartPointer.h"
 #include "vtkStructuredGridWriter.h"
 #include "vtkStructuredPointsWriter.h"
 #include "vtkUnsafeStructuredGridToImage.h"
 #include "vtkXMLImageDataWriter.h"
+#include "vtkXMLPImageDataWriter.h"
+#include "vtkXMLPStructuredGridWriter.h"
 #include "vtkXMLStructuredGridWriter.h"
 
 #include "vtkVisualSonicsReader.h"
 //using namespace visual_sonics::vtk;
 
+using std::string;
+using std::cerr;
+using std::cout;
+using std::endl;
 
 
 //! perform the ->Write() action
 void Write( vtkAlgorithm* );
 
+//! check if target is an ImageData DataSet type
+//! because the specified file format only supports that format
+bool target_is_ImageData( const string & target, const string & format );
+
 int main( int argc, char** argv )
 {
-  using std::string;
-  using std::cerr;
-  using std::cout;
-  using std::endl;
 
   /*************** command line parsing ***************/
   typedef vtkmetaio::MetaCommand vtkmc;
   vtkmc command;
 
-  command.SetOption( "target", "t", false, "target aspect of the file to convert to.\n  Options listed include scan converted ImageData, StructuredGrid, and non-scan converted ImageData (data is not interpolated, but geometry is not correct)" );
-  command.AddOptionField( "target", "target", vtkmc::STRING, true, "rf-no-scan-convert-image", "\nbmode, \nsaturation, \nrf, \nbmode-no-scan-convert, \nsaturation-no-scan-convert, \nrf-no-scan-convert, \nbmode-no-scan-convert-image, \nsaturation-no-scan-convert-image, \nor rf-no-scan-convert-image\n");
+  command.SetOption( "target", "t", false,
+    "target aspect of the file to convert to.\n \
+    Options listed include scan converted ImageData, StructuredGrid, and non-scan converted ImageData (data is not interpolated, but geometry is not correct)"
+    );
+  command.AddOptionField( "target", "target", vtkmc::STRING, true,
+    "rf-no-scan-convert-image",
+    "\nbmode, \
+    \nsaturation,\
+    \nrf, \
+    \nbmode-no-scan-convert, \
+    \nsaturation-no-scan-convert, \
+    \nrf-no-scan-convert, \
+    \nbmode-no-scan-convert-image, \
+    \nsaturation-no-scan-convert-image, \
+    \nor rf-no-scan-convert-image\n"
+    );
 
-  command.AddField( "in_file", "Prefix of the .rdi/.rdb set of Visual Sonics raw files that should be in the same directory.", vtkmc::STRING, true );
-  command.AddField( "out_file", "Output file name.  Extension determines output format.", vtkmc::STRING, true );
+  command.AddField( "in_file",
+    "Prefix of the .rdi/.rdb set of Visual Sonics raw files that should be in the same directory.",
+    vtkmc::STRING, true );
+  command.AddField( "out_file",
+    "Output file name.  Extension determines output format.",
+    vtkmc::STRING, true );
 
-  command.SetDescription("command line application to convert VisualSonics Digital RF files with VTK\n\npass one or more *.rdb or *.rdi files as arguments");
+  command.SetDescription(
+    "command line application to convert VisualSonics Digital RF files with VTK\n\npass one or more *.rdb or *.rdi files as arguments");
   command.SetAuthor("Matt McCormick (thewtex)");
 
   if( !command.Parse( argc, argv ) || !command.GetOptionWasSet("in_file") )
@@ -69,6 +97,8 @@ int main( int argc, char** argv )
       in_file = in_file.substr( 0, in_file_l - 4 );
       }
     }
+  vtkSmartPointer<vtkVisualSonicsReader> vtk_vs_reader = vtkSmartPointer<vtkVisualSonicsReader>::New();
+    vtk_vs_reader->SetFilePrefix( in_file.c_str() );
 
   /*************** create writer type based on the out file extension ***************/
   const string target = command.GetValueAsString( "target" );
@@ -78,20 +108,27 @@ int main( int argc, char** argv )
   if( out_file_l > 4 )
     {
     std::string extension = out_file.substr( out_file_l - 4, 4 );
-    if( extension == ".vti" || extension == "pvti" )
+    if( extension == ".vti" )
     {
-      if( target == "bmode-no-scan-convert" ||
-	  target == "saturation-no-scan-convert" ||
-	  target == "rf-no-scan-convert" )
-      {
-	cerr << "The VTK XML ImageData format only supports raster images, not general structured grids." << endl;
+      if( !target_is_ImageData( target, "VTK XML ImageData" ) )
 	return 1;
-      }
       writer = vtkXMLImageDataWriter::New();
       vtkXMLWriter* writer_t = dynamic_cast<vtkXMLWriter*>( writer );
-      writer_t->SetFileName( out_file.c_str() );
+	writer_t->SetFileName( out_file.c_str() );
     }
-    else if( extension == ".vts" || extension == "pvts" )
+    if( extension == "pvti" )
+    {
+      if( !target_is_ImageData( target, "VTK Parallel XML ImageData" ) )
+	return 1;
+      writer = vtkXMLPImageDataWriter::New();
+	vtkXMLPImageDataWriter* writer_t = dynamic_cast<vtkXMLPImageDataWriter*>( writer );
+        writer_t->SetFileName( out_file.c_str() );
+        vtk_vs_reader->UpdateInformation();
+        vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( vtk_vs_reader->GetOutputDataObject(5) );
+        vtkExtentTranslator* vet = writer_t->GetExtentTranslator();
+        vet->SetSplitModeToZSlab();
+    }
+    else if( extension == ".vts" )
     {
       if( ! (target == "bmode-no-scan-convert" ||
 	  target == "saturation-no-scan-convert" ||
@@ -104,20 +141,43 @@ int main( int argc, char** argv )
       vtkXMLStructuredGridWriter* writer_t = dynamic_cast<vtkXMLStructuredGridWriter*>( writer );
       writer_t->SetFileName( out_file.c_str() );
     }
-    else if( extension == ".mhd" || extension == ".mha" )
+    else if( extension == "pvts" )
     {
-      if( target == "bmode-no-scan-convert" ||
+      if( ! (target == "bmode-no-scan-convert" ||
 	  target == "saturation-no-scan-convert" ||
-	  target == "rf-no-scan-convert" )
+	  target == "rf-no-scan-convert" ))
       {
-	cerr << "The MetaImage format only supports raster images, not general structured grids." << endl;
+	cerr << "The VTK XML Parallel StructuredGrid only supports general structured grids." << endl;
 	return 1;
       }
+      writer = vtkXMLPStructuredGridWriter::New();
+      vtkXMLPStructuredGridWriter* writer_t = dynamic_cast<vtkXMLPStructuredGridWriter*>( writer );
+        writer_t->SetFileName( out_file.c_str() );
+        vtk_vs_reader->UpdateInformation();
+        vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( vtk_vs_reader->GetOutputDataObject(5) );
+        vtkExtentTranslator* vet = writer_t->GetExtentTranslator();
+        vet->SetSplitModeToZSlab();
+    }
+    else if( extension == ".mhd" || extension == ".mha" )
+    {
+      if( !target_is_ImageData( target, "MetaImage" ) )
+	return 1;
       writer = vtkMetaImageWriter::New();
       vtkMetaImageWriter* writer_t = dynamic_cast<vtkMetaImageWriter*>( writer );
       writer_t->SetFileName( out_file.c_str() );
       writer_t->SetRAWFileName( (out_file.substr(0, out_file_l - 4) + ".raw").c_str() );
       writer_t->SetCompression( false );
+    }
+    else if( extension == ".mnc" )
+    {
+      if( !target_is_ImageData( target, "MINC" ) )
+	return 1;
+      writer = vtkMINCImageWriter::New();
+      vtkMINCImageWriter* writer_t = dynamic_cast<vtkMINCImageWriter*>( writer );
+      writer_t->SetFilePrefix( out_file.substr(0, out_file_l - 4).c_str() );
+      writer_t->SetFileName( out_file.c_str() );
+      writer_t->SetFilePattern( "%04d" );
+      writer_t->SetFileDimensionality( 2 );
     }
     else if( extension == ".vtk" &&
 	( target == "bmode-no-scan-convert" ||
@@ -151,14 +211,12 @@ int main( int argc, char** argv )
   }
 
 
-  vtkSmartPointer<vtkVisualSonicsReader> vtk_vs_reader = vtkSmartPointer<vtkVisualSonicsReader>::New();
   vtkSmartPointer<vtkUnsafeStructuredGridToImage> usgti = vtkSmartPointer<vtkUnsafeStructuredGridToImage>::New();
   //vtkSmartPointer<vtkImageCast> caster = vtkSmartPointer<vtkImageCast>::New();
   //caster->ClampOverflowOn();
    /*************** nike ***************/
   try
   {
-    vtk_vs_reader->SetFilePrefix( in_file.c_str() );
 
     if     ( target == "bmode" )
       {
@@ -233,7 +291,25 @@ void Write( vtkAlgorithm* writer )
   else if( writer_vtk )
     writer_vtk->Write();
   else if( writer_image )
+    {
     writer_image->Write();
+    }
   else
     std::cerr << "unknown writer type" << endl;
 }
+
+
+
+bool target_is_ImageData( const string & target, const string & format )
+{
+  if( target == "bmode-no-scan-convert" ||
+      target == "saturation-no-scan-convert" ||
+      target == "rf-no-scan-convert" )
+  {
+	cerr << "The " << format << " format only supports raster images, not general structured grids." << endl;
+	return false;
+  }
+
+  return true;
+}
+

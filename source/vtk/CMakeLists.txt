@@ -46,7 +46,11 @@ set( vs-vtk-convert_srcs ${base_srcs}
   )
 
 add_executable( vs-vtk-convert ${vs-vtk-convert_srcs} )
-target_link_libraries( vs-vtk-convert boost_filesystem vtkCommon vtkImaging vtkIO)
+target_link_libraries( vs-vtk-convert
+  boost_filesystem
+  vtkCommon
+  vtkImaging
+  vtkIO)
 
 
 install( TARGETS vs-vtk-viewer vs-vtk-convert

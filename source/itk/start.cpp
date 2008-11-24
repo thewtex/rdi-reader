@@ -8,6 +8,7 @@
 #include "itkAddConstantToImageFilter.h"
 #include "itkImageFileReader.h"
 #include "itkImageFileWriter.h"
+#include "itkImportImageFilter.h"
 #include "itkLog10ImageFilter.h"
 //#include "itkMultiplyByConstantImageFilter.h"
 //#include "itkRealAndImaginaryToComplexImageFilter.h"
@@ -155,7 +156,47 @@ int main(int argc, char ** argv )
     rpd,
     false);
 
+  ImageType::Pointer transform_target = log->GetOutput();
+  const PixelType* target_ptr = transform_target->GetBufferPointer();
 
+
+  /*************** the import image filter  ***************/
+  typedef itk::ImportImageFilter< PixelType, Dimension > ImportFilterType;
+  ImportFilterType::Pointer import_filter = ImportFilterType::New();
+  ImportFilterType::SizeType import_size;
+  import_size[0] = transform_cols;
+  import_size[1] = transform_rows;
+  import_size[2] = size[2];
+
+  ImportFilterType::IndexType import_start;
+  start.Fill(0);
+  ImportFilterType::RegionType import_region;
+  import_region.SetIndex( import_start );
+  import_region.SetSize( import_size );
+  import_filter->SetRegion( import_region );
+  double origin[ Dimension ];
+  origin[0] = 0.0;
+  origin[1] = 0.0;
+  origin[2] = 0.0;
+  import_filter->SetOrigin( origin );
+  double import_spacing[ Dimension ];
+  import_spacing[0] = static_cast<double> ( delta_x );
+  import_spacing[1] = static_cast<double> ( delta_y );
+  import_spacing[2] = static_cast<double> ( rpd->its_rf_mode_3d_scan_distance );
+  import_filter->SetSpacing( spacing );
+
+
+
+  const unsigned int numberOfPixels = import_size[0]*import_size[1]*import_size[2];
+
+  out_image_full = new PixelType[numberOfPixels];
+  if( ! out_image_full )
+    {
+    cerr << "memory allocation error." << endl;
+    return 1;
+    }
+
+  import_filter->SetImportPointer( out_image_full, numberOfPixels, true );
 
 
   /*************** writer  ***************/

@@ -70,8 +70,8 @@ set( CMAKE_RUNTIME_OUTPUT_DIRECTORY
 #ADD_SUBDIRECTORY(matlab)
 add_subdirectory(source)
 
-include(CTest)
-if(BUILD_TESTING)
-  add_subdirectory(tests)
-endif(BUILD_TESTING)
+#include(CTest)
+#if(BUILD_TESTING)
+  #add_subdirectory(tests)
+#endif(BUILD_TESTING)
 

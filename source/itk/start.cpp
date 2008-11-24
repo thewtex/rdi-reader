@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 //#include "itkComplexToImaginaryImageFilter.h"
 //#include "itkComplexToRealImageFilter.h"
@@ -16,10 +17,18 @@
 #include "itkRecursiveGaussianImageFilter.h"
 //#include "itkComplexToRealImageFilter.h"
 
+
+#include "common/VisualSonicsTransform.h"
+#include "common/spirit_parse/rdiParserData.h"
+#include "common/spirit_parse/rdiParser.h"
+#include "common/MetadataReaderBase.h"
+#include "common/sized_ints.h"
+
 using std::string;
 using std::cout;
 using std::endl;
 using std::cerr;
+using std::vector;
 
 int main(int argc, char ** argv )
 {
@@ -117,6 +126,37 @@ int main(int argc, char ** argv )
   //ImageType > ComplexToRealType;
   //ComplexToRealType::Pointer complex_to_real = ComplexToRealType::New();
   //complex_to_real->SetInput( fft1d_filter->GetOutput() );
+  //
+
+  using namespace visual_sonics;
+  string rdi_filename = "/mnt/datab/research/Research/in_vivo/pat143/visual_sonics/pat143_seg3";
+  typedef float CoordT;
+  typedef visual_sonics::VisualSonicsTransform< PixelType, PixelType, CoordT  > VSTransformType;
+  vector<PixelType> in_image;
+  vector<PixelType> out_image;
+  unsigned int transform_rows;
+  unsigned int transform_cols;
+  CoordT delta_x;
+  CoordT delta_y;
+  vector<CoordT> image_x;
+  vector<CoordT> image_y;
+  visual_sonics::rdiParser rdi_parser( rdi_filename );
+  rdiParserData* rpd = new rdiParserData;
+  *rpd = rdi_parser.parse();
+
+  VSTransformType* vs_transform = new VSTransformType( in_image,
+    out_image,
+    transform_rows,
+    transform_cols,
+    delta_x,
+    delta_y,
+    image_x,
+    image_y,
+    rpd,
+    false);
+
+
+
 
   /*************** writer  ***************/
   typedef itk::ImageFileWriter< ImageType > WriterType;
@@ -138,6 +178,9 @@ int main(int argc, char ** argv )
     cerr << err << endl;
     return 1;
     }
+
+  delete rpd;
+  delete vs_transform;
 
   return 0;
 }

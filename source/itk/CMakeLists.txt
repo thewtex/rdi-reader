@@ -16,6 +16,8 @@
 #add_library( vs_common SHARED ${base_srcs} )
 ##project( PARAMETRIC_US )
 
+include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source )
+
 find_package( ITK )
 if( ITK_FOUND )
   include( ${ITK_USE_FILE} )

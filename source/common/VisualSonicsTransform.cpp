@@ -467,6 +467,8 @@ template class VisualSonicsTransform<Int16, float, float>;
 template class VisualSonicsTransform<double, double, double>;
 template class VisualSonicsTransform<double, double, float>;
 template class VisualSonicsTransform<double, float, float>;
+template class VisualSonicsTransform<float, float, double>;
+template class VisualSonicsTransform<float, float, float>;
 
 template class VisualSonicsTransform<bool, bool, float>;
 template class VisualSonicsTransform<bool, bool, double>;

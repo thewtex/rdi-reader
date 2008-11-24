@@ -54,6 +54,7 @@ ImageDataT Bilinear<ImageDataT, CoordT>::interpolate()
 
 template class Bilinear<double,double>;
 template class Bilinear<double,float>;
+template class Bilinear<float,double>;
 template class Bilinear<float,float>;
 // although we don't need these in practice, we put them here so it will link
 template class Bilinear<bool, float>;

@@ -35,6 +35,7 @@ ImageDataT NearestNeighbor<ImageDataT, CoordT>::interpolate()
 
 template class NearestNeighbor<double,double>;
 template class NearestNeighbor<double,float >;
+template class NearestNeighbor<float,double >;
 template class NearestNeighbor<float,float >;
 template class NearestNeighbor<bool, float>;
 template class NearestNeighbor<bool, double>;

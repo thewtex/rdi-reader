@@ -31,13 +31,44 @@ using std::endl;
 using std::cerr;
 using std::vector;
 
+  typedef float PixelType;
+  const unsigned int Dimension = 3;
+  typedef itk::Image< PixelType, Dimension > ImageType;
+
+void fill_in_image( const ImageType* target, vector<PixelType>& in_image, const unsigned int & frame, const unsigned int & cols, const unsigned int& rows )
+{
+  ImageType::IndexType target_index;
+  target_index[0] = 0;
+  target_index[1] = 0;
+  target_index[2] = frame;
+  for( unsigned int i = 0; i < cols; i++ )
+    {
+    for( unsigned int j = 0; j < rows; j++ )
+      {
+      in_image[ j + i*rows ] = target->GetPixel(target_index) ;
+//      in_image[ j*cols + i ] = target->GetPixel(target_index) ;
+      target_index[1] += 1;
+      }
+    target_index[1] = 0;
+    target_index[0] += 1;
+    }
+}
+
+void fill_out_image( const vector< PixelType>& out_image, PixelType* out_image_full, const unsigned int & frame, const unsigned int & cols, const unsigned int& rows )
+{
+  PixelType* offset = out_image_full + frame*rows*cols;
+  for( unsigned int i = 0; i < cols; i++ )
+    {
+    for( unsigned int j = 0; j < rows; j++ )
+      {
+      *(offset + i +j*cols ) = out_image[ j + i*rows ];
+      }
+    }
+}
+
 int main(int argc, char ** argv )
 {
 
-  typedef float PixelType;
-  const unsigned int Dimension = 3;
-
-  typedef itk::Image< PixelType, Dimension > ImageType;
 
   typedef itk::ImageFileReader< ImageType > ReaderType;
 
@@ -144,6 +175,7 @@ int main(int argc, char ** argv )
   visual_sonics::rdiParser rdi_parser( rdi_filename );
   rdiParserData* rpd = new rdiParserData;
   *rpd = rdi_parser.parse();
+  rpd->its_image_acquisition_size = 2048 * 2;
 
   VSTransformType* vs_transform = new VSTransformType( in_image,
     out_image,
@@ -155,9 +187,18 @@ int main(int argc, char ** argv )
     image_y,
     rpd,
     false);
+  vs_transform->set_outside_bounds_value( 0.0 );
+  vs_transform->set_do_calc_coords( true );
 
+  log->Update();
   ImageType::Pointer transform_target = log->GetOutput();
-  const PixelType* target_ptr = transform_target->GetBufferPointer();
+  unsigned int cols = size[0] ;
+  unsigned int rows = size[1];
+  in_image.resize( cols*rows );
+
+  fill_in_image( transform_target, in_image, 0, cols, rows );
+  vs_transform->transform();
+
 
 
   /*************** the import image filter  ***************/
@@ -182,19 +223,29 @@ int main(int argc, char ** argv )
   double import_spacing[ Dimension ];
   import_spacing[0] = static_cast<double> ( delta_x );
   import_spacing[1] = static_cast<double> ( delta_y );
-  import_spacing[2] = static_cast<double> ( rpd->its_rf_mode_3d_scan_distance );
-  import_filter->SetSpacing( spacing );
+  import_spacing[2] = static_cast<double> ( rpd->its_rf_mode_3d_scan_distance / rpd->its_image_frames );
+  import_filter->SetSpacing( import_spacing );
 
 
 
   const unsigned int numberOfPixels = import_size[0]*import_size[1]*import_size[2];
 
-  out_image_full = new PixelType[numberOfPixels];
+  PixelType* out_image_full = new PixelType[numberOfPixels];
   if( ! out_image_full )
     {
     cerr << "memory allocation error." << endl;
     return 1;
     }
+
+
+  vs_transform->set_do_calc_coords( false );
+  for( unsigned int i = 0 ; i < size[2]; i++ )
+    {
+    fill_in_image( transform_target, in_image, i, cols, rows );
+    vs_transform->transform();
+    fill_out_image( out_image, out_image_full, i, transform_cols, transform_rows );
+    }
+
 
   import_filter->SetImportPointer( out_image_full, numberOfPixels, true );
 
@@ -205,7 +256,8 @@ int main(int argc, char ** argv )
   //writer->SetInput( roi_filter->GetOutput() );
   //writer->SetInput( complex_to_real->GetOutput() );
   //writer->SetInput( ifft1d_filter->GetOutput() );
-  writer->SetInput( log->GetOutput() );
+  //writer->SetInput( log->GetOutput() );
+  writer->SetInput( import_filter->GetOutput() );
   writer->SetFileName( "out.mhd" ) ;
 
   try

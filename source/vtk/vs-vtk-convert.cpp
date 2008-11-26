@@ -221,27 +221,27 @@ int main( int argc, char** argv )
 
 
   /*************** extract only a frame range if requested ***************/
-  vtkSmartPointer<vtkStructuredGridClip> sgc = vtkSmartPointer<vtkStructuredGridClip>::New();
-  vtkSmartPointer<vtkImageClip> ic = vtkSmartPointer<vtkImageClip>::New();
-  int start_frame, end_frame;
-  bool frame_range_set = command.GetOptionWasSet( "frame_range" );
-  if( frame_range_set )
-    {
-    start_frame = command.GetValueAsInt( "frame_range", "start_frame" );
-    end_frame = command.GetValueAsInt( "frame_range", "end_frame" );
-    sgc->ClipDataOn();
-    ic->ClipDataOn();
-    }
-  else
-    {
-    vtk_vs_reader->UpdateInformation();
-    vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( vtk_vs_reader->GetOutputDataObject(5) );
-    int* ext = vtk_rf_im->GetWholeExtent();
-    start_frame = ext[4];
-    end_frame = ext[5];
-    //sgc->ResetOutputWholeExtent();
-    //ic->ResetOutputWholeExtent();
-    }
+  //vtkSmartPointer<vtkStructuredGridClip> sgc = vtkSmartPointer<vtkStructuredGridClip>::New();
+  //vtkSmartPointer<vtkImageClip> ic = vtkSmartPointer<vtkImageClip>::New();
+  //int start_frame, end_frame;
+  //bool frame_range_set = command.GetOptionWasSet( "frame_range" );
+  //if( frame_range_set )
+    //{
+    //start_frame = command.GetValueAsInt( "frame_range", "start_frame" );
+    //end_frame = command.GetValueAsInt( "frame_range", "end_frame" );
+    //sgc->ClipDataOn();
+    //ic->ClipDataOn();
+    //}
+  //else
+    //{
+    //vtk_vs_reader->UpdateInformation();
+    //vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( vtk_vs_reader->GetOutputDataObject(5) );
+    //int* ext = vtk_rf_im->GetWholeExtent();
+    //start_frame = ext[4];
+    //end_frame = ext[5];
+    ////sgc->ResetOutputWholeExtent();
+    ////ic->ResetOutputWholeExtent();
+    //}
 
   vtkSmartPointer<vtkUnsafeStructuredGridToImage> usgti = vtkSmartPointer<vtkUnsafeStructuredGridToImage>::New();
   //vtkSmartPointer<vtkImageCast> caster = vtkSmartPointer<vtkImageCast>::New();
@@ -263,15 +263,16 @@ int main( int argc, char** argv )
     }
     else if( target == "rf" )
     {
-    if( frame_range_set )
-      {
-      vtk_vs_reader->UpdateInformation();
-      vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( vtk_vs_reader->GetOutputDataObject(5) );
-      int* ext = vtk_rf_im->GetWholeExtent();
-      ic->SetOutputWholeExtent( ext[0], ext[1], ext[2], ext[3], start_frame, end_frame );
-      }
-      ic->SetInputConnection( vtk_vs_reader->GetOutputPort(5) );
-      writer->SetInputConnection( ic->GetOutputPort() );
+    //if( frame_range_set )
+      //{
+      //vtk_vs_reader->UpdateInformation();
+      //vtkImageData* vtk_rf_im = vtkImageData::SafeDownCast( vtk_vs_reader->GetOutputDataObject(5) );
+      //int* ext = vtk_rf_im->GetWholeExtent();
+      //ic->SetOutputWholeExtent( ext[0], ext[1], ext[2], ext[3], start_frame, end_frame );
+      //}
+      //ic->SetInputConnection( vtk_vs_reader->GetOutputPort(5) );
+      //writer->SetInputConnection( ic->GetOutputPort() );
+      writer->SetInputConnection( vtk_vs_reader->GetOutputPort(5) );
     }
     else if( target == "bmode-no-scan-convert" )
     {
@@ -283,15 +284,16 @@ int main( int argc, char** argv )
     }
     else if( target == "rf-no-scan-convert" )
     {
-    if( frame_range_set )
-      {
-      vtk_vs_reader->UpdateInformation();
-      vtkStructuredGrid* vtk_rf_im = vtkStructuredGrid::SafeDownCast( vtk_vs_reader->GetOutputDataObject(2) );
-      int* ext = vtk_rf_im->GetWholeExtent();
-      sgc->SetOutputWholeExtent( ext[0], ext[1], ext[2], ext[3], start_frame, end_frame );
-      }
-      sgc->SetInputConnection( vtk_vs_reader->GetOutputPort(2) );
-      writer->SetInputConnection( sgc->GetOutputPort(2) );
+    //if( frame_range_set )
+      //{
+      //vtk_vs_reader->UpdateInformation();
+      //vtkStructuredGrid* vtk_rf_im = vtkStructuredGrid::SafeDownCast( vtk_vs_reader->GetOutputDataObject(2) );
+      //int* ext = vtk_rf_im->GetWholeExtent();
+      //sgc->SetOutputWholeExtent( ext[0], ext[1], ext[2], ext[3], start_frame, end_frame );
+      //}
+      //sgc->SetInputConnection( vtk_vs_reader->GetOutputPort(2) );
+      //writer->SetInputConnection( sgc->GetOutputPort(2) );
+      writer->SetInputConnection( vtk_vs_reader->GetOutputPort(2) );
     }
     else if( target == "bmode-no-scan-convert-image" )
     {
@@ -305,15 +307,16 @@ int main( int argc, char** argv )
     }
     else if( target == "rf-no-scan-convert-image" )
     {
-    if( frame_range_set )
-      {
-      vtk_vs_reader->UpdateInformation();
-      vtkStructuredGrid* vtk_rf_im = vtkStructuredGrid::SafeDownCast( vtk_vs_reader->GetOutputDataObject(2) );
-      int* ext = vtk_rf_im->GetWholeExtent();
-      sgc->SetOutputWholeExtent( ext[0], ext[1], ext[2], ext[3], start_frame, end_frame );
-      }
-      sgc->SetInputConnection( vtk_vs_reader->GetOutputPort(2) );
-      usgti->SetInputConnection( sgc->GetOutputPort() );
+    //if( frame_range_set )
+      //{
+      //vtk_vs_reader->UpdateInformation();
+      //vtkStructuredGrid* vtk_rf_im = vtkStructuredGrid::SafeDownCast( vtk_vs_reader->GetOutputDataObject(2) );
+      //int* ext = vtk_rf_im->GetWholeExtent();
+      //sgc->SetOutputWholeExtent( ext[0], ext[1], ext[2], ext[3], start_frame, end_frame );
+      //}
+      //sgc->SetInputConnection( vtk_vs_reader->GetOutputPort(2) );
+      //usgti->SetInputConnection( sgc->GetOutputPort() );
+      usgti->SetInputConnection( vtk_vs_reader->GetOutputPort(2) );
       writer->SetInputConnection( usgti->GetOutputPort() );
     }
     else

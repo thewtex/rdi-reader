@@ -12,8 +12,10 @@ template <class TInputImage >
 FrequencyVectorImageFilter<TInputImage>
 ::FrequencyVectorImageFilter()
 : m_Direction(1),
-  m_FrequencyStartIndex(0),
-  m_FrequencySize(1)
+  m_FFTSize(128),
+  m_FFTOverlap(0.5),
+  m_FrequencyExtractStartIndex(0),
+  m_FrequencyExtractSize(m_FFTSize)
 {
   this->SetNumberOfRequiredInputs( 1 );
 }

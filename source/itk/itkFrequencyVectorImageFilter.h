@@ -55,17 +55,25 @@ public:
   /** Set the direction in which the filter is to be applied. */
   itkSetMacro(Direction, unsigned int);
 
+  /** Get the size of the FFT window used to calculate the frequencies. */
+  itkGetMacro(FFTSize, unsigned int);
+  /** Set the size of the FFT window used to calculate the frequencies. */
+  itkSetMacro(FFTSize, unsigned int);
+
+  /** Get the percent overlap between the FFT windows.  Range [0.0-1.0). */
+  itkGetMacro(FFTOverlap, float);
+  /** Set the percent overlap between the FFT windows.  Range [0.0-1.0). */
+  itkSetMacro(FFTOverlap, float);
+
   /** Get the starting frequency point for extraction. */
-  itkGetMacro(FrequencyStartIndex, unsigned int);
+  itkGetMacro(FrequencyExtractStartIndex, unsigned int);
   /** Set the starting frequency point for extraction. */
-  itkSetMacro(FrequencyStartIndex, unsigned int);
+  itkSetMacro(FrequencyExtractStartIndex, unsigned int);
 
   /** Get the number of frequency points to extract starting from the FrequencyStartIndex. */
-  itkGetMacro(FrequencySize, unsigned int);
+  itkGetMacro(FrequencyExtractSize, unsigned int);
   /** Set the number of frequency points to extract starting from the FrequencyStartIndex. */
-  itkSetMacro(FrequencySize, unsigned int);
-
-
+  itkSetMacro(FrequencyExtractSize, unsigned int);
 
   /** @todo -- threadify */
   virtual void GenerateData();  // generates output from input
@@ -81,10 +89,14 @@ protected:
   /** Direction in which the filter is to be applied
    * this should be in the range [0,ImageDimension-1]. */
   unsigned int m_Direction;
-  /** The frequency point to start from. */
-  unsigned int m_FrequencyStartIndex;
+  /** Size of the FFT window used to calculate the frequencies. */
+  unsigned int m_FFTSize;
+  /** Percent overlap between the FFT windows. Range [0.0-1.0)*/
+  float m_FFTOverlap;
+  /** The frequency point to start extraction from. */
+  unsigned int m_FrequencyExtractStartIndex;
   /** The number of frequency points to extract starting from m_FrequencyStartIndex. */
-  unsigned int m_FrequencySize;
+  unsigned int m_FrequencyExtractSize;
 
 private:
   FrequencyVectorImageFilter( const Self& ); // purposely not implemented

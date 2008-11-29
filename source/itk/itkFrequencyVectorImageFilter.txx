@@ -27,6 +27,10 @@ FrequencyVectorImageFilter<TInputImage>
 {
   Superclass::PrintSelf(os,indent);
   os << indent << "Direction: " << m_Direction << std::endl;
+  os << indent << "FFTSize: " << m_FFTSize << std::endl;
+  os << indent << "FFTOverlap: " << m_FFTOverlap << std::endl;
+  os << indent << "FrequencyExtractStartIndex: " << m_FrequencyExtractStartIndex << std::endl;
+  os << indent << "FrequencyExtractSize: " << m_FrequencyExtractSize << std::endl;
   os << std::endl;
 }
 
@@ -37,7 +41,7 @@ FrequencyVectorImageFilter< TInputImage >
 {
   // override the method in itkImageSource
   OutputImageType* output = this->GetOutput();
-  output->SetVectorLength( this->m_FrequencySize );
+  output->SetVectorLength( this->m_FrequencyExtractSize );
   this->Superclass::AllocateOutputs();
 }
 

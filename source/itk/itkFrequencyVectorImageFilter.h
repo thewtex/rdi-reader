@@ -52,9 +52,20 @@ public:
 
   /** Get the direction in which the filter is to be applied. */
   itkGetMacro(Direction, unsigned int);
-
   /** Set the direction in which the filter is to be applied. */
   itkSetMacro(Direction, unsigned int);
+
+  /** Get the starting frequency point for extraction. */
+  itkGetMacro(FrequencyStartIndex, unsigned int);
+  /** Set the starting frequency point for extraction. */
+  itkSetMacro(FrequencyStartIndex, unsigned int);
+
+  /** Get the number of frequency points to extract starting from the FrequencyStartIndex. */
+  itkGetMacro(FrequencySize, unsigned int);
+  /** Set the number of frequency points to extract starting from the FrequencyStartIndex. */
+  itkSetMacro(FrequencySize, unsigned int);
+
+
 
   /** @todo -- threadify */
   virtual void GenerateData();  // generates output from input
@@ -66,6 +77,10 @@ protected:
   /** Direction in which the filter is to be applied
    * this should be in the range [0,ImageDimension-1]. */
   unsigned int m_Direction;
+  /** The frequency point to start from. */
+  unsigned int m_FrequencyStartIndex;
+  /** The number of frequency points to extract starting from m_FrequencyStartIndex. */
+  unsigned int m_FrequencySize;
 
 private:
   FrequencyVectorImageFilter( const Self& ); // purposely not implemented

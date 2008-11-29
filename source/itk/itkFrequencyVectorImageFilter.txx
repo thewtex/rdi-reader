@@ -11,7 +11,9 @@ namespace itk
 template <class TInputImage >
 FrequencyVectorImageFilter<TInputImage>
 ::FrequencyVectorImageFilter()
-: m_Direction(1)
+: m_Direction(1),
+  m_FrequencyStartIndex(0),
+  m_FrequencySize(1)
   {
   }
 

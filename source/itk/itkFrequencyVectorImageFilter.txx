@@ -14,8 +14,9 @@ FrequencyVectorImageFilter<TInputImage>
 : m_Direction(1),
   m_FrequencyStartIndex(0),
   m_FrequencySize(1)
-  {
-  }
+{
+  this->SetNumberOfRequiredInputs( 1 );
+}
 
 template <class TInputImage >
 void
@@ -27,11 +28,24 @@ FrequencyVectorImageFilter<TInputImage>
   os << std::endl;
 }
 
+template < class TInputImage >
+void
+FrequencyVectorImageFilter< TInputImage >
+::AllocateOutputs()
+{
+  // override the method in itkImageSource
+  OutputImageType* output = this->GetOutput();
+  output->SetVectorLength( this->m_FrequencySize );
+  this->Superclass::AllocateOutputs();
+}
+
 template <class TInputImage >
 void
 FrequencyVectorImageFilter<TInputImage>
 ::GenerateData()
 {
+  this->AllocateOutputs();
+
   // get pointers to the input and output
   typename TInputImage::ConstPointer  inputPtr  = this->GetInput();
   typename OutputImageType::Pointer      outputPtr = this->GetOutput();
@@ -41,9 +55,6 @@ FrequencyVectorImageFilter<TInputImage>
     return;
     }
 
-  // allocate output buffer memory
-  outputPtr->SetBufferedRegion( outputPtr->GetRequestedRegion() );
-  outputPtr->Allocate();
 
   //const typename OutputImageType::SizeType& inputSize
     //= inputPtr->GetRequestedRegion().GetSize();

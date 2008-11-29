@@ -74,6 +74,10 @@ protected:
   virtual ~FrequencyVectorImageFilter(){};
   void PrintSelf(std::ostream& os, Indent indent) const;
 
+  // inherited from ImageSource, step in threaded execution
+  virtual void AllocateOutputs();
+
+
   /** Direction in which the filter is to be applied
    * this should be in the range [0,ImageDimension-1]. */
   unsigned int m_Direction;

@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cmath>
 
 //#include "itkComplexToImaginaryImageFilter.h"
 //#include "itkComplexToRealImageFilter.h"
 #include "itkAbsImageFilter.h"
 #include "itkAddConstantToImageFilter.h"
 #include "itkComplexToModulusImageFilter.h"
+#include "itkHammingWindowImageFilter.h"
 #include "itkImageFileReader.h"
 #include "itkImageFileWriter.h"
 #include "itkImportImageFilter.h"
@@ -33,9 +33,9 @@ using std::endl;
 using std::cerr;
 using std::vector;
 
-  typedef float PixelType;
-  const unsigned int Dimension = 3;
-  typedef itk::Image< PixelType, Dimension > ImageType;
+typedef float PixelType;
+const unsigned int Dimension = 3;
+typedef itk::Image< PixelType, Dimension > ImageType;
 
 void fill_in_image( const ImageType* target, vector<PixelType>& in_image, const unsigned int & frame, const unsigned int & cols, const unsigned int& rows )
 {
@@ -86,14 +86,7 @@ int main(int argc, char ** argv )
 
   reader->UpdateOutputInformation();
 
-  float pi = 3.14159265;
-  VectorType hamming_win;
-  for( unsigned int i = 0; i<window_length; i++ )
-    {
-    hamming_win[i] = 0.53836 - 0.46164 * ::cos(2*pi*i/(window_length-1) ) ;
 
-    }
-  cout << hamming_win << endl;
   typedef itk::RegionOfInterestImageFilter< ImageType, ImageType > ROIType;
   ROIType::Pointer roi_filter = ROIType::New();
   roi_filter->SetInput( reader->GetOutput());
@@ -104,11 +97,18 @@ int main(int argc, char ** argv )
   ImageType::SpacingType spacing = reader->GetOutput()->GetSpacing();
   size[1] = window_length;
   size[2] = 4;
-  start[2] = 43;
+  //start[2] = 43;
+  start[2] = 0;
   ImageType::RegionType desired_region;
   desired_region.SetSize( size );
   desired_region.SetIndex( start );
   roi_filter->SetRegionOfInterest( desired_region );
+
+  /*************** window ***************/
+  typedef itk::HammingWindowImageFilter< ImageType, ImageType> WindowType;
+  WindowType::Pointer window = WindowType::New();
+  window->SetDirection(1);
+  window->SetInput( roi_filter->GetOutput() );
 
   /*************** b mode  ***************/
   typedef itk::AbsImageFilter< ImageType, ImageType > AbsType;
@@ -270,7 +270,7 @@ int main(int argc, char ** argv )
   /*************** writer  ***************/
   typedef itk::ImageFileWriter< ImageType > WriterType;
   WriterType::Pointer writer = WriterType::New();
-  writer->SetInput( roi_filter->GetOutput() );
+  writer->SetInput( window->GetOutput() );
   //writer->SetInput( complex_to_real->GetOutput() );
   //writer->SetInput( ifft1d_filter->GetOutput() );
   //writer->SetInput( log->GetOutput() );

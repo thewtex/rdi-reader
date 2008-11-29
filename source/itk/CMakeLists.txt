@@ -17,6 +17,7 @@
 ##project( PARAMETRIC_US )
 
 include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source )
+include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source/itk )
 
 find_package( ITK )
 if( ITK_FOUND )
@@ -25,12 +26,17 @@ else( ITK_FOUND )
   message( FATAL_ERROR "ITK not found. Please set ITK_DIR." )
 endif( ITK_FOUND )
 
+add_executable( test test.cpp )
+
+target_link_libraries( test
+  ITKIO )
 
 add_executable( start
   start.cpp
   )
 
 target_link_libraries( start
+  ITKCommon
   ITKIO
   ITKAlgorithms
   boost_filesystem

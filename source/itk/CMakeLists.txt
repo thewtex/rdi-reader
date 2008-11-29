@@ -26,10 +26,6 @@ else( ITK_FOUND )
   message( FATAL_ERROR "ITK not found. Please set ITK_DIR." )
 endif( ITK_FOUND )
 
-add_executable( test test.cpp )
-
-target_link_libraries( test
-  ITKIO )
 
 add_executable( start
   start.cpp

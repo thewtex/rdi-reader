@@ -54,8 +54,8 @@ HammingWindowImageFilter<TInputImage,TOutputImage>
     this->GenerateWindow( window_size );
     }
 
-  typedef itk::ImageLinearConstIteratorWithIndex< TInputImage >  InputIteratorType;
-  typedef itk::ImageLinearIteratorWithIndex< TOutputImage >      OutputIteratorType;
+  typedef ::itk::ImageLinearConstIteratorWithIndex< TInputImage >  InputIteratorType;
+  typedef ::itk::ImageLinearIteratorWithIndex< TOutputImage >      OutputIteratorType;
   InputIteratorType inputIt( inputPtr, inputPtr->GetRequestedRegion() );
   // the output region should be the same as the input region
   OutputIteratorType outputIt( outputPtr, inputPtr->GetRequestedRegion() );

@@ -7,6 +7,7 @@
 #include "itkAbsImageFilter.h"
 #include "itkAddConstantToImageFilter.h"
 #include "itkComplexToModulusImageFilter.h"
+#include "itkFrequencyVectorImageFilter.h"
 #include "itkHammingWindowImageFilter.h"
 #include "itkImageFileReader.h"
 #include "itkImageFileWriter.h"
@@ -110,34 +111,39 @@ int main(int argc, char ** argv )
   window->SetDirection(1);
   window->SetInput( roi_filter->GetOutput() );
 
-  /*************** b mode  ***************/
-  typedef itk::AbsImageFilter< ImageType, ImageType > AbsType;
-  AbsType::Pointer abs  = AbsType::New();
-  abs->SetInput( roi_filter->GetOutput());
-
-  typedef itk::RecursiveGaussianImageFilter< ImageType, ImageType > GaussType;
-  GaussType::Pointer smooth = GaussType::New();
-  smooth->SetSigma( 3.6*spacing[1] );
-  smooth->SetDirection( 1 );
-  smooth->SetInput( abs->GetOutput() );
-  smooth->SetNormalizeAcrossScale( false );
-
-  typedef itk::AddConstantToImageFilter< ImageType, PixelType, ImageType > AddCType;
-  AddCType::Pointer add_c = AddCType::New();
-  add_c->SetConstant( 0.000001 );
-  add_c->SetInput( smooth->GetOutput() );
-
-  typedef itk::Log10ImageFilter< ImageType, ImageType > LogType;
-  LogType::Pointer log = LogType::New();
-  log->SetInput( add_c->GetOutput() );
-
-
   /*************** fft ***************/
   typedef itk::FFTW1DRealToComplexConjugateImageFilter< PixelType, Dimension > FFT1DFilterType;
   FFT1DFilterType::Pointer fft1d_filter = FFT1DFilterType::New();
-  fft1d_filter->SetInput( roi_filter->GetOutput() );
+  fft1d_filter->SetInput( window->GetOutput() );
   fft1d_filter->SetDirection(1);
   typedef FFT1DFilterType::OutputImageType ComplexType;
+
+  typedef itk::ComplexToModulusImageFilter< ComplexType, ImageType > ModulusFilter;
+  ModulusFilter::Pointer modulus = ModulusFilter::New();
+  modulus->SetInput( fft1d_filter->GetOutput() );
+
+  /*************** b mode  ***************/
+  //typedef itk::AbsImageFilter< ImageType, ImageType > AbsType;
+  //AbsType::Pointer abs  = AbsType::New();
+  //abs->SetInput( roi_filter->GetOutput());
+
+  //typedef itk::RecursiveGaussianImageFilter< ImageType, ImageType > GaussType;
+  //GaussType::Pointer smooth = GaussType::New();
+  //smooth->SetSigma( 3.6*spacing[1] );
+  //smooth->SetDirection( 1 );
+  //smooth->SetInput( abs->GetOutput() );
+  //smooth->SetNormalizeAcrossScale( false );
+
+  //typedef itk::AddConstantToImageFilter< ImageType, PixelType, ImageType > AddCType;
+  //AddCType::Pointer add_c = AddCType::New();
+  //add_c->SetConstant( 0.000001 );
+  //add_c->SetInput( smooth->GetOutput() );
+
+  //typedef itk::Log10ImageFilter< ImageType, ImageType > LogType;
+  //LogType::Pointer log = LogType::New();
+  //log->SetInput( add_c->GetOutput() );
+
+
 
   //typedef itk::ComplexToRealImageFilter< FFT1DFilterType::OutputImageType,
   //ImageType > ComplexToRealType;
@@ -154,9 +160,6 @@ int main(int argc, char ** argv )
   //negate->SetInput( complex_to_real->GetOutput() );
   //negate->SetConstant( -1 );
 
-  typedef itk::ComplexToModulusImageFilter< ComplexType, ImageType > ModulusFilter;
-  ModulusFilter::Pointer modulus = ModulusFilter::New();
-  modulus->SetInput( fft1d_filter->GetOutput() );
 
 
   //typedef itk::RealAndImaginaryToComplexImageFilter< PixelType, PixelType, PixelType, Dimension> RealImagToComplexType;
@@ -270,12 +273,12 @@ int main(int argc, char ** argv )
   /*************** writer  ***************/
   typedef itk::ImageFileWriter< ImageType > WriterType;
   WriterType::Pointer writer = WriterType::New();
-  writer->SetInput( window->GetOutput() );
+  //writer->SetInput( window->GetOutput() );
   //writer->SetInput( complex_to_real->GetOutput() );
   //writer->SetInput( ifft1d_filter->GetOutput() );
   //writer->SetInput( log->GetOutput() );
   //writer->SetInput( import_filter->GetOutput() );
-  //writer->SetInput( modulus->GetOutput() );
+  writer->SetInput( modulus->GetOutput() );
   writer->SetFileName( "out.mhd" ) ;
 
   try

@@ -70,15 +70,16 @@ FrequencyVectorImageFilter< TInputImage >
   typename OutputImageType::SizeType     outputSize = inputSize;
   typename OutputImageType::IndexType    outputStartIndex = inputStartIndex;
 
-  if( inputSize[this->m_Direction] < this->m_FFTSize )
+  unsigned int direction = this->m_Direction;
+  if( inputSize[direction] < this->m_FFTSize )
     {
-    outputSize[this->m_Direction] = 0;
+    outputSize[direction] = 0;
     }
   else
     {
     // integer division rounds down
-    outputSize[this->m_Direction] = 1 +
-      (inputSize[this->m_Direction] - this->m_FFTSize) /
+    outputSize[direction] = 1 +
+      (inputSize[direction] - this->m_FFTSize) /
       ( static_cast< unsigned int >( (1.0 - this->m_FFTOverlap) * this->m_FFTSize ) );
     }
 
@@ -90,6 +91,16 @@ FrequencyVectorImageFilter< TInputImage >
   outputLargestPossibleRegion.SetIndex( outputStartIndex );
 
   outputPtr->SetLargestPossibleRegion( outputLargestPossibleRegion );
+
+  // spacing
+  const typename InputImageType::SpacingType&  inputSpacing
+    = inputPtr->GetSpacing();
+
+  typename OutputImageType::SpacingType outputSpacing = inputSpacing;
+  outputSpacing[direction] = (inputSize[direction] * inputSpacing[direction]) / outputSize[direction];
+
+  outputPtr->SetSpacing( outputSpacing );
+
 }
 
 template < class TInputImage >

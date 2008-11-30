@@ -301,10 +301,7 @@ int main(int argc, char ** argv )
 
   try
     {
-    freq_vect->UpdateOutputInformation();
-    cout << "roi LPR: " << roi_filter->GetOutput()->GetLargestPossibleRegion() << endl;
-    cout << "freq_vect LPR: " << freq_vect->GetOutput()->GetLargestPossibleRegion() << endl;
-    //freq_vect->PropagateRequestedRegion();
+    //freq_vect->UpdateOutputInformation();
     writer->Update();
     }
   catch( itk::ExceptionObject & err )

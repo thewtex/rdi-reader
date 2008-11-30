@@ -47,7 +47,8 @@ public:
    * Inherited from the superclass. */
   typedef typename TInputImage::InternalPixelType  PixelType;
   typedef typename InputImageType::PixelType   InputPixelType;
-  typedef typename Superclass::InputImageRegionType RegionType;
+  typedef typename Superclass::InputImageRegionType InputRegionType;
+  typedef typename Superclass::OutputImageRegionType OutputRegionType;
 
 
   /** Get the direction in which the filter is to be applied. */
@@ -84,6 +85,8 @@ protected:
 
   // inherited from ImageSource, step in threaded execution
   virtual void AllocateOutputs();
+  virtual void GenerateOutputInformation();
+  virtual void GenerateInputRequestedRegion();
 
 
   /** Direction in which the filter is to be applied

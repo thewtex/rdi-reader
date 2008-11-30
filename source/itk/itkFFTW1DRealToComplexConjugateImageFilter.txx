@@ -150,15 +150,9 @@ FFTW1DRealToComplexConjugateImageFilter < TPixel , Dimension >
   const typename TInputImageType::IndexType&  inputStartIndex
     = inputPtr->GetLargestPossibleRegion().GetIndex();
 
-  typename TOutputImageType::SizeType     outputSize;
-  typename TOutputImageType::IndexType    outputStartIndex;
+  typename TOutputImageType::SizeType     outputSize = inputSize;
+  typename TOutputImageType::IndexType    outputStartIndex = inputStartIndex;
 
-  for (unsigned int i = 0; i < TOutputImageType::ImageDimension; i++)
-    {
-    outputSize[i] = inputSize[i];
-    outputStartIndex[i] = inputStartIndex[i];
-    }
-  //
   // in 4.3.4 of the FFTW documentation, they indicate the size of
   // of a real-to-complex FFT is N * N ... + (N /2+1)
   //                              1   2        d

@@ -46,6 +46,56 @@ FrequencyVectorImageFilter<TInputImage>
 template < class TInputImage >
 void
 FrequencyVectorImageFilter< TInputImage >
+::GenerateOutputInformation()
+{
+  this->Superclass::GenerateOutputInformation();
+
+  // get pointers to the input and output
+  typename InputImageType::ConstPointer  inputPtr  = this->GetInput();
+  typename OutputImageType::Pointer      outputPtr = this->GetOutput();
+
+  if ( !inputPtr || !outputPtr )
+    {
+    return;
+    }
+
+  const typename InputImageType::SizeType&   inputSize
+    = inputPtr->GetLargestPossibleRegion().GetSize();
+  const typename InputImageType::IndexType&  inputStartIndex
+    = inputPtr->GetLargestPossibleRegion().GetIndex();
+
+  typename OutputImageType::SizeType     outputSize = inputSize;
+  typename OutputImageType::IndexType    outputStartIndex = inputStartIndex;
+
+  if( inputSize[this->m_Direction] < this->m_FFTSize )
+    {
+    outputSize[this->m_Direction] = 0;
+    }
+  else
+    {
+    // integer division rounds down
+    outputSize[this->m_Direction] = 1 +
+      (inputSize[this->m_Direction] - this->m_FFTSize) /
+      ( static_cast< unsigned int >( (1.0 - this->m_FFTOverlap) * this->m_FFTSize ) );
+    }
+
+  OutputRegionType outputLargestPossibleRegion;
+  outputLargestPossibleRegion.SetSize( outputSize );
+  outputLargestPossibleRegion.SetIndex( outputStartIndex );
+
+  outputPtr->SetLargestPossibleRegion( outputLargestPossibleRegion );
+}
+
+template < class TInputImage >
+void
+FrequencyVectorImageFilter< TInputImage >
+::GenerateInputRequestedRegion()
+{
+}
+
+template < class TInputImage >
+void
+FrequencyVectorImageFilter< TInputImage >
 ::AllocateOutputs()
 {
   // override the method in itkImageSource

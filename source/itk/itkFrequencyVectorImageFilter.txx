@@ -3,8 +3,12 @@
 
 
 #include "itkFrequencyVectorImageFilter.h"
-#include "itkImageLinearIteratorWithIndex.h"
+#include "itkImageLinearConstIteratorWithIndex.h"
 
+// for testing
+#include <iostream>
+using std::cout;
+using std::endl;
 namespace itk
 {
 
@@ -14,9 +18,10 @@ FrequencyVectorImageFilter<TInputImage>
 : m_Direction(1),
   m_FFTSize(128),
   m_FFTOverlap(0.5),
-  m_FrequencyExtractStartIndex(0),
-  m_FrequencyExtractSize(m_FFTSize)
+  m_FrequencyExtractStartIndex(0)
 {
+  // DC to nyquist
+  m_FrequencyExtractSize = m_FFTSize/2 + 1;
   this->SetNumberOfRequiredInputs( 1 );
 
   m_WindowFilter = WindowType::New();
@@ -143,6 +148,7 @@ FrequencyVectorImageFilter< TInputImage >
   InputRegionType inputRequestedRegion;
   inputRequestedRegion.SetSize( inputRequestedRegionSize );
   inputRequestedRegion.SetIndex( inputRequestedRegionStartIndex );
+  cout << " input requested region: " << inputRequestedRegion << endl;
 
   inputPtr->SetRequestedRegion( inputRequestedRegion );
 }
@@ -175,41 +181,79 @@ FrequencyVectorImageFilter<TInputImage>
     }
 
 
-  //const typename OutputImageType::SizeType& inputSize
-    //= inputPtr->GetRequestedRegion().GetSize();
+  const typename InputImageType::IndexType& inputIndex
+    = inputPtr->GetRequestedRegion().GetIndex();
+  const typename InputImageType::SizeType& inputSize
+    = inputPtr->GetRequestedRegion().GetSize();
 
-  //unsigned int window_size = inputSize[this->m_Direction];
+  const typename OutputImageType::IndexType& outputStartIndex
+    = outputPtr->GetRequestedRegion().GetIndex();
+  const typename OutputImageType::SizeType& outputSize
+    = outputPtr->GetRequestedRegion().GetSize();
 
-  //if( !( window_size == this->m_Window.GetSize() ) )
-    //{
-    //this->GenerateWindow( window_size );
-    //}
+  // sub-regions we will be generating
+  InputRegionType requested_subregion;
+  typename InputImageType::IndexType subregion_index = inputIndex;
+  typename InputImageType::SizeType subregion_size = inputSize;
 
-  //typedef itk::ImageLinearConstIteratorWithIndex< TInputImage >  InputIteratorType;
-  //typedef itk::ImageLinearIteratorWithIndex< TOutputImage >      OutputIteratorType;
-  //InputIteratorType inputIt( inputPtr, inputPtr->GetRequestedRegion() );
-  //// the output region should be the same as the input region
-  //OutputIteratorType outputIt( outputPtr, inputPtr->GetRequestedRegion() );
+  unsigned int direction = this->m_Direction;
+  unsigned int win_step =
+      ( static_cast< unsigned int >( (1.0 - this->m_FFTOverlap) * this->m_FFTSize ) );
 
-  //inputIt.SetDirection(this->m_Direction);
-  //outputIt.SetDirection(this->m_Direction);
+  this->m_WindowFilter->SetInput( this->GetInput() );
 
-  //unsigned int i;
-  //for( inputIt.GoToBegin(), outputIt.GoToBegin(); !inputIt.IsAtEnd();
-    //outputIt.NextLine(), inputIt.NextLine() )
-    //{
-    //inputIt.GoToBeginOfLine();
-    //outputIt.GoToBeginOfLine();
-    //for( i = 0; i < window_size; i++ )
-      //{
-      //outputIt.Set( static_cast< PixelType > ( inputIt.Get() * this->m_Window[i] ) );
-      //++inputIt;
-      //++outputIt;
-      //}
-    //}
+  subregion_size[direction] = this->m_FFTSize;
+  requested_subregion.SetSize( subregion_size );
+  requested_subregion.SetIndex( subregion_index );
+  typename SquareFilterType::OutputImageType::Pointer subregion_output = this->m_SquareFilter->GetOutput();
+  cout << "requested subregion: " << requested_subregion << endl;
+  subregion_output->SetRequestedRegion( requested_subregion );
+
+
+  typedef itk::ImageLinearConstIteratorWithIndex< typename SquareFilterType::OutputImageType >  SubregionIteratorType;
+
+  OutputPixelType outpix;
+  typename OutputImageType::IndexType outIndex;
+
+  unsigned int j = 0;
+  for( unsigned int i = 0; i < outputSize[direction]; i++ )
+    {
+    this->m_SquareFilter->Update();
+
+    SubregionIteratorType it( subregion_output, requested_subregion );
+    it.SetDirection( direction );
+    it.GoToBegin();
+    while( !it.IsAtEnd() )
+      {
+      it.GoToBeginOfLine();
+      // skip the frequencies we are not interested in
+      for( j = 0; j < this->m_FrequencyExtractStartIndex; j++ )
+	{
+	++it;
+	}
+      // copy the frequencies to our output Vector
+      for( j = 0; j < this->m_FrequencyExtractSize; j++ )
+	{
+	outpix[j] = it.Get();
+	++it;
+	}
+      outIndex = it.GetIndex();
+      outIndex[direction] = outputStartIndex[direction] + i;
+      outputPtr->SetPixel( outIndex, outpix );
+
+      it.NextLine();
+      }
+
+
+    // move to the next subregion
+    subregion_index[direction] = subregion_index[direction] + win_step;
+    requested_subregion.SetIndex( subregion_index );
+    cout << "requested subregion: " << requested_subregion << endl;
+    subregion_output->SetRequestedRegion( requested_subregion );
+    }
 }
 
 
-}
+} // end namespace itk
 
 #endif // inclusion guard

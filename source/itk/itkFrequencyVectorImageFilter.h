@@ -45,8 +45,8 @@ public:
 
   /** The pixel type of the output image will be used in computations.
    * Inherited from the superclass. */
-  typedef typename TInputImage::InternalPixelType  PixelType;
   typedef typename InputImageType::PixelType   InputPixelType;
+  typedef typename OutputImageType::PixelType OutputPixelType;
   typedef typename Superclass::InputImageRegionType InputRegionType;
   typedef typename Superclass::OutputImageRegionType OutputRegionType;
 
@@ -102,7 +102,7 @@ protected:
   unsigned int m_FrequencyExtractSize;
 
   typedef HammingWindowImageFilter< TInputImage, TInputImage > WindowType;
-  typedef FFTW1DRealToComplexConjugateImageFilter< PixelType, Dimension > FFT1DFilterType;
+  typedef FFTW1DRealToComplexConjugateImageFilter< InputPixelType, Dimension > FFT1DFilterType;
   typedef typename FFT1DFilterType::OutputImageType ComplexType;
   /** @todo use a filter that does re^2+im^2 instead of (sqrt(re^2+im^2))^2 */
   typedef ComplexToModulusImageFilter< ComplexType, TInputImage > ModulusFilterType;

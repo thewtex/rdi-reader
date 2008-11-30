@@ -76,6 +76,7 @@ int main(int argc, char ** argv )
 
   typedef itk::ImageFileReader< ImageType > ReaderType;
   const unsigned int window_length = 128;
+  const unsigned int roi_length = 2048;
   typedef itk::Vector< PixelType, window_length > VectorType;
 
   ReaderType::Pointer reader = ReaderType::New();
@@ -97,7 +98,8 @@ int main(int argc, char ** argv )
   ImageType::SizeType size = in_region.GetSize();
   ImageType::IndexType start = in_region.GetIndex();
   ImageType::SpacingType spacing = reader->GetOutput()->GetSpacing();
-  size[1] = window_length;
+  //size[1] = window_length;
+  size[1] = roi_length;
   size[2] = 4;
   //start[2] = 43;
   start[2] = 0;
@@ -126,6 +128,11 @@ int main(int argc, char ** argv )
   typedef itk::SquareImageFilter < ImageType, ImageType > SquareFilter;
   SquareFilter::Pointer square = SquareFilter::New();
   square->SetInput( modulus->GetOutput() );
+
+  /*************** frequency vector ***************/
+  typedef itk::FrequencyVectorImageFilter< ImageType > FrequencyVectorFilter;
+  FrequencyVectorFilter::Pointer freq_vect = FrequencyVectorFilter::New();
+  freq_vect->SetInput( roi_filter->GetOutput() );
 
 
   /*************** b mode  ***************/
@@ -277,7 +284,8 @@ int main(int argc, char ** argv )
 
 
   /*************** writer  ***************/
-  typedef itk::ImageFileWriter< ImageType > WriterType;
+  //typedef itk::ImageFileWriter< ImageType > WriterType;
+  typedef itk::ImageFileWriter< FrequencyVectorFilter::OutputImageType > WriterType;
   WriterType::Pointer writer = WriterType::New();
   //writer->SetInput( window->GetOutput() );
   //writer->SetInput( complex_to_real->GetOutput() );
@@ -285,12 +293,16 @@ int main(int argc, char ** argv )
   //writer->SetInput( log->GetOutput() );
   //writer->SetInput( import_filter->GetOutput() );
   //writer->SetInput( modulus->GetOutput() );
-  writer->SetInput( square->GetOutput() );
+  //writer->SetInput( square->GetOutput() );
+  writer->SetInput( freq_vect->GetOutput() );
   writer->SetFileName( "out.mhd" ) ;
 
   try
     {
-    //fft1d_filter->Update();
+    freq_vect->UpdateOutputInformation();
+    cout << "roi LPR: " << roi_filter->GetOutput()->GetLargestPossibleRegion() << endl;
+    cout << "freq_vect LPR: " << freq_vect->GetOutput()->GetLargestPossibleRegion() << endl;
+    //freq_vect->PropagateRequestedRegion();
     writer->Update();
     }
   catch( itk::ExceptionObject & err )

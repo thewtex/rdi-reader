@@ -18,6 +18,15 @@ FrequencyVectorImageFilter<TInputImage>
   m_FrequencyExtractSize(m_FFTSize)
 {
   this->SetNumberOfRequiredInputs( 1 );
+
+  m_WindowFilter = WindowType::New();
+  m_FFT1DFilter = FFT1DFilterType::New();
+  m_ModulusFilter = ModulusFilterType::New();
+  m_SquareFilter = SquareFilterType::New();
+
+  m_FFT1DFilter->SetInput( m_WindowFilter->GetOutput() );
+  m_ModulusFilter->SetInput( m_FFT1DFilter->GetOutput() );
+  m_SquareFilter->SetInput( m_ModulusFilter->GetOutput() );
 }
 
 template <class TInputImage >

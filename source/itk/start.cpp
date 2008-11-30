@@ -19,6 +19,7 @@
 //#include "itkFFTW1DComplexConjugateToRealImageFilter.h"
 #include "itkFFTW1DRealToComplexConjugateImageFilter.h"
 #include "itkRecursiveGaussianImageFilter.h"
+#include "itkSquareImageFilter.h"
 #include "itkVector.h"
 
 
@@ -121,6 +122,11 @@ int main(int argc, char ** argv )
   typedef itk::ComplexToModulusImageFilter< ComplexType, ImageType > ModulusFilter;
   ModulusFilter::Pointer modulus = ModulusFilter::New();
   modulus->SetInput( fft1d_filter->GetOutput() );
+
+  typedef itk::SquareImageFilter < ImageType, ImageType > SquareFilter;
+  SquareFilter::Pointer square = SquareFilter::New();
+  square->SetInput( modulus->GetOutput() );
+
 
   /*************** b mode  ***************/
   //typedef itk::AbsImageFilter< ImageType, ImageType > AbsType;
@@ -278,7 +284,8 @@ int main(int argc, char ** argv )
   //writer->SetInput( ifft1d_filter->GetOutput() );
   //writer->SetInput( log->GetOutput() );
   //writer->SetInput( import_filter->GetOutput() );
-  writer->SetInput( modulus->GetOutput() );
+  //writer->SetInput( modulus->GetOutput() );
+  writer->SetInput( square->GetOutput() );
   writer->SetFileName( "out.mhd" ) ;
 
   try

@@ -1,7 +1,11 @@
 #ifndef  __itkFrequencyVectorImageFilter_h
 #define  __itkFrequencyVectorImageFilter_h
 
+#include "itkComplexToModulusImageFilter.h"
+#include "itkFFTW1DRealToComplexConjugateImageFilter.h"
+#include "itkHammingWindowImageFilter.h"
 #include "itkImageToImageFilter.h"
+#include "itkSquareImageFilter.h"
 #include "itkVectorImage.h"
 
 namespace itk
@@ -37,11 +41,7 @@ public:
   typedef typename Superclass::InputImageType  InputImageType;
   typedef typename Superclass::OutputImageType OutputImageType;
 
-  /** Dimensionality of input and output data is assumed to be the same.
-   * It is inherited from the superclass. */
-  itkStaticConstMacro(ImageDimension, unsigned int, TInputImage::ImageDimension);
-  itkStaticConstMacro(OutputImageDimension, unsigned int,
-                      OutputImageType::ImageDimension);
+  itkStaticConstMacro(Dimension, unsigned int, TInputImage::ImageDimension);
 
   /** The pixel type of the output image will be used in computations.
    * Inherited from the superclass. */
@@ -97,6 +97,19 @@ protected:
   unsigned int m_FrequencyExtractStartIndex;
   /** The number of frequency points to extract starting from m_FrequencyStartIndex. */
   unsigned int m_FrequencyExtractSize;
+
+  typedef HammingWindowImageFilter< TInputImage, TInputImage > WindowType;
+  typedef FFTW1DRealToComplexConjugateImageFilter< PixelType, Dimension > FFT1DFilterType;
+  typedef typename FFT1DFilterType::OutputImageType ComplexType;
+  /** @todo use a filter that does re^2+im^2 instead of (sqrt(re^2+im^2))^2 */
+  typedef ComplexToModulusImageFilter< ComplexType, TInputImage > ModulusFilterType;
+  typedef SquareImageFilter< TInputImage, TInputImage > SquareFilterType;
+
+  typename WindowType::Pointer m_WindowFilter;
+  typename FFT1DFilterType::Pointer m_FFT1DFilter;
+  typename ModulusFilterType::Pointer m_ModulusFilter;
+  typename SquareFilterType::Pointer m_SquareFilter;
+
 
 private:
   FrequencyVectorImageFilter( const Self& ); // purposely not implemented

@@ -79,6 +79,9 @@ FrequencyVectorImageFilter< TInputImage >
       ( static_cast< unsigned int >( (1.0 - this->m_FFTOverlap) * this->m_FFTSize ) );
     }
 
+  /** @todo fix outputStartIndex
+   * should be smaller than the inputStartIndex in general
+   */
   OutputRegionType outputLargestPossibleRegion;
   outputLargestPossibleRegion.SetSize( outputSize );
   outputLargestPossibleRegion.SetIndex( outputStartIndex );
@@ -91,6 +94,57 @@ void
 FrequencyVectorImageFilter< TInputImage >
 ::GenerateInputRequestedRegion()
 {
+  this->Superclass::GenerateInputRequestedRegion();
+
+  // get pointers to the inputs
+  typename InputImageType::Pointer inputPtr  =
+    const_cast<InputImageType *> (this->GetInput());
+  typename OutputImageType::Pointer outputPtr = this->GetOutput();
+
+  if ( !inputPtr || !outputPtr )
+    {
+    return;
+    }
+
+  // we need to compute the input requested region (size and start index)
+  typedef const typename OutputImageType::SizeType& OutputSizeType;
+  OutputSizeType outputRequestedRegionSize =
+    outputPtr->GetRequestedRegion().GetSize();
+  typedef const typename OutputImageType::IndexType& OutputIndexType;
+  OutputIndexType outputRequestedRegionStartIndex =
+    outputPtr->GetRequestedRegion().GetIndex();
+
+  typename InputImageType::SizeType  inputRequestedRegionSize = outputRequestedRegionSize;
+  typename InputImageType::IndexType inputRequestedRegionStartIndex = outputRequestedRegionStartIndex;
+
+
+  const unsigned int direction = this->m_Direction;
+  unsigned int win_step =
+      ( static_cast< unsigned int >( (1.0 - this->m_FFTOverlap) * this->m_FFTSize ) );
+
+  const typename OutputImageType::IndexType& outputLargeIndex =
+    outputPtr->GetLargestPossibleRegion().GetIndex();
+  const typename InputImageType::IndexType& inputLargeIndex =
+    inputPtr->GetLargestPossibleRegion().GetIndex();
+  inputRequestedRegionStartIndex[direction] = inputLargeIndex[direction] +
+    ( outputRequestedRegionStartIndex[direction] - outputLargeIndex[direction] ) * win_step ;
+
+
+  if( outputRequestedRegionSize[direction] == 0 )
+    {
+    inputRequestedRegionSize[direction] = 0;
+    }
+  else
+    {
+    inputRequestedRegionSize[direction] = this->m_FFTSize +
+      win_step * ( outputRequestedRegionSize[direction] - 1 );
+    }
+
+  InputRegionType inputRequestedRegion;
+  inputRequestedRegion.SetSize( inputRequestedRegionSize );
+  inputRequestedRegion.SetIndex( inputRequestedRegionStartIndex );
+
+  inputPtr->SetRequestedRegion( inputRequestedRegion );
 }
 
 template < class TInputImage >

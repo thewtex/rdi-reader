@@ -210,18 +210,13 @@ FFTW1DRealToComplexConjugateImageFilter < TPixel , Dimension >
   OutputIndexType outputRequestedRegionStartIndex =
     outputPtr->GetRequestedRegion().GetIndex();
 
-  typename TInputImageType::SizeType  inputRequestedRegionSize;
-  typename TInputImageType::IndexType inputRequestedRegionStartIndex;
+  //// the regions other than the fft direction are fine
+  typename TInputImageType::SizeType  inputRequestedRegionSize = outputRequestedRegionSize;
+  typename TInputImageType::IndexType inputRequestedRegionStartIndex = outputRequestedRegionStartIndex;
 
-  // the regions other than the fft direction are fine
-  for (unsigned int i = 0; i < TInputImageType::ImageDimension; i++)
-    {
-    inputRequestedRegionSize[i] = outputRequestedRegionSize[i];
-    inputRequestedRegionStartIndex[i] = outputRequestedRegionStartIndex[i];
-    }
 
   // we but need all of the input in the fft direction
-  unsigned int direction = this->m_Direction;
+  const unsigned int direction = this->m_Direction;
   const typename TInputImageType::SizeType& inputLargeSize =
     inputPtr->GetLargestPossibleRegion().GetSize();
   inputRequestedRegionSize[direction] = inputLargeSize[direction];

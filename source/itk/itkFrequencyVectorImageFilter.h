@@ -6,6 +6,7 @@
 #include "itkHammingWindowImageFilter.h"
 #include "itkImageToImageFilter.h"
 #include "itkSquareImageFilter.h"
+#include "itkRegionOfInterestImageFilter.h"
 #include "itkVectorImage.h"
 
 namespace itk
@@ -101,6 +102,7 @@ protected:
   /** The number of frequency points to extract starting from m_FrequencyStartIndex. */
   unsigned int m_FrequencyExtractSize;
 
+  typedef RegionOfInterestImageFilter< TInputImage, TInputImage > ROIFilterType;
   typedef HammingWindowImageFilter< TInputImage, TInputImage > WindowType;
   typedef FFTW1DRealToComplexConjugateImageFilter< InputPixelType, Dimension > FFT1DFilterType;
   typedef typename FFT1DFilterType::OutputImageType ComplexType;
@@ -108,6 +110,7 @@ protected:
   typedef ComplexToModulusImageFilter< ComplexType, TInputImage > ModulusFilterType;
   typedef SquareImageFilter< TInputImage, TInputImage > SquareFilterType;
 
+  typename ROIFilterType::Pointer m_ROIFilter;
   typename WindowType::Pointer m_WindowFilter;
   typename FFT1DFilterType::Pointer m_FFT1DFilter;
   typename ModulusFilterType::Pointer m_ModulusFilter;

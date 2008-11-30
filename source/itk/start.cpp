@@ -133,6 +133,8 @@ int main(int argc, char ** argv )
   typedef itk::FrequencyVectorImageFilter< ImageType > FrequencyVectorFilter;
   FrequencyVectorFilter::Pointer freq_vect = FrequencyVectorFilter::New();
   freq_vect->SetInput( roi_filter->GetOutput() );
+  freq_vect->SetFrequencyExtractStartIndex( 2 );
+  freq_vect->SetFrequencyExtractSize( 8 );
 
 
   /*************** b mode  ***************/

@@ -5,10 +5,6 @@
 #include "itkFrequencyVectorImageFilter.h"
 #include "itkImageLinearConstIteratorWithIndex.h"
 
-// for testing
-#include <iostream>
-using std::cout;
-using std::endl;
 namespace itk
 {
 
@@ -24,11 +20,13 @@ FrequencyVectorImageFilter<TInputImage>
   m_FrequencyExtractSize = m_FFTSize/2 + 1;
   this->SetNumberOfRequiredInputs( 1 );
 
+  m_ROIFilter = ROIFilterType::New();
   m_WindowFilter = WindowType::New();
   m_FFT1DFilter = FFT1DFilterType::New();
   m_ModulusFilter = ModulusFilterType::New();
   m_SquareFilter = SquareFilterType::New();
 
+  m_WindowFilter->SetInput( m_ROIFilter->GetOutput() );
   m_FFT1DFilter->SetInput( m_WindowFilter->GetOutput() );
   m_ModulusFilter->SetInput( m_FFT1DFilter->GetOutput() );
   m_SquareFilter->SetInput( m_ModulusFilter->GetOutput() );
@@ -148,7 +146,6 @@ FrequencyVectorImageFilter< TInputImage >
   InputRegionType inputRequestedRegion;
   inputRequestedRegion.SetSize( inputRequestedRegionSize );
   inputRequestedRegion.SetIndex( inputRequestedRegionStartIndex );
-  cout << " input requested region: " << inputRequestedRegion << endl;
 
   inputPtr->SetRequestedRegion( inputRequestedRegion );
 }
@@ -200,19 +197,22 @@ FrequencyVectorImageFilter<TInputImage>
   unsigned int win_step =
       ( static_cast< unsigned int >( (1.0 - this->m_FFTOverlap) * this->m_FFTSize ) );
 
-  this->m_WindowFilter->SetInput( this->GetInput() );
+
+  this->m_ROIFilter->SetInput( this->GetInput() );
+  this->m_WindowFilter->SetDirection( direction );
+  this->m_FFT1DFilter->SetDirection( direction );
 
   subregion_size[direction] = this->m_FFTSize;
   requested_subregion.SetSize( subregion_size );
   requested_subregion.SetIndex( subregion_index );
-  typename SquareFilterType::OutputImageType::Pointer subregion_output = this->m_SquareFilter->GetOutput();
-  cout << "requested subregion: " << requested_subregion << endl;
-  subregion_output->SetRequestedRegion( requested_subregion );
+  this->m_ROIFilter->SetRegionOfInterest( requested_subregion );
 
+  typename SquareFilterType::OutputImageType::ConstPointer square_out = this->m_SquareFilter->GetOutput();
 
   typedef itk::ImageLinearConstIteratorWithIndex< typename SquareFilterType::OutputImageType >  SubregionIteratorType;
 
   OutputPixelType outpix;
+  outpix.SetSize( this->m_FrequencyExtractSize );
   typename OutputImageType::IndexType outIndex;
 
   unsigned int j = 0;
@@ -220,7 +220,7 @@ FrequencyVectorImageFilter<TInputImage>
     {
     this->m_SquareFilter->Update();
 
-    SubregionIteratorType it( subregion_output, requested_subregion );
+    SubregionIteratorType it( square_out, square_out->GetLargestPossibleRegion() );
     it.SetDirection( direction );
     it.GoToBegin();
     while( !it.IsAtEnd() )
@@ -243,13 +243,10 @@ FrequencyVectorImageFilter<TInputImage>
 
       it.NextLine();
       }
-
-
     // move to the next subregion
     subregion_index[direction] = subregion_index[direction] + win_step;
     requested_subregion.SetIndex( subregion_index );
-    cout << "requested subregion: " << requested_subregion << endl;
-    subregion_output->SetRequestedRegion( requested_subregion );
+    this->m_ROIFilter->SetRegionOfInterest( requested_subregion );
     }
 }
 

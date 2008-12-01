@@ -22,6 +22,7 @@
 #include "itkRecursiveGaussianImageFilter.h"
 #include "itkSquareImageFilter.h"
 #include "itkVector.h"
+#include "itkVectorImage.h"
 
 
 #include "common/VisualSonicsTransform.h"
@@ -100,7 +101,7 @@ int main(int argc, char ** argv )
   ImageType::SpacingType spacing = reader->GetOutput()->GetSpacing();
   //size[1] = window_length;
   size[1] = roi_length;
-  size[2] = 4;
+  //size[2] = 4;
   //start[2] = 43;
   start[2] = 0;
   ImageType::RegionType desired_region;
@@ -137,6 +138,10 @@ int main(int argc, char ** argv )
   const unsigned int extraction_size = 8; // do not forget to change vector_length in itkMeanAcrossDirection.txx !!!!
   freq_vect->SetFrequencyExtractSize( extraction_size );
 
+  /*************** mean across direction ***************/
+  typedef itk::MeanAcrossDirection< FrequencyVectorFilter::OutputImageType, itk::VectorImage< PixelType, 1 > > MeanAcrossDirectionType;
+  MeanAcrossDirectionType::Pointer mean_across_d = MeanAcrossDirectionType::New();
+  mean_across_d->SetInput( freq_vect->GetOutput() );
 
   /*************** b mode  ***************/
   //typedef itk::AbsImageFilter< ImageType, ImageType > AbsType;
@@ -288,7 +293,8 @@ int main(int argc, char ** argv )
 
   /*************** writer  ***************/
   //typedef itk::ImageFileWriter< ImageType > WriterType;
-  typedef itk::ImageFileWriter< FrequencyVectorFilter::OutputImageType > WriterType;
+  //typedef itk::ImageFileWriter< FrequencyVectorFilter::OutputImageType > WriterType;
+  typedef itk::ImageFileWriter< MeanAcrossDirectionType::OutputImageType > WriterType;
   WriterType::Pointer writer = WriterType::New();
   //writer->SetInput( window->GetOutput() );
   //writer->SetInput( complex_to_real->GetOutput() );
@@ -297,7 +303,8 @@ int main(int argc, char ** argv )
   //writer->SetInput( import_filter->GetOutput() );
   //writer->SetInput( modulus->GetOutput() );
   //writer->SetInput( square->GetOutput() );
-  writer->SetInput( freq_vect->GetOutput() );
+  //writer->SetInput( freq_vect->GetOutput() );
+  writer->SetInput( mean_across_d->GetOutput() );
   writer->SetFileName( "out.mhd" ) ;
 
   try
@@ -311,6 +318,18 @@ int main(int argc, char ** argv )
     cerr << err << endl;
     return 1;
     }
+
+  typedef MeanAcrossDirectionType::OutputImageType::PixelType OutFreqType;
+  OutFreqType outfreq;
+  outfreq.SetSize( extraction_size );
+  MeanAcrossDirectionType::OutputImageType::IndexType outfreqIndex;
+  outfreqIndex[0] = 0;
+  cout << "results: " << endl;
+  cout << mean_across_d->GetOutput()->GetPixel( outfreqIndex ) << endl;
+  cout << " at the end: " << endl;
+  outfreqIndex[0] = 30;
+  cout << mean_across_d->GetOutput()->GetPixel( outfreqIndex ) << endl;
+  // sometimes the last three numbers are sane -- sometimes not -- WTF?
 
   //delete rpd;
   //delete vs_transform;

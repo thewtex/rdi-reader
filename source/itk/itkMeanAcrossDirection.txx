@@ -1,6 +1,9 @@
 #ifndef __itkMeanAcrossDirection_txx
 #define __itkMeanAcrossDirection_txx
 
+#include <iostream>
+using std::cout;
+using std::endl;
 
 #include "itkMeanAcrossDirection.h"
 
@@ -37,7 +40,7 @@ void
 MeanAcrossDirection<TInputImage,TOutputImage>
 ::GenerateOutputInformation()
 {
-  this->Superclass::GenerateOutputInformation();
+  //this->Superclass::GenerateOutputInformation();
 
   // get pointers to the input and output
   typename InputImageType::ConstPointer  inputPtr  = this->GetInput();
@@ -181,12 +184,15 @@ MeanAcrossDirection<TInputImage,TOutputImage>
    */
   //const unsigned int vector_length = inputPtr->GetVectorLength();
   const unsigned int vector_length = 8;
-  PixelType outpix;
-  outpix.SetSize( vector_length );
+  //PixelType outpix;
+  //outpix.SetSize( vector_length );
+  PixelType outpixmean( vector_length );
+  const typename PixelType::ValueType* outpix ;
   typename OutputImageType::IndexType outIndex;
 
   //typedef itk::Vector< typename InputImageType::InternalPixelType, vector_length > MeasurementVectorType;
   /** @todo fixme */
+  // maybe ITK_TYPENAME ?
   typedef itk::Vector< float, vector_length > MeasurementVectorType;
   MeasurementVectorType mv;
   typedef itk::Statistics::ListSample< MeasurementVectorType > SampleType;
@@ -205,6 +211,7 @@ MeanAcrossDirection<TInputImage,TOutputImage>
   typedef itk::Statistics::MeanCalculator< SampleType > MeanAlgorithmType;
   MeanAlgorithmType::Pointer meanAlgorithm = MeanAlgorithmType::New();
   meanAlgorithm->SetInputSample( sample );
+  MeanAlgorithmType::OutputType* mean;
 
   typedef itk::ImageRegionConstIterator< InputImageType > ConstIteratorType;
 
@@ -218,7 +225,12 @@ MeanAcrossDirection<TInputImage,TOutputImage>
     ConstIteratorType roi_it( roi_out, roi_out->GetLargestPossibleRegion() );
     for( roi_it.GoToBegin(), j = 0; !roi_it.IsAtEnd() ; ++roi_it, ++j )
       {
-      outpix = roi_it.Get();
+      //cout << "outpix typeid: " << typeid(outpix).name() <<endl;
+      //cout << "roi_it.Get() typeid: " << typeid( roi_it.Get() ).name() << endl;
+      //cout << "roi_it.Get(): " << roi_it.Get() << endl;
+      //cout << "roi_it.Get().GetDataPointer(): " << roi_it.Get().GetDataPointer() << endl;
+      //outpix = roi_it.Get();
+      outpix = roi_it.Get().GetDataPointer();
       for( k = 0; k < vector_length; k++ )
 	{
 	mv[k] = outpix[k];
@@ -226,13 +238,14 @@ MeanAcrossDirection<TInputImage,TOutputImage>
       sample->SetMeasurementVector(j, mv);
       }
     meanAlgorithm->Update();
-    mv = *(meanAlgorithm->GetOutput());
+    mean = meanAlgorithm->GetOutput();
     for( k = 0; k < vector_length; k++ )
 	{
-	outpix[k] = mv[k];
+	outpixmean[k] = static_cast<typename OutputImageType::InternalPixelType >(  (*mean)[k] );
 	}
     outIndex[0] = outputStartIndex[0] + i;
-    outputPtr->SetPixel( outIndex, outpix );
+    //cout << "outpixmean: " << outpixmean << endl;
+    outputPtr->SetPixel( outIndex, outpixmean );
 
     // move to the next subregion
     subregion_index[direction] = subregion_index[direction] + 1;

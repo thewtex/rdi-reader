@@ -13,6 +13,7 @@
 #include "itkImageFileWriter.h"
 #include "itkImportImageFilter.h"
 #include "itkLog10ImageFilter.h"
+#include "itkMeanAcrossDirection.h"
 //#include "itkMultiplyByConstantImageFilter.h"
 //#include "itkRealAndImaginaryToComplexImageFilter.h"
 #include "itkRegionOfInterestImageFilter.h"
@@ -35,6 +36,7 @@ using std::endl;
 using std::cerr;
 using std::vector;
 
+// also change itkMeanAcrossDirection.txx itk::Vector< aoeuaoue !!!
 typedef float PixelType;
 const unsigned int Dimension = 3;
 typedef itk::Image< PixelType, Dimension > ImageType;
@@ -72,8 +74,6 @@ void fill_out_image( const vector< PixelType>& out_image, PixelType* out_image_f
 
 int main(int argc, char ** argv )
 {
-
-
   typedef itk::ImageFileReader< ImageType > ReaderType;
   const unsigned int window_length = 128;
   const unsigned int roi_length = 2048;
@@ -134,7 +134,8 @@ int main(int argc, char ** argv )
   FrequencyVectorFilter::Pointer freq_vect = FrequencyVectorFilter::New();
   freq_vect->SetInput( roi_filter->GetOutput() );
   freq_vect->SetFrequencyExtractStartIndex( 2 );
-  freq_vect->SetFrequencyExtractSize( 8 );
+  const unsigned int extraction_size = 8; // do not forget to change vector_length in itkMeanAcrossDirection.txx !!!!
+  freq_vect->SetFrequencyExtractSize( extraction_size );
 
 
   /*************** b mode  ***************/

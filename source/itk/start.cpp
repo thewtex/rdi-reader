@@ -6,6 +6,7 @@
 //#include "itkComplexToRealImageFilter.h"
 #include "itkAbsImageFilter.h"
 #include "itkAddConstantToImageFilter.h"
+#include "itkBSC.h"
 #include "itkComplexToModulusImageFilter.h"
 #include "itkFrequencyVectorImageFilter.h"
 #include "itkHammingWindowImageFilter.h"
@@ -82,10 +83,10 @@ int main(int argc, char ** argv )
 
   ReaderType::Pointer reader = ReaderType::New();
 
-  //string in_file = "p3.mhd";
-  //string rdi_filename = "/mnt/datab/research/Research/in_vivo/pat143/visual_sonics/pat143_seg3";
-  string in_file = "phantom10dB.mhd";
-  string rdi_filename = "/mnt/dataa/visualsonics/@VisualSonics2mat/private/linux64/bin/3mmtop_seg2_10dBtgc";
+  string in_file = "p3.mhd";
+  string rdi_filename = "/mnt/datab/research/Research/in_vivo/pat143/visual_sonics/pat143_seg3";
+  //string in_file = "phantom10dB.mhd";
+  //string rdi_filename = "/mnt/dataa/visualsonics/@VisualSonics2mat/private/linux64/bin/3mmtop_seg2_10dBtgc";
   reader->SetFileName( in_file.c_str() );
 
   reader->UpdateOutputInformation();
@@ -101,8 +102,8 @@ int main(int argc, char ** argv )
   ImageType::SpacingType spacing = reader->GetOutput()->GetSpacing();
   //size[1] = window_length;
   size[1] = roi_length;
-  //size[2] = 4;
-  //start[2] = 43;
+  size[2] = 4;
+  start[2] = 43;
   start[2] = 0;
   ImageType::RegionType desired_region;
   desired_region.SetSize( size );
@@ -138,10 +139,13 @@ int main(int argc, char ** argv )
   const unsigned int extraction_size = 8; // do not forget to change vector_length in itkMeanAcrossDirection.txx !!!!
   freq_vect->SetFrequencyExtractSize( extraction_size );
 
-  /*************** mean across direction ***************/
-  typedef itk::MeanAcrossDirection< FrequencyVectorFilter::OutputImageType, itk::VectorImage< PixelType, 1 > > MeanAcrossDirectionType;
-  MeanAcrossDirectionType::Pointer mean_across_d = MeanAcrossDirectionType::New();
-  mean_across_d->SetInput( freq_vect->GetOutput() );
+  //[>************** mean across direction **************<]
+  //typedef itk::MeanAcrossDirection< FrequencyVectorFilter::OutputImageType, itk::VectorImage< PixelType, 1 > > MeanAcrossDirectionType;
+  //MeanAcrossDirectionType::Pointer mean_across_d = MeanAcrossDirectionType::New();
+  //mean_across_d->SetInput( freq_vect->GetOutput() );
+
+  /*************** bsc ***************/
+  //
 
   /*************** b mode  ***************/
   //typedef itk::AbsImageFilter< ImageType, ImageType > AbsType;
@@ -292,9 +296,9 @@ int main(int argc, char ** argv )
 
 
   /*************** writer  ***************/
-  //typedef itk::ImageFileWriter< ImageType > WriterType;
+  typedef itk::ImageFileWriter< ImageType > WriterType;
   //typedef itk::ImageFileWriter< FrequencyVectorFilter::OutputImageType > WriterType;
-  typedef itk::ImageFileWriter< MeanAcrossDirectionType::OutputImageType > WriterType;
+  //typedef itk::ImageFileWriter< MeanAcrossDirectionType::OutputImageType > WriterType;
   WriterType::Pointer writer = WriterType::New();
   //writer->SetInput( window->GetOutput() );
   //writer->SetInput( complex_to_real->GetOutput() );
@@ -304,7 +308,7 @@ int main(int argc, char ** argv )
   //writer->SetInput( modulus->GetOutput() );
   //writer->SetInput( square->GetOutput() );
   //writer->SetInput( freq_vect->GetOutput() );
-  writer->SetInput( mean_across_d->GetOutput() );
+  //writer->SetInput( mean_across_d->GetOutput() );
   writer->SetFileName( "out.mhd" ) ;
 
   try
@@ -319,16 +323,16 @@ int main(int argc, char ** argv )
     return 1;
     }
 
-  typedef MeanAcrossDirectionType::OutputImageType::PixelType OutFreqType;
-  OutFreqType outfreq;
-  outfreq.SetSize( extraction_size );
-  MeanAcrossDirectionType::OutputImageType::IndexType outfreqIndex;
-  outfreqIndex[0] = 0;
-  cout << "results: " << endl;
-  cout << mean_across_d->GetOutput()->GetPixel( outfreqIndex ) << endl;
-  cout << " at the end: " << endl;
-  outfreqIndex[0] = 30;
-  cout << mean_across_d->GetOutput()->GetPixel( outfreqIndex ) << endl;
+  //typedef MeanAcrossDirectionType::OutputImageType::PixelType OutFreqType;
+  //OutFreqType outfreq;
+  //outfreq.SetSize( extraction_size );
+  //MeanAcrossDirectionType::OutputImageType::IndexType outfreqIndex;
+  //outfreqIndex[0] = 0;
+  //cout << "results: " << endl;
+  //cout << mean_across_d->GetOutput()->GetPixel( outfreqIndex ) << endl;
+  //cout << " at the end: " << endl;
+  //outfreqIndex[0] = 30;
+  //cout << mean_across_d->GetOutput()->GetPixel( outfreqIndex ) << endl;
   // sometimes the last three numbers are sane -- sometimes not -- WTF?
 
   //delete rpd;

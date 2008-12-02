@@ -24,16 +24,10 @@ BSC<TInputImage,TOutputImage>
   // @todo change to 2 so that the reference can be specified
   this->SetNumberOfRequiredInputs( 1 );
 
-  m_SampleAdaptor = SampleVectorImageToImageType::New();
-  m_ReferenceAdaptor = ReferenceVectorImageToImageType::New();
-
   m_ReferenceReader = ReferenceReaderType::New();
   reference_filename = "phantom10dBfreqs.mhd";
   m_ReferenceReader->SetFileName( reference_filename.c_str() );
   m_ReferenceReader->Update();
-
-  m_ReferenceAdaptor->SetImage( m_ReferenceReader->GetOutput() );
-  m_ReferenceAdaptor->Update();
 }
 
 template <class TInputImage, class TOutputImage >
@@ -73,14 +67,13 @@ BSC<TInputImage,TOutputImage>
 
   const unsigned int direction = this->m_Direction;
 
-  this->m_SampleAdaptor->SetImage( inputPtr );
-  this->m_SampleAdaptor->Update();
-
   const unsigned int num_components = this->m_ReferenceReader->GetOutput()->GetVectorLength();
 
   outputPtr->FillBuffer( 0.0 );
 
-  typedef itk::ImageLinearConstIteratorWithIndex< SampleVectorImageToImageType > SampleIteratorType;
+  typedef itk::ImageLinearConstIteratorWithIndex< InputImageType > SampleIteratorType;
+  SampleIteratorType sample_it( inputPtr, inputPtr->GetRequestedRegion() );
+  sample_it.SetDirection( direction );
 
   typedef itk::ImageLinearIteratorWithIndex< OutputImageType > OutputIteratorType;
   OutputIteratorType output_it( outputPtr, inputPtr->GetRequestedRegion() );
@@ -93,8 +86,8 @@ BSC<TInputImage,TOutputImage>
   typename ReferenceVectorImageType::RegionType refRegion;
   refRegion.SetIndex( refIndex );
   refRegion.SetSize( refSize );
-  typedef itk::ImageLinearConstIteratorWithIndex< ReferenceVectorImageToImageType > ReferenceIteratorType;
-  ReferenceIteratorType ref_it( this->m_ReferenceAdaptor, refRegion );
+  typedef itk::ImageLinearConstIteratorWithIndex< ReferenceVectorImageType > ReferenceIteratorType;
+  ReferenceIteratorType ref_it( this->m_ReferenceReader->GetOutput(), refRegion );
   ref_it.SetDirection(0);
 
   const PixelType freq_start = 6.5625;
@@ -112,26 +105,26 @@ BSC<TInputImage,TOutputImage>
     }
   const PixelType freq_range = freqs[ num_components-1 ] - freqs[0] ;
 
-  for( i = 0; i < num_components; i++ )
-    {
-    this->m_SampleAdaptor->SetExtractComponentIndex( i );
-    this->m_SampleAdaptor->Update();
-    SampleIteratorType sample_it( this->m_SampleAdaptor, inputPtr->GetRequestedRegion() );
-    sample_it.SetDirection( direction );
+  const PixelType* sample_p;
+  const PixelType* ref_p;
 
-    for( sample_it.GoToBegin(), output_it.GoToBegin(); !sample_it.IsAtEnd(); sample_it.NextLine(), output_it.NextLine() )
-      {
-      sample_it.GoToBeginOfLine();
-      output_it.GoToBeginOfLine();
-      ref_it.GoToBeginOfLine();
-      while( !sample_it.IsAtEndOfLine() )
+  for( sample_it.GoToBegin(), output_it.GoToBegin(); !sample_it.IsAtEnd(); sample_it.NextLine(), output_it.NextLine() )
+    {
+    sample_it.GoToBeginOfLine();
+    output_it.GoToBeginOfLine();
+    ref_it.GoToBeginOfLine();
+    while( !sample_it.IsAtEndOfLine() )
 	{
-        output_it.Set( bsc_r[i] * sample_it.Get() / ref_it.Get() + output_it.Get() );
+	sample_p = sample_it.Get().GetDataPointer();
+	ref_p = ref_it.Get().GetDataPointer();
+        for( i = 0; i < num_components; i++ )
+          {
+	  output_it.Set( bsc_r[i] * sample_p[i] / ref_p[i] + output_it.Get() );
+          }
 	++sample_it;
 	++output_it;
 	++ref_it;
 	}
-      }
     }
 
   itk::ImageRegionIterator< OutputImageType > simple_out_it( outputPtr, outputPtr->GetRequestedRegion() );

@@ -3,7 +3,6 @@
 
 #include "itkImageFileReader.h"
 #include "itkImageToImageFilter.h"
-#include "itkVectorImageToImageAdaptor.h"
 #include "itkVectorImage.h"
 
 namespace itk
@@ -68,15 +67,9 @@ protected:
    * this should be in the range [0,ImageDimension-1]. */
   unsigned int m_Direction;
 
-  /** @todo fix first template argument */
-  typedef VectorImageToImageAdaptor< InputPixelType, InputImageDimension > SampleVectorImageToImageType;
-  typedef VectorImageToImageAdaptor< InputPixelType, 1 > ReferenceVectorImageToImageType;
-
-  typename SampleVectorImageToImageType::Pointer m_SampleAdaptor;
-  typename ReferenceVectorImageToImageType::Pointer m_ReferenceAdaptor;
-
-  typedef VectorImage< InputPixelType, 1 > ReferenceVectorImageType;
-  typedef itk::ImageFileReader< ReferenceVectorImageType > ReferenceReaderType;
+  typedef VectorImage< PixelType, 1 > ReferenceVectorImageReaderInType;
+  typedef itk::ImageFileReader< ReferenceVectorImageReaderInType > ReferenceReaderType;
+  typedef typename ReferenceReaderType::OutputImageType ReferenceVectorImageType;
 
   typename ReferenceReaderType::Pointer m_ReferenceReader;
   std::string reference_filename;

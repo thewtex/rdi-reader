@@ -10,7 +10,7 @@ using std::endl;
 #include "itkImageFileReader.h"
 #include "itkImageLinearConstIteratorWithIndex.h"
 #include "itkImageLinearIteratorWithIndex.h"
-#include "itkImageRegionConstIterator.h"
+#include "itkImageRegionIterator.h"
 #include "itkVector.h"
 
 namespace itk
@@ -21,7 +21,7 @@ BSC<TInputImage,TOutputImage>
 ::BSC()
 : m_Direction(1)
 {
-  //@ todo change to 2 so that the reference can be specified
+  // @todo change to 2 so that the reference can be specified
   this->SetNumberOfRequiredInputs( 1 );
 
   m_SampleAdaptor = SampleVectorImageToImageType::New();
@@ -80,10 +80,11 @@ BSC<TInputImage,TOutputImage>
 
   outputPtr->FillBuffer( 0.0 );
 
-  typedef itk::ImageRegionConstIterator< SampleVectorImageToImageType > SampleIteratorType;
+  typedef itk::ImageLinearConstIteratorWithIndex< SampleVectorImageToImageType > SampleIteratorType;
 
-  typedef itk::ImageRegionIterator< OutputImageType > OutputIteratorType;
+  typedef itk::ImageLinearIteratorWithIndex< OutputImageType > OutputIteratorType;
   OutputIteratorType output_it( outputPtr, inputPtr->GetRequestedRegion() );
+  output_it.SetDirection( direction );
 
   typename ReferenceVectorImageType::IndexType refIndex;
   typename ReferenceVectorImageType::SizeType refSize;
@@ -92,16 +93,55 @@ BSC<TInputImage,TOutputImage>
   typename ReferenceVectorImageType::RegionType refRegion;
   refRegion.SetIndex( refIndex );
   refRegion.SetSize( refSize );
-  typedef itk::ImageRegionConstIterator< ReferenceVectorImageToImageType > ReferenceIteratorType;
+  typedef itk::ImageLinearConstIteratorWithIndex< ReferenceVectorImageToImageType > ReferenceIteratorType;
   ReferenceIteratorType ref_it( this->m_ReferenceAdaptor, refRegion );
+  ref_it.SetDirection(0);
 
+  const PixelType freq_start = 6.5625;
+  //const PixelType freq_end = 29.53125;
+  const PixelType freq_step = 210.0 / 64.0;
+  // assume rayleigh scattering, sigma = A*f^4
+  const PixelType rayleigh_coeff = 1.5625e-6;
+  std::vector< PixelType > bsc_r(num_components);
+  std::vector< PixelType > freqs(num_components);
   unsigned int i;
+  for( i = 0; i< num_components; i++ )
+    {
+    freqs[i] = freq_start + i* freq_step;
+    bsc_r[i] = rayleigh_coeff * ( freqs[i] * freqs[i] * freqs[i] * freqs[i] );
+    }
+  const PixelType freq_range = freqs[ num_components-1 ] - freqs[0] ;
+
   for( i = 0; i < num_components; i++ )
     {
     this->m_SampleAdaptor->SetExtractComponentIndex( i );
     this->m_SampleAdaptor->Update();
     SampleIteratorType sample_it( this->m_SampleAdaptor, inputPtr->GetRequestedRegion() );
+    sample_it.SetDirection( direction );
+
+    for( sample_it.GoToBegin(), output_it.GoToBegin(); !sample_it.IsAtEnd(); sample_it.NextLine(), output_it.NextLine() )
+      {
+      sample_it.GoToBeginOfLine();
+      output_it.GoToBeginOfLine();
+      ref_it.GoToBeginOfLine();
+      while( !sample_it.IsAtEndOfLine() )
+	{
+        output_it.Set( bsc_r[i] * sample_it.Get() / ref_it.Get() + output_it.Get() );
+	++sample_it;
+	++output_it;
+	++ref_it;
+	}
+      }
     }
+
+  itk::ImageRegionIterator< OutputImageType > simple_out_it( outputPtr, outputPtr->GetRequestedRegion() );
+  simple_out_it.GoToBegin();
+  while( !simple_out_it.IsAtEnd() )
+    {
+    simple_out_it.Set( simple_out_it.Get() / freq_range );
+    ++simple_out_it;
+    }
+
 }
 
 

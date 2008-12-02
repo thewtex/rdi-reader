@@ -68,6 +68,7 @@ protected:
    * this should be in the range [0,ImageDimension-1]. */
   unsigned int m_Direction;
 
+  /** @todo fix first template argument */
   typedef VectorImageToImageAdaptor< InputPixelType, InputImageDimension > SampleVectorImageToImageType;
   typedef VectorImageToImageAdaptor< InputPixelType, 1 > ReferenceVectorImageToImageType;
 

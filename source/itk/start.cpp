@@ -145,6 +145,9 @@ int main(int argc, char ** argv )
   //mean_across_d->SetInput( freq_vect->GetOutput() );
 
   /*************** bsc ***************/
+  typedef itk::BSC< FrequencyVectorFilter::OutputImageType, ImageType > BSCFilterType;
+  BSCFilterType::Pointer bsc = BSCFilterType::New();
+  bsc->SetInput( freq_vect->GetOutput() );
   //
 
   /*************** b mode  ***************/
@@ -309,6 +312,7 @@ int main(int argc, char ** argv )
   //writer->SetInput( square->GetOutput() );
   //writer->SetInput( freq_vect->GetOutput() );
   //writer->SetInput( mean_across_d->GetOutput() );
+  writer->SetInput( bsc->GetOutput() );
   writer->SetFileName( "out.mhd" ) ;
 
   try

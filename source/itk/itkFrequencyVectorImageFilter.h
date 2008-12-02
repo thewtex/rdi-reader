@@ -38,11 +38,11 @@ public:
   /** Run-time type information (and related methods). */
   itkTypeMacro(FrequencyVectorImageFilter, ImageToImageFilter);
 
+  itkStaticConstMacro(Dimension, unsigned int, TInputImage::ImageDimension);
+
   /**Typedefs from the superclass */
   typedef typename Superclass::InputImageType  InputImageType;
-  typedef typename Superclass::OutputImageType OutputImageType;
-
-  itkStaticConstMacro(Dimension, unsigned int, TInputImage::ImageDimension);
+  typedef VectorImage< typename TInputImage::InternalPixelType, itkGetStaticConstMacro(Dimension) > OutputImageType;
 
   /** The pixel type of the output image will be used in computations.
    * Inherited from the superclass. */

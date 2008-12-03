@@ -103,7 +103,7 @@ BSC<TInputImage,TOutputImage>
     freqs[i] = freq_start + i* freq_step;
     bsc_r[i] = rayleigh_coeff * ( freqs[i] * freqs[i] * freqs[i] * freqs[i] );
     }
-  const PixelType freq_range = freqs[ num_components-1 ] - freqs[0] ;
+  //const PixelType freq_range = freqs[ num_components-1 ] - freqs[0] ;
 
   const PixelType* sample_p;
   const PixelType* ref_p;
@@ -131,7 +131,8 @@ BSC<TInputImage,TOutputImage>
   simple_out_it.GoToBegin();
   while( !simple_out_it.IsAtEnd() )
     {
-    simple_out_it.Set( simple_out_it.Get() / freq_range );
+    //simple_out_it.Set( simple_out_it.Get() / freq_range );
+    simple_out_it.Set( simple_out_it.Get() / num_components );
     ++simple_out_it;
     }
 

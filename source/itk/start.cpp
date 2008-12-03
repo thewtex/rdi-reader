@@ -7,6 +7,7 @@
 #include "itkAbsImageFilter.h"
 #include "itkAddConstantToImageFilter.h"
 #include "itkBSC.h"
+//#include "itkBSplineInterpolateImageFunction.h"
 #include "itkComplexToModulusImageFilter.h"
 #include "itkFrequencyVectorImageFilter.h"
 #include "itkHammingWindowImageFilter.h"
@@ -21,6 +22,7 @@
 //#include "itkFFTW1DComplexConjugateToRealImageFilter.h"
 #include "itkFFTW1DRealToComplexConjugateImageFilter.h"
 #include "itkRecursiveGaussianImageFilter.h"
+#include "itkResampleImageFilter.h"
 #include "itkSquareImageFilter.h"
 #include "itkVector.h"
 #include "itkVectorImage.h"
@@ -148,7 +150,34 @@ int main(int argc, char ** argv )
   typedef itk::BSC< FrequencyVectorFilter::OutputImageType, ImageType > BSCFilterType;
   BSCFilterType::Pointer bsc = BSCFilterType::New();
   bsc->SetInput( freq_vect->GetOutput() );
-  //
+
+  /*************** resample backscatter ***************/
+  typedef itk::ResampleImageFilter< ImageType, ImageType, PixelType> ResampleFilterType;
+  ResampleFilterType::Pointer resample = ResampleFilterType::New();
+
+  //typedef itk::BSplineInterpolateImageFunction< ImageType, PixelType, PixelType > ResampleInterpolatorType;
+  //ResampleInterpolatorType::Pointer resample_interpolator  = ResampleInterpolatorType::New();
+  ////resample->SetOutputDirection( 1 );
+  ////resample_interpolator->UseImageDirectionOn();
+  //resample->SetInterpolator( resample_interpolator );
+  //cout << "spline order: " << resample_interpolator->GetSplineOrder() << endl;
+  //cout << "use image direction : " << resample_interpolator->GetUseImageDirection() << endl;
+
+  resample->SetDefaultPixelValue( 0.0 );
+
+  bsc->UpdateOutputInformation();
+  ImageType::SpacingType resample_spacing = bsc->GetOutput()->GetSpacing();
+  const ImageType::SizeType& bscSize = bsc->GetOutput()->GetLargestPossibleRegion().GetSize();
+  resample_spacing[1] = resample_spacing[1] * (bscSize[1] - 1) / (roi_length - 1 );
+  resample->SetOutputSpacing( resample_spacing );
+
+  resample->SetOutputOrigin( bsc->GetOutput()->GetOrigin() );
+
+  ImageType::SizeType resample_size = bscSize;
+  resample_size[1] = roi_length;
+  resample->SetSize( resample_size );
+  resample->SetInput( bsc->GetOutput() );
+
 
   /*************** b mode  ***************/
   //typedef itk::AbsImageFilter< ImageType, ImageType > AbsType;
@@ -312,7 +341,8 @@ int main(int argc, char ** argv )
   //writer->SetInput( square->GetOutput() );
   //writer->SetInput( freq_vect->GetOutput() );
   //writer->SetInput( mean_across_d->GetOutput() );
-  writer->SetInput( bsc->GetOutput() );
+  //writer->SetInput( bsc->GetOutput() );
+  writer->SetInput( resample->GetOutput() );
   writer->SetFileName( "out.mhd" ) ;
 
   try

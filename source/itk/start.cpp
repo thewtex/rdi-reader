@@ -180,151 +180,117 @@ int main(int argc, char ** argv )
 
 
   /*************** b mode  ***************/
-  //typedef itk::AbsImageFilter< ImageType, ImageType > AbsType;
-  //AbsType::Pointer abs  = AbsType::New();
-  //abs->SetInput( roi_filter->GetOutput());
+  typedef itk::AbsImageFilter< ImageType, ImageType > AbsType;
+  AbsType::Pointer abs  = AbsType::New();
+  abs->SetInput( roi_filter->GetOutput());
 
-  //typedef itk::RecursiveGaussianImageFilter< ImageType, ImageType > GaussType;
-  //GaussType::Pointer smooth = GaussType::New();
-  //smooth->SetSigma( 3.6*spacing[1] );
-  //smooth->SetDirection( 1 );
-  //smooth->SetInput( abs->GetOutput() );
-  //smooth->SetNormalizeAcrossScale( false );
+  typedef itk::RecursiveGaussianImageFilter< ImageType, ImageType > GaussType;
+  GaussType::Pointer smooth = GaussType::New();
+  smooth->SetSigma( 3.6*spacing[1] );
+  smooth->SetDirection( 1 );
+  smooth->SetInput( abs->GetOutput() );
+  smooth->SetNormalizeAcrossScale( false );
 
-  //typedef itk::AddConstantToImageFilter< ImageType, PixelType, ImageType > AddCType;
-  //AddCType::Pointer add_c = AddCType::New();
-  //add_c->SetConstant( 0.000001 );
-  //add_c->SetInput( smooth->GetOutput() );
+  typedef itk::AddConstantToImageFilter< ImageType, PixelType, ImageType > AddCType;
+  AddCType::Pointer add_c = AddCType::New();
+  add_c->SetConstant( 0.000001 );
+  add_c->SetInput( smooth->GetOutput() );
 
-  //typedef itk::Log10ImageFilter< ImageType, ImageType > LogType;
-  //LogType::Pointer log = LogType::New();
-  //log->SetInput( add_c->GetOutput() );
+  typedef itk::Log10ImageFilter< ImageType, ImageType > LogType;
+  LogType::Pointer log = LogType::New();
+  log->SetInput( add_c->GetOutput() );
 
-
-
-  //typedef itk::ComplexToRealImageFilter< FFT1DFilterType::OutputImageType,
-  //ImageType > ComplexToRealType;
-  //ComplexToRealType::Pointer complex_to_real = ComplexToRealType::New();
-  //complex_to_real->SetInput( fft1d_filter->GetOutput() );
-
-  //typedef itk::ComplexToImaginaryImageFilter< FFT1DFilterType::OutputImageType,
-  //ImageType > ComplexToImaginaryType;
-  //ComplexToImaginaryType::Pointer complex_to_imag = ComplexToImaginaryType::New();
-  //complex_to_imag->SetInput( fft1d_filter->GetOutput() );
-
-  //typedef itk::MultiplyByConstantImageFilter< ImageType, ImageType > NegateType;
-  //NegateType::Pointer negate = NegateType::New();
-  //negate->SetInput( complex_to_real->GetOutput() );
-  //negate->SetConstant( -1 );
-
-
-
-  //typedef itk::RealAndImaginaryToComplexImageFilter< PixelType, PixelType, PixelType, Dimension> RealImagToComplexType;
-  //RealImagToComplexType::Pointer real_imag_to_complex = RealImagToComplexType::New();
-  //real_imag_to_complex->SetInput1( complex_to_imag->GetOutput() );
-  //real_imag_to_complex->SetInput2( negate->GetOutput() );
-
-
-  //typedef itk::FFTW1DComplexConjugateToRealImageFilter< PixelType, Dimension > IFFT1DFilterType;
-  //IFFT1DFilterType::Pointer ifft1d_filter = IFFT1DFilterType::New();
-  //ifft1d_filter->SetInput( fft1d_filter->GetOutput() );
-  //ifft1d_filter->SetDirection(1);
-  //
-
-  //typedef itk::ComplexToRealImageFilter< FFT1DFilterType::OutputImageType,
-  //ImageType > ComplexToRealType;
-  //ComplexToRealType::Pointer complex_to_real = ComplexToRealType::New();
-  //complex_to_real->SetInput( fft1d_filter->GetOutput() );
-  //
 
   //[>************** scan convert **************<]
-  //using namespace visual_sonics;
-  //typedef float CoordT;
-  //typedef visual_sonics::VisualSonicsTransform< PixelType, PixelType, CoordT  > VSTransformType;
-  //vector<PixelType> in_image;
-  //vector<PixelType> out_image;
-  //unsigned int transform_rows;
-  //unsigned int transform_cols;
-  //CoordT delta_x;
-  //CoordT delta_y;
-  //vector<CoordT> image_x;
-  //vector<CoordT> image_y;
-  //visual_sonics::rdiParser rdi_parser( rdi_filename );
-  //rdiParserData* rpd = new rdiParserData;
-  //*rpd = rdi_parser.parse();
-  //rpd->its_image_acquisition_size = 2048 * 2;
+  using namespace visual_sonics;
+  typedef float CoordT;
+  typedef visual_sonics::VisualSonicsTransform< PixelType, PixelType, CoordT  > VSTransformType;
+  vector<PixelType> in_image;
+  vector<PixelType> out_image;
+  unsigned int transform_rows;
+  unsigned int transform_cols;
+  CoordT delta_x;
+  CoordT delta_y;
+  vector<CoordT> image_x;
+  vector<CoordT> image_y;
+  visual_sonics::rdiParser rdi_parser( rdi_filename );
+  rdiParserData* rpd = new rdiParserData;
+  *rpd = rdi_parser.parse();
+  rpd->its_image_acquisition_size = roi_length * 2;
 
-  //VSTransformType* vs_transform = new VSTransformType( in_image,
-    //out_image,
-    //transform_rows,
-    //transform_cols,
-    //delta_x,
-    //delta_y,
-    //image_x,
-    //image_y,
-    //rpd,
-    //false);
-  //vs_transform->set_outside_bounds_value( 0.0 );
-  //vs_transform->set_do_calc_coords( true );
+  VSTransformType* vs_transform = new VSTransformType( in_image,
+    out_image,
+    transform_rows,
+    transform_cols,
+    delta_x,
+    delta_y,
+    image_x,
+    image_y,
+    rpd,
+    false);
+  vs_transform->set_outside_bounds_value( 0.0 );
+  vs_transform->set_do_calc_coords( true );
 
-  //log->Update();
-  //ImageType::Pointer transform_target = log->GetOutput();
-  //unsigned int cols = size[0] ;
-  //unsigned int rows = size[1];
-  //in_image.resize( cols*rows );
+  log->Update();
+  ImageType::Pointer transform_target = log->GetOutput();
+  //resample->Update();
+  //ImageType::Pointer transform_target = resample->GetOutput();
+  unsigned int cols = size[0] ;
+  unsigned int rows = size[1];
+  in_image.resize( cols*rows );
 
-  //fill_in_image( transform_target, in_image, 0, cols, rows );
-  //vs_transform->transform();
-
-
-
-  //[>************** the import image filter  **************<]
-  //typedef itk::ImportImageFilter< PixelType, Dimension > ImportFilterType;
-  //ImportFilterType::Pointer import_filter = ImportFilterType::New();
-  //ImportFilterType::SizeType import_size;
-  //import_size[0] = transform_cols;
-  //import_size[1] = transform_rows;
-  //import_size[2] = size[2];
-
-  //ImportFilterType::IndexType import_start;
-  //start.Fill(0);
-  //ImportFilterType::RegionType import_region;
-  //import_region.SetIndex( import_start );
-  //import_region.SetSize( import_size );
-  //import_filter->SetRegion( import_region );
-  //double origin[ Dimension ];
-  //origin[0] = 0.0;
-  //origin[1] = 0.0;
-  //origin[2] = 0.0;
-  //import_filter->SetOrigin( origin );
-  //double import_spacing[ Dimension ];
-  //import_spacing[0] = static_cast<double> ( delta_x );
-  //import_spacing[1] = static_cast<double> ( delta_y );
-  //import_spacing[2] = static_cast<double> ( rpd->its_rf_mode_3d_scan_distance / rpd->its_image_frames );
-  //import_filter->SetSpacing( import_spacing );
+  fill_in_image( transform_target, in_image, 0, cols, rows );
+  vs_transform->transform();
 
 
 
-  //const unsigned int numberOfPixels = import_size[0]*import_size[1]*import_size[2];
+  /*************** the import image filter  ***************/
+  typedef itk::ImportImageFilter< PixelType, Dimension > ImportFilterType;
+  ImportFilterType::Pointer import_filter = ImportFilterType::New();
+  ImportFilterType::SizeType import_size;
+  import_size[0] = transform_cols;
+  import_size[1] = transform_rows;
+  import_size[2] = size[2];
 
-  //PixelType* out_image_full = new PixelType[numberOfPixels];
-  //if( ! out_image_full )
-    //{
-    //cerr << "memory allocation error." << endl;
-    //return 1;
-    //}
+  ImportFilterType::IndexType import_start;
+  start.Fill(0);
+  ImportFilterType::RegionType import_region;
+  import_region.SetIndex( import_start );
+  import_region.SetSize( import_size );
+  import_filter->SetRegion( import_region );
+  double origin[ Dimension ];
+  origin[0] = 0.0;
+  origin[1] = 0.0;
+  origin[2] = 0.0;
+  import_filter->SetOrigin( origin );
+  double import_spacing[ Dimension ];
+  import_spacing[0] = static_cast<double> ( delta_x );
+  import_spacing[1] = static_cast<double> ( delta_y );
+  import_spacing[2] = static_cast<double> ( rpd->its_rf_mode_3d_scan_distance / rpd->its_image_frames );
+  import_filter->SetSpacing( import_spacing );
 
 
-  //vs_transform->set_do_calc_coords( false );
-  //for( unsigned int i = 0 ; i < size[2]; i++ )
-    //{
-    //fill_in_image( transform_target, in_image, i, cols, rows );
-    //vs_transform->transform();
-    //fill_out_image( out_image, out_image_full, i, transform_cols, transform_rows );
-    //}
+
+  const unsigned int numberOfPixels = import_size[0]*import_size[1]*import_size[2];
+
+  PixelType* out_image_full = new PixelType[numberOfPixels];
+  if( ! out_image_full )
+    {
+    cerr << "memory allocation error." << endl;
+    return 1;
+    }
 
 
-  //import_filter->SetImportPointer( out_image_full, numberOfPixels, true );
+  vs_transform->set_do_calc_coords( false );
+  for( unsigned int i = 0 ; i < size[2]; i++ )
+    {
+    fill_in_image( transform_target, in_image, i, cols, rows );
+    vs_transform->transform();
+    fill_out_image( out_image, out_image_full, i, transform_cols, transform_rows );
+    }
+
+
+  import_filter->SetImportPointer( out_image_full, numberOfPixels, true );
 
 
   /*************** writer  ***************/
@@ -336,13 +302,13 @@ int main(int argc, char ** argv )
   //writer->SetInput( complex_to_real->GetOutput() );
   //writer->SetInput( ifft1d_filter->GetOutput() );
   //writer->SetInput( log->GetOutput() );
-  //writer->SetInput( import_filter->GetOutput() );
+  writer->SetInput( import_filter->GetOutput() );
   //writer->SetInput( modulus->GetOutput() );
   //writer->SetInput( square->GetOutput() );
   //writer->SetInput( freq_vect->GetOutput() );
   //writer->SetInput( mean_across_d->GetOutput() );
   //writer->SetInput( bsc->GetOutput() );
-  writer->SetInput( resample->GetOutput() );
+  //writer->SetInput( resample->GetOutput() );
   writer->SetFileName( "out.mhd" ) ;
 
   try
@@ -369,8 +335,8 @@ int main(int argc, char ** argv )
   //cout << mean_across_d->GetOutput()->GetPixel( outfreqIndex ) << endl;
   // sometimes the last three numbers are sane -- sometimes not -- WTF?
 
-  //delete rpd;
-  //delete vs_transform;
+  delete rpd;
+  delete vs_transform;
 
   return 0;
 }

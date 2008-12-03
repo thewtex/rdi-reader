@@ -86,8 +86,8 @@ int main(int argc, char ** argv )
 
   ReaderType::Pointer reader = ReaderType::New();
 
-  string in_file = "p3.mhd";
-  string rdi_filename = "/mnt/datab/research/Research/in_vivo/pat143/visual_sonics/pat143_seg3";
+  string in_file = "p2.mhd";
+  string rdi_filename = "/mnt/datab/research/Research/in_vivo/pat142/visual_sonics/pat142_seg3";
   //string in_file = "phantom10dB.mhd";
   //string rdi_filename = "/mnt/dataa/visualsonics/@VisualSonics2mat/private/linux64/bin/3mmtop_seg2_10dBtgc";
   reader->SetFileName( in_file.c_str() );

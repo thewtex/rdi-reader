@@ -26,6 +26,7 @@
 #include "itkSquareImageFilter.h"
 #include "itkVector.h"
 #include "itkVectorImage.h"
+#include "itkIntensityWindowingImageFilter.h"
 
 
 #include "common/VisualSonicsTransform.h"
@@ -104,7 +105,7 @@ int main(int argc, char ** argv )
   ImageType::SpacingType spacing = reader->GetOutput()->GetSpacing();
   //size[1] = window_length;
   size[1] = roi_length;
-  size[2] = 4;
+  //size[2] = 4;
   start[2] = 43;
   start[2] = 0;
   ImageType::RegionType desired_region;
@@ -178,6 +179,13 @@ int main(int argc, char ** argv )
   resample->SetSize( resample_size );
   resample->SetInput( bsc->GetOutput() );
 
+  typedef itk::IntensityWindowingImageFilter< ImageType > WindowingType;
+  WindowingType::Pointer intensity_window = WindowingType::New();
+  intensity_window->SetInput( resample->GetOutput() );
+  intensity_window->SetWindowMinimum( 0.0 );
+  intensity_window->SetWindowMaximum(255.0);
+  intensity_window->SetOutputMinimum( 0.0000000001 );
+  intensity_window->SetOutputMaximum( 255.0 );
 
   /*************** b mode  ***************/
   typedef itk::AbsImageFilter< ImageType, ImageType > AbsType;
@@ -198,7 +206,8 @@ int main(int argc, char ** argv )
 
   typedef itk::Log10ImageFilter< ImageType, ImageType > LogType;
   LogType::Pointer log = LogType::New();
-  log->SetInput( add_c->GetOutput() );
+  //log->SetInput( add_c->GetOutput() );
+  log->SetInput( intensity_window->GetOutput() );
 
 
   //[>************** scan convert **************<]
@@ -228,13 +237,16 @@ int main(int argc, char ** argv )
     image_y,
     rpd,
     false);
-  vs_transform->set_outside_bounds_value( 0.0 );
+  //vs_transform->set_outside_bounds_value( 0.0 );
+  vs_transform->set_outside_bounds_value( -4.0 );
   vs_transform->set_do_calc_coords( true );
 
   log->Update();
   ImageType::Pointer transform_target = log->GetOutput();
   //resample->Update();
   //ImageType::Pointer transform_target = resample->GetOutput();
+  //intensity_window->Update();
+  //ImageType::Pointer transform_target = intensity_window->GetOutput();
   unsigned int cols = size[0] ;
   unsigned int rows = size[1];
   in_image.resize( cols*rows );

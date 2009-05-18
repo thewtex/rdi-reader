@@ -16,7 +16,7 @@
 #include "itkImportImageFilter.h"
 #include "itkLog10ImageFilter.h"
 #include "itkMeanAcrossDirection.h"
-//#include "itkMultiplyByConstantImageFilter.h"
+#include "itkMultiplyByConstantImageFilter.h"
 //#include "itkRealAndImaginaryToComplexImageFilter.h"
 #include "itkRegionOfInterestImageFilter.h"
 //#include "itkFFTW1DComplexConjugateToRealImageFilter.h"
@@ -86,8 +86,8 @@ int main(int argc, char ** argv )
 
   ReaderType::Pointer reader = ReaderType::New();
 
-  string in_file = "p2.mhd";
-  string rdi_filename = "/mnt/datab/research/Research/in_vivo/pat142/visual_sonics/pat142_seg3";
+  string in_file = "p4.mhd";
+  string rdi_filename = "/mnt/datab/research/Research/in_vivo/pat144/visual_sonics/pat144_seg3";
   //string in_file = "phantom10dB.mhd";
   //string rdi_filename = "/mnt/dataa/visualsonics/@VisualSonics2mat/private/linux64/bin/3mmtop_seg2_10dBtgc";
   reader->SetFileName( in_file.c_str() );
@@ -188,9 +188,16 @@ int main(int argc, char ** argv )
   intensity_window->SetOutputMaximum( 255.0 );
 
   /*************** b mode  ***************/
+  // for p144 0 dB gain
+  typedef itk::MultiplyByConstantImageFilter< ImageType, PixelType, ImageType > MultiplyFilterType;
+  MultiplyFilterType::Pointer multiply = MultiplyFilterType::New();
+  multiply->SetConstant( 3.2 );
+  multiply->SetInput( roi_filter->GetOutput() );
+
   typedef itk::AbsImageFilter< ImageType, ImageType > AbsType;
   AbsType::Pointer abs  = AbsType::New();
-  abs->SetInput( roi_filter->GetOutput());
+  //abs->SetInput( roi_filter->GetOutput());
+  abs->SetInput( multiply->GetOutput());
 
   typedef itk::RecursiveGaussianImageFilter< ImageType, ImageType > GaussType;
   GaussType::Pointer smooth = GaussType::New();
@@ -206,8 +213,8 @@ int main(int argc, char ** argv )
 
   typedef itk::Log10ImageFilter< ImageType, ImageType > LogType;
   LogType::Pointer log = LogType::New();
-  //log->SetInput( add_c->GetOutput() );
-  log->SetInput( intensity_window->GetOutput() );
+  log->SetInput( add_c->GetOutput() );
+  //log->SetInput( intensity_window->GetOutput() );
 
 
   //[>************** scan convert **************<]
@@ -237,8 +244,8 @@ int main(int argc, char ** argv )
     image_y,
     rpd,
     false);
-  //vs_transform->set_outside_bounds_value( 0.0 );
-  vs_transform->set_outside_bounds_value( -4.0 );
+  vs_transform->set_outside_bounds_value( 0.0 );
+  //vs_transform->set_outside_bounds_value( -4.0 );
   vs_transform->set_do_calc_coords( true );
 
   log->Update();

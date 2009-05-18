@@ -25,7 +25,7 @@ BSC<TInputImage,TOutputImage>
   this->SetNumberOfRequiredInputs( 1 );
 
   m_ReferenceReader = ReferenceReaderType::New();
-  reference_filename = "phantom10dBfreqs.mhd";
+  reference_filename = "phantom0dBfreqs.mhd";
   m_ReferenceReader->SetFileName( reference_filename.c_str() );
   m_ReferenceReader->Update();
 }

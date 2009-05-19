@@ -27,14 +27,14 @@ else( ITK_FOUND )
 endif( ITK_FOUND )
 
 
-add_executable( start
-  start.cpp
-  )
+#add_executable( start
+  #start.cpp
+  #)
 
-target_link_libraries( start
-  ITKCommon
-  ITKIO
-  ITKAlgorithms
-  boost_filesystem
-  parse_vs_rdi
-  )
+#target_link_libraries( start
+  #ITKCommon
+  #ITKIO
+  #ITKAlgorithms
+  #boost_filesystem
+  #parse_vs_rdi
+  #)

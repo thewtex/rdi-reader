@@ -9,6 +9,8 @@
 
 # Public Domain
 
+import sys
+
 #with open('../../../test_data/machine/visualsonics/vevo770/rmv710b/pat143_seg3.rdi', 'r' ) as file:
 with open('test_data/machine/visualsonics/vevo770/rmv710b/pat143_seg3.rdi', 'r' ) as file:
 
@@ -21,6 +23,8 @@ def myfun():
 
 myfun()
 
+usage = "Usage: " + sys.argv[0] + " <sample-file.rdi>"
 if __name__ == "__main__":
-    import sys
-    print(sys.argv[1])
+    if len( sys.argv ) != 2:
+        print(usage)
+        sys.exit(1)

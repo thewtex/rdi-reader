@@ -1,0 +1,18 @@
+{
+  "targets":[
+    {
+      "name":"format_evaluator",
+      "actions":[
+        {
+          "type":"python",
+          "options":{},
+          "value":"import os\nimport sys\n\npath = os.path.abspath(os.getcwd())\nsys.path.insert(0, path + '/source/common/formats')\n\nimport fe"
+        }
+      ]
+    }
+  ],
+  "options":{
+    "default":"format_evaluator",
+    "name":"read_visualsonics_digital_rf"
+  }
+}

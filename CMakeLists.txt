@@ -6,6 +6,17 @@ endif(COMMAND cmake_policy)
 
 project(read_visualsonics_digital_rf)
 
+include(CTest)
+
+if(BUILD_TESTING)
+  if(NOT EXISTS ${read_visualsonics_digital_rf_SOURCE_DIR}/test_data/.git)
+    message(SEND_ERROR "In order to run tests, the test_data must be
+    downloaded.  Try 'git submodule init && git submodule update' in the source
+    directory.")
+  endif(NOT EXISTS ${read_visualsonics_digital_rf_SOURCE_DIR}/test_data/.git)
+endif(BUILD_TESTING)
+
+enable_testing()
 
 ###########  Install Prefix ############
 SET(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/..

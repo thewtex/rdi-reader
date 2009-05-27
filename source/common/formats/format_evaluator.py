@@ -18,8 +18,7 @@ import sys
 #
 # @return
 def main(rdi_filepath):
-    with open('test_data/machine/visualsonics/vevo770/rmv710b/pat143_seg3.rdi',
-            'r' ) as rdi_file:
+    with open(rdi_filepath, 'r' ) as rdi_file:
 
         #a = 5
 

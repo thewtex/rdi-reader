@@ -11,20 +11,25 @@
 
 import sys
 
-#with open('../../../test_data/machine/visualsonics/vevo770/rmv710b/pat143_seg3.rdi', 'r' ) as file:
-with open('test_data/machine/visualsonics/vevo770/rmv710b/pat143_seg3.rdi', 'r' ) as file:
+##
+# @brief run the format evaluator
+#
+# @param rdi_filepath path to the example .rdi file
+#
+# @return
+def main(rdi_filepath):
+    with open('test_data/machine/visualsonics/vevo770/rmv710b/pat143_seg3.rdi',
+            'r' ) as rdi_file:
 
-    #a = 5
+        #a = 5
 
-    print("hello world")
+        print("hello world")
 
-def myfun():
-    print("hey you")
-
-myfun()
 
 usage = "Usage: " + sys.argv[0] + " <sample-file.rdi>"
 if __name__ == "__main__":
-    if len( sys.argv ) != 2:
+    if len(sys.argv) != 2:
         print(usage)
         sys.exit(1)
+    else:
+        main(sys.argv[1])

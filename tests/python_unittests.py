@@ -9,7 +9,6 @@ if len(sys.argv) == 3:
     project_path = sys.argv[2]
     sys.argv = sys.argv[:-1]
     sys.path.insert(0, project_path)
-    sys.path.remove( project_path + '/tests' )
 else:
     print("Usage: " + sys.argv[0] + " <test suite> <path to project path>")
     sys.exit(1)

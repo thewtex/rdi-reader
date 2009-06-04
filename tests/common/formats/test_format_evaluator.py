@@ -8,4 +8,5 @@ class TestFormatEvaluator(unittest.TestCase):
 
     def testmain(self):
         self.assertRaises(IOError, main, 'a_nonexistent_filepath')
-#'test_data/machine/visualsonics/vevo770/rmv710b/pat143_seg3.rdi',
+        self.assertEqual(main('test_data/machine/visualsonics/vevo770/rmv710b/pat143_seg3.rdi'),\
+                None )

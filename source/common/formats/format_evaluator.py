@@ -11,6 +11,8 @@
 
 import sys
 
+import xml.etree.ElementTree as ET
+
 ##
 # @brief run the format evaluator
 #
@@ -19,8 +21,6 @@ import sys
 # @return
 def main(rdi_filepath):
     with open(rdi_filepath, 'r' ) as rdi_file:
-
-        #a = 5
 
         print("hello world")
 

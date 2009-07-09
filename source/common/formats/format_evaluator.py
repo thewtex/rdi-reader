@@ -26,15 +26,15 @@ def main(rdi_filepath):
 
         XSD_NAMESPACE = "http://www.w3.org/2001/XMLSchema"
         XSD = "{%s}" % XSD_NAMESPACE
-        helloschema = objectify.Element(XSD + "schema", \
+        helloschema = etree.Element(XSD + "schema", \
                 nsmap={"xs": XSD_NAMESPACE})
         ct = etree.SubElement(helloschema, XSD + "complexType", name="hello_t")
         seq = etree.SubElement(ct, XSD + "sequence")
-        elem = etree.SubElement(seq, XSD + "element", name="greeting")
-        elem.set("type", "xs:string")
-        elem = etree.SubElement(seq, XSD + "element", name="name")
-        elem[1].set( "type", "xs:string")
-        elem[1].set("maxOccurs", "unbounded")
+        elem1 = etree.SubElement(seq, XSD + "element", name="greeting")
+        elem1.set("type", "xs:string")
+        elem2 = etree.SubElement(seq, XSD + "element", name="name")
+        elem2.set( "type", "xs:string")
+        elem2.set("maxOccurs", "unbounded")
 
         bigel = etree.SubElement(helloschema, XSD + "element", name="hello", type="hello_t")
         schematree = etree.ElementTree(helloschema)

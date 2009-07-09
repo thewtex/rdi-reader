@@ -11,7 +11,9 @@
 
 import sys
 
-import xml.etree.ElementTree as ET
+#import xml.etree.ElementTree as ET
+from lxml import etree
+from lxml import objectify
 
 ##
 # @brief run the format evaluator
@@ -22,7 +24,60 @@ import xml.etree.ElementTree as ET
 def main(rdi_filepath):
     with open(rdi_filepath, 'r' ) as rdi_file:
 
-        print("hello world")
+        XSD_NAMESPACE = "http://www.w3.org/2001/XMLSchema"
+        XSD = "{%s}" % XSD_NAMESPACE
+        helloschema = objectify.Element(XSD + "schema", \
+                nsmap={"xs": XSD_NAMESPACE})
+        ct = etree.SubElement(helloschema, XSD + "complexType", name="hello_t")
+        seq = etree.SubElement(ct, XSD + "sequence")
+        elem = etree.SubElement(seq, XSD + "element", name="greeting")
+        elem.set("type", "xs:string")
+        elem = etree.SubElement(seq, XSD + "element", name="name")
+        elem[1].set( "type", "xs:string")
+        elem[1].set("maxOccurs", "unbounded")
+
+        bigel = etree.SubElement(helloschema, XSD + "element", name="hello", type="hello_t")
+        schematree = etree.ElementTree(helloschema)
+        etree.cleanup_namespaces(helloschema)
+        schematree.write("hello2.xsd", pretty_print=True, xml_declaration=True, encoding="UTF-8")
+
+        schemaschema = etree.XMLSchema(file='XMLSchema.xsd')
+        schemaschema.assertValid(helloschema)
+
+        root = objectify.Element("hello", \
+                nsmap={'xsi': 'http://www.w3.org/2001/XMLSchema-instance'})
+        root.set("{http://www.w3.org/2001/XMLSchema-instance}noNamespaceSchemaLocation", "hello.xsd" )
+        greeting = etree.SubElement(root, "greeting")
+        root.greeting = "Hello"
+        name = etree.SubElement(root, "name")
+        name = etree.SubElement(root, "name")
+        name = etree.SubElement(root, "name")
+        name[0] = "sun"
+        name[1] = "mars"
+        name[2] = "world"
+        objectify.deannotate(root)
+        etree.cleanup_namespaces(root)
+        tree = etree.ElementTree(root)
+        tree.write("hello.xml", pretty_print=True, xml_declaration=True, encoding="UTF-8")
+
+        myschema = etree.XMLSchema(helloschema)
+        myschema.assertValid(root)
+
+
+
+        #root = ET.Element('hello')
+        #greeting = ET.SubElement(root, "greeting")
+        #greeting.text = 'Hello'
+        #name1 = ET.SubElement(root, "name")
+        #name1.text = 'sun'
+        #name2 = ET.SubElement(root, "name")
+        #name3 = ET.SubElement(root, "name")
+        #name2.text = 'earth'
+        #name3.text = 'world'
+        #tree = ET.ElementTree(root)
+        #tree.write('test.xml')
+
+
 
 
 usage = "Usage: " + sys.argv[0] + " <sample-file.rdi>"

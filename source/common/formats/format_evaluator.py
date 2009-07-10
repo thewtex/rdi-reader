@@ -13,7 +13,32 @@ import sys
 
 #import xml.etree.ElementTree as ET
 from lxml import etree
-from lxml import objectify
+
+
+##
+# @brief parse a .rdi file line by line and generate a python list of the
+# contents
+class RDILineParser:
+##
+# @brief create the parser
+#
+# @param rdi_file
+#
+# @return
+    def __init__(self, rdi_file):
+        self.rdi_file = rdi_file
+##
+# @brief parse the next line in the file
+#
+# @return python list of the line contents
+    def get_line(self):
+        raw_line = self.rdi_file.readline()
+        # strip out starting and trailing "
+        raw_line = raw_line[1:-1]
+        raw_line = raw_line.replace('",','')
+        split_line = raw_line.split('"')
+        return split_line[:-1]
+
 
 ##
 # @brief run the format evaluator
@@ -23,6 +48,10 @@ from lxml import objectify
 # @return
 def main(rdi_filepath):
     with open(rdi_filepath, 'r' ) as rdi_file:
+
+        rdi_line_parser = RDILineParser(rdi_file)
+        for i in range(3):
+            print(rdi_line_parser.get_line())
 
         XSD_NAMESPACE = "http://www.w3.org/2001/XMLSchema"
         XSD = "{%s}" % XSD_NAMESPACE
@@ -44,24 +73,24 @@ def main(rdi_filepath):
         schemaschema = etree.XMLSchema(file='XMLSchema.xsd')
         schemaschema.assertValid(helloschema)
 
-        root = objectify.Element("hello", \
-                nsmap={'xsi': 'http://www.w3.org/2001/XMLSchema-instance'})
-        root.set("{http://www.w3.org/2001/XMLSchema-instance}noNamespaceSchemaLocation", "hello.xsd" )
-        greeting = etree.SubElement(root, "greeting")
-        root.greeting = "Hello"
-        name = etree.SubElement(root, "name")
-        name = etree.SubElement(root, "name")
-        name = etree.SubElement(root, "name")
-        name[0] = "sun"
-        name[1] = "mars"
-        name[2] = "world"
-        objectify.deannotate(root)
-        etree.cleanup_namespaces(root)
-        tree = etree.ElementTree(root)
-        tree.write("hello.xml", pretty_print=True, xml_declaration=True, encoding="UTF-8")
+        #root = objectify.Element("hello", \
+                #nsmap={'xsi': 'http://www.w3.org/2001/XMLSchema-instance'})
+        #root.set("{http://www.w3.org/2001/XMLSchema-instance}noNamespaceSchemaLocation", "hello.xsd" )
+        #greeting = etree.SubElement(root, "greeting")
+        #root.greeting = "Hello"
+        #name = etree.SubElement(root, "name")
+        #name = etree.SubElement(root, "name")
+        #name = etree.SubElement(root, "name")
+        #name[0] = "sun"
+        #name[1] = "mars"
+        #name[2] = "world"
+        #objectify.deannotate(root)
+        #etree.cleanup_namespaces(root)
+        #tree = etree.ElementTree(root)
+        #tree.write("hello.xml", pretty_print=True, xml_declaration=True, encoding="UTF-8")
 
-        myschema = etree.XMLSchema(helloschema)
-        myschema.assertValid(root)
+        #myschema = etree.XMLSchema(helloschema)
+        #myschema.assertValid(root)
 
 
 

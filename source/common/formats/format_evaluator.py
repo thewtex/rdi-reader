@@ -57,9 +57,21 @@ def main(rdi_filepath):
     with open(rdi_filepath, 'r' ) as rdi_file:
         rdi_line_parser = RDILineParser(rdi_file)
 
+# create the XML Schema
+        XS_NAMESPACE = "http://www.w3.org/2001/XMLSchema"
+        XS = "{%s}" % XS_NAMESPACE
+        rdi_schema = etree.Element(XS + 'schema', \
+                nsmap={"xs": XSD_NAMESPACE})
+
         first_line = rdi_line_parser.get_line()
         if(first_line[0] != "=== IMAGE INFO ==="):
             raise UnexpectedContent
+
+        next_line = rdi_line_parser.get_line()
+        while(next_line[0] != "=== IMAGE DATA ==="):
+            element_name = next_line.replace(' ', '_')
+            print(next_line)
+            next_line = rdi_line_parser.get_line()
 
         for i in range(3):
             print(rdi_line_parser.get_line())

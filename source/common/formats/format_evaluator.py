@@ -15,6 +15,12 @@ import sys
 from lxml import etree
 
 
+class UnexpectedContent(Exception):
+    def __init__(self, message="Unexpected content for a .rdi file."):
+        self.message = message
+    def __str__(self):
+        return repr(self.message)
+
 ##
 # @brief parse a .rdi file line by line and generate a python list of the
 # contents
@@ -37,6 +43,7 @@ class RDILineParser:
         raw_line = raw_line[1:-1]
         raw_line = raw_line.replace('",','')
         split_line = raw_line.split('"')
+# strip out final ''
         return split_line[:-1]
 
 
@@ -48,8 +55,12 @@ class RDILineParser:
 # @return
 def main(rdi_filepath):
     with open(rdi_filepath, 'r' ) as rdi_file:
-
         rdi_line_parser = RDILineParser(rdi_file)
+
+        first_line = rdi_line_parser.get_line()
+        if(first_line[0] != "=== IMAGE INFO ==="):
+            raise UnexpectedContent
+
         for i in range(3):
             print(rdi_line_parser.get_line())
 

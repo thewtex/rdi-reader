@@ -15,6 +15,9 @@ import sys
 from lxml import etree
 
 
+from namespace_vars import *
+import element_types
+
 class UnexpectedContent(Exception):
     def __init__(self, message="Unexpected content for a .rdi file."):
         self.message = message
@@ -58,43 +61,54 @@ def main(rdi_filepath):
         rdi_line_parser = RDILineParser(rdi_file)
 
 # create the XML Schema
-        XS_NAMESPACE = "http://www.w3.org/2001/XMLSchema"
-        XS = "{%s}" % XS_NAMESPACE
         rdi_schema = etree.Element(XS + 'schema', \
-                nsmap={"xs": XSD_NAMESPACE})
+                nsmap={XS_NS[:-1]: XS_NAMESPACE})
+
+        etyper = element_types.ElementTyper()
 
         first_line = rdi_line_parser.get_line()
         if(first_line[0] != "=== IMAGE INFO ==="):
             raise UnexpectedContent
+        image_info_t = etree.SubElement(rdi_schema, XS + 'complexType', \
+                name='image_info_t')
+        image_info_seq = etree.SubElement(image_info_t, XS + 'sequence')
 
         next_line = rdi_line_parser.get_line()
         while(next_line[0] != "=== IMAGE DATA ==="):
-            element_name = next_line.replace(' ', '_')
+            element_name = next_line[0].replace(' ', '_')
+            etree.SubElement(image_info_seq, XS + 'element',
+                    name = element_name,
+                    type = etyper.get_type(next_line))
             print(next_line)
             next_line = rdi_line_parser.get_line()
+        image_info = etree.SubElement(rdi_schema, XS + 'element',
+                name = 'image_info',
+                type = 'image_info_t')
 
-        for i in range(3):
-            print(rdi_line_parser.get_line())
-
-        XSD_NAMESPACE = "http://www.w3.org/2001/XMLSchema"
-        XSD = "{%s}" % XSD_NAMESPACE
-        helloschema = etree.Element(XSD + "schema", \
-                nsmap={"xs": XSD_NAMESPACE})
-        ct = etree.SubElement(helloschema, XSD + "complexType", name="hello_t")
-        seq = etree.SubElement(ct, XSD + "sequence")
-        elem1 = etree.SubElement(seq, XSD + "element", name="greeting")
-        elem1.set("type", "xs:string")
-        elem2 = etree.SubElement(seq, XSD + "element", name="name")
-        elem2.set( "type", "xs:string")
-        elem2.set("maxOccurs", "unbounded")
-
-        bigel = etree.SubElement(helloschema, XSD + "element", name="hello", type="hello_t")
-        schematree = etree.ElementTree(helloschema)
-        etree.cleanup_namespaces(helloschema)
-        schematree.write("hello2.xsd", pretty_print=True, xml_declaration=True, encoding="UTF-8")
 
         schemaschema = etree.XMLSchema(file='XMLSchema.xsd')
-        schemaschema.assertValid(helloschema)
+        schemaschema.assertValid(rdi_schema)
+
+        tree = etree.ElementTree(rdi_schema)
+        tree.write("test.xsd", pretty_print=True, xml_declaration=True, encoding="UTF-8")
+
+        #XSD_NAMESPACE = "http://www.w3.org/2001/XMLSchema"
+        #XSD = "{%s}" % XSD_NAMESPACE
+        #helloschema = etree.Element(XSD + "schema", \
+                #nsmap={"xs": XSD_NAMESPACE})
+        #ct = etree.SubElement(helloschema, XSD + "complexType", name="hello_t")
+        #seq = etree.SubElement(ct, XSD + "sequence")
+        #elem1 = etree.SubElement(seq, XSD + "element", name="greeting")
+        #elem1.set("type", "xs:string")
+        #elem2 = etree.SubElement(seq, XSD + "element", name="name")
+        #elem2.set( "type", "xs:string")
+        #elem2.set("maxOccurs", "unbounded")
+
+        #bigel = etree.SubElement(helloschema, XSD + "element", name="hello", type="hello_t")
+        #schematree = etree.ElementTree(helloschema)
+        #etree.cleanup_namespaces(helloschema)
+        #schematree.write("hello2.xsd", pretty_print=True, xml_declaration=True, encoding="UTF-8")
+
 
         #root = objectify.Element("hello", \
                 #nsmap={'xsi': 'http://www.w3.org/2001/XMLSchema-instance'})

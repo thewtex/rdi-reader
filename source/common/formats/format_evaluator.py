@@ -90,7 +90,7 @@ def main(rdi_filepath):
         schemaschema.assertValid(rdi_schema)
 
         tree = etree.ElementTree(rdi_schema)
-        tree.write("test.xsd", pretty_print=True, xml_declaration=True, encoding="UTF-8")
+        tree.write("rdi.xsd", pretty_print=True, xml_declaration=True, encoding="UTF-8")
 
         #XSD_NAMESPACE = "http://www.w3.org/2001/XMLSchema"
         #XSD = "{%s}" % XSD_NAMESPACE

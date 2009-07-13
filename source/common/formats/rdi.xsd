@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="image_info_t">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Study_Name"/>
+      <xs:element type="xs:string" name="Image_Id"/>
+      <xs:element type="xs:string" name="Image_Label"/>
+      <xs:element type="xs:positiveInteger" name="Image_Frames"/>
+      <xs:element type="xs:positiveInteger" name="Image_Lines"/>
+      <xs:element type="xs:string" name="Image_Acquisition_Per_Line"/>
+      <xs:element type="xs:positiveInteger" name="Image_Acquisition_Size"/>
+      <xs:element type="xs:string" name="Animal_ID"/>
+      <xs:element type="xs:string" name="Acquisition_Mode"/>
+      <xs:element type="xs:string" name="Acquisition_Date"/>
+      <xs:element type="xs:string" name="Acquisition_Time"/>
+      <xs:element type="xs:string" name="Acquisition_Operator"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element type="image_info_t" name="image_info"/>
+</xs:schema>

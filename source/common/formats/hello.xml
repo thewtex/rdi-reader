@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<hello xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:py="http://codespeak.net/lxml/objectify/pytype" xsi:noNamespaceLocation="hello.xsd">
-  <greeting>Hello</greeting>
-  <name>sun</name>
-  <name>earth</name>
-  <name>world</name>
-</hello>

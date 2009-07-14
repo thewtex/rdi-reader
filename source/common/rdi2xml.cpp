@@ -5,7 +5,6 @@
 #include "rdiReader.h"
 
 using std::cerr;
-using std::cout;
 using std::endl;
 
 int main(int argc, char* argv[])
@@ -24,7 +23,7 @@ int main(int argc, char* argv[])
   }
   catch (std::exception& e)
     {
-    cerr << "There was a std::exception: "  << e.what() << endl;
+    cerr << "Error: "  << e.what() << endl;
     return 1;
     }
   return 0;

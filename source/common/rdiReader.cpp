@@ -1,9 +1,9 @@
 #include "rdiReader.h"
 
-#include <exception>
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 using std::cerr;
 using std::cout;
@@ -21,8 +21,8 @@ void rdiReader::parse()
 
   if(!infile)
     {
-    cerr << "Could not open the file: " << m_filepath.c_str() << endl;
-    throw;
+    std::string error_text = "Could not open the file " + m_filepath + '\n';
+    throw(std::runtime_error(error_text));
     }
 
   std::string line;

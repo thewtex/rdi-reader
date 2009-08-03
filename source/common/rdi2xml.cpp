@@ -4,6 +4,8 @@
 #include <string>
 using namespace std;
 
+#include <xercesc/util/PlatformUtils.hpp>
+
 #include "rdiReader.h"
 
 
@@ -21,12 +23,18 @@ int main(int argc, char* argv[])
 
     rdi_reader.parse();
   }
-  catch (ifstream::failure& e)
+  catch (const ifstream::failure& e)
     {
     cerr << "Error: failure opening/reading file." << endl;
     return 1;
     }
-  catch (std::exception& e)
+  // xerces-C++
+  catch (const xercesc::XMLException& e)
+    {
+    cerr << "Error: In Xerces-C++ xml processing." << endl;
+    return 1;
+    }
+  catch (const std::exception& e)
     {
     cerr << "Error: "  << e.what() << endl;
     return 1;

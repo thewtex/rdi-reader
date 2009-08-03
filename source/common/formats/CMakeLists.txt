@@ -1,6 +1,4 @@
-set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR})
-find_package( Xsd REQUIRED )
-find_package( XercesC REQUIRED )
+find_package(Xsd REQUIRED)
 
 set(XSD_ARGS "cxx-tree" "--generate-ostream" "--generate-serialization")
 

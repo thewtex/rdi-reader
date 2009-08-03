@@ -5,6 +5,7 @@
 using namespace std;
 
 #include <xercesc/util/PlatformUtils.hpp>
+#include <xercesc/util/XMLString.hpp>
 
 #include "rdiReader.h"
 
@@ -31,7 +32,9 @@ int main(int argc, char* argv[])
   // xerces-C++
   catch (const xercesc::XMLException& e)
     {
-    cerr << "Error: In Xerces-C++ xml processing." << endl;
+    char* msg = xercesc::XMLString::transcode(e.getMessage());
+    cerr << "Error: In Xerces-C++ xml processing: " << msg << endl;
+    xercesc::XMLString::release(&msg);
     return 1;
     }
   catch (const std::exception& e)

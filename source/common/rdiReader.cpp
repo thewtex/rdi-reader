@@ -4,10 +4,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-
-using std::cerr;
-using std::cout;
-using std::endl;
+using namespace std;
 
 
 rdiReader::rdiReader(const char* filepath):

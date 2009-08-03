@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.0
+#!/usr/bin/env python3.1
 #
 ##
 # @file fe.py
@@ -10,11 +10,15 @@
 # Public Domain
 
 import sys
+import os
 
 #import xml.etree.ElementTree as ET
 from lxml import etree
 
 
+# for working from within the source
+module_path = os.path.dirname(sys.modules[__name__].__file__)
+sys.path.insert(0, module_path)
 from namespace_vars import *
 import element_types
 
@@ -57,7 +61,7 @@ class RDILineParser:
 #
 # @return
 def main(rdi_filepath):
-    with open(rdi_filepath, 'r' ) as rdi_file:
+    with open(rdi_filepath, 'r') as rdi_file:
         rdi_line_parser = RDILineParser(rdi_file)
 
 # create the XML Schema
@@ -86,11 +90,11 @@ def main(rdi_filepath):
                 type = 'image_info_t')
 
 
-        schemaschema = etree.XMLSchema(file='XMLSchema.xsd')
+        schemaschema = etree.XMLSchema(file=os.path.join(module_path, 'XMLSchema.xsd'))
         schemaschema.assertValid(rdi_schema)
 
         tree = etree.ElementTree(rdi_schema)
-        tree.write("rdi.xsd", pretty_print=True, xml_declaration=True, encoding="UTF-8")
+        tree.write(os.path.join(module_path,"rdi.xsd"), pretty_print=True, xml_declaration=True, encoding="UTF-8")
 
         #XSD_NAMESPACE = "http://www.w3.org/2001/XMLSchema"
         #XSD = "{%s}" % XSD_NAMESPACE

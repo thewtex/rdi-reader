@@ -21,6 +21,11 @@ int main(int argc, char* argv[])
 
     rdi_reader.parse();
   }
+  catch (ifstream::failure& e)
+    {
+    cerr << "Error: failure opening/reading file." << endl;
+    return 1;
+    }
   catch (std::exception& e)
     {
     cerr << "Error: "  << e.what() << endl;

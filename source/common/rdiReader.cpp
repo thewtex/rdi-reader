@@ -18,15 +18,9 @@ rdiReader::rdiReader(const char* filepath):
 void rdiReader::parse()
 {
   std::ifstream infile(m_filepath.c_str());
-
-  if(!infile)
-    {
-    std::string error_text = "Could not open the file " + m_filepath + '\n';
-    throw(std::runtime_error(error_text));
-    }
+  infile.exceptions(ifstream::eofbit|ifstream::failbit|ifstream::badbit);
 
   std::string line;
   getline(infile, line);
-  cout << line << endl;
-
+  cout <<  (line == "=== IMAGE INFO ===") << endl;
 }

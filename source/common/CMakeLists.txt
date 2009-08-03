@@ -1,6 +1,3 @@
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/modules)
-message(STATUS "module path: ${CMAKE_MODULE_PATH}")
-find_package(XercesC REQUIRED)
 #set(spirit_parse_source_dir ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/spirit_parse)
 
 
@@ -27,6 +24,7 @@ include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source
 add_executable(rdi2xml
   rdi2xml.cpp
   rdiReader.cpp
+  formats/rdi.cxx
   )
 target_link_libraries(rdi2xml ${XERCESC_LIBRARIES})
 

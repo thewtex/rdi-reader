@@ -8,9 +8,11 @@ using namespace std;
 
 #include <xercesc/dom/DOM.hpp>
 #include <xercesc/util/PlatformUtils.hpp>
+using namespace xercesc;
 
 #include <xsd/cxx/xml/dom/auto-ptr.hxx>
 
+#include "common/XStr.h"
 #include "common/formats/rdi.hxx"
 
 rdiReader::rdiReader(const char* filepath):

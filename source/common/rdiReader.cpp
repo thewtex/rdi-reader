@@ -45,7 +45,7 @@ void rdiReader::parse()
   const XMLCh ls[] = {chLatin_L, chLatin_S, chNull};
   DOMImplementation* impl = DOMImplementationRegistry::getDOMImplementation(ls);
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc (impl->createDocument(
-      X("http://mmmccormick.com/visualsonics"),
+      0,
       X("rdi"),
       0));
 

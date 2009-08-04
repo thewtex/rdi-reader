@@ -8,6 +8,8 @@ using namespace std;
 #include <xercesc/util/PlatformUtils.hpp>
 #include <xercesc/util/XMLString.hpp>
 
+#include <xsd/cxx/tree/exceptions.hxx>
+
 #include "rdiReader.h"
 
 
@@ -43,6 +45,11 @@ int main(int argc, char* argv[])
 
     cerr << "Error: In Xerces-C++ DOM processing, code: " << e.code << endl;
     cerr << "See http://xerces.apache.org/xerces-c/apiDocs-3/classDOMException.html for an explanation." << endl;
+    return 1;
+    }
+  catch (const xsd::cxx::tree::expected_element<char>& e)
+    {
+    cerr << "Error: " << e.what() << ": '" << e.name() << "' in " << e.namespace_() << endl;
     return 1;
     }
   catch (const std::exception& e)

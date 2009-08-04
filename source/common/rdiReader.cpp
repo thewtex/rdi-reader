@@ -11,6 +11,7 @@ using namespace std;
 using namespace xercesc;
 
 #include <xsd/cxx/xml/dom/auto-ptr.hxx>
+#include <xsd/cxx/tree/exceptions.hxx>
 
 #include "common/formats/rdi.hxx"
 #include "common/ToXMLCh.h"
@@ -56,7 +57,12 @@ void rdiReader::parse()
 
   std::string line;
   getline(infile, line);
-  cout <<  (line == "=== IMAGE INFO ===") << endl;
+  cout << line << endl;
+  if(line == "=== IMAGE INFO ===")
+    throw(xml_schema::expected_element("image_info", ""));
+
+  DOMElement* image_info = domdoc->createElement(X("image_info"));
+  root_elem->appendChild(image_info);
 
   ::std::auto_ptr< ::rdi_t> rdi_i (
     rdi(domdoc,

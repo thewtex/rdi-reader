@@ -11,8 +11,7 @@
 
 #include <string>
 
-#include <xercesc/util/TransService.hpp>
-using namespace xercesc;
+#include "common/ToXMLCh.h"
 
 class rdiReader
 {
@@ -24,6 +23,8 @@ public:
 
 protected:
   const std::string m_filepath;
+
+  ToXMLCh* m_transcoder;
 };
 
 #endif // RDIREADER_H

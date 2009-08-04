@@ -13,9 +13,12 @@ using namespace xercesc;
 #include <xsd/cxx/xml/dom/auto-ptr.hxx>
 
 #include "common/formats/rdi.hxx"
-#include "common/XStr.h"
+#include "common/ToXMLCh.h"
+#define X(str) m_transcoder->transcode(str)
+// alternate, as long as local encoding is correct, as I understand it
+//#include "common/XStr.h"
+//#define X(str) XStr(str).unicodeForm()
 
-#define X(str) XStr(str).unicodeForm()
 
 /**
  * @brief maximum number of chars that will need to be transcoded
@@ -26,10 +29,14 @@ rdiReader::rdiReader(const char* filepath):
   m_filepath(filepath)
 {
   xercesc::XMLPlatformUtils::Initialize();
+
+  m_transcoder = new ToXMLCh();
 }
 
 rdiReader::~rdiReader()
 {
+  delete m_transcoder;
+
   xercesc::XMLPlatformUtils::Terminate();
 }
 

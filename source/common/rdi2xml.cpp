@@ -4,6 +4,7 @@
 #include <string>
 using namespace std;
 
+#include <xercesc/dom/DOMException.hpp>
 #include <xercesc/util/PlatformUtils.hpp>
 #include <xercesc/util/XMLString.hpp>
 
@@ -35,6 +36,13 @@ int main(int argc, char* argv[])
     char* msg = xercesc::XMLString::transcode(e.getMessage());
     cerr << "Error: In Xerces-C++ xml processing: " << msg << endl;
     xercesc::XMLString::release(&msg);
+    return 1;
+    }
+  catch (const xercesc::DOMException& e)
+    {
+
+    cerr << "Error: In Xerces-C++ DOM processing, code: " << e.code << endl;
+    cerr << "See http://xerces.apache.org/xerces-c/apiDocs-3/classDOMException.html for an explanation." << endl;
     return 1;
     }
   catch (const std::exception& e)

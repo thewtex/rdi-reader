@@ -25,6 +25,7 @@ add_executable(rdi2xml
   rdi2xml.cpp
   rdiReader.cpp
   formats/rdi.cxx
+  ToXMLCh.cpp
   )
 target_link_libraries(rdi2xml ${XERCESC_LIBRARIES})
 

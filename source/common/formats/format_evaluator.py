@@ -68,6 +68,8 @@ def main(rdi_filepath):
         rdi_schema = etree.Element(XS + 'schema', \
                 nsmap={XS_NS[:-1]: XS_NAMESPACE})
 
+
+
         etyper = element_types.ElementTyper()
 
         first_line = rdi_line_parser.get_line()
@@ -85,9 +87,15 @@ def main(rdi_filepath):
                     type = etyper.get_type(next_line))
             print(next_line)
             next_line = rdi_line_parser.get_line()
-        image_info = etree.SubElement(rdi_schema, XS + 'element',
+        rdi_t = etree.SubElement(rdi_schema, XS + 'complexType', \
+                name = 'rdi_t')
+        rdi_seq = etree.SubElement(rdi_t, XS + 'sequence')
+        etree.SubElement(rdi_seq, XS + 'element',
                 name = 'image_info',
                 type = 'image_info_t')
+        rdi = etree.SubElement(rdi_schema, XS + 'element',
+                name = 'rdi',
+                type = 'rdi_t')
 
 
         schemaschema = etree.XMLSchema(file=os.path.join(module_path, 'XMLSchema.xsd'))

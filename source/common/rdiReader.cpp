@@ -58,8 +58,8 @@ void rdiReader::parse()
   getline(infile, line);
   cout <<  (line == "=== IMAGE INFO ===") << endl;
 
-  ::std::auto_ptr< ::image_info_t> rdi (
-    image_info(domdoc,
+  ::std::auto_ptr< ::rdi_t> rdi_i (
+    rdi(domdoc,
       xml_schema::flags::keep_dom | xml_schema::flags::own_dom)
   );
 

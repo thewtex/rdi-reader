@@ -314,6 +314,34 @@ Acquisition_Operator (::std::auto_ptr< Acquisition_Operator_type > x)
 }
 
 
+// rdi_t
+//
+
+const rdi_t::image_info_type& rdi_t::
+image_info () const
+{
+  return this->image_info_.get ();
+}
+
+rdi_t::image_info_type& rdi_t::
+image_info ()
+{
+  return this->image_info_.get ();
+}
+
+void rdi_t::
+image_info (const image_info_type& x)
+{
+  this->image_info_.set (x);
+}
+
+void rdi_t::
+image_info (::std::auto_ptr< image_info_type > x)
+{
+  this->image_info_.set (x);
+}
+
+
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
 
 // image_info_t
@@ -662,6 +690,93 @@ image_info_t::
 {
 }
 
+// rdi_t
+//
+
+rdi_t::
+rdi_t (const image_info_type& image_info)
+: ::xml_schema::type (),
+  image_info_ (image_info, ::xml_schema::flags (), this)
+{
+}
+
+rdi_t::
+rdi_t (::std::auto_ptr< image_info_type >& image_info)
+: ::xml_schema::type (),
+  image_info_ (image_info, ::xml_schema::flags (), this)
+{
+}
+
+rdi_t::
+rdi_t (const rdi_t& x,
+       ::xml_schema::flags f,
+       ::xml_schema::container* c)
+: ::xml_schema::type (x, f, c),
+  image_info_ (x.image_info_, f, this)
+{
+}
+
+rdi_t::
+rdi_t (const ::xercesc::DOMElement& e,
+       ::xml_schema::flags f,
+       ::xml_schema::container* c)
+: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+  image_info_ (f, this)
+{
+  if ((f & ::xml_schema::flags::base) == 0)
+  {
+    ::xsd::cxx::xml::dom::parser< char > p (e, true, false);
+    this->parse (p, f);
+  }
+}
+
+void rdi_t::
+parse (::xsd::cxx::xml::dom::parser< char >& p,
+       ::xml_schema::flags f)
+{
+  for (; p.more_elements (); p.next_element ())
+  {
+    const ::xercesc::DOMElement& i (p.cur_element ());
+    const ::xsd::cxx::xml::qualified_name< char > n (
+      ::xsd::cxx::xml::dom::name< char > (i));
+
+    // image_info
+    //
+    if (n.name () == "image_info" && n.namespace_ ().empty ())
+    {
+      ::std::auto_ptr< image_info_type > r (
+        image_info_traits::create (i, f, this));
+
+      if (!image_info_.present ())
+      {
+        this->image_info_.set (r);
+        continue;
+      }
+    }
+
+    break;
+  }
+
+  if (!image_info_.present ())
+  {
+    throw ::xsd::cxx::tree::expected_element< char > (
+      "image_info",
+      "");
+  }
+}
+
+rdi_t* rdi_t::
+_clone (::xml_schema::flags f,
+        ::xml_schema::container* c) const
+{
+  return new class rdi_t (*this, f, c);
+}
+
+rdi_t::
+~rdi_t ()
+{
+}
+
 #include <ostream>
 
 ::std::ostream&
@@ -682,14 +797,21 @@ operator<< (::std::ostream& o, const image_info_t& i)
   return o;
 }
 
+::std::ostream&
+operator<< (::std::ostream& o, const rdi_t& i)
+{
+  o << ::std::endl << "image_info: " << i.image_info ();
+  return o;
+}
+
 #include <istream>
 #include <xsd/cxx/xml/sax/std-input-source.hxx>
 #include <xsd/cxx/tree/error-handler.hxx>
 
-::std::auto_ptr< ::image_info_t >
-image_info (const ::std::string& u,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (const ::std::string& u,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0,
@@ -702,18 +824,18 @@ image_info (const ::std::string& u,
 
   h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
 
-  ::std::auto_ptr< ::image_info_t > r (
-    ::image_info (
+  ::std::auto_ptr< ::rdi_t > r (
+    ::rdi (
       d, f | ::xml_schema::flags::own_dom, p));
 
   return r;
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (const ::std::string& u,
-            ::xml_schema::error_handler& h,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (const ::std::string& u,
+     ::xml_schema::error_handler& h,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0,
@@ -725,18 +847,18 @@ image_info (const ::std::string& u,
   if (!d.get ())
     throw ::xsd::cxx::tree::parsing< char > ();
 
-  ::std::auto_ptr< ::image_info_t > r (
-    ::image_info (
+  ::std::auto_ptr< ::rdi_t > r (
+    ::rdi (
       d, f | ::xml_schema::flags::own_dom, p));
 
   return r;
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (const ::std::string& u,
-            ::xercesc::DOMErrorHandler& h,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (const ::std::string& u,
+     ::xercesc::DOMErrorHandler& h,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument > d (
     ::xsd::cxx::xml::dom::parse< char > (u, h, p, f));
@@ -744,94 +866,94 @@ image_info (const ::std::string& u,
   if (!d.get ())
     throw ::xsd::cxx::tree::parsing< char > ();
 
-  ::std::auto_ptr< ::image_info_t > r (
-    ::image_info (
+  ::std::auto_ptr< ::rdi_t > r (
+    ::rdi (
       d, f | ::xml_schema::flags::own_dom, p));
 
   return r;
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (::std::istream& is,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (::std::istream& is,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0,
     (f & ::xml_schema::flags::keep_dom) == 0);
 
   ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::image_info (isrc, f, p);
+  return ::rdi (isrc, f, p);
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (::std::istream& is,
-            ::xml_schema::error_handler& h,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (::std::istream& is,
+     ::xml_schema::error_handler& h,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0,
     (f & ::xml_schema::flags::keep_dom) == 0);
 
   ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::image_info (isrc, h, f, p);
+  return ::rdi (isrc, h, f, p);
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (::std::istream& is,
-            ::xercesc::DOMErrorHandler& h,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (::std::istream& is,
+     ::xercesc::DOMErrorHandler& h,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::image_info (isrc, h, f, p);
+  return ::rdi (isrc, h, f, p);
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (::std::istream& is,
-            const ::std::string& sid,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (::std::istream& is,
+     const ::std::string& sid,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0,
     (f & ::xml_schema::flags::keep_dom) == 0);
 
   ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::image_info (isrc, f, p);
+  return ::rdi (isrc, f, p);
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (::std::istream& is,
-            const ::std::string& sid,
-            ::xml_schema::error_handler& h,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (::std::istream& is,
+     const ::std::string& sid,
+     ::xml_schema::error_handler& h,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0,
     (f & ::xml_schema::flags::keep_dom) == 0);
 
   ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::image_info (isrc, h, f, p);
+  return ::rdi (isrc, h, f, p);
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (::std::istream& is,
-            const ::std::string& sid,
-            ::xercesc::DOMErrorHandler& h,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (::std::istream& is,
+     const ::std::string& sid,
+     ::xercesc::DOMErrorHandler& h,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::image_info (isrc, h, f, p);
+  return ::rdi (isrc, h, f, p);
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (::xercesc::InputSource& i,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (::xercesc::InputSource& i,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   ::xsd::cxx::tree::error_handler< char > h;
 
@@ -840,18 +962,18 @@ image_info (::xercesc::InputSource& i,
 
   h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
 
-  ::std::auto_ptr< ::image_info_t > r (
-    ::image_info (
+  ::std::auto_ptr< ::rdi_t > r (
+    ::rdi (
       d, f | ::xml_schema::flags::own_dom, p));
 
   return r;
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (::xercesc::InputSource& i,
-            ::xml_schema::error_handler& h,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (::xercesc::InputSource& i,
+     ::xml_schema::error_handler& h,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument > d (
     ::xsd::cxx::xml::dom::parse< char > (i, h, p, f));
@@ -859,18 +981,18 @@ image_info (::xercesc::InputSource& i,
   if (!d.get ())
     throw ::xsd::cxx::tree::parsing< char > ();
 
-  ::std::auto_ptr< ::image_info_t > r (
-    ::image_info (
+  ::std::auto_ptr< ::rdi_t > r (
+    ::rdi (
       d, f | ::xml_schema::flags::own_dom, p));
 
   return r;
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (::xercesc::InputSource& i,
-            ::xercesc::DOMErrorHandler& h,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (::xercesc::InputSource& i,
+     ::xercesc::DOMErrorHandler& h,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument > d (
     ::xsd::cxx::xml::dom::parse< char > (i, h, p, f));
@@ -878,25 +1000,25 @@ image_info (::xercesc::InputSource& i,
   if (!d.get ())
     throw ::xsd::cxx::tree::parsing< char > ();
 
-  ::std::auto_ptr< ::image_info_t > r (
-    ::image_info (
+  ::std::auto_ptr< ::rdi_t > r (
+    ::rdi (
       d, f | ::xml_schema::flags::own_dom, p));
 
   return r;
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (const ::xercesc::DOMDocument& d,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties& p)
+::std::auto_ptr< ::rdi_t >
+rdi (const ::xercesc::DOMDocument& d,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties& p)
 {
   if (f & ::xml_schema::flags::keep_dom)
   {
     ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument > c (
       static_cast< ::xercesc::DOMDocument* > (d.cloneNode (true)));
 
-    ::std::auto_ptr< ::image_info_t > r (
-      ::image_info (
+    ::std::auto_ptr< ::rdi_t > r (
+      ::rdi (
         c, f | ::xml_schema::flags::own_dom, p));
 
     return r;
@@ -906,11 +1028,11 @@ image_info (const ::xercesc::DOMDocument& d,
   const ::xsd::cxx::xml::qualified_name< char > n (
     ::xsd::cxx::xml::dom::name< char > (e));
 
-  if (n.name () == "image_info" &&
+  if (n.name () == "rdi" &&
       n.namespace_ () == "")
   {
-    ::std::auto_ptr< ::image_info_t > r (
-      ::xsd::cxx::tree::traits< ::image_info_t, char >::create (
+    ::std::auto_ptr< ::rdi_t > r (
+      ::xsd::cxx::tree::traits< ::rdi_t, char >::create (
         e, f, 0));
     return r;
   }
@@ -918,14 +1040,14 @@ image_info (const ::xercesc::DOMDocument& d,
   throw ::xsd::cxx::tree::unexpected_element < char > (
     n.name (),
     n.namespace_ (),
-    "image_info",
+    "rdi",
     "");
 }
 
-::std::auto_ptr< ::image_info_t >
-image_info (::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument >& d,
-            ::xml_schema::flags f,
-            const ::xml_schema::properties&)
+::std::auto_ptr< ::rdi_t >
+rdi (::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument >& d,
+     ::xml_schema::flags f,
+     const ::xml_schema::properties&)
 {
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument > c (
     ((f & ::xml_schema::flags::keep_dom) &&
@@ -944,11 +1066,11 @@ image_info (::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument >& d,
                      (c.get () ? &c : &d),
                      0);
 
-  if (n.name () == "image_info" &&
+  if (n.name () == "rdi" &&
       n.namespace_ () == "")
   {
-    ::std::auto_ptr< ::image_info_t > r (
-      ::xsd::cxx::tree::traits< ::image_info_t, char >::create (
+    ::std::auto_ptr< ::rdi_t > r (
+      ::xsd::cxx::tree::traits< ::rdi_t, char >::create (
         e, f, 0));
     return r;
   }
@@ -956,7 +1078,7 @@ image_info (::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument >& d,
   throw ::xsd::cxx::tree::unexpected_element < char > (
     n.name (),
     n.namespace_ (),
-    "image_info",
+    "rdi",
     "");
 }
 
@@ -1103,17 +1225,34 @@ operator<< (::xercesc::DOMElement& e, const image_info_t& i)
 }
 
 void
-image_info (::std::ostream& o,
-            const ::image_info_t& s,
-            const ::xml_schema::namespace_infomap& m,
-            const ::std::string& e,
-            ::xml_schema::flags f)
+operator<< (::xercesc::DOMElement& e, const rdi_t& i)
+{
+  e << static_cast< const ::xml_schema::type& > (i);
+
+  // image_info
+  //
+  {
+    ::xercesc::DOMElement& s (
+      ::xsd::cxx::xml::dom::create_element (
+        "image_info",
+        e));
+
+    s << i.image_info ();
+  }
+}
+
+void
+rdi (::std::ostream& o,
+     const ::rdi_t& s,
+     const ::xml_schema::namespace_infomap& m,
+     const ::std::string& e,
+     ::xml_schema::flags f)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0);
 
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument > d (
-    ::image_info (s, m, f));
+    ::rdi (s, m, f));
 
   ::xsd::cxx::tree::error_handler< char > h;
 
@@ -1125,18 +1264,18 @@ image_info (::std::ostream& o,
 }
 
 void
-image_info (::std::ostream& o,
-            const ::image_info_t& s,
-            ::xml_schema::error_handler& h,
-            const ::xml_schema::namespace_infomap& m,
-            const ::std::string& e,
-            ::xml_schema::flags f)
+rdi (::std::ostream& o,
+     const ::rdi_t& s,
+     ::xml_schema::error_handler& h,
+     const ::xml_schema::namespace_infomap& m,
+     const ::std::string& e,
+     ::xml_schema::flags f)
 {
   ::xsd::cxx::xml::auto_initializer i (
     (f & ::xml_schema::flags::dont_initialize) == 0);
 
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument > d (
-    ::image_info (s, m, f));
+    ::rdi (s, m, f));
   ::xsd::cxx::xml::dom::ostream_format_target t (o);
   if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
   {
@@ -1145,15 +1284,15 @@ image_info (::std::ostream& o,
 }
 
 void
-image_info (::std::ostream& o,
-            const ::image_info_t& s,
-            ::xercesc::DOMErrorHandler& h,
-            const ::xml_schema::namespace_infomap& m,
-            const ::std::string& e,
-            ::xml_schema::flags f)
+rdi (::std::ostream& o,
+     const ::rdi_t& s,
+     ::xercesc::DOMErrorHandler& h,
+     const ::xml_schema::namespace_infomap& m,
+     const ::std::string& e,
+     ::xml_schema::flags f)
 {
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument > d (
-    ::image_info (s, m, f));
+    ::rdi (s, m, f));
   ::xsd::cxx::xml::dom::ostream_format_target t (o);
   if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
   {
@@ -1162,14 +1301,14 @@ image_info (::std::ostream& o,
 }
 
 void
-image_info (::xercesc::XMLFormatTarget& t,
-            const ::image_info_t& s,
-            const ::xml_schema::namespace_infomap& m,
-            const ::std::string& e,
-            ::xml_schema::flags f)
+rdi (::xercesc::XMLFormatTarget& t,
+     const ::rdi_t& s,
+     const ::xml_schema::namespace_infomap& m,
+     const ::std::string& e,
+     ::xml_schema::flags f)
 {
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument > d (
-    ::image_info (s, m, f));
+    ::rdi (s, m, f));
 
   ::xsd::cxx::tree::error_handler< char > h;
 
@@ -1180,15 +1319,15 @@ image_info (::xercesc::XMLFormatTarget& t,
 }
 
 void
-image_info (::xercesc::XMLFormatTarget& t,
-            const ::image_info_t& s,
-            ::xml_schema::error_handler& h,
-            const ::xml_schema::namespace_infomap& m,
-            const ::std::string& e,
-            ::xml_schema::flags f)
+rdi (::xercesc::XMLFormatTarget& t,
+     const ::rdi_t& s,
+     ::xml_schema::error_handler& h,
+     const ::xml_schema::namespace_infomap& m,
+     const ::std::string& e,
+     ::xml_schema::flags f)
 {
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument > d (
-    ::image_info (s, m, f));
+    ::rdi (s, m, f));
   if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
   {
     throw ::xsd::cxx::tree::serialization< char > ();
@@ -1196,15 +1335,15 @@ image_info (::xercesc::XMLFormatTarget& t,
 }
 
 void
-image_info (::xercesc::XMLFormatTarget& t,
-            const ::image_info_t& s,
-            ::xercesc::DOMErrorHandler& h,
-            const ::xml_schema::namespace_infomap& m,
-            const ::std::string& e,
-            ::xml_schema::flags f)
+rdi (::xercesc::XMLFormatTarget& t,
+     const ::rdi_t& s,
+     ::xercesc::DOMErrorHandler& h,
+     const ::xml_schema::namespace_infomap& m,
+     const ::std::string& e,
+     ::xml_schema::flags f)
 {
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument > d (
-    ::image_info (s, m, f));
+    ::rdi (s, m, f));
   if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
   {
     throw ::xsd::cxx::tree::serialization< char > ();
@@ -1212,15 +1351,15 @@ image_info (::xercesc::XMLFormatTarget& t,
 }
 
 void
-image_info (::xercesc::DOMDocument& d,
-            const ::image_info_t& s,
-            ::xml_schema::flags)
+rdi (::xercesc::DOMDocument& d,
+     const ::rdi_t& s,
+     ::xml_schema::flags)
 {
   ::xercesc::DOMElement& e (*d.getDocumentElement ());
   const ::xsd::cxx::xml::qualified_name< char > n (
     ::xsd::cxx::xml::dom::name< char > (e));
 
-  if (n.name () == "image_info" &&
+  if (n.name () == "rdi" &&
       n.namespace_ () == "")
   {
     e << s;
@@ -1230,23 +1369,23 @@ image_info (::xercesc::DOMDocument& d,
     throw ::xsd::cxx::tree::unexpected_element < char > (
       n.name (),
       n.namespace_ (),
-      "image_info",
+      "rdi",
       "");
   }
 }
 
 ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument >
-image_info (const ::image_info_t& s,
-            const ::xml_schema::namespace_infomap& m,
-            ::xml_schema::flags f)
+rdi (const ::rdi_t& s,
+     const ::xml_schema::namespace_infomap& m,
+     ::xml_schema::flags f)
 {
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument > d (
     ::xsd::cxx::xml::dom::serialize< char > (
-      "image_info",
+      "rdi",
       "",
       m, f));
 
-  ::image_info (*d, s, f);
+  ::rdi (*d, s, f);
   return d;
 }
 

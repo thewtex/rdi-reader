@@ -248,6 +248,7 @@ namespace xml_schema
 // Forward declarations.
 //
 class image_info_t;
+class rdi_t;
 
 #include <memory>    // std::auto_ptr
 #include <algorithm> // std::binary_search
@@ -509,10 +510,65 @@ class image_info_t: public ::xml_schema::type
   ::xsd::cxx::tree::one< Acquisition_Operator_type > Acquisition_Operator_;
 };
 
+class rdi_t: public ::xml_schema::type
+{
+  public:
+  // image_info
+  //
+  typedef ::image_info_t image_info_type;
+  typedef ::xsd::cxx::tree::traits< image_info_type, char > image_info_traits;
+
+  const image_info_type&
+  image_info () const;
+
+  image_info_type&
+  image_info ();
+
+  void
+  image_info (const image_info_type& x);
+
+  void
+  image_info (::std::auto_ptr< image_info_type > p);
+
+  // Constructors.
+  //
+  rdi_t (const image_info_type&);
+
+  rdi_t (::std::auto_ptr< image_info_type >&);
+
+  rdi_t (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  rdi_t (const rdi_t& x,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  virtual rdi_t*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~rdi_t ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< image_info_type > image_info_;
+};
+
 #include <iosfwd>
 
 ::std::ostream&
 operator<< (::std::ostream&, const image_info_t&);
+
+::std::ostream&
+operator<< (::std::ostream&, const rdi_t&);
 
 #include <iosfwd>
 
@@ -523,95 +579,95 @@ operator<< (::std::ostream&, const image_info_t&);
 // Parse a URI or a local file.
 //
 
-::std::auto_ptr< ::image_info_t >
-image_info (const ::std::string& uri,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (const ::std::string& uri,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::auto_ptr< ::image_info_t >
-image_info (const ::std::string& uri,
-            ::xml_schema::error_handler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (const ::std::string& uri,
+     ::xml_schema::error_handler& eh,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::auto_ptr< ::image_info_t >
-image_info (const ::std::string& uri,
-            ::xercesc::DOMErrorHandler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (const ::std::string& uri,
+     ::xercesc::DOMErrorHandler& eh,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
 // Parse std::istream.
 //
 
-::std::auto_ptr< ::image_info_t >
-image_info (::std::istream& is,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (::std::istream& is,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::auto_ptr< ::image_info_t >
-image_info (::std::istream& is,
-            ::xml_schema::error_handler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (::std::istream& is,
+     ::xml_schema::error_handler& eh,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::auto_ptr< ::image_info_t >
-image_info (::std::istream& is,
-            ::xercesc::DOMErrorHandler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (::std::istream& is,
+     ::xercesc::DOMErrorHandler& eh,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::auto_ptr< ::image_info_t >
-image_info (::std::istream& is,
-            const ::std::string& id,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (::std::istream& is,
+     const ::std::string& id,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::auto_ptr< ::image_info_t >
-image_info (::std::istream& is,
-            const ::std::string& id,
-            ::xml_schema::error_handler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (::std::istream& is,
+     const ::std::string& id,
+     ::xml_schema::error_handler& eh,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::auto_ptr< ::image_info_t >
-image_info (::std::istream& is,
-            const ::std::string& id,
-            ::xercesc::DOMErrorHandler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (::std::istream& is,
+     const ::std::string& id,
+     ::xercesc::DOMErrorHandler& eh,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
 // Parse xercesc::InputSource.
 //
 
-::std::auto_ptr< ::image_info_t >
-image_info (::xercesc::InputSource& is,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (::xercesc::InputSource& is,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::auto_ptr< ::image_info_t >
-image_info (::xercesc::InputSource& is,
-            ::xml_schema::error_handler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (::xercesc::InputSource& is,
+     ::xml_schema::error_handler& eh,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::auto_ptr< ::image_info_t >
-image_info (::xercesc::InputSource& is,
-            ::xercesc::DOMErrorHandler& eh,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (::xercesc::InputSource& is,
+     ::xercesc::DOMErrorHandler& eh,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
 // Parse xercesc::DOMDocument.
 //
 
-::std::auto_ptr< ::image_info_t >
-image_info (const ::xercesc::DOMDocument& d,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (const ::xercesc::DOMDocument& d,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::auto_ptr< ::image_info_t >
-image_info (::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument >& d,
-            ::xml_schema::flags f = 0,
-            const ::xml_schema::properties& p = ::xml_schema::properties ());
+::std::auto_ptr< ::rdi_t >
+rdi (::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument >& d,
+     ::xml_schema::flags f = 0,
+     const ::xml_schema::properties& p = ::xml_schema::properties ());
 
 #include <iosfwd>
 
@@ -624,73 +680,76 @@ image_info (::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument >& d,
 void
 operator<< (::xercesc::DOMElement&, const image_info_t&);
 
+void
+operator<< (::xercesc::DOMElement&, const rdi_t&);
+
 // Serialize to std::ostream.
 //
 
 void
-image_info (::std::ostream& os,
-            const ::image_info_t& x,
-            const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-            const ::std::string& e = "UTF-8",
-            ::xml_schema::flags f = 0);
+rdi (::std::ostream& os,
+     const ::rdi_t& x,
+     const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+     const ::std::string& e = "UTF-8",
+     ::xml_schema::flags f = 0);
 
 void
-image_info (::std::ostream& os,
-            const ::image_info_t& x,
-            ::xml_schema::error_handler& eh,
-            const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-            const ::std::string& e = "UTF-8",
-            ::xml_schema::flags f = 0);
+rdi (::std::ostream& os,
+     const ::rdi_t& x,
+     ::xml_schema::error_handler& eh,
+     const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+     const ::std::string& e = "UTF-8",
+     ::xml_schema::flags f = 0);
 
 void
-image_info (::std::ostream& os,
-            const ::image_info_t& x,
-            ::xercesc::DOMErrorHandler& eh,
-            const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-            const ::std::string& e = "UTF-8",
-            ::xml_schema::flags f = 0);
+rdi (::std::ostream& os,
+     const ::rdi_t& x,
+     ::xercesc::DOMErrorHandler& eh,
+     const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+     const ::std::string& e = "UTF-8",
+     ::xml_schema::flags f = 0);
 
 // Serialize to xercesc::XMLFormatTarget.
 //
 
 void
-image_info (::xercesc::XMLFormatTarget& ft,
-            const ::image_info_t& x,
-            const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-            const ::std::string& e = "UTF-8",
-            ::xml_schema::flags f = 0);
+rdi (::xercesc::XMLFormatTarget& ft,
+     const ::rdi_t& x,
+     const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+     const ::std::string& e = "UTF-8",
+     ::xml_schema::flags f = 0);
 
 void
-image_info (::xercesc::XMLFormatTarget& ft,
-            const ::image_info_t& x,
-            ::xml_schema::error_handler& eh,
-            const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-            const ::std::string& e = "UTF-8",
-            ::xml_schema::flags f = 0);
+rdi (::xercesc::XMLFormatTarget& ft,
+     const ::rdi_t& x,
+     ::xml_schema::error_handler& eh,
+     const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+     const ::std::string& e = "UTF-8",
+     ::xml_schema::flags f = 0);
 
 void
-image_info (::xercesc::XMLFormatTarget& ft,
-            const ::image_info_t& x,
-            ::xercesc::DOMErrorHandler& eh,
-            const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-            const ::std::string& e = "UTF-8",
-            ::xml_schema::flags f = 0);
+rdi (::xercesc::XMLFormatTarget& ft,
+     const ::rdi_t& x,
+     ::xercesc::DOMErrorHandler& eh,
+     const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+     const ::std::string& e = "UTF-8",
+     ::xml_schema::flags f = 0);
 
 // Serialize to an existing xercesc::DOMDocument.
 //
 
 void
-image_info (::xercesc::DOMDocument& d,
-            const ::image_info_t& x,
-            ::xml_schema::flags f = 0);
+rdi (::xercesc::DOMDocument& d,
+     const ::rdi_t& x,
+     ::xml_schema::flags f = 0);
 
 // Serialize to a new xercesc::DOMDocument.
 //
 
 ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument >
-image_info (const ::image_info_t& x,
-            const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-            ::xml_schema::flags f = 0);
+rdi (const ::rdi_t& x,
+     const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+     ::xml_schema::flags f = 0);
 
 #include <xsd/cxx/post.hxx>
 

@@ -11,10 +11,15 @@
 
 #include <string>
 
+#include <xercesc/util/TransService.hpp>
+using namespace xercesc;
+
 class rdiReader
 {
 public:
   rdiReader(const char* filepath);
+  ~rdiReader();
+
   void parse();
 
 protected:

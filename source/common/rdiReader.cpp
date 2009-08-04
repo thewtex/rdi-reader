@@ -12,19 +12,37 @@ using namespace xercesc;
 
 #include <xsd/cxx/xml/dom/auto-ptr.hxx>
 
-#include "common/XStr.h"
 #include "common/formats/rdi.hxx"
+#include "common/XStr.h"
+
+#define X(str) XStr(str).unicodeForm()
+
+/**
+ * @brief maximum number of chars that will need to be transcoded
+ */
+const static unsigned int transcode_max_chars = 512;
 
 rdiReader::rdiReader(const char* filepath):
   m_filepath(filepath)
 {
+  xercesc::XMLPlatformUtils::Initialize();
+}
+
+rdiReader::~rdiReader()
+{
+  xercesc::XMLPlatformUtils::Terminate();
 }
 
 void rdiReader::parse()
 {
-  xercesc::XMLPlatformUtils::Initialize();
+  const XMLCh ls[] = {chLatin_L, chLatin_S, chNull};
+  DOMImplementation* impl = DOMImplementationRegistry::getDOMImplementation(ls);
+  ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc (impl->createDocument(
+      X("http://mmmccormick.com/visualsonics"),
+      X("rdi"),
+      0));
 
-  ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc;
+  DOMElement* root_elem = domdoc->getDocumentElement();
 
   std::ifstream infile(m_filepath.c_str());
   infile.exceptions(ifstream::eofbit|ifstream::failbit|ifstream::badbit);
@@ -38,5 +56,4 @@ void rdiReader::parse()
       xml_schema::flags::keep_dom | xml_schema::flags::own_dom)
   );
 
-  xercesc::XMLPlatformUtils::Terminate();
 }

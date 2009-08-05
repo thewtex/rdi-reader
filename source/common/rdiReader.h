@@ -55,10 +55,14 @@ protected:
      * file
      *
      * @param f the .rdi file
+     *
+     * @return if there is another valid line to get parsed
+     *
+     * Requires the first " to be stripped and strips " from the next line
      */
-    void parse_line(istream& f);
+    bool parse_line(istream& f);
   private:
-    string m_line;
+    string m_subline;
     }; // end LineParser nested class
   LineParser m_line_parser;
 

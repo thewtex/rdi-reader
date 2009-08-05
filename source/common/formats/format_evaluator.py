@@ -85,7 +85,6 @@ def main(rdi_filepath):
             etree.SubElement(image_info_seq, XS + 'element',
                     name = element_name,
                     type = etyper.get_type(next_line))
-            print(next_line)
             next_line = rdi_line_parser.get_line()
         rdi_t = etree.SubElement(rdi_schema, XS + 'complexType', \
                 name = 'rdi_t')

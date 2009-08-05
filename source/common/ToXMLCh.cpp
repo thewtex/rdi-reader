@@ -36,7 +36,8 @@ ToXMLCh::~ToXMLCh()
 void ToXMLCh::setInput(const char* to_translate)
 {
   m_srcData = reinterpret_cast<const XMLByte*>(to_translate);
-  m_srcCount = static_cast<XMLSize_t>(strlen(to_translate));
+  // +1 for null char
+  m_srcCount = static_cast<XMLSize_t>(strlen(to_translate)+1);
 }
 
 

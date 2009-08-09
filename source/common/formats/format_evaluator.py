@@ -53,6 +53,13 @@ class RDILineParser:
 # strip out final ''
         return split_line[:-1]
 
+##
+# @brief get an unprocessed version of the next line in the file
+#
+# @return
+    def get_raw_line(self):
+        return self.rdi_file.readline()
+
 
 ##
 # @brief run the format evaluator
@@ -61,7 +68,7 @@ class RDILineParser:
 #
 # @return
 def main(rdi_filepath):
-    with open(rdi_filepath, 'r') as rdi_file:
+    with open(rdi_filepath, 'r', encoding='latin_1') as rdi_file:
         rdi_line_parser = RDILineParser(rdi_file)
 
 # create the XML Schema
@@ -87,12 +94,22 @@ def main(rdi_filepath):
                     type = etyper.get_type(next_line))
             next_line = rdi_line_parser.get_line()
 
+        image_data_t = etree.SubElement(rdi_schema, XS + 'complexType', \
+                name='image_data_t')
+        image_data_seq = etree.SubElement(image_data_t, XS + 'sequence')
+        next_line = rdi_line_parser.get_raw_line()
+        while(next_line != '"=== IMAGE PARAMETERS ==="\n'):
+            next_line = rdi_line_parser.get_raw_line()
+
         rdi_t = etree.SubElement(rdi_schema, XS + 'complexType', \
                 name = 'rdi_t')
         rdi_seq = etree.SubElement(rdi_t, XS + 'sequence')
         etree.SubElement(rdi_seq, XS + 'element',
                 name = 'image_info',
                 type = 'image_info_t')
+        etree.SubElement(rdi_seq, XS + 'element',
+                name = 'image_data',
+                type = 'image_data_t')
         rdi = etree.SubElement(rdi_schema, XS + 'element',
                 name = 'rdi',
                 type = 'rdi_t')

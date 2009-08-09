@@ -308,6 +308,10 @@ Acquisition_Operator (::std::auto_ptr< Acquisition_Operator_type > x)
 }
 
 
+// image_data_t
+//
+
+
 // rdi_t
 //
 
@@ -333,6 +337,30 @@ void rdi_t::
 image_info (::std::auto_ptr< image_info_type > x)
 {
   this->image_info_.set (x);
+}
+
+const rdi_t::image_data_type& rdi_t::
+image_data () const
+{
+  return this->image_data_.get ();
+}
+
+rdi_t::image_data_type& rdi_t::
+image_data ()
+{
+  return this->image_data_.get ();
+}
+
+void rdi_t::
+image_data (const image_data_type& x)
+{
+  this->image_data_.set (x);
+}
+
+void rdi_t::
+image_data (::std::auto_ptr< image_data_type > x)
+{
+  this->image_data_.set (x);
 }
 
 
@@ -681,20 +709,78 @@ image_info_t::
 {
 }
 
+// image_data_t
+//
+
+image_data_t::
+image_data_t ()
+: ::xml_schema::type ()
+{
+}
+
+image_data_t::
+image_data_t (const image_data_t& x,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+: ::xml_schema::type (x, f, c)
+{
+}
+
+image_data_t::
+image_data_t (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+: ::xml_schema::type (e, f, c)
+{
+}
+
+image_data_t::
+image_data_t (const ::xercesc::DOMAttr& a,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+: ::xml_schema::type (a, f, c)
+{
+}
+
+image_data_t::
+image_data_t (const ::std::string& s,
+              const ::xercesc::DOMElement* e,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+: ::xml_schema::type (s, e, f, c)
+{
+}
+
+image_data_t* image_data_t::
+_clone (::xml_schema::flags f,
+        ::xml_schema::container* c) const
+{
+  return new class image_data_t (*this, f, c);
+}
+
+image_data_t::
+~image_data_t ()
+{
+}
+
 // rdi_t
 //
 
 rdi_t::
-rdi_t (const image_info_type& image_info)
+rdi_t (const image_info_type& image_info,
+       const image_data_type& image_data)
 : ::xml_schema::type (),
-  image_info_ (image_info, ::xml_schema::flags (), this)
+  image_info_ (image_info, ::xml_schema::flags (), this),
+  image_data_ (image_data, ::xml_schema::flags (), this)
 {
 }
 
 rdi_t::
-rdi_t (::std::auto_ptr< image_info_type >& image_info)
+rdi_t (::std::auto_ptr< image_info_type >& image_info,
+       const image_data_type& image_data)
 : ::xml_schema::type (),
-  image_info_ (image_info, ::xml_schema::flags (), this)
+  image_info_ (image_info, ::xml_schema::flags (), this),
+  image_data_ (image_data, ::xml_schema::flags (), this)
 {
 }
 
@@ -703,7 +789,8 @@ rdi_t (const rdi_t& x,
        ::xml_schema::flags f,
        ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
-  image_info_ (x.image_info_, f, this)
+  image_info_ (x.image_info_, f, this),
+  image_data_ (x.image_data_, f, this)
 {
 }
 
@@ -712,7 +799,8 @@ rdi_t (const ::xercesc::DOMElement& e,
        ::xml_schema::flags f,
        ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  image_info_ (f, this)
+  image_info_ (f, this),
+  image_data_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
   {
@@ -745,6 +833,20 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       }
     }
 
+    // image_data
+    //
+    if (n.name () == "image_data" && n.namespace_ ().empty ())
+    {
+      ::std::auto_ptr< image_data_type > r (
+        image_data_traits::create (i, f, this));
+
+      if (!image_data_.present ())
+      {
+        this->image_data_.set (r);
+        continue;
+      }
+    }
+
     break;
   }
 
@@ -752,6 +854,13 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
   {
     throw ::xsd::cxx::tree::expected_element< char > (
       "image_info",
+      "");
+  }
+
+  if (!image_data_.present ())
+  {
+    throw ::xsd::cxx::tree::expected_element< char > (
+      "image_data",
       "");
   }
 }
@@ -789,9 +898,16 @@ operator<< (::std::ostream& o, const image_info_t& i)
 }
 
 ::std::ostream&
+operator<< (::std::ostream& o, const image_data_t&)
+{
+  return o;
+}
+
+::std::ostream&
 operator<< (::std::ostream& o, const rdi_t& i)
 {
   o << ::std::endl << "image_info: " << i.image_info ();
+  o << ::std::endl << "image_data: " << i.image_data ();
   return o;
 }
 
@@ -1216,6 +1332,23 @@ operator<< (::xercesc::DOMElement& e, const image_info_t& i)
 }
 
 void
+operator<< (::xercesc::DOMElement& e, const image_data_t& i)
+{
+  e << static_cast< const ::xml_schema::type& > (i);
+}
+
+void
+operator<< (::xercesc::DOMAttr&,const image_data_t&)
+{
+}
+
+void
+operator<< (::xml_schema::list_stream&,
+            const image_data_t&)
+{
+}
+
+void
 operator<< (::xercesc::DOMElement& e, const rdi_t& i)
 {
   e << static_cast< const ::xml_schema::type& > (i);
@@ -1229,6 +1362,17 @@ operator<< (::xercesc::DOMElement& e, const rdi_t& i)
         e));
 
     s << i.image_info ();
+  }
+
+  // image_data
+  //
+  {
+    ::xercesc::DOMElement& s (
+      ::xsd::cxx::xml::dom::create_element (
+        "image_data",
+        e));
+
+    s << i.image_data ();
   }
 }
 

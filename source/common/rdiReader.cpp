@@ -96,6 +96,12 @@ void rdiReader::parse()
       child->setAttribute(units, X(m_line_parser.units.c_str()));
     }
 
+  getline(infile, line);
+  while(!(line == "\"=== IMAGE PARAMETERS ===\"\r"))
+    getline(infile, line);
+
+  DOMElement* image_data = domdoc->createElement(X("image_data"));
+  root_elem->appendChild(image_data);
   //// for debugging
       namespace xml = xsd::cxx::xml;
     namespace tree = xsd::cxx::tree;

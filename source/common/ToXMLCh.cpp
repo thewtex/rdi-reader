@@ -16,7 +16,7 @@ ToXMLCh::ToXMLCh():
 {
   XMLTransService::Codes failReason;
   m_transcoder = XMLPlatformUtils::fgTransService->makeNewTranscoderFor(
-    "UTF-8", failReason, MAX_TRANSCODING_LENGTH);
+    "ISO-8859-1", failReason, MAX_TRANSCODING_LENGTH);
   if(failReason != XMLTransService::Ok)
     throw(logic_error("Could not create transcoder."));
 

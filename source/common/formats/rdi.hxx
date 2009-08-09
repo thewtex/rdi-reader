@@ -248,6 +248,7 @@ namespace xml_schema
 // Forward declarations.
 //
 class image_info_t;
+class image_data_t;
 class rdi_t;
 
 #include <memory>    // std::auto_ptr
@@ -507,6 +508,38 @@ class image_info_t: public ::xml_schema::type
   ::xsd::cxx::tree::one< Acquisition_Operator_type > Acquisition_Operator_;
 };
 
+class image_data_t: public ::xml_schema::type
+{
+  public:
+  // Constructors.
+  //
+  image_data_t ();
+
+  image_data_t (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  image_data_t (const ::xercesc::DOMAttr& a,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  image_data_t (const ::std::string& s,
+                const ::xercesc::DOMElement* e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  image_data_t (const image_data_t& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual image_data_t*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~image_data_t ();
+};
+
 class rdi_t: public ::xml_schema::type
 {
   public:
@@ -527,11 +560,30 @@ class rdi_t: public ::xml_schema::type
   void
   image_info (::std::auto_ptr< image_info_type > p);
 
+  // image_data
+  //
+  typedef ::image_data_t image_data_type;
+  typedef ::xsd::cxx::tree::traits< image_data_type, char > image_data_traits;
+
+  const image_data_type&
+  image_data () const;
+
+  image_data_type&
+  image_data ();
+
+  void
+  image_data (const image_data_type& x);
+
+  void
+  image_data (::std::auto_ptr< image_data_type > p);
+
   // Constructors.
   //
-  rdi_t (const image_info_type&);
+  rdi_t (const image_info_type&,
+         const image_data_type&);
 
-  rdi_t (::std::auto_ptr< image_info_type >&);
+  rdi_t (::std::auto_ptr< image_info_type >&,
+         const image_data_type&);
 
   rdi_t (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f = 0,
@@ -557,12 +609,16 @@ class rdi_t: public ::xml_schema::type
 
   protected:
   ::xsd::cxx::tree::one< image_info_type > image_info_;
+  ::xsd::cxx::tree::one< image_data_type > image_data_;
 };
 
 #include <iosfwd>
 
 ::std::ostream&
 operator<< (::std::ostream&, const image_info_t&);
+
+::std::ostream&
+operator<< (::std::ostream&, const image_data_t&);
 
 ::std::ostream&
 operator<< (::std::ostream&, const rdi_t&);
@@ -676,6 +732,16 @@ rdi (::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument >& d,
 
 void
 operator<< (::xercesc::DOMElement&, const image_info_t&);
+
+void
+operator<< (::xercesc::DOMElement&, const image_data_t&);
+
+void
+operator<< (::xercesc::DOMAttr&, const image_data_t&);
+
+void
+operator<< (::xml_schema::list_stream&,
+            const image_data_t&);
 
 void
 operator<< (::xercesc::DOMElement&, const rdi_t&);

@@ -4,17 +4,15 @@ import os
 import unittest
 import sys
 
-project_path = ''
-if len(sys.argv) == 3:
-    project_path = sys.argv[2]
-    sys.argv = sys.argv[:-1]
+project_path = os.path.join(os.path.dirname(__file__), '..')
+if len(sys.argv) == 2:
     sys.path.insert(0, project_path)
     sys.path.insert(0,
             os.path.join(project_path, 'source', 'common', 'formats'))
     sys.path.insert(0,
             os.path.join(project_path, 'tests', 'common', 'formats'))
 else:
-    print("Usage: " + sys.argv[0] + " <test suite> <path to project path>")
+    print("Usage: " + sys.argv[0] + " <test suite>")
     sys.exit(1)
 
 

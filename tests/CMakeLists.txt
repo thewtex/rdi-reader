@@ -1,6 +1,6 @@
 add_test(format_evaluator
   ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/python_unittests.py
-  FormatEvaluatorSuite ${read_visualsonics_digital_rf_SOURCE_DIR})
+  FormatEvaluatorSuite)
 
 set(spirit_parse_source_dir ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/spirit_parse)
 

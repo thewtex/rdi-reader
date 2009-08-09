@@ -8,7 +8,8 @@ class ElementTyper():
 
     _element_name_dict = {
             'Image Frames':'positiveInteger',
-            'Image Lines':'positiveInteger'
+            'Image Lines':'positiveInteger',
+            'Image Acquisition Per Line':'positiveInteger'
             }
 
     _units_dict = {

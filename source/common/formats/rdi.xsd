@@ -7,7 +7,7 @@
       <xs:element type="xs:string" name="Image_Label"/>
       <xs:element type="xs:positiveInteger" name="Image_Frames"/>
       <xs:element type="xs:positiveInteger" name="Image_Lines"/>
-      <xs:element type="xs:string" name="Image_Acquisition_Per_Line"/>
+      <xs:element type="xs:positiveInteger" name="Image_Acquisition_Per_Line"/>
       <xs:element type="xs:positiveInteger" name="Image_Acquisition_Size"/>
       <xs:element type="xs:string" name="Animal_ID"/>
       <xs:element type="xs:string" name="Acquisition_Mode"/>

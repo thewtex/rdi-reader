@@ -169,12 +169,6 @@ Image_Acquisition_Per_Line (const Image_Acquisition_Per_Line_type& x)
   this->Image_Acquisition_Per_Line_.set (x);
 }
 
-void image_info_t::
-Image_Acquisition_Per_Line (::std::auto_ptr< Image_Acquisition_Per_Line_type > x)
-{
-  this->Image_Acquisition_Per_Line_.set (x);
-}
-
 const image_info_t::Image_Acquisition_Size_type& image_info_t::
 Image_Acquisition_Size () const
 {
@@ -499,12 +493,9 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
     //
     if (n.name () == "Image_Acquisition_Per_Line" && n.namespace_ ().empty ())
     {
-      ::std::auto_ptr< Image_Acquisition_Per_Line_type > r (
-        Image_Acquisition_Per_Line_traits::create (i, f, this));
-
       if (!Image_Acquisition_Per_Line_.present ())
       {
-        this->Image_Acquisition_Per_Line_.set (r);
+        this->Image_Acquisition_Per_Line_.set (Image_Acquisition_Per_Line_traits::create (i, f, this));
         continue;
       }
     }

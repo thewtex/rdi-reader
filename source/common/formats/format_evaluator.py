@@ -86,6 +86,7 @@ def main(rdi_filepath):
                     name = element_name,
                     type = etyper.get_type(next_line))
             next_line = rdi_line_parser.get_line()
+
         rdi_t = etree.SubElement(rdi_schema, XS + 'complexType', \
                 name = 'rdi_t')
         rdi_seq = etree.SubElement(rdi_t, XS + 'sequence')

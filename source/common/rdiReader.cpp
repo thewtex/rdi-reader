@@ -142,6 +142,17 @@ eh.throw_if_failed<tree::serialization<char> > ();
       xml_schema::flags::keep_dom | xml_schema::flags::own_dom)
   );
 
+  // debugging
+  cout << "Acquisition Mode: " << rdi_i->image_info().Acquisition_Mode() << endl;
+  cout << "Image Frames: "  << rdi_i->image_info().Image_Frames() << endl;
+
+  std::ofstream ofs("xsd_out.xml");
+  xml_schema::namespace_infomap map;
+  map[""].name = "";
+  map[""].schema = "rdi.xsd";
+  rdi(ofs, *rdi_i, map);
+  // end debugging
+
 }
 
 

@@ -9,10 +9,12 @@
 #ifndef RDIREADER_H
 #define RDIREADER_H
 
+#include <memory>
 #include <string>
 #include <vector>
 using namespace std;
 
+#include "common/formats/rdi.hxx"
 #include "common/ToXMLCh.h"
 
 class rdiReader
@@ -21,7 +23,7 @@ public:
   rdiReader(const char* filepath);
   ~rdiReader();
 
-  void parse();
+  std::auto_ptr<rdi_t> parse();
 
 protected:
   const std::string m_filepath;

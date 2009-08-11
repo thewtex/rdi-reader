@@ -249,6 +249,7 @@ namespace xml_schema
 //
 class image_info_t;
 class image_data_t;
+class image_parameters_t;
 class rdi_t;
 
 #include <memory>    // std::auto_ptr
@@ -540,6 +541,38 @@ class image_data_t: public ::xml_schema::type
   ~image_data_t ();
 };
 
+class image_parameters_t: public ::xml_schema::type
+{
+  public:
+  // Constructors.
+  //
+  image_parameters_t ();
+
+  image_parameters_t (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  image_parameters_t (const ::xercesc::DOMAttr& a,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  image_parameters_t (const ::std::string& s,
+                      const ::xercesc::DOMElement* e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  image_parameters_t (const image_parameters_t& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual image_parameters_t*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~image_parameters_t ();
+};
+
 class rdi_t: public ::xml_schema::type
 {
   public:
@@ -619,6 +652,9 @@ operator<< (::std::ostream&, const image_info_t&);
 
 ::std::ostream&
 operator<< (::std::ostream&, const image_data_t&);
+
+::std::ostream&
+operator<< (::std::ostream&, const image_parameters_t&);
 
 ::std::ostream&
 operator<< (::std::ostream&, const rdi_t&);
@@ -742,6 +778,16 @@ operator<< (::xercesc::DOMAttr&, const image_data_t&);
 void
 operator<< (::xml_schema::list_stream&,
             const image_data_t&);
+
+void
+operator<< (::xercesc::DOMElement&, const image_parameters_t&);
+
+void
+operator<< (::xercesc::DOMAttr&, const image_parameters_t&);
+
+void
+operator<< (::xml_schema::list_stream&,
+            const image_parameters_t&);
 
 void
 operator<< (::xercesc::DOMElement&, const rdi_t&);

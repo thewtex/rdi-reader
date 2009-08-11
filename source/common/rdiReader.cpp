@@ -102,6 +102,9 @@ auto_ptr<rdi_t> rdiReader::parse()
 
   DOMElement* image_data = domdoc->createElement(X("image_data"));
   root_elem->appendChild(image_data);
+
+  DOMElement* image_parameters = domdoc->createElement(X("image_parameters"));
+  root_elem->appendChild(image_parameters);
   //// for debugging
       namespace xml = xsd::cxx::xml;
     namespace tree = xsd::cxx::tree;

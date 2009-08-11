@@ -312,6 +312,10 @@ Acquisition_Operator (::std::auto_ptr< Acquisition_Operator_type > x)
 //
 
 
+// image_parameters_t
+//
+
+
 // rdi_t
 //
 
@@ -763,6 +767,60 @@ image_data_t::
 {
 }
 
+// image_parameters_t
+//
+
+image_parameters_t::
+image_parameters_t ()
+: ::xml_schema::type ()
+{
+}
+
+image_parameters_t::
+image_parameters_t (const image_parameters_t& x,
+                    ::xml_schema::flags f,
+                    ::xml_schema::container* c)
+: ::xml_schema::type (x, f, c)
+{
+}
+
+image_parameters_t::
+image_parameters_t (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f,
+                    ::xml_schema::container* c)
+: ::xml_schema::type (e, f, c)
+{
+}
+
+image_parameters_t::
+image_parameters_t (const ::xercesc::DOMAttr& a,
+                    ::xml_schema::flags f,
+                    ::xml_schema::container* c)
+: ::xml_schema::type (a, f, c)
+{
+}
+
+image_parameters_t::
+image_parameters_t (const ::std::string& s,
+                    const ::xercesc::DOMElement* e,
+                    ::xml_schema::flags f,
+                    ::xml_schema::container* c)
+: ::xml_schema::type (s, e, f, c)
+{
+}
+
+image_parameters_t* image_parameters_t::
+_clone (::xml_schema::flags f,
+        ::xml_schema::container* c) const
+{
+  return new class image_parameters_t (*this, f, c);
+}
+
+image_parameters_t::
+~image_parameters_t ()
+{
+}
+
 // rdi_t
 //
 
@@ -899,6 +957,12 @@ operator<< (::std::ostream& o, const image_info_t& i)
 
 ::std::ostream&
 operator<< (::std::ostream& o, const image_data_t&)
+{
+  return o;
+}
+
+::std::ostream&
+operator<< (::std::ostream& o, const image_parameters_t&)
 {
   return o;
 }
@@ -1345,6 +1409,23 @@ operator<< (::xercesc::DOMAttr&,const image_data_t&)
 void
 operator<< (::xml_schema::list_stream&,
             const image_data_t&)
+{
+}
+
+void
+operator<< (::xercesc::DOMElement& e, const image_parameters_t& i)
+{
+  e << static_cast< const ::xml_schema::type& > (i);
+}
+
+void
+operator<< (::xercesc::DOMAttr&,const image_parameters_t&)
+{
+}
+
+void
+operator<< (::xml_schema::list_stream&,
+            const image_parameters_t&)
 {
 }
 

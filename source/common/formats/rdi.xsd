@@ -19,6 +19,9 @@
   <xs:complexType name="image_data_t">
     <xs:sequence/>
   </xs:complexType>
+  <xs:complexType name="image_parameters_t">
+    <xs:sequence/>
+  </xs:complexType>
   <xs:complexType name="rdi_t">
     <xs:sequence>
       <xs:element type="image_info_t" name="image_info"/>

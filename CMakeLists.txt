@@ -9,11 +9,11 @@ project(read_visualsonics_digital_rf)
 
 include(CTest)
 if(BUILD_TESTING)
-  if(NOT EXISTS ${read_visualsonics_digital_rf_SOURCE_DIR}/test_data/.git)
-    message(SEND_ERROR "In order to run tests, the test_data must be
+  if(NOT EXISTS ${read_visualsonics_digital_rf_SOURCE_DIR}/data_for_tests/.git)
+    message(SEND_ERROR "In order to run tests, the data_for_tests must be
     downloaded.  Try 'git submodule init && git submodule update' in the source
     directory.  If you do not want to run tests, turn BUILD_TESTING OFF.")
-  endif(NOT EXISTS ${read_visualsonics_digital_rf_SOURCE_DIR}/test_data/.git)
+  endif()
   enable_testing()
   add_subdirectory(tests)
 endif(BUILD_TESTING)

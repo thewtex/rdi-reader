@@ -50,6 +50,7 @@ class RDILineParser:
         raw_line = raw_line[1:-1]
         raw_line = raw_line.replace('",','')
         split_line = raw_line.split('"')
+        split_line[0] = split_line[0].split('/')
 # strip out final ''
         return split_line[:-1]
 
@@ -81,15 +82,15 @@ def main(rdi_filepath):
 
 # parse IMAGE INFO section
         first_line = rdi_line_parser.get_line()
-        if(first_line[0] != "=== IMAGE INFO ==="):
+        if(first_line[0][0] != "=== IMAGE INFO ==="):
             raise UnexpectedContent
         image_info_t = etree.SubElement(rdi_schema, XS + 'complexType', \
                 name='image_info_t')
         image_info_seq = etree.SubElement(image_info_t, XS + 'sequence')
 
         next_line = rdi_line_parser.get_line()
-        while(next_line[0] != "=== IMAGE DATA ==="):
-            element_name = next_line[0].replace(' ', '_')
+        while(next_line[0][0] != "=== IMAGE DATA ==="):
+            element_name = next_line[0][0].replace(' ', '_')
             etree.SubElement(image_info_seq, XS + 'element',
                     name = element_name,
                     type = etyper.get_type(next_line))

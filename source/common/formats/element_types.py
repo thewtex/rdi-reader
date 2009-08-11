@@ -21,8 +21,8 @@ class ElementTyper():
         xs_type = 'string'
         if len(line) > 2 and line[2] in ElementTyper._units_dict:
             xs_type = ElementTyper._units_dict[line[2]]
-        elif line[0] in ElementTyper._element_name_dict:
-            xs_type = ElementTyper._element_name_dict[line[0]]
+        elif line[0][0] in ElementTyper._element_name_dict:
+            xs_type = ElementTyper._element_name_dict[line[0][0]]
 
         return XS_NS + xs_type
 

@@ -108,7 +108,9 @@ def main(rdi_filepath):
         image_parameters_seq = etree.SubElement(image_parameters_t, XS + \
                 'sequence')
         next_line = rdi_line_parser.get_line()
-        print(next_line)
+        while(next_line != [['']]):
+            next_line = rdi_line_parser.get_line()
+            print(next_line)
 
 # create rdi root element and main IMAGE* sub elements
         rdi_t = etree.SubElement(rdi_schema, XS + 'complexType', \

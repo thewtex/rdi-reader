@@ -46,13 +46,12 @@ class RDILineParser:
 # @return python list of the line contents
     def get_line(self):
         raw_line = self.rdi_file.readline()
-        # strip out starting and trailing "
-        raw_line = raw_line[1:-1]
+        # strip out starting and trailing " and \r\n
+        raw_line = raw_line[1:-2]
         raw_line = raw_line.replace('",','')
         split_line = raw_line.split('"')
         split_line[0] = split_line[0].split('/')
-# strip out final ''
-        return split_line[:-1]
+        return split_line
 
 ##
 # @brief get an unprocessed version of the next line in the file

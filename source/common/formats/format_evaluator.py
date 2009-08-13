@@ -99,7 +99,6 @@ def main(rdi_filepath):
 # parse IMAGE DATA section
         image_data_t = etree.SubElement(rdi_schema, XS + 'complexType', \
                 name='image_data_t')
-        image_data_seq = etree.SubElement(image_data_t, XS + 'sequence')
         next_line = rdi_line_parser.get_raw_line()
         while(next_line != '"=== IMAGE PARAMETERS ==="\n'):
             next_line = rdi_line_parser.get_raw_line()

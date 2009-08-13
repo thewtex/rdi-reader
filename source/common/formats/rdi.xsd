@@ -16,9 +16,7 @@
       <xs:element type="xs:string" name="Acquisition_Operator"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="image_data_t">
-    <xs:sequence/>
-  </xs:complexType>
+  <xs:complexType name="image_data_t"/>
   <xs:complexType name="image_parameters_t">
     <xs:sequence/>
   </xs:complexType>

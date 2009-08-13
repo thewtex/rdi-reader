@@ -122,6 +122,9 @@ def main(rdi_filepath):
         etree.SubElement(rdi_seq, XS + 'element',
                 name = 'image_data',
                 type = 'image_data_t')
+        etree.SubElement(rdi_seq, XS + 'element',
+                name = 'image_parameters',
+                type = 'image_parameters_t')
         rdi = etree.SubElement(rdi_schema, XS + 'element',
                 name = 'rdi',
                 type = 'rdi_t')

@@ -610,13 +610,32 @@ class rdi_t: public ::xml_schema::type
   void
   image_data (::std::auto_ptr< image_data_type > p);
 
+  // image_parameters
+  //
+  typedef ::image_parameters_t image_parameters_type;
+  typedef ::xsd::cxx::tree::traits< image_parameters_type, char > image_parameters_traits;
+
+  const image_parameters_type&
+  image_parameters () const;
+
+  image_parameters_type&
+  image_parameters ();
+
+  void
+  image_parameters (const image_parameters_type& x);
+
+  void
+  image_parameters (::std::auto_ptr< image_parameters_type > p);
+
   // Constructors.
   //
   rdi_t (const image_info_type&,
-         const image_data_type&);
+         const image_data_type&,
+         const image_parameters_type&);
 
   rdi_t (::std::auto_ptr< image_info_type >&,
-         const image_data_type&);
+         const image_data_type&,
+         const image_parameters_type&);
 
   rdi_t (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f = 0,
@@ -643,6 +662,7 @@ class rdi_t: public ::xml_schema::type
   protected:
   ::xsd::cxx::tree::one< image_info_type > image_info_;
   ::xsd::cxx::tree::one< image_data_type > image_data_;
+  ::xsd::cxx::tree::one< image_parameters_type > image_parameters_;
 };
 
 #include <iosfwd>

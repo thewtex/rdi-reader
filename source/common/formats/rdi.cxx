@@ -367,6 +367,30 @@ image_data (::std::auto_ptr< image_data_type > x)
   this->image_data_.set (x);
 }
 
+const rdi_t::image_parameters_type& rdi_t::
+image_parameters () const
+{
+  return this->image_parameters_.get ();
+}
+
+rdi_t::image_parameters_type& rdi_t::
+image_parameters ()
+{
+  return this->image_parameters_.get ();
+}
+
+void rdi_t::
+image_parameters (const image_parameters_type& x)
+{
+  this->image_parameters_.set (x);
+}
+
+void rdi_t::
+image_parameters (::std::auto_ptr< image_parameters_type > x)
+{
+  this->image_parameters_.set (x);
+}
+
 
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
 
@@ -826,19 +850,23 @@ image_parameters_t::
 
 rdi_t::
 rdi_t (const image_info_type& image_info,
-       const image_data_type& image_data)
+       const image_data_type& image_data,
+       const image_parameters_type& image_parameters)
 : ::xml_schema::type (),
   image_info_ (image_info, ::xml_schema::flags (), this),
-  image_data_ (image_data, ::xml_schema::flags (), this)
+  image_data_ (image_data, ::xml_schema::flags (), this),
+  image_parameters_ (image_parameters, ::xml_schema::flags (), this)
 {
 }
 
 rdi_t::
 rdi_t (::std::auto_ptr< image_info_type >& image_info,
-       const image_data_type& image_data)
+       const image_data_type& image_data,
+       const image_parameters_type& image_parameters)
 : ::xml_schema::type (),
   image_info_ (image_info, ::xml_schema::flags (), this),
-  image_data_ (image_data, ::xml_schema::flags (), this)
+  image_data_ (image_data, ::xml_schema::flags (), this),
+  image_parameters_ (image_parameters, ::xml_schema::flags (), this)
 {
 }
 
@@ -848,7 +876,8 @@ rdi_t (const rdi_t& x,
        ::xml_schema::container* c)
 : ::xml_schema::type (x, f, c),
   image_info_ (x.image_info_, f, this),
-  image_data_ (x.image_data_, f, this)
+  image_data_ (x.image_data_, f, this),
+  image_parameters_ (x.image_parameters_, f, this)
 {
 }
 
@@ -858,7 +887,8 @@ rdi_t (const ::xercesc::DOMElement& e,
        ::xml_schema::container* c)
 : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
   image_info_ (f, this),
-  image_data_ (f, this)
+  image_data_ (f, this),
+  image_parameters_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
   {
@@ -905,6 +935,20 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       }
     }
 
+    // image_parameters
+    //
+    if (n.name () == "image_parameters" && n.namespace_ ().empty ())
+    {
+      ::std::auto_ptr< image_parameters_type > r (
+        image_parameters_traits::create (i, f, this));
+
+      if (!image_parameters_.present ())
+      {
+        this->image_parameters_.set (r);
+        continue;
+      }
+    }
+
     break;
   }
 
@@ -919,6 +963,13 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
   {
     throw ::xsd::cxx::tree::expected_element< char > (
       "image_data",
+      "");
+  }
+
+  if (!image_parameters_.present ())
+  {
+    throw ::xsd::cxx::tree::expected_element< char > (
+      "image_parameters",
       "");
   }
 }
@@ -972,6 +1023,7 @@ operator<< (::std::ostream& o, const rdi_t& i)
 {
   o << ::std::endl << "image_info: " << i.image_info ();
   o << ::std::endl << "image_data: " << i.image_data ();
+  o << ::std::endl << "image_parameters: " << i.image_parameters ();
   return o;
 }
 
@@ -1454,6 +1506,17 @@ operator<< (::xercesc::DOMElement& e, const rdi_t& i)
         e));
 
     s << i.image_data ();
+  }
+
+  // image_parameters
+  //
+  {
+    ::xercesc::DOMElement& s (
+      ::xsd::cxx::xml::dom::create_element (
+        "image_parameters",
+        e));
+
+    s << i.image_parameters ();
   }
 }
 

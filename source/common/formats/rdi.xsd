@@ -24,6 +24,7 @@
     <xs:sequence>
       <xs:element type="image_info_t" name="image_info"/>
       <xs:element type="image_data_t" name="image_data"/>
+      <xs:element type="image_parameters_t" name="image_parameters"/>
     </xs:sequence>
   </xs:complexType>
   <xs:element type="rdi_t" name="rdi"/>

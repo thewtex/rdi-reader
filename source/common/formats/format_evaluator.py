@@ -95,6 +95,7 @@ def main(rdi_filepath):
                     type = etyper.get_type(next_line))
             next_line = rdi_line_parser.get_line()
 
+
 # parse IMAGE DATA section
         image_data_t = etree.SubElement(rdi_schema, XS + 'complexType', \
                 name='image_data_t')
@@ -109,8 +110,23 @@ def main(rdi_filepath):
                 'sequence')
         next_line = rdi_line_parser.get_line()
         while(next_line != [['']]):
+            node_e = image_parameters_seq
+            for node in range(len(next_line[0])-1):
+                element_name = next_line[0][node].replace(' ', '_')
+                #element_name = next_line[0][node].replace('-', '_')
+                next_node_locator = etree.XPath('./' + 'complexType' + \
+                        "[@name='" + element_name + "']")
+                if len(next_node_locator(node_e)) == 0:
+                    next_node = etree.Element(XS + 'complexType', name=element_name)
+                    node_e.append(next_node)
+                    node_e = etree.SubElement(node_e, XS + 'sequence')
+                else:
+                    node_e = next_node_locator(node_e).get_parent()[0]
+            element_name = next_line[0][-1].replace(' ', '_')
+            etree.SubElement(node_e, XS + 'element',
+                    name = element_name,
+                    type = etyper.get_type(next_line))
             next_line = rdi_line_parser.get_line()
-            print(next_line)
 
 # create rdi root element and main IMAGE* sub elements
         rdi_t = etree.SubElement(rdi_schema, XS + 'complexType', \

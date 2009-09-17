@@ -109,24 +109,41 @@ def main(rdi_filepath):
         image_parameters_seq = etree.SubElement(image_parameters_t, XS + \
                 'sequence')
         next_line = rdi_line_parser.get_line()
-        while(next_line != [['']]):
+        count = 0
+# debug
+        while( count < 3 ):
+        #while(next_line != [['']]):
             node_e = image_parameters_seq
             for node in range(len(next_line[0])-1):
                 element_name = next_line[0][node].replace(' ', '_')
-                #element_name = next_line[0][node].replace('-', '_')
-                next_node_locator = etree.XPath('./' + 'complexType' + \
-                        "[@name='" + element_name + "']")
+                next_node_locator = etree.XPath('./' + XS_NS + 'complexType' \
+                        + "[@name='" + element_name + "']",
+                        namespaces={XS_NS[:-1]:XS_NAMESPACE})
+                print('xpath result:',next_node_locator(node_e))
                 if len(next_node_locator(node_e)) == 0:
                     next_node = etree.Element(XS + 'complexType', name=element_name)
+                    next_node_seq = etree.Element(XS + 'sequence')
+                    next_node.append(next_node_seq)
                     node_e.append(next_node)
-                    node_e = etree.SubElement(node_e, XS + 'sequence')
+                    node_e = next_node_seq
+                    print(etree.tostring(node_e, pretty_print=True))
+                    #node_e = etree.SubElement(node_e, XS + 'sequence')
+                    #print(etree.tostring(node_e))
                 else:
-                    node_e = next_node_locator(node_e).get_parent()[0]
+                    node_e = next_node_locator(node_e)[0]
+                    print(etree.tostring(node_e, pretty_print=True))
+                    print([c.tag for c in node_e])
+                    node_e = node_e[0]
+            #node_e = node_e[0]
+            print("about to add element to:", node_e.tag)
             element_name = next_line[0][-1].replace(' ', '_')
-            etree.SubElement(node_e, XS + 'element',
+            element = etree.Element(XS + 'element',
                     name = element_name,
                     type = etyper.get_type(next_line))
+            node_e.append(element)
             next_line = rdi_line_parser.get_line()
+#debug
+            count += 1
 
 # create rdi root element and main IMAGE* sub elements
         rdi_t = etree.SubElement(rdi_schema, XS + 'complexType', \
@@ -147,10 +164,10 @@ def main(rdi_filepath):
 
 
         schemaschema = etree.XMLSchema(file=os.path.join(module_path, 'XMLSchema.xsd'))
-        schemaschema.assertValid(rdi_schema)
 
         tree = etree.ElementTree(rdi_schema)
         tree.write(os.path.join(module_path,"rdi.xsd"), pretty_print=True, xml_declaration=True, encoding="UTF-8")
+        schemaschema.assertValid(rdi_schema)
 
         #XSD_NAMESPACE = "http://www.w3.org/2001/XMLSchema"
         #XSD = "{%s}" % XSD_NAMESPACE

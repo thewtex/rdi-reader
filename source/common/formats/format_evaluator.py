@@ -9,6 +9,7 @@
 
 # Public Domain
 
+import re
 import sys
 import os
 
@@ -39,18 +40,23 @@ class RDILineParser:
 #
 # @return
     def __init__(self, rdi_file):
+        self.digit_re = re.compile('\d')
         self.rdi_file = rdi_file
 ##
 # @brief parse the next line in the file
 #
 # @return python list of the line contents
     def get_line(self):
-        raw_line = self.rdi_file.readline()
+        raw_line = self.get_raw_line()
         # strip out starting and trailing " and \r\n
         raw_line = raw_line[1:-2]
         raw_line = raw_line.replace('",','')
         split_line = raw_line.split('"')
-        split_line[0] = split_line[0].split('/')
+        print("Processing: ", split_line)
+        param_hierarchy = split_line[0].split('/')
+        for node in range(len(param_hierarchy)):
+            param_hierarchy[node] = self.get_element_name(param_hierarchy[node])
+        split_line[0] = param_hierarchy
         return split_line
 
 ##
@@ -59,6 +65,22 @@ class RDILineParser:
 # @return
     def get_raw_line(self):
         return self.rdi_file.readline()
+
+##
+# @brief clean rdi so it is a valid XML element name
+#
+# See http://www.w3schools.com/XML/xml_elements.asp for the naming rules
+#
+# @param rdi_name
+#
+# @return valid_element_name
+    def get_element_name(self, rdi_name):
+        element_name = rdi_name.replace(' ', '_')
+        if self.digit_re.match(rdi_name[0]):
+            element_name = 'X_' + element_name
+        return element_name
+
+
 
 
 ##
@@ -81,14 +103,14 @@ def main(rdi_filepath):
 
 # parse IMAGE INFO section
         first_line = rdi_line_parser.get_line()
-        if(first_line[0][0] != "=== IMAGE INFO ==="):
+        if(first_line[0][0] != "===_IMAGE_INFO_==="):
             raise UnexpectedContent
         image_info_t = etree.SubElement(rdi_schema, XS + 'complexType', \
                 name='image_info_t')
         image_info_seq = etree.SubElement(image_info_t, XS + 'sequence')
 
         next_line = rdi_line_parser.get_line()
-        while(next_line[0][0] != "=== IMAGE DATA ==="):
+        while(next_line[0][0] != "===_IMAGE_DATA_==="):
             element_name = next_line[0][0].replace(' ', '_')
             etree.SubElement(image_info_seq, XS + 'element',
                     name = element_name,
@@ -100,7 +122,7 @@ def main(rdi_filepath):
         image_data_t = etree.SubElement(rdi_schema, XS + 'complexType', \
                 name='image_data_t')
         next_line = rdi_line_parser.get_raw_line()
-        while(next_line != '"=== IMAGE PARAMETERS ==="\n'):
+        while(next_line != '"===_IMAGE_PARAMETERS_==="\n'):
             next_line = rdi_line_parser.get_raw_line()
 
 # parse IMAGE PARAMETERS
@@ -110,40 +132,32 @@ def main(rdi_filepath):
                 'sequence')
         next_line = rdi_line_parser.get_line()
         count = 0
-# debug
-        while( count < 3 ):
-        #while(next_line != [['']]):
+
+# for '3D-Volume' and possibly others
+        while(next_line != [['']]):
             node_e = image_parameters_seq
             for node in range(len(next_line[0])-1):
-                element_name = next_line[0][node].replace(' ', '_')
-                next_node_locator = etree.XPath('./' + XS_NS + 'complexType' \
+                element_name = next_line[0][node]
+                next_node_locator = etree.XPath('./' + XS_NS + 'element' \
                         + "[@name='" + element_name + "']",
                         namespaces={XS_NS[:-1]:XS_NAMESPACE})
-                print('xpath result:',next_node_locator(node_e))
                 if len(next_node_locator(node_e)) == 0:
-                    next_node = etree.Element(XS + 'complexType', name=element_name)
+                    next_node_e = etree.Element(XS + 'element', name=element_name)
+                    next_node_ct = etree.Element(XS + 'complexType')
                     next_node_seq = etree.Element(XS + 'sequence')
-                    next_node.append(next_node_seq)
-                    node_e.append(next_node)
+                    next_node_ct.append(next_node_seq)
+                    next_node_e.append(next_node_ct)
+                    node_e.append(next_node_e)
                     node_e = next_node_seq
-                    print(etree.tostring(node_e, pretty_print=True))
-                    #node_e = etree.SubElement(node_e, XS + 'sequence')
-                    #print(etree.tostring(node_e))
                 else:
                     node_e = next_node_locator(node_e)[0]
-                    print(etree.tostring(node_e, pretty_print=True))
-                    print([c.tag for c in node_e])
-                    node_e = node_e[0]
-            #node_e = node_e[0]
-            print("about to add element to:", node_e.tag)
-            element_name = next_line[0][-1].replace(' ', '_')
+                    node_e = node_e[0][0]
+            element_name = next_line[0][-1]
             element = etree.Element(XS + 'element',
                     name = element_name,
                     type = etyper.get_type(next_line))
             node_e.append(element)
             next_line = rdi_line_parser.get_line()
-#debug
-            count += 1
 
 # create rdi root element and main IMAGE* sub elements
         rdi_t = etree.SubElement(rdi_schema, XS + 'complexType', \

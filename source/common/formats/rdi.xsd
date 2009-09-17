@@ -5,9 +5,9 @@
       <xs:element type="xs:string" name="Study_Name"/>
       <xs:element type="xs:string" name="Image_Id"/>
       <xs:element type="xs:string" name="Image_Label"/>
-      <xs:element type="xs:positiveInteger" name="Image_Frames"/>
-      <xs:element type="xs:positiveInteger" name="Image_Lines"/>
-      <xs:element type="xs:positiveInteger" name="Image_Acquisition_Per_Line"/>
+      <xs:element type="xs:string" name="Image_Frames"/>
+      <xs:element type="xs:string" name="Image_Lines"/>
+      <xs:element type="xs:string" name="Image_Acquisition_Per_Line"/>
       <xs:element type="xs:positiveInteger" name="Image_Acquisition_Size"/>
       <xs:element type="xs:string" name="Animal_ID"/>
       <xs:element type="xs:string" name="Acquisition_Mode"/>
@@ -18,7 +18,1076 @@
   </xs:complexType>
   <xs:complexType name="image_data_t"/>
   <xs:complexType name="image_parameters_t">
-    <xs:sequence/>
+    <xs:sequence>
+      <xs:element name="RF-Mode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ActiveProbe">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Notes"/>
+                  <xs:element type="xs:string" name="Sample-Time"/>
+                  <xs:element type="xs:string" name="Focal-Length"/>
+                  <xs:element type="xs:string" name="Acceleration-Limit-Slope"/>
+                  <xs:element type="xs:string" name="Type"/>
+                  <xs:element type="xs:string" name="Detect-Id"/>
+                  <xs:element type="xs:string" name="Default-Scan-Speed"/>
+                  <xs:element type="xs:string" name="K1-Power"/>
+                  <xs:element type="xs:string" name="Cutoff-Scan-Speed"/>
+                  <xs:element type="xs:string" name="Frequency-Low"/>
+                  <xs:element type="xs:string" name="Default-FOV"/>
+                  <xs:element type="xs:string" name="Frequency-Doppler-Default"/>
+                  <xs:element type="xs:string" name="Default-SvSize-MMode"/>
+                  <xs:element type="xs:string" name="Axial-Res-Factor-Target"/>
+                  <xs:element type="xs:string" name="F-Number"/>
+                  <xs:element type="xs:string" name="Acc-Time-Factor"/>
+                  <xs:element type="xs:string" name="Frequency-Doppler"/>
+                  <xs:element type="xs:string" name="Axial-Res"/>
+                  <xs:element type="xs:string" name="Detect-Ratio-Min"/>
+                  <xs:element type="xs:string" name="Lateral-Res-Factor-Target"/>
+                  <xs:element type="xs:string" name="Derivative-Time"/>
+                  <xs:element type="xs:string" name="Filter-High"/>
+                  <xs:element type="xs:string" name="Pivot-Encoder-Dist"/>
+                  <xs:element type="xs:string" name="Encoder-Range-Max"/>
+                  <xs:element type="xs:string" name="Encoder-Range-Min"/>
+                  <xs:element type="xs:string" name="Lateral-Res"/>
+                  <xs:element type="xs:string" name="Motor-Overhead"/>
+                  <xs:element type="xs:string" name="Max-Scan-Distance"/>
+                  <xs:element type="xs:string" name="Version"/>
+                  <xs:element type="xs:string" name="Default-Rx-Gain"/>
+                  <xs:element type="xs:string" name="Filter-Low"/>
+                  <xs:element type="xs:string" name="PID-KD-High"/>
+                  <xs:element type="xs:string" name="PID-KI-High"/>
+                  <xs:element type="xs:string" name="PID-KP-High"/>
+                  <xs:element type="xs:string" name="Frequency-High"/>
+                  <xs:element type="xs:string" name="Lateral-Res-Factor-Max"/>
+                  <xs:element type="xs:string" name="Scan-Speeds"/>
+                  <xs:element type="xs:string" name="Filter-Doppler-Cutoff"/>
+                  <xs:element type="xs:string" name="Name"/>
+                  <xs:element type="xs:string" name="PID-KD-Low"/>
+                  <xs:element type="xs:string" name="PID-KI-Low"/>
+                  <xs:element type="xs:string" name="PID-KP-Low"/>
+                  <xs:element type="xs:string" name="Peak-Bandwidth-Correction"/>
+                  <xs:element type="xs:string" name="Frequency-Doppler-Low"/>
+                  <xs:element type="xs:string" name="Pivot-Transducer-Face-Dist"/>
+                  <xs:element type="xs:string" name="Filter-Doppler"/>
+                  <xs:element type="xs:string" name="Frequency"/>
+                  <xs:element type="xs:string" name="Integration-Limit"/>
+                  <xs:element type="xs:string" name="Encoder-Separation"/>
+                  <xs:element type="xs:string" name="Overshoot"/>
+                  <xs:element type="xs:string" name="Attenuation-Shift"/>
+                  <xs:element type="xs:string" name="Filter"/>
+                  <xs:element type="xs:string" name="Default-Rx-Gain-Doppler"/>
+                  <xs:element type="xs:string" name="Peak-Vel-Correction"/>
+                  <xs:element type="xs:string" name="Detect-Ratio-Max"/>
+                  <xs:element type="xs:string" name="Acceleration-Limit-Constant"/>
+                  <xs:element type="xs:string" name="Filter-Doppler-Low"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="BModeSoft">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="V-Relative-Frame-Rate"/>
+                  <xs:element type="xs:string" name="Max-Power-Size-Default"/>
+                  <xs:element type="xs:string" name="Buffer-Size"/>
+                  <xs:element type="xs:string" name="AVR-Factor"/>
+                  <xs:element type="xs:string" name="AVR-Startup-Frames"/>
+                  <xs:element type="xs:string" name="BMode-Size-Default"/>
+                  <xs:element type="xs:string" name="Relative-Frame-Rate"/>
+                  <xs:element type="xs:string" name="Refresh-Rate"/>
+                  <xs:element type="xs:string" name="Acquire-Both-Directions"/>
+                  <xs:element type="xs:string" name="Acquire-Persist-AVR"/>
+                  <xs:element type="xs:string" name="Power-Size-Default"/>
+                  <xs:element type="xs:string" name="Max-BMode-Size-Default"/>
+                  <xs:element type="xs:string" name="Target-Field-Of-View"/>
+                  <xs:element type="xs:string" name="Processing-Command"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Sys">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Query-Discard-Loop-On-Save-Frame"/>
+                  <xs:element type="xs:string" name="Sound-Speed"/>
+                  <xs:element type="xs:string" name="SubMode"/>
+                  <xs:element type="xs:string" name="Interrupt-Mask"/>
+                  <xs:element type="xs:string" name="Calculation-Instances"/>
+                  <xs:element type="xs:string" name="Start-Licence-Date"/>
+                  <xs:element type="xs:string" name="End-Licence-Date"/>
+                  <xs:element type="xs:string" name="Auto-Save-PreTrig-Loop"/>
+                  <xs:element type="xs:string" name="Feature"/>
+                  <xs:element type="xs:string" name="Review-Setup-Dialog"/>
+                  <xs:element type="xs:string" name="Acq-Setup-Dialog"/>
+                  <xs:element type="xs:string" name="Interrupt-Clear"/>
+                  <xs:element type="xs:string" name="Interrupt-Status"/>
+                  <xs:element type="xs:string" name="Auto-Save-Load-3D"/>
+                  <xs:element type="xs:string" name="DICOM-Root-ID"/>
+                  <xs:element type="xs:string" name="Company-Name"/>
+                  <xs:element type="xs:string" name="Image-To-Auto-Save-On-Label"/>
+                  <xs:element type="xs:string" name="DICOM-Encode-Regions"/>
+                  <xs:element type="xs:string" name="Pipeline-Delay"/>
+                  <xs:element type="xs:string" name="DDS-Control"/>
+                  <xs:element type="xs:string" name="Mode"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="MIS">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="ECG-Gain"/>
+                  <xs:element type="xs:string" name="ECG-Available"/>
+                  <xs:element type="xs:string" name="Blood-Pressure-Available"/>
+                  <xs:element type="xs:string" name="Respiration-Gating"/>
+                  <xs:element type="xs:string" name="Respiration-Available"/>
+                  <xs:element type="xs:string" name="Control"/>
+                  <xs:element type="xs:string" name="BP-Gain"/>
+                  <xs:element type="xs:string" name="Temperature-Available"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Scan">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Encoder-Position"/>
+                  <xs:element type="xs:string" name="Center"/>
+                  <xs:element type="xs:string" name="Control"/>
+                  <xs:element type="xs:string" name="Probe-ID1"/>
+                  <xs:element type="xs:string" name="Probe-ID2"/>
+                  <xs:element type="xs:string" name="V-Scan-Speed"/>
+                  <xs:element type="xs:string" name="Probe-ID1-Reread"/>
+                  <xs:element type="xs:string" name="Probe-ID1-Valid"/>
+                  <xs:element type="xs:string" name="Probe-ID1-Voltage"/>
+                  <xs:element type="xs:string" name="Probe-ID2-Reread"/>
+                  <xs:element type="xs:string" name="Probe-ID2-Valid"/>
+                  <xs:element type="xs:string" name="Probe-ID2-Voltage"/>
+                  <xs:element type="xs:string" name="V-Scan-Rate"/>
+                  <xs:element type="xs:string" name="Position-Counter-Lock"/>
+                  <xs:element type="xs:string" name="Scan-Width"/>
+                  <xs:element type="xs:string" name="Position-Counter-Reset"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Motor">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Settle-Time-3d"/>
+                  <xs:element type="xs:string" name="Position"/>
+                  <xs:element type="xs:string" name="R-Scan-Move-No-Wait"/>
+                  <xs:element type="xs:string" name="Motor-Mode"/>
+                  <xs:element type="xs:string" name="Acceleration"/>
+                  <xs:element type="xs:string" name="Serial-Port-Mode"/>
+                  <xs:element type="xs:string" name="Limit-Switch-Mode"/>
+                  <xs:element type="xs:string" name="Breakpoint"/>
+                  <xs:element type="xs:string" name="Update"/>
+                  <xs:element type="xs:string" name="Breakpoint-Value"/>
+                  <xs:element type="xs:string" name="V-Switch-Limit"/>
+                  <xs:element type="xs:string" name="R-Retrieve-Trace"/>
+                  <xs:element type="xs:string" name="Velocity-Stationary"/>
+                  <xs:element type="xs:string" name="Reset-Event-Status"/>
+                  <xs:element type="xs:string" name="Actual-Position"/>
+                  <xs:element type="xs:string" name="Buffer-Length"/>
+                  <xs:element type="xs:string" name="Event-Status"/>
+                  <xs:element type="xs:string" name="R-Scan-Move2"/>
+                  <xs:element type="xs:string" name="Kp"/>
+                  <xs:element type="xs:string" name="R-Wait-Finish-Scan-Move"/>
+                  <xs:element type="xs:string" name="Settle-Time"/>
+                  <xs:element type="xs:string" name="Acceleration-Stationary"/>
+                  <xs:element type="xs:string" name="Trace-Mode"/>
+                  <xs:element type="xs:string" name="Trace-Period"/>
+                  <xs:element type="xs:string" name="Trace-Start"/>
+                  <xs:element type="xs:string" name="Position-Reverse"/>
+                  <xs:element type="xs:string" name="Reset"/>
+                  <xs:element type="xs:string" name="Trace-Count"/>
+                  <xs:element type="xs:string" name="R-Initialize"/>
+                  <xs:element type="xs:string" name="Output-Mode"/>
+                  <xs:element type="xs:string" name="Position2"/>
+                  <xs:element type="xs:string" name="Integration-Limit"/>
+                  <xs:element type="xs:string" name="R-Home"/>
+                  <xs:element type="xs:string" name="Error"/>
+                  <xs:element type="xs:string" name="R-Reset-Limit-Switch"/>
+                  <xs:element type="xs:string" name="Settle-Window-3d"/>
+                  <xs:element type="xs:string" name="Interrupt-Mask"/>
+                  <xs:element type="xs:string" name="Scan-Move-Control"/>
+                  <xs:element type="xs:string" name="Axis-Out-Source"/>
+                  <xs:element type="xs:string" name="Trace-Stop"/>
+                  <xs:element type="xs:string" name="Velocity"/>
+                  <xs:element type="xs:string" name="R-Setup"/>
+                  <xs:element type="xs:string" name="Buffer-Start"/>
+                  <xs:element type="xs:string" name="Signal-Sense"/>
+                  <xs:element type="xs:string" name="R-Scan-Move"/>
+                  <xs:element type="xs:string" name="Position-Forward"/>
+                  <xs:element type="xs:string" name="Derivative-Time"/>
+                  <xs:element type="xs:string" name="Settle-Window"/>
+                  <xs:element type="xs:string" name="Trace-Variable1"/>
+                  <xs:element type="xs:string" name="Trace-Variable2"/>
+                  <xs:element type="xs:string" name="Buffer-Read-Index"/>
+                  <xs:element type="xs:string" name="Signal-Status"/>
+                  <xs:element type="xs:string" name="Alarm-Clear"/>
+                  <xs:element type="xs:string" name="Motion-Complete-Mode"/>
+                  <xs:element type="xs:string" name="R-Setup-Abort"/>
+                  <xs:element type="xs:string" name="Read-Buffer"/>
+                  <xs:element type="xs:string" name="Kd"/>
+                  <xs:element type="xs:string" name="Clear-Interrupt"/>
+                  <xs:element type="xs:string" name="Profile-Mode"/>
+                  <xs:element type="xs:string" name="R-Setup-Trace"/>
+                  <xs:element type="xs:string" name="No-Operation"/>
+                  <xs:element type="xs:string" name="Ki"/>
+                  <xs:element type="xs:string" name="Sample-Time"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Diag">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Mem-Pagefile"/>
+                  <xs:element type="xs:string" name="Monitor-3point3V"/>
+                  <xs:element type="xs:string" name="USER-Objects"/>
+                  <xs:element type="xs:string" name="Motor-FPGA-Revision"/>
+                  <xs:element type="xs:string" name="Product-Name"/>
+                  <xs:element type="xs:string" name="Build-Version"/>
+                  <xs:element type="xs:string" name="ICB-PCB-ID"/>
+                  <xs:element type="xs:string" name="Software-Version"/>
+                  <xs:element type="xs:string" name="Receive-PCB-ID"/>
+                  <xs:element type="xs:string" name="Receive-FPGA-Revision"/>
+                  <xs:element type="xs:string" name="Monitor-15V"/>
+                  <xs:element type="xs:string" name="ICB-FPGA-Revision"/>
+                  <xs:element type="xs:string" name="GDI-Objects"/>
+                  <xs:element type="xs:string" name="Mem-WorkingSet"/>
+                  <xs:element type="xs:string" name="Mem-Private"/>
+                  <xs:element type="xs:string" name="Switch-PCB-ID"/>
+                  <xs:element type="xs:string" name="Monitor-5V"/>
+                  <xs:element type="xs:string" name="Motor-PCB-Revision"/>
+                  <xs:element type="xs:string" name="NE1619"/>
+                  <xs:element type="xs:string" name="Motor-PCB-ID"/>
+                  <xs:element type="xs:string" name="Transmit-PCB-Revision"/>
+                  <xs:element type="xs:string" name="MAX1137"/>
+                  <xs:element type="xs:string" name="Monitor-Neg15V"/>
+                  <xs:element type="xs:string" name="Monitor-Neg5V"/>
+                  <xs:element type="xs:string" name="Switch-PCB-Revision"/>
+                  <xs:element type="xs:string" name="Receive-PCB-Revision"/>
+                  <xs:element type="xs:string" name="ICB-PCB-Revision"/>
+                  <xs:element type="xs:string" name="Transmit-PCB-ID"/>
+                  <xs:element type="xs:string" name="Monitor-Temperature"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="ECG">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Respiration-Threshold-Change"/>
+                  <xs:element type="xs:string" name="Respiration-Threshold"/>
+                  <xs:element type="xs:string" name="Pressure-Range"/>
+                  <xs:element type="xs:string" name="Respiration-Gate-Delay"/>
+                  <xs:element type="xs:string" name="Respiration-Timeout"/>
+                  <xs:element type="xs:string" name="RWave-Max-Change-Factor-Percent"/>
+                  <xs:element type="xs:string" name="Respiration-Period"/>
+                  <xs:element type="xs:string" name="Respiration-Subsample-Rate"/>
+                  <xs:element type="xs:string" name="Show-RWaves"/>
+                  <xs:element type="xs:string" name="Respiration-Minimal-Peak-2-Peak"/>
+                  <xs:element type="xs:string" name="Respiration-Window"/>
+                  <xs:element type="xs:string" name="Pressure-Zeroed"/>
+                  <xs:element type="xs:string" name="Pressure-Systolic"/>
+                  <xs:element type="xs:string" name="Respiration-Show-Window"/>
+                  <xs:element type="xs:string" name="Frequency"/>
+                  <xs:element type="xs:string" name="Respiration-Blank-Period"/>
+                  <xs:element type="xs:string" name="Respiration-Range"/>
+                  <xs:element type="xs:string" name="Pressure-Zero"/>
+                  <xs:element type="xs:string" name="Temperature-Amplification"/>
+                  <xs:element type="xs:string" name="P-Wave-Start"/>
+                  <xs:element type="xs:string" name="ECG-Filter-Taps"/>
+                  <xs:element type="xs:string" name="RWave-Future-Search-Time"/>
+                  <xs:element type="xs:string" name="Respiration-Percent-Peak"/>
+                  <xs:element type="xs:string" name="T-Wave-Start"/>
+                  <xs:element type="xs:string" name="Strain-Rate-RR-Diff-Ratio"/>
+                  <xs:element type="xs:string" name="Pressure-Calibration-Min-Level"/>
+                  <xs:element type="xs:string" name="Pressure-Calibrated"/>
+                  <xs:element type="xs:string" name="DPDT-Range"/>
+                  <xs:element type="xs:string" name="Respiration-Show-Event"/>
+                  <xs:element type="xs:string" name="Pressure-Diastolic"/>
+                  <xs:element type="xs:string" name="Temperature-Calibration"/>
+                  <xs:element type="xs:string" name="Temperature"/>
+                  <xs:element type="xs:string" name="Respiration-Beats-To-Average"/>
+                  <xs:element type="xs:string" name="RWave-Thresh-Trigger-Percent"/>
+                  <xs:element type="xs:string" name="Respiration-Time-To-Average"/>
+                  <xs:element type="xs:string" name="Pressure-Amplification"/>
+                  <xs:element type="xs:string" name="Heart-Period"/>
+                  <xs:element type="xs:string" name="Pressure-Show-Event"/>
+                  <xs:element type="xs:string" name="RWave-Default-Threshold"/>
+                  <xs:element type="xs:string" name="Show-Filtered-Data"/>
+                  <xs:element type="xs:string" name="ECG-Range"/>
+                  <xs:element type="xs:string" name="RWave-Maxima-Block-Time"/>
+                  <xs:element type="xs:string" name="RWave-Noise-Threshold"/>
+                  <xs:element type="xs:string" name="Pressure-Calibration-Level"/>
+                  <xs:element type="xs:string" name="ECG-HP-Filter"/>
+                  <xs:element type="xs:string" name="ECG-LP-Filter"/>
+                  <xs:element type="xs:string" name="RWave-Max-Change-Period"/>
+                  <xs:element type="xs:string" name="Pressure-Time-Out"/>
+                  <xs:element type="xs:string" name="Pressure-Calibration"/>
+                  <xs:element type="xs:string" name="RWave-Blank-Time"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="RfModeSoft">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Amplitude-Height"/>
+                  <xs:element type="xs:string" name="Magnitude-Origin"/>
+                  <xs:element type="xs:string" name="Frequency-Origin"/>
+                  <xs:element type="xs:string" name="Samples"/>
+                  <xs:element type="xs:string" name="Saturation-Threshold"/>
+                  <xs:element type="xs:string" name="Amplitude-Origin"/>
+                  <xs:element type="xs:string" name="Frame-Selected"/>
+                  <xs:element type="xs:string" name="AcqPerLine"/>
+                  <xs:element type="xs:string" name="Lines"/>
+                  <xs:element type="xs:string" name="Windowing-Mode"/>
+                  <xs:element type="xs:string" name="Length-Origin"/>
+                  <xs:element type="xs:string" name="Line-Selected"/>
+                  <xs:element type="xs:string" name="V-Lines-Pos"/>
+                  <xs:element type="xs:string" name="Bounce-Test-AscanData"/>
+                  <xs:element type="xs:string" name="Vertical-Scale"/>
+                  <xs:element type="xs:string" name="Bounce-Test-RFData"/>
+                  <xs:element type="xs:string" name="SamplesPerSec"/>
+                  <xs:element type="xs:string" name="Frames"/>
+                  <xs:element type="xs:string" name="Digitizer"/>
+                  <xs:element type="xs:string" name="Magnitude-Height"/>
+                  <xs:element type="xs:string" name="Saturation"/>
+                  <xs:element type="xs:string" name="Length-Length"/>
+                  <xs:element type="xs:string" name="Frequency-Length"/>
+                  <xs:element type="xs:string" name="State"/>
+                  <xs:element type="xs:string" name="SV-Center"/>
+                  <xs:element type="xs:string" name="Continuous-RF-FrameRate"/>
+                  <xs:element type="xs:string" name="Quantify-Bounce-Test"/>
+                  <xs:element type="xs:string" name="X_3D-Volume"/>
+                  <xs:element type="xs:string" name="Shift-RF-Data"/>
+                  <xs:element type="xs:string" name="V-Lines"/>
+                  <xs:element type="xs:string" name="Graph-Mode"/>
+                  <xs:element type="xs:string" name="RF-Path-15Mhz-Time-Correction"/>
+                  <xs:element type="xs:string" name="RF-Path-23Mhz-Time-Correction"/>
+                  <xs:element type="xs:string" name="SV-Length-Limits"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="TX">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="V-Position-Table"/>
+                  <xs:element type="xs:string" name="V-Transmit-Length"/>
+                  <xs:element type="xs:string" name="Trigger-Counter-Clear"/>
+                  <xs:element type="xs:string" name="Trigger-Counter"/>
+                  <xs:element type="xs:string" name="Multi-Trigger-Freq"/>
+                  <xs:element type="xs:string" name="RF-Amp"/>
+                  <xs:element type="xs:string" name="Trigger-Control"/>
+                  <xs:element type="xs:string" name="V-Pulse-Rep-Freq"/>
+                  <xs:element type="xs:string" name="Phase"/>
+                  <xs:element type="xs:string" name="Frequency"/>
+                  <xs:element type="xs:string" name="V-Unblank-Time"/>
+                  <xs:element type="xs:string" name="V-Frequency"/>
+                  <xs:element type="xs:string" name="Pulse-Rep-Frequency"/>
+                  <xs:element type="xs:string" name="Multi-Trigger"/>
+                  <xs:element type="xs:string" name="Trig-Tbl-Trigs"/>
+                  <xs:element type="xs:string" name="Width"/>
+                  <xs:element type="xs:string" name="Unblank-Cycles"/>
+                  <xs:element type="xs:string" name="V-Width"/>
+                  <xs:element type="xs:string" name="Unblank-Time"/>
+                  <xs:element type="xs:string" name="Attenuation"/>
+                  <xs:element type="xs:string" name="V-Power"/>
+                  <xs:element type="xs:string" name="Computer-Trigger"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="X_3D">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Speed"/>
+                  <xs:element type="xs:string" name="Status"/>
+                  <xs:element type="xs:string" name="Motor-Enable"/>
+                  <xs:element type="xs:string" name="Scan-Distance"/>
+                  <xs:element type="xs:string" name="Error"/>
+                  <xs:element type="xs:string" name="Steps"/>
+                  <xs:element type="xs:string" name="Max-Scan-Steps"/>
+                  <xs:element type="xs:string" name="Position"/>
+                  <xs:element type="xs:string" name="Action"/>
+                  <xs:element type="xs:string" name="Clear-Error"/>
+                  <xs:element type="xs:string" name="Direction"/>
+                  <xs:element type="xs:string" name="Step-Size"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="RfAnalysis">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Reference"/>
+                  <xs:element type="xs:string" name="Ref-Probe-F-Number"/>
+                  <xs:element type="xs:string" name="Ref-Probe-Focal-Length"/>
+                  <xs:element type="xs:string" name="Ref-Tx-Frequency"/>
+                  <xs:element type="xs:string" name="Freq-Range"/>
+                  <xs:element type="xs:string" name="Ref-Probe-Name"/>
+                  <xs:element type="xs:string" name="Graph-Mode"/>
+                  <xs:element type="xs:string" name="Normalized-Height"/>
+                  <xs:element type="xs:string" name="Ref-Tx-Width"/>
+                  <xs:element type="xs:string" name="Normalized-Origin"/>
+                  <xs:element type="xs:string" name="Freq-Range-f"/>
+                  <xs:element type="xs:string" name="FFT-Offset"/>
+                  <xs:element type="xs:string" name="Ref-Tx-Power"/>
+                  <xs:element type="xs:string" name="Freq-Range-Max"/>
+                  <xs:element type="xs:string" name="Freq-Range-Min"/>
+                  <xs:element type="xs:string" name="Ref-Offset"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="RX">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="AD-IF"/>
+                  <xs:element type="xs:string" name="Sector-Width-Target"/>
+                  <xs:element type="xs:string" name="RF-Gain"/>
+                  <xs:element type="xs:string" name="TGC-Enable"/>
+                  <xs:element type="xs:string" name="V-Digi-Depth-Imaging"/>
+                  <xs:element type="xs:string" name="RF-Bandwidth"/>
+                  <xs:element type="xs:string" name="Test-Freq"/>
+                  <xs:element type="xs:string" name="Line-Number"/>
+                  <xs:element type="xs:string" name="V-TGC"/>
+                  <xs:element type="xs:string" name="IF-Filter"/>
+                  <xs:element type="xs:string" name="Track-Width"/>
+                  <xs:element type="xs:string" name="DTB-Error-Clr"/>
+                  <xs:element type="xs:string" name="Current-Channel"/>
+                  <xs:element type="xs:string" name="V-IF-Filter"/>
+                  <xs:element type="xs:string" name="IQ-Select"/>
+                  <xs:element type="xs:string" name="HP-Clutter"/>
+                  <xs:element type="xs:string" name="AD-In"/>
+                  <xs:element type="xs:string" name="V-TGC-Copy"/>
+                  <xs:element type="xs:string" name="Image-FIFO-Status"/>
+                  <xs:element type="xs:string" name="RF-Filter"/>
+                  <xs:element type="xs:string" name="DDRS"/>
+                  <xs:element type="xs:string" name="ADCA-Out"/>
+                  <xs:element type="xs:string" name="AD-Clock-Div"/>
+                  <xs:element type="xs:string" name="Imaging-Mode"/>
+                  <xs:element type="xs:string" name="V-RF-Filter"/>
+                  <xs:element type="xs:string" name="ADCB-Out"/>
+                  <xs:element type="xs:string" name="Delay"/>
+                  <xs:element type="xs:string" name="AD-Gate-Width"/>
+                  <xs:element type="xs:string" name="Frequency"/>
+                  <xs:element type="xs:string" name="V-Frequency"/>
+                  <xs:element type="xs:string" name="V-Field-Of-View"/>
+                  <xs:element type="xs:string" name="Packet-Format"/>
+                  <xs:element type="xs:string" name="Sector-Height-Target"/>
+                  <xs:element type="xs:string" name="Low-Speed-FIFO-Status"/>
+                  <xs:element type="xs:string" name="AD-TestIn"/>
+                  <xs:element type="xs:string" name="Error"/>
+                  <xs:element type="xs:string" name="Test-On"/>
+                  <xs:element type="xs:string" name="AD-DCS"/>
+                  <xs:element type="xs:string" name="DTB-Tfr-Enable"/>
+                  <xs:element type="xs:string" name="DTB-Test-Enable"/>
+                  <xs:element type="xs:string" name="V-Delay-Length"/>
+                  <xs:element type="xs:string" name="Current-Mode"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Display">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Direction"/>
+                  <xs:element type="xs:string" name="X_3D-Gain"/>
+                  <xs:element type="xs:string" name="X_3D-Dynamic-Range"/>
+                  <xs:element type="xs:string" name="V-Selection"/>
+                  <xs:element type="xs:string" name="Gain"/>
+                  <xs:element type="xs:string" name="Dynamic-Range"/>
+                  <xs:element type="xs:string" name="Window-Time"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Acqiris">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="SamplesNom"/>
+                  <xs:element type="xs:string" name="V-Read-Data"/>
+                  <xs:element type="xs:string" name="Mode"/>
+                  <xs:element type="xs:string" name="Acquire"/>
+                  <xs:element type="xs:string" name="Available"/>
+                  <xs:element type="xs:string" name="Force-Trigger"/>
+                  <xs:element type="xs:string" name="Control"/>
+                  <xs:element type="xs:string" name="TbSegmentPad"/>
+                  <xs:element type="xs:string" name="Wait-Acq"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="B-Mode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ActiveProbe">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Notes"/>
+                  <xs:element type="xs:string" name="Sample-Time"/>
+                  <xs:element type="xs:string" name="Focal-Length"/>
+                  <xs:element type="xs:string" name="Acceleration-Limit-Slope"/>
+                  <xs:element type="xs:string" name="Type"/>
+                  <xs:element type="xs:string" name="Detect-Id"/>
+                  <xs:element type="xs:string" name="Default-Scan-Speed"/>
+                  <xs:element type="xs:string" name="K1-Power"/>
+                  <xs:element type="xs:string" name="Cutoff-Scan-Speed"/>
+                  <xs:element type="xs:string" name="Frequency-Low"/>
+                  <xs:element type="xs:string" name="Default-FOV"/>
+                  <xs:element type="xs:string" name="Frequency-Doppler-Default"/>
+                  <xs:element type="xs:string" name="Default-SvSize-MMode"/>
+                  <xs:element type="xs:string" name="Axial-Res-Factor-Target"/>
+                  <xs:element type="xs:string" name="F-Number"/>
+                  <xs:element type="xs:string" name="Acc-Time-Factor"/>
+                  <xs:element type="xs:string" name="Axial-Res"/>
+                  <xs:element type="xs:string" name="Lateral-Res-Factor-Target"/>
+                  <xs:element type="xs:string" name="Pivot-Encoder-Dist"/>
+                  <xs:element type="xs:string" name="Encoder-Range-Max"/>
+                  <xs:element type="xs:string" name="Encoder-Range-Min"/>
+                  <xs:element type="xs:string" name="Lateral-Res"/>
+                  <xs:element type="xs:string" name="Max-Scan-Distance"/>
+                  <xs:element type="xs:string" name="Default-Rx-Gain"/>
+                  <xs:element type="xs:string" name="PID-KD-High"/>
+                  <xs:element type="xs:string" name="PID-KI-High"/>
+                  <xs:element type="xs:string" name="PID-KP-High"/>
+                  <xs:element type="xs:string" name="Frequency-High"/>
+                  <xs:element type="xs:string" name="Lateral-Res-Factor-Max"/>
+                  <xs:element type="xs:string" name="Scan-Speeds"/>
+                  <xs:element type="xs:string" name="Filter-Doppler-Cutoff"/>
+                  <xs:element type="xs:string" name="Name"/>
+                  <xs:element type="xs:string" name="PID-KD-Low"/>
+                  <xs:element type="xs:string" name="PID-KI-Low"/>
+                  <xs:element type="xs:string" name="PID-KP-Low"/>
+                  <xs:element type="xs:string" name="Peak-Bandwidth-Correction"/>
+                  <xs:element type="xs:string" name="Frequency-Doppler-Low"/>
+                  <xs:element type="xs:string" name="Pivot-Transducer-Face-Dist"/>
+                  <xs:element type="xs:string" name="Filter-Doppler"/>
+                  <xs:element type="xs:string" name="Frequency"/>
+                  <xs:element type="xs:string" name="Integration-Limit"/>
+                  <xs:element type="xs:string" name="Encoder-Separation"/>
+                  <xs:element type="xs:string" name="Overshoot"/>
+                  <xs:element type="xs:string" name="Attenuation-Shift"/>
+                  <xs:element type="xs:string" name="Filter"/>
+                  <xs:element type="xs:string" name="Default-Rx-Gain-Doppler"/>
+                  <xs:element type="xs:string" name="Peak-Vel-Correction"/>
+                  <xs:element type="xs:string" name="Detect-Ratio-Max"/>
+                  <xs:element type="xs:string" name="Acceleration-Limit-Constant"/>
+                  <xs:element type="xs:string" name="Filter-Doppler-Low"/>
+                  <xs:element type="xs:string" name="Frequency-Doppler"/>
+                  <xs:element type="xs:string" name="Detect-Ratio-Min"/>
+                  <xs:element type="xs:string" name="Derivative-Time"/>
+                  <xs:element type="xs:string" name="Filter-High"/>
+                  <xs:element type="xs:string" name="Motor-Overhead"/>
+                  <xs:element type="xs:string" name="Version"/>
+                  <xs:element type="xs:string" name="Filter-Low"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="BModeSoft">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Anti-Aliasing"/>
+                  <xs:element type="xs:string" name="V-Relative-Frame-Rate"/>
+                  <xs:element type="xs:string" name="Max-Power-Size-Default"/>
+                  <xs:element type="xs:string" name="Buffer-Size"/>
+                  <xs:element type="xs:string" name="Sector-Convert"/>
+                  <xs:element type="xs:string" name="AVR-Factor"/>
+                  <xs:element type="xs:string" name="Flip-Image"/>
+                  <xs:element type="xs:string" name="AVR-Startup-Frames"/>
+                  <xs:element type="xs:string" name="BMode-Size-Default"/>
+                  <xs:element type="xs:string" name="Relative-Frame-Rate"/>
+                  <xs:element type="xs:string" name="Overlay-Mode"/>
+                  <xs:element type="xs:string" name="Refresh-Rate"/>
+                  <xs:element type="xs:string" name="Acquisition-Mode"/>
+                  <xs:element type="xs:string" name="Acquire-Both-Directions"/>
+                  <xs:element type="xs:string" name="Actual-Scan-Rate"/>
+                  <xs:element type="xs:string" name="Acquire-Persist-AVR"/>
+                  <xs:element type="xs:string" name="Sector-X-Res"/>
+                  <xs:element type="xs:string" name="Sector-Y-Res"/>
+                  <xs:element type="xs:string" name="Power-Size-Default"/>
+                  <xs:element type="xs:string" name="Sector-X-Start"/>
+                  <xs:element type="xs:string" name="Sector-Y-Start"/>
+                  <xs:element type="xs:string" name="Max-BMode-Size-Default"/>
+                  <xs:element type="xs:string" name="Target-Field-Of-View"/>
+                  <xs:element type="xs:string" name="Processing-Command"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Sys">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Query-Discard-Loop-On-Save-Frame"/>
+                  <xs:element type="xs:string" name="Sound-Speed"/>
+                  <xs:element type="xs:string" name="SubMode"/>
+                  <xs:element type="xs:string" name="Interrupt-Mask"/>
+                  <xs:element type="xs:string" name="Calculation-Instances"/>
+                  <xs:element type="xs:string" name="Start-Licence-Date"/>
+                  <xs:element type="xs:string" name="End-Licence-Date"/>
+                  <xs:element type="xs:string" name="Auto-Save-PreTrig-Loop"/>
+                  <xs:element type="xs:string" name="Feature"/>
+                  <xs:element type="xs:string" name="Acq-Setup-Dialog"/>
+                  <xs:element type="xs:string" name="Interrupt-Clear"/>
+                  <xs:element type="xs:string" name="Interrupt-Status"/>
+                  <xs:element type="xs:string" name="Auto-Save-Load-3D"/>
+                  <xs:element type="xs:string" name="DICOM-Root-ID"/>
+                  <xs:element type="xs:string" name="Company-Name"/>
+                  <xs:element type="xs:string" name="Image-To-Auto-Save-On-Label"/>
+                  <xs:element type="xs:string" name="DICOM-Encode-Regions"/>
+                  <xs:element type="xs:string" name="Pipeline-Delay"/>
+                  <xs:element type="xs:string" name="DDS-Control"/>
+                  <xs:element type="xs:string" name="Mode"/>
+                  <xs:element type="xs:string" name="Review-Setup-Dialog"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Contrast">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Acquisition-3D-Volume"/>
+                  <xs:element type="xs:string" name="Contrast-Linear-Scale"/>
+                  <xs:element type="xs:string" name="Reference-3D-Step-Size"/>
+                  <xs:element type="xs:string" name="Remap-Color"/>
+                  <xs:element type="xs:string" name="Display-Mode"/>
+                  <xs:element type="xs:string" name="Contrast-Linear-Offset"/>
+                  <xs:element type="xs:string" name="Contrast-Linear-Slope"/>
+                  <xs:element type="xs:string" name="Median-Size-Perfusion"/>
+                  <xs:element type="xs:string" name="Contrast-Size-Default"/>
+                  <xs:element type="xs:string" name="Median-Size-Default"/>
+                  <xs:element type="xs:string" name="Use-ECG-Gate"/>
+                  <xs:element type="xs:string" name="ECG-Gate-Range"/>
+                  <xs:element type="xs:string" name="Filter-Size-Perfusion"/>
+                  <xs:element type="xs:string" name="Max-Contrast-Size-Default"/>
+                  <xs:element type="xs:string" name="Filter-Size-Default"/>
+                  <xs:element type="xs:string" name="Cardiac-Divisions"/>
+                  <xs:element type="xs:string" name="Reference-3D-Scan-Distance"/>
+                  <xs:element type="xs:string" name="Median-Size-MIP"/>
+                  <xs:element type="xs:string" name="Acquire-Both-Directions"/>
+                  <xs:element type="xs:string" name="Data-Display-Scale-Shift"/>
+                  <xs:element type="xs:string" name="Reference-Label"/>
+                  <xs:element type="xs:string" name="X_3D-Display-Mode"/>
+                  <xs:element type="xs:string" name="Filter-Size-MIP"/>
+                  <xs:element type="xs:string" name="Contrast-Linear-Lock-Gain"/>
+                  <xs:element type="xs:string" name="Persistence-Process-Frames"/>
+                  <xs:element type="xs:string" name="Reference-Range-Start"/>
+                  <xs:element type="xs:string" name="Blur-MIP-BoxSize"/>
+                  <xs:element type="xs:string" name="Threshold"/>
+                  <xs:element type="xs:string" name="Process-Direction"/>
+                  <xs:element type="xs:string" name="Reference-Range-Stop"/>
+                  <xs:element type="xs:string" name="Blur-MIP"/>
+                  <xs:element type="xs:string" name="Persistence-Mode"/>
+                  <xs:element type="xs:string" name="Reference-3D-Volume"/>
+                  <xs:element type="xs:string" name="Gain"/>
+                  <xs:element type="xs:string" name="Acquire-Persist-MIP"/>
+                  <xs:element type="xs:string" name="Dynamic-Range2"/>
+                  <xs:element type="xs:string" name="Contast-3D-Brightness"/>
+                  <xs:element type="xs:string" name="Reference-3D-Steps"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="MIS">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="ECG-Gain"/>
+                  <xs:element type="xs:string" name="ECG-Available"/>
+                  <xs:element type="xs:string" name="Blood-Pressure-Available"/>
+                  <xs:element type="xs:string" name="Respiration-Gating"/>
+                  <xs:element type="xs:string" name="BP-Gain"/>
+                  <xs:element type="xs:string" name="Temperature-Available"/>
+                  <xs:element type="xs:string" name="Respiration-Available"/>
+                  <xs:element type="xs:string" name="Control"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Scan">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Encoder-Position"/>
+                  <xs:element type="xs:string" name="Center"/>
+                  <xs:element type="xs:string" name="Control"/>
+                  <xs:element type="xs:string" name="Probe-ID1"/>
+                  <xs:element type="xs:string" name="Probe-ID2"/>
+                  <xs:element type="xs:string" name="V-Scan-Speed"/>
+                  <xs:element type="xs:string" name="Probe-ID1-Reread"/>
+                  <xs:element type="xs:string" name="Probe-ID1-Valid"/>
+                  <xs:element type="xs:string" name="Probe-ID1-Voltage"/>
+                  <xs:element type="xs:string" name="Probe-ID2-Reread"/>
+                  <xs:element type="xs:string" name="Probe-ID2-Valid"/>
+                  <xs:element type="xs:string" name="Probe-ID2-Voltage"/>
+                  <xs:element type="xs:string" name="V-Scan-Rate"/>
+                  <xs:element type="xs:string" name="Position-Counter-Lock"/>
+                  <xs:element type="xs:string" name="Scan-Width"/>
+                  <xs:element type="xs:string" name="Position-Counter-Reset"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Motor">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Settle-Time-3d"/>
+                  <xs:element type="xs:string" name="Position"/>
+                  <xs:element type="xs:string" name="R-Scan-Move-No-Wait"/>
+                  <xs:element type="xs:string" name="Motor-Mode"/>
+                  <xs:element type="xs:string" name="Acceleration"/>
+                  <xs:element type="xs:string" name="Serial-Port-Mode"/>
+                  <xs:element type="xs:string" name="Limit-Switch-Mode"/>
+                  <xs:element type="xs:string" name="Breakpoint"/>
+                  <xs:element type="xs:string" name="Update"/>
+                  <xs:element type="xs:string" name="Breakpoint-Value"/>
+                  <xs:element type="xs:string" name="V-Switch-Limit"/>
+                  <xs:element type="xs:string" name="R-Retrieve-Trace"/>
+                  <xs:element type="xs:string" name="Velocity-Stationary"/>
+                  <xs:element type="xs:string" name="Reset-Event-Status"/>
+                  <xs:element type="xs:string" name="Actual-Position"/>
+                  <xs:element type="xs:string" name="Buffer-Length"/>
+                  <xs:element type="xs:string" name="R-Scan-Move2"/>
+                  <xs:element type="xs:string" name="Position-Reverse"/>
+                  <xs:element type="xs:string" name="Reset"/>
+                  <xs:element type="xs:string" name="Trace-Count"/>
+                  <xs:element type="xs:string" name="R-Initialize"/>
+                  <xs:element type="xs:string" name="Output-Mode"/>
+                  <xs:element type="xs:string" name="Position2"/>
+                  <xs:element type="xs:string" name="Integration-Limit"/>
+                  <xs:element type="xs:string" name="R-Home"/>
+                  <xs:element type="xs:string" name="Error"/>
+                  <xs:element type="xs:string" name="R-Reset-Limit-Switch"/>
+                  <xs:element type="xs:string" name="Settle-Window-3d"/>
+                  <xs:element type="xs:string" name="Interrupt-Mask"/>
+                  <xs:element type="xs:string" name="Scan-Move-Control"/>
+                  <xs:element type="xs:string" name="Axis-Out-Source"/>
+                  <xs:element type="xs:string" name="Trace-Stop"/>
+                  <xs:element type="xs:string" name="Velocity"/>
+                  <xs:element type="xs:string" name="R-Setup"/>
+                  <xs:element type="xs:string" name="Buffer-Start"/>
+                  <xs:element type="xs:string" name="Signal-Sense"/>
+                  <xs:element type="xs:string" name="R-Scan-Move"/>
+                  <xs:element type="xs:string" name="Position-Forward"/>
+                  <xs:element type="xs:string" name="Derivative-Time"/>
+                  <xs:element type="xs:string" name="Settle-Window"/>
+                  <xs:element type="xs:string" name="Trace-Variable1"/>
+                  <xs:element type="xs:string" name="Trace-Variable2"/>
+                  <xs:element type="xs:string" name="Buffer-Read-Index"/>
+                  <xs:element type="xs:string" name="Signal-Status"/>
+                  <xs:element type="xs:string" name="Alarm-Clear"/>
+                  <xs:element type="xs:string" name="Motion-Complete-Mode"/>
+                  <xs:element type="xs:string" name="R-Setup-Abort"/>
+                  <xs:element type="xs:string" name="Read-Buffer"/>
+                  <xs:element type="xs:string" name="Kd"/>
+                  <xs:element type="xs:string" name="Clear-Interrupt"/>
+                  <xs:element type="xs:string" name="Profile-Mode"/>
+                  <xs:element type="xs:string" name="R-Setup-Trace"/>
+                  <xs:element type="xs:string" name="No-Operation"/>
+                  <xs:element type="xs:string" name="Ki"/>
+                  <xs:element type="xs:string" name="Sample-Time"/>
+                  <xs:element type="xs:string" name="Event-Status"/>
+                  <xs:element type="xs:string" name="Kp"/>
+                  <xs:element type="xs:string" name="R-Wait-Finish-Scan-Move"/>
+                  <xs:element type="xs:string" name="Settle-Time"/>
+                  <xs:element type="xs:string" name="Acceleration-Stationary"/>
+                  <xs:element type="xs:string" name="Trace-Mode"/>
+                  <xs:element type="xs:string" name="Trace-Period"/>
+                  <xs:element type="xs:string" name="Trace-Start"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="ContrastDlg">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Contrast-YAxis-Auto-Scale"/>
+                  <xs:element type="xs:string" name="Draw-Cardiac-Average"/>
+                  <xs:element type="xs:string" name="Average-Frames"/>
+                  <xs:element type="xs:string" name="Contrast-YAxis-Max"/>
+                  <xs:element type="xs:string" name="Draw-Destroy-Markers"/>
+                  <xs:element type="xs:string" name="Draw-Time-Axis"/>
+                  <xs:element type="xs:string" name="Draw-Cardiac-Grayscale"/>
+                  <xs:element type="xs:string" name="Draw-Grayscale"/>
+                  <xs:element type="xs:string" name="Draw-Markers"/>
+                  <xs:element type="xs:string" name="Contrast-Linear"/>
+                  <xs:element type="xs:string" name="Cardiac-YAxis-Max"/>
+                  <xs:element type="xs:string" name="Cardiac-YAxis-Auto-Scale"/>
+                  <xs:element type="xs:string" name="Draw-Moving-Average"/>
+                  <xs:element type="xs:string" name="Draw-Percent-Area"/>
+                  <xs:element type="xs:string" name="Percent-Area-Thresh"/>
+                  <xs:element type="xs:string" name="Cardiac-Display-Frame"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Diag">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Mem-Pagefile"/>
+                  <xs:element type="xs:string" name="Monitor-3point3V"/>
+                  <xs:element type="xs:string" name="USER-Objects"/>
+                  <xs:element type="xs:string" name="Motor-FPGA-Revision"/>
+                  <xs:element type="xs:string" name="Product-Name"/>
+                  <xs:element type="xs:string" name="Build-Version"/>
+                  <xs:element type="xs:string" name="ICB-PCB-ID"/>
+                  <xs:element type="xs:string" name="Software-Version"/>
+                  <xs:element type="xs:string" name="Receive-PCB-ID"/>
+                  <xs:element type="xs:string" name="Mem-Private"/>
+                  <xs:element type="xs:string" name="Monitor-5V"/>
+                  <xs:element type="xs:string" name="Motor-PCB-Revision"/>
+                  <xs:element type="xs:string" name="NE1619"/>
+                  <xs:element type="xs:string" name="Motor-PCB-ID"/>
+                  <xs:element type="xs:string" name="Transmit-PCB-Revision"/>
+                  <xs:element type="xs:string" name="MAX1137"/>
+                  <xs:element type="xs:string" name="Monitor-Neg15V"/>
+                  <xs:element type="xs:string" name="Monitor-Neg5V"/>
+                  <xs:element type="xs:string" name="Switch-PCB-Revision"/>
+                  <xs:element type="xs:string" name="Receive-PCB-Revision"/>
+                  <xs:element type="xs:string" name="ICB-PCB-Revision"/>
+                  <xs:element type="xs:string" name="Transmit-PCB-ID"/>
+                  <xs:element type="xs:string" name="Monitor-Temperature"/>
+                  <xs:element type="xs:string" name="Receive-FPGA-Revision"/>
+                  <xs:element type="xs:string" name="Monitor-15V"/>
+                  <xs:element type="xs:string" name="ICB-FPGA-Revision"/>
+                  <xs:element type="xs:string" name="GDI-Objects"/>
+                  <xs:element type="xs:string" name="Mem-WorkingSet"/>
+                  <xs:element type="xs:string" name="Switch-PCB-ID"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="ECG">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Respiration-Threshold-Change"/>
+                  <xs:element type="xs:string" name="Respiration-Threshold"/>
+                  <xs:element type="xs:string" name="Pressure-Range"/>
+                  <xs:element type="xs:string" name="Respiration-Gate-Delay"/>
+                  <xs:element type="xs:string" name="Respiration-Timeout"/>
+                  <xs:element type="xs:string" name="RWave-Max-Change-Factor-Percent"/>
+                  <xs:element type="xs:string" name="Respiration-Period"/>
+                  <xs:element type="xs:string" name="Respiration-Subsample-Rate"/>
+                  <xs:element type="xs:string" name="Show-RWaves"/>
+                  <xs:element type="xs:string" name="Respiration-Minimal-Peak-2-Peak"/>
+                  <xs:element type="xs:string" name="Respiration-Window"/>
+                  <xs:element type="xs:string" name="Pressure-Zeroed"/>
+                  <xs:element type="xs:string" name="Pressure-Systolic"/>
+                  <xs:element type="xs:string" name="Respiration-Show-Window"/>
+                  <xs:element type="xs:string" name="Frequency"/>
+                  <xs:element type="xs:string" name="Respiration-Blank-Period"/>
+                  <xs:element type="xs:string" name="Respiration-Range"/>
+                  <xs:element type="xs:string" name="Pressure-Zero"/>
+                  <xs:element type="xs:string" name="Temperature-Amplification"/>
+                  <xs:element type="xs:string" name="P-Wave-Start"/>
+                  <xs:element type="xs:string" name="ECG-Filter-Taps"/>
+                  <xs:element type="xs:string" name="Respiration-Percent-Peak"/>
+                  <xs:element type="xs:string" name="T-Wave-Start"/>
+                  <xs:element type="xs:string" name="Strain-Rate-RR-Diff-Ratio"/>
+                  <xs:element type="xs:string" name="Pressure-Calibration-Min-Level"/>
+                  <xs:element type="xs:string" name="DPDT-Range"/>
+                  <xs:element type="xs:string" name="Respiration-Show-Event"/>
+                  <xs:element type="xs:string" name="Pressure-Diastolic"/>
+                  <xs:element type="xs:string" name="Temperature-Calibration"/>
+                  <xs:element type="xs:string" name="Temperature"/>
+                  <xs:element type="xs:string" name="Respiration-Beats-To-Average"/>
+                  <xs:element type="xs:string" name="RWave-Thresh-Trigger-Percent"/>
+                  <xs:element type="xs:string" name="Respiration-Time-To-Average"/>
+                  <xs:element type="xs:string" name="Pressure-Amplification"/>
+                  <xs:element type="xs:string" name="Heart-Period"/>
+                  <xs:element type="xs:string" name="Pressure-Show-Event"/>
+                  <xs:element type="xs:string" name="RWave-Default-Threshold"/>
+                  <xs:element type="xs:string" name="Show-Filtered-Data"/>
+                  <xs:element type="xs:string" name="ECG-Range"/>
+                  <xs:element type="xs:string" name="RWave-Maxima-Block-Time"/>
+                  <xs:element type="xs:string" name="RWave-Noise-Threshold"/>
+                  <xs:element type="xs:string" name="Pressure-Calibration-Level"/>
+                  <xs:element type="xs:string" name="ECG-HP-Filter"/>
+                  <xs:element type="xs:string" name="ECG-LP-Filter"/>
+                  <xs:element type="xs:string" name="RWave-Max-Change-Period"/>
+                  <xs:element type="xs:string" name="Pressure-Time-Out"/>
+                  <xs:element type="xs:string" name="Pressure-Calibration"/>
+                  <xs:element type="xs:string" name="RWave-Blank-Time"/>
+                  <xs:element type="xs:string" name="RWave-Future-Search-Time"/>
+                  <xs:element type="xs:string" name="Pressure-Calibrated"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="TX">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="V-Position-Table"/>
+                  <xs:element type="xs:string" name="V-Transmit-Length"/>
+                  <xs:element type="xs:string" name="Trigger-Counter-Clear"/>
+                  <xs:element type="xs:string" name="Trigger-Counter"/>
+                  <xs:element type="xs:string" name="RF-Amp"/>
+                  <xs:element type="xs:string" name="Trigger-Control"/>
+                  <xs:element type="xs:string" name="V-Pulse-Rep-Freq"/>
+                  <xs:element type="xs:string" name="Phase"/>
+                  <xs:element type="xs:string" name="Frequency"/>
+                  <xs:element type="xs:string" name="V-Unblank-Time"/>
+                  <xs:element type="xs:string" name="V-Frequency"/>
+                  <xs:element type="xs:string" name="Pulse-Rep-Frequency"/>
+                  <xs:element type="xs:string" name="Multi-Trigger"/>
+                  <xs:element type="xs:string" name="Trig-Tbl-Trigs"/>
+                  <xs:element type="xs:string" name="Width"/>
+                  <xs:element type="xs:string" name="Unblank-Cycles"/>
+                  <xs:element type="xs:string" name="V-Width"/>
+                  <xs:element type="xs:string" name="Unblank-Time"/>
+                  <xs:element type="xs:string" name="Attenuation"/>
+                  <xs:element type="xs:string" name="V-Power"/>
+                  <xs:element type="xs:string" name="Computer-Trigger"/>
+                  <xs:element type="xs:string" name="Multi-Trigger-Freq"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="ContrastDestroy">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Tx-Width"/>
+                  <xs:element type="xs:string" name="Destroy-External"/>
+                  <xs:element type="xs:string" name="Frames"/>
+                  <xs:element type="xs:string" name="Frame-Rate"/>
+                  <xs:element type="xs:string" name="Tx-PRF"/>
+                  <xs:element type="xs:string" name="Tx-Power"/>
+                  <xs:element type="xs:string" name="Duration"/>
+                  <xs:element type="xs:string" name="Control"/>
+                  <xs:element type="xs:string" name="Tx-Frequency"/>
+                  <xs:element type="xs:string" name="Destroy-Sequence-Active"/>
+                  <xs:element type="xs:string" name="Destroy-Sequence-Position"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="X_3D">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Speed"/>
+                  <xs:element type="xs:string" name="Status"/>
+                  <xs:element type="xs:string" name="Motor-Enable"/>
+                  <xs:element type="xs:string" name="Scan-Distance"/>
+                  <xs:element type="xs:string" name="Error"/>
+                  <xs:element type="xs:string" name="Steps"/>
+                  <xs:element type="xs:string" name="Action"/>
+                  <xs:element type="xs:string" name="Clear-Error"/>
+                  <xs:element type="xs:string" name="Direction"/>
+                  <xs:element type="xs:string" name="Step-Size"/>
+                  <xs:element type="xs:string" name="Max-Scan-Steps"/>
+                  <xs:element type="xs:string" name="Position"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="X_3DSoft">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Acquire-Persist-3DMIP"/>
+                  <xs:element type="xs:string" name="Acquire-Persist-3D-Frames"/>
+                  <xs:element type="xs:string" name="Acquire-Persist-3DAVR"/>
+                  <xs:element type="xs:string" name="Rotational-Direction"/>
+                  <xs:element type="xs:string" name="Sigma"/>
+                  <xs:element type="xs:string" name="Dilation-Iteration"/>
+                  <xs:element type="xs:string" name="Parallel-Direction"/>
+                  <xs:element type="xs:string" name="Class"/>
+                  <xs:element type="xs:string" name="Orientation-Length"/>
+                  <xs:element type="xs:string" name="External-Force"/>
+                  <xs:element type="xs:string" name="Interpolation-Resolution"/>
+                  <xs:element type="xs:string" name="Steps"/>
+                  <xs:element type="xs:string" name="Parallel-Recon-Resolution"/>
+                  <xs:element type="xs:string" name="Iteration"/>
+                  <xs:element type="xs:string" name="Type"/>
+                  <xs:element type="xs:string" name="Rotational-Step-Size"/>
+                  <xs:element type="xs:string" name="Internal-Force"/>
+                  <xs:element type="xs:string" name="Parallel-Step-Size"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="RX">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="AD-IF"/>
+                  <xs:element type="xs:string" name="Sector-Width-Target"/>
+                  <xs:element type="xs:string" name="RF-Gain"/>
+                  <xs:element type="xs:string" name="TGC-Enable"/>
+                  <xs:element type="xs:string" name="V-Digi-Depth-Imaging"/>
+                  <xs:element type="xs:string" name="RF-Bandwidth"/>
+                  <xs:element type="xs:string" name="Test-Freq"/>
+                  <xs:element type="xs:string" name="V-TGC"/>
+                  <xs:element type="xs:string" name="Current-Channel"/>
+                  <xs:element type="xs:string" name="AD-In"/>
+                  <xs:element type="xs:string" name="Image-FIFO-Status"/>
+                  <xs:element type="xs:string" name="RF-Filter"/>
+                  <xs:element type="xs:string" name="DDRS"/>
+                  <xs:element type="xs:string" name="ADCA-Out"/>
+                  <xs:element type="xs:string" name="AD-Clock-Div"/>
+                  <xs:element type="xs:string" name="Imaging-Mode"/>
+                  <xs:element type="xs:string" name="V-RF-Filter"/>
+                  <xs:element type="xs:string" name="ADCB-Out"/>
+                  <xs:element type="xs:string" name="Delay"/>
+                  <xs:element type="xs:string" name="AD-Gate-Width"/>
+                  <xs:element type="xs:string" name="Frequency"/>
+                  <xs:element type="xs:string" name="V-Frequency"/>
+                  <xs:element type="xs:string" name="V-Field-Of-View"/>
+                  <xs:element type="xs:string" name="Packet-Format"/>
+                  <xs:element type="xs:string" name="Sector-Height-Target"/>
+                  <xs:element type="xs:string" name="Low-Speed-FIFO-Status"/>
+                  <xs:element type="xs:string" name="AD-TestIn"/>
+                  <xs:element type="xs:string" name="Error"/>
+                  <xs:element type="xs:string" name="Test-On"/>
+                  <xs:element type="xs:string" name="AD-DCS"/>
+                  <xs:element type="xs:string" name="DTB-Tfr-Enable"/>
+                  <xs:element type="xs:string" name="DTB-Test-Enable"/>
+                  <xs:element type="xs:string" name="V-Delay-Length"/>
+                  <xs:element type="xs:string" name="Current-Mode"/>
+                  <xs:element type="xs:string" name="Line-Number"/>
+                  <xs:element type="xs:string" name="IF-Filter"/>
+                  <xs:element type="xs:string" name="Track-Width"/>
+                  <xs:element type="xs:string" name="DTB-Error-Clr"/>
+                  <xs:element type="xs:string" name="V-IF-Filter"/>
+                  <xs:element type="xs:string" name="IQ-Select"/>
+                  <xs:element type="xs:string" name="HP-Clutter"/>
+                  <xs:element type="xs:string" name="V-TGC-Copy"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Display">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Direction"/>
+                  <xs:element type="xs:string" name="V-SV-TissueMode"/>
+                  <xs:element type="xs:string" name="V-SV-MMode"/>
+                  <xs:element type="xs:string" name="X_3D-Gain"/>
+                  <xs:element type="xs:string" name="X_3D-Dynamic-Range"/>
+                  <xs:element type="xs:string" name="Gain"/>
+                  <xs:element type="xs:string" name="V-SV-RfMode"/>
+                  <xs:element type="xs:string" name="V-SV-EkvMode"/>
+                  <xs:element type="xs:string" name="Dynamic-Range"/>
+                  <xs:element type="xs:string" name="Window-Time"/>
+                  <xs:element type="xs:string" name="V-SV-DopplerMode"/>
+                  <xs:element type="xs:string" name="V-SV-NeedleGuide"/>
+                  <xs:element type="xs:string" name="V-SV-ColorMode"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="EKVModeSoft">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="RWave-Time-Tollerance"/>
+                  <xs:element type="xs:string" name="EKV-Start"/>
+                  <xs:element type="xs:string" name="EKV-Stop"/>
+                  <xs:element type="xs:string" name="EKV-Quality-Times"/>
+                  <xs:element type="xs:string" name="EKV-Quality"/>
+                  <xs:element type="xs:string" name="EKV-Quality-Resolution"/>
+                  <xs:element type="xs:string" name="Difference-Percent-Periods-Keep"/>
+                  <xs:element type="xs:string" name="EKV-Advanced"/>
+                  <xs:element type="xs:string" name="EKV-Variance"/>
+                  <xs:element type="xs:string" name="EKV-Triggers"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="BModeLVAnalysis">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="xs:string" name="Cycles-Cardiac-Region"/>
+                  <xs:element type="xs:string" name="Cycles"/>
+                  <xs:element type="xs:string" name="Spline-Process-Points"/>
+                  <xs:element type="xs:string" name="Speckle-Search-Size"/>
+                  <xs:element type="xs:string" name="Speckle-Compare-Size"/>
+                  <xs:element type="xs:string" name="EKV-Frames"/>
+                  <xs:element type="xs:string" name="Axis"/>
+                  <xs:element type="xs:string" name="Cardinal-Tension"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="rdi_t">
     <xs:sequence>

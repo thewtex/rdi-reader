@@ -251,6 +251,41 @@ class image_info_t;
 class image_data_t;
 class image_parameters_t;
 class rdi_t;
+class RF_Mode;
+class B_Mode;
+class ActiveProbe;
+class BModeSoft;
+class Sys;
+class MIS;
+class Scan;
+class Motor;
+class Diag;
+class ECG;
+class RfModeSoft;
+class TX;
+class X_3D;
+class RfAnalysis;
+class RX;
+class Display;
+class Acqiris;
+class ActiveProbe1;
+class BModeSoft1;
+class Sys1;
+class Contrast;
+class MIS1;
+class Scan1;
+class Motor1;
+class ContrastDlg;
+class Diag1;
+class ECG1;
+class TX1;
+class ContrastDestroy;
+class X_3D1;
+class X_3DSoft;
+class RX1;
+class Display1;
+class EKVModeSoft;
+class BModeLVAnalysis;
 
 #include <memory>    // std::auto_ptr
 #include <algorithm> // std::binary_search
@@ -318,7 +353,7 @@ class image_info_t: public ::xml_schema::type
 
   // Image_Frames
   //
-  typedef ::xml_schema::positive_integer Image_Frames_type;
+  typedef ::xml_schema::string Image_Frames_type;
   typedef ::xsd::cxx::tree::traits< Image_Frames_type, char > Image_Frames_traits;
 
   const Image_Frames_type&
@@ -330,9 +365,12 @@ class image_info_t: public ::xml_schema::type
   void
   Image_Frames (const Image_Frames_type& x);
 
+  void
+  Image_Frames (::std::auto_ptr< Image_Frames_type > p);
+
   // Image_Lines
   //
-  typedef ::xml_schema::positive_integer Image_Lines_type;
+  typedef ::xml_schema::string Image_Lines_type;
   typedef ::xsd::cxx::tree::traits< Image_Lines_type, char > Image_Lines_traits;
 
   const Image_Lines_type&
@@ -344,9 +382,12 @@ class image_info_t: public ::xml_schema::type
   void
   Image_Lines (const Image_Lines_type& x);
 
+  void
+  Image_Lines (::std::auto_ptr< Image_Lines_type > p);
+
   // Image_Acquisition_Per_Line
   //
-  typedef ::xml_schema::positive_integer Image_Acquisition_Per_Line_type;
+  typedef ::xml_schema::string Image_Acquisition_Per_Line_type;
   typedef ::xsd::cxx::tree::traits< Image_Acquisition_Per_Line_type, char > Image_Acquisition_Per_Line_traits;
 
   const Image_Acquisition_Per_Line_type&
@@ -357,6 +398,9 @@ class image_info_t: public ::xml_schema::type
 
   void
   Image_Acquisition_Per_Line (const Image_Acquisition_Per_Line_type& x);
+
+  void
+  Image_Acquisition_Per_Line (::std::auto_ptr< Image_Acquisition_Per_Line_type > p);
 
   // Image_Acquisition_Size
   //
@@ -544,20 +588,49 @@ class image_data_t: public ::xml_schema::type
 class image_parameters_t: public ::xml_schema::type
 {
   public:
+  // RF-Mode
+  //
+  typedef ::RF_Mode RF_Mode_type;
+  typedef ::xsd::cxx::tree::traits< RF_Mode_type, char > RF_Mode_traits;
+
+  const RF_Mode_type&
+  RF_Mode () const;
+
+  RF_Mode_type&
+  RF_Mode ();
+
+  void
+  RF_Mode (const RF_Mode_type& x);
+
+  void
+  RF_Mode (::std::auto_ptr< RF_Mode_type > p);
+
+  // B-Mode
+  //
+  typedef ::B_Mode B_Mode_type;
+  typedef ::xsd::cxx::tree::traits< B_Mode_type, char > B_Mode_traits;
+
+  const B_Mode_type&
+  B_Mode () const;
+
+  B_Mode_type&
+  B_Mode ();
+
+  void
+  B_Mode (const B_Mode_type& x);
+
+  void
+  B_Mode (::std::auto_ptr< B_Mode_type > p);
+
   // Constructors.
   //
-  image_parameters_t ();
+  image_parameters_t (const RF_Mode_type&,
+                      const B_Mode_type&);
+
+  image_parameters_t (::std::auto_ptr< RF_Mode_type >&,
+                      ::std::auto_ptr< B_Mode_type >&);
 
   image_parameters_t (const ::xercesc::DOMElement& e,
-                      ::xml_schema::flags f = 0,
-                      ::xml_schema::container* c = 0);
-
-  image_parameters_t (const ::xercesc::DOMAttr& a,
-                      ::xml_schema::flags f = 0,
-                      ::xml_schema::container* c = 0);
-
-  image_parameters_t (const ::std::string& s,
-                      const ::xercesc::DOMElement* e,
                       ::xml_schema::flags f = 0,
                       ::xml_schema::container* c = 0);
 
@@ -571,6 +644,17 @@ class image_parameters_t: public ::xml_schema::type
 
   virtual
   ~image_parameters_t ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< RF_Mode_type > RF_Mode_;
+  ::xsd::cxx::tree::one< B_Mode_type > B_Mode_;
 };
 
 class rdi_t: public ::xml_schema::type
@@ -635,7 +719,7 @@ class rdi_t: public ::xml_schema::type
 
   rdi_t (::std::auto_ptr< image_info_type >&,
          const image_data_type&,
-         const image_parameters_type&);
+         ::std::auto_ptr< image_parameters_type >&);
 
   rdi_t (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f = 0,
@@ -665,6 +749,18055 @@ class rdi_t: public ::xml_schema::type
   ::xsd::cxx::tree::one< image_parameters_type > image_parameters_;
 };
 
+class RF_Mode: public ::xml_schema::type
+{
+  public:
+  // ActiveProbe
+  //
+  typedef ::ActiveProbe ActiveProbe_type;
+  typedef ::xsd::cxx::tree::traits< ActiveProbe_type, char > ActiveProbe_traits;
+
+  const ActiveProbe_type&
+  ActiveProbe () const;
+
+  ActiveProbe_type&
+  ActiveProbe ();
+
+  void
+  ActiveProbe (const ActiveProbe_type& x);
+
+  void
+  ActiveProbe (::std::auto_ptr< ActiveProbe_type > p);
+
+  // BModeSoft
+  //
+  typedef ::BModeSoft BModeSoft_type;
+  typedef ::xsd::cxx::tree::traits< BModeSoft_type, char > BModeSoft_traits;
+
+  const BModeSoft_type&
+  BModeSoft () const;
+
+  BModeSoft_type&
+  BModeSoft ();
+
+  void
+  BModeSoft (const BModeSoft_type& x);
+
+  void
+  BModeSoft (::std::auto_ptr< BModeSoft_type > p);
+
+  // Sys
+  //
+  typedef ::Sys Sys_type;
+  typedef ::xsd::cxx::tree::traits< Sys_type, char > Sys_traits;
+
+  const Sys_type&
+  Sys () const;
+
+  Sys_type&
+  Sys ();
+
+  void
+  Sys (const Sys_type& x);
+
+  void
+  Sys (::std::auto_ptr< Sys_type > p);
+
+  // MIS
+  //
+  typedef ::MIS MIS_type;
+  typedef ::xsd::cxx::tree::traits< MIS_type, char > MIS_traits;
+
+  const MIS_type&
+  MIS () const;
+
+  MIS_type&
+  MIS ();
+
+  void
+  MIS (const MIS_type& x);
+
+  void
+  MIS (::std::auto_ptr< MIS_type > p);
+
+  // Scan
+  //
+  typedef ::Scan Scan_type;
+  typedef ::xsd::cxx::tree::traits< Scan_type, char > Scan_traits;
+
+  const Scan_type&
+  Scan () const;
+
+  Scan_type&
+  Scan ();
+
+  void
+  Scan (const Scan_type& x);
+
+  void
+  Scan (::std::auto_ptr< Scan_type > p);
+
+  // Motor
+  //
+  typedef ::Motor Motor_type;
+  typedef ::xsd::cxx::tree::traits< Motor_type, char > Motor_traits;
+
+  const Motor_type&
+  Motor () const;
+
+  Motor_type&
+  Motor ();
+
+  void
+  Motor (const Motor_type& x);
+
+  void
+  Motor (::std::auto_ptr< Motor_type > p);
+
+  // Diag
+  //
+  typedef ::Diag Diag_type;
+  typedef ::xsd::cxx::tree::traits< Diag_type, char > Diag_traits;
+
+  const Diag_type&
+  Diag () const;
+
+  Diag_type&
+  Diag ();
+
+  void
+  Diag (const Diag_type& x);
+
+  void
+  Diag (::std::auto_ptr< Diag_type > p);
+
+  // ECG
+  //
+  typedef ::ECG ECG_type;
+  typedef ::xsd::cxx::tree::traits< ECG_type, char > ECG_traits;
+
+  const ECG_type&
+  ECG () const;
+
+  ECG_type&
+  ECG ();
+
+  void
+  ECG (const ECG_type& x);
+
+  void
+  ECG (::std::auto_ptr< ECG_type > p);
+
+  // RfModeSoft
+  //
+  typedef ::RfModeSoft RfModeSoft_type;
+  typedef ::xsd::cxx::tree::traits< RfModeSoft_type, char > RfModeSoft_traits;
+
+  const RfModeSoft_type&
+  RfModeSoft () const;
+
+  RfModeSoft_type&
+  RfModeSoft ();
+
+  void
+  RfModeSoft (const RfModeSoft_type& x);
+
+  void
+  RfModeSoft (::std::auto_ptr< RfModeSoft_type > p);
+
+  // TX
+  //
+  typedef ::TX TX_type;
+  typedef ::xsd::cxx::tree::traits< TX_type, char > TX_traits;
+
+  const TX_type&
+  TX () const;
+
+  TX_type&
+  TX ();
+
+  void
+  TX (const TX_type& x);
+
+  void
+  TX (::std::auto_ptr< TX_type > p);
+
+  // X_3D
+  //
+  typedef ::X_3D X_3D_type;
+  typedef ::xsd::cxx::tree::traits< X_3D_type, char > X_3D_traits;
+
+  const X_3D_type&
+  X_3D () const;
+
+  X_3D_type&
+  X_3D ();
+
+  void
+  X_3D (const X_3D_type& x);
+
+  void
+  X_3D (::std::auto_ptr< X_3D_type > p);
+
+  // RfAnalysis
+  //
+  typedef ::RfAnalysis RfAnalysis_type;
+  typedef ::xsd::cxx::tree::traits< RfAnalysis_type, char > RfAnalysis_traits;
+
+  const RfAnalysis_type&
+  RfAnalysis () const;
+
+  RfAnalysis_type&
+  RfAnalysis ();
+
+  void
+  RfAnalysis (const RfAnalysis_type& x);
+
+  void
+  RfAnalysis (::std::auto_ptr< RfAnalysis_type > p);
+
+  // RX
+  //
+  typedef ::RX RX_type;
+  typedef ::xsd::cxx::tree::traits< RX_type, char > RX_traits;
+
+  const RX_type&
+  RX () const;
+
+  RX_type&
+  RX ();
+
+  void
+  RX (const RX_type& x);
+
+  void
+  RX (::std::auto_ptr< RX_type > p);
+
+  // Display
+  //
+  typedef ::Display Display_type;
+  typedef ::xsd::cxx::tree::traits< Display_type, char > Display_traits;
+
+  const Display_type&
+  Display () const;
+
+  Display_type&
+  Display ();
+
+  void
+  Display (const Display_type& x);
+
+  void
+  Display (::std::auto_ptr< Display_type > p);
+
+  // Acqiris
+  //
+  typedef ::Acqiris Acqiris_type;
+  typedef ::xsd::cxx::tree::traits< Acqiris_type, char > Acqiris_traits;
+
+  const Acqiris_type&
+  Acqiris () const;
+
+  Acqiris_type&
+  Acqiris ();
+
+  void
+  Acqiris (const Acqiris_type& x);
+
+  void
+  Acqiris (::std::auto_ptr< Acqiris_type > p);
+
+  // Constructors.
+  //
+  RF_Mode (const ActiveProbe_type&,
+           const BModeSoft_type&,
+           const Sys_type&,
+           const MIS_type&,
+           const Scan_type&,
+           const Motor_type&,
+           const Diag_type&,
+           const ECG_type&,
+           const RfModeSoft_type&,
+           const TX_type&,
+           const X_3D_type&,
+           const RfAnalysis_type&,
+           const RX_type&,
+           const Display_type&,
+           const Acqiris_type&);
+
+  RF_Mode (::std::auto_ptr< ActiveProbe_type >&,
+           ::std::auto_ptr< BModeSoft_type >&,
+           ::std::auto_ptr< Sys_type >&,
+           ::std::auto_ptr< MIS_type >&,
+           ::std::auto_ptr< Scan_type >&,
+           ::std::auto_ptr< Motor_type >&,
+           ::std::auto_ptr< Diag_type >&,
+           ::std::auto_ptr< ECG_type >&,
+           ::std::auto_ptr< RfModeSoft_type >&,
+           ::std::auto_ptr< TX_type >&,
+           ::std::auto_ptr< X_3D_type >&,
+           ::std::auto_ptr< RfAnalysis_type >&,
+           ::std::auto_ptr< RX_type >&,
+           ::std::auto_ptr< Display_type >&,
+           ::std::auto_ptr< Acqiris_type >&);
+
+  RF_Mode (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  RF_Mode (const RF_Mode& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  virtual RF_Mode*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RF_Mode ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< ActiveProbe_type > ActiveProbe_;
+  ::xsd::cxx::tree::one< BModeSoft_type > BModeSoft_;
+  ::xsd::cxx::tree::one< Sys_type > Sys_;
+  ::xsd::cxx::tree::one< MIS_type > MIS_;
+  ::xsd::cxx::tree::one< Scan_type > Scan_;
+  ::xsd::cxx::tree::one< Motor_type > Motor_;
+  ::xsd::cxx::tree::one< Diag_type > Diag_;
+  ::xsd::cxx::tree::one< ECG_type > ECG_;
+  ::xsd::cxx::tree::one< RfModeSoft_type > RfModeSoft_;
+  ::xsd::cxx::tree::one< TX_type > TX_;
+  ::xsd::cxx::tree::one< X_3D_type > X_3D_;
+  ::xsd::cxx::tree::one< RfAnalysis_type > RfAnalysis_;
+  ::xsd::cxx::tree::one< RX_type > RX_;
+  ::xsd::cxx::tree::one< Display_type > Display_;
+  ::xsd::cxx::tree::one< Acqiris_type > Acqiris_;
+};
+
+class B_Mode: public ::xml_schema::type
+{
+  public:
+  // ActiveProbe
+  //
+  typedef ::ActiveProbe1 ActiveProbe_type;
+  typedef ::xsd::cxx::tree::traits< ActiveProbe_type, char > ActiveProbe_traits;
+
+  const ActiveProbe_type&
+  ActiveProbe () const;
+
+  ActiveProbe_type&
+  ActiveProbe ();
+
+  void
+  ActiveProbe (const ActiveProbe_type& x);
+
+  void
+  ActiveProbe (::std::auto_ptr< ActiveProbe_type > p);
+
+  // BModeSoft
+  //
+  typedef ::BModeSoft1 BModeSoft_type;
+  typedef ::xsd::cxx::tree::traits< BModeSoft_type, char > BModeSoft_traits;
+
+  const BModeSoft_type&
+  BModeSoft () const;
+
+  BModeSoft_type&
+  BModeSoft ();
+
+  void
+  BModeSoft (const BModeSoft_type& x);
+
+  void
+  BModeSoft (::std::auto_ptr< BModeSoft_type > p);
+
+  // Sys
+  //
+  typedef ::Sys1 Sys_type;
+  typedef ::xsd::cxx::tree::traits< Sys_type, char > Sys_traits;
+
+  const Sys_type&
+  Sys () const;
+
+  Sys_type&
+  Sys ();
+
+  void
+  Sys (const Sys_type& x);
+
+  void
+  Sys (::std::auto_ptr< Sys_type > p);
+
+  // Contrast
+  //
+  typedef ::Contrast Contrast_type;
+  typedef ::xsd::cxx::tree::traits< Contrast_type, char > Contrast_traits;
+
+  const Contrast_type&
+  Contrast () const;
+
+  Contrast_type&
+  Contrast ();
+
+  void
+  Contrast (const Contrast_type& x);
+
+  void
+  Contrast (::std::auto_ptr< Contrast_type > p);
+
+  // MIS
+  //
+  typedef ::MIS1 MIS_type;
+  typedef ::xsd::cxx::tree::traits< MIS_type, char > MIS_traits;
+
+  const MIS_type&
+  MIS () const;
+
+  MIS_type&
+  MIS ();
+
+  void
+  MIS (const MIS_type& x);
+
+  void
+  MIS (::std::auto_ptr< MIS_type > p);
+
+  // Scan
+  //
+  typedef ::Scan1 Scan_type;
+  typedef ::xsd::cxx::tree::traits< Scan_type, char > Scan_traits;
+
+  const Scan_type&
+  Scan () const;
+
+  Scan_type&
+  Scan ();
+
+  void
+  Scan (const Scan_type& x);
+
+  void
+  Scan (::std::auto_ptr< Scan_type > p);
+
+  // Motor
+  //
+  typedef ::Motor1 Motor_type;
+  typedef ::xsd::cxx::tree::traits< Motor_type, char > Motor_traits;
+
+  const Motor_type&
+  Motor () const;
+
+  Motor_type&
+  Motor ();
+
+  void
+  Motor (const Motor_type& x);
+
+  void
+  Motor (::std::auto_ptr< Motor_type > p);
+
+  // ContrastDlg
+  //
+  typedef ::ContrastDlg ContrastDlg_type;
+  typedef ::xsd::cxx::tree::traits< ContrastDlg_type, char > ContrastDlg_traits;
+
+  const ContrastDlg_type&
+  ContrastDlg () const;
+
+  ContrastDlg_type&
+  ContrastDlg ();
+
+  void
+  ContrastDlg (const ContrastDlg_type& x);
+
+  void
+  ContrastDlg (::std::auto_ptr< ContrastDlg_type > p);
+
+  // Diag
+  //
+  typedef ::Diag1 Diag_type;
+  typedef ::xsd::cxx::tree::traits< Diag_type, char > Diag_traits;
+
+  const Diag_type&
+  Diag () const;
+
+  Diag_type&
+  Diag ();
+
+  void
+  Diag (const Diag_type& x);
+
+  void
+  Diag (::std::auto_ptr< Diag_type > p);
+
+  // ECG
+  //
+  typedef ::ECG1 ECG_type;
+  typedef ::xsd::cxx::tree::traits< ECG_type, char > ECG_traits;
+
+  const ECG_type&
+  ECG () const;
+
+  ECG_type&
+  ECG ();
+
+  void
+  ECG (const ECG_type& x);
+
+  void
+  ECG (::std::auto_ptr< ECG_type > p);
+
+  // TX
+  //
+  typedef ::TX1 TX_type;
+  typedef ::xsd::cxx::tree::traits< TX_type, char > TX_traits;
+
+  const TX_type&
+  TX () const;
+
+  TX_type&
+  TX ();
+
+  void
+  TX (const TX_type& x);
+
+  void
+  TX (::std::auto_ptr< TX_type > p);
+
+  // ContrastDestroy
+  //
+  typedef ::ContrastDestroy ContrastDestroy_type;
+  typedef ::xsd::cxx::tree::traits< ContrastDestroy_type, char > ContrastDestroy_traits;
+
+  const ContrastDestroy_type&
+  ContrastDestroy () const;
+
+  ContrastDestroy_type&
+  ContrastDestroy ();
+
+  void
+  ContrastDestroy (const ContrastDestroy_type& x);
+
+  void
+  ContrastDestroy (::std::auto_ptr< ContrastDestroy_type > p);
+
+  // X_3D
+  //
+  typedef ::X_3D1 X_3D_type;
+  typedef ::xsd::cxx::tree::traits< X_3D_type, char > X_3D_traits;
+
+  const X_3D_type&
+  X_3D () const;
+
+  X_3D_type&
+  X_3D ();
+
+  void
+  X_3D (const X_3D_type& x);
+
+  void
+  X_3D (::std::auto_ptr< X_3D_type > p);
+
+  // X_3DSoft
+  //
+  typedef ::X_3DSoft X_3DSoft_type;
+  typedef ::xsd::cxx::tree::traits< X_3DSoft_type, char > X_3DSoft_traits;
+
+  const X_3DSoft_type&
+  X_3DSoft () const;
+
+  X_3DSoft_type&
+  X_3DSoft ();
+
+  void
+  X_3DSoft (const X_3DSoft_type& x);
+
+  void
+  X_3DSoft (::std::auto_ptr< X_3DSoft_type > p);
+
+  // RX
+  //
+  typedef ::RX1 RX_type;
+  typedef ::xsd::cxx::tree::traits< RX_type, char > RX_traits;
+
+  const RX_type&
+  RX () const;
+
+  RX_type&
+  RX ();
+
+  void
+  RX (const RX_type& x);
+
+  void
+  RX (::std::auto_ptr< RX_type > p);
+
+  // Display
+  //
+  typedef ::Display1 Display_type;
+  typedef ::xsd::cxx::tree::traits< Display_type, char > Display_traits;
+
+  const Display_type&
+  Display () const;
+
+  Display_type&
+  Display ();
+
+  void
+  Display (const Display_type& x);
+
+  void
+  Display (::std::auto_ptr< Display_type > p);
+
+  // EKVModeSoft
+  //
+  typedef ::EKVModeSoft EKVModeSoft_type;
+  typedef ::xsd::cxx::tree::traits< EKVModeSoft_type, char > EKVModeSoft_traits;
+
+  const EKVModeSoft_type&
+  EKVModeSoft () const;
+
+  EKVModeSoft_type&
+  EKVModeSoft ();
+
+  void
+  EKVModeSoft (const EKVModeSoft_type& x);
+
+  void
+  EKVModeSoft (::std::auto_ptr< EKVModeSoft_type > p);
+
+  // BModeLVAnalysis
+  //
+  typedef ::BModeLVAnalysis BModeLVAnalysis_type;
+  typedef ::xsd::cxx::tree::traits< BModeLVAnalysis_type, char > BModeLVAnalysis_traits;
+
+  const BModeLVAnalysis_type&
+  BModeLVAnalysis () const;
+
+  BModeLVAnalysis_type&
+  BModeLVAnalysis ();
+
+  void
+  BModeLVAnalysis (const BModeLVAnalysis_type& x);
+
+  void
+  BModeLVAnalysis (::std::auto_ptr< BModeLVAnalysis_type > p);
+
+  // Constructors.
+  //
+  B_Mode (const ActiveProbe_type&,
+          const BModeSoft_type&,
+          const Sys_type&,
+          const Contrast_type&,
+          const MIS_type&,
+          const Scan_type&,
+          const Motor_type&,
+          const ContrastDlg_type&,
+          const Diag_type&,
+          const ECG_type&,
+          const TX_type&,
+          const ContrastDestroy_type&,
+          const X_3D_type&,
+          const X_3DSoft_type&,
+          const RX_type&,
+          const Display_type&,
+          const EKVModeSoft_type&,
+          const BModeLVAnalysis_type&);
+
+  B_Mode (::std::auto_ptr< ActiveProbe_type >&,
+          ::std::auto_ptr< BModeSoft_type >&,
+          ::std::auto_ptr< Sys_type >&,
+          ::std::auto_ptr< Contrast_type >&,
+          ::std::auto_ptr< MIS_type >&,
+          ::std::auto_ptr< Scan_type >&,
+          ::std::auto_ptr< Motor_type >&,
+          ::std::auto_ptr< ContrastDlg_type >&,
+          ::std::auto_ptr< Diag_type >&,
+          ::std::auto_ptr< ECG_type >&,
+          ::std::auto_ptr< TX_type >&,
+          ::std::auto_ptr< ContrastDestroy_type >&,
+          ::std::auto_ptr< X_3D_type >&,
+          ::std::auto_ptr< X_3DSoft_type >&,
+          ::std::auto_ptr< RX_type >&,
+          ::std::auto_ptr< Display_type >&,
+          ::std::auto_ptr< EKVModeSoft_type >&,
+          ::std::auto_ptr< BModeLVAnalysis_type >&);
+
+  B_Mode (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  B_Mode (const B_Mode& x,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  virtual B_Mode*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~B_Mode ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< ActiveProbe_type > ActiveProbe_;
+  ::xsd::cxx::tree::one< BModeSoft_type > BModeSoft_;
+  ::xsd::cxx::tree::one< Sys_type > Sys_;
+  ::xsd::cxx::tree::one< Contrast_type > Contrast_;
+  ::xsd::cxx::tree::one< MIS_type > MIS_;
+  ::xsd::cxx::tree::one< Scan_type > Scan_;
+  ::xsd::cxx::tree::one< Motor_type > Motor_;
+  ::xsd::cxx::tree::one< ContrastDlg_type > ContrastDlg_;
+  ::xsd::cxx::tree::one< Diag_type > Diag_;
+  ::xsd::cxx::tree::one< ECG_type > ECG_;
+  ::xsd::cxx::tree::one< TX_type > TX_;
+  ::xsd::cxx::tree::one< ContrastDestroy_type > ContrastDestroy_;
+  ::xsd::cxx::tree::one< X_3D_type > X_3D_;
+  ::xsd::cxx::tree::one< X_3DSoft_type > X_3DSoft_;
+  ::xsd::cxx::tree::one< RX_type > RX_;
+  ::xsd::cxx::tree::one< Display_type > Display_;
+  ::xsd::cxx::tree::one< EKVModeSoft_type > EKVModeSoft_;
+  ::xsd::cxx::tree::one< BModeLVAnalysis_type > BModeLVAnalysis_;
+};
+
+class ActiveProbe: public ::xml_schema::type
+{
+  public:
+  // Notes
+  //
+  typedef ::xml_schema::string Notes_type;
+  typedef ::xsd::cxx::tree::traits< Notes_type, char > Notes_traits;
+
+  const Notes_type&
+  Notes () const;
+
+  Notes_type&
+  Notes ();
+
+  void
+  Notes (const Notes_type& x);
+
+  void
+  Notes (::std::auto_ptr< Notes_type > p);
+
+  // Sample-Time
+  //
+  typedef ::xml_schema::string Sample_Time_type;
+  typedef ::xsd::cxx::tree::traits< Sample_Time_type, char > Sample_Time_traits;
+
+  const Sample_Time_type&
+  Sample_Time () const;
+
+  Sample_Time_type&
+  Sample_Time ();
+
+  void
+  Sample_Time (const Sample_Time_type& x);
+
+  void
+  Sample_Time (::std::auto_ptr< Sample_Time_type > p);
+
+  // Focal-Length
+  //
+  typedef ::xml_schema::string Focal_Length_type;
+  typedef ::xsd::cxx::tree::traits< Focal_Length_type, char > Focal_Length_traits;
+
+  const Focal_Length_type&
+  Focal_Length () const;
+
+  Focal_Length_type&
+  Focal_Length ();
+
+  void
+  Focal_Length (const Focal_Length_type& x);
+
+  void
+  Focal_Length (::std::auto_ptr< Focal_Length_type > p);
+
+  // Acceleration-Limit-Slope
+  //
+  typedef ::xml_schema::string Acceleration_Limit_Slope_type;
+  typedef ::xsd::cxx::tree::traits< Acceleration_Limit_Slope_type, char > Acceleration_Limit_Slope_traits;
+
+  const Acceleration_Limit_Slope_type&
+  Acceleration_Limit_Slope () const;
+
+  Acceleration_Limit_Slope_type&
+  Acceleration_Limit_Slope ();
+
+  void
+  Acceleration_Limit_Slope (const Acceleration_Limit_Slope_type& x);
+
+  void
+  Acceleration_Limit_Slope (::std::auto_ptr< Acceleration_Limit_Slope_type > p);
+
+  // Type
+  //
+  typedef ::xml_schema::string Type_type;
+  typedef ::xsd::cxx::tree::traits< Type_type, char > Type_traits;
+
+  const Type_type&
+  Type () const;
+
+  Type_type&
+  Type ();
+
+  void
+  Type (const Type_type& x);
+
+  void
+  Type (::std::auto_ptr< Type_type > p);
+
+  // Detect-Id
+  //
+  typedef ::xml_schema::string Detect_Id_type;
+  typedef ::xsd::cxx::tree::traits< Detect_Id_type, char > Detect_Id_traits;
+
+  const Detect_Id_type&
+  Detect_Id () const;
+
+  Detect_Id_type&
+  Detect_Id ();
+
+  void
+  Detect_Id (const Detect_Id_type& x);
+
+  void
+  Detect_Id (::std::auto_ptr< Detect_Id_type > p);
+
+  // Default-Scan-Speed
+  //
+  typedef ::xml_schema::string Default_Scan_Speed_type;
+  typedef ::xsd::cxx::tree::traits< Default_Scan_Speed_type, char > Default_Scan_Speed_traits;
+
+  const Default_Scan_Speed_type&
+  Default_Scan_Speed () const;
+
+  Default_Scan_Speed_type&
+  Default_Scan_Speed ();
+
+  void
+  Default_Scan_Speed (const Default_Scan_Speed_type& x);
+
+  void
+  Default_Scan_Speed (::std::auto_ptr< Default_Scan_Speed_type > p);
+
+  // K1-Power
+  //
+  typedef ::xml_schema::string K1_Power_type;
+  typedef ::xsd::cxx::tree::traits< K1_Power_type, char > K1_Power_traits;
+
+  const K1_Power_type&
+  K1_Power () const;
+
+  K1_Power_type&
+  K1_Power ();
+
+  void
+  K1_Power (const K1_Power_type& x);
+
+  void
+  K1_Power (::std::auto_ptr< K1_Power_type > p);
+
+  // Cutoff-Scan-Speed
+  //
+  typedef ::xml_schema::string Cutoff_Scan_Speed_type;
+  typedef ::xsd::cxx::tree::traits< Cutoff_Scan_Speed_type, char > Cutoff_Scan_Speed_traits;
+
+  const Cutoff_Scan_Speed_type&
+  Cutoff_Scan_Speed () const;
+
+  Cutoff_Scan_Speed_type&
+  Cutoff_Scan_Speed ();
+
+  void
+  Cutoff_Scan_Speed (const Cutoff_Scan_Speed_type& x);
+
+  void
+  Cutoff_Scan_Speed (::std::auto_ptr< Cutoff_Scan_Speed_type > p);
+
+  // Frequency-Low
+  //
+  typedef ::xml_schema::string Frequency_Low_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_Low_type, char > Frequency_Low_traits;
+
+  const Frequency_Low_type&
+  Frequency_Low () const;
+
+  Frequency_Low_type&
+  Frequency_Low ();
+
+  void
+  Frequency_Low (const Frequency_Low_type& x);
+
+  void
+  Frequency_Low (::std::auto_ptr< Frequency_Low_type > p);
+
+  // Default-FOV
+  //
+  typedef ::xml_schema::string Default_FOV_type;
+  typedef ::xsd::cxx::tree::traits< Default_FOV_type, char > Default_FOV_traits;
+
+  const Default_FOV_type&
+  Default_FOV () const;
+
+  Default_FOV_type&
+  Default_FOV ();
+
+  void
+  Default_FOV (const Default_FOV_type& x);
+
+  void
+  Default_FOV (::std::auto_ptr< Default_FOV_type > p);
+
+  // Frequency-Doppler-Default
+  //
+  typedef ::xml_schema::string Frequency_Doppler_Default_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_Doppler_Default_type, char > Frequency_Doppler_Default_traits;
+
+  const Frequency_Doppler_Default_type&
+  Frequency_Doppler_Default () const;
+
+  Frequency_Doppler_Default_type&
+  Frequency_Doppler_Default ();
+
+  void
+  Frequency_Doppler_Default (const Frequency_Doppler_Default_type& x);
+
+  void
+  Frequency_Doppler_Default (::std::auto_ptr< Frequency_Doppler_Default_type > p);
+
+  // Default-SvSize-MMode
+  //
+  typedef ::xml_schema::string Default_SvSize_MMode_type;
+  typedef ::xsd::cxx::tree::traits< Default_SvSize_MMode_type, char > Default_SvSize_MMode_traits;
+
+  const Default_SvSize_MMode_type&
+  Default_SvSize_MMode () const;
+
+  Default_SvSize_MMode_type&
+  Default_SvSize_MMode ();
+
+  void
+  Default_SvSize_MMode (const Default_SvSize_MMode_type& x);
+
+  void
+  Default_SvSize_MMode (::std::auto_ptr< Default_SvSize_MMode_type > p);
+
+  // Axial-Res-Factor-Target
+  //
+  typedef ::xml_schema::string Axial_Res_Factor_Target_type;
+  typedef ::xsd::cxx::tree::traits< Axial_Res_Factor_Target_type, char > Axial_Res_Factor_Target_traits;
+
+  const Axial_Res_Factor_Target_type&
+  Axial_Res_Factor_Target () const;
+
+  Axial_Res_Factor_Target_type&
+  Axial_Res_Factor_Target ();
+
+  void
+  Axial_Res_Factor_Target (const Axial_Res_Factor_Target_type& x);
+
+  void
+  Axial_Res_Factor_Target (::std::auto_ptr< Axial_Res_Factor_Target_type > p);
+
+  // F-Number
+  //
+  typedef ::xml_schema::string F_Number_type;
+  typedef ::xsd::cxx::tree::traits< F_Number_type, char > F_Number_traits;
+
+  const F_Number_type&
+  F_Number () const;
+
+  F_Number_type&
+  F_Number ();
+
+  void
+  F_Number (const F_Number_type& x);
+
+  void
+  F_Number (::std::auto_ptr< F_Number_type > p);
+
+  // Acc-Time-Factor
+  //
+  typedef ::xml_schema::string Acc_Time_Factor_type;
+  typedef ::xsd::cxx::tree::traits< Acc_Time_Factor_type, char > Acc_Time_Factor_traits;
+
+  const Acc_Time_Factor_type&
+  Acc_Time_Factor () const;
+
+  Acc_Time_Factor_type&
+  Acc_Time_Factor ();
+
+  void
+  Acc_Time_Factor (const Acc_Time_Factor_type& x);
+
+  void
+  Acc_Time_Factor (::std::auto_ptr< Acc_Time_Factor_type > p);
+
+  // Frequency-Doppler
+  //
+  typedef ::xml_schema::string Frequency_Doppler_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_Doppler_type, char > Frequency_Doppler_traits;
+
+  const Frequency_Doppler_type&
+  Frequency_Doppler () const;
+
+  Frequency_Doppler_type&
+  Frequency_Doppler ();
+
+  void
+  Frequency_Doppler (const Frequency_Doppler_type& x);
+
+  void
+  Frequency_Doppler (::std::auto_ptr< Frequency_Doppler_type > p);
+
+  // Axial-Res
+  //
+  typedef ::xml_schema::string Axial_Res_type;
+  typedef ::xsd::cxx::tree::traits< Axial_Res_type, char > Axial_Res_traits;
+
+  const Axial_Res_type&
+  Axial_Res () const;
+
+  Axial_Res_type&
+  Axial_Res ();
+
+  void
+  Axial_Res (const Axial_Res_type& x);
+
+  void
+  Axial_Res (::std::auto_ptr< Axial_Res_type > p);
+
+  // Detect-Ratio-Min
+  //
+  typedef ::xml_schema::string Detect_Ratio_Min_type;
+  typedef ::xsd::cxx::tree::traits< Detect_Ratio_Min_type, char > Detect_Ratio_Min_traits;
+
+  const Detect_Ratio_Min_type&
+  Detect_Ratio_Min () const;
+
+  Detect_Ratio_Min_type&
+  Detect_Ratio_Min ();
+
+  void
+  Detect_Ratio_Min (const Detect_Ratio_Min_type& x);
+
+  void
+  Detect_Ratio_Min (::std::auto_ptr< Detect_Ratio_Min_type > p);
+
+  // Lateral-Res-Factor-Target
+  //
+  typedef ::xml_schema::string Lateral_Res_Factor_Target_type;
+  typedef ::xsd::cxx::tree::traits< Lateral_Res_Factor_Target_type, char > Lateral_Res_Factor_Target_traits;
+
+  const Lateral_Res_Factor_Target_type&
+  Lateral_Res_Factor_Target () const;
+
+  Lateral_Res_Factor_Target_type&
+  Lateral_Res_Factor_Target ();
+
+  void
+  Lateral_Res_Factor_Target (const Lateral_Res_Factor_Target_type& x);
+
+  void
+  Lateral_Res_Factor_Target (::std::auto_ptr< Lateral_Res_Factor_Target_type > p);
+
+  // Derivative-Time
+  //
+  typedef ::xml_schema::string Derivative_Time_type;
+  typedef ::xsd::cxx::tree::traits< Derivative_Time_type, char > Derivative_Time_traits;
+
+  const Derivative_Time_type&
+  Derivative_Time () const;
+
+  Derivative_Time_type&
+  Derivative_Time ();
+
+  void
+  Derivative_Time (const Derivative_Time_type& x);
+
+  void
+  Derivative_Time (::std::auto_ptr< Derivative_Time_type > p);
+
+  // Filter-High
+  //
+  typedef ::xml_schema::string Filter_High_type;
+  typedef ::xsd::cxx::tree::traits< Filter_High_type, char > Filter_High_traits;
+
+  const Filter_High_type&
+  Filter_High () const;
+
+  Filter_High_type&
+  Filter_High ();
+
+  void
+  Filter_High (const Filter_High_type& x);
+
+  void
+  Filter_High (::std::auto_ptr< Filter_High_type > p);
+
+  // Pivot-Encoder-Dist
+  //
+  typedef ::xml_schema::string Pivot_Encoder_Dist_type;
+  typedef ::xsd::cxx::tree::traits< Pivot_Encoder_Dist_type, char > Pivot_Encoder_Dist_traits;
+
+  const Pivot_Encoder_Dist_type&
+  Pivot_Encoder_Dist () const;
+
+  Pivot_Encoder_Dist_type&
+  Pivot_Encoder_Dist ();
+
+  void
+  Pivot_Encoder_Dist (const Pivot_Encoder_Dist_type& x);
+
+  void
+  Pivot_Encoder_Dist (::std::auto_ptr< Pivot_Encoder_Dist_type > p);
+
+  // Encoder-Range-Max
+  //
+  typedef ::xml_schema::string Encoder_Range_Max_type;
+  typedef ::xsd::cxx::tree::traits< Encoder_Range_Max_type, char > Encoder_Range_Max_traits;
+
+  const Encoder_Range_Max_type&
+  Encoder_Range_Max () const;
+
+  Encoder_Range_Max_type&
+  Encoder_Range_Max ();
+
+  void
+  Encoder_Range_Max (const Encoder_Range_Max_type& x);
+
+  void
+  Encoder_Range_Max (::std::auto_ptr< Encoder_Range_Max_type > p);
+
+  // Encoder-Range-Min
+  //
+  typedef ::xml_schema::string Encoder_Range_Min_type;
+  typedef ::xsd::cxx::tree::traits< Encoder_Range_Min_type, char > Encoder_Range_Min_traits;
+
+  const Encoder_Range_Min_type&
+  Encoder_Range_Min () const;
+
+  Encoder_Range_Min_type&
+  Encoder_Range_Min ();
+
+  void
+  Encoder_Range_Min (const Encoder_Range_Min_type& x);
+
+  void
+  Encoder_Range_Min (::std::auto_ptr< Encoder_Range_Min_type > p);
+
+  // Lateral-Res
+  //
+  typedef ::xml_schema::string Lateral_Res_type;
+  typedef ::xsd::cxx::tree::traits< Lateral_Res_type, char > Lateral_Res_traits;
+
+  const Lateral_Res_type&
+  Lateral_Res () const;
+
+  Lateral_Res_type&
+  Lateral_Res ();
+
+  void
+  Lateral_Res (const Lateral_Res_type& x);
+
+  void
+  Lateral_Res (::std::auto_ptr< Lateral_Res_type > p);
+
+  // Motor-Overhead
+  //
+  typedef ::xml_schema::string Motor_Overhead_type;
+  typedef ::xsd::cxx::tree::traits< Motor_Overhead_type, char > Motor_Overhead_traits;
+
+  const Motor_Overhead_type&
+  Motor_Overhead () const;
+
+  Motor_Overhead_type&
+  Motor_Overhead ();
+
+  void
+  Motor_Overhead (const Motor_Overhead_type& x);
+
+  void
+  Motor_Overhead (::std::auto_ptr< Motor_Overhead_type > p);
+
+  // Max-Scan-Distance
+  //
+  typedef ::xml_schema::string Max_Scan_Distance_type;
+  typedef ::xsd::cxx::tree::traits< Max_Scan_Distance_type, char > Max_Scan_Distance_traits;
+
+  const Max_Scan_Distance_type&
+  Max_Scan_Distance () const;
+
+  Max_Scan_Distance_type&
+  Max_Scan_Distance ();
+
+  void
+  Max_Scan_Distance (const Max_Scan_Distance_type& x);
+
+  void
+  Max_Scan_Distance (::std::auto_ptr< Max_Scan_Distance_type > p);
+
+  // Version
+  //
+  typedef ::xml_schema::string Version_type;
+  typedef ::xsd::cxx::tree::traits< Version_type, char > Version_traits;
+
+  const Version_type&
+  Version () const;
+
+  Version_type&
+  Version ();
+
+  void
+  Version (const Version_type& x);
+
+  void
+  Version (::std::auto_ptr< Version_type > p);
+
+  // Default-Rx-Gain
+  //
+  typedef ::xml_schema::string Default_Rx_Gain_type;
+  typedef ::xsd::cxx::tree::traits< Default_Rx_Gain_type, char > Default_Rx_Gain_traits;
+
+  const Default_Rx_Gain_type&
+  Default_Rx_Gain () const;
+
+  Default_Rx_Gain_type&
+  Default_Rx_Gain ();
+
+  void
+  Default_Rx_Gain (const Default_Rx_Gain_type& x);
+
+  void
+  Default_Rx_Gain (::std::auto_ptr< Default_Rx_Gain_type > p);
+
+  // Filter-Low
+  //
+  typedef ::xml_schema::string Filter_Low_type;
+  typedef ::xsd::cxx::tree::traits< Filter_Low_type, char > Filter_Low_traits;
+
+  const Filter_Low_type&
+  Filter_Low () const;
+
+  Filter_Low_type&
+  Filter_Low ();
+
+  void
+  Filter_Low (const Filter_Low_type& x);
+
+  void
+  Filter_Low (::std::auto_ptr< Filter_Low_type > p);
+
+  // PID-KD-High
+  //
+  typedef ::xml_schema::string PID_KD_High_type;
+  typedef ::xsd::cxx::tree::traits< PID_KD_High_type, char > PID_KD_High_traits;
+
+  const PID_KD_High_type&
+  PID_KD_High () const;
+
+  PID_KD_High_type&
+  PID_KD_High ();
+
+  void
+  PID_KD_High (const PID_KD_High_type& x);
+
+  void
+  PID_KD_High (::std::auto_ptr< PID_KD_High_type > p);
+
+  // PID-KI-High
+  //
+  typedef ::xml_schema::string PID_KI_High_type;
+  typedef ::xsd::cxx::tree::traits< PID_KI_High_type, char > PID_KI_High_traits;
+
+  const PID_KI_High_type&
+  PID_KI_High () const;
+
+  PID_KI_High_type&
+  PID_KI_High ();
+
+  void
+  PID_KI_High (const PID_KI_High_type& x);
+
+  void
+  PID_KI_High (::std::auto_ptr< PID_KI_High_type > p);
+
+  // PID-KP-High
+  //
+  typedef ::xml_schema::string PID_KP_High_type;
+  typedef ::xsd::cxx::tree::traits< PID_KP_High_type, char > PID_KP_High_traits;
+
+  const PID_KP_High_type&
+  PID_KP_High () const;
+
+  PID_KP_High_type&
+  PID_KP_High ();
+
+  void
+  PID_KP_High (const PID_KP_High_type& x);
+
+  void
+  PID_KP_High (::std::auto_ptr< PID_KP_High_type > p);
+
+  // Frequency-High
+  //
+  typedef ::xml_schema::string Frequency_High_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_High_type, char > Frequency_High_traits;
+
+  const Frequency_High_type&
+  Frequency_High () const;
+
+  Frequency_High_type&
+  Frequency_High ();
+
+  void
+  Frequency_High (const Frequency_High_type& x);
+
+  void
+  Frequency_High (::std::auto_ptr< Frequency_High_type > p);
+
+  // Lateral-Res-Factor-Max
+  //
+  typedef ::xml_schema::string Lateral_Res_Factor_Max_type;
+  typedef ::xsd::cxx::tree::traits< Lateral_Res_Factor_Max_type, char > Lateral_Res_Factor_Max_traits;
+
+  const Lateral_Res_Factor_Max_type&
+  Lateral_Res_Factor_Max () const;
+
+  Lateral_Res_Factor_Max_type&
+  Lateral_Res_Factor_Max ();
+
+  void
+  Lateral_Res_Factor_Max (const Lateral_Res_Factor_Max_type& x);
+
+  void
+  Lateral_Res_Factor_Max (::std::auto_ptr< Lateral_Res_Factor_Max_type > p);
+
+  // Scan-Speeds
+  //
+  typedef ::xml_schema::string Scan_Speeds_type;
+  typedef ::xsd::cxx::tree::traits< Scan_Speeds_type, char > Scan_Speeds_traits;
+
+  const Scan_Speeds_type&
+  Scan_Speeds () const;
+
+  Scan_Speeds_type&
+  Scan_Speeds ();
+
+  void
+  Scan_Speeds (const Scan_Speeds_type& x);
+
+  void
+  Scan_Speeds (::std::auto_ptr< Scan_Speeds_type > p);
+
+  // Filter-Doppler-Cutoff
+  //
+  typedef ::xml_schema::string Filter_Doppler_Cutoff_type;
+  typedef ::xsd::cxx::tree::traits< Filter_Doppler_Cutoff_type, char > Filter_Doppler_Cutoff_traits;
+
+  const Filter_Doppler_Cutoff_type&
+  Filter_Doppler_Cutoff () const;
+
+  Filter_Doppler_Cutoff_type&
+  Filter_Doppler_Cutoff ();
+
+  void
+  Filter_Doppler_Cutoff (const Filter_Doppler_Cutoff_type& x);
+
+  void
+  Filter_Doppler_Cutoff (::std::auto_ptr< Filter_Doppler_Cutoff_type > p);
+
+  // Name
+  //
+  typedef ::xml_schema::string Name_type;
+  typedef ::xsd::cxx::tree::traits< Name_type, char > Name_traits;
+
+  const Name_type&
+  Name () const;
+
+  Name_type&
+  Name ();
+
+  void
+  Name (const Name_type& x);
+
+  void
+  Name (::std::auto_ptr< Name_type > p);
+
+  // PID-KD-Low
+  //
+  typedef ::xml_schema::string PID_KD_Low_type;
+  typedef ::xsd::cxx::tree::traits< PID_KD_Low_type, char > PID_KD_Low_traits;
+
+  const PID_KD_Low_type&
+  PID_KD_Low () const;
+
+  PID_KD_Low_type&
+  PID_KD_Low ();
+
+  void
+  PID_KD_Low (const PID_KD_Low_type& x);
+
+  void
+  PID_KD_Low (::std::auto_ptr< PID_KD_Low_type > p);
+
+  // PID-KI-Low
+  //
+  typedef ::xml_schema::string PID_KI_Low_type;
+  typedef ::xsd::cxx::tree::traits< PID_KI_Low_type, char > PID_KI_Low_traits;
+
+  const PID_KI_Low_type&
+  PID_KI_Low () const;
+
+  PID_KI_Low_type&
+  PID_KI_Low ();
+
+  void
+  PID_KI_Low (const PID_KI_Low_type& x);
+
+  void
+  PID_KI_Low (::std::auto_ptr< PID_KI_Low_type > p);
+
+  // PID-KP-Low
+  //
+  typedef ::xml_schema::string PID_KP_Low_type;
+  typedef ::xsd::cxx::tree::traits< PID_KP_Low_type, char > PID_KP_Low_traits;
+
+  const PID_KP_Low_type&
+  PID_KP_Low () const;
+
+  PID_KP_Low_type&
+  PID_KP_Low ();
+
+  void
+  PID_KP_Low (const PID_KP_Low_type& x);
+
+  void
+  PID_KP_Low (::std::auto_ptr< PID_KP_Low_type > p);
+
+  // Peak-Bandwidth-Correction
+  //
+  typedef ::xml_schema::string Peak_Bandwidth_Correction_type;
+  typedef ::xsd::cxx::tree::traits< Peak_Bandwidth_Correction_type, char > Peak_Bandwidth_Correction_traits;
+
+  const Peak_Bandwidth_Correction_type&
+  Peak_Bandwidth_Correction () const;
+
+  Peak_Bandwidth_Correction_type&
+  Peak_Bandwidth_Correction ();
+
+  void
+  Peak_Bandwidth_Correction (const Peak_Bandwidth_Correction_type& x);
+
+  void
+  Peak_Bandwidth_Correction (::std::auto_ptr< Peak_Bandwidth_Correction_type > p);
+
+  // Frequency-Doppler-Low
+  //
+  typedef ::xml_schema::string Frequency_Doppler_Low_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_Doppler_Low_type, char > Frequency_Doppler_Low_traits;
+
+  const Frequency_Doppler_Low_type&
+  Frequency_Doppler_Low () const;
+
+  Frequency_Doppler_Low_type&
+  Frequency_Doppler_Low ();
+
+  void
+  Frequency_Doppler_Low (const Frequency_Doppler_Low_type& x);
+
+  void
+  Frequency_Doppler_Low (::std::auto_ptr< Frequency_Doppler_Low_type > p);
+
+  // Pivot-Transducer-Face-Dist
+  //
+  typedef ::xml_schema::string Pivot_Transducer_Face_Dist_type;
+  typedef ::xsd::cxx::tree::traits< Pivot_Transducer_Face_Dist_type, char > Pivot_Transducer_Face_Dist_traits;
+
+  const Pivot_Transducer_Face_Dist_type&
+  Pivot_Transducer_Face_Dist () const;
+
+  Pivot_Transducer_Face_Dist_type&
+  Pivot_Transducer_Face_Dist ();
+
+  void
+  Pivot_Transducer_Face_Dist (const Pivot_Transducer_Face_Dist_type& x);
+
+  void
+  Pivot_Transducer_Face_Dist (::std::auto_ptr< Pivot_Transducer_Face_Dist_type > p);
+
+  // Filter-Doppler
+  //
+  typedef ::xml_schema::string Filter_Doppler_type;
+  typedef ::xsd::cxx::tree::traits< Filter_Doppler_type, char > Filter_Doppler_traits;
+
+  const Filter_Doppler_type&
+  Filter_Doppler () const;
+
+  Filter_Doppler_type&
+  Filter_Doppler ();
+
+  void
+  Filter_Doppler (const Filter_Doppler_type& x);
+
+  void
+  Filter_Doppler (::std::auto_ptr< Filter_Doppler_type > p);
+
+  // Frequency
+  //
+  typedef ::xml_schema::string Frequency_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
+
+  const Frequency_type&
+  Frequency () const;
+
+  Frequency_type&
+  Frequency ();
+
+  void
+  Frequency (const Frequency_type& x);
+
+  void
+  Frequency (::std::auto_ptr< Frequency_type > p);
+
+  // Integration-Limit
+  //
+  typedef ::xml_schema::string Integration_Limit_type;
+  typedef ::xsd::cxx::tree::traits< Integration_Limit_type, char > Integration_Limit_traits;
+
+  const Integration_Limit_type&
+  Integration_Limit () const;
+
+  Integration_Limit_type&
+  Integration_Limit ();
+
+  void
+  Integration_Limit (const Integration_Limit_type& x);
+
+  void
+  Integration_Limit (::std::auto_ptr< Integration_Limit_type > p);
+
+  // Encoder-Separation
+  //
+  typedef ::xml_schema::string Encoder_Separation_type;
+  typedef ::xsd::cxx::tree::traits< Encoder_Separation_type, char > Encoder_Separation_traits;
+
+  const Encoder_Separation_type&
+  Encoder_Separation () const;
+
+  Encoder_Separation_type&
+  Encoder_Separation ();
+
+  void
+  Encoder_Separation (const Encoder_Separation_type& x);
+
+  void
+  Encoder_Separation (::std::auto_ptr< Encoder_Separation_type > p);
+
+  // Overshoot
+  //
+  typedef ::xml_schema::string Overshoot_type;
+  typedef ::xsd::cxx::tree::traits< Overshoot_type, char > Overshoot_traits;
+
+  const Overshoot_type&
+  Overshoot () const;
+
+  Overshoot_type&
+  Overshoot ();
+
+  void
+  Overshoot (const Overshoot_type& x);
+
+  void
+  Overshoot (::std::auto_ptr< Overshoot_type > p);
+
+  // Attenuation-Shift
+  //
+  typedef ::xml_schema::string Attenuation_Shift_type;
+  typedef ::xsd::cxx::tree::traits< Attenuation_Shift_type, char > Attenuation_Shift_traits;
+
+  const Attenuation_Shift_type&
+  Attenuation_Shift () const;
+
+  Attenuation_Shift_type&
+  Attenuation_Shift ();
+
+  void
+  Attenuation_Shift (const Attenuation_Shift_type& x);
+
+  void
+  Attenuation_Shift (::std::auto_ptr< Attenuation_Shift_type > p);
+
+  // Filter
+  //
+  typedef ::xml_schema::string Filter_type;
+  typedef ::xsd::cxx::tree::traits< Filter_type, char > Filter_traits;
+
+  const Filter_type&
+  Filter () const;
+
+  Filter_type&
+  Filter ();
+
+  void
+  Filter (const Filter_type& x);
+
+  void
+  Filter (::std::auto_ptr< Filter_type > p);
+
+  // Default-Rx-Gain-Doppler
+  //
+  typedef ::xml_schema::string Default_Rx_Gain_Doppler_type;
+  typedef ::xsd::cxx::tree::traits< Default_Rx_Gain_Doppler_type, char > Default_Rx_Gain_Doppler_traits;
+
+  const Default_Rx_Gain_Doppler_type&
+  Default_Rx_Gain_Doppler () const;
+
+  Default_Rx_Gain_Doppler_type&
+  Default_Rx_Gain_Doppler ();
+
+  void
+  Default_Rx_Gain_Doppler (const Default_Rx_Gain_Doppler_type& x);
+
+  void
+  Default_Rx_Gain_Doppler (::std::auto_ptr< Default_Rx_Gain_Doppler_type > p);
+
+  // Peak-Vel-Correction
+  //
+  typedef ::xml_schema::string Peak_Vel_Correction_type;
+  typedef ::xsd::cxx::tree::traits< Peak_Vel_Correction_type, char > Peak_Vel_Correction_traits;
+
+  const Peak_Vel_Correction_type&
+  Peak_Vel_Correction () const;
+
+  Peak_Vel_Correction_type&
+  Peak_Vel_Correction ();
+
+  void
+  Peak_Vel_Correction (const Peak_Vel_Correction_type& x);
+
+  void
+  Peak_Vel_Correction (::std::auto_ptr< Peak_Vel_Correction_type > p);
+
+  // Detect-Ratio-Max
+  //
+  typedef ::xml_schema::string Detect_Ratio_Max_type;
+  typedef ::xsd::cxx::tree::traits< Detect_Ratio_Max_type, char > Detect_Ratio_Max_traits;
+
+  const Detect_Ratio_Max_type&
+  Detect_Ratio_Max () const;
+
+  Detect_Ratio_Max_type&
+  Detect_Ratio_Max ();
+
+  void
+  Detect_Ratio_Max (const Detect_Ratio_Max_type& x);
+
+  void
+  Detect_Ratio_Max (::std::auto_ptr< Detect_Ratio_Max_type > p);
+
+  // Acceleration-Limit-Constant
+  //
+  typedef ::xml_schema::string Acceleration_Limit_Constant_type;
+  typedef ::xsd::cxx::tree::traits< Acceleration_Limit_Constant_type, char > Acceleration_Limit_Constant_traits;
+
+  const Acceleration_Limit_Constant_type&
+  Acceleration_Limit_Constant () const;
+
+  Acceleration_Limit_Constant_type&
+  Acceleration_Limit_Constant ();
+
+  void
+  Acceleration_Limit_Constant (const Acceleration_Limit_Constant_type& x);
+
+  void
+  Acceleration_Limit_Constant (::std::auto_ptr< Acceleration_Limit_Constant_type > p);
+
+  // Filter-Doppler-Low
+  //
+  typedef ::xml_schema::string Filter_Doppler_Low_type;
+  typedef ::xsd::cxx::tree::traits< Filter_Doppler_Low_type, char > Filter_Doppler_Low_traits;
+
+  const Filter_Doppler_Low_type&
+  Filter_Doppler_Low () const;
+
+  Filter_Doppler_Low_type&
+  Filter_Doppler_Low ();
+
+  void
+  Filter_Doppler_Low (const Filter_Doppler_Low_type& x);
+
+  void
+  Filter_Doppler_Low (::std::auto_ptr< Filter_Doppler_Low_type > p);
+
+  // Constructors.
+  //
+  ActiveProbe (const Notes_type&,
+               const Sample_Time_type&,
+               const Focal_Length_type&,
+               const Acceleration_Limit_Slope_type&,
+               const Type_type&,
+               const Detect_Id_type&,
+               const Default_Scan_Speed_type&,
+               const K1_Power_type&,
+               const Cutoff_Scan_Speed_type&,
+               const Frequency_Low_type&,
+               const Default_FOV_type&,
+               const Frequency_Doppler_Default_type&,
+               const Default_SvSize_MMode_type&,
+               const Axial_Res_Factor_Target_type&,
+               const F_Number_type&,
+               const Acc_Time_Factor_type&,
+               const Frequency_Doppler_type&,
+               const Axial_Res_type&,
+               const Detect_Ratio_Min_type&,
+               const Lateral_Res_Factor_Target_type&,
+               const Derivative_Time_type&,
+               const Filter_High_type&,
+               const Pivot_Encoder_Dist_type&,
+               const Encoder_Range_Max_type&,
+               const Encoder_Range_Min_type&,
+               const Lateral_Res_type&,
+               const Motor_Overhead_type&,
+               const Max_Scan_Distance_type&,
+               const Version_type&,
+               const Default_Rx_Gain_type&,
+               const Filter_Low_type&,
+               const PID_KD_High_type&,
+               const PID_KI_High_type&,
+               const PID_KP_High_type&,
+               const Frequency_High_type&,
+               const Lateral_Res_Factor_Max_type&,
+               const Scan_Speeds_type&,
+               const Filter_Doppler_Cutoff_type&,
+               const Name_type&,
+               const PID_KD_Low_type&,
+               const PID_KI_Low_type&,
+               const PID_KP_Low_type&,
+               const Peak_Bandwidth_Correction_type&,
+               const Frequency_Doppler_Low_type&,
+               const Pivot_Transducer_Face_Dist_type&,
+               const Filter_Doppler_type&,
+               const Frequency_type&,
+               const Integration_Limit_type&,
+               const Encoder_Separation_type&,
+               const Overshoot_type&,
+               const Attenuation_Shift_type&,
+               const Filter_type&,
+               const Default_Rx_Gain_Doppler_type&,
+               const Peak_Vel_Correction_type&,
+               const Detect_Ratio_Max_type&,
+               const Acceleration_Limit_Constant_type&,
+               const Filter_Doppler_Low_type&);
+
+  ActiveProbe (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  ActiveProbe (const ActiveProbe& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual ActiveProbe*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~ActiveProbe ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Notes_type > Notes_;
+  ::xsd::cxx::tree::one< Sample_Time_type > Sample_Time_;
+  ::xsd::cxx::tree::one< Focal_Length_type > Focal_Length_;
+  ::xsd::cxx::tree::one< Acceleration_Limit_Slope_type > Acceleration_Limit_Slope_;
+  ::xsd::cxx::tree::one< Type_type > Type_;
+  ::xsd::cxx::tree::one< Detect_Id_type > Detect_Id_;
+  ::xsd::cxx::tree::one< Default_Scan_Speed_type > Default_Scan_Speed_;
+  ::xsd::cxx::tree::one< K1_Power_type > K1_Power_;
+  ::xsd::cxx::tree::one< Cutoff_Scan_Speed_type > Cutoff_Scan_Speed_;
+  ::xsd::cxx::tree::one< Frequency_Low_type > Frequency_Low_;
+  ::xsd::cxx::tree::one< Default_FOV_type > Default_FOV_;
+  ::xsd::cxx::tree::one< Frequency_Doppler_Default_type > Frequency_Doppler_Default_;
+  ::xsd::cxx::tree::one< Default_SvSize_MMode_type > Default_SvSize_MMode_;
+  ::xsd::cxx::tree::one< Axial_Res_Factor_Target_type > Axial_Res_Factor_Target_;
+  ::xsd::cxx::tree::one< F_Number_type > F_Number_;
+  ::xsd::cxx::tree::one< Acc_Time_Factor_type > Acc_Time_Factor_;
+  ::xsd::cxx::tree::one< Frequency_Doppler_type > Frequency_Doppler_;
+  ::xsd::cxx::tree::one< Axial_Res_type > Axial_Res_;
+  ::xsd::cxx::tree::one< Detect_Ratio_Min_type > Detect_Ratio_Min_;
+  ::xsd::cxx::tree::one< Lateral_Res_Factor_Target_type > Lateral_Res_Factor_Target_;
+  ::xsd::cxx::tree::one< Derivative_Time_type > Derivative_Time_;
+  ::xsd::cxx::tree::one< Filter_High_type > Filter_High_;
+  ::xsd::cxx::tree::one< Pivot_Encoder_Dist_type > Pivot_Encoder_Dist_;
+  ::xsd::cxx::tree::one< Encoder_Range_Max_type > Encoder_Range_Max_;
+  ::xsd::cxx::tree::one< Encoder_Range_Min_type > Encoder_Range_Min_;
+  ::xsd::cxx::tree::one< Lateral_Res_type > Lateral_Res_;
+  ::xsd::cxx::tree::one< Motor_Overhead_type > Motor_Overhead_;
+  ::xsd::cxx::tree::one< Max_Scan_Distance_type > Max_Scan_Distance_;
+  ::xsd::cxx::tree::one< Version_type > Version_;
+  ::xsd::cxx::tree::one< Default_Rx_Gain_type > Default_Rx_Gain_;
+  ::xsd::cxx::tree::one< Filter_Low_type > Filter_Low_;
+  ::xsd::cxx::tree::one< PID_KD_High_type > PID_KD_High_;
+  ::xsd::cxx::tree::one< PID_KI_High_type > PID_KI_High_;
+  ::xsd::cxx::tree::one< PID_KP_High_type > PID_KP_High_;
+  ::xsd::cxx::tree::one< Frequency_High_type > Frequency_High_;
+  ::xsd::cxx::tree::one< Lateral_Res_Factor_Max_type > Lateral_Res_Factor_Max_;
+  ::xsd::cxx::tree::one< Scan_Speeds_type > Scan_Speeds_;
+  ::xsd::cxx::tree::one< Filter_Doppler_Cutoff_type > Filter_Doppler_Cutoff_;
+  ::xsd::cxx::tree::one< Name_type > Name_;
+  ::xsd::cxx::tree::one< PID_KD_Low_type > PID_KD_Low_;
+  ::xsd::cxx::tree::one< PID_KI_Low_type > PID_KI_Low_;
+  ::xsd::cxx::tree::one< PID_KP_Low_type > PID_KP_Low_;
+  ::xsd::cxx::tree::one< Peak_Bandwidth_Correction_type > Peak_Bandwidth_Correction_;
+  ::xsd::cxx::tree::one< Frequency_Doppler_Low_type > Frequency_Doppler_Low_;
+  ::xsd::cxx::tree::one< Pivot_Transducer_Face_Dist_type > Pivot_Transducer_Face_Dist_;
+  ::xsd::cxx::tree::one< Filter_Doppler_type > Filter_Doppler_;
+  ::xsd::cxx::tree::one< Frequency_type > Frequency_;
+  ::xsd::cxx::tree::one< Integration_Limit_type > Integration_Limit_;
+  ::xsd::cxx::tree::one< Encoder_Separation_type > Encoder_Separation_;
+  ::xsd::cxx::tree::one< Overshoot_type > Overshoot_;
+  ::xsd::cxx::tree::one< Attenuation_Shift_type > Attenuation_Shift_;
+  ::xsd::cxx::tree::one< Filter_type > Filter_;
+  ::xsd::cxx::tree::one< Default_Rx_Gain_Doppler_type > Default_Rx_Gain_Doppler_;
+  ::xsd::cxx::tree::one< Peak_Vel_Correction_type > Peak_Vel_Correction_;
+  ::xsd::cxx::tree::one< Detect_Ratio_Max_type > Detect_Ratio_Max_;
+  ::xsd::cxx::tree::one< Acceleration_Limit_Constant_type > Acceleration_Limit_Constant_;
+  ::xsd::cxx::tree::one< Filter_Doppler_Low_type > Filter_Doppler_Low_;
+};
+
+class BModeSoft: public ::xml_schema::type
+{
+  public:
+  // V-Relative-Frame-Rate
+  //
+  typedef ::xml_schema::string V_Relative_Frame_Rate_type;
+  typedef ::xsd::cxx::tree::traits< V_Relative_Frame_Rate_type, char > V_Relative_Frame_Rate_traits;
+
+  const V_Relative_Frame_Rate_type&
+  V_Relative_Frame_Rate () const;
+
+  V_Relative_Frame_Rate_type&
+  V_Relative_Frame_Rate ();
+
+  void
+  V_Relative_Frame_Rate (const V_Relative_Frame_Rate_type& x);
+
+  void
+  V_Relative_Frame_Rate (::std::auto_ptr< V_Relative_Frame_Rate_type > p);
+
+  // Max-Power-Size-Default
+  //
+  typedef ::xml_schema::string Max_Power_Size_Default_type;
+  typedef ::xsd::cxx::tree::traits< Max_Power_Size_Default_type, char > Max_Power_Size_Default_traits;
+
+  const Max_Power_Size_Default_type&
+  Max_Power_Size_Default () const;
+
+  Max_Power_Size_Default_type&
+  Max_Power_Size_Default ();
+
+  void
+  Max_Power_Size_Default (const Max_Power_Size_Default_type& x);
+
+  void
+  Max_Power_Size_Default (::std::auto_ptr< Max_Power_Size_Default_type > p);
+
+  // Buffer-Size
+  //
+  typedef ::xml_schema::string Buffer_Size_type;
+  typedef ::xsd::cxx::tree::traits< Buffer_Size_type, char > Buffer_Size_traits;
+
+  const Buffer_Size_type&
+  Buffer_Size () const;
+
+  Buffer_Size_type&
+  Buffer_Size ();
+
+  void
+  Buffer_Size (const Buffer_Size_type& x);
+
+  void
+  Buffer_Size (::std::auto_ptr< Buffer_Size_type > p);
+
+  // AVR-Factor
+  //
+  typedef ::xml_schema::string AVR_Factor_type;
+  typedef ::xsd::cxx::tree::traits< AVR_Factor_type, char > AVR_Factor_traits;
+
+  const AVR_Factor_type&
+  AVR_Factor () const;
+
+  AVR_Factor_type&
+  AVR_Factor ();
+
+  void
+  AVR_Factor (const AVR_Factor_type& x);
+
+  void
+  AVR_Factor (::std::auto_ptr< AVR_Factor_type > p);
+
+  // AVR-Startup-Frames
+  //
+  typedef ::xml_schema::string AVR_Startup_Frames_type;
+  typedef ::xsd::cxx::tree::traits< AVR_Startup_Frames_type, char > AVR_Startup_Frames_traits;
+
+  const AVR_Startup_Frames_type&
+  AVR_Startup_Frames () const;
+
+  AVR_Startup_Frames_type&
+  AVR_Startup_Frames ();
+
+  void
+  AVR_Startup_Frames (const AVR_Startup_Frames_type& x);
+
+  void
+  AVR_Startup_Frames (::std::auto_ptr< AVR_Startup_Frames_type > p);
+
+  // BMode-Size-Default
+  //
+  typedef ::xml_schema::string BMode_Size_Default_type;
+  typedef ::xsd::cxx::tree::traits< BMode_Size_Default_type, char > BMode_Size_Default_traits;
+
+  const BMode_Size_Default_type&
+  BMode_Size_Default () const;
+
+  BMode_Size_Default_type&
+  BMode_Size_Default ();
+
+  void
+  BMode_Size_Default (const BMode_Size_Default_type& x);
+
+  void
+  BMode_Size_Default (::std::auto_ptr< BMode_Size_Default_type > p);
+
+  // Relative-Frame-Rate
+  //
+  typedef ::xml_schema::string Relative_Frame_Rate_type;
+  typedef ::xsd::cxx::tree::traits< Relative_Frame_Rate_type, char > Relative_Frame_Rate_traits;
+
+  const Relative_Frame_Rate_type&
+  Relative_Frame_Rate () const;
+
+  Relative_Frame_Rate_type&
+  Relative_Frame_Rate ();
+
+  void
+  Relative_Frame_Rate (const Relative_Frame_Rate_type& x);
+
+  void
+  Relative_Frame_Rate (::std::auto_ptr< Relative_Frame_Rate_type > p);
+
+  // Refresh-Rate
+  //
+  typedef ::xml_schema::string Refresh_Rate_type;
+  typedef ::xsd::cxx::tree::traits< Refresh_Rate_type, char > Refresh_Rate_traits;
+
+  const Refresh_Rate_type&
+  Refresh_Rate () const;
+
+  Refresh_Rate_type&
+  Refresh_Rate ();
+
+  void
+  Refresh_Rate (const Refresh_Rate_type& x);
+
+  void
+  Refresh_Rate (::std::auto_ptr< Refresh_Rate_type > p);
+
+  // Acquire-Both-Directions
+  //
+  typedef ::xml_schema::string Acquire_Both_Directions_type;
+  typedef ::xsd::cxx::tree::traits< Acquire_Both_Directions_type, char > Acquire_Both_Directions_traits;
+
+  const Acquire_Both_Directions_type&
+  Acquire_Both_Directions () const;
+
+  Acquire_Both_Directions_type&
+  Acquire_Both_Directions ();
+
+  void
+  Acquire_Both_Directions (const Acquire_Both_Directions_type& x);
+
+  void
+  Acquire_Both_Directions (::std::auto_ptr< Acquire_Both_Directions_type > p);
+
+  // Acquire-Persist-AVR
+  //
+  typedef ::xml_schema::string Acquire_Persist_AVR_type;
+  typedef ::xsd::cxx::tree::traits< Acquire_Persist_AVR_type, char > Acquire_Persist_AVR_traits;
+
+  const Acquire_Persist_AVR_type&
+  Acquire_Persist_AVR () const;
+
+  Acquire_Persist_AVR_type&
+  Acquire_Persist_AVR ();
+
+  void
+  Acquire_Persist_AVR (const Acquire_Persist_AVR_type& x);
+
+  void
+  Acquire_Persist_AVR (::std::auto_ptr< Acquire_Persist_AVR_type > p);
+
+  // Power-Size-Default
+  //
+  typedef ::xml_schema::string Power_Size_Default_type;
+  typedef ::xsd::cxx::tree::traits< Power_Size_Default_type, char > Power_Size_Default_traits;
+
+  const Power_Size_Default_type&
+  Power_Size_Default () const;
+
+  Power_Size_Default_type&
+  Power_Size_Default ();
+
+  void
+  Power_Size_Default (const Power_Size_Default_type& x);
+
+  void
+  Power_Size_Default (::std::auto_ptr< Power_Size_Default_type > p);
+
+  // Max-BMode-Size-Default
+  //
+  typedef ::xml_schema::string Max_BMode_Size_Default_type;
+  typedef ::xsd::cxx::tree::traits< Max_BMode_Size_Default_type, char > Max_BMode_Size_Default_traits;
+
+  const Max_BMode_Size_Default_type&
+  Max_BMode_Size_Default () const;
+
+  Max_BMode_Size_Default_type&
+  Max_BMode_Size_Default ();
+
+  void
+  Max_BMode_Size_Default (const Max_BMode_Size_Default_type& x);
+
+  void
+  Max_BMode_Size_Default (::std::auto_ptr< Max_BMode_Size_Default_type > p);
+
+  // Target-Field-Of-View
+  //
+  typedef ::xml_schema::string Target_Field_Of_View_type;
+  typedef ::xsd::cxx::tree::traits< Target_Field_Of_View_type, char > Target_Field_Of_View_traits;
+
+  const Target_Field_Of_View_type&
+  Target_Field_Of_View () const;
+
+  Target_Field_Of_View_type&
+  Target_Field_Of_View ();
+
+  void
+  Target_Field_Of_View (const Target_Field_Of_View_type& x);
+
+  void
+  Target_Field_Of_View (::std::auto_ptr< Target_Field_Of_View_type > p);
+
+  // Processing-Command
+  //
+  typedef ::xml_schema::string Processing_Command_type;
+  typedef ::xsd::cxx::tree::traits< Processing_Command_type, char > Processing_Command_traits;
+
+  const Processing_Command_type&
+  Processing_Command () const;
+
+  Processing_Command_type&
+  Processing_Command ();
+
+  void
+  Processing_Command (const Processing_Command_type& x);
+
+  void
+  Processing_Command (::std::auto_ptr< Processing_Command_type > p);
+
+  // Constructors.
+  //
+  BModeSoft (const V_Relative_Frame_Rate_type&,
+             const Max_Power_Size_Default_type&,
+             const Buffer_Size_type&,
+             const AVR_Factor_type&,
+             const AVR_Startup_Frames_type&,
+             const BMode_Size_Default_type&,
+             const Relative_Frame_Rate_type&,
+             const Refresh_Rate_type&,
+             const Acquire_Both_Directions_type&,
+             const Acquire_Persist_AVR_type&,
+             const Power_Size_Default_type&,
+             const Max_BMode_Size_Default_type&,
+             const Target_Field_Of_View_type&,
+             const Processing_Command_type&);
+
+  BModeSoft (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  BModeSoft (const BModeSoft& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual BModeSoft*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~BModeSoft ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< V_Relative_Frame_Rate_type > V_Relative_Frame_Rate_;
+  ::xsd::cxx::tree::one< Max_Power_Size_Default_type > Max_Power_Size_Default_;
+  ::xsd::cxx::tree::one< Buffer_Size_type > Buffer_Size_;
+  ::xsd::cxx::tree::one< AVR_Factor_type > AVR_Factor_;
+  ::xsd::cxx::tree::one< AVR_Startup_Frames_type > AVR_Startup_Frames_;
+  ::xsd::cxx::tree::one< BMode_Size_Default_type > BMode_Size_Default_;
+  ::xsd::cxx::tree::one< Relative_Frame_Rate_type > Relative_Frame_Rate_;
+  ::xsd::cxx::tree::one< Refresh_Rate_type > Refresh_Rate_;
+  ::xsd::cxx::tree::one< Acquire_Both_Directions_type > Acquire_Both_Directions_;
+  ::xsd::cxx::tree::one< Acquire_Persist_AVR_type > Acquire_Persist_AVR_;
+  ::xsd::cxx::tree::one< Power_Size_Default_type > Power_Size_Default_;
+  ::xsd::cxx::tree::one< Max_BMode_Size_Default_type > Max_BMode_Size_Default_;
+  ::xsd::cxx::tree::one< Target_Field_Of_View_type > Target_Field_Of_View_;
+  ::xsd::cxx::tree::one< Processing_Command_type > Processing_Command_;
+};
+
+class Sys: public ::xml_schema::type
+{
+  public:
+  // Query-Discard-Loop-On-Save-Frame
+  //
+  typedef ::xml_schema::string Query_Discard_Loop_On_Save_Frame_type;
+  typedef ::xsd::cxx::tree::traits< Query_Discard_Loop_On_Save_Frame_type, char > Query_Discard_Loop_On_Save_Frame_traits;
+
+  const Query_Discard_Loop_On_Save_Frame_type&
+  Query_Discard_Loop_On_Save_Frame () const;
+
+  Query_Discard_Loop_On_Save_Frame_type&
+  Query_Discard_Loop_On_Save_Frame ();
+
+  void
+  Query_Discard_Loop_On_Save_Frame (const Query_Discard_Loop_On_Save_Frame_type& x);
+
+  void
+  Query_Discard_Loop_On_Save_Frame (::std::auto_ptr< Query_Discard_Loop_On_Save_Frame_type > p);
+
+  // Sound-Speed
+  //
+  typedef ::xml_schema::string Sound_Speed_type;
+  typedef ::xsd::cxx::tree::traits< Sound_Speed_type, char > Sound_Speed_traits;
+
+  const Sound_Speed_type&
+  Sound_Speed () const;
+
+  Sound_Speed_type&
+  Sound_Speed ();
+
+  void
+  Sound_Speed (const Sound_Speed_type& x);
+
+  void
+  Sound_Speed (::std::auto_ptr< Sound_Speed_type > p);
+
+  // SubMode
+  //
+  typedef ::xml_schema::string SubMode_type;
+  typedef ::xsd::cxx::tree::traits< SubMode_type, char > SubMode_traits;
+
+  const SubMode_type&
+  SubMode () const;
+
+  SubMode_type&
+  SubMode ();
+
+  void
+  SubMode (const SubMode_type& x);
+
+  void
+  SubMode (::std::auto_ptr< SubMode_type > p);
+
+  // Interrupt-Mask
+  //
+  typedef ::xml_schema::string Interrupt_Mask_type;
+  typedef ::xsd::cxx::tree::traits< Interrupt_Mask_type, char > Interrupt_Mask_traits;
+
+  const Interrupt_Mask_type&
+  Interrupt_Mask () const;
+
+  Interrupt_Mask_type&
+  Interrupt_Mask ();
+
+  void
+  Interrupt_Mask (const Interrupt_Mask_type& x);
+
+  void
+  Interrupt_Mask (::std::auto_ptr< Interrupt_Mask_type > p);
+
+  // Calculation-Instances
+  //
+  typedef ::xml_schema::string Calculation_Instances_type;
+  typedef ::xsd::cxx::tree::traits< Calculation_Instances_type, char > Calculation_Instances_traits;
+
+  const Calculation_Instances_type&
+  Calculation_Instances () const;
+
+  Calculation_Instances_type&
+  Calculation_Instances ();
+
+  void
+  Calculation_Instances (const Calculation_Instances_type& x);
+
+  void
+  Calculation_Instances (::std::auto_ptr< Calculation_Instances_type > p);
+
+  // Start-Licence-Date
+  //
+  typedef ::xml_schema::string Start_Licence_Date_type;
+  typedef ::xsd::cxx::tree::traits< Start_Licence_Date_type, char > Start_Licence_Date_traits;
+
+  const Start_Licence_Date_type&
+  Start_Licence_Date () const;
+
+  Start_Licence_Date_type&
+  Start_Licence_Date ();
+
+  void
+  Start_Licence_Date (const Start_Licence_Date_type& x);
+
+  void
+  Start_Licence_Date (::std::auto_ptr< Start_Licence_Date_type > p);
+
+  // End-Licence-Date
+  //
+  typedef ::xml_schema::string End_Licence_Date_type;
+  typedef ::xsd::cxx::tree::traits< End_Licence_Date_type, char > End_Licence_Date_traits;
+
+  const End_Licence_Date_type&
+  End_Licence_Date () const;
+
+  End_Licence_Date_type&
+  End_Licence_Date ();
+
+  void
+  End_Licence_Date (const End_Licence_Date_type& x);
+
+  void
+  End_Licence_Date (::std::auto_ptr< End_Licence_Date_type > p);
+
+  // Auto-Save-PreTrig-Loop
+  //
+  typedef ::xml_schema::string Auto_Save_PreTrig_Loop_type;
+  typedef ::xsd::cxx::tree::traits< Auto_Save_PreTrig_Loop_type, char > Auto_Save_PreTrig_Loop_traits;
+
+  const Auto_Save_PreTrig_Loop_type&
+  Auto_Save_PreTrig_Loop () const;
+
+  Auto_Save_PreTrig_Loop_type&
+  Auto_Save_PreTrig_Loop ();
+
+  void
+  Auto_Save_PreTrig_Loop (const Auto_Save_PreTrig_Loop_type& x);
+
+  void
+  Auto_Save_PreTrig_Loop (::std::auto_ptr< Auto_Save_PreTrig_Loop_type > p);
+
+  // Feature
+  //
+  typedef ::xml_schema::string Feature_type;
+  typedef ::xsd::cxx::tree::traits< Feature_type, char > Feature_traits;
+
+  const Feature_type&
+  Feature () const;
+
+  Feature_type&
+  Feature ();
+
+  void
+  Feature (const Feature_type& x);
+
+  void
+  Feature (::std::auto_ptr< Feature_type > p);
+
+  // Review-Setup-Dialog
+  //
+  typedef ::xml_schema::string Review_Setup_Dialog_type;
+  typedef ::xsd::cxx::tree::traits< Review_Setup_Dialog_type, char > Review_Setup_Dialog_traits;
+
+  const Review_Setup_Dialog_type&
+  Review_Setup_Dialog () const;
+
+  Review_Setup_Dialog_type&
+  Review_Setup_Dialog ();
+
+  void
+  Review_Setup_Dialog (const Review_Setup_Dialog_type& x);
+
+  void
+  Review_Setup_Dialog (::std::auto_ptr< Review_Setup_Dialog_type > p);
+
+  // Acq-Setup-Dialog
+  //
+  typedef ::xml_schema::string Acq_Setup_Dialog_type;
+  typedef ::xsd::cxx::tree::traits< Acq_Setup_Dialog_type, char > Acq_Setup_Dialog_traits;
+
+  const Acq_Setup_Dialog_type&
+  Acq_Setup_Dialog () const;
+
+  Acq_Setup_Dialog_type&
+  Acq_Setup_Dialog ();
+
+  void
+  Acq_Setup_Dialog (const Acq_Setup_Dialog_type& x);
+
+  void
+  Acq_Setup_Dialog (::std::auto_ptr< Acq_Setup_Dialog_type > p);
+
+  // Interrupt-Clear
+  //
+  typedef ::xml_schema::string Interrupt_Clear_type;
+  typedef ::xsd::cxx::tree::traits< Interrupt_Clear_type, char > Interrupt_Clear_traits;
+
+  const Interrupt_Clear_type&
+  Interrupt_Clear () const;
+
+  Interrupt_Clear_type&
+  Interrupt_Clear ();
+
+  void
+  Interrupt_Clear (const Interrupt_Clear_type& x);
+
+  void
+  Interrupt_Clear (::std::auto_ptr< Interrupt_Clear_type > p);
+
+  // Interrupt-Status
+  //
+  typedef ::xml_schema::string Interrupt_Status_type;
+  typedef ::xsd::cxx::tree::traits< Interrupt_Status_type, char > Interrupt_Status_traits;
+
+  const Interrupt_Status_type&
+  Interrupt_Status () const;
+
+  Interrupt_Status_type&
+  Interrupt_Status ();
+
+  void
+  Interrupt_Status (const Interrupt_Status_type& x);
+
+  void
+  Interrupt_Status (::std::auto_ptr< Interrupt_Status_type > p);
+
+  // Auto-Save-Load-3D
+  //
+  typedef ::xml_schema::string Auto_Save_Load_3D_type;
+  typedef ::xsd::cxx::tree::traits< Auto_Save_Load_3D_type, char > Auto_Save_Load_3D_traits;
+
+  const Auto_Save_Load_3D_type&
+  Auto_Save_Load_3D () const;
+
+  Auto_Save_Load_3D_type&
+  Auto_Save_Load_3D ();
+
+  void
+  Auto_Save_Load_3D (const Auto_Save_Load_3D_type& x);
+
+  void
+  Auto_Save_Load_3D (::std::auto_ptr< Auto_Save_Load_3D_type > p);
+
+  // DICOM-Root-ID
+  //
+  typedef ::xml_schema::string DICOM_Root_ID_type;
+  typedef ::xsd::cxx::tree::traits< DICOM_Root_ID_type, char > DICOM_Root_ID_traits;
+
+  const DICOM_Root_ID_type&
+  DICOM_Root_ID () const;
+
+  DICOM_Root_ID_type&
+  DICOM_Root_ID ();
+
+  void
+  DICOM_Root_ID (const DICOM_Root_ID_type& x);
+
+  void
+  DICOM_Root_ID (::std::auto_ptr< DICOM_Root_ID_type > p);
+
+  // Company-Name
+  //
+  typedef ::xml_schema::string Company_Name_type;
+  typedef ::xsd::cxx::tree::traits< Company_Name_type, char > Company_Name_traits;
+
+  const Company_Name_type&
+  Company_Name () const;
+
+  Company_Name_type&
+  Company_Name ();
+
+  void
+  Company_Name (const Company_Name_type& x);
+
+  void
+  Company_Name (::std::auto_ptr< Company_Name_type > p);
+
+  // Image-To-Auto-Save-On-Label
+  //
+  typedef ::xml_schema::string Image_To_Auto_Save_On_Label_type;
+  typedef ::xsd::cxx::tree::traits< Image_To_Auto_Save_On_Label_type, char > Image_To_Auto_Save_On_Label_traits;
+
+  const Image_To_Auto_Save_On_Label_type&
+  Image_To_Auto_Save_On_Label () const;
+
+  Image_To_Auto_Save_On_Label_type&
+  Image_To_Auto_Save_On_Label ();
+
+  void
+  Image_To_Auto_Save_On_Label (const Image_To_Auto_Save_On_Label_type& x);
+
+  void
+  Image_To_Auto_Save_On_Label (::std::auto_ptr< Image_To_Auto_Save_On_Label_type > p);
+
+  // DICOM-Encode-Regions
+  //
+  typedef ::xml_schema::string DICOM_Encode_Regions_type;
+  typedef ::xsd::cxx::tree::traits< DICOM_Encode_Regions_type, char > DICOM_Encode_Regions_traits;
+
+  const DICOM_Encode_Regions_type&
+  DICOM_Encode_Regions () const;
+
+  DICOM_Encode_Regions_type&
+  DICOM_Encode_Regions ();
+
+  void
+  DICOM_Encode_Regions (const DICOM_Encode_Regions_type& x);
+
+  void
+  DICOM_Encode_Regions (::std::auto_ptr< DICOM_Encode_Regions_type > p);
+
+  // Pipeline-Delay
+  //
+  typedef ::xml_schema::string Pipeline_Delay_type;
+  typedef ::xsd::cxx::tree::traits< Pipeline_Delay_type, char > Pipeline_Delay_traits;
+
+  const Pipeline_Delay_type&
+  Pipeline_Delay () const;
+
+  Pipeline_Delay_type&
+  Pipeline_Delay ();
+
+  void
+  Pipeline_Delay (const Pipeline_Delay_type& x);
+
+  void
+  Pipeline_Delay (::std::auto_ptr< Pipeline_Delay_type > p);
+
+  // DDS-Control
+  //
+  typedef ::xml_schema::string DDS_Control_type;
+  typedef ::xsd::cxx::tree::traits< DDS_Control_type, char > DDS_Control_traits;
+
+  const DDS_Control_type&
+  DDS_Control () const;
+
+  DDS_Control_type&
+  DDS_Control ();
+
+  void
+  DDS_Control (const DDS_Control_type& x);
+
+  void
+  DDS_Control (::std::auto_ptr< DDS_Control_type > p);
+
+  // Mode
+  //
+  typedef ::xml_schema::string Mode_type;
+  typedef ::xsd::cxx::tree::traits< Mode_type, char > Mode_traits;
+
+  const Mode_type&
+  Mode () const;
+
+  Mode_type&
+  Mode ();
+
+  void
+  Mode (const Mode_type& x);
+
+  void
+  Mode (::std::auto_ptr< Mode_type > p);
+
+  // Constructors.
+  //
+  Sys (const Query_Discard_Loop_On_Save_Frame_type&,
+       const Sound_Speed_type&,
+       const SubMode_type&,
+       const Interrupt_Mask_type&,
+       const Calculation_Instances_type&,
+       const Start_Licence_Date_type&,
+       const End_Licence_Date_type&,
+       const Auto_Save_PreTrig_Loop_type&,
+       const Feature_type&,
+       const Review_Setup_Dialog_type&,
+       const Acq_Setup_Dialog_type&,
+       const Interrupt_Clear_type&,
+       const Interrupt_Status_type&,
+       const Auto_Save_Load_3D_type&,
+       const DICOM_Root_ID_type&,
+       const Company_Name_type&,
+       const Image_To_Auto_Save_On_Label_type&,
+       const DICOM_Encode_Regions_type&,
+       const Pipeline_Delay_type&,
+       const DDS_Control_type&,
+       const Mode_type&);
+
+  Sys (const ::xercesc::DOMElement& e,
+       ::xml_schema::flags f = 0,
+       ::xml_schema::container* c = 0);
+
+  Sys (const Sys& x,
+       ::xml_schema::flags f = 0,
+       ::xml_schema::container* c = 0);
+
+  virtual Sys*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sys ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Query_Discard_Loop_On_Save_Frame_type > Query_Discard_Loop_On_Save_Frame_;
+  ::xsd::cxx::tree::one< Sound_Speed_type > Sound_Speed_;
+  ::xsd::cxx::tree::one< SubMode_type > SubMode_;
+  ::xsd::cxx::tree::one< Interrupt_Mask_type > Interrupt_Mask_;
+  ::xsd::cxx::tree::one< Calculation_Instances_type > Calculation_Instances_;
+  ::xsd::cxx::tree::one< Start_Licence_Date_type > Start_Licence_Date_;
+  ::xsd::cxx::tree::one< End_Licence_Date_type > End_Licence_Date_;
+  ::xsd::cxx::tree::one< Auto_Save_PreTrig_Loop_type > Auto_Save_PreTrig_Loop_;
+  ::xsd::cxx::tree::one< Feature_type > Feature_;
+  ::xsd::cxx::tree::one< Review_Setup_Dialog_type > Review_Setup_Dialog_;
+  ::xsd::cxx::tree::one< Acq_Setup_Dialog_type > Acq_Setup_Dialog_;
+  ::xsd::cxx::tree::one< Interrupt_Clear_type > Interrupt_Clear_;
+  ::xsd::cxx::tree::one< Interrupt_Status_type > Interrupt_Status_;
+  ::xsd::cxx::tree::one< Auto_Save_Load_3D_type > Auto_Save_Load_3D_;
+  ::xsd::cxx::tree::one< DICOM_Root_ID_type > DICOM_Root_ID_;
+  ::xsd::cxx::tree::one< Company_Name_type > Company_Name_;
+  ::xsd::cxx::tree::one< Image_To_Auto_Save_On_Label_type > Image_To_Auto_Save_On_Label_;
+  ::xsd::cxx::tree::one< DICOM_Encode_Regions_type > DICOM_Encode_Regions_;
+  ::xsd::cxx::tree::one< Pipeline_Delay_type > Pipeline_Delay_;
+  ::xsd::cxx::tree::one< DDS_Control_type > DDS_Control_;
+  ::xsd::cxx::tree::one< Mode_type > Mode_;
+};
+
+class MIS: public ::xml_schema::type
+{
+  public:
+  // ECG-Gain
+  //
+  typedef ::xml_schema::string ECG_Gain_type;
+  typedef ::xsd::cxx::tree::traits< ECG_Gain_type, char > ECG_Gain_traits;
+
+  const ECG_Gain_type&
+  ECG_Gain () const;
+
+  ECG_Gain_type&
+  ECG_Gain ();
+
+  void
+  ECG_Gain (const ECG_Gain_type& x);
+
+  void
+  ECG_Gain (::std::auto_ptr< ECG_Gain_type > p);
+
+  // ECG-Available
+  //
+  typedef ::xml_schema::string ECG_Available_type;
+  typedef ::xsd::cxx::tree::traits< ECG_Available_type, char > ECG_Available_traits;
+
+  const ECG_Available_type&
+  ECG_Available () const;
+
+  ECG_Available_type&
+  ECG_Available ();
+
+  void
+  ECG_Available (const ECG_Available_type& x);
+
+  void
+  ECG_Available (::std::auto_ptr< ECG_Available_type > p);
+
+  // Blood-Pressure-Available
+  //
+  typedef ::xml_schema::string Blood_Pressure_Available_type;
+  typedef ::xsd::cxx::tree::traits< Blood_Pressure_Available_type, char > Blood_Pressure_Available_traits;
+
+  const Blood_Pressure_Available_type&
+  Blood_Pressure_Available () const;
+
+  Blood_Pressure_Available_type&
+  Blood_Pressure_Available ();
+
+  void
+  Blood_Pressure_Available (const Blood_Pressure_Available_type& x);
+
+  void
+  Blood_Pressure_Available (::std::auto_ptr< Blood_Pressure_Available_type > p);
+
+  // Respiration-Gating
+  //
+  typedef ::xml_schema::string Respiration_Gating_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Gating_type, char > Respiration_Gating_traits;
+
+  const Respiration_Gating_type&
+  Respiration_Gating () const;
+
+  Respiration_Gating_type&
+  Respiration_Gating ();
+
+  void
+  Respiration_Gating (const Respiration_Gating_type& x);
+
+  void
+  Respiration_Gating (::std::auto_ptr< Respiration_Gating_type > p);
+
+  // Respiration-Available
+  //
+  typedef ::xml_schema::string Respiration_Available_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Available_type, char > Respiration_Available_traits;
+
+  const Respiration_Available_type&
+  Respiration_Available () const;
+
+  Respiration_Available_type&
+  Respiration_Available ();
+
+  void
+  Respiration_Available (const Respiration_Available_type& x);
+
+  void
+  Respiration_Available (::std::auto_ptr< Respiration_Available_type > p);
+
+  // Control
+  //
+  typedef ::xml_schema::string Control_type;
+  typedef ::xsd::cxx::tree::traits< Control_type, char > Control_traits;
+
+  const Control_type&
+  Control () const;
+
+  Control_type&
+  Control ();
+
+  void
+  Control (const Control_type& x);
+
+  void
+  Control (::std::auto_ptr< Control_type > p);
+
+  // BP-Gain
+  //
+  typedef ::xml_schema::string BP_Gain_type;
+  typedef ::xsd::cxx::tree::traits< BP_Gain_type, char > BP_Gain_traits;
+
+  const BP_Gain_type&
+  BP_Gain () const;
+
+  BP_Gain_type&
+  BP_Gain ();
+
+  void
+  BP_Gain (const BP_Gain_type& x);
+
+  void
+  BP_Gain (::std::auto_ptr< BP_Gain_type > p);
+
+  // Temperature-Available
+  //
+  typedef ::xml_schema::string Temperature_Available_type;
+  typedef ::xsd::cxx::tree::traits< Temperature_Available_type, char > Temperature_Available_traits;
+
+  const Temperature_Available_type&
+  Temperature_Available () const;
+
+  Temperature_Available_type&
+  Temperature_Available ();
+
+  void
+  Temperature_Available (const Temperature_Available_type& x);
+
+  void
+  Temperature_Available (::std::auto_ptr< Temperature_Available_type > p);
+
+  // Constructors.
+  //
+  MIS (const ECG_Gain_type&,
+       const ECG_Available_type&,
+       const Blood_Pressure_Available_type&,
+       const Respiration_Gating_type&,
+       const Respiration_Available_type&,
+       const Control_type&,
+       const BP_Gain_type&,
+       const Temperature_Available_type&);
+
+  MIS (const ::xercesc::DOMElement& e,
+       ::xml_schema::flags f = 0,
+       ::xml_schema::container* c = 0);
+
+  MIS (const MIS& x,
+       ::xml_schema::flags f = 0,
+       ::xml_schema::container* c = 0);
+
+  virtual MIS*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~MIS ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< ECG_Gain_type > ECG_Gain_;
+  ::xsd::cxx::tree::one< ECG_Available_type > ECG_Available_;
+  ::xsd::cxx::tree::one< Blood_Pressure_Available_type > Blood_Pressure_Available_;
+  ::xsd::cxx::tree::one< Respiration_Gating_type > Respiration_Gating_;
+  ::xsd::cxx::tree::one< Respiration_Available_type > Respiration_Available_;
+  ::xsd::cxx::tree::one< Control_type > Control_;
+  ::xsd::cxx::tree::one< BP_Gain_type > BP_Gain_;
+  ::xsd::cxx::tree::one< Temperature_Available_type > Temperature_Available_;
+};
+
+class Scan: public ::xml_schema::type
+{
+  public:
+  // Encoder-Position
+  //
+  typedef ::xml_schema::string Encoder_Position_type;
+  typedef ::xsd::cxx::tree::traits< Encoder_Position_type, char > Encoder_Position_traits;
+
+  const Encoder_Position_type&
+  Encoder_Position () const;
+
+  Encoder_Position_type&
+  Encoder_Position ();
+
+  void
+  Encoder_Position (const Encoder_Position_type& x);
+
+  void
+  Encoder_Position (::std::auto_ptr< Encoder_Position_type > p);
+
+  // Center
+  //
+  typedef ::xml_schema::string Center_type;
+  typedef ::xsd::cxx::tree::traits< Center_type, char > Center_traits;
+
+  const Center_type&
+  Center () const;
+
+  Center_type&
+  Center ();
+
+  void
+  Center (const Center_type& x);
+
+  void
+  Center (::std::auto_ptr< Center_type > p);
+
+  // Control
+  //
+  typedef ::xml_schema::string Control_type;
+  typedef ::xsd::cxx::tree::traits< Control_type, char > Control_traits;
+
+  const Control_type&
+  Control () const;
+
+  Control_type&
+  Control ();
+
+  void
+  Control (const Control_type& x);
+
+  void
+  Control (::std::auto_ptr< Control_type > p);
+
+  // Probe-ID1
+  //
+  typedef ::xml_schema::string Probe_ID1_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID1_type, char > Probe_ID1_traits;
+
+  const Probe_ID1_type&
+  Probe_ID1 () const;
+
+  Probe_ID1_type&
+  Probe_ID1 ();
+
+  void
+  Probe_ID1 (const Probe_ID1_type& x);
+
+  void
+  Probe_ID1 (::std::auto_ptr< Probe_ID1_type > p);
+
+  // Probe-ID2
+  //
+  typedef ::xml_schema::string Probe_ID2_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID2_type, char > Probe_ID2_traits;
+
+  const Probe_ID2_type&
+  Probe_ID2 () const;
+
+  Probe_ID2_type&
+  Probe_ID2 ();
+
+  void
+  Probe_ID2 (const Probe_ID2_type& x);
+
+  void
+  Probe_ID2 (::std::auto_ptr< Probe_ID2_type > p);
+
+  // V-Scan-Speed
+  //
+  typedef ::xml_schema::string V_Scan_Speed_type;
+  typedef ::xsd::cxx::tree::traits< V_Scan_Speed_type, char > V_Scan_Speed_traits;
+
+  const V_Scan_Speed_type&
+  V_Scan_Speed () const;
+
+  V_Scan_Speed_type&
+  V_Scan_Speed ();
+
+  void
+  V_Scan_Speed (const V_Scan_Speed_type& x);
+
+  void
+  V_Scan_Speed (::std::auto_ptr< V_Scan_Speed_type > p);
+
+  // Probe-ID1-Reread
+  //
+  typedef ::xml_schema::string Probe_ID1_Reread_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID1_Reread_type, char > Probe_ID1_Reread_traits;
+
+  const Probe_ID1_Reread_type&
+  Probe_ID1_Reread () const;
+
+  Probe_ID1_Reread_type&
+  Probe_ID1_Reread ();
+
+  void
+  Probe_ID1_Reread (const Probe_ID1_Reread_type& x);
+
+  void
+  Probe_ID1_Reread (::std::auto_ptr< Probe_ID1_Reread_type > p);
+
+  // Probe-ID1-Valid
+  //
+  typedef ::xml_schema::string Probe_ID1_Valid_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID1_Valid_type, char > Probe_ID1_Valid_traits;
+
+  const Probe_ID1_Valid_type&
+  Probe_ID1_Valid () const;
+
+  Probe_ID1_Valid_type&
+  Probe_ID1_Valid ();
+
+  void
+  Probe_ID1_Valid (const Probe_ID1_Valid_type& x);
+
+  void
+  Probe_ID1_Valid (::std::auto_ptr< Probe_ID1_Valid_type > p);
+
+  // Probe-ID1-Voltage
+  //
+  typedef ::xml_schema::string Probe_ID1_Voltage_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID1_Voltage_type, char > Probe_ID1_Voltage_traits;
+
+  const Probe_ID1_Voltage_type&
+  Probe_ID1_Voltage () const;
+
+  Probe_ID1_Voltage_type&
+  Probe_ID1_Voltage ();
+
+  void
+  Probe_ID1_Voltage (const Probe_ID1_Voltage_type& x);
+
+  void
+  Probe_ID1_Voltage (::std::auto_ptr< Probe_ID1_Voltage_type > p);
+
+  // Probe-ID2-Reread
+  //
+  typedef ::xml_schema::string Probe_ID2_Reread_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID2_Reread_type, char > Probe_ID2_Reread_traits;
+
+  const Probe_ID2_Reread_type&
+  Probe_ID2_Reread () const;
+
+  Probe_ID2_Reread_type&
+  Probe_ID2_Reread ();
+
+  void
+  Probe_ID2_Reread (const Probe_ID2_Reread_type& x);
+
+  void
+  Probe_ID2_Reread (::std::auto_ptr< Probe_ID2_Reread_type > p);
+
+  // Probe-ID2-Valid
+  //
+  typedef ::xml_schema::string Probe_ID2_Valid_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID2_Valid_type, char > Probe_ID2_Valid_traits;
+
+  const Probe_ID2_Valid_type&
+  Probe_ID2_Valid () const;
+
+  Probe_ID2_Valid_type&
+  Probe_ID2_Valid ();
+
+  void
+  Probe_ID2_Valid (const Probe_ID2_Valid_type& x);
+
+  void
+  Probe_ID2_Valid (::std::auto_ptr< Probe_ID2_Valid_type > p);
+
+  // Probe-ID2-Voltage
+  //
+  typedef ::xml_schema::string Probe_ID2_Voltage_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID2_Voltage_type, char > Probe_ID2_Voltage_traits;
+
+  const Probe_ID2_Voltage_type&
+  Probe_ID2_Voltage () const;
+
+  Probe_ID2_Voltage_type&
+  Probe_ID2_Voltage ();
+
+  void
+  Probe_ID2_Voltage (const Probe_ID2_Voltage_type& x);
+
+  void
+  Probe_ID2_Voltage (::std::auto_ptr< Probe_ID2_Voltage_type > p);
+
+  // V-Scan-Rate
+  //
+  typedef ::xml_schema::string V_Scan_Rate_type;
+  typedef ::xsd::cxx::tree::traits< V_Scan_Rate_type, char > V_Scan_Rate_traits;
+
+  const V_Scan_Rate_type&
+  V_Scan_Rate () const;
+
+  V_Scan_Rate_type&
+  V_Scan_Rate ();
+
+  void
+  V_Scan_Rate (const V_Scan_Rate_type& x);
+
+  void
+  V_Scan_Rate (::std::auto_ptr< V_Scan_Rate_type > p);
+
+  // Position-Counter-Lock
+  //
+  typedef ::xml_schema::string Position_Counter_Lock_type;
+  typedef ::xsd::cxx::tree::traits< Position_Counter_Lock_type, char > Position_Counter_Lock_traits;
+
+  const Position_Counter_Lock_type&
+  Position_Counter_Lock () const;
+
+  Position_Counter_Lock_type&
+  Position_Counter_Lock ();
+
+  void
+  Position_Counter_Lock (const Position_Counter_Lock_type& x);
+
+  void
+  Position_Counter_Lock (::std::auto_ptr< Position_Counter_Lock_type > p);
+
+  // Scan-Width
+  //
+  typedef ::xml_schema::string Scan_Width_type;
+  typedef ::xsd::cxx::tree::traits< Scan_Width_type, char > Scan_Width_traits;
+
+  const Scan_Width_type&
+  Scan_Width () const;
+
+  Scan_Width_type&
+  Scan_Width ();
+
+  void
+  Scan_Width (const Scan_Width_type& x);
+
+  void
+  Scan_Width (::std::auto_ptr< Scan_Width_type > p);
+
+  // Position-Counter-Reset
+  //
+  typedef ::xml_schema::string Position_Counter_Reset_type;
+  typedef ::xsd::cxx::tree::traits< Position_Counter_Reset_type, char > Position_Counter_Reset_traits;
+
+  const Position_Counter_Reset_type&
+  Position_Counter_Reset () const;
+
+  Position_Counter_Reset_type&
+  Position_Counter_Reset ();
+
+  void
+  Position_Counter_Reset (const Position_Counter_Reset_type& x);
+
+  void
+  Position_Counter_Reset (::std::auto_ptr< Position_Counter_Reset_type > p);
+
+  // Constructors.
+  //
+  Scan (const Encoder_Position_type&,
+        const Center_type&,
+        const Control_type&,
+        const Probe_ID1_type&,
+        const Probe_ID2_type&,
+        const V_Scan_Speed_type&,
+        const Probe_ID1_Reread_type&,
+        const Probe_ID1_Valid_type&,
+        const Probe_ID1_Voltage_type&,
+        const Probe_ID2_Reread_type&,
+        const Probe_ID2_Valid_type&,
+        const Probe_ID2_Voltage_type&,
+        const V_Scan_Rate_type&,
+        const Position_Counter_Lock_type&,
+        const Scan_Width_type&,
+        const Position_Counter_Reset_type&);
+
+  Scan (const ::xercesc::DOMElement& e,
+        ::xml_schema::flags f = 0,
+        ::xml_schema::container* c = 0);
+
+  Scan (const Scan& x,
+        ::xml_schema::flags f = 0,
+        ::xml_schema::container* c = 0);
+
+  virtual Scan*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Scan ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Encoder_Position_type > Encoder_Position_;
+  ::xsd::cxx::tree::one< Center_type > Center_;
+  ::xsd::cxx::tree::one< Control_type > Control_;
+  ::xsd::cxx::tree::one< Probe_ID1_type > Probe_ID1_;
+  ::xsd::cxx::tree::one< Probe_ID2_type > Probe_ID2_;
+  ::xsd::cxx::tree::one< V_Scan_Speed_type > V_Scan_Speed_;
+  ::xsd::cxx::tree::one< Probe_ID1_Reread_type > Probe_ID1_Reread_;
+  ::xsd::cxx::tree::one< Probe_ID1_Valid_type > Probe_ID1_Valid_;
+  ::xsd::cxx::tree::one< Probe_ID1_Voltage_type > Probe_ID1_Voltage_;
+  ::xsd::cxx::tree::one< Probe_ID2_Reread_type > Probe_ID2_Reread_;
+  ::xsd::cxx::tree::one< Probe_ID2_Valid_type > Probe_ID2_Valid_;
+  ::xsd::cxx::tree::one< Probe_ID2_Voltage_type > Probe_ID2_Voltage_;
+  ::xsd::cxx::tree::one< V_Scan_Rate_type > V_Scan_Rate_;
+  ::xsd::cxx::tree::one< Position_Counter_Lock_type > Position_Counter_Lock_;
+  ::xsd::cxx::tree::one< Scan_Width_type > Scan_Width_;
+  ::xsd::cxx::tree::one< Position_Counter_Reset_type > Position_Counter_Reset_;
+};
+
+class Motor: public ::xml_schema::type
+{
+  public:
+  // Settle-Time-3d
+  //
+  typedef ::xml_schema::string Settle_Time_3d_type;
+  typedef ::xsd::cxx::tree::traits< Settle_Time_3d_type, char > Settle_Time_3d_traits;
+
+  const Settle_Time_3d_type&
+  Settle_Time_3d () const;
+
+  Settle_Time_3d_type&
+  Settle_Time_3d ();
+
+  void
+  Settle_Time_3d (const Settle_Time_3d_type& x);
+
+  void
+  Settle_Time_3d (::std::auto_ptr< Settle_Time_3d_type > p);
+
+  // Position
+  //
+  typedef ::xml_schema::string Position_type;
+  typedef ::xsd::cxx::tree::traits< Position_type, char > Position_traits;
+
+  const Position_type&
+  Position () const;
+
+  Position_type&
+  Position ();
+
+  void
+  Position (const Position_type& x);
+
+  void
+  Position (::std::auto_ptr< Position_type > p);
+
+  // R-Scan-Move-No-Wait
+  //
+  typedef ::xml_schema::string R_Scan_Move_No_Wait_type;
+  typedef ::xsd::cxx::tree::traits< R_Scan_Move_No_Wait_type, char > R_Scan_Move_No_Wait_traits;
+
+  const R_Scan_Move_No_Wait_type&
+  R_Scan_Move_No_Wait () const;
+
+  R_Scan_Move_No_Wait_type&
+  R_Scan_Move_No_Wait ();
+
+  void
+  R_Scan_Move_No_Wait (const R_Scan_Move_No_Wait_type& x);
+
+  void
+  R_Scan_Move_No_Wait (::std::auto_ptr< R_Scan_Move_No_Wait_type > p);
+
+  // Motor-Mode
+  //
+  typedef ::xml_schema::string Motor_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Motor_Mode_type, char > Motor_Mode_traits;
+
+  const Motor_Mode_type&
+  Motor_Mode () const;
+
+  Motor_Mode_type&
+  Motor_Mode ();
+
+  void
+  Motor_Mode (const Motor_Mode_type& x);
+
+  void
+  Motor_Mode (::std::auto_ptr< Motor_Mode_type > p);
+
+  // Acceleration
+  //
+  typedef ::xml_schema::string Acceleration_type;
+  typedef ::xsd::cxx::tree::traits< Acceleration_type, char > Acceleration_traits;
+
+  const Acceleration_type&
+  Acceleration () const;
+
+  Acceleration_type&
+  Acceleration ();
+
+  void
+  Acceleration (const Acceleration_type& x);
+
+  void
+  Acceleration (::std::auto_ptr< Acceleration_type > p);
+
+  // Serial-Port-Mode
+  //
+  typedef ::xml_schema::string Serial_Port_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Serial_Port_Mode_type, char > Serial_Port_Mode_traits;
+
+  const Serial_Port_Mode_type&
+  Serial_Port_Mode () const;
+
+  Serial_Port_Mode_type&
+  Serial_Port_Mode ();
+
+  void
+  Serial_Port_Mode (const Serial_Port_Mode_type& x);
+
+  void
+  Serial_Port_Mode (::std::auto_ptr< Serial_Port_Mode_type > p);
+
+  // Limit-Switch-Mode
+  //
+  typedef ::xml_schema::string Limit_Switch_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Limit_Switch_Mode_type, char > Limit_Switch_Mode_traits;
+
+  const Limit_Switch_Mode_type&
+  Limit_Switch_Mode () const;
+
+  Limit_Switch_Mode_type&
+  Limit_Switch_Mode ();
+
+  void
+  Limit_Switch_Mode (const Limit_Switch_Mode_type& x);
+
+  void
+  Limit_Switch_Mode (::std::auto_ptr< Limit_Switch_Mode_type > p);
+
+  // Breakpoint
+  //
+  typedef ::xml_schema::string Breakpoint_type;
+  typedef ::xsd::cxx::tree::traits< Breakpoint_type, char > Breakpoint_traits;
+
+  const Breakpoint_type&
+  Breakpoint () const;
+
+  Breakpoint_type&
+  Breakpoint ();
+
+  void
+  Breakpoint (const Breakpoint_type& x);
+
+  void
+  Breakpoint (::std::auto_ptr< Breakpoint_type > p);
+
+  // Update
+  //
+  typedef ::xml_schema::string Update_type;
+  typedef ::xsd::cxx::tree::traits< Update_type, char > Update_traits;
+
+  const Update_type&
+  Update () const;
+
+  Update_type&
+  Update ();
+
+  void
+  Update (const Update_type& x);
+
+  void
+  Update (::std::auto_ptr< Update_type > p);
+
+  // Breakpoint-Value
+  //
+  typedef ::xml_schema::string Breakpoint_Value_type;
+  typedef ::xsd::cxx::tree::traits< Breakpoint_Value_type, char > Breakpoint_Value_traits;
+
+  const Breakpoint_Value_type&
+  Breakpoint_Value () const;
+
+  Breakpoint_Value_type&
+  Breakpoint_Value ();
+
+  void
+  Breakpoint_Value (const Breakpoint_Value_type& x);
+
+  void
+  Breakpoint_Value (::std::auto_ptr< Breakpoint_Value_type > p);
+
+  // V-Switch-Limit
+  //
+  typedef ::xml_schema::string V_Switch_Limit_type;
+  typedef ::xsd::cxx::tree::traits< V_Switch_Limit_type, char > V_Switch_Limit_traits;
+
+  const V_Switch_Limit_type&
+  V_Switch_Limit () const;
+
+  V_Switch_Limit_type&
+  V_Switch_Limit ();
+
+  void
+  V_Switch_Limit (const V_Switch_Limit_type& x);
+
+  void
+  V_Switch_Limit (::std::auto_ptr< V_Switch_Limit_type > p);
+
+  // R-Retrieve-Trace
+  //
+  typedef ::xml_schema::string R_Retrieve_Trace_type;
+  typedef ::xsd::cxx::tree::traits< R_Retrieve_Trace_type, char > R_Retrieve_Trace_traits;
+
+  const R_Retrieve_Trace_type&
+  R_Retrieve_Trace () const;
+
+  R_Retrieve_Trace_type&
+  R_Retrieve_Trace ();
+
+  void
+  R_Retrieve_Trace (const R_Retrieve_Trace_type& x);
+
+  void
+  R_Retrieve_Trace (::std::auto_ptr< R_Retrieve_Trace_type > p);
+
+  // Velocity-Stationary
+  //
+  typedef ::xml_schema::string Velocity_Stationary_type;
+  typedef ::xsd::cxx::tree::traits< Velocity_Stationary_type, char > Velocity_Stationary_traits;
+
+  const Velocity_Stationary_type&
+  Velocity_Stationary () const;
+
+  Velocity_Stationary_type&
+  Velocity_Stationary ();
+
+  void
+  Velocity_Stationary (const Velocity_Stationary_type& x);
+
+  void
+  Velocity_Stationary (::std::auto_ptr< Velocity_Stationary_type > p);
+
+  // Reset-Event-Status
+  //
+  typedef ::xml_schema::string Reset_Event_Status_type;
+  typedef ::xsd::cxx::tree::traits< Reset_Event_Status_type, char > Reset_Event_Status_traits;
+
+  const Reset_Event_Status_type&
+  Reset_Event_Status () const;
+
+  Reset_Event_Status_type&
+  Reset_Event_Status ();
+
+  void
+  Reset_Event_Status (const Reset_Event_Status_type& x);
+
+  void
+  Reset_Event_Status (::std::auto_ptr< Reset_Event_Status_type > p);
+
+  // Actual-Position
+  //
+  typedef ::xml_schema::string Actual_Position_type;
+  typedef ::xsd::cxx::tree::traits< Actual_Position_type, char > Actual_Position_traits;
+
+  const Actual_Position_type&
+  Actual_Position () const;
+
+  Actual_Position_type&
+  Actual_Position ();
+
+  void
+  Actual_Position (const Actual_Position_type& x);
+
+  void
+  Actual_Position (::std::auto_ptr< Actual_Position_type > p);
+
+  // Buffer-Length
+  //
+  typedef ::xml_schema::string Buffer_Length_type;
+  typedef ::xsd::cxx::tree::traits< Buffer_Length_type, char > Buffer_Length_traits;
+
+  const Buffer_Length_type&
+  Buffer_Length () const;
+
+  Buffer_Length_type&
+  Buffer_Length ();
+
+  void
+  Buffer_Length (const Buffer_Length_type& x);
+
+  void
+  Buffer_Length (::std::auto_ptr< Buffer_Length_type > p);
+
+  // Event-Status
+  //
+  typedef ::xml_schema::string Event_Status_type;
+  typedef ::xsd::cxx::tree::traits< Event_Status_type, char > Event_Status_traits;
+
+  const Event_Status_type&
+  Event_Status () const;
+
+  Event_Status_type&
+  Event_Status ();
+
+  void
+  Event_Status (const Event_Status_type& x);
+
+  void
+  Event_Status (::std::auto_ptr< Event_Status_type > p);
+
+  // R-Scan-Move2
+  //
+  typedef ::xml_schema::string R_Scan_Move2_type;
+  typedef ::xsd::cxx::tree::traits< R_Scan_Move2_type, char > R_Scan_Move2_traits;
+
+  const R_Scan_Move2_type&
+  R_Scan_Move2 () const;
+
+  R_Scan_Move2_type&
+  R_Scan_Move2 ();
+
+  void
+  R_Scan_Move2 (const R_Scan_Move2_type& x);
+
+  void
+  R_Scan_Move2 (::std::auto_ptr< R_Scan_Move2_type > p);
+
+  // Kp
+  //
+  typedef ::xml_schema::string Kp_type;
+  typedef ::xsd::cxx::tree::traits< Kp_type, char > Kp_traits;
+
+  const Kp_type&
+  Kp () const;
+
+  Kp_type&
+  Kp ();
+
+  void
+  Kp (const Kp_type& x);
+
+  void
+  Kp (::std::auto_ptr< Kp_type > p);
+
+  // R-Wait-Finish-Scan-Move
+  //
+  typedef ::xml_schema::string R_Wait_Finish_Scan_Move_type;
+  typedef ::xsd::cxx::tree::traits< R_Wait_Finish_Scan_Move_type, char > R_Wait_Finish_Scan_Move_traits;
+
+  const R_Wait_Finish_Scan_Move_type&
+  R_Wait_Finish_Scan_Move () const;
+
+  R_Wait_Finish_Scan_Move_type&
+  R_Wait_Finish_Scan_Move ();
+
+  void
+  R_Wait_Finish_Scan_Move (const R_Wait_Finish_Scan_Move_type& x);
+
+  void
+  R_Wait_Finish_Scan_Move (::std::auto_ptr< R_Wait_Finish_Scan_Move_type > p);
+
+  // Settle-Time
+  //
+  typedef ::xml_schema::string Settle_Time_type;
+  typedef ::xsd::cxx::tree::traits< Settle_Time_type, char > Settle_Time_traits;
+
+  const Settle_Time_type&
+  Settle_Time () const;
+
+  Settle_Time_type&
+  Settle_Time ();
+
+  void
+  Settle_Time (const Settle_Time_type& x);
+
+  void
+  Settle_Time (::std::auto_ptr< Settle_Time_type > p);
+
+  // Acceleration-Stationary
+  //
+  typedef ::xml_schema::string Acceleration_Stationary_type;
+  typedef ::xsd::cxx::tree::traits< Acceleration_Stationary_type, char > Acceleration_Stationary_traits;
+
+  const Acceleration_Stationary_type&
+  Acceleration_Stationary () const;
+
+  Acceleration_Stationary_type&
+  Acceleration_Stationary ();
+
+  void
+  Acceleration_Stationary (const Acceleration_Stationary_type& x);
+
+  void
+  Acceleration_Stationary (::std::auto_ptr< Acceleration_Stationary_type > p);
+
+  // Trace-Mode
+  //
+  typedef ::xml_schema::string Trace_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Mode_type, char > Trace_Mode_traits;
+
+  const Trace_Mode_type&
+  Trace_Mode () const;
+
+  Trace_Mode_type&
+  Trace_Mode ();
+
+  void
+  Trace_Mode (const Trace_Mode_type& x);
+
+  void
+  Trace_Mode (::std::auto_ptr< Trace_Mode_type > p);
+
+  // Trace-Period
+  //
+  typedef ::xml_schema::string Trace_Period_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Period_type, char > Trace_Period_traits;
+
+  const Trace_Period_type&
+  Trace_Period () const;
+
+  Trace_Period_type&
+  Trace_Period ();
+
+  void
+  Trace_Period (const Trace_Period_type& x);
+
+  void
+  Trace_Period (::std::auto_ptr< Trace_Period_type > p);
+
+  // Trace-Start
+  //
+  typedef ::xml_schema::string Trace_Start_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Start_type, char > Trace_Start_traits;
+
+  const Trace_Start_type&
+  Trace_Start () const;
+
+  Trace_Start_type&
+  Trace_Start ();
+
+  void
+  Trace_Start (const Trace_Start_type& x);
+
+  void
+  Trace_Start (::std::auto_ptr< Trace_Start_type > p);
+
+  // Position-Reverse
+  //
+  typedef ::xml_schema::string Position_Reverse_type;
+  typedef ::xsd::cxx::tree::traits< Position_Reverse_type, char > Position_Reverse_traits;
+
+  const Position_Reverse_type&
+  Position_Reverse () const;
+
+  Position_Reverse_type&
+  Position_Reverse ();
+
+  void
+  Position_Reverse (const Position_Reverse_type& x);
+
+  void
+  Position_Reverse (::std::auto_ptr< Position_Reverse_type > p);
+
+  // Reset
+  //
+  typedef ::xml_schema::string Reset_type;
+  typedef ::xsd::cxx::tree::traits< Reset_type, char > Reset_traits;
+
+  const Reset_type&
+  Reset () const;
+
+  Reset_type&
+  Reset ();
+
+  void
+  Reset (const Reset_type& x);
+
+  void
+  Reset (::std::auto_ptr< Reset_type > p);
+
+  // Trace-Count
+  //
+  typedef ::xml_schema::string Trace_Count_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Count_type, char > Trace_Count_traits;
+
+  const Trace_Count_type&
+  Trace_Count () const;
+
+  Trace_Count_type&
+  Trace_Count ();
+
+  void
+  Trace_Count (const Trace_Count_type& x);
+
+  void
+  Trace_Count (::std::auto_ptr< Trace_Count_type > p);
+
+  // R-Initialize
+  //
+  typedef ::xml_schema::string R_Initialize_type;
+  typedef ::xsd::cxx::tree::traits< R_Initialize_type, char > R_Initialize_traits;
+
+  const R_Initialize_type&
+  R_Initialize () const;
+
+  R_Initialize_type&
+  R_Initialize ();
+
+  void
+  R_Initialize (const R_Initialize_type& x);
+
+  void
+  R_Initialize (::std::auto_ptr< R_Initialize_type > p);
+
+  // Output-Mode
+  //
+  typedef ::xml_schema::string Output_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Output_Mode_type, char > Output_Mode_traits;
+
+  const Output_Mode_type&
+  Output_Mode () const;
+
+  Output_Mode_type&
+  Output_Mode ();
+
+  void
+  Output_Mode (const Output_Mode_type& x);
+
+  void
+  Output_Mode (::std::auto_ptr< Output_Mode_type > p);
+
+  // Position2
+  //
+  typedef ::xml_schema::string Position2_type;
+  typedef ::xsd::cxx::tree::traits< Position2_type, char > Position2_traits;
+
+  const Position2_type&
+  Position2 () const;
+
+  Position2_type&
+  Position2 ();
+
+  void
+  Position2 (const Position2_type& x);
+
+  void
+  Position2 (::std::auto_ptr< Position2_type > p);
+
+  // Integration-Limit
+  //
+  typedef ::xml_schema::string Integration_Limit_type;
+  typedef ::xsd::cxx::tree::traits< Integration_Limit_type, char > Integration_Limit_traits;
+
+  const Integration_Limit_type&
+  Integration_Limit () const;
+
+  Integration_Limit_type&
+  Integration_Limit ();
+
+  void
+  Integration_Limit (const Integration_Limit_type& x);
+
+  void
+  Integration_Limit (::std::auto_ptr< Integration_Limit_type > p);
+
+  // R-Home
+  //
+  typedef ::xml_schema::string R_Home_type;
+  typedef ::xsd::cxx::tree::traits< R_Home_type, char > R_Home_traits;
+
+  const R_Home_type&
+  R_Home () const;
+
+  R_Home_type&
+  R_Home ();
+
+  void
+  R_Home (const R_Home_type& x);
+
+  void
+  R_Home (::std::auto_ptr< R_Home_type > p);
+
+  // Error
+  //
+  typedef ::xml_schema::string Error_type;
+  typedef ::xsd::cxx::tree::traits< Error_type, char > Error_traits;
+
+  const Error_type&
+  Error () const;
+
+  Error_type&
+  Error ();
+
+  void
+  Error (const Error_type& x);
+
+  void
+  Error (::std::auto_ptr< Error_type > p);
+
+  // R-Reset-Limit-Switch
+  //
+  typedef ::xml_schema::string R_Reset_Limit_Switch_type;
+  typedef ::xsd::cxx::tree::traits< R_Reset_Limit_Switch_type, char > R_Reset_Limit_Switch_traits;
+
+  const R_Reset_Limit_Switch_type&
+  R_Reset_Limit_Switch () const;
+
+  R_Reset_Limit_Switch_type&
+  R_Reset_Limit_Switch ();
+
+  void
+  R_Reset_Limit_Switch (const R_Reset_Limit_Switch_type& x);
+
+  void
+  R_Reset_Limit_Switch (::std::auto_ptr< R_Reset_Limit_Switch_type > p);
+
+  // Settle-Window-3d
+  //
+  typedef ::xml_schema::string Settle_Window_3d_type;
+  typedef ::xsd::cxx::tree::traits< Settle_Window_3d_type, char > Settle_Window_3d_traits;
+
+  const Settle_Window_3d_type&
+  Settle_Window_3d () const;
+
+  Settle_Window_3d_type&
+  Settle_Window_3d ();
+
+  void
+  Settle_Window_3d (const Settle_Window_3d_type& x);
+
+  void
+  Settle_Window_3d (::std::auto_ptr< Settle_Window_3d_type > p);
+
+  // Interrupt-Mask
+  //
+  typedef ::xml_schema::string Interrupt_Mask_type;
+  typedef ::xsd::cxx::tree::traits< Interrupt_Mask_type, char > Interrupt_Mask_traits;
+
+  const Interrupt_Mask_type&
+  Interrupt_Mask () const;
+
+  Interrupt_Mask_type&
+  Interrupt_Mask ();
+
+  void
+  Interrupt_Mask (const Interrupt_Mask_type& x);
+
+  void
+  Interrupt_Mask (::std::auto_ptr< Interrupt_Mask_type > p);
+
+  // Scan-Move-Control
+  //
+  typedef ::xml_schema::string Scan_Move_Control_type;
+  typedef ::xsd::cxx::tree::traits< Scan_Move_Control_type, char > Scan_Move_Control_traits;
+
+  const Scan_Move_Control_type&
+  Scan_Move_Control () const;
+
+  Scan_Move_Control_type&
+  Scan_Move_Control ();
+
+  void
+  Scan_Move_Control (const Scan_Move_Control_type& x);
+
+  void
+  Scan_Move_Control (::std::auto_ptr< Scan_Move_Control_type > p);
+
+  // Axis-Out-Source
+  //
+  typedef ::xml_schema::string Axis_Out_Source_type;
+  typedef ::xsd::cxx::tree::traits< Axis_Out_Source_type, char > Axis_Out_Source_traits;
+
+  const Axis_Out_Source_type&
+  Axis_Out_Source () const;
+
+  Axis_Out_Source_type&
+  Axis_Out_Source ();
+
+  void
+  Axis_Out_Source (const Axis_Out_Source_type& x);
+
+  void
+  Axis_Out_Source (::std::auto_ptr< Axis_Out_Source_type > p);
+
+  // Trace-Stop
+  //
+  typedef ::xml_schema::string Trace_Stop_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Stop_type, char > Trace_Stop_traits;
+
+  const Trace_Stop_type&
+  Trace_Stop () const;
+
+  Trace_Stop_type&
+  Trace_Stop ();
+
+  void
+  Trace_Stop (const Trace_Stop_type& x);
+
+  void
+  Trace_Stop (::std::auto_ptr< Trace_Stop_type > p);
+
+  // Velocity
+  //
+  typedef ::xml_schema::string Velocity_type;
+  typedef ::xsd::cxx::tree::traits< Velocity_type, char > Velocity_traits;
+
+  const Velocity_type&
+  Velocity () const;
+
+  Velocity_type&
+  Velocity ();
+
+  void
+  Velocity (const Velocity_type& x);
+
+  void
+  Velocity (::std::auto_ptr< Velocity_type > p);
+
+  // R-Setup
+  //
+  typedef ::xml_schema::string R_Setup_type;
+  typedef ::xsd::cxx::tree::traits< R_Setup_type, char > R_Setup_traits;
+
+  const R_Setup_type&
+  R_Setup () const;
+
+  R_Setup_type&
+  R_Setup ();
+
+  void
+  R_Setup (const R_Setup_type& x);
+
+  void
+  R_Setup (::std::auto_ptr< R_Setup_type > p);
+
+  // Buffer-Start
+  //
+  typedef ::xml_schema::string Buffer_Start_type;
+  typedef ::xsd::cxx::tree::traits< Buffer_Start_type, char > Buffer_Start_traits;
+
+  const Buffer_Start_type&
+  Buffer_Start () const;
+
+  Buffer_Start_type&
+  Buffer_Start ();
+
+  void
+  Buffer_Start (const Buffer_Start_type& x);
+
+  void
+  Buffer_Start (::std::auto_ptr< Buffer_Start_type > p);
+
+  // Signal-Sense
+  //
+  typedef ::xml_schema::string Signal_Sense_type;
+  typedef ::xsd::cxx::tree::traits< Signal_Sense_type, char > Signal_Sense_traits;
+
+  const Signal_Sense_type&
+  Signal_Sense () const;
+
+  Signal_Sense_type&
+  Signal_Sense ();
+
+  void
+  Signal_Sense (const Signal_Sense_type& x);
+
+  void
+  Signal_Sense (::std::auto_ptr< Signal_Sense_type > p);
+
+  // R-Scan-Move
+  //
+  typedef ::xml_schema::string R_Scan_Move_type;
+  typedef ::xsd::cxx::tree::traits< R_Scan_Move_type, char > R_Scan_Move_traits;
+
+  const R_Scan_Move_type&
+  R_Scan_Move () const;
+
+  R_Scan_Move_type&
+  R_Scan_Move ();
+
+  void
+  R_Scan_Move (const R_Scan_Move_type& x);
+
+  void
+  R_Scan_Move (::std::auto_ptr< R_Scan_Move_type > p);
+
+  // Position-Forward
+  //
+  typedef ::xml_schema::string Position_Forward_type;
+  typedef ::xsd::cxx::tree::traits< Position_Forward_type, char > Position_Forward_traits;
+
+  const Position_Forward_type&
+  Position_Forward () const;
+
+  Position_Forward_type&
+  Position_Forward ();
+
+  void
+  Position_Forward (const Position_Forward_type& x);
+
+  void
+  Position_Forward (::std::auto_ptr< Position_Forward_type > p);
+
+  // Derivative-Time
+  //
+  typedef ::xml_schema::string Derivative_Time_type;
+  typedef ::xsd::cxx::tree::traits< Derivative_Time_type, char > Derivative_Time_traits;
+
+  const Derivative_Time_type&
+  Derivative_Time () const;
+
+  Derivative_Time_type&
+  Derivative_Time ();
+
+  void
+  Derivative_Time (const Derivative_Time_type& x);
+
+  void
+  Derivative_Time (::std::auto_ptr< Derivative_Time_type > p);
+
+  // Settle-Window
+  //
+  typedef ::xml_schema::string Settle_Window_type;
+  typedef ::xsd::cxx::tree::traits< Settle_Window_type, char > Settle_Window_traits;
+
+  const Settle_Window_type&
+  Settle_Window () const;
+
+  Settle_Window_type&
+  Settle_Window ();
+
+  void
+  Settle_Window (const Settle_Window_type& x);
+
+  void
+  Settle_Window (::std::auto_ptr< Settle_Window_type > p);
+
+  // Trace-Variable1
+  //
+  typedef ::xml_schema::string Trace_Variable1_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Variable1_type, char > Trace_Variable1_traits;
+
+  const Trace_Variable1_type&
+  Trace_Variable1 () const;
+
+  Trace_Variable1_type&
+  Trace_Variable1 ();
+
+  void
+  Trace_Variable1 (const Trace_Variable1_type& x);
+
+  void
+  Trace_Variable1 (::std::auto_ptr< Trace_Variable1_type > p);
+
+  // Trace-Variable2
+  //
+  typedef ::xml_schema::string Trace_Variable2_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Variable2_type, char > Trace_Variable2_traits;
+
+  const Trace_Variable2_type&
+  Trace_Variable2 () const;
+
+  Trace_Variable2_type&
+  Trace_Variable2 ();
+
+  void
+  Trace_Variable2 (const Trace_Variable2_type& x);
+
+  void
+  Trace_Variable2 (::std::auto_ptr< Trace_Variable2_type > p);
+
+  // Buffer-Read-Index
+  //
+  typedef ::xml_schema::string Buffer_Read_Index_type;
+  typedef ::xsd::cxx::tree::traits< Buffer_Read_Index_type, char > Buffer_Read_Index_traits;
+
+  const Buffer_Read_Index_type&
+  Buffer_Read_Index () const;
+
+  Buffer_Read_Index_type&
+  Buffer_Read_Index ();
+
+  void
+  Buffer_Read_Index (const Buffer_Read_Index_type& x);
+
+  void
+  Buffer_Read_Index (::std::auto_ptr< Buffer_Read_Index_type > p);
+
+  // Signal-Status
+  //
+  typedef ::xml_schema::string Signal_Status_type;
+  typedef ::xsd::cxx::tree::traits< Signal_Status_type, char > Signal_Status_traits;
+
+  const Signal_Status_type&
+  Signal_Status () const;
+
+  Signal_Status_type&
+  Signal_Status ();
+
+  void
+  Signal_Status (const Signal_Status_type& x);
+
+  void
+  Signal_Status (::std::auto_ptr< Signal_Status_type > p);
+
+  // Alarm-Clear
+  //
+  typedef ::xml_schema::string Alarm_Clear_type;
+  typedef ::xsd::cxx::tree::traits< Alarm_Clear_type, char > Alarm_Clear_traits;
+
+  const Alarm_Clear_type&
+  Alarm_Clear () const;
+
+  Alarm_Clear_type&
+  Alarm_Clear ();
+
+  void
+  Alarm_Clear (const Alarm_Clear_type& x);
+
+  void
+  Alarm_Clear (::std::auto_ptr< Alarm_Clear_type > p);
+
+  // Motion-Complete-Mode
+  //
+  typedef ::xml_schema::string Motion_Complete_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Motion_Complete_Mode_type, char > Motion_Complete_Mode_traits;
+
+  const Motion_Complete_Mode_type&
+  Motion_Complete_Mode () const;
+
+  Motion_Complete_Mode_type&
+  Motion_Complete_Mode ();
+
+  void
+  Motion_Complete_Mode (const Motion_Complete_Mode_type& x);
+
+  void
+  Motion_Complete_Mode (::std::auto_ptr< Motion_Complete_Mode_type > p);
+
+  // R-Setup-Abort
+  //
+  typedef ::xml_schema::string R_Setup_Abort_type;
+  typedef ::xsd::cxx::tree::traits< R_Setup_Abort_type, char > R_Setup_Abort_traits;
+
+  const R_Setup_Abort_type&
+  R_Setup_Abort () const;
+
+  R_Setup_Abort_type&
+  R_Setup_Abort ();
+
+  void
+  R_Setup_Abort (const R_Setup_Abort_type& x);
+
+  void
+  R_Setup_Abort (::std::auto_ptr< R_Setup_Abort_type > p);
+
+  // Read-Buffer
+  //
+  typedef ::xml_schema::string Read_Buffer_type;
+  typedef ::xsd::cxx::tree::traits< Read_Buffer_type, char > Read_Buffer_traits;
+
+  const Read_Buffer_type&
+  Read_Buffer () const;
+
+  Read_Buffer_type&
+  Read_Buffer ();
+
+  void
+  Read_Buffer (const Read_Buffer_type& x);
+
+  void
+  Read_Buffer (::std::auto_ptr< Read_Buffer_type > p);
+
+  // Kd
+  //
+  typedef ::xml_schema::string Kd_type;
+  typedef ::xsd::cxx::tree::traits< Kd_type, char > Kd_traits;
+
+  const Kd_type&
+  Kd () const;
+
+  Kd_type&
+  Kd ();
+
+  void
+  Kd (const Kd_type& x);
+
+  void
+  Kd (::std::auto_ptr< Kd_type > p);
+
+  // Clear-Interrupt
+  //
+  typedef ::xml_schema::string Clear_Interrupt_type;
+  typedef ::xsd::cxx::tree::traits< Clear_Interrupt_type, char > Clear_Interrupt_traits;
+
+  const Clear_Interrupt_type&
+  Clear_Interrupt () const;
+
+  Clear_Interrupt_type&
+  Clear_Interrupt ();
+
+  void
+  Clear_Interrupt (const Clear_Interrupt_type& x);
+
+  void
+  Clear_Interrupt (::std::auto_ptr< Clear_Interrupt_type > p);
+
+  // Profile-Mode
+  //
+  typedef ::xml_schema::string Profile_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Profile_Mode_type, char > Profile_Mode_traits;
+
+  const Profile_Mode_type&
+  Profile_Mode () const;
+
+  Profile_Mode_type&
+  Profile_Mode ();
+
+  void
+  Profile_Mode (const Profile_Mode_type& x);
+
+  void
+  Profile_Mode (::std::auto_ptr< Profile_Mode_type > p);
+
+  // R-Setup-Trace
+  //
+  typedef ::xml_schema::string R_Setup_Trace_type;
+  typedef ::xsd::cxx::tree::traits< R_Setup_Trace_type, char > R_Setup_Trace_traits;
+
+  const R_Setup_Trace_type&
+  R_Setup_Trace () const;
+
+  R_Setup_Trace_type&
+  R_Setup_Trace ();
+
+  void
+  R_Setup_Trace (const R_Setup_Trace_type& x);
+
+  void
+  R_Setup_Trace (::std::auto_ptr< R_Setup_Trace_type > p);
+
+  // No-Operation
+  //
+  typedef ::xml_schema::string No_Operation_type;
+  typedef ::xsd::cxx::tree::traits< No_Operation_type, char > No_Operation_traits;
+
+  const No_Operation_type&
+  No_Operation () const;
+
+  No_Operation_type&
+  No_Operation ();
+
+  void
+  No_Operation (const No_Operation_type& x);
+
+  void
+  No_Operation (::std::auto_ptr< No_Operation_type > p);
+
+  // Ki
+  //
+  typedef ::xml_schema::string Ki_type;
+  typedef ::xsd::cxx::tree::traits< Ki_type, char > Ki_traits;
+
+  const Ki_type&
+  Ki () const;
+
+  Ki_type&
+  Ki ();
+
+  void
+  Ki (const Ki_type& x);
+
+  void
+  Ki (::std::auto_ptr< Ki_type > p);
+
+  // Sample-Time
+  //
+  typedef ::xml_schema::string Sample_Time_type;
+  typedef ::xsd::cxx::tree::traits< Sample_Time_type, char > Sample_Time_traits;
+
+  const Sample_Time_type&
+  Sample_Time () const;
+
+  Sample_Time_type&
+  Sample_Time ();
+
+  void
+  Sample_Time (const Sample_Time_type& x);
+
+  void
+  Sample_Time (::std::auto_ptr< Sample_Time_type > p);
+
+  // Constructors.
+  //
+  Motor (const Settle_Time_3d_type&,
+         const Position_type&,
+         const R_Scan_Move_No_Wait_type&,
+         const Motor_Mode_type&,
+         const Acceleration_type&,
+         const Serial_Port_Mode_type&,
+         const Limit_Switch_Mode_type&,
+         const Breakpoint_type&,
+         const Update_type&,
+         const Breakpoint_Value_type&,
+         const V_Switch_Limit_type&,
+         const R_Retrieve_Trace_type&,
+         const Velocity_Stationary_type&,
+         const Reset_Event_Status_type&,
+         const Actual_Position_type&,
+         const Buffer_Length_type&,
+         const Event_Status_type&,
+         const R_Scan_Move2_type&,
+         const Kp_type&,
+         const R_Wait_Finish_Scan_Move_type&,
+         const Settle_Time_type&,
+         const Acceleration_Stationary_type&,
+         const Trace_Mode_type&,
+         const Trace_Period_type&,
+         const Trace_Start_type&,
+         const Position_Reverse_type&,
+         const Reset_type&,
+         const Trace_Count_type&,
+         const R_Initialize_type&,
+         const Output_Mode_type&,
+         const Position2_type&,
+         const Integration_Limit_type&,
+         const R_Home_type&,
+         const Error_type&,
+         const R_Reset_Limit_Switch_type&,
+         const Settle_Window_3d_type&,
+         const Interrupt_Mask_type&,
+         const Scan_Move_Control_type&,
+         const Axis_Out_Source_type&,
+         const Trace_Stop_type&,
+         const Velocity_type&,
+         const R_Setup_type&,
+         const Buffer_Start_type&,
+         const Signal_Sense_type&,
+         const R_Scan_Move_type&,
+         const Position_Forward_type&,
+         const Derivative_Time_type&,
+         const Settle_Window_type&,
+         const Trace_Variable1_type&,
+         const Trace_Variable2_type&,
+         const Buffer_Read_Index_type&,
+         const Signal_Status_type&,
+         const Alarm_Clear_type&,
+         const Motion_Complete_Mode_type&,
+         const R_Setup_Abort_type&,
+         const Read_Buffer_type&,
+         const Kd_type&,
+         const Clear_Interrupt_type&,
+         const Profile_Mode_type&,
+         const R_Setup_Trace_type&,
+         const No_Operation_type&,
+         const Ki_type&,
+         const Sample_Time_type&);
+
+  Motor (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  Motor (const Motor& x,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  virtual Motor*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Motor ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Settle_Time_3d_type > Settle_Time_3d_;
+  ::xsd::cxx::tree::one< Position_type > Position_;
+  ::xsd::cxx::tree::one< R_Scan_Move_No_Wait_type > R_Scan_Move_No_Wait_;
+  ::xsd::cxx::tree::one< Motor_Mode_type > Motor_Mode_;
+  ::xsd::cxx::tree::one< Acceleration_type > Acceleration_;
+  ::xsd::cxx::tree::one< Serial_Port_Mode_type > Serial_Port_Mode_;
+  ::xsd::cxx::tree::one< Limit_Switch_Mode_type > Limit_Switch_Mode_;
+  ::xsd::cxx::tree::one< Breakpoint_type > Breakpoint_;
+  ::xsd::cxx::tree::one< Update_type > Update_;
+  ::xsd::cxx::tree::one< Breakpoint_Value_type > Breakpoint_Value_;
+  ::xsd::cxx::tree::one< V_Switch_Limit_type > V_Switch_Limit_;
+  ::xsd::cxx::tree::one< R_Retrieve_Trace_type > R_Retrieve_Trace_;
+  ::xsd::cxx::tree::one< Velocity_Stationary_type > Velocity_Stationary_;
+  ::xsd::cxx::tree::one< Reset_Event_Status_type > Reset_Event_Status_;
+  ::xsd::cxx::tree::one< Actual_Position_type > Actual_Position_;
+  ::xsd::cxx::tree::one< Buffer_Length_type > Buffer_Length_;
+  ::xsd::cxx::tree::one< Event_Status_type > Event_Status_;
+  ::xsd::cxx::tree::one< R_Scan_Move2_type > R_Scan_Move2_;
+  ::xsd::cxx::tree::one< Kp_type > Kp_;
+  ::xsd::cxx::tree::one< R_Wait_Finish_Scan_Move_type > R_Wait_Finish_Scan_Move_;
+  ::xsd::cxx::tree::one< Settle_Time_type > Settle_Time_;
+  ::xsd::cxx::tree::one< Acceleration_Stationary_type > Acceleration_Stationary_;
+  ::xsd::cxx::tree::one< Trace_Mode_type > Trace_Mode_;
+  ::xsd::cxx::tree::one< Trace_Period_type > Trace_Period_;
+  ::xsd::cxx::tree::one< Trace_Start_type > Trace_Start_;
+  ::xsd::cxx::tree::one< Position_Reverse_type > Position_Reverse_;
+  ::xsd::cxx::tree::one< Reset_type > Reset_;
+  ::xsd::cxx::tree::one< Trace_Count_type > Trace_Count_;
+  ::xsd::cxx::tree::one< R_Initialize_type > R_Initialize_;
+  ::xsd::cxx::tree::one< Output_Mode_type > Output_Mode_;
+  ::xsd::cxx::tree::one< Position2_type > Position2_;
+  ::xsd::cxx::tree::one< Integration_Limit_type > Integration_Limit_;
+  ::xsd::cxx::tree::one< R_Home_type > R_Home_;
+  ::xsd::cxx::tree::one< Error_type > Error_;
+  ::xsd::cxx::tree::one< R_Reset_Limit_Switch_type > R_Reset_Limit_Switch_;
+  ::xsd::cxx::tree::one< Settle_Window_3d_type > Settle_Window_3d_;
+  ::xsd::cxx::tree::one< Interrupt_Mask_type > Interrupt_Mask_;
+  ::xsd::cxx::tree::one< Scan_Move_Control_type > Scan_Move_Control_;
+  ::xsd::cxx::tree::one< Axis_Out_Source_type > Axis_Out_Source_;
+  ::xsd::cxx::tree::one< Trace_Stop_type > Trace_Stop_;
+  ::xsd::cxx::tree::one< Velocity_type > Velocity_;
+  ::xsd::cxx::tree::one< R_Setup_type > R_Setup_;
+  ::xsd::cxx::tree::one< Buffer_Start_type > Buffer_Start_;
+  ::xsd::cxx::tree::one< Signal_Sense_type > Signal_Sense_;
+  ::xsd::cxx::tree::one< R_Scan_Move_type > R_Scan_Move_;
+  ::xsd::cxx::tree::one< Position_Forward_type > Position_Forward_;
+  ::xsd::cxx::tree::one< Derivative_Time_type > Derivative_Time_;
+  ::xsd::cxx::tree::one< Settle_Window_type > Settle_Window_;
+  ::xsd::cxx::tree::one< Trace_Variable1_type > Trace_Variable1_;
+  ::xsd::cxx::tree::one< Trace_Variable2_type > Trace_Variable2_;
+  ::xsd::cxx::tree::one< Buffer_Read_Index_type > Buffer_Read_Index_;
+  ::xsd::cxx::tree::one< Signal_Status_type > Signal_Status_;
+  ::xsd::cxx::tree::one< Alarm_Clear_type > Alarm_Clear_;
+  ::xsd::cxx::tree::one< Motion_Complete_Mode_type > Motion_Complete_Mode_;
+  ::xsd::cxx::tree::one< R_Setup_Abort_type > R_Setup_Abort_;
+  ::xsd::cxx::tree::one< Read_Buffer_type > Read_Buffer_;
+  ::xsd::cxx::tree::one< Kd_type > Kd_;
+  ::xsd::cxx::tree::one< Clear_Interrupt_type > Clear_Interrupt_;
+  ::xsd::cxx::tree::one< Profile_Mode_type > Profile_Mode_;
+  ::xsd::cxx::tree::one< R_Setup_Trace_type > R_Setup_Trace_;
+  ::xsd::cxx::tree::one< No_Operation_type > No_Operation_;
+  ::xsd::cxx::tree::one< Ki_type > Ki_;
+  ::xsd::cxx::tree::one< Sample_Time_type > Sample_Time_;
+};
+
+class Diag: public ::xml_schema::type
+{
+  public:
+  // Mem-Pagefile
+  //
+  typedef ::xml_schema::string Mem_Pagefile_type;
+  typedef ::xsd::cxx::tree::traits< Mem_Pagefile_type, char > Mem_Pagefile_traits;
+
+  const Mem_Pagefile_type&
+  Mem_Pagefile () const;
+
+  Mem_Pagefile_type&
+  Mem_Pagefile ();
+
+  void
+  Mem_Pagefile (const Mem_Pagefile_type& x);
+
+  void
+  Mem_Pagefile (::std::auto_ptr< Mem_Pagefile_type > p);
+
+  // Monitor-3point3V
+  //
+  typedef ::xml_schema::string Monitor_3point3V_type;
+  typedef ::xsd::cxx::tree::traits< Monitor_3point3V_type, char > Monitor_3point3V_traits;
+
+  const Monitor_3point3V_type&
+  Monitor_3point3V () const;
+
+  Monitor_3point3V_type&
+  Monitor_3point3V ();
+
+  void
+  Monitor_3point3V (const Monitor_3point3V_type& x);
+
+  void
+  Monitor_3point3V (::std::auto_ptr< Monitor_3point3V_type > p);
+
+  // USER-Objects
+  //
+  typedef ::xml_schema::string USER_Objects_type;
+  typedef ::xsd::cxx::tree::traits< USER_Objects_type, char > USER_Objects_traits;
+
+  const USER_Objects_type&
+  USER_Objects () const;
+
+  USER_Objects_type&
+  USER_Objects ();
+
+  void
+  USER_Objects (const USER_Objects_type& x);
+
+  void
+  USER_Objects (::std::auto_ptr< USER_Objects_type > p);
+
+  // Motor-FPGA-Revision
+  //
+  typedef ::xml_schema::string Motor_FPGA_Revision_type;
+  typedef ::xsd::cxx::tree::traits< Motor_FPGA_Revision_type, char > Motor_FPGA_Revision_traits;
+
+  const Motor_FPGA_Revision_type&
+  Motor_FPGA_Revision () const;
+
+  Motor_FPGA_Revision_type&
+  Motor_FPGA_Revision ();
+
+  void
+  Motor_FPGA_Revision (const Motor_FPGA_Revision_type& x);
+
+  void
+  Motor_FPGA_Revision (::std::auto_ptr< Motor_FPGA_Revision_type > p);
+
+  // Product-Name
+  //
+  typedef ::xml_schema::string Product_Name_type;
+  typedef ::xsd::cxx::tree::traits< Product_Name_type, char > Product_Name_traits;
+
+  const Product_Name_type&
+  Product_Name () const;
+
+  Product_Name_type&
+  Product_Name ();
+
+  void
+  Product_Name (const Product_Name_type& x);
+
+  void
+  Product_Name (::std::auto_ptr< Product_Name_type > p);
+
+  // Build-Version
+  //
+  typedef ::xml_schema::string Build_Version_type;
+  typedef ::xsd::cxx::tree::traits< Build_Version_type, char > Build_Version_traits;
+
+  const Build_Version_type&
+  Build_Version () const;
+
+  Build_Version_type&
+  Build_Version ();
+
+  void
+  Build_Version (const Build_Version_type& x);
+
+  void
+  Build_Version (::std::auto_ptr< Build_Version_type > p);
+
+  // ICB-PCB-ID
+  //
+  typedef ::xml_schema::string ICB_PCB_ID_type;
+  typedef ::xsd::cxx::tree::traits< ICB_PCB_ID_type, char > ICB_PCB_ID_traits;
+
+  const ICB_PCB_ID_type&
+  ICB_PCB_ID () const;
+
+  ICB_PCB_ID_type&
+  ICB_PCB_ID ();
+
+  void
+  ICB_PCB_ID (const ICB_PCB_ID_type& x);
+
+  void
+  ICB_PCB_ID (::std::auto_ptr< ICB_PCB_ID_type > p);
+
+  // Software-Version
+  //
+  typedef ::xml_schema::string Software_Version_type;
+  typedef ::xsd::cxx::tree::traits< Software_Version_type, char > Software_Version_traits;
+
+  const Software_Version_type&
+  Software_Version () const;
+
+  Software_Version_type&
+  Software_Version ();
+
+  void
+  Software_Version (const Software_Version_type& x);
+
+  void
+  Software_Version (::std::auto_ptr< Software_Version_type > p);
+
+  // Receive-PCB-ID
+  //
+  typedef ::xml_schema::string Receive_PCB_ID_type;
+  typedef ::xsd::cxx::tree::traits< Receive_PCB_ID_type, char > Receive_PCB_ID_traits;
+
+  const Receive_PCB_ID_type&
+  Receive_PCB_ID () const;
+
+  Receive_PCB_ID_type&
+  Receive_PCB_ID ();
+
+  void
+  Receive_PCB_ID (const Receive_PCB_ID_type& x);
+
+  void
+  Receive_PCB_ID (::std::auto_ptr< Receive_PCB_ID_type > p);
+
+  // Receive-FPGA-Revision
+  //
+  typedef ::xml_schema::string Receive_FPGA_Revision_type;
+  typedef ::xsd::cxx::tree::traits< Receive_FPGA_Revision_type, char > Receive_FPGA_Revision_traits;
+
+  const Receive_FPGA_Revision_type&
+  Receive_FPGA_Revision () const;
+
+  Receive_FPGA_Revision_type&
+  Receive_FPGA_Revision ();
+
+  void
+  Receive_FPGA_Revision (const Receive_FPGA_Revision_type& x);
+
+  void
+  Receive_FPGA_Revision (::std::auto_ptr< Receive_FPGA_Revision_type > p);
+
+  // Monitor-15V
+  //
+  typedef ::xml_schema::string Monitor_15V_type;
+  typedef ::xsd::cxx::tree::traits< Monitor_15V_type, char > Monitor_15V_traits;
+
+  const Monitor_15V_type&
+  Monitor_15V () const;
+
+  Monitor_15V_type&
+  Monitor_15V ();
+
+  void
+  Monitor_15V (const Monitor_15V_type& x);
+
+  void
+  Monitor_15V (::std::auto_ptr< Monitor_15V_type > p);
+
+  // ICB-FPGA-Revision
+  //
+  typedef ::xml_schema::string ICB_FPGA_Revision_type;
+  typedef ::xsd::cxx::tree::traits< ICB_FPGA_Revision_type, char > ICB_FPGA_Revision_traits;
+
+  const ICB_FPGA_Revision_type&
+  ICB_FPGA_Revision () const;
+
+  ICB_FPGA_Revision_type&
+  ICB_FPGA_Revision ();
+
+  void
+  ICB_FPGA_Revision (const ICB_FPGA_Revision_type& x);
+
+  void
+  ICB_FPGA_Revision (::std::auto_ptr< ICB_FPGA_Revision_type > p);
+
+  // GDI-Objects
+  //
+  typedef ::xml_schema::string GDI_Objects_type;
+  typedef ::xsd::cxx::tree::traits< GDI_Objects_type, char > GDI_Objects_traits;
+
+  const GDI_Objects_type&
+  GDI_Objects () const;
+
+  GDI_Objects_type&
+  GDI_Objects ();
+
+  void
+  GDI_Objects (const GDI_Objects_type& x);
+
+  void
+  GDI_Objects (::std::auto_ptr< GDI_Objects_type > p);
+
+  // Mem-WorkingSet
+  //
+  typedef ::xml_schema::string Mem_WorkingSet_type;
+  typedef ::xsd::cxx::tree::traits< Mem_WorkingSet_type, char > Mem_WorkingSet_traits;
+
+  const Mem_WorkingSet_type&
+  Mem_WorkingSet () const;
+
+  Mem_WorkingSet_type&
+  Mem_WorkingSet ();
+
+  void
+  Mem_WorkingSet (const Mem_WorkingSet_type& x);
+
+  void
+  Mem_WorkingSet (::std::auto_ptr< Mem_WorkingSet_type > p);
+
+  // Mem-Private
+  //
+  typedef ::xml_schema::string Mem_Private_type;
+  typedef ::xsd::cxx::tree::traits< Mem_Private_type, char > Mem_Private_traits;
+
+  const Mem_Private_type&
+  Mem_Private () const;
+
+  Mem_Private_type&
+  Mem_Private ();
+
+  void
+  Mem_Private (const Mem_Private_type& x);
+
+  void
+  Mem_Private (::std::auto_ptr< Mem_Private_type > p);
+
+  // Switch-PCB-ID
+  //
+  typedef ::xml_schema::string Switch_PCB_ID_type;
+  typedef ::xsd::cxx::tree::traits< Switch_PCB_ID_type, char > Switch_PCB_ID_traits;
+
+  const Switch_PCB_ID_type&
+  Switch_PCB_ID () const;
+
+  Switch_PCB_ID_type&
+  Switch_PCB_ID ();
+
+  void
+  Switch_PCB_ID (const Switch_PCB_ID_type& x);
+
+  void
+  Switch_PCB_ID (::std::auto_ptr< Switch_PCB_ID_type > p);
+
+  // Monitor-5V
+  //
+  typedef ::xml_schema::string Monitor_5V_type;
+  typedef ::xsd::cxx::tree::traits< Monitor_5V_type, char > Monitor_5V_traits;
+
+  const Monitor_5V_type&
+  Monitor_5V () const;
+
+  Monitor_5V_type&
+  Monitor_5V ();
+
+  void
+  Monitor_5V (const Monitor_5V_type& x);
+
+  void
+  Monitor_5V (::std::auto_ptr< Monitor_5V_type > p);
+
+  // Motor-PCB-Revision
+  //
+  typedef ::xml_schema::string Motor_PCB_Revision_type;
+  typedef ::xsd::cxx::tree::traits< Motor_PCB_Revision_type, char > Motor_PCB_Revision_traits;
+
+  const Motor_PCB_Revision_type&
+  Motor_PCB_Revision () const;
+
+  Motor_PCB_Revision_type&
+  Motor_PCB_Revision ();
+
+  void
+  Motor_PCB_Revision (const Motor_PCB_Revision_type& x);
+
+  void
+  Motor_PCB_Revision (::std::auto_ptr< Motor_PCB_Revision_type > p);
+
+  // NE1619
+  //
+  typedef ::xml_schema::string NE1619_type;
+  typedef ::xsd::cxx::tree::traits< NE1619_type, char > NE1619_traits;
+
+  const NE1619_type&
+  NE1619 () const;
+
+  NE1619_type&
+  NE1619 ();
+
+  void
+  NE1619 (const NE1619_type& x);
+
+  void
+  NE1619 (::std::auto_ptr< NE1619_type > p);
+
+  // Motor-PCB-ID
+  //
+  typedef ::xml_schema::string Motor_PCB_ID_type;
+  typedef ::xsd::cxx::tree::traits< Motor_PCB_ID_type, char > Motor_PCB_ID_traits;
+
+  const Motor_PCB_ID_type&
+  Motor_PCB_ID () const;
+
+  Motor_PCB_ID_type&
+  Motor_PCB_ID ();
+
+  void
+  Motor_PCB_ID (const Motor_PCB_ID_type& x);
+
+  void
+  Motor_PCB_ID (::std::auto_ptr< Motor_PCB_ID_type > p);
+
+  // Transmit-PCB-Revision
+  //
+  typedef ::xml_schema::string Transmit_PCB_Revision_type;
+  typedef ::xsd::cxx::tree::traits< Transmit_PCB_Revision_type, char > Transmit_PCB_Revision_traits;
+
+  const Transmit_PCB_Revision_type&
+  Transmit_PCB_Revision () const;
+
+  Transmit_PCB_Revision_type&
+  Transmit_PCB_Revision ();
+
+  void
+  Transmit_PCB_Revision (const Transmit_PCB_Revision_type& x);
+
+  void
+  Transmit_PCB_Revision (::std::auto_ptr< Transmit_PCB_Revision_type > p);
+
+  // MAX1137
+  //
+  typedef ::xml_schema::string MAX1137_type;
+  typedef ::xsd::cxx::tree::traits< MAX1137_type, char > MAX1137_traits;
+
+  const MAX1137_type&
+  MAX1137 () const;
+
+  MAX1137_type&
+  MAX1137 ();
+
+  void
+  MAX1137 (const MAX1137_type& x);
+
+  void
+  MAX1137 (::std::auto_ptr< MAX1137_type > p);
+
+  // Monitor-Neg15V
+  //
+  typedef ::xml_schema::string Monitor_Neg15V_type;
+  typedef ::xsd::cxx::tree::traits< Monitor_Neg15V_type, char > Monitor_Neg15V_traits;
+
+  const Monitor_Neg15V_type&
+  Monitor_Neg15V () const;
+
+  Monitor_Neg15V_type&
+  Monitor_Neg15V ();
+
+  void
+  Monitor_Neg15V (const Monitor_Neg15V_type& x);
+
+  void
+  Monitor_Neg15V (::std::auto_ptr< Monitor_Neg15V_type > p);
+
+  // Monitor-Neg5V
+  //
+  typedef ::xml_schema::string Monitor_Neg5V_type;
+  typedef ::xsd::cxx::tree::traits< Monitor_Neg5V_type, char > Monitor_Neg5V_traits;
+
+  const Monitor_Neg5V_type&
+  Monitor_Neg5V () const;
+
+  Monitor_Neg5V_type&
+  Monitor_Neg5V ();
+
+  void
+  Monitor_Neg5V (const Monitor_Neg5V_type& x);
+
+  void
+  Monitor_Neg5V (::std::auto_ptr< Monitor_Neg5V_type > p);
+
+  // Switch-PCB-Revision
+  //
+  typedef ::xml_schema::string Switch_PCB_Revision_type;
+  typedef ::xsd::cxx::tree::traits< Switch_PCB_Revision_type, char > Switch_PCB_Revision_traits;
+
+  const Switch_PCB_Revision_type&
+  Switch_PCB_Revision () const;
+
+  Switch_PCB_Revision_type&
+  Switch_PCB_Revision ();
+
+  void
+  Switch_PCB_Revision (const Switch_PCB_Revision_type& x);
+
+  void
+  Switch_PCB_Revision (::std::auto_ptr< Switch_PCB_Revision_type > p);
+
+  // Receive-PCB-Revision
+  //
+  typedef ::xml_schema::string Receive_PCB_Revision_type;
+  typedef ::xsd::cxx::tree::traits< Receive_PCB_Revision_type, char > Receive_PCB_Revision_traits;
+
+  const Receive_PCB_Revision_type&
+  Receive_PCB_Revision () const;
+
+  Receive_PCB_Revision_type&
+  Receive_PCB_Revision ();
+
+  void
+  Receive_PCB_Revision (const Receive_PCB_Revision_type& x);
+
+  void
+  Receive_PCB_Revision (::std::auto_ptr< Receive_PCB_Revision_type > p);
+
+  // ICB-PCB-Revision
+  //
+  typedef ::xml_schema::string ICB_PCB_Revision_type;
+  typedef ::xsd::cxx::tree::traits< ICB_PCB_Revision_type, char > ICB_PCB_Revision_traits;
+
+  const ICB_PCB_Revision_type&
+  ICB_PCB_Revision () const;
+
+  ICB_PCB_Revision_type&
+  ICB_PCB_Revision ();
+
+  void
+  ICB_PCB_Revision (const ICB_PCB_Revision_type& x);
+
+  void
+  ICB_PCB_Revision (::std::auto_ptr< ICB_PCB_Revision_type > p);
+
+  // Transmit-PCB-ID
+  //
+  typedef ::xml_schema::string Transmit_PCB_ID_type;
+  typedef ::xsd::cxx::tree::traits< Transmit_PCB_ID_type, char > Transmit_PCB_ID_traits;
+
+  const Transmit_PCB_ID_type&
+  Transmit_PCB_ID () const;
+
+  Transmit_PCB_ID_type&
+  Transmit_PCB_ID ();
+
+  void
+  Transmit_PCB_ID (const Transmit_PCB_ID_type& x);
+
+  void
+  Transmit_PCB_ID (::std::auto_ptr< Transmit_PCB_ID_type > p);
+
+  // Monitor-Temperature
+  //
+  typedef ::xml_schema::string Monitor_Temperature_type;
+  typedef ::xsd::cxx::tree::traits< Monitor_Temperature_type, char > Monitor_Temperature_traits;
+
+  const Monitor_Temperature_type&
+  Monitor_Temperature () const;
+
+  Monitor_Temperature_type&
+  Monitor_Temperature ();
+
+  void
+  Monitor_Temperature (const Monitor_Temperature_type& x);
+
+  void
+  Monitor_Temperature (::std::auto_ptr< Monitor_Temperature_type > p);
+
+  // Constructors.
+  //
+  Diag (const Mem_Pagefile_type&,
+        const Monitor_3point3V_type&,
+        const USER_Objects_type&,
+        const Motor_FPGA_Revision_type&,
+        const Product_Name_type&,
+        const Build_Version_type&,
+        const ICB_PCB_ID_type&,
+        const Software_Version_type&,
+        const Receive_PCB_ID_type&,
+        const Receive_FPGA_Revision_type&,
+        const Monitor_15V_type&,
+        const ICB_FPGA_Revision_type&,
+        const GDI_Objects_type&,
+        const Mem_WorkingSet_type&,
+        const Mem_Private_type&,
+        const Switch_PCB_ID_type&,
+        const Monitor_5V_type&,
+        const Motor_PCB_Revision_type&,
+        const NE1619_type&,
+        const Motor_PCB_ID_type&,
+        const Transmit_PCB_Revision_type&,
+        const MAX1137_type&,
+        const Monitor_Neg15V_type&,
+        const Monitor_Neg5V_type&,
+        const Switch_PCB_Revision_type&,
+        const Receive_PCB_Revision_type&,
+        const ICB_PCB_Revision_type&,
+        const Transmit_PCB_ID_type&,
+        const Monitor_Temperature_type&);
+
+  Diag (const ::xercesc::DOMElement& e,
+        ::xml_schema::flags f = 0,
+        ::xml_schema::container* c = 0);
+
+  Diag (const Diag& x,
+        ::xml_schema::flags f = 0,
+        ::xml_schema::container* c = 0);
+
+  virtual Diag*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Diag ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Mem_Pagefile_type > Mem_Pagefile_;
+  ::xsd::cxx::tree::one< Monitor_3point3V_type > Monitor_3point3V_;
+  ::xsd::cxx::tree::one< USER_Objects_type > USER_Objects_;
+  ::xsd::cxx::tree::one< Motor_FPGA_Revision_type > Motor_FPGA_Revision_;
+  ::xsd::cxx::tree::one< Product_Name_type > Product_Name_;
+  ::xsd::cxx::tree::one< Build_Version_type > Build_Version_;
+  ::xsd::cxx::tree::one< ICB_PCB_ID_type > ICB_PCB_ID_;
+  ::xsd::cxx::tree::one< Software_Version_type > Software_Version_;
+  ::xsd::cxx::tree::one< Receive_PCB_ID_type > Receive_PCB_ID_;
+  ::xsd::cxx::tree::one< Receive_FPGA_Revision_type > Receive_FPGA_Revision_;
+  ::xsd::cxx::tree::one< Monitor_15V_type > Monitor_15V_;
+  ::xsd::cxx::tree::one< ICB_FPGA_Revision_type > ICB_FPGA_Revision_;
+  ::xsd::cxx::tree::one< GDI_Objects_type > GDI_Objects_;
+  ::xsd::cxx::tree::one< Mem_WorkingSet_type > Mem_WorkingSet_;
+  ::xsd::cxx::tree::one< Mem_Private_type > Mem_Private_;
+  ::xsd::cxx::tree::one< Switch_PCB_ID_type > Switch_PCB_ID_;
+  ::xsd::cxx::tree::one< Monitor_5V_type > Monitor_5V_;
+  ::xsd::cxx::tree::one< Motor_PCB_Revision_type > Motor_PCB_Revision_;
+  ::xsd::cxx::tree::one< NE1619_type > NE1619_;
+  ::xsd::cxx::tree::one< Motor_PCB_ID_type > Motor_PCB_ID_;
+  ::xsd::cxx::tree::one< Transmit_PCB_Revision_type > Transmit_PCB_Revision_;
+  ::xsd::cxx::tree::one< MAX1137_type > MAX1137_;
+  ::xsd::cxx::tree::one< Monitor_Neg15V_type > Monitor_Neg15V_;
+  ::xsd::cxx::tree::one< Monitor_Neg5V_type > Monitor_Neg5V_;
+  ::xsd::cxx::tree::one< Switch_PCB_Revision_type > Switch_PCB_Revision_;
+  ::xsd::cxx::tree::one< Receive_PCB_Revision_type > Receive_PCB_Revision_;
+  ::xsd::cxx::tree::one< ICB_PCB_Revision_type > ICB_PCB_Revision_;
+  ::xsd::cxx::tree::one< Transmit_PCB_ID_type > Transmit_PCB_ID_;
+  ::xsd::cxx::tree::one< Monitor_Temperature_type > Monitor_Temperature_;
+};
+
+class ECG: public ::xml_schema::type
+{
+  public:
+  // Respiration-Threshold-Change
+  //
+  typedef ::xml_schema::string Respiration_Threshold_Change_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Threshold_Change_type, char > Respiration_Threshold_Change_traits;
+
+  const Respiration_Threshold_Change_type&
+  Respiration_Threshold_Change () const;
+
+  Respiration_Threshold_Change_type&
+  Respiration_Threshold_Change ();
+
+  void
+  Respiration_Threshold_Change (const Respiration_Threshold_Change_type& x);
+
+  void
+  Respiration_Threshold_Change (::std::auto_ptr< Respiration_Threshold_Change_type > p);
+
+  // Respiration-Threshold
+  //
+  typedef ::xml_schema::string Respiration_Threshold_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Threshold_type, char > Respiration_Threshold_traits;
+
+  const Respiration_Threshold_type&
+  Respiration_Threshold () const;
+
+  Respiration_Threshold_type&
+  Respiration_Threshold ();
+
+  void
+  Respiration_Threshold (const Respiration_Threshold_type& x);
+
+  void
+  Respiration_Threshold (::std::auto_ptr< Respiration_Threshold_type > p);
+
+  // Pressure-Range
+  //
+  typedef ::xml_schema::string Pressure_Range_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Range_type, char > Pressure_Range_traits;
+
+  const Pressure_Range_type&
+  Pressure_Range () const;
+
+  Pressure_Range_type&
+  Pressure_Range ();
+
+  void
+  Pressure_Range (const Pressure_Range_type& x);
+
+  void
+  Pressure_Range (::std::auto_ptr< Pressure_Range_type > p);
+
+  // Respiration-Gate-Delay
+  //
+  typedef ::xml_schema::string Respiration_Gate_Delay_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Gate_Delay_type, char > Respiration_Gate_Delay_traits;
+
+  const Respiration_Gate_Delay_type&
+  Respiration_Gate_Delay () const;
+
+  Respiration_Gate_Delay_type&
+  Respiration_Gate_Delay ();
+
+  void
+  Respiration_Gate_Delay (const Respiration_Gate_Delay_type& x);
+
+  void
+  Respiration_Gate_Delay (::std::auto_ptr< Respiration_Gate_Delay_type > p);
+
+  // Respiration-Timeout
+  //
+  typedef ::xml_schema::string Respiration_Timeout_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Timeout_type, char > Respiration_Timeout_traits;
+
+  const Respiration_Timeout_type&
+  Respiration_Timeout () const;
+
+  Respiration_Timeout_type&
+  Respiration_Timeout ();
+
+  void
+  Respiration_Timeout (const Respiration_Timeout_type& x);
+
+  void
+  Respiration_Timeout (::std::auto_ptr< Respiration_Timeout_type > p);
+
+  // RWave-Max-Change-Factor-Percent
+  //
+  typedef ::xml_schema::string RWave_Max_Change_Factor_Percent_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Max_Change_Factor_Percent_type, char > RWave_Max_Change_Factor_Percent_traits;
+
+  const RWave_Max_Change_Factor_Percent_type&
+  RWave_Max_Change_Factor_Percent () const;
+
+  RWave_Max_Change_Factor_Percent_type&
+  RWave_Max_Change_Factor_Percent ();
+
+  void
+  RWave_Max_Change_Factor_Percent (const RWave_Max_Change_Factor_Percent_type& x);
+
+  void
+  RWave_Max_Change_Factor_Percent (::std::auto_ptr< RWave_Max_Change_Factor_Percent_type > p);
+
+  // Respiration-Period
+  //
+  typedef ::xml_schema::string Respiration_Period_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Period_type, char > Respiration_Period_traits;
+
+  const Respiration_Period_type&
+  Respiration_Period () const;
+
+  Respiration_Period_type&
+  Respiration_Period ();
+
+  void
+  Respiration_Period (const Respiration_Period_type& x);
+
+  void
+  Respiration_Period (::std::auto_ptr< Respiration_Period_type > p);
+
+  // Respiration-Subsample-Rate
+  //
+  typedef ::xml_schema::string Respiration_Subsample_Rate_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Subsample_Rate_type, char > Respiration_Subsample_Rate_traits;
+
+  const Respiration_Subsample_Rate_type&
+  Respiration_Subsample_Rate () const;
+
+  Respiration_Subsample_Rate_type&
+  Respiration_Subsample_Rate ();
+
+  void
+  Respiration_Subsample_Rate (const Respiration_Subsample_Rate_type& x);
+
+  void
+  Respiration_Subsample_Rate (::std::auto_ptr< Respiration_Subsample_Rate_type > p);
+
+  // Show-RWaves
+  //
+  typedef ::xml_schema::string Show_RWaves_type;
+  typedef ::xsd::cxx::tree::traits< Show_RWaves_type, char > Show_RWaves_traits;
+
+  const Show_RWaves_type&
+  Show_RWaves () const;
+
+  Show_RWaves_type&
+  Show_RWaves ();
+
+  void
+  Show_RWaves (const Show_RWaves_type& x);
+
+  void
+  Show_RWaves (::std::auto_ptr< Show_RWaves_type > p);
+
+  // Respiration-Minimal-Peak-2-Peak
+  //
+  typedef ::xml_schema::string Respiration_Minimal_Peak_2_Peak_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Minimal_Peak_2_Peak_type, char > Respiration_Minimal_Peak_2_Peak_traits;
+
+  const Respiration_Minimal_Peak_2_Peak_type&
+  Respiration_Minimal_Peak_2_Peak () const;
+
+  Respiration_Minimal_Peak_2_Peak_type&
+  Respiration_Minimal_Peak_2_Peak ();
+
+  void
+  Respiration_Minimal_Peak_2_Peak (const Respiration_Minimal_Peak_2_Peak_type& x);
+
+  void
+  Respiration_Minimal_Peak_2_Peak (::std::auto_ptr< Respiration_Minimal_Peak_2_Peak_type > p);
+
+  // Respiration-Window
+  //
+  typedef ::xml_schema::string Respiration_Window_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Window_type, char > Respiration_Window_traits;
+
+  const Respiration_Window_type&
+  Respiration_Window () const;
+
+  Respiration_Window_type&
+  Respiration_Window ();
+
+  void
+  Respiration_Window (const Respiration_Window_type& x);
+
+  void
+  Respiration_Window (::std::auto_ptr< Respiration_Window_type > p);
+
+  // Pressure-Zeroed
+  //
+  typedef ::xml_schema::string Pressure_Zeroed_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Zeroed_type, char > Pressure_Zeroed_traits;
+
+  const Pressure_Zeroed_type&
+  Pressure_Zeroed () const;
+
+  Pressure_Zeroed_type&
+  Pressure_Zeroed ();
+
+  void
+  Pressure_Zeroed (const Pressure_Zeroed_type& x);
+
+  void
+  Pressure_Zeroed (::std::auto_ptr< Pressure_Zeroed_type > p);
+
+  // Pressure-Systolic
+  //
+  typedef ::xml_schema::string Pressure_Systolic_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Systolic_type, char > Pressure_Systolic_traits;
+
+  const Pressure_Systolic_type&
+  Pressure_Systolic () const;
+
+  Pressure_Systolic_type&
+  Pressure_Systolic ();
+
+  void
+  Pressure_Systolic (const Pressure_Systolic_type& x);
+
+  void
+  Pressure_Systolic (::std::auto_ptr< Pressure_Systolic_type > p);
+
+  // Respiration-Show-Window
+  //
+  typedef ::xml_schema::string Respiration_Show_Window_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Show_Window_type, char > Respiration_Show_Window_traits;
+
+  const Respiration_Show_Window_type&
+  Respiration_Show_Window () const;
+
+  Respiration_Show_Window_type&
+  Respiration_Show_Window ();
+
+  void
+  Respiration_Show_Window (const Respiration_Show_Window_type& x);
+
+  void
+  Respiration_Show_Window (::std::auto_ptr< Respiration_Show_Window_type > p);
+
+  // Frequency
+  //
+  typedef ::xml_schema::string Frequency_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
+
+  const Frequency_type&
+  Frequency () const;
+
+  Frequency_type&
+  Frequency ();
+
+  void
+  Frequency (const Frequency_type& x);
+
+  void
+  Frequency (::std::auto_ptr< Frequency_type > p);
+
+  // Respiration-Blank-Period
+  //
+  typedef ::xml_schema::string Respiration_Blank_Period_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Blank_Period_type, char > Respiration_Blank_Period_traits;
+
+  const Respiration_Blank_Period_type&
+  Respiration_Blank_Period () const;
+
+  Respiration_Blank_Period_type&
+  Respiration_Blank_Period ();
+
+  void
+  Respiration_Blank_Period (const Respiration_Blank_Period_type& x);
+
+  void
+  Respiration_Blank_Period (::std::auto_ptr< Respiration_Blank_Period_type > p);
+
+  // Respiration-Range
+  //
+  typedef ::xml_schema::string Respiration_Range_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Range_type, char > Respiration_Range_traits;
+
+  const Respiration_Range_type&
+  Respiration_Range () const;
+
+  Respiration_Range_type&
+  Respiration_Range ();
+
+  void
+  Respiration_Range (const Respiration_Range_type& x);
+
+  void
+  Respiration_Range (::std::auto_ptr< Respiration_Range_type > p);
+
+  // Pressure-Zero
+  //
+  typedef ::xml_schema::string Pressure_Zero_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Zero_type, char > Pressure_Zero_traits;
+
+  const Pressure_Zero_type&
+  Pressure_Zero () const;
+
+  Pressure_Zero_type&
+  Pressure_Zero ();
+
+  void
+  Pressure_Zero (const Pressure_Zero_type& x);
+
+  void
+  Pressure_Zero (::std::auto_ptr< Pressure_Zero_type > p);
+
+  // Temperature-Amplification
+  //
+  typedef ::xml_schema::string Temperature_Amplification_type;
+  typedef ::xsd::cxx::tree::traits< Temperature_Amplification_type, char > Temperature_Amplification_traits;
+
+  const Temperature_Amplification_type&
+  Temperature_Amplification () const;
+
+  Temperature_Amplification_type&
+  Temperature_Amplification ();
+
+  void
+  Temperature_Amplification (const Temperature_Amplification_type& x);
+
+  void
+  Temperature_Amplification (::std::auto_ptr< Temperature_Amplification_type > p);
+
+  // P-Wave-Start
+  //
+  typedef ::xml_schema::string P_Wave_Start_type;
+  typedef ::xsd::cxx::tree::traits< P_Wave_Start_type, char > P_Wave_Start_traits;
+
+  const P_Wave_Start_type&
+  P_Wave_Start () const;
+
+  P_Wave_Start_type&
+  P_Wave_Start ();
+
+  void
+  P_Wave_Start (const P_Wave_Start_type& x);
+
+  void
+  P_Wave_Start (::std::auto_ptr< P_Wave_Start_type > p);
+
+  // ECG-Filter-Taps
+  //
+  typedef ::xml_schema::string ECG_Filter_Taps_type;
+  typedef ::xsd::cxx::tree::traits< ECG_Filter_Taps_type, char > ECG_Filter_Taps_traits;
+
+  const ECG_Filter_Taps_type&
+  ECG_Filter_Taps () const;
+
+  ECG_Filter_Taps_type&
+  ECG_Filter_Taps ();
+
+  void
+  ECG_Filter_Taps (const ECG_Filter_Taps_type& x);
+
+  void
+  ECG_Filter_Taps (::std::auto_ptr< ECG_Filter_Taps_type > p);
+
+  // RWave-Future-Search-Time
+  //
+  typedef ::xml_schema::string RWave_Future_Search_Time_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Future_Search_Time_type, char > RWave_Future_Search_Time_traits;
+
+  const RWave_Future_Search_Time_type&
+  RWave_Future_Search_Time () const;
+
+  RWave_Future_Search_Time_type&
+  RWave_Future_Search_Time ();
+
+  void
+  RWave_Future_Search_Time (const RWave_Future_Search_Time_type& x);
+
+  void
+  RWave_Future_Search_Time (::std::auto_ptr< RWave_Future_Search_Time_type > p);
+
+  // Respiration-Percent-Peak
+  //
+  typedef ::xml_schema::string Respiration_Percent_Peak_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Percent_Peak_type, char > Respiration_Percent_Peak_traits;
+
+  const Respiration_Percent_Peak_type&
+  Respiration_Percent_Peak () const;
+
+  Respiration_Percent_Peak_type&
+  Respiration_Percent_Peak ();
+
+  void
+  Respiration_Percent_Peak (const Respiration_Percent_Peak_type& x);
+
+  void
+  Respiration_Percent_Peak (::std::auto_ptr< Respiration_Percent_Peak_type > p);
+
+  // T-Wave-Start
+  //
+  typedef ::xml_schema::string T_Wave_Start_type;
+  typedef ::xsd::cxx::tree::traits< T_Wave_Start_type, char > T_Wave_Start_traits;
+
+  const T_Wave_Start_type&
+  T_Wave_Start () const;
+
+  T_Wave_Start_type&
+  T_Wave_Start ();
+
+  void
+  T_Wave_Start (const T_Wave_Start_type& x);
+
+  void
+  T_Wave_Start (::std::auto_ptr< T_Wave_Start_type > p);
+
+  // Strain-Rate-RR-Diff-Ratio
+  //
+  typedef ::xml_schema::string Strain_Rate_RR_Diff_Ratio_type;
+  typedef ::xsd::cxx::tree::traits< Strain_Rate_RR_Diff_Ratio_type, char > Strain_Rate_RR_Diff_Ratio_traits;
+
+  const Strain_Rate_RR_Diff_Ratio_type&
+  Strain_Rate_RR_Diff_Ratio () const;
+
+  Strain_Rate_RR_Diff_Ratio_type&
+  Strain_Rate_RR_Diff_Ratio ();
+
+  void
+  Strain_Rate_RR_Diff_Ratio (const Strain_Rate_RR_Diff_Ratio_type& x);
+
+  void
+  Strain_Rate_RR_Diff_Ratio (::std::auto_ptr< Strain_Rate_RR_Diff_Ratio_type > p);
+
+  // Pressure-Calibration-Min-Level
+  //
+  typedef ::xml_schema::string Pressure_Calibration_Min_Level_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Calibration_Min_Level_type, char > Pressure_Calibration_Min_Level_traits;
+
+  const Pressure_Calibration_Min_Level_type&
+  Pressure_Calibration_Min_Level () const;
+
+  Pressure_Calibration_Min_Level_type&
+  Pressure_Calibration_Min_Level ();
+
+  void
+  Pressure_Calibration_Min_Level (const Pressure_Calibration_Min_Level_type& x);
+
+  void
+  Pressure_Calibration_Min_Level (::std::auto_ptr< Pressure_Calibration_Min_Level_type > p);
+
+  // Pressure-Calibrated
+  //
+  typedef ::xml_schema::string Pressure_Calibrated_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Calibrated_type, char > Pressure_Calibrated_traits;
+
+  const Pressure_Calibrated_type&
+  Pressure_Calibrated () const;
+
+  Pressure_Calibrated_type&
+  Pressure_Calibrated ();
+
+  void
+  Pressure_Calibrated (const Pressure_Calibrated_type& x);
+
+  void
+  Pressure_Calibrated (::std::auto_ptr< Pressure_Calibrated_type > p);
+
+  // DPDT-Range
+  //
+  typedef ::xml_schema::string DPDT_Range_type;
+  typedef ::xsd::cxx::tree::traits< DPDT_Range_type, char > DPDT_Range_traits;
+
+  const DPDT_Range_type&
+  DPDT_Range () const;
+
+  DPDT_Range_type&
+  DPDT_Range ();
+
+  void
+  DPDT_Range (const DPDT_Range_type& x);
+
+  void
+  DPDT_Range (::std::auto_ptr< DPDT_Range_type > p);
+
+  // Respiration-Show-Event
+  //
+  typedef ::xml_schema::string Respiration_Show_Event_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Show_Event_type, char > Respiration_Show_Event_traits;
+
+  const Respiration_Show_Event_type&
+  Respiration_Show_Event () const;
+
+  Respiration_Show_Event_type&
+  Respiration_Show_Event ();
+
+  void
+  Respiration_Show_Event (const Respiration_Show_Event_type& x);
+
+  void
+  Respiration_Show_Event (::std::auto_ptr< Respiration_Show_Event_type > p);
+
+  // Pressure-Diastolic
+  //
+  typedef ::xml_schema::string Pressure_Diastolic_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Diastolic_type, char > Pressure_Diastolic_traits;
+
+  const Pressure_Diastolic_type&
+  Pressure_Diastolic () const;
+
+  Pressure_Diastolic_type&
+  Pressure_Diastolic ();
+
+  void
+  Pressure_Diastolic (const Pressure_Diastolic_type& x);
+
+  void
+  Pressure_Diastolic (::std::auto_ptr< Pressure_Diastolic_type > p);
+
+  // Temperature-Calibration
+  //
+  typedef ::xml_schema::string Temperature_Calibration_type;
+  typedef ::xsd::cxx::tree::traits< Temperature_Calibration_type, char > Temperature_Calibration_traits;
+
+  const Temperature_Calibration_type&
+  Temperature_Calibration () const;
+
+  Temperature_Calibration_type&
+  Temperature_Calibration ();
+
+  void
+  Temperature_Calibration (const Temperature_Calibration_type& x);
+
+  void
+  Temperature_Calibration (::std::auto_ptr< Temperature_Calibration_type > p);
+
+  // Temperature
+  //
+  typedef ::xml_schema::string Temperature_type;
+  typedef ::xsd::cxx::tree::traits< Temperature_type, char > Temperature_traits;
+
+  const Temperature_type&
+  Temperature () const;
+
+  Temperature_type&
+  Temperature ();
+
+  void
+  Temperature (const Temperature_type& x);
+
+  void
+  Temperature (::std::auto_ptr< Temperature_type > p);
+
+  // Respiration-Beats-To-Average
+  //
+  typedef ::xml_schema::string Respiration_Beats_To_Average_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Beats_To_Average_type, char > Respiration_Beats_To_Average_traits;
+
+  const Respiration_Beats_To_Average_type&
+  Respiration_Beats_To_Average () const;
+
+  Respiration_Beats_To_Average_type&
+  Respiration_Beats_To_Average ();
+
+  void
+  Respiration_Beats_To_Average (const Respiration_Beats_To_Average_type& x);
+
+  void
+  Respiration_Beats_To_Average (::std::auto_ptr< Respiration_Beats_To_Average_type > p);
+
+  // RWave-Thresh-Trigger-Percent
+  //
+  typedef ::xml_schema::string RWave_Thresh_Trigger_Percent_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Thresh_Trigger_Percent_type, char > RWave_Thresh_Trigger_Percent_traits;
+
+  const RWave_Thresh_Trigger_Percent_type&
+  RWave_Thresh_Trigger_Percent () const;
+
+  RWave_Thresh_Trigger_Percent_type&
+  RWave_Thresh_Trigger_Percent ();
+
+  void
+  RWave_Thresh_Trigger_Percent (const RWave_Thresh_Trigger_Percent_type& x);
+
+  void
+  RWave_Thresh_Trigger_Percent (::std::auto_ptr< RWave_Thresh_Trigger_Percent_type > p);
+
+  // Respiration-Time-To-Average
+  //
+  typedef ::xml_schema::string Respiration_Time_To_Average_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Time_To_Average_type, char > Respiration_Time_To_Average_traits;
+
+  const Respiration_Time_To_Average_type&
+  Respiration_Time_To_Average () const;
+
+  Respiration_Time_To_Average_type&
+  Respiration_Time_To_Average ();
+
+  void
+  Respiration_Time_To_Average (const Respiration_Time_To_Average_type& x);
+
+  void
+  Respiration_Time_To_Average (::std::auto_ptr< Respiration_Time_To_Average_type > p);
+
+  // Pressure-Amplification
+  //
+  typedef ::xml_schema::string Pressure_Amplification_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Amplification_type, char > Pressure_Amplification_traits;
+
+  const Pressure_Amplification_type&
+  Pressure_Amplification () const;
+
+  Pressure_Amplification_type&
+  Pressure_Amplification ();
+
+  void
+  Pressure_Amplification (const Pressure_Amplification_type& x);
+
+  void
+  Pressure_Amplification (::std::auto_ptr< Pressure_Amplification_type > p);
+
+  // Heart-Period
+  //
+  typedef ::xml_schema::string Heart_Period_type;
+  typedef ::xsd::cxx::tree::traits< Heart_Period_type, char > Heart_Period_traits;
+
+  const Heart_Period_type&
+  Heart_Period () const;
+
+  Heart_Period_type&
+  Heart_Period ();
+
+  void
+  Heart_Period (const Heart_Period_type& x);
+
+  void
+  Heart_Period (::std::auto_ptr< Heart_Period_type > p);
+
+  // Pressure-Show-Event
+  //
+  typedef ::xml_schema::string Pressure_Show_Event_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Show_Event_type, char > Pressure_Show_Event_traits;
+
+  const Pressure_Show_Event_type&
+  Pressure_Show_Event () const;
+
+  Pressure_Show_Event_type&
+  Pressure_Show_Event ();
+
+  void
+  Pressure_Show_Event (const Pressure_Show_Event_type& x);
+
+  void
+  Pressure_Show_Event (::std::auto_ptr< Pressure_Show_Event_type > p);
+
+  // RWave-Default-Threshold
+  //
+  typedef ::xml_schema::string RWave_Default_Threshold_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Default_Threshold_type, char > RWave_Default_Threshold_traits;
+
+  const RWave_Default_Threshold_type&
+  RWave_Default_Threshold () const;
+
+  RWave_Default_Threshold_type&
+  RWave_Default_Threshold ();
+
+  void
+  RWave_Default_Threshold (const RWave_Default_Threshold_type& x);
+
+  void
+  RWave_Default_Threshold (::std::auto_ptr< RWave_Default_Threshold_type > p);
+
+  // Show-Filtered-Data
+  //
+  typedef ::xml_schema::string Show_Filtered_Data_type;
+  typedef ::xsd::cxx::tree::traits< Show_Filtered_Data_type, char > Show_Filtered_Data_traits;
+
+  const Show_Filtered_Data_type&
+  Show_Filtered_Data () const;
+
+  Show_Filtered_Data_type&
+  Show_Filtered_Data ();
+
+  void
+  Show_Filtered_Data (const Show_Filtered_Data_type& x);
+
+  void
+  Show_Filtered_Data (::std::auto_ptr< Show_Filtered_Data_type > p);
+
+  // ECG-Range
+  //
+  typedef ::xml_schema::string ECG_Range_type;
+  typedef ::xsd::cxx::tree::traits< ECG_Range_type, char > ECG_Range_traits;
+
+  const ECG_Range_type&
+  ECG_Range () const;
+
+  ECG_Range_type&
+  ECG_Range ();
+
+  void
+  ECG_Range (const ECG_Range_type& x);
+
+  void
+  ECG_Range (::std::auto_ptr< ECG_Range_type > p);
+
+  // RWave-Maxima-Block-Time
+  //
+  typedef ::xml_schema::string RWave_Maxima_Block_Time_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Maxima_Block_Time_type, char > RWave_Maxima_Block_Time_traits;
+
+  const RWave_Maxima_Block_Time_type&
+  RWave_Maxima_Block_Time () const;
+
+  RWave_Maxima_Block_Time_type&
+  RWave_Maxima_Block_Time ();
+
+  void
+  RWave_Maxima_Block_Time (const RWave_Maxima_Block_Time_type& x);
+
+  void
+  RWave_Maxima_Block_Time (::std::auto_ptr< RWave_Maxima_Block_Time_type > p);
+
+  // RWave-Noise-Threshold
+  //
+  typedef ::xml_schema::string RWave_Noise_Threshold_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Noise_Threshold_type, char > RWave_Noise_Threshold_traits;
+
+  const RWave_Noise_Threshold_type&
+  RWave_Noise_Threshold () const;
+
+  RWave_Noise_Threshold_type&
+  RWave_Noise_Threshold ();
+
+  void
+  RWave_Noise_Threshold (const RWave_Noise_Threshold_type& x);
+
+  void
+  RWave_Noise_Threshold (::std::auto_ptr< RWave_Noise_Threshold_type > p);
+
+  // Pressure-Calibration-Level
+  //
+  typedef ::xml_schema::string Pressure_Calibration_Level_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Calibration_Level_type, char > Pressure_Calibration_Level_traits;
+
+  const Pressure_Calibration_Level_type&
+  Pressure_Calibration_Level () const;
+
+  Pressure_Calibration_Level_type&
+  Pressure_Calibration_Level ();
+
+  void
+  Pressure_Calibration_Level (const Pressure_Calibration_Level_type& x);
+
+  void
+  Pressure_Calibration_Level (::std::auto_ptr< Pressure_Calibration_Level_type > p);
+
+  // ECG-HP-Filter
+  //
+  typedef ::xml_schema::string ECG_HP_Filter_type;
+  typedef ::xsd::cxx::tree::traits< ECG_HP_Filter_type, char > ECG_HP_Filter_traits;
+
+  const ECG_HP_Filter_type&
+  ECG_HP_Filter () const;
+
+  ECG_HP_Filter_type&
+  ECG_HP_Filter ();
+
+  void
+  ECG_HP_Filter (const ECG_HP_Filter_type& x);
+
+  void
+  ECG_HP_Filter (::std::auto_ptr< ECG_HP_Filter_type > p);
+
+  // ECG-LP-Filter
+  //
+  typedef ::xml_schema::string ECG_LP_Filter_type;
+  typedef ::xsd::cxx::tree::traits< ECG_LP_Filter_type, char > ECG_LP_Filter_traits;
+
+  const ECG_LP_Filter_type&
+  ECG_LP_Filter () const;
+
+  ECG_LP_Filter_type&
+  ECG_LP_Filter ();
+
+  void
+  ECG_LP_Filter (const ECG_LP_Filter_type& x);
+
+  void
+  ECG_LP_Filter (::std::auto_ptr< ECG_LP_Filter_type > p);
+
+  // RWave-Max-Change-Period
+  //
+  typedef ::xml_schema::string RWave_Max_Change_Period_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Max_Change_Period_type, char > RWave_Max_Change_Period_traits;
+
+  const RWave_Max_Change_Period_type&
+  RWave_Max_Change_Period () const;
+
+  RWave_Max_Change_Period_type&
+  RWave_Max_Change_Period ();
+
+  void
+  RWave_Max_Change_Period (const RWave_Max_Change_Period_type& x);
+
+  void
+  RWave_Max_Change_Period (::std::auto_ptr< RWave_Max_Change_Period_type > p);
+
+  // Pressure-Time-Out
+  //
+  typedef ::xml_schema::string Pressure_Time_Out_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Time_Out_type, char > Pressure_Time_Out_traits;
+
+  const Pressure_Time_Out_type&
+  Pressure_Time_Out () const;
+
+  Pressure_Time_Out_type&
+  Pressure_Time_Out ();
+
+  void
+  Pressure_Time_Out (const Pressure_Time_Out_type& x);
+
+  void
+  Pressure_Time_Out (::std::auto_ptr< Pressure_Time_Out_type > p);
+
+  // Pressure-Calibration
+  //
+  typedef ::xml_schema::string Pressure_Calibration_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Calibration_type, char > Pressure_Calibration_traits;
+
+  const Pressure_Calibration_type&
+  Pressure_Calibration () const;
+
+  Pressure_Calibration_type&
+  Pressure_Calibration ();
+
+  void
+  Pressure_Calibration (const Pressure_Calibration_type& x);
+
+  void
+  Pressure_Calibration (::std::auto_ptr< Pressure_Calibration_type > p);
+
+  // RWave-Blank-Time
+  //
+  typedef ::xml_schema::string RWave_Blank_Time_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Blank_Time_type, char > RWave_Blank_Time_traits;
+
+  const RWave_Blank_Time_type&
+  RWave_Blank_Time () const;
+
+  RWave_Blank_Time_type&
+  RWave_Blank_Time ();
+
+  void
+  RWave_Blank_Time (const RWave_Blank_Time_type& x);
+
+  void
+  RWave_Blank_Time (::std::auto_ptr< RWave_Blank_Time_type > p);
+
+  // Constructors.
+  //
+  ECG (const Respiration_Threshold_Change_type&,
+       const Respiration_Threshold_type&,
+       const Pressure_Range_type&,
+       const Respiration_Gate_Delay_type&,
+       const Respiration_Timeout_type&,
+       const RWave_Max_Change_Factor_Percent_type&,
+       const Respiration_Period_type&,
+       const Respiration_Subsample_Rate_type&,
+       const Show_RWaves_type&,
+       const Respiration_Minimal_Peak_2_Peak_type&,
+       const Respiration_Window_type&,
+       const Pressure_Zeroed_type&,
+       const Pressure_Systolic_type&,
+       const Respiration_Show_Window_type&,
+       const Frequency_type&,
+       const Respiration_Blank_Period_type&,
+       const Respiration_Range_type&,
+       const Pressure_Zero_type&,
+       const Temperature_Amplification_type&,
+       const P_Wave_Start_type&,
+       const ECG_Filter_Taps_type&,
+       const RWave_Future_Search_Time_type&,
+       const Respiration_Percent_Peak_type&,
+       const T_Wave_Start_type&,
+       const Strain_Rate_RR_Diff_Ratio_type&,
+       const Pressure_Calibration_Min_Level_type&,
+       const Pressure_Calibrated_type&,
+       const DPDT_Range_type&,
+       const Respiration_Show_Event_type&,
+       const Pressure_Diastolic_type&,
+       const Temperature_Calibration_type&,
+       const Temperature_type&,
+       const Respiration_Beats_To_Average_type&,
+       const RWave_Thresh_Trigger_Percent_type&,
+       const Respiration_Time_To_Average_type&,
+       const Pressure_Amplification_type&,
+       const Heart_Period_type&,
+       const Pressure_Show_Event_type&,
+       const RWave_Default_Threshold_type&,
+       const Show_Filtered_Data_type&,
+       const ECG_Range_type&,
+       const RWave_Maxima_Block_Time_type&,
+       const RWave_Noise_Threshold_type&,
+       const Pressure_Calibration_Level_type&,
+       const ECG_HP_Filter_type&,
+       const ECG_LP_Filter_type&,
+       const RWave_Max_Change_Period_type&,
+       const Pressure_Time_Out_type&,
+       const Pressure_Calibration_type&,
+       const RWave_Blank_Time_type&);
+
+  ECG (const ::xercesc::DOMElement& e,
+       ::xml_schema::flags f = 0,
+       ::xml_schema::container* c = 0);
+
+  ECG (const ECG& x,
+       ::xml_schema::flags f = 0,
+       ::xml_schema::container* c = 0);
+
+  virtual ECG*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~ECG ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Respiration_Threshold_Change_type > Respiration_Threshold_Change_;
+  ::xsd::cxx::tree::one< Respiration_Threshold_type > Respiration_Threshold_;
+  ::xsd::cxx::tree::one< Pressure_Range_type > Pressure_Range_;
+  ::xsd::cxx::tree::one< Respiration_Gate_Delay_type > Respiration_Gate_Delay_;
+  ::xsd::cxx::tree::one< Respiration_Timeout_type > Respiration_Timeout_;
+  ::xsd::cxx::tree::one< RWave_Max_Change_Factor_Percent_type > RWave_Max_Change_Factor_Percent_;
+  ::xsd::cxx::tree::one< Respiration_Period_type > Respiration_Period_;
+  ::xsd::cxx::tree::one< Respiration_Subsample_Rate_type > Respiration_Subsample_Rate_;
+  ::xsd::cxx::tree::one< Show_RWaves_type > Show_RWaves_;
+  ::xsd::cxx::tree::one< Respiration_Minimal_Peak_2_Peak_type > Respiration_Minimal_Peak_2_Peak_;
+  ::xsd::cxx::tree::one< Respiration_Window_type > Respiration_Window_;
+  ::xsd::cxx::tree::one< Pressure_Zeroed_type > Pressure_Zeroed_;
+  ::xsd::cxx::tree::one< Pressure_Systolic_type > Pressure_Systolic_;
+  ::xsd::cxx::tree::one< Respiration_Show_Window_type > Respiration_Show_Window_;
+  ::xsd::cxx::tree::one< Frequency_type > Frequency_;
+  ::xsd::cxx::tree::one< Respiration_Blank_Period_type > Respiration_Blank_Period_;
+  ::xsd::cxx::tree::one< Respiration_Range_type > Respiration_Range_;
+  ::xsd::cxx::tree::one< Pressure_Zero_type > Pressure_Zero_;
+  ::xsd::cxx::tree::one< Temperature_Amplification_type > Temperature_Amplification_;
+  ::xsd::cxx::tree::one< P_Wave_Start_type > P_Wave_Start_;
+  ::xsd::cxx::tree::one< ECG_Filter_Taps_type > ECG_Filter_Taps_;
+  ::xsd::cxx::tree::one< RWave_Future_Search_Time_type > RWave_Future_Search_Time_;
+  ::xsd::cxx::tree::one< Respiration_Percent_Peak_type > Respiration_Percent_Peak_;
+  ::xsd::cxx::tree::one< T_Wave_Start_type > T_Wave_Start_;
+  ::xsd::cxx::tree::one< Strain_Rate_RR_Diff_Ratio_type > Strain_Rate_RR_Diff_Ratio_;
+  ::xsd::cxx::tree::one< Pressure_Calibration_Min_Level_type > Pressure_Calibration_Min_Level_;
+  ::xsd::cxx::tree::one< Pressure_Calibrated_type > Pressure_Calibrated_;
+  ::xsd::cxx::tree::one< DPDT_Range_type > DPDT_Range_;
+  ::xsd::cxx::tree::one< Respiration_Show_Event_type > Respiration_Show_Event_;
+  ::xsd::cxx::tree::one< Pressure_Diastolic_type > Pressure_Diastolic_;
+  ::xsd::cxx::tree::one< Temperature_Calibration_type > Temperature_Calibration_;
+  ::xsd::cxx::tree::one< Temperature_type > Temperature_;
+  ::xsd::cxx::tree::one< Respiration_Beats_To_Average_type > Respiration_Beats_To_Average_;
+  ::xsd::cxx::tree::one< RWave_Thresh_Trigger_Percent_type > RWave_Thresh_Trigger_Percent_;
+  ::xsd::cxx::tree::one< Respiration_Time_To_Average_type > Respiration_Time_To_Average_;
+  ::xsd::cxx::tree::one< Pressure_Amplification_type > Pressure_Amplification_;
+  ::xsd::cxx::tree::one< Heart_Period_type > Heart_Period_;
+  ::xsd::cxx::tree::one< Pressure_Show_Event_type > Pressure_Show_Event_;
+  ::xsd::cxx::tree::one< RWave_Default_Threshold_type > RWave_Default_Threshold_;
+  ::xsd::cxx::tree::one< Show_Filtered_Data_type > Show_Filtered_Data_;
+  ::xsd::cxx::tree::one< ECG_Range_type > ECG_Range_;
+  ::xsd::cxx::tree::one< RWave_Maxima_Block_Time_type > RWave_Maxima_Block_Time_;
+  ::xsd::cxx::tree::one< RWave_Noise_Threshold_type > RWave_Noise_Threshold_;
+  ::xsd::cxx::tree::one< Pressure_Calibration_Level_type > Pressure_Calibration_Level_;
+  ::xsd::cxx::tree::one< ECG_HP_Filter_type > ECG_HP_Filter_;
+  ::xsd::cxx::tree::one< ECG_LP_Filter_type > ECG_LP_Filter_;
+  ::xsd::cxx::tree::one< RWave_Max_Change_Period_type > RWave_Max_Change_Period_;
+  ::xsd::cxx::tree::one< Pressure_Time_Out_type > Pressure_Time_Out_;
+  ::xsd::cxx::tree::one< Pressure_Calibration_type > Pressure_Calibration_;
+  ::xsd::cxx::tree::one< RWave_Blank_Time_type > RWave_Blank_Time_;
+};
+
+class RfModeSoft: public ::xml_schema::type
+{
+  public:
+  // Amplitude-Height
+  //
+  typedef ::xml_schema::string Amplitude_Height_type;
+  typedef ::xsd::cxx::tree::traits< Amplitude_Height_type, char > Amplitude_Height_traits;
+
+  const Amplitude_Height_type&
+  Amplitude_Height () const;
+
+  Amplitude_Height_type&
+  Amplitude_Height ();
+
+  void
+  Amplitude_Height (const Amplitude_Height_type& x);
+
+  void
+  Amplitude_Height (::std::auto_ptr< Amplitude_Height_type > p);
+
+  // Magnitude-Origin
+  //
+  typedef ::xml_schema::string Magnitude_Origin_type;
+  typedef ::xsd::cxx::tree::traits< Magnitude_Origin_type, char > Magnitude_Origin_traits;
+
+  const Magnitude_Origin_type&
+  Magnitude_Origin () const;
+
+  Magnitude_Origin_type&
+  Magnitude_Origin ();
+
+  void
+  Magnitude_Origin (const Magnitude_Origin_type& x);
+
+  void
+  Magnitude_Origin (::std::auto_ptr< Magnitude_Origin_type > p);
+
+  // Frequency-Origin
+  //
+  typedef ::xml_schema::string Frequency_Origin_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_Origin_type, char > Frequency_Origin_traits;
+
+  const Frequency_Origin_type&
+  Frequency_Origin () const;
+
+  Frequency_Origin_type&
+  Frequency_Origin ();
+
+  void
+  Frequency_Origin (const Frequency_Origin_type& x);
+
+  void
+  Frequency_Origin (::std::auto_ptr< Frequency_Origin_type > p);
+
+  // Samples
+  //
+  typedef ::xml_schema::string Samples_type;
+  typedef ::xsd::cxx::tree::traits< Samples_type, char > Samples_traits;
+
+  const Samples_type&
+  Samples () const;
+
+  Samples_type&
+  Samples ();
+
+  void
+  Samples (const Samples_type& x);
+
+  void
+  Samples (::std::auto_ptr< Samples_type > p);
+
+  // Saturation-Threshold
+  //
+  typedef ::xml_schema::string Saturation_Threshold_type;
+  typedef ::xsd::cxx::tree::traits< Saturation_Threshold_type, char > Saturation_Threshold_traits;
+
+  const Saturation_Threshold_type&
+  Saturation_Threshold () const;
+
+  Saturation_Threshold_type&
+  Saturation_Threshold ();
+
+  void
+  Saturation_Threshold (const Saturation_Threshold_type& x);
+
+  void
+  Saturation_Threshold (::std::auto_ptr< Saturation_Threshold_type > p);
+
+  // Amplitude-Origin
+  //
+  typedef ::xml_schema::string Amplitude_Origin_type;
+  typedef ::xsd::cxx::tree::traits< Amplitude_Origin_type, char > Amplitude_Origin_traits;
+
+  const Amplitude_Origin_type&
+  Amplitude_Origin () const;
+
+  Amplitude_Origin_type&
+  Amplitude_Origin ();
+
+  void
+  Amplitude_Origin (const Amplitude_Origin_type& x);
+
+  void
+  Amplitude_Origin (::std::auto_ptr< Amplitude_Origin_type > p);
+
+  // Frame-Selected
+  //
+  typedef ::xml_schema::string Frame_Selected_type;
+  typedef ::xsd::cxx::tree::traits< Frame_Selected_type, char > Frame_Selected_traits;
+
+  const Frame_Selected_type&
+  Frame_Selected () const;
+
+  Frame_Selected_type&
+  Frame_Selected ();
+
+  void
+  Frame_Selected (const Frame_Selected_type& x);
+
+  void
+  Frame_Selected (::std::auto_ptr< Frame_Selected_type > p);
+
+  // AcqPerLine
+  //
+  typedef ::xml_schema::string AcqPerLine_type;
+  typedef ::xsd::cxx::tree::traits< AcqPerLine_type, char > AcqPerLine_traits;
+
+  const AcqPerLine_type&
+  AcqPerLine () const;
+
+  AcqPerLine_type&
+  AcqPerLine ();
+
+  void
+  AcqPerLine (const AcqPerLine_type& x);
+
+  void
+  AcqPerLine (::std::auto_ptr< AcqPerLine_type > p);
+
+  // Lines
+  //
+  typedef ::xml_schema::string Lines_type;
+  typedef ::xsd::cxx::tree::traits< Lines_type, char > Lines_traits;
+
+  const Lines_type&
+  Lines () const;
+
+  Lines_type&
+  Lines ();
+
+  void
+  Lines (const Lines_type& x);
+
+  void
+  Lines (::std::auto_ptr< Lines_type > p);
+
+  // Windowing-Mode
+  //
+  typedef ::xml_schema::string Windowing_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Windowing_Mode_type, char > Windowing_Mode_traits;
+
+  const Windowing_Mode_type&
+  Windowing_Mode () const;
+
+  Windowing_Mode_type&
+  Windowing_Mode ();
+
+  void
+  Windowing_Mode (const Windowing_Mode_type& x);
+
+  void
+  Windowing_Mode (::std::auto_ptr< Windowing_Mode_type > p);
+
+  // Length-Origin
+  //
+  typedef ::xml_schema::string Length_Origin_type;
+  typedef ::xsd::cxx::tree::traits< Length_Origin_type, char > Length_Origin_traits;
+
+  const Length_Origin_type&
+  Length_Origin () const;
+
+  Length_Origin_type&
+  Length_Origin ();
+
+  void
+  Length_Origin (const Length_Origin_type& x);
+
+  void
+  Length_Origin (::std::auto_ptr< Length_Origin_type > p);
+
+  // Line-Selected
+  //
+  typedef ::xml_schema::string Line_Selected_type;
+  typedef ::xsd::cxx::tree::traits< Line_Selected_type, char > Line_Selected_traits;
+
+  const Line_Selected_type&
+  Line_Selected () const;
+
+  Line_Selected_type&
+  Line_Selected ();
+
+  void
+  Line_Selected (const Line_Selected_type& x);
+
+  void
+  Line_Selected (::std::auto_ptr< Line_Selected_type > p);
+
+  // V-Lines-Pos
+  //
+  typedef ::xml_schema::string V_Lines_Pos_type;
+  typedef ::xsd::cxx::tree::traits< V_Lines_Pos_type, char > V_Lines_Pos_traits;
+
+  const V_Lines_Pos_type&
+  V_Lines_Pos () const;
+
+  V_Lines_Pos_type&
+  V_Lines_Pos ();
+
+  void
+  V_Lines_Pos (const V_Lines_Pos_type& x);
+
+  void
+  V_Lines_Pos (::std::auto_ptr< V_Lines_Pos_type > p);
+
+  // Bounce-Test-AscanData
+  //
+  typedef ::xml_schema::string Bounce_Test_AscanData_type;
+  typedef ::xsd::cxx::tree::traits< Bounce_Test_AscanData_type, char > Bounce_Test_AscanData_traits;
+
+  const Bounce_Test_AscanData_type&
+  Bounce_Test_AscanData () const;
+
+  Bounce_Test_AscanData_type&
+  Bounce_Test_AscanData ();
+
+  void
+  Bounce_Test_AscanData (const Bounce_Test_AscanData_type& x);
+
+  void
+  Bounce_Test_AscanData (::std::auto_ptr< Bounce_Test_AscanData_type > p);
+
+  // Vertical-Scale
+  //
+  typedef ::xml_schema::string Vertical_Scale_type;
+  typedef ::xsd::cxx::tree::traits< Vertical_Scale_type, char > Vertical_Scale_traits;
+
+  const Vertical_Scale_type&
+  Vertical_Scale () const;
+
+  Vertical_Scale_type&
+  Vertical_Scale ();
+
+  void
+  Vertical_Scale (const Vertical_Scale_type& x);
+
+  void
+  Vertical_Scale (::std::auto_ptr< Vertical_Scale_type > p);
+
+  // Bounce-Test-RFData
+  //
+  typedef ::xml_schema::string Bounce_Test_RFData_type;
+  typedef ::xsd::cxx::tree::traits< Bounce_Test_RFData_type, char > Bounce_Test_RFData_traits;
+
+  const Bounce_Test_RFData_type&
+  Bounce_Test_RFData () const;
+
+  Bounce_Test_RFData_type&
+  Bounce_Test_RFData ();
+
+  void
+  Bounce_Test_RFData (const Bounce_Test_RFData_type& x);
+
+  void
+  Bounce_Test_RFData (::std::auto_ptr< Bounce_Test_RFData_type > p);
+
+  // SamplesPerSec
+  //
+  typedef ::xml_schema::string SamplesPerSec_type;
+  typedef ::xsd::cxx::tree::traits< SamplesPerSec_type, char > SamplesPerSec_traits;
+
+  const SamplesPerSec_type&
+  SamplesPerSec () const;
+
+  SamplesPerSec_type&
+  SamplesPerSec ();
+
+  void
+  SamplesPerSec (const SamplesPerSec_type& x);
+
+  void
+  SamplesPerSec (::std::auto_ptr< SamplesPerSec_type > p);
+
+  // Frames
+  //
+  typedef ::xml_schema::string Frames_type;
+  typedef ::xsd::cxx::tree::traits< Frames_type, char > Frames_traits;
+
+  const Frames_type&
+  Frames () const;
+
+  Frames_type&
+  Frames ();
+
+  void
+  Frames (const Frames_type& x);
+
+  void
+  Frames (::std::auto_ptr< Frames_type > p);
+
+  // Digitizer
+  //
+  typedef ::xml_schema::string Digitizer_type;
+  typedef ::xsd::cxx::tree::traits< Digitizer_type, char > Digitizer_traits;
+
+  const Digitizer_type&
+  Digitizer () const;
+
+  Digitizer_type&
+  Digitizer ();
+
+  void
+  Digitizer (const Digitizer_type& x);
+
+  void
+  Digitizer (::std::auto_ptr< Digitizer_type > p);
+
+  // Magnitude-Height
+  //
+  typedef ::xml_schema::string Magnitude_Height_type;
+  typedef ::xsd::cxx::tree::traits< Magnitude_Height_type, char > Magnitude_Height_traits;
+
+  const Magnitude_Height_type&
+  Magnitude_Height () const;
+
+  Magnitude_Height_type&
+  Magnitude_Height ();
+
+  void
+  Magnitude_Height (const Magnitude_Height_type& x);
+
+  void
+  Magnitude_Height (::std::auto_ptr< Magnitude_Height_type > p);
+
+  // Saturation
+  //
+  typedef ::xml_schema::string Saturation_type;
+  typedef ::xsd::cxx::tree::traits< Saturation_type, char > Saturation_traits;
+
+  const Saturation_type&
+  Saturation () const;
+
+  Saturation_type&
+  Saturation ();
+
+  void
+  Saturation (const Saturation_type& x);
+
+  void
+  Saturation (::std::auto_ptr< Saturation_type > p);
+
+  // Length-Length
+  //
+  typedef ::xml_schema::string Length_Length_type;
+  typedef ::xsd::cxx::tree::traits< Length_Length_type, char > Length_Length_traits;
+
+  const Length_Length_type&
+  Length_Length () const;
+
+  Length_Length_type&
+  Length_Length ();
+
+  void
+  Length_Length (const Length_Length_type& x);
+
+  void
+  Length_Length (::std::auto_ptr< Length_Length_type > p);
+
+  // Frequency-Length
+  //
+  typedef ::xml_schema::string Frequency_Length_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_Length_type, char > Frequency_Length_traits;
+
+  const Frequency_Length_type&
+  Frequency_Length () const;
+
+  Frequency_Length_type&
+  Frequency_Length ();
+
+  void
+  Frequency_Length (const Frequency_Length_type& x);
+
+  void
+  Frequency_Length (::std::auto_ptr< Frequency_Length_type > p);
+
+  // State
+  //
+  typedef ::xml_schema::string State_type;
+  typedef ::xsd::cxx::tree::traits< State_type, char > State_traits;
+
+  const State_type&
+  State () const;
+
+  State_type&
+  State ();
+
+  void
+  State (const State_type& x);
+
+  void
+  State (::std::auto_ptr< State_type > p);
+
+  // SV-Center
+  //
+  typedef ::xml_schema::string SV_Center_type;
+  typedef ::xsd::cxx::tree::traits< SV_Center_type, char > SV_Center_traits;
+
+  const SV_Center_type&
+  SV_Center () const;
+
+  SV_Center_type&
+  SV_Center ();
+
+  void
+  SV_Center (const SV_Center_type& x);
+
+  void
+  SV_Center (::std::auto_ptr< SV_Center_type > p);
+
+  // Continuous-RF-FrameRate
+  //
+  typedef ::xml_schema::string Continuous_RF_FrameRate_type;
+  typedef ::xsd::cxx::tree::traits< Continuous_RF_FrameRate_type, char > Continuous_RF_FrameRate_traits;
+
+  const Continuous_RF_FrameRate_type&
+  Continuous_RF_FrameRate () const;
+
+  Continuous_RF_FrameRate_type&
+  Continuous_RF_FrameRate ();
+
+  void
+  Continuous_RF_FrameRate (const Continuous_RF_FrameRate_type& x);
+
+  void
+  Continuous_RF_FrameRate (::std::auto_ptr< Continuous_RF_FrameRate_type > p);
+
+  // Quantify-Bounce-Test
+  //
+  typedef ::xml_schema::string Quantify_Bounce_Test_type;
+  typedef ::xsd::cxx::tree::traits< Quantify_Bounce_Test_type, char > Quantify_Bounce_Test_traits;
+
+  const Quantify_Bounce_Test_type&
+  Quantify_Bounce_Test () const;
+
+  Quantify_Bounce_Test_type&
+  Quantify_Bounce_Test ();
+
+  void
+  Quantify_Bounce_Test (const Quantify_Bounce_Test_type& x);
+
+  void
+  Quantify_Bounce_Test (::std::auto_ptr< Quantify_Bounce_Test_type > p);
+
+  // X_3D-Volume
+  //
+  typedef ::xml_schema::string X_3D_Volume_type;
+  typedef ::xsd::cxx::tree::traits< X_3D_Volume_type, char > X_3D_Volume_traits;
+
+  const X_3D_Volume_type&
+  X_3D_Volume () const;
+
+  X_3D_Volume_type&
+  X_3D_Volume ();
+
+  void
+  X_3D_Volume (const X_3D_Volume_type& x);
+
+  void
+  X_3D_Volume (::std::auto_ptr< X_3D_Volume_type > p);
+
+  // Shift-RF-Data
+  //
+  typedef ::xml_schema::string Shift_RF_Data_type;
+  typedef ::xsd::cxx::tree::traits< Shift_RF_Data_type, char > Shift_RF_Data_traits;
+
+  const Shift_RF_Data_type&
+  Shift_RF_Data () const;
+
+  Shift_RF_Data_type&
+  Shift_RF_Data ();
+
+  void
+  Shift_RF_Data (const Shift_RF_Data_type& x);
+
+  void
+  Shift_RF_Data (::std::auto_ptr< Shift_RF_Data_type > p);
+
+  // V-Lines
+  //
+  typedef ::xml_schema::string V_Lines_type;
+  typedef ::xsd::cxx::tree::traits< V_Lines_type, char > V_Lines_traits;
+
+  const V_Lines_type&
+  V_Lines () const;
+
+  V_Lines_type&
+  V_Lines ();
+
+  void
+  V_Lines (const V_Lines_type& x);
+
+  void
+  V_Lines (::std::auto_ptr< V_Lines_type > p);
+
+  // Graph-Mode
+  //
+  typedef ::xml_schema::string Graph_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Graph_Mode_type, char > Graph_Mode_traits;
+
+  const Graph_Mode_type&
+  Graph_Mode () const;
+
+  Graph_Mode_type&
+  Graph_Mode ();
+
+  void
+  Graph_Mode (const Graph_Mode_type& x);
+
+  void
+  Graph_Mode (::std::auto_ptr< Graph_Mode_type > p);
+
+  // RF-Path-15Mhz-Time-Correction
+  //
+  typedef ::xml_schema::string RF_Path_15Mhz_Time_Correction_type;
+  typedef ::xsd::cxx::tree::traits< RF_Path_15Mhz_Time_Correction_type, char > RF_Path_15Mhz_Time_Correction_traits;
+
+  const RF_Path_15Mhz_Time_Correction_type&
+  RF_Path_15Mhz_Time_Correction () const;
+
+  RF_Path_15Mhz_Time_Correction_type&
+  RF_Path_15Mhz_Time_Correction ();
+
+  void
+  RF_Path_15Mhz_Time_Correction (const RF_Path_15Mhz_Time_Correction_type& x);
+
+  void
+  RF_Path_15Mhz_Time_Correction (::std::auto_ptr< RF_Path_15Mhz_Time_Correction_type > p);
+
+  // RF-Path-23Mhz-Time-Correction
+  //
+  typedef ::xml_schema::string RF_Path_23Mhz_Time_Correction_type;
+  typedef ::xsd::cxx::tree::traits< RF_Path_23Mhz_Time_Correction_type, char > RF_Path_23Mhz_Time_Correction_traits;
+
+  const RF_Path_23Mhz_Time_Correction_type&
+  RF_Path_23Mhz_Time_Correction () const;
+
+  RF_Path_23Mhz_Time_Correction_type&
+  RF_Path_23Mhz_Time_Correction ();
+
+  void
+  RF_Path_23Mhz_Time_Correction (const RF_Path_23Mhz_Time_Correction_type& x);
+
+  void
+  RF_Path_23Mhz_Time_Correction (::std::auto_ptr< RF_Path_23Mhz_Time_Correction_type > p);
+
+  // SV-Length-Limits
+  //
+  typedef ::xml_schema::string SV_Length_Limits_type;
+  typedef ::xsd::cxx::tree::traits< SV_Length_Limits_type, char > SV_Length_Limits_traits;
+
+  const SV_Length_Limits_type&
+  SV_Length_Limits () const;
+
+  SV_Length_Limits_type&
+  SV_Length_Limits ();
+
+  void
+  SV_Length_Limits (const SV_Length_Limits_type& x);
+
+  void
+  SV_Length_Limits (::std::auto_ptr< SV_Length_Limits_type > p);
+
+  // Constructors.
+  //
+  RfModeSoft (const Amplitude_Height_type&,
+              const Magnitude_Origin_type&,
+              const Frequency_Origin_type&,
+              const Samples_type&,
+              const Saturation_Threshold_type&,
+              const Amplitude_Origin_type&,
+              const Frame_Selected_type&,
+              const AcqPerLine_type&,
+              const Lines_type&,
+              const Windowing_Mode_type&,
+              const Length_Origin_type&,
+              const Line_Selected_type&,
+              const V_Lines_Pos_type&,
+              const Bounce_Test_AscanData_type&,
+              const Vertical_Scale_type&,
+              const Bounce_Test_RFData_type&,
+              const SamplesPerSec_type&,
+              const Frames_type&,
+              const Digitizer_type&,
+              const Magnitude_Height_type&,
+              const Saturation_type&,
+              const Length_Length_type&,
+              const Frequency_Length_type&,
+              const State_type&,
+              const SV_Center_type&,
+              const Continuous_RF_FrameRate_type&,
+              const Quantify_Bounce_Test_type&,
+              const X_3D_Volume_type&,
+              const Shift_RF_Data_type&,
+              const V_Lines_type&,
+              const Graph_Mode_type&,
+              const RF_Path_15Mhz_Time_Correction_type&,
+              const RF_Path_23Mhz_Time_Correction_type&,
+              const SV_Length_Limits_type&);
+
+  RfModeSoft (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  RfModeSoft (const RfModeSoft& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual RfModeSoft*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RfModeSoft ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Amplitude_Height_type > Amplitude_Height_;
+  ::xsd::cxx::tree::one< Magnitude_Origin_type > Magnitude_Origin_;
+  ::xsd::cxx::tree::one< Frequency_Origin_type > Frequency_Origin_;
+  ::xsd::cxx::tree::one< Samples_type > Samples_;
+  ::xsd::cxx::tree::one< Saturation_Threshold_type > Saturation_Threshold_;
+  ::xsd::cxx::tree::one< Amplitude_Origin_type > Amplitude_Origin_;
+  ::xsd::cxx::tree::one< Frame_Selected_type > Frame_Selected_;
+  ::xsd::cxx::tree::one< AcqPerLine_type > AcqPerLine_;
+  ::xsd::cxx::tree::one< Lines_type > Lines_;
+  ::xsd::cxx::tree::one< Windowing_Mode_type > Windowing_Mode_;
+  ::xsd::cxx::tree::one< Length_Origin_type > Length_Origin_;
+  ::xsd::cxx::tree::one< Line_Selected_type > Line_Selected_;
+  ::xsd::cxx::tree::one< V_Lines_Pos_type > V_Lines_Pos_;
+  ::xsd::cxx::tree::one< Bounce_Test_AscanData_type > Bounce_Test_AscanData_;
+  ::xsd::cxx::tree::one< Vertical_Scale_type > Vertical_Scale_;
+  ::xsd::cxx::tree::one< Bounce_Test_RFData_type > Bounce_Test_RFData_;
+  ::xsd::cxx::tree::one< SamplesPerSec_type > SamplesPerSec_;
+  ::xsd::cxx::tree::one< Frames_type > Frames_;
+  ::xsd::cxx::tree::one< Digitizer_type > Digitizer_;
+  ::xsd::cxx::tree::one< Magnitude_Height_type > Magnitude_Height_;
+  ::xsd::cxx::tree::one< Saturation_type > Saturation_;
+  ::xsd::cxx::tree::one< Length_Length_type > Length_Length_;
+  ::xsd::cxx::tree::one< Frequency_Length_type > Frequency_Length_;
+  ::xsd::cxx::tree::one< State_type > State_;
+  ::xsd::cxx::tree::one< SV_Center_type > SV_Center_;
+  ::xsd::cxx::tree::one< Continuous_RF_FrameRate_type > Continuous_RF_FrameRate_;
+  ::xsd::cxx::tree::one< Quantify_Bounce_Test_type > Quantify_Bounce_Test_;
+  ::xsd::cxx::tree::one< X_3D_Volume_type > X_3D_Volume_;
+  ::xsd::cxx::tree::one< Shift_RF_Data_type > Shift_RF_Data_;
+  ::xsd::cxx::tree::one< V_Lines_type > V_Lines_;
+  ::xsd::cxx::tree::one< Graph_Mode_type > Graph_Mode_;
+  ::xsd::cxx::tree::one< RF_Path_15Mhz_Time_Correction_type > RF_Path_15Mhz_Time_Correction_;
+  ::xsd::cxx::tree::one< RF_Path_23Mhz_Time_Correction_type > RF_Path_23Mhz_Time_Correction_;
+  ::xsd::cxx::tree::one< SV_Length_Limits_type > SV_Length_Limits_;
+};
+
+class TX: public ::xml_schema::type
+{
+  public:
+  // V-Position-Table
+  //
+  typedef ::xml_schema::string V_Position_Table_type;
+  typedef ::xsd::cxx::tree::traits< V_Position_Table_type, char > V_Position_Table_traits;
+
+  const V_Position_Table_type&
+  V_Position_Table () const;
+
+  V_Position_Table_type&
+  V_Position_Table ();
+
+  void
+  V_Position_Table (const V_Position_Table_type& x);
+
+  void
+  V_Position_Table (::std::auto_ptr< V_Position_Table_type > p);
+
+  // V-Transmit-Length
+  //
+  typedef ::xml_schema::string V_Transmit_Length_type;
+  typedef ::xsd::cxx::tree::traits< V_Transmit_Length_type, char > V_Transmit_Length_traits;
+
+  const V_Transmit_Length_type&
+  V_Transmit_Length () const;
+
+  V_Transmit_Length_type&
+  V_Transmit_Length ();
+
+  void
+  V_Transmit_Length (const V_Transmit_Length_type& x);
+
+  void
+  V_Transmit_Length (::std::auto_ptr< V_Transmit_Length_type > p);
+
+  // Trigger-Counter-Clear
+  //
+  typedef ::xml_schema::string Trigger_Counter_Clear_type;
+  typedef ::xsd::cxx::tree::traits< Trigger_Counter_Clear_type, char > Trigger_Counter_Clear_traits;
+
+  const Trigger_Counter_Clear_type&
+  Trigger_Counter_Clear () const;
+
+  Trigger_Counter_Clear_type&
+  Trigger_Counter_Clear ();
+
+  void
+  Trigger_Counter_Clear (const Trigger_Counter_Clear_type& x);
+
+  void
+  Trigger_Counter_Clear (::std::auto_ptr< Trigger_Counter_Clear_type > p);
+
+  // Trigger-Counter
+  //
+  typedef ::xml_schema::string Trigger_Counter_type;
+  typedef ::xsd::cxx::tree::traits< Trigger_Counter_type, char > Trigger_Counter_traits;
+
+  const Trigger_Counter_type&
+  Trigger_Counter () const;
+
+  Trigger_Counter_type&
+  Trigger_Counter ();
+
+  void
+  Trigger_Counter (const Trigger_Counter_type& x);
+
+  void
+  Trigger_Counter (::std::auto_ptr< Trigger_Counter_type > p);
+
+  // Multi-Trigger-Freq
+  //
+  typedef ::xml_schema::string Multi_Trigger_Freq_type;
+  typedef ::xsd::cxx::tree::traits< Multi_Trigger_Freq_type, char > Multi_Trigger_Freq_traits;
+
+  const Multi_Trigger_Freq_type&
+  Multi_Trigger_Freq () const;
+
+  Multi_Trigger_Freq_type&
+  Multi_Trigger_Freq ();
+
+  void
+  Multi_Trigger_Freq (const Multi_Trigger_Freq_type& x);
+
+  void
+  Multi_Trigger_Freq (::std::auto_ptr< Multi_Trigger_Freq_type > p);
+
+  // RF-Amp
+  //
+  typedef ::xml_schema::string RF_Amp_type;
+  typedef ::xsd::cxx::tree::traits< RF_Amp_type, char > RF_Amp_traits;
+
+  const RF_Amp_type&
+  RF_Amp () const;
+
+  RF_Amp_type&
+  RF_Amp ();
+
+  void
+  RF_Amp (const RF_Amp_type& x);
+
+  void
+  RF_Amp (::std::auto_ptr< RF_Amp_type > p);
+
+  // Trigger-Control
+  //
+  typedef ::xml_schema::string Trigger_Control_type;
+  typedef ::xsd::cxx::tree::traits< Trigger_Control_type, char > Trigger_Control_traits;
+
+  const Trigger_Control_type&
+  Trigger_Control () const;
+
+  Trigger_Control_type&
+  Trigger_Control ();
+
+  void
+  Trigger_Control (const Trigger_Control_type& x);
+
+  void
+  Trigger_Control (::std::auto_ptr< Trigger_Control_type > p);
+
+  // V-Pulse-Rep-Freq
+  //
+  typedef ::xml_schema::string V_Pulse_Rep_Freq_type;
+  typedef ::xsd::cxx::tree::traits< V_Pulse_Rep_Freq_type, char > V_Pulse_Rep_Freq_traits;
+
+  const V_Pulse_Rep_Freq_type&
+  V_Pulse_Rep_Freq () const;
+
+  V_Pulse_Rep_Freq_type&
+  V_Pulse_Rep_Freq ();
+
+  void
+  V_Pulse_Rep_Freq (const V_Pulse_Rep_Freq_type& x);
+
+  void
+  V_Pulse_Rep_Freq (::std::auto_ptr< V_Pulse_Rep_Freq_type > p);
+
+  // Phase
+  //
+  typedef ::xml_schema::string Phase_type;
+  typedef ::xsd::cxx::tree::traits< Phase_type, char > Phase_traits;
+
+  const Phase_type&
+  Phase () const;
+
+  Phase_type&
+  Phase ();
+
+  void
+  Phase (const Phase_type& x);
+
+  void
+  Phase (::std::auto_ptr< Phase_type > p);
+
+  // Frequency
+  //
+  typedef ::xml_schema::string Frequency_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
+
+  const Frequency_type&
+  Frequency () const;
+
+  Frequency_type&
+  Frequency ();
+
+  void
+  Frequency (const Frequency_type& x);
+
+  void
+  Frequency (::std::auto_ptr< Frequency_type > p);
+
+  // V-Unblank-Time
+  //
+  typedef ::xml_schema::string V_Unblank_Time_type;
+  typedef ::xsd::cxx::tree::traits< V_Unblank_Time_type, char > V_Unblank_Time_traits;
+
+  const V_Unblank_Time_type&
+  V_Unblank_Time () const;
+
+  V_Unblank_Time_type&
+  V_Unblank_Time ();
+
+  void
+  V_Unblank_Time (const V_Unblank_Time_type& x);
+
+  void
+  V_Unblank_Time (::std::auto_ptr< V_Unblank_Time_type > p);
+
+  // V-Frequency
+  //
+  typedef ::xml_schema::string V_Frequency_type;
+  typedef ::xsd::cxx::tree::traits< V_Frequency_type, char > V_Frequency_traits;
+
+  const V_Frequency_type&
+  V_Frequency () const;
+
+  V_Frequency_type&
+  V_Frequency ();
+
+  void
+  V_Frequency (const V_Frequency_type& x);
+
+  void
+  V_Frequency (::std::auto_ptr< V_Frequency_type > p);
+
+  // Pulse-Rep-Frequency
+  //
+  typedef ::xml_schema::string Pulse_Rep_Frequency_type;
+  typedef ::xsd::cxx::tree::traits< Pulse_Rep_Frequency_type, char > Pulse_Rep_Frequency_traits;
+
+  const Pulse_Rep_Frequency_type&
+  Pulse_Rep_Frequency () const;
+
+  Pulse_Rep_Frequency_type&
+  Pulse_Rep_Frequency ();
+
+  void
+  Pulse_Rep_Frequency (const Pulse_Rep_Frequency_type& x);
+
+  void
+  Pulse_Rep_Frequency (::std::auto_ptr< Pulse_Rep_Frequency_type > p);
+
+  // Multi-Trigger
+  //
+  typedef ::xml_schema::string Multi_Trigger_type;
+  typedef ::xsd::cxx::tree::traits< Multi_Trigger_type, char > Multi_Trigger_traits;
+
+  const Multi_Trigger_type&
+  Multi_Trigger () const;
+
+  Multi_Trigger_type&
+  Multi_Trigger ();
+
+  void
+  Multi_Trigger (const Multi_Trigger_type& x);
+
+  void
+  Multi_Trigger (::std::auto_ptr< Multi_Trigger_type > p);
+
+  // Trig-Tbl-Trigs
+  //
+  typedef ::xml_schema::string Trig_Tbl_Trigs_type;
+  typedef ::xsd::cxx::tree::traits< Trig_Tbl_Trigs_type, char > Trig_Tbl_Trigs_traits;
+
+  const Trig_Tbl_Trigs_type&
+  Trig_Tbl_Trigs () const;
+
+  Trig_Tbl_Trigs_type&
+  Trig_Tbl_Trigs ();
+
+  void
+  Trig_Tbl_Trigs (const Trig_Tbl_Trigs_type& x);
+
+  void
+  Trig_Tbl_Trigs (::std::auto_ptr< Trig_Tbl_Trigs_type > p);
+
+  // Width
+  //
+  typedef ::xml_schema::string Width_type;
+  typedef ::xsd::cxx::tree::traits< Width_type, char > Width_traits;
+
+  const Width_type&
+  Width () const;
+
+  Width_type&
+  Width ();
+
+  void
+  Width (const Width_type& x);
+
+  void
+  Width (::std::auto_ptr< Width_type > p);
+
+  // Unblank-Cycles
+  //
+  typedef ::xml_schema::string Unblank_Cycles_type;
+  typedef ::xsd::cxx::tree::traits< Unblank_Cycles_type, char > Unblank_Cycles_traits;
+
+  const Unblank_Cycles_type&
+  Unblank_Cycles () const;
+
+  Unblank_Cycles_type&
+  Unblank_Cycles ();
+
+  void
+  Unblank_Cycles (const Unblank_Cycles_type& x);
+
+  void
+  Unblank_Cycles (::std::auto_ptr< Unblank_Cycles_type > p);
+
+  // V-Width
+  //
+  typedef ::xml_schema::string V_Width_type;
+  typedef ::xsd::cxx::tree::traits< V_Width_type, char > V_Width_traits;
+
+  const V_Width_type&
+  V_Width () const;
+
+  V_Width_type&
+  V_Width ();
+
+  void
+  V_Width (const V_Width_type& x);
+
+  void
+  V_Width (::std::auto_ptr< V_Width_type > p);
+
+  // Unblank-Time
+  //
+  typedef ::xml_schema::string Unblank_Time_type;
+  typedef ::xsd::cxx::tree::traits< Unblank_Time_type, char > Unblank_Time_traits;
+
+  const Unblank_Time_type&
+  Unblank_Time () const;
+
+  Unblank_Time_type&
+  Unblank_Time ();
+
+  void
+  Unblank_Time (const Unblank_Time_type& x);
+
+  void
+  Unblank_Time (::std::auto_ptr< Unblank_Time_type > p);
+
+  // Attenuation
+  //
+  typedef ::xml_schema::string Attenuation_type;
+  typedef ::xsd::cxx::tree::traits< Attenuation_type, char > Attenuation_traits;
+
+  const Attenuation_type&
+  Attenuation () const;
+
+  Attenuation_type&
+  Attenuation ();
+
+  void
+  Attenuation (const Attenuation_type& x);
+
+  void
+  Attenuation (::std::auto_ptr< Attenuation_type > p);
+
+  // V-Power
+  //
+  typedef ::xml_schema::string V_Power_type;
+  typedef ::xsd::cxx::tree::traits< V_Power_type, char > V_Power_traits;
+
+  const V_Power_type&
+  V_Power () const;
+
+  V_Power_type&
+  V_Power ();
+
+  void
+  V_Power (const V_Power_type& x);
+
+  void
+  V_Power (::std::auto_ptr< V_Power_type > p);
+
+  // Computer-Trigger
+  //
+  typedef ::xml_schema::string Computer_Trigger_type;
+  typedef ::xsd::cxx::tree::traits< Computer_Trigger_type, char > Computer_Trigger_traits;
+
+  const Computer_Trigger_type&
+  Computer_Trigger () const;
+
+  Computer_Trigger_type&
+  Computer_Trigger ();
+
+  void
+  Computer_Trigger (const Computer_Trigger_type& x);
+
+  void
+  Computer_Trigger (::std::auto_ptr< Computer_Trigger_type > p);
+
+  // Constructors.
+  //
+  TX (const V_Position_Table_type&,
+      const V_Transmit_Length_type&,
+      const Trigger_Counter_Clear_type&,
+      const Trigger_Counter_type&,
+      const Multi_Trigger_Freq_type&,
+      const RF_Amp_type&,
+      const Trigger_Control_type&,
+      const V_Pulse_Rep_Freq_type&,
+      const Phase_type&,
+      const Frequency_type&,
+      const V_Unblank_Time_type&,
+      const V_Frequency_type&,
+      const Pulse_Rep_Frequency_type&,
+      const Multi_Trigger_type&,
+      const Trig_Tbl_Trigs_type&,
+      const Width_type&,
+      const Unblank_Cycles_type&,
+      const V_Width_type&,
+      const Unblank_Time_type&,
+      const Attenuation_type&,
+      const V_Power_type&,
+      const Computer_Trigger_type&);
+
+  TX (const ::xercesc::DOMElement& e,
+      ::xml_schema::flags f = 0,
+      ::xml_schema::container* c = 0);
+
+  TX (const TX& x,
+      ::xml_schema::flags f = 0,
+      ::xml_schema::container* c = 0);
+
+  virtual TX*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~TX ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< V_Position_Table_type > V_Position_Table_;
+  ::xsd::cxx::tree::one< V_Transmit_Length_type > V_Transmit_Length_;
+  ::xsd::cxx::tree::one< Trigger_Counter_Clear_type > Trigger_Counter_Clear_;
+  ::xsd::cxx::tree::one< Trigger_Counter_type > Trigger_Counter_;
+  ::xsd::cxx::tree::one< Multi_Trigger_Freq_type > Multi_Trigger_Freq_;
+  ::xsd::cxx::tree::one< RF_Amp_type > RF_Amp_;
+  ::xsd::cxx::tree::one< Trigger_Control_type > Trigger_Control_;
+  ::xsd::cxx::tree::one< V_Pulse_Rep_Freq_type > V_Pulse_Rep_Freq_;
+  ::xsd::cxx::tree::one< Phase_type > Phase_;
+  ::xsd::cxx::tree::one< Frequency_type > Frequency_;
+  ::xsd::cxx::tree::one< V_Unblank_Time_type > V_Unblank_Time_;
+  ::xsd::cxx::tree::one< V_Frequency_type > V_Frequency_;
+  ::xsd::cxx::tree::one< Pulse_Rep_Frequency_type > Pulse_Rep_Frequency_;
+  ::xsd::cxx::tree::one< Multi_Trigger_type > Multi_Trigger_;
+  ::xsd::cxx::tree::one< Trig_Tbl_Trigs_type > Trig_Tbl_Trigs_;
+  ::xsd::cxx::tree::one< Width_type > Width_;
+  ::xsd::cxx::tree::one< Unblank_Cycles_type > Unblank_Cycles_;
+  ::xsd::cxx::tree::one< V_Width_type > V_Width_;
+  ::xsd::cxx::tree::one< Unblank_Time_type > Unblank_Time_;
+  ::xsd::cxx::tree::one< Attenuation_type > Attenuation_;
+  ::xsd::cxx::tree::one< V_Power_type > V_Power_;
+  ::xsd::cxx::tree::one< Computer_Trigger_type > Computer_Trigger_;
+};
+
+class X_3D: public ::xml_schema::type
+{
+  public:
+  // Speed
+  //
+  typedef ::xml_schema::string Speed_type;
+  typedef ::xsd::cxx::tree::traits< Speed_type, char > Speed_traits;
+
+  const Speed_type&
+  Speed () const;
+
+  Speed_type&
+  Speed ();
+
+  void
+  Speed (const Speed_type& x);
+
+  void
+  Speed (::std::auto_ptr< Speed_type > p);
+
+  // Status
+  //
+  typedef ::xml_schema::string Status_type;
+  typedef ::xsd::cxx::tree::traits< Status_type, char > Status_traits;
+
+  const Status_type&
+  Status () const;
+
+  Status_type&
+  Status ();
+
+  void
+  Status (const Status_type& x);
+
+  void
+  Status (::std::auto_ptr< Status_type > p);
+
+  // Motor-Enable
+  //
+  typedef ::xml_schema::string Motor_Enable_type;
+  typedef ::xsd::cxx::tree::traits< Motor_Enable_type, char > Motor_Enable_traits;
+
+  const Motor_Enable_type&
+  Motor_Enable () const;
+
+  Motor_Enable_type&
+  Motor_Enable ();
+
+  void
+  Motor_Enable (const Motor_Enable_type& x);
+
+  void
+  Motor_Enable (::std::auto_ptr< Motor_Enable_type > p);
+
+  // Scan-Distance
+  //
+  typedef ::xml_schema::string Scan_Distance_type;
+  typedef ::xsd::cxx::tree::traits< Scan_Distance_type, char > Scan_Distance_traits;
+
+  const Scan_Distance_type&
+  Scan_Distance () const;
+
+  Scan_Distance_type&
+  Scan_Distance ();
+
+  void
+  Scan_Distance (const Scan_Distance_type& x);
+
+  void
+  Scan_Distance (::std::auto_ptr< Scan_Distance_type > p);
+
+  // Error
+  //
+  typedef ::xml_schema::string Error_type;
+  typedef ::xsd::cxx::tree::traits< Error_type, char > Error_traits;
+
+  const Error_type&
+  Error () const;
+
+  Error_type&
+  Error ();
+
+  void
+  Error (const Error_type& x);
+
+  void
+  Error (::std::auto_ptr< Error_type > p);
+
+  // Steps
+  //
+  typedef ::xml_schema::string Steps_type;
+  typedef ::xsd::cxx::tree::traits< Steps_type, char > Steps_traits;
+
+  const Steps_type&
+  Steps () const;
+
+  Steps_type&
+  Steps ();
+
+  void
+  Steps (const Steps_type& x);
+
+  void
+  Steps (::std::auto_ptr< Steps_type > p);
+
+  // Max-Scan-Steps
+  //
+  typedef ::xml_schema::string Max_Scan_Steps_type;
+  typedef ::xsd::cxx::tree::traits< Max_Scan_Steps_type, char > Max_Scan_Steps_traits;
+
+  const Max_Scan_Steps_type&
+  Max_Scan_Steps () const;
+
+  Max_Scan_Steps_type&
+  Max_Scan_Steps ();
+
+  void
+  Max_Scan_Steps (const Max_Scan_Steps_type& x);
+
+  void
+  Max_Scan_Steps (::std::auto_ptr< Max_Scan_Steps_type > p);
+
+  // Position
+  //
+  typedef ::xml_schema::string Position_type;
+  typedef ::xsd::cxx::tree::traits< Position_type, char > Position_traits;
+
+  const Position_type&
+  Position () const;
+
+  Position_type&
+  Position ();
+
+  void
+  Position (const Position_type& x);
+
+  void
+  Position (::std::auto_ptr< Position_type > p);
+
+  // Action
+  //
+  typedef ::xml_schema::string Action_type;
+  typedef ::xsd::cxx::tree::traits< Action_type, char > Action_traits;
+
+  const Action_type&
+  Action () const;
+
+  Action_type&
+  Action ();
+
+  void
+  Action (const Action_type& x);
+
+  void
+  Action (::std::auto_ptr< Action_type > p);
+
+  // Clear-Error
+  //
+  typedef ::xml_schema::string Clear_Error_type;
+  typedef ::xsd::cxx::tree::traits< Clear_Error_type, char > Clear_Error_traits;
+
+  const Clear_Error_type&
+  Clear_Error () const;
+
+  Clear_Error_type&
+  Clear_Error ();
+
+  void
+  Clear_Error (const Clear_Error_type& x);
+
+  void
+  Clear_Error (::std::auto_ptr< Clear_Error_type > p);
+
+  // Direction
+  //
+  typedef ::xml_schema::string Direction_type;
+  typedef ::xsd::cxx::tree::traits< Direction_type, char > Direction_traits;
+
+  const Direction_type&
+  Direction () const;
+
+  Direction_type&
+  Direction ();
+
+  void
+  Direction (const Direction_type& x);
+
+  void
+  Direction (::std::auto_ptr< Direction_type > p);
+
+  // Step-Size
+  //
+  typedef ::xml_schema::string Step_Size_type;
+  typedef ::xsd::cxx::tree::traits< Step_Size_type, char > Step_Size_traits;
+
+  const Step_Size_type&
+  Step_Size () const;
+
+  Step_Size_type&
+  Step_Size ();
+
+  void
+  Step_Size (const Step_Size_type& x);
+
+  void
+  Step_Size (::std::auto_ptr< Step_Size_type > p);
+
+  // Constructors.
+  //
+  X_3D (const Speed_type&,
+        const Status_type&,
+        const Motor_Enable_type&,
+        const Scan_Distance_type&,
+        const Error_type&,
+        const Steps_type&,
+        const Max_Scan_Steps_type&,
+        const Position_type&,
+        const Action_type&,
+        const Clear_Error_type&,
+        const Direction_type&,
+        const Step_Size_type&);
+
+  X_3D (const ::xercesc::DOMElement& e,
+        ::xml_schema::flags f = 0,
+        ::xml_schema::container* c = 0);
+
+  X_3D (const X_3D& x,
+        ::xml_schema::flags f = 0,
+        ::xml_schema::container* c = 0);
+
+  virtual X_3D*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~X_3D ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Speed_type > Speed_;
+  ::xsd::cxx::tree::one< Status_type > Status_;
+  ::xsd::cxx::tree::one< Motor_Enable_type > Motor_Enable_;
+  ::xsd::cxx::tree::one< Scan_Distance_type > Scan_Distance_;
+  ::xsd::cxx::tree::one< Error_type > Error_;
+  ::xsd::cxx::tree::one< Steps_type > Steps_;
+  ::xsd::cxx::tree::one< Max_Scan_Steps_type > Max_Scan_Steps_;
+  ::xsd::cxx::tree::one< Position_type > Position_;
+  ::xsd::cxx::tree::one< Action_type > Action_;
+  ::xsd::cxx::tree::one< Clear_Error_type > Clear_Error_;
+  ::xsd::cxx::tree::one< Direction_type > Direction_;
+  ::xsd::cxx::tree::one< Step_Size_type > Step_Size_;
+};
+
+class RfAnalysis: public ::xml_schema::type
+{
+  public:
+  // Reference
+  //
+  typedef ::xml_schema::string Reference_type;
+  typedef ::xsd::cxx::tree::traits< Reference_type, char > Reference_traits;
+
+  const Reference_type&
+  Reference () const;
+
+  Reference_type&
+  Reference ();
+
+  void
+  Reference (const Reference_type& x);
+
+  void
+  Reference (::std::auto_ptr< Reference_type > p);
+
+  // Ref-Probe-F-Number
+  //
+  typedef ::xml_schema::string Ref_Probe_F_Number_type;
+  typedef ::xsd::cxx::tree::traits< Ref_Probe_F_Number_type, char > Ref_Probe_F_Number_traits;
+
+  const Ref_Probe_F_Number_type&
+  Ref_Probe_F_Number () const;
+
+  Ref_Probe_F_Number_type&
+  Ref_Probe_F_Number ();
+
+  void
+  Ref_Probe_F_Number (const Ref_Probe_F_Number_type& x);
+
+  void
+  Ref_Probe_F_Number (::std::auto_ptr< Ref_Probe_F_Number_type > p);
+
+  // Ref-Probe-Focal-Length
+  //
+  typedef ::xml_schema::string Ref_Probe_Focal_Length_type;
+  typedef ::xsd::cxx::tree::traits< Ref_Probe_Focal_Length_type, char > Ref_Probe_Focal_Length_traits;
+
+  const Ref_Probe_Focal_Length_type&
+  Ref_Probe_Focal_Length () const;
+
+  Ref_Probe_Focal_Length_type&
+  Ref_Probe_Focal_Length ();
+
+  void
+  Ref_Probe_Focal_Length (const Ref_Probe_Focal_Length_type& x);
+
+  void
+  Ref_Probe_Focal_Length (::std::auto_ptr< Ref_Probe_Focal_Length_type > p);
+
+  // Ref-Tx-Frequency
+  //
+  typedef ::xml_schema::string Ref_Tx_Frequency_type;
+  typedef ::xsd::cxx::tree::traits< Ref_Tx_Frequency_type, char > Ref_Tx_Frequency_traits;
+
+  const Ref_Tx_Frequency_type&
+  Ref_Tx_Frequency () const;
+
+  Ref_Tx_Frequency_type&
+  Ref_Tx_Frequency ();
+
+  void
+  Ref_Tx_Frequency (const Ref_Tx_Frequency_type& x);
+
+  void
+  Ref_Tx_Frequency (::std::auto_ptr< Ref_Tx_Frequency_type > p);
+
+  // Freq-Range
+  //
+  typedef ::xml_schema::string Freq_Range_type;
+  typedef ::xsd::cxx::tree::traits< Freq_Range_type, char > Freq_Range_traits;
+
+  const Freq_Range_type&
+  Freq_Range () const;
+
+  Freq_Range_type&
+  Freq_Range ();
+
+  void
+  Freq_Range (const Freq_Range_type& x);
+
+  void
+  Freq_Range (::std::auto_ptr< Freq_Range_type > p);
+
+  // Ref-Probe-Name
+  //
+  typedef ::xml_schema::string Ref_Probe_Name_type;
+  typedef ::xsd::cxx::tree::traits< Ref_Probe_Name_type, char > Ref_Probe_Name_traits;
+
+  const Ref_Probe_Name_type&
+  Ref_Probe_Name () const;
+
+  Ref_Probe_Name_type&
+  Ref_Probe_Name ();
+
+  void
+  Ref_Probe_Name (const Ref_Probe_Name_type& x);
+
+  void
+  Ref_Probe_Name (::std::auto_ptr< Ref_Probe_Name_type > p);
+
+  // Graph-Mode
+  //
+  typedef ::xml_schema::string Graph_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Graph_Mode_type, char > Graph_Mode_traits;
+
+  const Graph_Mode_type&
+  Graph_Mode () const;
+
+  Graph_Mode_type&
+  Graph_Mode ();
+
+  void
+  Graph_Mode (const Graph_Mode_type& x);
+
+  void
+  Graph_Mode (::std::auto_ptr< Graph_Mode_type > p);
+
+  // Normalized-Height
+  //
+  typedef ::xml_schema::string Normalized_Height_type;
+  typedef ::xsd::cxx::tree::traits< Normalized_Height_type, char > Normalized_Height_traits;
+
+  const Normalized_Height_type&
+  Normalized_Height () const;
+
+  Normalized_Height_type&
+  Normalized_Height ();
+
+  void
+  Normalized_Height (const Normalized_Height_type& x);
+
+  void
+  Normalized_Height (::std::auto_ptr< Normalized_Height_type > p);
+
+  // Ref-Tx-Width
+  //
+  typedef ::xml_schema::string Ref_Tx_Width_type;
+  typedef ::xsd::cxx::tree::traits< Ref_Tx_Width_type, char > Ref_Tx_Width_traits;
+
+  const Ref_Tx_Width_type&
+  Ref_Tx_Width () const;
+
+  Ref_Tx_Width_type&
+  Ref_Tx_Width ();
+
+  void
+  Ref_Tx_Width (const Ref_Tx_Width_type& x);
+
+  void
+  Ref_Tx_Width (::std::auto_ptr< Ref_Tx_Width_type > p);
+
+  // Normalized-Origin
+  //
+  typedef ::xml_schema::string Normalized_Origin_type;
+  typedef ::xsd::cxx::tree::traits< Normalized_Origin_type, char > Normalized_Origin_traits;
+
+  const Normalized_Origin_type&
+  Normalized_Origin () const;
+
+  Normalized_Origin_type&
+  Normalized_Origin ();
+
+  void
+  Normalized_Origin (const Normalized_Origin_type& x);
+
+  void
+  Normalized_Origin (::std::auto_ptr< Normalized_Origin_type > p);
+
+  // Freq-Range-f
+  //
+  typedef ::xml_schema::string Freq_Range_f_type;
+  typedef ::xsd::cxx::tree::traits< Freq_Range_f_type, char > Freq_Range_f_traits;
+
+  const Freq_Range_f_type&
+  Freq_Range_f () const;
+
+  Freq_Range_f_type&
+  Freq_Range_f ();
+
+  void
+  Freq_Range_f (const Freq_Range_f_type& x);
+
+  void
+  Freq_Range_f (::std::auto_ptr< Freq_Range_f_type > p);
+
+  // FFT-Offset
+  //
+  typedef ::xml_schema::string FFT_Offset_type;
+  typedef ::xsd::cxx::tree::traits< FFT_Offset_type, char > FFT_Offset_traits;
+
+  const FFT_Offset_type&
+  FFT_Offset () const;
+
+  FFT_Offset_type&
+  FFT_Offset ();
+
+  void
+  FFT_Offset (const FFT_Offset_type& x);
+
+  void
+  FFT_Offset (::std::auto_ptr< FFT_Offset_type > p);
+
+  // Ref-Tx-Power
+  //
+  typedef ::xml_schema::string Ref_Tx_Power_type;
+  typedef ::xsd::cxx::tree::traits< Ref_Tx_Power_type, char > Ref_Tx_Power_traits;
+
+  const Ref_Tx_Power_type&
+  Ref_Tx_Power () const;
+
+  Ref_Tx_Power_type&
+  Ref_Tx_Power ();
+
+  void
+  Ref_Tx_Power (const Ref_Tx_Power_type& x);
+
+  void
+  Ref_Tx_Power (::std::auto_ptr< Ref_Tx_Power_type > p);
+
+  // Freq-Range-Max
+  //
+  typedef ::xml_schema::string Freq_Range_Max_type;
+  typedef ::xsd::cxx::tree::traits< Freq_Range_Max_type, char > Freq_Range_Max_traits;
+
+  const Freq_Range_Max_type&
+  Freq_Range_Max () const;
+
+  Freq_Range_Max_type&
+  Freq_Range_Max ();
+
+  void
+  Freq_Range_Max (const Freq_Range_Max_type& x);
+
+  void
+  Freq_Range_Max (::std::auto_ptr< Freq_Range_Max_type > p);
+
+  // Freq-Range-Min
+  //
+  typedef ::xml_schema::string Freq_Range_Min_type;
+  typedef ::xsd::cxx::tree::traits< Freq_Range_Min_type, char > Freq_Range_Min_traits;
+
+  const Freq_Range_Min_type&
+  Freq_Range_Min () const;
+
+  Freq_Range_Min_type&
+  Freq_Range_Min ();
+
+  void
+  Freq_Range_Min (const Freq_Range_Min_type& x);
+
+  void
+  Freq_Range_Min (::std::auto_ptr< Freq_Range_Min_type > p);
+
+  // Ref-Offset
+  //
+  typedef ::xml_schema::string Ref_Offset_type;
+  typedef ::xsd::cxx::tree::traits< Ref_Offset_type, char > Ref_Offset_traits;
+
+  const Ref_Offset_type&
+  Ref_Offset () const;
+
+  Ref_Offset_type&
+  Ref_Offset ();
+
+  void
+  Ref_Offset (const Ref_Offset_type& x);
+
+  void
+  Ref_Offset (::std::auto_ptr< Ref_Offset_type > p);
+
+  // Constructors.
+  //
+  RfAnalysis (const Reference_type&,
+              const Ref_Probe_F_Number_type&,
+              const Ref_Probe_Focal_Length_type&,
+              const Ref_Tx_Frequency_type&,
+              const Freq_Range_type&,
+              const Ref_Probe_Name_type&,
+              const Graph_Mode_type&,
+              const Normalized_Height_type&,
+              const Ref_Tx_Width_type&,
+              const Normalized_Origin_type&,
+              const Freq_Range_f_type&,
+              const FFT_Offset_type&,
+              const Ref_Tx_Power_type&,
+              const Freq_Range_Max_type&,
+              const Freq_Range_Min_type&,
+              const Ref_Offset_type&);
+
+  RfAnalysis (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  RfAnalysis (const RfAnalysis& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual RfAnalysis*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RfAnalysis ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Reference_type > Reference_;
+  ::xsd::cxx::tree::one< Ref_Probe_F_Number_type > Ref_Probe_F_Number_;
+  ::xsd::cxx::tree::one< Ref_Probe_Focal_Length_type > Ref_Probe_Focal_Length_;
+  ::xsd::cxx::tree::one< Ref_Tx_Frequency_type > Ref_Tx_Frequency_;
+  ::xsd::cxx::tree::one< Freq_Range_type > Freq_Range_;
+  ::xsd::cxx::tree::one< Ref_Probe_Name_type > Ref_Probe_Name_;
+  ::xsd::cxx::tree::one< Graph_Mode_type > Graph_Mode_;
+  ::xsd::cxx::tree::one< Normalized_Height_type > Normalized_Height_;
+  ::xsd::cxx::tree::one< Ref_Tx_Width_type > Ref_Tx_Width_;
+  ::xsd::cxx::tree::one< Normalized_Origin_type > Normalized_Origin_;
+  ::xsd::cxx::tree::one< Freq_Range_f_type > Freq_Range_f_;
+  ::xsd::cxx::tree::one< FFT_Offset_type > FFT_Offset_;
+  ::xsd::cxx::tree::one< Ref_Tx_Power_type > Ref_Tx_Power_;
+  ::xsd::cxx::tree::one< Freq_Range_Max_type > Freq_Range_Max_;
+  ::xsd::cxx::tree::one< Freq_Range_Min_type > Freq_Range_Min_;
+  ::xsd::cxx::tree::one< Ref_Offset_type > Ref_Offset_;
+};
+
+class RX: public ::xml_schema::type
+{
+  public:
+  // AD-IF
+  //
+  typedef ::xml_schema::string AD_IF_type;
+  typedef ::xsd::cxx::tree::traits< AD_IF_type, char > AD_IF_traits;
+
+  const AD_IF_type&
+  AD_IF () const;
+
+  AD_IF_type&
+  AD_IF ();
+
+  void
+  AD_IF (const AD_IF_type& x);
+
+  void
+  AD_IF (::std::auto_ptr< AD_IF_type > p);
+
+  // Sector-Width-Target
+  //
+  typedef ::xml_schema::string Sector_Width_Target_type;
+  typedef ::xsd::cxx::tree::traits< Sector_Width_Target_type, char > Sector_Width_Target_traits;
+
+  const Sector_Width_Target_type&
+  Sector_Width_Target () const;
+
+  Sector_Width_Target_type&
+  Sector_Width_Target ();
+
+  void
+  Sector_Width_Target (const Sector_Width_Target_type& x);
+
+  void
+  Sector_Width_Target (::std::auto_ptr< Sector_Width_Target_type > p);
+
+  // RF-Gain
+  //
+  typedef ::xml_schema::string RF_Gain_type;
+  typedef ::xsd::cxx::tree::traits< RF_Gain_type, char > RF_Gain_traits;
+
+  const RF_Gain_type&
+  RF_Gain () const;
+
+  RF_Gain_type&
+  RF_Gain ();
+
+  void
+  RF_Gain (const RF_Gain_type& x);
+
+  void
+  RF_Gain (::std::auto_ptr< RF_Gain_type > p);
+
+  // TGC-Enable
+  //
+  typedef ::xml_schema::string TGC_Enable_type;
+  typedef ::xsd::cxx::tree::traits< TGC_Enable_type, char > TGC_Enable_traits;
+
+  const TGC_Enable_type&
+  TGC_Enable () const;
+
+  TGC_Enable_type&
+  TGC_Enable ();
+
+  void
+  TGC_Enable (const TGC_Enable_type& x);
+
+  void
+  TGC_Enable (::std::auto_ptr< TGC_Enable_type > p);
+
+  // V-Digi-Depth-Imaging
+  //
+  typedef ::xml_schema::string V_Digi_Depth_Imaging_type;
+  typedef ::xsd::cxx::tree::traits< V_Digi_Depth_Imaging_type, char > V_Digi_Depth_Imaging_traits;
+
+  const V_Digi_Depth_Imaging_type&
+  V_Digi_Depth_Imaging () const;
+
+  V_Digi_Depth_Imaging_type&
+  V_Digi_Depth_Imaging ();
+
+  void
+  V_Digi_Depth_Imaging (const V_Digi_Depth_Imaging_type& x);
+
+  void
+  V_Digi_Depth_Imaging (::std::auto_ptr< V_Digi_Depth_Imaging_type > p);
+
+  // RF-Bandwidth
+  //
+  typedef ::xml_schema::string RF_Bandwidth_type;
+  typedef ::xsd::cxx::tree::traits< RF_Bandwidth_type, char > RF_Bandwidth_traits;
+
+  const RF_Bandwidth_type&
+  RF_Bandwidth () const;
+
+  RF_Bandwidth_type&
+  RF_Bandwidth ();
+
+  void
+  RF_Bandwidth (const RF_Bandwidth_type& x);
+
+  void
+  RF_Bandwidth (::std::auto_ptr< RF_Bandwidth_type > p);
+
+  // Test-Freq
+  //
+  typedef ::xml_schema::string Test_Freq_type;
+  typedef ::xsd::cxx::tree::traits< Test_Freq_type, char > Test_Freq_traits;
+
+  const Test_Freq_type&
+  Test_Freq () const;
+
+  Test_Freq_type&
+  Test_Freq ();
+
+  void
+  Test_Freq (const Test_Freq_type& x);
+
+  void
+  Test_Freq (::std::auto_ptr< Test_Freq_type > p);
+
+  // Line-Number
+  //
+  typedef ::xml_schema::string Line_Number_type;
+  typedef ::xsd::cxx::tree::traits< Line_Number_type, char > Line_Number_traits;
+
+  const Line_Number_type&
+  Line_Number () const;
+
+  Line_Number_type&
+  Line_Number ();
+
+  void
+  Line_Number (const Line_Number_type& x);
+
+  void
+  Line_Number (::std::auto_ptr< Line_Number_type > p);
+
+  // V-TGC
+  //
+  typedef ::xml_schema::string V_TGC_type;
+  typedef ::xsd::cxx::tree::traits< V_TGC_type, char > V_TGC_traits;
+
+  const V_TGC_type&
+  V_TGC () const;
+
+  V_TGC_type&
+  V_TGC ();
+
+  void
+  V_TGC (const V_TGC_type& x);
+
+  void
+  V_TGC (::std::auto_ptr< V_TGC_type > p);
+
+  // IF-Filter
+  //
+  typedef ::xml_schema::string IF_Filter_type;
+  typedef ::xsd::cxx::tree::traits< IF_Filter_type, char > IF_Filter_traits;
+
+  const IF_Filter_type&
+  IF_Filter () const;
+
+  IF_Filter_type&
+  IF_Filter ();
+
+  void
+  IF_Filter (const IF_Filter_type& x);
+
+  void
+  IF_Filter (::std::auto_ptr< IF_Filter_type > p);
+
+  // Track-Width
+  //
+  typedef ::xml_schema::string Track_Width_type;
+  typedef ::xsd::cxx::tree::traits< Track_Width_type, char > Track_Width_traits;
+
+  const Track_Width_type&
+  Track_Width () const;
+
+  Track_Width_type&
+  Track_Width ();
+
+  void
+  Track_Width (const Track_Width_type& x);
+
+  void
+  Track_Width (::std::auto_ptr< Track_Width_type > p);
+
+  // DTB-Error-Clr
+  //
+  typedef ::xml_schema::string DTB_Error_Clr_type;
+  typedef ::xsd::cxx::tree::traits< DTB_Error_Clr_type, char > DTB_Error_Clr_traits;
+
+  const DTB_Error_Clr_type&
+  DTB_Error_Clr () const;
+
+  DTB_Error_Clr_type&
+  DTB_Error_Clr ();
+
+  void
+  DTB_Error_Clr (const DTB_Error_Clr_type& x);
+
+  void
+  DTB_Error_Clr (::std::auto_ptr< DTB_Error_Clr_type > p);
+
+  // Current-Channel
+  //
+  typedef ::xml_schema::string Current_Channel_type;
+  typedef ::xsd::cxx::tree::traits< Current_Channel_type, char > Current_Channel_traits;
+
+  const Current_Channel_type&
+  Current_Channel () const;
+
+  Current_Channel_type&
+  Current_Channel ();
+
+  void
+  Current_Channel (const Current_Channel_type& x);
+
+  void
+  Current_Channel (::std::auto_ptr< Current_Channel_type > p);
+
+  // V-IF-Filter
+  //
+  typedef ::xml_schema::string V_IF_Filter_type;
+  typedef ::xsd::cxx::tree::traits< V_IF_Filter_type, char > V_IF_Filter_traits;
+
+  const V_IF_Filter_type&
+  V_IF_Filter () const;
+
+  V_IF_Filter_type&
+  V_IF_Filter ();
+
+  void
+  V_IF_Filter (const V_IF_Filter_type& x);
+
+  void
+  V_IF_Filter (::std::auto_ptr< V_IF_Filter_type > p);
+
+  // IQ-Select
+  //
+  typedef ::xml_schema::string IQ_Select_type;
+  typedef ::xsd::cxx::tree::traits< IQ_Select_type, char > IQ_Select_traits;
+
+  const IQ_Select_type&
+  IQ_Select () const;
+
+  IQ_Select_type&
+  IQ_Select ();
+
+  void
+  IQ_Select (const IQ_Select_type& x);
+
+  void
+  IQ_Select (::std::auto_ptr< IQ_Select_type > p);
+
+  // HP-Clutter
+  //
+  typedef ::xml_schema::string HP_Clutter_type;
+  typedef ::xsd::cxx::tree::traits< HP_Clutter_type, char > HP_Clutter_traits;
+
+  const HP_Clutter_type&
+  HP_Clutter () const;
+
+  HP_Clutter_type&
+  HP_Clutter ();
+
+  void
+  HP_Clutter (const HP_Clutter_type& x);
+
+  void
+  HP_Clutter (::std::auto_ptr< HP_Clutter_type > p);
+
+  // AD-In
+  //
+  typedef ::xml_schema::string AD_In_type;
+  typedef ::xsd::cxx::tree::traits< AD_In_type, char > AD_In_traits;
+
+  const AD_In_type&
+  AD_In () const;
+
+  AD_In_type&
+  AD_In ();
+
+  void
+  AD_In (const AD_In_type& x);
+
+  void
+  AD_In (::std::auto_ptr< AD_In_type > p);
+
+  // V-TGC-Copy
+  //
+  typedef ::xml_schema::string V_TGC_Copy_type;
+  typedef ::xsd::cxx::tree::traits< V_TGC_Copy_type, char > V_TGC_Copy_traits;
+
+  const V_TGC_Copy_type&
+  V_TGC_Copy () const;
+
+  V_TGC_Copy_type&
+  V_TGC_Copy ();
+
+  void
+  V_TGC_Copy (const V_TGC_Copy_type& x);
+
+  void
+  V_TGC_Copy (::std::auto_ptr< V_TGC_Copy_type > p);
+
+  // Image-FIFO-Status
+  //
+  typedef ::xml_schema::string Image_FIFO_Status_type;
+  typedef ::xsd::cxx::tree::traits< Image_FIFO_Status_type, char > Image_FIFO_Status_traits;
+
+  const Image_FIFO_Status_type&
+  Image_FIFO_Status () const;
+
+  Image_FIFO_Status_type&
+  Image_FIFO_Status ();
+
+  void
+  Image_FIFO_Status (const Image_FIFO_Status_type& x);
+
+  void
+  Image_FIFO_Status (::std::auto_ptr< Image_FIFO_Status_type > p);
+
+  // RF-Filter
+  //
+  typedef ::xml_schema::string RF_Filter_type;
+  typedef ::xsd::cxx::tree::traits< RF_Filter_type, char > RF_Filter_traits;
+
+  const RF_Filter_type&
+  RF_Filter () const;
+
+  RF_Filter_type&
+  RF_Filter ();
+
+  void
+  RF_Filter (const RF_Filter_type& x);
+
+  void
+  RF_Filter (::std::auto_ptr< RF_Filter_type > p);
+
+  // DDRS
+  //
+  typedef ::xml_schema::string DDRS_type;
+  typedef ::xsd::cxx::tree::traits< DDRS_type, char > DDRS_traits;
+
+  const DDRS_type&
+  DDRS () const;
+
+  DDRS_type&
+  DDRS ();
+
+  void
+  DDRS (const DDRS_type& x);
+
+  void
+  DDRS (::std::auto_ptr< DDRS_type > p);
+
+  // ADCA-Out
+  //
+  typedef ::xml_schema::string ADCA_Out_type;
+  typedef ::xsd::cxx::tree::traits< ADCA_Out_type, char > ADCA_Out_traits;
+
+  const ADCA_Out_type&
+  ADCA_Out () const;
+
+  ADCA_Out_type&
+  ADCA_Out ();
+
+  void
+  ADCA_Out (const ADCA_Out_type& x);
+
+  void
+  ADCA_Out (::std::auto_ptr< ADCA_Out_type > p);
+
+  // AD-Clock-Div
+  //
+  typedef ::xml_schema::string AD_Clock_Div_type;
+  typedef ::xsd::cxx::tree::traits< AD_Clock_Div_type, char > AD_Clock_Div_traits;
+
+  const AD_Clock_Div_type&
+  AD_Clock_Div () const;
+
+  AD_Clock_Div_type&
+  AD_Clock_Div ();
+
+  void
+  AD_Clock_Div (const AD_Clock_Div_type& x);
+
+  void
+  AD_Clock_Div (::std::auto_ptr< AD_Clock_Div_type > p);
+
+  // Imaging-Mode
+  //
+  typedef ::xml_schema::string Imaging_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Imaging_Mode_type, char > Imaging_Mode_traits;
+
+  const Imaging_Mode_type&
+  Imaging_Mode () const;
+
+  Imaging_Mode_type&
+  Imaging_Mode ();
+
+  void
+  Imaging_Mode (const Imaging_Mode_type& x);
+
+  void
+  Imaging_Mode (::std::auto_ptr< Imaging_Mode_type > p);
+
+  // V-RF-Filter
+  //
+  typedef ::xml_schema::string V_RF_Filter_type;
+  typedef ::xsd::cxx::tree::traits< V_RF_Filter_type, char > V_RF_Filter_traits;
+
+  const V_RF_Filter_type&
+  V_RF_Filter () const;
+
+  V_RF_Filter_type&
+  V_RF_Filter ();
+
+  void
+  V_RF_Filter (const V_RF_Filter_type& x);
+
+  void
+  V_RF_Filter (::std::auto_ptr< V_RF_Filter_type > p);
+
+  // ADCB-Out
+  //
+  typedef ::xml_schema::string ADCB_Out_type;
+  typedef ::xsd::cxx::tree::traits< ADCB_Out_type, char > ADCB_Out_traits;
+
+  const ADCB_Out_type&
+  ADCB_Out () const;
+
+  ADCB_Out_type&
+  ADCB_Out ();
+
+  void
+  ADCB_Out (const ADCB_Out_type& x);
+
+  void
+  ADCB_Out (::std::auto_ptr< ADCB_Out_type > p);
+
+  // Delay
+  //
+  typedef ::xml_schema::string Delay_type;
+  typedef ::xsd::cxx::tree::traits< Delay_type, char > Delay_traits;
+
+  const Delay_type&
+  Delay () const;
+
+  Delay_type&
+  Delay ();
+
+  void
+  Delay (const Delay_type& x);
+
+  void
+  Delay (::std::auto_ptr< Delay_type > p);
+
+  // AD-Gate-Width
+  //
+  typedef ::xml_schema::string AD_Gate_Width_type;
+  typedef ::xsd::cxx::tree::traits< AD_Gate_Width_type, char > AD_Gate_Width_traits;
+
+  const AD_Gate_Width_type&
+  AD_Gate_Width () const;
+
+  AD_Gate_Width_type&
+  AD_Gate_Width ();
+
+  void
+  AD_Gate_Width (const AD_Gate_Width_type& x);
+
+  void
+  AD_Gate_Width (::std::auto_ptr< AD_Gate_Width_type > p);
+
+  // Frequency
+  //
+  typedef ::xml_schema::string Frequency_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
+
+  const Frequency_type&
+  Frequency () const;
+
+  Frequency_type&
+  Frequency ();
+
+  void
+  Frequency (const Frequency_type& x);
+
+  void
+  Frequency (::std::auto_ptr< Frequency_type > p);
+
+  // V-Frequency
+  //
+  typedef ::xml_schema::string V_Frequency_type;
+  typedef ::xsd::cxx::tree::traits< V_Frequency_type, char > V_Frequency_traits;
+
+  const V_Frequency_type&
+  V_Frequency () const;
+
+  V_Frequency_type&
+  V_Frequency ();
+
+  void
+  V_Frequency (const V_Frequency_type& x);
+
+  void
+  V_Frequency (::std::auto_ptr< V_Frequency_type > p);
+
+  // V-Field-Of-View
+  //
+  typedef ::xml_schema::string V_Field_Of_View_type;
+  typedef ::xsd::cxx::tree::traits< V_Field_Of_View_type, char > V_Field_Of_View_traits;
+
+  const V_Field_Of_View_type&
+  V_Field_Of_View () const;
+
+  V_Field_Of_View_type&
+  V_Field_Of_View ();
+
+  void
+  V_Field_Of_View (const V_Field_Of_View_type& x);
+
+  void
+  V_Field_Of_View (::std::auto_ptr< V_Field_Of_View_type > p);
+
+  // Packet-Format
+  //
+  typedef ::xml_schema::string Packet_Format_type;
+  typedef ::xsd::cxx::tree::traits< Packet_Format_type, char > Packet_Format_traits;
+
+  const Packet_Format_type&
+  Packet_Format () const;
+
+  Packet_Format_type&
+  Packet_Format ();
+
+  void
+  Packet_Format (const Packet_Format_type& x);
+
+  void
+  Packet_Format (::std::auto_ptr< Packet_Format_type > p);
+
+  // Sector-Height-Target
+  //
+  typedef ::xml_schema::string Sector_Height_Target_type;
+  typedef ::xsd::cxx::tree::traits< Sector_Height_Target_type, char > Sector_Height_Target_traits;
+
+  const Sector_Height_Target_type&
+  Sector_Height_Target () const;
+
+  Sector_Height_Target_type&
+  Sector_Height_Target ();
+
+  void
+  Sector_Height_Target (const Sector_Height_Target_type& x);
+
+  void
+  Sector_Height_Target (::std::auto_ptr< Sector_Height_Target_type > p);
+
+  // Low-Speed-FIFO-Status
+  //
+  typedef ::xml_schema::string Low_Speed_FIFO_Status_type;
+  typedef ::xsd::cxx::tree::traits< Low_Speed_FIFO_Status_type, char > Low_Speed_FIFO_Status_traits;
+
+  const Low_Speed_FIFO_Status_type&
+  Low_Speed_FIFO_Status () const;
+
+  Low_Speed_FIFO_Status_type&
+  Low_Speed_FIFO_Status ();
+
+  void
+  Low_Speed_FIFO_Status (const Low_Speed_FIFO_Status_type& x);
+
+  void
+  Low_Speed_FIFO_Status (::std::auto_ptr< Low_Speed_FIFO_Status_type > p);
+
+  // AD-TestIn
+  //
+  typedef ::xml_schema::string AD_TestIn_type;
+  typedef ::xsd::cxx::tree::traits< AD_TestIn_type, char > AD_TestIn_traits;
+
+  const AD_TestIn_type&
+  AD_TestIn () const;
+
+  AD_TestIn_type&
+  AD_TestIn ();
+
+  void
+  AD_TestIn (const AD_TestIn_type& x);
+
+  void
+  AD_TestIn (::std::auto_ptr< AD_TestIn_type > p);
+
+  // Error
+  //
+  typedef ::xml_schema::string Error_type;
+  typedef ::xsd::cxx::tree::traits< Error_type, char > Error_traits;
+
+  const Error_type&
+  Error () const;
+
+  Error_type&
+  Error ();
+
+  void
+  Error (const Error_type& x);
+
+  void
+  Error (::std::auto_ptr< Error_type > p);
+
+  // Test-On
+  //
+  typedef ::xml_schema::string Test_On_type;
+  typedef ::xsd::cxx::tree::traits< Test_On_type, char > Test_On_traits;
+
+  const Test_On_type&
+  Test_On () const;
+
+  Test_On_type&
+  Test_On ();
+
+  void
+  Test_On (const Test_On_type& x);
+
+  void
+  Test_On (::std::auto_ptr< Test_On_type > p);
+
+  // AD-DCS
+  //
+  typedef ::xml_schema::string AD_DCS_type;
+  typedef ::xsd::cxx::tree::traits< AD_DCS_type, char > AD_DCS_traits;
+
+  const AD_DCS_type&
+  AD_DCS () const;
+
+  AD_DCS_type&
+  AD_DCS ();
+
+  void
+  AD_DCS (const AD_DCS_type& x);
+
+  void
+  AD_DCS (::std::auto_ptr< AD_DCS_type > p);
+
+  // DTB-Tfr-Enable
+  //
+  typedef ::xml_schema::string DTB_Tfr_Enable_type;
+  typedef ::xsd::cxx::tree::traits< DTB_Tfr_Enable_type, char > DTB_Tfr_Enable_traits;
+
+  const DTB_Tfr_Enable_type&
+  DTB_Tfr_Enable () const;
+
+  DTB_Tfr_Enable_type&
+  DTB_Tfr_Enable ();
+
+  void
+  DTB_Tfr_Enable (const DTB_Tfr_Enable_type& x);
+
+  void
+  DTB_Tfr_Enable (::std::auto_ptr< DTB_Tfr_Enable_type > p);
+
+  // DTB-Test-Enable
+  //
+  typedef ::xml_schema::string DTB_Test_Enable_type;
+  typedef ::xsd::cxx::tree::traits< DTB_Test_Enable_type, char > DTB_Test_Enable_traits;
+
+  const DTB_Test_Enable_type&
+  DTB_Test_Enable () const;
+
+  DTB_Test_Enable_type&
+  DTB_Test_Enable ();
+
+  void
+  DTB_Test_Enable (const DTB_Test_Enable_type& x);
+
+  void
+  DTB_Test_Enable (::std::auto_ptr< DTB_Test_Enable_type > p);
+
+  // V-Delay-Length
+  //
+  typedef ::xml_schema::string V_Delay_Length_type;
+  typedef ::xsd::cxx::tree::traits< V_Delay_Length_type, char > V_Delay_Length_traits;
+
+  const V_Delay_Length_type&
+  V_Delay_Length () const;
+
+  V_Delay_Length_type&
+  V_Delay_Length ();
+
+  void
+  V_Delay_Length (const V_Delay_Length_type& x);
+
+  void
+  V_Delay_Length (::std::auto_ptr< V_Delay_Length_type > p);
+
+  // Current-Mode
+  //
+  typedef ::xml_schema::string Current_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Current_Mode_type, char > Current_Mode_traits;
+
+  const Current_Mode_type&
+  Current_Mode () const;
+
+  Current_Mode_type&
+  Current_Mode ();
+
+  void
+  Current_Mode (const Current_Mode_type& x);
+
+  void
+  Current_Mode (::std::auto_ptr< Current_Mode_type > p);
+
+  // Constructors.
+  //
+  RX (const AD_IF_type&,
+      const Sector_Width_Target_type&,
+      const RF_Gain_type&,
+      const TGC_Enable_type&,
+      const V_Digi_Depth_Imaging_type&,
+      const RF_Bandwidth_type&,
+      const Test_Freq_type&,
+      const Line_Number_type&,
+      const V_TGC_type&,
+      const IF_Filter_type&,
+      const Track_Width_type&,
+      const DTB_Error_Clr_type&,
+      const Current_Channel_type&,
+      const V_IF_Filter_type&,
+      const IQ_Select_type&,
+      const HP_Clutter_type&,
+      const AD_In_type&,
+      const V_TGC_Copy_type&,
+      const Image_FIFO_Status_type&,
+      const RF_Filter_type&,
+      const DDRS_type&,
+      const ADCA_Out_type&,
+      const AD_Clock_Div_type&,
+      const Imaging_Mode_type&,
+      const V_RF_Filter_type&,
+      const ADCB_Out_type&,
+      const Delay_type&,
+      const AD_Gate_Width_type&,
+      const Frequency_type&,
+      const V_Frequency_type&,
+      const V_Field_Of_View_type&,
+      const Packet_Format_type&,
+      const Sector_Height_Target_type&,
+      const Low_Speed_FIFO_Status_type&,
+      const AD_TestIn_type&,
+      const Error_type&,
+      const Test_On_type&,
+      const AD_DCS_type&,
+      const DTB_Tfr_Enable_type&,
+      const DTB_Test_Enable_type&,
+      const V_Delay_Length_type&,
+      const Current_Mode_type&);
+
+  RX (const ::xercesc::DOMElement& e,
+      ::xml_schema::flags f = 0,
+      ::xml_schema::container* c = 0);
+
+  RX (const RX& x,
+      ::xml_schema::flags f = 0,
+      ::xml_schema::container* c = 0);
+
+  virtual RX*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RX ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< AD_IF_type > AD_IF_;
+  ::xsd::cxx::tree::one< Sector_Width_Target_type > Sector_Width_Target_;
+  ::xsd::cxx::tree::one< RF_Gain_type > RF_Gain_;
+  ::xsd::cxx::tree::one< TGC_Enable_type > TGC_Enable_;
+  ::xsd::cxx::tree::one< V_Digi_Depth_Imaging_type > V_Digi_Depth_Imaging_;
+  ::xsd::cxx::tree::one< RF_Bandwidth_type > RF_Bandwidth_;
+  ::xsd::cxx::tree::one< Test_Freq_type > Test_Freq_;
+  ::xsd::cxx::tree::one< Line_Number_type > Line_Number_;
+  ::xsd::cxx::tree::one< V_TGC_type > V_TGC_;
+  ::xsd::cxx::tree::one< IF_Filter_type > IF_Filter_;
+  ::xsd::cxx::tree::one< Track_Width_type > Track_Width_;
+  ::xsd::cxx::tree::one< DTB_Error_Clr_type > DTB_Error_Clr_;
+  ::xsd::cxx::tree::one< Current_Channel_type > Current_Channel_;
+  ::xsd::cxx::tree::one< V_IF_Filter_type > V_IF_Filter_;
+  ::xsd::cxx::tree::one< IQ_Select_type > IQ_Select_;
+  ::xsd::cxx::tree::one< HP_Clutter_type > HP_Clutter_;
+  ::xsd::cxx::tree::one< AD_In_type > AD_In_;
+  ::xsd::cxx::tree::one< V_TGC_Copy_type > V_TGC_Copy_;
+  ::xsd::cxx::tree::one< Image_FIFO_Status_type > Image_FIFO_Status_;
+  ::xsd::cxx::tree::one< RF_Filter_type > RF_Filter_;
+  ::xsd::cxx::tree::one< DDRS_type > DDRS_;
+  ::xsd::cxx::tree::one< ADCA_Out_type > ADCA_Out_;
+  ::xsd::cxx::tree::one< AD_Clock_Div_type > AD_Clock_Div_;
+  ::xsd::cxx::tree::one< Imaging_Mode_type > Imaging_Mode_;
+  ::xsd::cxx::tree::one< V_RF_Filter_type > V_RF_Filter_;
+  ::xsd::cxx::tree::one< ADCB_Out_type > ADCB_Out_;
+  ::xsd::cxx::tree::one< Delay_type > Delay_;
+  ::xsd::cxx::tree::one< AD_Gate_Width_type > AD_Gate_Width_;
+  ::xsd::cxx::tree::one< Frequency_type > Frequency_;
+  ::xsd::cxx::tree::one< V_Frequency_type > V_Frequency_;
+  ::xsd::cxx::tree::one< V_Field_Of_View_type > V_Field_Of_View_;
+  ::xsd::cxx::tree::one< Packet_Format_type > Packet_Format_;
+  ::xsd::cxx::tree::one< Sector_Height_Target_type > Sector_Height_Target_;
+  ::xsd::cxx::tree::one< Low_Speed_FIFO_Status_type > Low_Speed_FIFO_Status_;
+  ::xsd::cxx::tree::one< AD_TestIn_type > AD_TestIn_;
+  ::xsd::cxx::tree::one< Error_type > Error_;
+  ::xsd::cxx::tree::one< Test_On_type > Test_On_;
+  ::xsd::cxx::tree::one< AD_DCS_type > AD_DCS_;
+  ::xsd::cxx::tree::one< DTB_Tfr_Enable_type > DTB_Tfr_Enable_;
+  ::xsd::cxx::tree::one< DTB_Test_Enable_type > DTB_Test_Enable_;
+  ::xsd::cxx::tree::one< V_Delay_Length_type > V_Delay_Length_;
+  ::xsd::cxx::tree::one< Current_Mode_type > Current_Mode_;
+};
+
+class Display: public ::xml_schema::type
+{
+  public:
+  // Direction
+  //
+  typedef ::xml_schema::string Direction_type;
+  typedef ::xsd::cxx::tree::traits< Direction_type, char > Direction_traits;
+
+  const Direction_type&
+  Direction () const;
+
+  Direction_type&
+  Direction ();
+
+  void
+  Direction (const Direction_type& x);
+
+  void
+  Direction (::std::auto_ptr< Direction_type > p);
+
+  // X_3D-Gain
+  //
+  typedef ::xml_schema::string X_3D_Gain_type;
+  typedef ::xsd::cxx::tree::traits< X_3D_Gain_type, char > X_3D_Gain_traits;
+
+  const X_3D_Gain_type&
+  X_3D_Gain () const;
+
+  X_3D_Gain_type&
+  X_3D_Gain ();
+
+  void
+  X_3D_Gain (const X_3D_Gain_type& x);
+
+  void
+  X_3D_Gain (::std::auto_ptr< X_3D_Gain_type > p);
+
+  // X_3D-Dynamic-Range
+  //
+  typedef ::xml_schema::string X_3D_Dynamic_Range_type;
+  typedef ::xsd::cxx::tree::traits< X_3D_Dynamic_Range_type, char > X_3D_Dynamic_Range_traits;
+
+  const X_3D_Dynamic_Range_type&
+  X_3D_Dynamic_Range () const;
+
+  X_3D_Dynamic_Range_type&
+  X_3D_Dynamic_Range ();
+
+  void
+  X_3D_Dynamic_Range (const X_3D_Dynamic_Range_type& x);
+
+  void
+  X_3D_Dynamic_Range (::std::auto_ptr< X_3D_Dynamic_Range_type > p);
+
+  // V-Selection
+  //
+  typedef ::xml_schema::string V_Selection_type;
+  typedef ::xsd::cxx::tree::traits< V_Selection_type, char > V_Selection_traits;
+
+  const V_Selection_type&
+  V_Selection () const;
+
+  V_Selection_type&
+  V_Selection ();
+
+  void
+  V_Selection (const V_Selection_type& x);
+
+  void
+  V_Selection (::std::auto_ptr< V_Selection_type > p);
+
+  // Gain
+  //
+  typedef ::xml_schema::string Gain_type;
+  typedef ::xsd::cxx::tree::traits< Gain_type, char > Gain_traits;
+
+  const Gain_type&
+  Gain () const;
+
+  Gain_type&
+  Gain ();
+
+  void
+  Gain (const Gain_type& x);
+
+  void
+  Gain (::std::auto_ptr< Gain_type > p);
+
+  // Dynamic-Range
+  //
+  typedef ::xml_schema::string Dynamic_Range_type;
+  typedef ::xsd::cxx::tree::traits< Dynamic_Range_type, char > Dynamic_Range_traits;
+
+  const Dynamic_Range_type&
+  Dynamic_Range () const;
+
+  Dynamic_Range_type&
+  Dynamic_Range ();
+
+  void
+  Dynamic_Range (const Dynamic_Range_type& x);
+
+  void
+  Dynamic_Range (::std::auto_ptr< Dynamic_Range_type > p);
+
+  // Window-Time
+  //
+  typedef ::xml_schema::string Window_Time_type;
+  typedef ::xsd::cxx::tree::traits< Window_Time_type, char > Window_Time_traits;
+
+  const Window_Time_type&
+  Window_Time () const;
+
+  Window_Time_type&
+  Window_Time ();
+
+  void
+  Window_Time (const Window_Time_type& x);
+
+  void
+  Window_Time (::std::auto_ptr< Window_Time_type > p);
+
+  // Constructors.
+  //
+  Display (const Direction_type&,
+           const X_3D_Gain_type&,
+           const X_3D_Dynamic_Range_type&,
+           const V_Selection_type&,
+           const Gain_type&,
+           const Dynamic_Range_type&,
+           const Window_Time_type&);
+
+  Display (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  Display (const Display& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  virtual Display*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Display ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Direction_type > Direction_;
+  ::xsd::cxx::tree::one< X_3D_Gain_type > X_3D_Gain_;
+  ::xsd::cxx::tree::one< X_3D_Dynamic_Range_type > X_3D_Dynamic_Range_;
+  ::xsd::cxx::tree::one< V_Selection_type > V_Selection_;
+  ::xsd::cxx::tree::one< Gain_type > Gain_;
+  ::xsd::cxx::tree::one< Dynamic_Range_type > Dynamic_Range_;
+  ::xsd::cxx::tree::one< Window_Time_type > Window_Time_;
+};
+
+class Acqiris: public ::xml_schema::type
+{
+  public:
+  // SamplesNom
+  //
+  typedef ::xml_schema::string SamplesNom_type;
+  typedef ::xsd::cxx::tree::traits< SamplesNom_type, char > SamplesNom_traits;
+
+  const SamplesNom_type&
+  SamplesNom () const;
+
+  SamplesNom_type&
+  SamplesNom ();
+
+  void
+  SamplesNom (const SamplesNom_type& x);
+
+  void
+  SamplesNom (::std::auto_ptr< SamplesNom_type > p);
+
+  // V-Read-Data
+  //
+  typedef ::xml_schema::string V_Read_Data_type;
+  typedef ::xsd::cxx::tree::traits< V_Read_Data_type, char > V_Read_Data_traits;
+
+  const V_Read_Data_type&
+  V_Read_Data () const;
+
+  V_Read_Data_type&
+  V_Read_Data ();
+
+  void
+  V_Read_Data (const V_Read_Data_type& x);
+
+  void
+  V_Read_Data (::std::auto_ptr< V_Read_Data_type > p);
+
+  // Mode
+  //
+  typedef ::xml_schema::string Mode_type;
+  typedef ::xsd::cxx::tree::traits< Mode_type, char > Mode_traits;
+
+  const Mode_type&
+  Mode () const;
+
+  Mode_type&
+  Mode ();
+
+  void
+  Mode (const Mode_type& x);
+
+  void
+  Mode (::std::auto_ptr< Mode_type > p);
+
+  // Acquire
+  //
+  typedef ::xml_schema::string Acquire_type;
+  typedef ::xsd::cxx::tree::traits< Acquire_type, char > Acquire_traits;
+
+  const Acquire_type&
+  Acquire () const;
+
+  Acquire_type&
+  Acquire ();
+
+  void
+  Acquire (const Acquire_type& x);
+
+  void
+  Acquire (::std::auto_ptr< Acquire_type > p);
+
+  // Available
+  //
+  typedef ::xml_schema::string Available_type;
+  typedef ::xsd::cxx::tree::traits< Available_type, char > Available_traits;
+
+  const Available_type&
+  Available () const;
+
+  Available_type&
+  Available ();
+
+  void
+  Available (const Available_type& x);
+
+  void
+  Available (::std::auto_ptr< Available_type > p);
+
+  // Force-Trigger
+  //
+  typedef ::xml_schema::string Force_Trigger_type;
+  typedef ::xsd::cxx::tree::traits< Force_Trigger_type, char > Force_Trigger_traits;
+
+  const Force_Trigger_type&
+  Force_Trigger () const;
+
+  Force_Trigger_type&
+  Force_Trigger ();
+
+  void
+  Force_Trigger (const Force_Trigger_type& x);
+
+  void
+  Force_Trigger (::std::auto_ptr< Force_Trigger_type > p);
+
+  // Control
+  //
+  typedef ::xml_schema::string Control_type;
+  typedef ::xsd::cxx::tree::traits< Control_type, char > Control_traits;
+
+  const Control_type&
+  Control () const;
+
+  Control_type&
+  Control ();
+
+  void
+  Control (const Control_type& x);
+
+  void
+  Control (::std::auto_ptr< Control_type > p);
+
+  // TbSegmentPad
+  //
+  typedef ::xml_schema::string TbSegmentPad_type;
+  typedef ::xsd::cxx::tree::traits< TbSegmentPad_type, char > TbSegmentPad_traits;
+
+  const TbSegmentPad_type&
+  TbSegmentPad () const;
+
+  TbSegmentPad_type&
+  TbSegmentPad ();
+
+  void
+  TbSegmentPad (const TbSegmentPad_type& x);
+
+  void
+  TbSegmentPad (::std::auto_ptr< TbSegmentPad_type > p);
+
+  // Wait-Acq
+  //
+  typedef ::xml_schema::string Wait_Acq_type;
+  typedef ::xsd::cxx::tree::traits< Wait_Acq_type, char > Wait_Acq_traits;
+
+  const Wait_Acq_type&
+  Wait_Acq () const;
+
+  Wait_Acq_type&
+  Wait_Acq ();
+
+  void
+  Wait_Acq (const Wait_Acq_type& x);
+
+  void
+  Wait_Acq (::std::auto_ptr< Wait_Acq_type > p);
+
+  // Constructors.
+  //
+  Acqiris (const SamplesNom_type&,
+           const V_Read_Data_type&,
+           const Mode_type&,
+           const Acquire_type&,
+           const Available_type&,
+           const Force_Trigger_type&,
+           const Control_type&,
+           const TbSegmentPad_type&,
+           const Wait_Acq_type&);
+
+  Acqiris (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  Acqiris (const Acqiris& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  virtual Acqiris*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Acqiris ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< SamplesNom_type > SamplesNom_;
+  ::xsd::cxx::tree::one< V_Read_Data_type > V_Read_Data_;
+  ::xsd::cxx::tree::one< Mode_type > Mode_;
+  ::xsd::cxx::tree::one< Acquire_type > Acquire_;
+  ::xsd::cxx::tree::one< Available_type > Available_;
+  ::xsd::cxx::tree::one< Force_Trigger_type > Force_Trigger_;
+  ::xsd::cxx::tree::one< Control_type > Control_;
+  ::xsd::cxx::tree::one< TbSegmentPad_type > TbSegmentPad_;
+  ::xsd::cxx::tree::one< Wait_Acq_type > Wait_Acq_;
+};
+
+class ActiveProbe1: public ::xml_schema::type
+{
+  public:
+  // Notes
+  //
+  typedef ::xml_schema::string Notes_type;
+  typedef ::xsd::cxx::tree::traits< Notes_type, char > Notes_traits;
+
+  const Notes_type&
+  Notes () const;
+
+  Notes_type&
+  Notes ();
+
+  void
+  Notes (const Notes_type& x);
+
+  void
+  Notes (::std::auto_ptr< Notes_type > p);
+
+  // Sample-Time
+  //
+  typedef ::xml_schema::string Sample_Time_type;
+  typedef ::xsd::cxx::tree::traits< Sample_Time_type, char > Sample_Time_traits;
+
+  const Sample_Time_type&
+  Sample_Time () const;
+
+  Sample_Time_type&
+  Sample_Time ();
+
+  void
+  Sample_Time (const Sample_Time_type& x);
+
+  void
+  Sample_Time (::std::auto_ptr< Sample_Time_type > p);
+
+  // Focal-Length
+  //
+  typedef ::xml_schema::string Focal_Length_type;
+  typedef ::xsd::cxx::tree::traits< Focal_Length_type, char > Focal_Length_traits;
+
+  const Focal_Length_type&
+  Focal_Length () const;
+
+  Focal_Length_type&
+  Focal_Length ();
+
+  void
+  Focal_Length (const Focal_Length_type& x);
+
+  void
+  Focal_Length (::std::auto_ptr< Focal_Length_type > p);
+
+  // Acceleration-Limit-Slope
+  //
+  typedef ::xml_schema::string Acceleration_Limit_Slope_type;
+  typedef ::xsd::cxx::tree::traits< Acceleration_Limit_Slope_type, char > Acceleration_Limit_Slope_traits;
+
+  const Acceleration_Limit_Slope_type&
+  Acceleration_Limit_Slope () const;
+
+  Acceleration_Limit_Slope_type&
+  Acceleration_Limit_Slope ();
+
+  void
+  Acceleration_Limit_Slope (const Acceleration_Limit_Slope_type& x);
+
+  void
+  Acceleration_Limit_Slope (::std::auto_ptr< Acceleration_Limit_Slope_type > p);
+
+  // Type
+  //
+  typedef ::xml_schema::string Type_type;
+  typedef ::xsd::cxx::tree::traits< Type_type, char > Type_traits;
+
+  const Type_type&
+  Type () const;
+
+  Type_type&
+  Type ();
+
+  void
+  Type (const Type_type& x);
+
+  void
+  Type (::std::auto_ptr< Type_type > p);
+
+  // Detect-Id
+  //
+  typedef ::xml_schema::string Detect_Id_type;
+  typedef ::xsd::cxx::tree::traits< Detect_Id_type, char > Detect_Id_traits;
+
+  const Detect_Id_type&
+  Detect_Id () const;
+
+  Detect_Id_type&
+  Detect_Id ();
+
+  void
+  Detect_Id (const Detect_Id_type& x);
+
+  void
+  Detect_Id (::std::auto_ptr< Detect_Id_type > p);
+
+  // Default-Scan-Speed
+  //
+  typedef ::xml_schema::string Default_Scan_Speed_type;
+  typedef ::xsd::cxx::tree::traits< Default_Scan_Speed_type, char > Default_Scan_Speed_traits;
+
+  const Default_Scan_Speed_type&
+  Default_Scan_Speed () const;
+
+  Default_Scan_Speed_type&
+  Default_Scan_Speed ();
+
+  void
+  Default_Scan_Speed (const Default_Scan_Speed_type& x);
+
+  void
+  Default_Scan_Speed (::std::auto_ptr< Default_Scan_Speed_type > p);
+
+  // K1-Power
+  //
+  typedef ::xml_schema::string K1_Power_type;
+  typedef ::xsd::cxx::tree::traits< K1_Power_type, char > K1_Power_traits;
+
+  const K1_Power_type&
+  K1_Power () const;
+
+  K1_Power_type&
+  K1_Power ();
+
+  void
+  K1_Power (const K1_Power_type& x);
+
+  void
+  K1_Power (::std::auto_ptr< K1_Power_type > p);
+
+  // Cutoff-Scan-Speed
+  //
+  typedef ::xml_schema::string Cutoff_Scan_Speed_type;
+  typedef ::xsd::cxx::tree::traits< Cutoff_Scan_Speed_type, char > Cutoff_Scan_Speed_traits;
+
+  const Cutoff_Scan_Speed_type&
+  Cutoff_Scan_Speed () const;
+
+  Cutoff_Scan_Speed_type&
+  Cutoff_Scan_Speed ();
+
+  void
+  Cutoff_Scan_Speed (const Cutoff_Scan_Speed_type& x);
+
+  void
+  Cutoff_Scan_Speed (::std::auto_ptr< Cutoff_Scan_Speed_type > p);
+
+  // Frequency-Low
+  //
+  typedef ::xml_schema::string Frequency_Low_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_Low_type, char > Frequency_Low_traits;
+
+  const Frequency_Low_type&
+  Frequency_Low () const;
+
+  Frequency_Low_type&
+  Frequency_Low ();
+
+  void
+  Frequency_Low (const Frequency_Low_type& x);
+
+  void
+  Frequency_Low (::std::auto_ptr< Frequency_Low_type > p);
+
+  // Default-FOV
+  //
+  typedef ::xml_schema::string Default_FOV_type;
+  typedef ::xsd::cxx::tree::traits< Default_FOV_type, char > Default_FOV_traits;
+
+  const Default_FOV_type&
+  Default_FOV () const;
+
+  Default_FOV_type&
+  Default_FOV ();
+
+  void
+  Default_FOV (const Default_FOV_type& x);
+
+  void
+  Default_FOV (::std::auto_ptr< Default_FOV_type > p);
+
+  // Frequency-Doppler-Default
+  //
+  typedef ::xml_schema::string Frequency_Doppler_Default_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_Doppler_Default_type, char > Frequency_Doppler_Default_traits;
+
+  const Frequency_Doppler_Default_type&
+  Frequency_Doppler_Default () const;
+
+  Frequency_Doppler_Default_type&
+  Frequency_Doppler_Default ();
+
+  void
+  Frequency_Doppler_Default (const Frequency_Doppler_Default_type& x);
+
+  void
+  Frequency_Doppler_Default (::std::auto_ptr< Frequency_Doppler_Default_type > p);
+
+  // Default-SvSize-MMode
+  //
+  typedef ::xml_schema::string Default_SvSize_MMode_type;
+  typedef ::xsd::cxx::tree::traits< Default_SvSize_MMode_type, char > Default_SvSize_MMode_traits;
+
+  const Default_SvSize_MMode_type&
+  Default_SvSize_MMode () const;
+
+  Default_SvSize_MMode_type&
+  Default_SvSize_MMode ();
+
+  void
+  Default_SvSize_MMode (const Default_SvSize_MMode_type& x);
+
+  void
+  Default_SvSize_MMode (::std::auto_ptr< Default_SvSize_MMode_type > p);
+
+  // Axial-Res-Factor-Target
+  //
+  typedef ::xml_schema::string Axial_Res_Factor_Target_type;
+  typedef ::xsd::cxx::tree::traits< Axial_Res_Factor_Target_type, char > Axial_Res_Factor_Target_traits;
+
+  const Axial_Res_Factor_Target_type&
+  Axial_Res_Factor_Target () const;
+
+  Axial_Res_Factor_Target_type&
+  Axial_Res_Factor_Target ();
+
+  void
+  Axial_Res_Factor_Target (const Axial_Res_Factor_Target_type& x);
+
+  void
+  Axial_Res_Factor_Target (::std::auto_ptr< Axial_Res_Factor_Target_type > p);
+
+  // F-Number
+  //
+  typedef ::xml_schema::string F_Number_type;
+  typedef ::xsd::cxx::tree::traits< F_Number_type, char > F_Number_traits;
+
+  const F_Number_type&
+  F_Number () const;
+
+  F_Number_type&
+  F_Number ();
+
+  void
+  F_Number (const F_Number_type& x);
+
+  void
+  F_Number (::std::auto_ptr< F_Number_type > p);
+
+  // Acc-Time-Factor
+  //
+  typedef ::xml_schema::string Acc_Time_Factor_type;
+  typedef ::xsd::cxx::tree::traits< Acc_Time_Factor_type, char > Acc_Time_Factor_traits;
+
+  const Acc_Time_Factor_type&
+  Acc_Time_Factor () const;
+
+  Acc_Time_Factor_type&
+  Acc_Time_Factor ();
+
+  void
+  Acc_Time_Factor (const Acc_Time_Factor_type& x);
+
+  void
+  Acc_Time_Factor (::std::auto_ptr< Acc_Time_Factor_type > p);
+
+  // Axial-Res
+  //
+  typedef ::xml_schema::string Axial_Res_type;
+  typedef ::xsd::cxx::tree::traits< Axial_Res_type, char > Axial_Res_traits;
+
+  const Axial_Res_type&
+  Axial_Res () const;
+
+  Axial_Res_type&
+  Axial_Res ();
+
+  void
+  Axial_Res (const Axial_Res_type& x);
+
+  void
+  Axial_Res (::std::auto_ptr< Axial_Res_type > p);
+
+  // Lateral-Res-Factor-Target
+  //
+  typedef ::xml_schema::string Lateral_Res_Factor_Target_type;
+  typedef ::xsd::cxx::tree::traits< Lateral_Res_Factor_Target_type, char > Lateral_Res_Factor_Target_traits;
+
+  const Lateral_Res_Factor_Target_type&
+  Lateral_Res_Factor_Target () const;
+
+  Lateral_Res_Factor_Target_type&
+  Lateral_Res_Factor_Target ();
+
+  void
+  Lateral_Res_Factor_Target (const Lateral_Res_Factor_Target_type& x);
+
+  void
+  Lateral_Res_Factor_Target (::std::auto_ptr< Lateral_Res_Factor_Target_type > p);
+
+  // Pivot-Encoder-Dist
+  //
+  typedef ::xml_schema::string Pivot_Encoder_Dist_type;
+  typedef ::xsd::cxx::tree::traits< Pivot_Encoder_Dist_type, char > Pivot_Encoder_Dist_traits;
+
+  const Pivot_Encoder_Dist_type&
+  Pivot_Encoder_Dist () const;
+
+  Pivot_Encoder_Dist_type&
+  Pivot_Encoder_Dist ();
+
+  void
+  Pivot_Encoder_Dist (const Pivot_Encoder_Dist_type& x);
+
+  void
+  Pivot_Encoder_Dist (::std::auto_ptr< Pivot_Encoder_Dist_type > p);
+
+  // Encoder-Range-Max
+  //
+  typedef ::xml_schema::string Encoder_Range_Max_type;
+  typedef ::xsd::cxx::tree::traits< Encoder_Range_Max_type, char > Encoder_Range_Max_traits;
+
+  const Encoder_Range_Max_type&
+  Encoder_Range_Max () const;
+
+  Encoder_Range_Max_type&
+  Encoder_Range_Max ();
+
+  void
+  Encoder_Range_Max (const Encoder_Range_Max_type& x);
+
+  void
+  Encoder_Range_Max (::std::auto_ptr< Encoder_Range_Max_type > p);
+
+  // Encoder-Range-Min
+  //
+  typedef ::xml_schema::string Encoder_Range_Min_type;
+  typedef ::xsd::cxx::tree::traits< Encoder_Range_Min_type, char > Encoder_Range_Min_traits;
+
+  const Encoder_Range_Min_type&
+  Encoder_Range_Min () const;
+
+  Encoder_Range_Min_type&
+  Encoder_Range_Min ();
+
+  void
+  Encoder_Range_Min (const Encoder_Range_Min_type& x);
+
+  void
+  Encoder_Range_Min (::std::auto_ptr< Encoder_Range_Min_type > p);
+
+  // Lateral-Res
+  //
+  typedef ::xml_schema::string Lateral_Res_type;
+  typedef ::xsd::cxx::tree::traits< Lateral_Res_type, char > Lateral_Res_traits;
+
+  const Lateral_Res_type&
+  Lateral_Res () const;
+
+  Lateral_Res_type&
+  Lateral_Res ();
+
+  void
+  Lateral_Res (const Lateral_Res_type& x);
+
+  void
+  Lateral_Res (::std::auto_ptr< Lateral_Res_type > p);
+
+  // Max-Scan-Distance
+  //
+  typedef ::xml_schema::string Max_Scan_Distance_type;
+  typedef ::xsd::cxx::tree::traits< Max_Scan_Distance_type, char > Max_Scan_Distance_traits;
+
+  const Max_Scan_Distance_type&
+  Max_Scan_Distance () const;
+
+  Max_Scan_Distance_type&
+  Max_Scan_Distance ();
+
+  void
+  Max_Scan_Distance (const Max_Scan_Distance_type& x);
+
+  void
+  Max_Scan_Distance (::std::auto_ptr< Max_Scan_Distance_type > p);
+
+  // Default-Rx-Gain
+  //
+  typedef ::xml_schema::string Default_Rx_Gain_type;
+  typedef ::xsd::cxx::tree::traits< Default_Rx_Gain_type, char > Default_Rx_Gain_traits;
+
+  const Default_Rx_Gain_type&
+  Default_Rx_Gain () const;
+
+  Default_Rx_Gain_type&
+  Default_Rx_Gain ();
+
+  void
+  Default_Rx_Gain (const Default_Rx_Gain_type& x);
+
+  void
+  Default_Rx_Gain (::std::auto_ptr< Default_Rx_Gain_type > p);
+
+  // PID-KD-High
+  //
+  typedef ::xml_schema::string PID_KD_High_type;
+  typedef ::xsd::cxx::tree::traits< PID_KD_High_type, char > PID_KD_High_traits;
+
+  const PID_KD_High_type&
+  PID_KD_High () const;
+
+  PID_KD_High_type&
+  PID_KD_High ();
+
+  void
+  PID_KD_High (const PID_KD_High_type& x);
+
+  void
+  PID_KD_High (::std::auto_ptr< PID_KD_High_type > p);
+
+  // PID-KI-High
+  //
+  typedef ::xml_schema::string PID_KI_High_type;
+  typedef ::xsd::cxx::tree::traits< PID_KI_High_type, char > PID_KI_High_traits;
+
+  const PID_KI_High_type&
+  PID_KI_High () const;
+
+  PID_KI_High_type&
+  PID_KI_High ();
+
+  void
+  PID_KI_High (const PID_KI_High_type& x);
+
+  void
+  PID_KI_High (::std::auto_ptr< PID_KI_High_type > p);
+
+  // PID-KP-High
+  //
+  typedef ::xml_schema::string PID_KP_High_type;
+  typedef ::xsd::cxx::tree::traits< PID_KP_High_type, char > PID_KP_High_traits;
+
+  const PID_KP_High_type&
+  PID_KP_High () const;
+
+  PID_KP_High_type&
+  PID_KP_High ();
+
+  void
+  PID_KP_High (const PID_KP_High_type& x);
+
+  void
+  PID_KP_High (::std::auto_ptr< PID_KP_High_type > p);
+
+  // Frequency-High
+  //
+  typedef ::xml_schema::string Frequency_High_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_High_type, char > Frequency_High_traits;
+
+  const Frequency_High_type&
+  Frequency_High () const;
+
+  Frequency_High_type&
+  Frequency_High ();
+
+  void
+  Frequency_High (const Frequency_High_type& x);
+
+  void
+  Frequency_High (::std::auto_ptr< Frequency_High_type > p);
+
+  // Lateral-Res-Factor-Max
+  //
+  typedef ::xml_schema::string Lateral_Res_Factor_Max_type;
+  typedef ::xsd::cxx::tree::traits< Lateral_Res_Factor_Max_type, char > Lateral_Res_Factor_Max_traits;
+
+  const Lateral_Res_Factor_Max_type&
+  Lateral_Res_Factor_Max () const;
+
+  Lateral_Res_Factor_Max_type&
+  Lateral_Res_Factor_Max ();
+
+  void
+  Lateral_Res_Factor_Max (const Lateral_Res_Factor_Max_type& x);
+
+  void
+  Lateral_Res_Factor_Max (::std::auto_ptr< Lateral_Res_Factor_Max_type > p);
+
+  // Scan-Speeds
+  //
+  typedef ::xml_schema::string Scan_Speeds_type;
+  typedef ::xsd::cxx::tree::traits< Scan_Speeds_type, char > Scan_Speeds_traits;
+
+  const Scan_Speeds_type&
+  Scan_Speeds () const;
+
+  Scan_Speeds_type&
+  Scan_Speeds ();
+
+  void
+  Scan_Speeds (const Scan_Speeds_type& x);
+
+  void
+  Scan_Speeds (::std::auto_ptr< Scan_Speeds_type > p);
+
+  // Filter-Doppler-Cutoff
+  //
+  typedef ::xml_schema::string Filter_Doppler_Cutoff_type;
+  typedef ::xsd::cxx::tree::traits< Filter_Doppler_Cutoff_type, char > Filter_Doppler_Cutoff_traits;
+
+  const Filter_Doppler_Cutoff_type&
+  Filter_Doppler_Cutoff () const;
+
+  Filter_Doppler_Cutoff_type&
+  Filter_Doppler_Cutoff ();
+
+  void
+  Filter_Doppler_Cutoff (const Filter_Doppler_Cutoff_type& x);
+
+  void
+  Filter_Doppler_Cutoff (::std::auto_ptr< Filter_Doppler_Cutoff_type > p);
+
+  // Name
+  //
+  typedef ::xml_schema::string Name_type;
+  typedef ::xsd::cxx::tree::traits< Name_type, char > Name_traits;
+
+  const Name_type&
+  Name () const;
+
+  Name_type&
+  Name ();
+
+  void
+  Name (const Name_type& x);
+
+  void
+  Name (::std::auto_ptr< Name_type > p);
+
+  // PID-KD-Low
+  //
+  typedef ::xml_schema::string PID_KD_Low_type;
+  typedef ::xsd::cxx::tree::traits< PID_KD_Low_type, char > PID_KD_Low_traits;
+
+  const PID_KD_Low_type&
+  PID_KD_Low () const;
+
+  PID_KD_Low_type&
+  PID_KD_Low ();
+
+  void
+  PID_KD_Low (const PID_KD_Low_type& x);
+
+  void
+  PID_KD_Low (::std::auto_ptr< PID_KD_Low_type > p);
+
+  // PID-KI-Low
+  //
+  typedef ::xml_schema::string PID_KI_Low_type;
+  typedef ::xsd::cxx::tree::traits< PID_KI_Low_type, char > PID_KI_Low_traits;
+
+  const PID_KI_Low_type&
+  PID_KI_Low () const;
+
+  PID_KI_Low_type&
+  PID_KI_Low ();
+
+  void
+  PID_KI_Low (const PID_KI_Low_type& x);
+
+  void
+  PID_KI_Low (::std::auto_ptr< PID_KI_Low_type > p);
+
+  // PID-KP-Low
+  //
+  typedef ::xml_schema::string PID_KP_Low_type;
+  typedef ::xsd::cxx::tree::traits< PID_KP_Low_type, char > PID_KP_Low_traits;
+
+  const PID_KP_Low_type&
+  PID_KP_Low () const;
+
+  PID_KP_Low_type&
+  PID_KP_Low ();
+
+  void
+  PID_KP_Low (const PID_KP_Low_type& x);
+
+  void
+  PID_KP_Low (::std::auto_ptr< PID_KP_Low_type > p);
+
+  // Peak-Bandwidth-Correction
+  //
+  typedef ::xml_schema::string Peak_Bandwidth_Correction_type;
+  typedef ::xsd::cxx::tree::traits< Peak_Bandwidth_Correction_type, char > Peak_Bandwidth_Correction_traits;
+
+  const Peak_Bandwidth_Correction_type&
+  Peak_Bandwidth_Correction () const;
+
+  Peak_Bandwidth_Correction_type&
+  Peak_Bandwidth_Correction ();
+
+  void
+  Peak_Bandwidth_Correction (const Peak_Bandwidth_Correction_type& x);
+
+  void
+  Peak_Bandwidth_Correction (::std::auto_ptr< Peak_Bandwidth_Correction_type > p);
+
+  // Frequency-Doppler-Low
+  //
+  typedef ::xml_schema::string Frequency_Doppler_Low_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_Doppler_Low_type, char > Frequency_Doppler_Low_traits;
+
+  const Frequency_Doppler_Low_type&
+  Frequency_Doppler_Low () const;
+
+  Frequency_Doppler_Low_type&
+  Frequency_Doppler_Low ();
+
+  void
+  Frequency_Doppler_Low (const Frequency_Doppler_Low_type& x);
+
+  void
+  Frequency_Doppler_Low (::std::auto_ptr< Frequency_Doppler_Low_type > p);
+
+  // Pivot-Transducer-Face-Dist
+  //
+  typedef ::xml_schema::string Pivot_Transducer_Face_Dist_type;
+  typedef ::xsd::cxx::tree::traits< Pivot_Transducer_Face_Dist_type, char > Pivot_Transducer_Face_Dist_traits;
+
+  const Pivot_Transducer_Face_Dist_type&
+  Pivot_Transducer_Face_Dist () const;
+
+  Pivot_Transducer_Face_Dist_type&
+  Pivot_Transducer_Face_Dist ();
+
+  void
+  Pivot_Transducer_Face_Dist (const Pivot_Transducer_Face_Dist_type& x);
+
+  void
+  Pivot_Transducer_Face_Dist (::std::auto_ptr< Pivot_Transducer_Face_Dist_type > p);
+
+  // Filter-Doppler
+  //
+  typedef ::xml_schema::string Filter_Doppler_type;
+  typedef ::xsd::cxx::tree::traits< Filter_Doppler_type, char > Filter_Doppler_traits;
+
+  const Filter_Doppler_type&
+  Filter_Doppler () const;
+
+  Filter_Doppler_type&
+  Filter_Doppler ();
+
+  void
+  Filter_Doppler (const Filter_Doppler_type& x);
+
+  void
+  Filter_Doppler (::std::auto_ptr< Filter_Doppler_type > p);
+
+  // Frequency
+  //
+  typedef ::xml_schema::string Frequency_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
+
+  const Frequency_type&
+  Frequency () const;
+
+  Frequency_type&
+  Frequency ();
+
+  void
+  Frequency (const Frequency_type& x);
+
+  void
+  Frequency (::std::auto_ptr< Frequency_type > p);
+
+  // Integration-Limit
+  //
+  typedef ::xml_schema::string Integration_Limit_type;
+  typedef ::xsd::cxx::tree::traits< Integration_Limit_type, char > Integration_Limit_traits;
+
+  const Integration_Limit_type&
+  Integration_Limit () const;
+
+  Integration_Limit_type&
+  Integration_Limit ();
+
+  void
+  Integration_Limit (const Integration_Limit_type& x);
+
+  void
+  Integration_Limit (::std::auto_ptr< Integration_Limit_type > p);
+
+  // Encoder-Separation
+  //
+  typedef ::xml_schema::string Encoder_Separation_type;
+  typedef ::xsd::cxx::tree::traits< Encoder_Separation_type, char > Encoder_Separation_traits;
+
+  const Encoder_Separation_type&
+  Encoder_Separation () const;
+
+  Encoder_Separation_type&
+  Encoder_Separation ();
+
+  void
+  Encoder_Separation (const Encoder_Separation_type& x);
+
+  void
+  Encoder_Separation (::std::auto_ptr< Encoder_Separation_type > p);
+
+  // Overshoot
+  //
+  typedef ::xml_schema::string Overshoot_type;
+  typedef ::xsd::cxx::tree::traits< Overshoot_type, char > Overshoot_traits;
+
+  const Overshoot_type&
+  Overshoot () const;
+
+  Overshoot_type&
+  Overshoot ();
+
+  void
+  Overshoot (const Overshoot_type& x);
+
+  void
+  Overshoot (::std::auto_ptr< Overshoot_type > p);
+
+  // Attenuation-Shift
+  //
+  typedef ::xml_schema::string Attenuation_Shift_type;
+  typedef ::xsd::cxx::tree::traits< Attenuation_Shift_type, char > Attenuation_Shift_traits;
+
+  const Attenuation_Shift_type&
+  Attenuation_Shift () const;
+
+  Attenuation_Shift_type&
+  Attenuation_Shift ();
+
+  void
+  Attenuation_Shift (const Attenuation_Shift_type& x);
+
+  void
+  Attenuation_Shift (::std::auto_ptr< Attenuation_Shift_type > p);
+
+  // Filter
+  //
+  typedef ::xml_schema::string Filter_type;
+  typedef ::xsd::cxx::tree::traits< Filter_type, char > Filter_traits;
+
+  const Filter_type&
+  Filter () const;
+
+  Filter_type&
+  Filter ();
+
+  void
+  Filter (const Filter_type& x);
+
+  void
+  Filter (::std::auto_ptr< Filter_type > p);
+
+  // Default-Rx-Gain-Doppler
+  //
+  typedef ::xml_schema::string Default_Rx_Gain_Doppler_type;
+  typedef ::xsd::cxx::tree::traits< Default_Rx_Gain_Doppler_type, char > Default_Rx_Gain_Doppler_traits;
+
+  const Default_Rx_Gain_Doppler_type&
+  Default_Rx_Gain_Doppler () const;
+
+  Default_Rx_Gain_Doppler_type&
+  Default_Rx_Gain_Doppler ();
+
+  void
+  Default_Rx_Gain_Doppler (const Default_Rx_Gain_Doppler_type& x);
+
+  void
+  Default_Rx_Gain_Doppler (::std::auto_ptr< Default_Rx_Gain_Doppler_type > p);
+
+  // Peak-Vel-Correction
+  //
+  typedef ::xml_schema::string Peak_Vel_Correction_type;
+  typedef ::xsd::cxx::tree::traits< Peak_Vel_Correction_type, char > Peak_Vel_Correction_traits;
+
+  const Peak_Vel_Correction_type&
+  Peak_Vel_Correction () const;
+
+  Peak_Vel_Correction_type&
+  Peak_Vel_Correction ();
+
+  void
+  Peak_Vel_Correction (const Peak_Vel_Correction_type& x);
+
+  void
+  Peak_Vel_Correction (::std::auto_ptr< Peak_Vel_Correction_type > p);
+
+  // Detect-Ratio-Max
+  //
+  typedef ::xml_schema::string Detect_Ratio_Max_type;
+  typedef ::xsd::cxx::tree::traits< Detect_Ratio_Max_type, char > Detect_Ratio_Max_traits;
+
+  const Detect_Ratio_Max_type&
+  Detect_Ratio_Max () const;
+
+  Detect_Ratio_Max_type&
+  Detect_Ratio_Max ();
+
+  void
+  Detect_Ratio_Max (const Detect_Ratio_Max_type& x);
+
+  void
+  Detect_Ratio_Max (::std::auto_ptr< Detect_Ratio_Max_type > p);
+
+  // Acceleration-Limit-Constant
+  //
+  typedef ::xml_schema::string Acceleration_Limit_Constant_type;
+  typedef ::xsd::cxx::tree::traits< Acceleration_Limit_Constant_type, char > Acceleration_Limit_Constant_traits;
+
+  const Acceleration_Limit_Constant_type&
+  Acceleration_Limit_Constant () const;
+
+  Acceleration_Limit_Constant_type&
+  Acceleration_Limit_Constant ();
+
+  void
+  Acceleration_Limit_Constant (const Acceleration_Limit_Constant_type& x);
+
+  void
+  Acceleration_Limit_Constant (::std::auto_ptr< Acceleration_Limit_Constant_type > p);
+
+  // Filter-Doppler-Low
+  //
+  typedef ::xml_schema::string Filter_Doppler_Low_type;
+  typedef ::xsd::cxx::tree::traits< Filter_Doppler_Low_type, char > Filter_Doppler_Low_traits;
+
+  const Filter_Doppler_Low_type&
+  Filter_Doppler_Low () const;
+
+  Filter_Doppler_Low_type&
+  Filter_Doppler_Low ();
+
+  void
+  Filter_Doppler_Low (const Filter_Doppler_Low_type& x);
+
+  void
+  Filter_Doppler_Low (::std::auto_ptr< Filter_Doppler_Low_type > p);
+
+  // Frequency-Doppler
+  //
+  typedef ::xml_schema::string Frequency_Doppler_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_Doppler_type, char > Frequency_Doppler_traits;
+
+  const Frequency_Doppler_type&
+  Frequency_Doppler () const;
+
+  Frequency_Doppler_type&
+  Frequency_Doppler ();
+
+  void
+  Frequency_Doppler (const Frequency_Doppler_type& x);
+
+  void
+  Frequency_Doppler (::std::auto_ptr< Frequency_Doppler_type > p);
+
+  // Detect-Ratio-Min
+  //
+  typedef ::xml_schema::string Detect_Ratio_Min_type;
+  typedef ::xsd::cxx::tree::traits< Detect_Ratio_Min_type, char > Detect_Ratio_Min_traits;
+
+  const Detect_Ratio_Min_type&
+  Detect_Ratio_Min () const;
+
+  Detect_Ratio_Min_type&
+  Detect_Ratio_Min ();
+
+  void
+  Detect_Ratio_Min (const Detect_Ratio_Min_type& x);
+
+  void
+  Detect_Ratio_Min (::std::auto_ptr< Detect_Ratio_Min_type > p);
+
+  // Derivative-Time
+  //
+  typedef ::xml_schema::string Derivative_Time_type;
+  typedef ::xsd::cxx::tree::traits< Derivative_Time_type, char > Derivative_Time_traits;
+
+  const Derivative_Time_type&
+  Derivative_Time () const;
+
+  Derivative_Time_type&
+  Derivative_Time ();
+
+  void
+  Derivative_Time (const Derivative_Time_type& x);
+
+  void
+  Derivative_Time (::std::auto_ptr< Derivative_Time_type > p);
+
+  // Filter-High
+  //
+  typedef ::xml_schema::string Filter_High_type;
+  typedef ::xsd::cxx::tree::traits< Filter_High_type, char > Filter_High_traits;
+
+  const Filter_High_type&
+  Filter_High () const;
+
+  Filter_High_type&
+  Filter_High ();
+
+  void
+  Filter_High (const Filter_High_type& x);
+
+  void
+  Filter_High (::std::auto_ptr< Filter_High_type > p);
+
+  // Motor-Overhead
+  //
+  typedef ::xml_schema::string Motor_Overhead_type;
+  typedef ::xsd::cxx::tree::traits< Motor_Overhead_type, char > Motor_Overhead_traits;
+
+  const Motor_Overhead_type&
+  Motor_Overhead () const;
+
+  Motor_Overhead_type&
+  Motor_Overhead ();
+
+  void
+  Motor_Overhead (const Motor_Overhead_type& x);
+
+  void
+  Motor_Overhead (::std::auto_ptr< Motor_Overhead_type > p);
+
+  // Version
+  //
+  typedef ::xml_schema::string Version_type;
+  typedef ::xsd::cxx::tree::traits< Version_type, char > Version_traits;
+
+  const Version_type&
+  Version () const;
+
+  Version_type&
+  Version ();
+
+  void
+  Version (const Version_type& x);
+
+  void
+  Version (::std::auto_ptr< Version_type > p);
+
+  // Filter-Low
+  //
+  typedef ::xml_schema::string Filter_Low_type;
+  typedef ::xsd::cxx::tree::traits< Filter_Low_type, char > Filter_Low_traits;
+
+  const Filter_Low_type&
+  Filter_Low () const;
+
+  Filter_Low_type&
+  Filter_Low ();
+
+  void
+  Filter_Low (const Filter_Low_type& x);
+
+  void
+  Filter_Low (::std::auto_ptr< Filter_Low_type > p);
+
+  // Constructors.
+  //
+  ActiveProbe1 (const Notes_type&,
+                const Sample_Time_type&,
+                const Focal_Length_type&,
+                const Acceleration_Limit_Slope_type&,
+                const Type_type&,
+                const Detect_Id_type&,
+                const Default_Scan_Speed_type&,
+                const K1_Power_type&,
+                const Cutoff_Scan_Speed_type&,
+                const Frequency_Low_type&,
+                const Default_FOV_type&,
+                const Frequency_Doppler_Default_type&,
+                const Default_SvSize_MMode_type&,
+                const Axial_Res_Factor_Target_type&,
+                const F_Number_type&,
+                const Acc_Time_Factor_type&,
+                const Axial_Res_type&,
+                const Lateral_Res_Factor_Target_type&,
+                const Pivot_Encoder_Dist_type&,
+                const Encoder_Range_Max_type&,
+                const Encoder_Range_Min_type&,
+                const Lateral_Res_type&,
+                const Max_Scan_Distance_type&,
+                const Default_Rx_Gain_type&,
+                const PID_KD_High_type&,
+                const PID_KI_High_type&,
+                const PID_KP_High_type&,
+                const Frequency_High_type&,
+                const Lateral_Res_Factor_Max_type&,
+                const Scan_Speeds_type&,
+                const Filter_Doppler_Cutoff_type&,
+                const Name_type&,
+                const PID_KD_Low_type&,
+                const PID_KI_Low_type&,
+                const PID_KP_Low_type&,
+                const Peak_Bandwidth_Correction_type&,
+                const Frequency_Doppler_Low_type&,
+                const Pivot_Transducer_Face_Dist_type&,
+                const Filter_Doppler_type&,
+                const Frequency_type&,
+                const Integration_Limit_type&,
+                const Encoder_Separation_type&,
+                const Overshoot_type&,
+                const Attenuation_Shift_type&,
+                const Filter_type&,
+                const Default_Rx_Gain_Doppler_type&,
+                const Peak_Vel_Correction_type&,
+                const Detect_Ratio_Max_type&,
+                const Acceleration_Limit_Constant_type&,
+                const Filter_Doppler_Low_type&,
+                const Frequency_Doppler_type&,
+                const Detect_Ratio_Min_type&,
+                const Derivative_Time_type&,
+                const Filter_High_type&,
+                const Motor_Overhead_type&,
+                const Version_type&,
+                const Filter_Low_type&);
+
+  ActiveProbe1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  ActiveProbe1 (const ActiveProbe1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual ActiveProbe1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~ActiveProbe1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Notes_type > Notes_;
+  ::xsd::cxx::tree::one< Sample_Time_type > Sample_Time_;
+  ::xsd::cxx::tree::one< Focal_Length_type > Focal_Length_;
+  ::xsd::cxx::tree::one< Acceleration_Limit_Slope_type > Acceleration_Limit_Slope_;
+  ::xsd::cxx::tree::one< Type_type > Type_;
+  ::xsd::cxx::tree::one< Detect_Id_type > Detect_Id_;
+  ::xsd::cxx::tree::one< Default_Scan_Speed_type > Default_Scan_Speed_;
+  ::xsd::cxx::tree::one< K1_Power_type > K1_Power_;
+  ::xsd::cxx::tree::one< Cutoff_Scan_Speed_type > Cutoff_Scan_Speed_;
+  ::xsd::cxx::tree::one< Frequency_Low_type > Frequency_Low_;
+  ::xsd::cxx::tree::one< Default_FOV_type > Default_FOV_;
+  ::xsd::cxx::tree::one< Frequency_Doppler_Default_type > Frequency_Doppler_Default_;
+  ::xsd::cxx::tree::one< Default_SvSize_MMode_type > Default_SvSize_MMode_;
+  ::xsd::cxx::tree::one< Axial_Res_Factor_Target_type > Axial_Res_Factor_Target_;
+  ::xsd::cxx::tree::one< F_Number_type > F_Number_;
+  ::xsd::cxx::tree::one< Acc_Time_Factor_type > Acc_Time_Factor_;
+  ::xsd::cxx::tree::one< Axial_Res_type > Axial_Res_;
+  ::xsd::cxx::tree::one< Lateral_Res_Factor_Target_type > Lateral_Res_Factor_Target_;
+  ::xsd::cxx::tree::one< Pivot_Encoder_Dist_type > Pivot_Encoder_Dist_;
+  ::xsd::cxx::tree::one< Encoder_Range_Max_type > Encoder_Range_Max_;
+  ::xsd::cxx::tree::one< Encoder_Range_Min_type > Encoder_Range_Min_;
+  ::xsd::cxx::tree::one< Lateral_Res_type > Lateral_Res_;
+  ::xsd::cxx::tree::one< Max_Scan_Distance_type > Max_Scan_Distance_;
+  ::xsd::cxx::tree::one< Default_Rx_Gain_type > Default_Rx_Gain_;
+  ::xsd::cxx::tree::one< PID_KD_High_type > PID_KD_High_;
+  ::xsd::cxx::tree::one< PID_KI_High_type > PID_KI_High_;
+  ::xsd::cxx::tree::one< PID_KP_High_type > PID_KP_High_;
+  ::xsd::cxx::tree::one< Frequency_High_type > Frequency_High_;
+  ::xsd::cxx::tree::one< Lateral_Res_Factor_Max_type > Lateral_Res_Factor_Max_;
+  ::xsd::cxx::tree::one< Scan_Speeds_type > Scan_Speeds_;
+  ::xsd::cxx::tree::one< Filter_Doppler_Cutoff_type > Filter_Doppler_Cutoff_;
+  ::xsd::cxx::tree::one< Name_type > Name_;
+  ::xsd::cxx::tree::one< PID_KD_Low_type > PID_KD_Low_;
+  ::xsd::cxx::tree::one< PID_KI_Low_type > PID_KI_Low_;
+  ::xsd::cxx::tree::one< PID_KP_Low_type > PID_KP_Low_;
+  ::xsd::cxx::tree::one< Peak_Bandwidth_Correction_type > Peak_Bandwidth_Correction_;
+  ::xsd::cxx::tree::one< Frequency_Doppler_Low_type > Frequency_Doppler_Low_;
+  ::xsd::cxx::tree::one< Pivot_Transducer_Face_Dist_type > Pivot_Transducer_Face_Dist_;
+  ::xsd::cxx::tree::one< Filter_Doppler_type > Filter_Doppler_;
+  ::xsd::cxx::tree::one< Frequency_type > Frequency_;
+  ::xsd::cxx::tree::one< Integration_Limit_type > Integration_Limit_;
+  ::xsd::cxx::tree::one< Encoder_Separation_type > Encoder_Separation_;
+  ::xsd::cxx::tree::one< Overshoot_type > Overshoot_;
+  ::xsd::cxx::tree::one< Attenuation_Shift_type > Attenuation_Shift_;
+  ::xsd::cxx::tree::one< Filter_type > Filter_;
+  ::xsd::cxx::tree::one< Default_Rx_Gain_Doppler_type > Default_Rx_Gain_Doppler_;
+  ::xsd::cxx::tree::one< Peak_Vel_Correction_type > Peak_Vel_Correction_;
+  ::xsd::cxx::tree::one< Detect_Ratio_Max_type > Detect_Ratio_Max_;
+  ::xsd::cxx::tree::one< Acceleration_Limit_Constant_type > Acceleration_Limit_Constant_;
+  ::xsd::cxx::tree::one< Filter_Doppler_Low_type > Filter_Doppler_Low_;
+  ::xsd::cxx::tree::one< Frequency_Doppler_type > Frequency_Doppler_;
+  ::xsd::cxx::tree::one< Detect_Ratio_Min_type > Detect_Ratio_Min_;
+  ::xsd::cxx::tree::one< Derivative_Time_type > Derivative_Time_;
+  ::xsd::cxx::tree::one< Filter_High_type > Filter_High_;
+  ::xsd::cxx::tree::one< Motor_Overhead_type > Motor_Overhead_;
+  ::xsd::cxx::tree::one< Version_type > Version_;
+  ::xsd::cxx::tree::one< Filter_Low_type > Filter_Low_;
+};
+
+class BModeSoft1: public ::xml_schema::type
+{
+  public:
+  // Anti-Aliasing
+  //
+  typedef ::xml_schema::string Anti_Aliasing_type;
+  typedef ::xsd::cxx::tree::traits< Anti_Aliasing_type, char > Anti_Aliasing_traits;
+
+  const Anti_Aliasing_type&
+  Anti_Aliasing () const;
+
+  Anti_Aliasing_type&
+  Anti_Aliasing ();
+
+  void
+  Anti_Aliasing (const Anti_Aliasing_type& x);
+
+  void
+  Anti_Aliasing (::std::auto_ptr< Anti_Aliasing_type > p);
+
+  // V-Relative-Frame-Rate
+  //
+  typedef ::xml_schema::string V_Relative_Frame_Rate_type;
+  typedef ::xsd::cxx::tree::traits< V_Relative_Frame_Rate_type, char > V_Relative_Frame_Rate_traits;
+
+  const V_Relative_Frame_Rate_type&
+  V_Relative_Frame_Rate () const;
+
+  V_Relative_Frame_Rate_type&
+  V_Relative_Frame_Rate ();
+
+  void
+  V_Relative_Frame_Rate (const V_Relative_Frame_Rate_type& x);
+
+  void
+  V_Relative_Frame_Rate (::std::auto_ptr< V_Relative_Frame_Rate_type > p);
+
+  // Max-Power-Size-Default
+  //
+  typedef ::xml_schema::string Max_Power_Size_Default_type;
+  typedef ::xsd::cxx::tree::traits< Max_Power_Size_Default_type, char > Max_Power_Size_Default_traits;
+
+  const Max_Power_Size_Default_type&
+  Max_Power_Size_Default () const;
+
+  Max_Power_Size_Default_type&
+  Max_Power_Size_Default ();
+
+  void
+  Max_Power_Size_Default (const Max_Power_Size_Default_type& x);
+
+  void
+  Max_Power_Size_Default (::std::auto_ptr< Max_Power_Size_Default_type > p);
+
+  // Buffer-Size
+  //
+  typedef ::xml_schema::string Buffer_Size_type;
+  typedef ::xsd::cxx::tree::traits< Buffer_Size_type, char > Buffer_Size_traits;
+
+  const Buffer_Size_type&
+  Buffer_Size () const;
+
+  Buffer_Size_type&
+  Buffer_Size ();
+
+  void
+  Buffer_Size (const Buffer_Size_type& x);
+
+  void
+  Buffer_Size (::std::auto_ptr< Buffer_Size_type > p);
+
+  // Sector-Convert
+  //
+  typedef ::xml_schema::string Sector_Convert_type;
+  typedef ::xsd::cxx::tree::traits< Sector_Convert_type, char > Sector_Convert_traits;
+
+  const Sector_Convert_type&
+  Sector_Convert () const;
+
+  Sector_Convert_type&
+  Sector_Convert ();
+
+  void
+  Sector_Convert (const Sector_Convert_type& x);
+
+  void
+  Sector_Convert (::std::auto_ptr< Sector_Convert_type > p);
+
+  // AVR-Factor
+  //
+  typedef ::xml_schema::string AVR_Factor_type;
+  typedef ::xsd::cxx::tree::traits< AVR_Factor_type, char > AVR_Factor_traits;
+
+  const AVR_Factor_type&
+  AVR_Factor () const;
+
+  AVR_Factor_type&
+  AVR_Factor ();
+
+  void
+  AVR_Factor (const AVR_Factor_type& x);
+
+  void
+  AVR_Factor (::std::auto_ptr< AVR_Factor_type > p);
+
+  // Flip-Image
+  //
+  typedef ::xml_schema::string Flip_Image_type;
+  typedef ::xsd::cxx::tree::traits< Flip_Image_type, char > Flip_Image_traits;
+
+  const Flip_Image_type&
+  Flip_Image () const;
+
+  Flip_Image_type&
+  Flip_Image ();
+
+  void
+  Flip_Image (const Flip_Image_type& x);
+
+  void
+  Flip_Image (::std::auto_ptr< Flip_Image_type > p);
+
+  // AVR-Startup-Frames
+  //
+  typedef ::xml_schema::string AVR_Startup_Frames_type;
+  typedef ::xsd::cxx::tree::traits< AVR_Startup_Frames_type, char > AVR_Startup_Frames_traits;
+
+  const AVR_Startup_Frames_type&
+  AVR_Startup_Frames () const;
+
+  AVR_Startup_Frames_type&
+  AVR_Startup_Frames ();
+
+  void
+  AVR_Startup_Frames (const AVR_Startup_Frames_type& x);
+
+  void
+  AVR_Startup_Frames (::std::auto_ptr< AVR_Startup_Frames_type > p);
+
+  // BMode-Size-Default
+  //
+  typedef ::xml_schema::string BMode_Size_Default_type;
+  typedef ::xsd::cxx::tree::traits< BMode_Size_Default_type, char > BMode_Size_Default_traits;
+
+  const BMode_Size_Default_type&
+  BMode_Size_Default () const;
+
+  BMode_Size_Default_type&
+  BMode_Size_Default ();
+
+  void
+  BMode_Size_Default (const BMode_Size_Default_type& x);
+
+  void
+  BMode_Size_Default (::std::auto_ptr< BMode_Size_Default_type > p);
+
+  // Relative-Frame-Rate
+  //
+  typedef ::xml_schema::string Relative_Frame_Rate_type;
+  typedef ::xsd::cxx::tree::traits< Relative_Frame_Rate_type, char > Relative_Frame_Rate_traits;
+
+  const Relative_Frame_Rate_type&
+  Relative_Frame_Rate () const;
+
+  Relative_Frame_Rate_type&
+  Relative_Frame_Rate ();
+
+  void
+  Relative_Frame_Rate (const Relative_Frame_Rate_type& x);
+
+  void
+  Relative_Frame_Rate (::std::auto_ptr< Relative_Frame_Rate_type > p);
+
+  // Overlay-Mode
+  //
+  typedef ::xml_schema::string Overlay_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Overlay_Mode_type, char > Overlay_Mode_traits;
+
+  const Overlay_Mode_type&
+  Overlay_Mode () const;
+
+  Overlay_Mode_type&
+  Overlay_Mode ();
+
+  void
+  Overlay_Mode (const Overlay_Mode_type& x);
+
+  void
+  Overlay_Mode (::std::auto_ptr< Overlay_Mode_type > p);
+
+  // Refresh-Rate
+  //
+  typedef ::xml_schema::string Refresh_Rate_type;
+  typedef ::xsd::cxx::tree::traits< Refresh_Rate_type, char > Refresh_Rate_traits;
+
+  const Refresh_Rate_type&
+  Refresh_Rate () const;
+
+  Refresh_Rate_type&
+  Refresh_Rate ();
+
+  void
+  Refresh_Rate (const Refresh_Rate_type& x);
+
+  void
+  Refresh_Rate (::std::auto_ptr< Refresh_Rate_type > p);
+
+  // Acquisition-Mode
+  //
+  typedef ::xml_schema::string Acquisition_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Acquisition_Mode_type, char > Acquisition_Mode_traits;
+
+  const Acquisition_Mode_type&
+  Acquisition_Mode () const;
+
+  Acquisition_Mode_type&
+  Acquisition_Mode ();
+
+  void
+  Acquisition_Mode (const Acquisition_Mode_type& x);
+
+  void
+  Acquisition_Mode (::std::auto_ptr< Acquisition_Mode_type > p);
+
+  // Acquire-Both-Directions
+  //
+  typedef ::xml_schema::string Acquire_Both_Directions_type;
+  typedef ::xsd::cxx::tree::traits< Acquire_Both_Directions_type, char > Acquire_Both_Directions_traits;
+
+  const Acquire_Both_Directions_type&
+  Acquire_Both_Directions () const;
+
+  Acquire_Both_Directions_type&
+  Acquire_Both_Directions ();
+
+  void
+  Acquire_Both_Directions (const Acquire_Both_Directions_type& x);
+
+  void
+  Acquire_Both_Directions (::std::auto_ptr< Acquire_Both_Directions_type > p);
+
+  // Actual-Scan-Rate
+  //
+  typedef ::xml_schema::string Actual_Scan_Rate_type;
+  typedef ::xsd::cxx::tree::traits< Actual_Scan_Rate_type, char > Actual_Scan_Rate_traits;
+
+  const Actual_Scan_Rate_type&
+  Actual_Scan_Rate () const;
+
+  Actual_Scan_Rate_type&
+  Actual_Scan_Rate ();
+
+  void
+  Actual_Scan_Rate (const Actual_Scan_Rate_type& x);
+
+  void
+  Actual_Scan_Rate (::std::auto_ptr< Actual_Scan_Rate_type > p);
+
+  // Acquire-Persist-AVR
+  //
+  typedef ::xml_schema::string Acquire_Persist_AVR_type;
+  typedef ::xsd::cxx::tree::traits< Acquire_Persist_AVR_type, char > Acquire_Persist_AVR_traits;
+
+  const Acquire_Persist_AVR_type&
+  Acquire_Persist_AVR () const;
+
+  Acquire_Persist_AVR_type&
+  Acquire_Persist_AVR ();
+
+  void
+  Acquire_Persist_AVR (const Acquire_Persist_AVR_type& x);
+
+  void
+  Acquire_Persist_AVR (::std::auto_ptr< Acquire_Persist_AVR_type > p);
+
+  // Sector-X-Res
+  //
+  typedef ::xml_schema::string Sector_X_Res_type;
+  typedef ::xsd::cxx::tree::traits< Sector_X_Res_type, char > Sector_X_Res_traits;
+
+  const Sector_X_Res_type&
+  Sector_X_Res () const;
+
+  Sector_X_Res_type&
+  Sector_X_Res ();
+
+  void
+  Sector_X_Res (const Sector_X_Res_type& x);
+
+  void
+  Sector_X_Res (::std::auto_ptr< Sector_X_Res_type > p);
+
+  // Sector-Y-Res
+  //
+  typedef ::xml_schema::string Sector_Y_Res_type;
+  typedef ::xsd::cxx::tree::traits< Sector_Y_Res_type, char > Sector_Y_Res_traits;
+
+  const Sector_Y_Res_type&
+  Sector_Y_Res () const;
+
+  Sector_Y_Res_type&
+  Sector_Y_Res ();
+
+  void
+  Sector_Y_Res (const Sector_Y_Res_type& x);
+
+  void
+  Sector_Y_Res (::std::auto_ptr< Sector_Y_Res_type > p);
+
+  // Power-Size-Default
+  //
+  typedef ::xml_schema::string Power_Size_Default_type;
+  typedef ::xsd::cxx::tree::traits< Power_Size_Default_type, char > Power_Size_Default_traits;
+
+  const Power_Size_Default_type&
+  Power_Size_Default () const;
+
+  Power_Size_Default_type&
+  Power_Size_Default ();
+
+  void
+  Power_Size_Default (const Power_Size_Default_type& x);
+
+  void
+  Power_Size_Default (::std::auto_ptr< Power_Size_Default_type > p);
+
+  // Sector-X-Start
+  //
+  typedef ::xml_schema::string Sector_X_Start_type;
+  typedef ::xsd::cxx::tree::traits< Sector_X_Start_type, char > Sector_X_Start_traits;
+
+  const Sector_X_Start_type&
+  Sector_X_Start () const;
+
+  Sector_X_Start_type&
+  Sector_X_Start ();
+
+  void
+  Sector_X_Start (const Sector_X_Start_type& x);
+
+  void
+  Sector_X_Start (::std::auto_ptr< Sector_X_Start_type > p);
+
+  // Sector-Y-Start
+  //
+  typedef ::xml_schema::string Sector_Y_Start_type;
+  typedef ::xsd::cxx::tree::traits< Sector_Y_Start_type, char > Sector_Y_Start_traits;
+
+  const Sector_Y_Start_type&
+  Sector_Y_Start () const;
+
+  Sector_Y_Start_type&
+  Sector_Y_Start ();
+
+  void
+  Sector_Y_Start (const Sector_Y_Start_type& x);
+
+  void
+  Sector_Y_Start (::std::auto_ptr< Sector_Y_Start_type > p);
+
+  // Max-BMode-Size-Default
+  //
+  typedef ::xml_schema::string Max_BMode_Size_Default_type;
+  typedef ::xsd::cxx::tree::traits< Max_BMode_Size_Default_type, char > Max_BMode_Size_Default_traits;
+
+  const Max_BMode_Size_Default_type&
+  Max_BMode_Size_Default () const;
+
+  Max_BMode_Size_Default_type&
+  Max_BMode_Size_Default ();
+
+  void
+  Max_BMode_Size_Default (const Max_BMode_Size_Default_type& x);
+
+  void
+  Max_BMode_Size_Default (::std::auto_ptr< Max_BMode_Size_Default_type > p);
+
+  // Target-Field-Of-View
+  //
+  typedef ::xml_schema::string Target_Field_Of_View_type;
+  typedef ::xsd::cxx::tree::traits< Target_Field_Of_View_type, char > Target_Field_Of_View_traits;
+
+  const Target_Field_Of_View_type&
+  Target_Field_Of_View () const;
+
+  Target_Field_Of_View_type&
+  Target_Field_Of_View ();
+
+  void
+  Target_Field_Of_View (const Target_Field_Of_View_type& x);
+
+  void
+  Target_Field_Of_View (::std::auto_ptr< Target_Field_Of_View_type > p);
+
+  // Processing-Command
+  //
+  typedef ::xml_schema::string Processing_Command_type;
+  typedef ::xsd::cxx::tree::traits< Processing_Command_type, char > Processing_Command_traits;
+
+  const Processing_Command_type&
+  Processing_Command () const;
+
+  Processing_Command_type&
+  Processing_Command ();
+
+  void
+  Processing_Command (const Processing_Command_type& x);
+
+  void
+  Processing_Command (::std::auto_ptr< Processing_Command_type > p);
+
+  // Constructors.
+  //
+  BModeSoft1 (const Anti_Aliasing_type&,
+              const V_Relative_Frame_Rate_type&,
+              const Max_Power_Size_Default_type&,
+              const Buffer_Size_type&,
+              const Sector_Convert_type&,
+              const AVR_Factor_type&,
+              const Flip_Image_type&,
+              const AVR_Startup_Frames_type&,
+              const BMode_Size_Default_type&,
+              const Relative_Frame_Rate_type&,
+              const Overlay_Mode_type&,
+              const Refresh_Rate_type&,
+              const Acquisition_Mode_type&,
+              const Acquire_Both_Directions_type&,
+              const Actual_Scan_Rate_type&,
+              const Acquire_Persist_AVR_type&,
+              const Sector_X_Res_type&,
+              const Sector_Y_Res_type&,
+              const Power_Size_Default_type&,
+              const Sector_X_Start_type&,
+              const Sector_Y_Start_type&,
+              const Max_BMode_Size_Default_type&,
+              const Target_Field_Of_View_type&,
+              const Processing_Command_type&);
+
+  BModeSoft1 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  BModeSoft1 (const BModeSoft1& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual BModeSoft1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~BModeSoft1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Anti_Aliasing_type > Anti_Aliasing_;
+  ::xsd::cxx::tree::one< V_Relative_Frame_Rate_type > V_Relative_Frame_Rate_;
+  ::xsd::cxx::tree::one< Max_Power_Size_Default_type > Max_Power_Size_Default_;
+  ::xsd::cxx::tree::one< Buffer_Size_type > Buffer_Size_;
+  ::xsd::cxx::tree::one< Sector_Convert_type > Sector_Convert_;
+  ::xsd::cxx::tree::one< AVR_Factor_type > AVR_Factor_;
+  ::xsd::cxx::tree::one< Flip_Image_type > Flip_Image_;
+  ::xsd::cxx::tree::one< AVR_Startup_Frames_type > AVR_Startup_Frames_;
+  ::xsd::cxx::tree::one< BMode_Size_Default_type > BMode_Size_Default_;
+  ::xsd::cxx::tree::one< Relative_Frame_Rate_type > Relative_Frame_Rate_;
+  ::xsd::cxx::tree::one< Overlay_Mode_type > Overlay_Mode_;
+  ::xsd::cxx::tree::one< Refresh_Rate_type > Refresh_Rate_;
+  ::xsd::cxx::tree::one< Acquisition_Mode_type > Acquisition_Mode_;
+  ::xsd::cxx::tree::one< Acquire_Both_Directions_type > Acquire_Both_Directions_;
+  ::xsd::cxx::tree::one< Actual_Scan_Rate_type > Actual_Scan_Rate_;
+  ::xsd::cxx::tree::one< Acquire_Persist_AVR_type > Acquire_Persist_AVR_;
+  ::xsd::cxx::tree::one< Sector_X_Res_type > Sector_X_Res_;
+  ::xsd::cxx::tree::one< Sector_Y_Res_type > Sector_Y_Res_;
+  ::xsd::cxx::tree::one< Power_Size_Default_type > Power_Size_Default_;
+  ::xsd::cxx::tree::one< Sector_X_Start_type > Sector_X_Start_;
+  ::xsd::cxx::tree::one< Sector_Y_Start_type > Sector_Y_Start_;
+  ::xsd::cxx::tree::one< Max_BMode_Size_Default_type > Max_BMode_Size_Default_;
+  ::xsd::cxx::tree::one< Target_Field_Of_View_type > Target_Field_Of_View_;
+  ::xsd::cxx::tree::one< Processing_Command_type > Processing_Command_;
+};
+
+class Sys1: public ::xml_schema::type
+{
+  public:
+  // Query-Discard-Loop-On-Save-Frame
+  //
+  typedef ::xml_schema::string Query_Discard_Loop_On_Save_Frame_type;
+  typedef ::xsd::cxx::tree::traits< Query_Discard_Loop_On_Save_Frame_type, char > Query_Discard_Loop_On_Save_Frame_traits;
+
+  const Query_Discard_Loop_On_Save_Frame_type&
+  Query_Discard_Loop_On_Save_Frame () const;
+
+  Query_Discard_Loop_On_Save_Frame_type&
+  Query_Discard_Loop_On_Save_Frame ();
+
+  void
+  Query_Discard_Loop_On_Save_Frame (const Query_Discard_Loop_On_Save_Frame_type& x);
+
+  void
+  Query_Discard_Loop_On_Save_Frame (::std::auto_ptr< Query_Discard_Loop_On_Save_Frame_type > p);
+
+  // Sound-Speed
+  //
+  typedef ::xml_schema::string Sound_Speed_type;
+  typedef ::xsd::cxx::tree::traits< Sound_Speed_type, char > Sound_Speed_traits;
+
+  const Sound_Speed_type&
+  Sound_Speed () const;
+
+  Sound_Speed_type&
+  Sound_Speed ();
+
+  void
+  Sound_Speed (const Sound_Speed_type& x);
+
+  void
+  Sound_Speed (::std::auto_ptr< Sound_Speed_type > p);
+
+  // SubMode
+  //
+  typedef ::xml_schema::string SubMode_type;
+  typedef ::xsd::cxx::tree::traits< SubMode_type, char > SubMode_traits;
+
+  const SubMode_type&
+  SubMode () const;
+
+  SubMode_type&
+  SubMode ();
+
+  void
+  SubMode (const SubMode_type& x);
+
+  void
+  SubMode (::std::auto_ptr< SubMode_type > p);
+
+  // Interrupt-Mask
+  //
+  typedef ::xml_schema::string Interrupt_Mask_type;
+  typedef ::xsd::cxx::tree::traits< Interrupt_Mask_type, char > Interrupt_Mask_traits;
+
+  const Interrupt_Mask_type&
+  Interrupt_Mask () const;
+
+  Interrupt_Mask_type&
+  Interrupt_Mask ();
+
+  void
+  Interrupt_Mask (const Interrupt_Mask_type& x);
+
+  void
+  Interrupt_Mask (::std::auto_ptr< Interrupt_Mask_type > p);
+
+  // Calculation-Instances
+  //
+  typedef ::xml_schema::string Calculation_Instances_type;
+  typedef ::xsd::cxx::tree::traits< Calculation_Instances_type, char > Calculation_Instances_traits;
+
+  const Calculation_Instances_type&
+  Calculation_Instances () const;
+
+  Calculation_Instances_type&
+  Calculation_Instances ();
+
+  void
+  Calculation_Instances (const Calculation_Instances_type& x);
+
+  void
+  Calculation_Instances (::std::auto_ptr< Calculation_Instances_type > p);
+
+  // Start-Licence-Date
+  //
+  typedef ::xml_schema::string Start_Licence_Date_type;
+  typedef ::xsd::cxx::tree::traits< Start_Licence_Date_type, char > Start_Licence_Date_traits;
+
+  const Start_Licence_Date_type&
+  Start_Licence_Date () const;
+
+  Start_Licence_Date_type&
+  Start_Licence_Date ();
+
+  void
+  Start_Licence_Date (const Start_Licence_Date_type& x);
+
+  void
+  Start_Licence_Date (::std::auto_ptr< Start_Licence_Date_type > p);
+
+  // End-Licence-Date
+  //
+  typedef ::xml_schema::string End_Licence_Date_type;
+  typedef ::xsd::cxx::tree::traits< End_Licence_Date_type, char > End_Licence_Date_traits;
+
+  const End_Licence_Date_type&
+  End_Licence_Date () const;
+
+  End_Licence_Date_type&
+  End_Licence_Date ();
+
+  void
+  End_Licence_Date (const End_Licence_Date_type& x);
+
+  void
+  End_Licence_Date (::std::auto_ptr< End_Licence_Date_type > p);
+
+  // Auto-Save-PreTrig-Loop
+  //
+  typedef ::xml_schema::string Auto_Save_PreTrig_Loop_type;
+  typedef ::xsd::cxx::tree::traits< Auto_Save_PreTrig_Loop_type, char > Auto_Save_PreTrig_Loop_traits;
+
+  const Auto_Save_PreTrig_Loop_type&
+  Auto_Save_PreTrig_Loop () const;
+
+  Auto_Save_PreTrig_Loop_type&
+  Auto_Save_PreTrig_Loop ();
+
+  void
+  Auto_Save_PreTrig_Loop (const Auto_Save_PreTrig_Loop_type& x);
+
+  void
+  Auto_Save_PreTrig_Loop (::std::auto_ptr< Auto_Save_PreTrig_Loop_type > p);
+
+  // Feature
+  //
+  typedef ::xml_schema::string Feature_type;
+  typedef ::xsd::cxx::tree::traits< Feature_type, char > Feature_traits;
+
+  const Feature_type&
+  Feature () const;
+
+  Feature_type&
+  Feature ();
+
+  void
+  Feature (const Feature_type& x);
+
+  void
+  Feature (::std::auto_ptr< Feature_type > p);
+
+  // Acq-Setup-Dialog
+  //
+  typedef ::xml_schema::string Acq_Setup_Dialog_type;
+  typedef ::xsd::cxx::tree::traits< Acq_Setup_Dialog_type, char > Acq_Setup_Dialog_traits;
+
+  const Acq_Setup_Dialog_type&
+  Acq_Setup_Dialog () const;
+
+  Acq_Setup_Dialog_type&
+  Acq_Setup_Dialog ();
+
+  void
+  Acq_Setup_Dialog (const Acq_Setup_Dialog_type& x);
+
+  void
+  Acq_Setup_Dialog (::std::auto_ptr< Acq_Setup_Dialog_type > p);
+
+  // Interrupt-Clear
+  //
+  typedef ::xml_schema::string Interrupt_Clear_type;
+  typedef ::xsd::cxx::tree::traits< Interrupt_Clear_type, char > Interrupt_Clear_traits;
+
+  const Interrupt_Clear_type&
+  Interrupt_Clear () const;
+
+  Interrupt_Clear_type&
+  Interrupt_Clear ();
+
+  void
+  Interrupt_Clear (const Interrupt_Clear_type& x);
+
+  void
+  Interrupt_Clear (::std::auto_ptr< Interrupt_Clear_type > p);
+
+  // Interrupt-Status
+  //
+  typedef ::xml_schema::string Interrupt_Status_type;
+  typedef ::xsd::cxx::tree::traits< Interrupt_Status_type, char > Interrupt_Status_traits;
+
+  const Interrupt_Status_type&
+  Interrupt_Status () const;
+
+  Interrupt_Status_type&
+  Interrupt_Status ();
+
+  void
+  Interrupt_Status (const Interrupt_Status_type& x);
+
+  void
+  Interrupt_Status (::std::auto_ptr< Interrupt_Status_type > p);
+
+  // Auto-Save-Load-3D
+  //
+  typedef ::xml_schema::string Auto_Save_Load_3D_type;
+  typedef ::xsd::cxx::tree::traits< Auto_Save_Load_3D_type, char > Auto_Save_Load_3D_traits;
+
+  const Auto_Save_Load_3D_type&
+  Auto_Save_Load_3D () const;
+
+  Auto_Save_Load_3D_type&
+  Auto_Save_Load_3D ();
+
+  void
+  Auto_Save_Load_3D (const Auto_Save_Load_3D_type& x);
+
+  void
+  Auto_Save_Load_3D (::std::auto_ptr< Auto_Save_Load_3D_type > p);
+
+  // DICOM-Root-ID
+  //
+  typedef ::xml_schema::string DICOM_Root_ID_type;
+  typedef ::xsd::cxx::tree::traits< DICOM_Root_ID_type, char > DICOM_Root_ID_traits;
+
+  const DICOM_Root_ID_type&
+  DICOM_Root_ID () const;
+
+  DICOM_Root_ID_type&
+  DICOM_Root_ID ();
+
+  void
+  DICOM_Root_ID (const DICOM_Root_ID_type& x);
+
+  void
+  DICOM_Root_ID (::std::auto_ptr< DICOM_Root_ID_type > p);
+
+  // Company-Name
+  //
+  typedef ::xml_schema::string Company_Name_type;
+  typedef ::xsd::cxx::tree::traits< Company_Name_type, char > Company_Name_traits;
+
+  const Company_Name_type&
+  Company_Name () const;
+
+  Company_Name_type&
+  Company_Name ();
+
+  void
+  Company_Name (const Company_Name_type& x);
+
+  void
+  Company_Name (::std::auto_ptr< Company_Name_type > p);
+
+  // Image-To-Auto-Save-On-Label
+  //
+  typedef ::xml_schema::string Image_To_Auto_Save_On_Label_type;
+  typedef ::xsd::cxx::tree::traits< Image_To_Auto_Save_On_Label_type, char > Image_To_Auto_Save_On_Label_traits;
+
+  const Image_To_Auto_Save_On_Label_type&
+  Image_To_Auto_Save_On_Label () const;
+
+  Image_To_Auto_Save_On_Label_type&
+  Image_To_Auto_Save_On_Label ();
+
+  void
+  Image_To_Auto_Save_On_Label (const Image_To_Auto_Save_On_Label_type& x);
+
+  void
+  Image_To_Auto_Save_On_Label (::std::auto_ptr< Image_To_Auto_Save_On_Label_type > p);
+
+  // DICOM-Encode-Regions
+  //
+  typedef ::xml_schema::string DICOM_Encode_Regions_type;
+  typedef ::xsd::cxx::tree::traits< DICOM_Encode_Regions_type, char > DICOM_Encode_Regions_traits;
+
+  const DICOM_Encode_Regions_type&
+  DICOM_Encode_Regions () const;
+
+  DICOM_Encode_Regions_type&
+  DICOM_Encode_Regions ();
+
+  void
+  DICOM_Encode_Regions (const DICOM_Encode_Regions_type& x);
+
+  void
+  DICOM_Encode_Regions (::std::auto_ptr< DICOM_Encode_Regions_type > p);
+
+  // Pipeline-Delay
+  //
+  typedef ::xml_schema::string Pipeline_Delay_type;
+  typedef ::xsd::cxx::tree::traits< Pipeline_Delay_type, char > Pipeline_Delay_traits;
+
+  const Pipeline_Delay_type&
+  Pipeline_Delay () const;
+
+  Pipeline_Delay_type&
+  Pipeline_Delay ();
+
+  void
+  Pipeline_Delay (const Pipeline_Delay_type& x);
+
+  void
+  Pipeline_Delay (::std::auto_ptr< Pipeline_Delay_type > p);
+
+  // DDS-Control
+  //
+  typedef ::xml_schema::string DDS_Control_type;
+  typedef ::xsd::cxx::tree::traits< DDS_Control_type, char > DDS_Control_traits;
+
+  const DDS_Control_type&
+  DDS_Control () const;
+
+  DDS_Control_type&
+  DDS_Control ();
+
+  void
+  DDS_Control (const DDS_Control_type& x);
+
+  void
+  DDS_Control (::std::auto_ptr< DDS_Control_type > p);
+
+  // Mode
+  //
+  typedef ::xml_schema::string Mode_type;
+  typedef ::xsd::cxx::tree::traits< Mode_type, char > Mode_traits;
+
+  const Mode_type&
+  Mode () const;
+
+  Mode_type&
+  Mode ();
+
+  void
+  Mode (const Mode_type& x);
+
+  void
+  Mode (::std::auto_ptr< Mode_type > p);
+
+  // Review-Setup-Dialog
+  //
+  typedef ::xml_schema::string Review_Setup_Dialog_type;
+  typedef ::xsd::cxx::tree::traits< Review_Setup_Dialog_type, char > Review_Setup_Dialog_traits;
+
+  const Review_Setup_Dialog_type&
+  Review_Setup_Dialog () const;
+
+  Review_Setup_Dialog_type&
+  Review_Setup_Dialog ();
+
+  void
+  Review_Setup_Dialog (const Review_Setup_Dialog_type& x);
+
+  void
+  Review_Setup_Dialog (::std::auto_ptr< Review_Setup_Dialog_type > p);
+
+  // Constructors.
+  //
+  Sys1 (const Query_Discard_Loop_On_Save_Frame_type&,
+        const Sound_Speed_type&,
+        const SubMode_type&,
+        const Interrupt_Mask_type&,
+        const Calculation_Instances_type&,
+        const Start_Licence_Date_type&,
+        const End_Licence_Date_type&,
+        const Auto_Save_PreTrig_Loop_type&,
+        const Feature_type&,
+        const Acq_Setup_Dialog_type&,
+        const Interrupt_Clear_type&,
+        const Interrupt_Status_type&,
+        const Auto_Save_Load_3D_type&,
+        const DICOM_Root_ID_type&,
+        const Company_Name_type&,
+        const Image_To_Auto_Save_On_Label_type&,
+        const DICOM_Encode_Regions_type&,
+        const Pipeline_Delay_type&,
+        const DDS_Control_type&,
+        const Mode_type&,
+        const Review_Setup_Dialog_type&);
+
+  Sys1 (const ::xercesc::DOMElement& e,
+        ::xml_schema::flags f = 0,
+        ::xml_schema::container* c = 0);
+
+  Sys1 (const Sys1& x,
+        ::xml_schema::flags f = 0,
+        ::xml_schema::container* c = 0);
+
+  virtual Sys1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sys1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Query_Discard_Loop_On_Save_Frame_type > Query_Discard_Loop_On_Save_Frame_;
+  ::xsd::cxx::tree::one< Sound_Speed_type > Sound_Speed_;
+  ::xsd::cxx::tree::one< SubMode_type > SubMode_;
+  ::xsd::cxx::tree::one< Interrupt_Mask_type > Interrupt_Mask_;
+  ::xsd::cxx::tree::one< Calculation_Instances_type > Calculation_Instances_;
+  ::xsd::cxx::tree::one< Start_Licence_Date_type > Start_Licence_Date_;
+  ::xsd::cxx::tree::one< End_Licence_Date_type > End_Licence_Date_;
+  ::xsd::cxx::tree::one< Auto_Save_PreTrig_Loop_type > Auto_Save_PreTrig_Loop_;
+  ::xsd::cxx::tree::one< Feature_type > Feature_;
+  ::xsd::cxx::tree::one< Acq_Setup_Dialog_type > Acq_Setup_Dialog_;
+  ::xsd::cxx::tree::one< Interrupt_Clear_type > Interrupt_Clear_;
+  ::xsd::cxx::tree::one< Interrupt_Status_type > Interrupt_Status_;
+  ::xsd::cxx::tree::one< Auto_Save_Load_3D_type > Auto_Save_Load_3D_;
+  ::xsd::cxx::tree::one< DICOM_Root_ID_type > DICOM_Root_ID_;
+  ::xsd::cxx::tree::one< Company_Name_type > Company_Name_;
+  ::xsd::cxx::tree::one< Image_To_Auto_Save_On_Label_type > Image_To_Auto_Save_On_Label_;
+  ::xsd::cxx::tree::one< DICOM_Encode_Regions_type > DICOM_Encode_Regions_;
+  ::xsd::cxx::tree::one< Pipeline_Delay_type > Pipeline_Delay_;
+  ::xsd::cxx::tree::one< DDS_Control_type > DDS_Control_;
+  ::xsd::cxx::tree::one< Mode_type > Mode_;
+  ::xsd::cxx::tree::one< Review_Setup_Dialog_type > Review_Setup_Dialog_;
+};
+
+class Contrast: public ::xml_schema::type
+{
+  public:
+  // Acquisition-3D-Volume
+  //
+  typedef ::xml_schema::string Acquisition_3D_Volume_type;
+  typedef ::xsd::cxx::tree::traits< Acquisition_3D_Volume_type, char > Acquisition_3D_Volume_traits;
+
+  const Acquisition_3D_Volume_type&
+  Acquisition_3D_Volume () const;
+
+  Acquisition_3D_Volume_type&
+  Acquisition_3D_Volume ();
+
+  void
+  Acquisition_3D_Volume (const Acquisition_3D_Volume_type& x);
+
+  void
+  Acquisition_3D_Volume (::std::auto_ptr< Acquisition_3D_Volume_type > p);
+
+  // Contrast-Linear-Scale
+  //
+  typedef ::xml_schema::string Contrast_Linear_Scale_type;
+  typedef ::xsd::cxx::tree::traits< Contrast_Linear_Scale_type, char > Contrast_Linear_Scale_traits;
+
+  const Contrast_Linear_Scale_type&
+  Contrast_Linear_Scale () const;
+
+  Contrast_Linear_Scale_type&
+  Contrast_Linear_Scale ();
+
+  void
+  Contrast_Linear_Scale (const Contrast_Linear_Scale_type& x);
+
+  void
+  Contrast_Linear_Scale (::std::auto_ptr< Contrast_Linear_Scale_type > p);
+
+  // Reference-3D-Step-Size
+  //
+  typedef ::xml_schema::string Reference_3D_Step_Size_type;
+  typedef ::xsd::cxx::tree::traits< Reference_3D_Step_Size_type, char > Reference_3D_Step_Size_traits;
+
+  const Reference_3D_Step_Size_type&
+  Reference_3D_Step_Size () const;
+
+  Reference_3D_Step_Size_type&
+  Reference_3D_Step_Size ();
+
+  void
+  Reference_3D_Step_Size (const Reference_3D_Step_Size_type& x);
+
+  void
+  Reference_3D_Step_Size (::std::auto_ptr< Reference_3D_Step_Size_type > p);
+
+  // Remap-Color
+  //
+  typedef ::xml_schema::string Remap_Color_type;
+  typedef ::xsd::cxx::tree::traits< Remap_Color_type, char > Remap_Color_traits;
+
+  const Remap_Color_type&
+  Remap_Color () const;
+
+  Remap_Color_type&
+  Remap_Color ();
+
+  void
+  Remap_Color (const Remap_Color_type& x);
+
+  void
+  Remap_Color (::std::auto_ptr< Remap_Color_type > p);
+
+  // Display-Mode
+  //
+  typedef ::xml_schema::string Display_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Display_Mode_type, char > Display_Mode_traits;
+
+  const Display_Mode_type&
+  Display_Mode () const;
+
+  Display_Mode_type&
+  Display_Mode ();
+
+  void
+  Display_Mode (const Display_Mode_type& x);
+
+  void
+  Display_Mode (::std::auto_ptr< Display_Mode_type > p);
+
+  // Contrast-Linear-Offset
+  //
+  typedef ::xml_schema::string Contrast_Linear_Offset_type;
+  typedef ::xsd::cxx::tree::traits< Contrast_Linear_Offset_type, char > Contrast_Linear_Offset_traits;
+
+  const Contrast_Linear_Offset_type&
+  Contrast_Linear_Offset () const;
+
+  Contrast_Linear_Offset_type&
+  Contrast_Linear_Offset ();
+
+  void
+  Contrast_Linear_Offset (const Contrast_Linear_Offset_type& x);
+
+  void
+  Contrast_Linear_Offset (::std::auto_ptr< Contrast_Linear_Offset_type > p);
+
+  // Contrast-Linear-Slope
+  //
+  typedef ::xml_schema::string Contrast_Linear_Slope_type;
+  typedef ::xsd::cxx::tree::traits< Contrast_Linear_Slope_type, char > Contrast_Linear_Slope_traits;
+
+  const Contrast_Linear_Slope_type&
+  Contrast_Linear_Slope () const;
+
+  Contrast_Linear_Slope_type&
+  Contrast_Linear_Slope ();
+
+  void
+  Contrast_Linear_Slope (const Contrast_Linear_Slope_type& x);
+
+  void
+  Contrast_Linear_Slope (::std::auto_ptr< Contrast_Linear_Slope_type > p);
+
+  // Median-Size-Perfusion
+  //
+  typedef ::xml_schema::string Median_Size_Perfusion_type;
+  typedef ::xsd::cxx::tree::traits< Median_Size_Perfusion_type, char > Median_Size_Perfusion_traits;
+
+  const Median_Size_Perfusion_type&
+  Median_Size_Perfusion () const;
+
+  Median_Size_Perfusion_type&
+  Median_Size_Perfusion ();
+
+  void
+  Median_Size_Perfusion (const Median_Size_Perfusion_type& x);
+
+  void
+  Median_Size_Perfusion (::std::auto_ptr< Median_Size_Perfusion_type > p);
+
+  // Contrast-Size-Default
+  //
+  typedef ::xml_schema::string Contrast_Size_Default_type;
+  typedef ::xsd::cxx::tree::traits< Contrast_Size_Default_type, char > Contrast_Size_Default_traits;
+
+  const Contrast_Size_Default_type&
+  Contrast_Size_Default () const;
+
+  Contrast_Size_Default_type&
+  Contrast_Size_Default ();
+
+  void
+  Contrast_Size_Default (const Contrast_Size_Default_type& x);
+
+  void
+  Contrast_Size_Default (::std::auto_ptr< Contrast_Size_Default_type > p);
+
+  // Median-Size-Default
+  //
+  typedef ::xml_schema::string Median_Size_Default_type;
+  typedef ::xsd::cxx::tree::traits< Median_Size_Default_type, char > Median_Size_Default_traits;
+
+  const Median_Size_Default_type&
+  Median_Size_Default () const;
+
+  Median_Size_Default_type&
+  Median_Size_Default ();
+
+  void
+  Median_Size_Default (const Median_Size_Default_type& x);
+
+  void
+  Median_Size_Default (::std::auto_ptr< Median_Size_Default_type > p);
+
+  // Use-ECG-Gate
+  //
+  typedef ::xml_schema::string Use_ECG_Gate_type;
+  typedef ::xsd::cxx::tree::traits< Use_ECG_Gate_type, char > Use_ECG_Gate_traits;
+
+  const Use_ECG_Gate_type&
+  Use_ECG_Gate () const;
+
+  Use_ECG_Gate_type&
+  Use_ECG_Gate ();
+
+  void
+  Use_ECG_Gate (const Use_ECG_Gate_type& x);
+
+  void
+  Use_ECG_Gate (::std::auto_ptr< Use_ECG_Gate_type > p);
+
+  // ECG-Gate-Range
+  //
+  typedef ::xml_schema::string ECG_Gate_Range_type;
+  typedef ::xsd::cxx::tree::traits< ECG_Gate_Range_type, char > ECG_Gate_Range_traits;
+
+  const ECG_Gate_Range_type&
+  ECG_Gate_Range () const;
+
+  ECG_Gate_Range_type&
+  ECG_Gate_Range ();
+
+  void
+  ECG_Gate_Range (const ECG_Gate_Range_type& x);
+
+  void
+  ECG_Gate_Range (::std::auto_ptr< ECG_Gate_Range_type > p);
+
+  // Filter-Size-Perfusion
+  //
+  typedef ::xml_schema::string Filter_Size_Perfusion_type;
+  typedef ::xsd::cxx::tree::traits< Filter_Size_Perfusion_type, char > Filter_Size_Perfusion_traits;
+
+  const Filter_Size_Perfusion_type&
+  Filter_Size_Perfusion () const;
+
+  Filter_Size_Perfusion_type&
+  Filter_Size_Perfusion ();
+
+  void
+  Filter_Size_Perfusion (const Filter_Size_Perfusion_type& x);
+
+  void
+  Filter_Size_Perfusion (::std::auto_ptr< Filter_Size_Perfusion_type > p);
+
+  // Max-Contrast-Size-Default
+  //
+  typedef ::xml_schema::string Max_Contrast_Size_Default_type;
+  typedef ::xsd::cxx::tree::traits< Max_Contrast_Size_Default_type, char > Max_Contrast_Size_Default_traits;
+
+  const Max_Contrast_Size_Default_type&
+  Max_Contrast_Size_Default () const;
+
+  Max_Contrast_Size_Default_type&
+  Max_Contrast_Size_Default ();
+
+  void
+  Max_Contrast_Size_Default (const Max_Contrast_Size_Default_type& x);
+
+  void
+  Max_Contrast_Size_Default (::std::auto_ptr< Max_Contrast_Size_Default_type > p);
+
+  // Filter-Size-Default
+  //
+  typedef ::xml_schema::string Filter_Size_Default_type;
+  typedef ::xsd::cxx::tree::traits< Filter_Size_Default_type, char > Filter_Size_Default_traits;
+
+  const Filter_Size_Default_type&
+  Filter_Size_Default () const;
+
+  Filter_Size_Default_type&
+  Filter_Size_Default ();
+
+  void
+  Filter_Size_Default (const Filter_Size_Default_type& x);
+
+  void
+  Filter_Size_Default (::std::auto_ptr< Filter_Size_Default_type > p);
+
+  // Cardiac-Divisions
+  //
+  typedef ::xml_schema::string Cardiac_Divisions_type;
+  typedef ::xsd::cxx::tree::traits< Cardiac_Divisions_type, char > Cardiac_Divisions_traits;
+
+  const Cardiac_Divisions_type&
+  Cardiac_Divisions () const;
+
+  Cardiac_Divisions_type&
+  Cardiac_Divisions ();
+
+  void
+  Cardiac_Divisions (const Cardiac_Divisions_type& x);
+
+  void
+  Cardiac_Divisions (::std::auto_ptr< Cardiac_Divisions_type > p);
+
+  // Reference-3D-Scan-Distance
+  //
+  typedef ::xml_schema::string Reference_3D_Scan_Distance_type;
+  typedef ::xsd::cxx::tree::traits< Reference_3D_Scan_Distance_type, char > Reference_3D_Scan_Distance_traits;
+
+  const Reference_3D_Scan_Distance_type&
+  Reference_3D_Scan_Distance () const;
+
+  Reference_3D_Scan_Distance_type&
+  Reference_3D_Scan_Distance ();
+
+  void
+  Reference_3D_Scan_Distance (const Reference_3D_Scan_Distance_type& x);
+
+  void
+  Reference_3D_Scan_Distance (::std::auto_ptr< Reference_3D_Scan_Distance_type > p);
+
+  // Median-Size-MIP
+  //
+  typedef ::xml_schema::string Median_Size_MIP_type;
+  typedef ::xsd::cxx::tree::traits< Median_Size_MIP_type, char > Median_Size_MIP_traits;
+
+  const Median_Size_MIP_type&
+  Median_Size_MIP () const;
+
+  Median_Size_MIP_type&
+  Median_Size_MIP ();
+
+  void
+  Median_Size_MIP (const Median_Size_MIP_type& x);
+
+  void
+  Median_Size_MIP (::std::auto_ptr< Median_Size_MIP_type > p);
+
+  // Acquire-Both-Directions
+  //
+  typedef ::xml_schema::string Acquire_Both_Directions_type;
+  typedef ::xsd::cxx::tree::traits< Acquire_Both_Directions_type, char > Acquire_Both_Directions_traits;
+
+  const Acquire_Both_Directions_type&
+  Acquire_Both_Directions () const;
+
+  Acquire_Both_Directions_type&
+  Acquire_Both_Directions ();
+
+  void
+  Acquire_Both_Directions (const Acquire_Both_Directions_type& x);
+
+  void
+  Acquire_Both_Directions (::std::auto_ptr< Acquire_Both_Directions_type > p);
+
+  // Data-Display-Scale-Shift
+  //
+  typedef ::xml_schema::string Data_Display_Scale_Shift_type;
+  typedef ::xsd::cxx::tree::traits< Data_Display_Scale_Shift_type, char > Data_Display_Scale_Shift_traits;
+
+  const Data_Display_Scale_Shift_type&
+  Data_Display_Scale_Shift () const;
+
+  Data_Display_Scale_Shift_type&
+  Data_Display_Scale_Shift ();
+
+  void
+  Data_Display_Scale_Shift (const Data_Display_Scale_Shift_type& x);
+
+  void
+  Data_Display_Scale_Shift (::std::auto_ptr< Data_Display_Scale_Shift_type > p);
+
+  // Reference-Label
+  //
+  typedef ::xml_schema::string Reference_Label_type;
+  typedef ::xsd::cxx::tree::traits< Reference_Label_type, char > Reference_Label_traits;
+
+  const Reference_Label_type&
+  Reference_Label () const;
+
+  Reference_Label_type&
+  Reference_Label ();
+
+  void
+  Reference_Label (const Reference_Label_type& x);
+
+  void
+  Reference_Label (::std::auto_ptr< Reference_Label_type > p);
+
+  // X_3D-Display-Mode
+  //
+  typedef ::xml_schema::string X_3D_Display_Mode_type;
+  typedef ::xsd::cxx::tree::traits< X_3D_Display_Mode_type, char > X_3D_Display_Mode_traits;
+
+  const X_3D_Display_Mode_type&
+  X_3D_Display_Mode () const;
+
+  X_3D_Display_Mode_type&
+  X_3D_Display_Mode ();
+
+  void
+  X_3D_Display_Mode (const X_3D_Display_Mode_type& x);
+
+  void
+  X_3D_Display_Mode (::std::auto_ptr< X_3D_Display_Mode_type > p);
+
+  // Filter-Size-MIP
+  //
+  typedef ::xml_schema::string Filter_Size_MIP_type;
+  typedef ::xsd::cxx::tree::traits< Filter_Size_MIP_type, char > Filter_Size_MIP_traits;
+
+  const Filter_Size_MIP_type&
+  Filter_Size_MIP () const;
+
+  Filter_Size_MIP_type&
+  Filter_Size_MIP ();
+
+  void
+  Filter_Size_MIP (const Filter_Size_MIP_type& x);
+
+  void
+  Filter_Size_MIP (::std::auto_ptr< Filter_Size_MIP_type > p);
+
+  // Contrast-Linear-Lock-Gain
+  //
+  typedef ::xml_schema::string Contrast_Linear_Lock_Gain_type;
+  typedef ::xsd::cxx::tree::traits< Contrast_Linear_Lock_Gain_type, char > Contrast_Linear_Lock_Gain_traits;
+
+  const Contrast_Linear_Lock_Gain_type&
+  Contrast_Linear_Lock_Gain () const;
+
+  Contrast_Linear_Lock_Gain_type&
+  Contrast_Linear_Lock_Gain ();
+
+  void
+  Contrast_Linear_Lock_Gain (const Contrast_Linear_Lock_Gain_type& x);
+
+  void
+  Contrast_Linear_Lock_Gain (::std::auto_ptr< Contrast_Linear_Lock_Gain_type > p);
+
+  // Persistence-Process-Frames
+  //
+  typedef ::xml_schema::string Persistence_Process_Frames_type;
+  typedef ::xsd::cxx::tree::traits< Persistence_Process_Frames_type, char > Persistence_Process_Frames_traits;
+
+  const Persistence_Process_Frames_type&
+  Persistence_Process_Frames () const;
+
+  Persistence_Process_Frames_type&
+  Persistence_Process_Frames ();
+
+  void
+  Persistence_Process_Frames (const Persistence_Process_Frames_type& x);
+
+  void
+  Persistence_Process_Frames (::std::auto_ptr< Persistence_Process_Frames_type > p);
+
+  // Reference-Range-Start
+  //
+  typedef ::xml_schema::string Reference_Range_Start_type;
+  typedef ::xsd::cxx::tree::traits< Reference_Range_Start_type, char > Reference_Range_Start_traits;
+
+  const Reference_Range_Start_type&
+  Reference_Range_Start () const;
+
+  Reference_Range_Start_type&
+  Reference_Range_Start ();
+
+  void
+  Reference_Range_Start (const Reference_Range_Start_type& x);
+
+  void
+  Reference_Range_Start (::std::auto_ptr< Reference_Range_Start_type > p);
+
+  // Blur-MIP-BoxSize
+  //
+  typedef ::xml_schema::string Blur_MIP_BoxSize_type;
+  typedef ::xsd::cxx::tree::traits< Blur_MIP_BoxSize_type, char > Blur_MIP_BoxSize_traits;
+
+  const Blur_MIP_BoxSize_type&
+  Blur_MIP_BoxSize () const;
+
+  Blur_MIP_BoxSize_type&
+  Blur_MIP_BoxSize ();
+
+  void
+  Blur_MIP_BoxSize (const Blur_MIP_BoxSize_type& x);
+
+  void
+  Blur_MIP_BoxSize (::std::auto_ptr< Blur_MIP_BoxSize_type > p);
+
+  // Threshold
+  //
+  typedef ::xml_schema::string Threshold_type;
+  typedef ::xsd::cxx::tree::traits< Threshold_type, char > Threshold_traits;
+
+  const Threshold_type&
+  Threshold () const;
+
+  Threshold_type&
+  Threshold ();
+
+  void
+  Threshold (const Threshold_type& x);
+
+  void
+  Threshold (::std::auto_ptr< Threshold_type > p);
+
+  // Process-Direction
+  //
+  typedef ::xml_schema::string Process_Direction_type;
+  typedef ::xsd::cxx::tree::traits< Process_Direction_type, char > Process_Direction_traits;
+
+  const Process_Direction_type&
+  Process_Direction () const;
+
+  Process_Direction_type&
+  Process_Direction ();
+
+  void
+  Process_Direction (const Process_Direction_type& x);
+
+  void
+  Process_Direction (::std::auto_ptr< Process_Direction_type > p);
+
+  // Reference-Range-Stop
+  //
+  typedef ::xml_schema::string Reference_Range_Stop_type;
+  typedef ::xsd::cxx::tree::traits< Reference_Range_Stop_type, char > Reference_Range_Stop_traits;
+
+  const Reference_Range_Stop_type&
+  Reference_Range_Stop () const;
+
+  Reference_Range_Stop_type&
+  Reference_Range_Stop ();
+
+  void
+  Reference_Range_Stop (const Reference_Range_Stop_type& x);
+
+  void
+  Reference_Range_Stop (::std::auto_ptr< Reference_Range_Stop_type > p);
+
+  // Blur-MIP
+  //
+  typedef ::xml_schema::string Blur_MIP_type;
+  typedef ::xsd::cxx::tree::traits< Blur_MIP_type, char > Blur_MIP_traits;
+
+  const Blur_MIP_type&
+  Blur_MIP () const;
+
+  Blur_MIP_type&
+  Blur_MIP ();
+
+  void
+  Blur_MIP (const Blur_MIP_type& x);
+
+  void
+  Blur_MIP (::std::auto_ptr< Blur_MIP_type > p);
+
+  // Persistence-Mode
+  //
+  typedef ::xml_schema::string Persistence_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Persistence_Mode_type, char > Persistence_Mode_traits;
+
+  const Persistence_Mode_type&
+  Persistence_Mode () const;
+
+  Persistence_Mode_type&
+  Persistence_Mode ();
+
+  void
+  Persistence_Mode (const Persistence_Mode_type& x);
+
+  void
+  Persistence_Mode (::std::auto_ptr< Persistence_Mode_type > p);
+
+  // Reference-3D-Volume
+  //
+  typedef ::xml_schema::string Reference_3D_Volume_type;
+  typedef ::xsd::cxx::tree::traits< Reference_3D_Volume_type, char > Reference_3D_Volume_traits;
+
+  const Reference_3D_Volume_type&
+  Reference_3D_Volume () const;
+
+  Reference_3D_Volume_type&
+  Reference_3D_Volume ();
+
+  void
+  Reference_3D_Volume (const Reference_3D_Volume_type& x);
+
+  void
+  Reference_3D_Volume (::std::auto_ptr< Reference_3D_Volume_type > p);
+
+  // Gain
+  //
+  typedef ::xml_schema::string Gain_type;
+  typedef ::xsd::cxx::tree::traits< Gain_type, char > Gain_traits;
+
+  const Gain_type&
+  Gain () const;
+
+  Gain_type&
+  Gain ();
+
+  void
+  Gain (const Gain_type& x);
+
+  void
+  Gain (::std::auto_ptr< Gain_type > p);
+
+  // Acquire-Persist-MIP
+  //
+  typedef ::xml_schema::string Acquire_Persist_MIP_type;
+  typedef ::xsd::cxx::tree::traits< Acquire_Persist_MIP_type, char > Acquire_Persist_MIP_traits;
+
+  const Acquire_Persist_MIP_type&
+  Acquire_Persist_MIP () const;
+
+  Acquire_Persist_MIP_type&
+  Acquire_Persist_MIP ();
+
+  void
+  Acquire_Persist_MIP (const Acquire_Persist_MIP_type& x);
+
+  void
+  Acquire_Persist_MIP (::std::auto_ptr< Acquire_Persist_MIP_type > p);
+
+  // Dynamic-Range2
+  //
+  typedef ::xml_schema::string Dynamic_Range2_type;
+  typedef ::xsd::cxx::tree::traits< Dynamic_Range2_type, char > Dynamic_Range2_traits;
+
+  const Dynamic_Range2_type&
+  Dynamic_Range2 () const;
+
+  Dynamic_Range2_type&
+  Dynamic_Range2 ();
+
+  void
+  Dynamic_Range2 (const Dynamic_Range2_type& x);
+
+  void
+  Dynamic_Range2 (::std::auto_ptr< Dynamic_Range2_type > p);
+
+  // Contast-3D-Brightness
+  //
+  typedef ::xml_schema::string Contast_3D_Brightness_type;
+  typedef ::xsd::cxx::tree::traits< Contast_3D_Brightness_type, char > Contast_3D_Brightness_traits;
+
+  const Contast_3D_Brightness_type&
+  Contast_3D_Brightness () const;
+
+  Contast_3D_Brightness_type&
+  Contast_3D_Brightness ();
+
+  void
+  Contast_3D_Brightness (const Contast_3D_Brightness_type& x);
+
+  void
+  Contast_3D_Brightness (::std::auto_ptr< Contast_3D_Brightness_type > p);
+
+  // Reference-3D-Steps
+  //
+  typedef ::xml_schema::string Reference_3D_Steps_type;
+  typedef ::xsd::cxx::tree::traits< Reference_3D_Steps_type, char > Reference_3D_Steps_traits;
+
+  const Reference_3D_Steps_type&
+  Reference_3D_Steps () const;
+
+  Reference_3D_Steps_type&
+  Reference_3D_Steps ();
+
+  void
+  Reference_3D_Steps (const Reference_3D_Steps_type& x);
+
+  void
+  Reference_3D_Steps (::std::auto_ptr< Reference_3D_Steps_type > p);
+
+  // Constructors.
+  //
+  Contrast (const Acquisition_3D_Volume_type&,
+            const Contrast_Linear_Scale_type&,
+            const Reference_3D_Step_Size_type&,
+            const Remap_Color_type&,
+            const Display_Mode_type&,
+            const Contrast_Linear_Offset_type&,
+            const Contrast_Linear_Slope_type&,
+            const Median_Size_Perfusion_type&,
+            const Contrast_Size_Default_type&,
+            const Median_Size_Default_type&,
+            const Use_ECG_Gate_type&,
+            const ECG_Gate_Range_type&,
+            const Filter_Size_Perfusion_type&,
+            const Max_Contrast_Size_Default_type&,
+            const Filter_Size_Default_type&,
+            const Cardiac_Divisions_type&,
+            const Reference_3D_Scan_Distance_type&,
+            const Median_Size_MIP_type&,
+            const Acquire_Both_Directions_type&,
+            const Data_Display_Scale_Shift_type&,
+            const Reference_Label_type&,
+            const X_3D_Display_Mode_type&,
+            const Filter_Size_MIP_type&,
+            const Contrast_Linear_Lock_Gain_type&,
+            const Persistence_Process_Frames_type&,
+            const Reference_Range_Start_type&,
+            const Blur_MIP_BoxSize_type&,
+            const Threshold_type&,
+            const Process_Direction_type&,
+            const Reference_Range_Stop_type&,
+            const Blur_MIP_type&,
+            const Persistence_Mode_type&,
+            const Reference_3D_Volume_type&,
+            const Gain_type&,
+            const Acquire_Persist_MIP_type&,
+            const Dynamic_Range2_type&,
+            const Contast_3D_Brightness_type&,
+            const Reference_3D_Steps_type&);
+
+  Contrast (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  Contrast (const Contrast& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  virtual Contrast*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Contrast ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Acquisition_3D_Volume_type > Acquisition_3D_Volume_;
+  ::xsd::cxx::tree::one< Contrast_Linear_Scale_type > Contrast_Linear_Scale_;
+  ::xsd::cxx::tree::one< Reference_3D_Step_Size_type > Reference_3D_Step_Size_;
+  ::xsd::cxx::tree::one< Remap_Color_type > Remap_Color_;
+  ::xsd::cxx::tree::one< Display_Mode_type > Display_Mode_;
+  ::xsd::cxx::tree::one< Contrast_Linear_Offset_type > Contrast_Linear_Offset_;
+  ::xsd::cxx::tree::one< Contrast_Linear_Slope_type > Contrast_Linear_Slope_;
+  ::xsd::cxx::tree::one< Median_Size_Perfusion_type > Median_Size_Perfusion_;
+  ::xsd::cxx::tree::one< Contrast_Size_Default_type > Contrast_Size_Default_;
+  ::xsd::cxx::tree::one< Median_Size_Default_type > Median_Size_Default_;
+  ::xsd::cxx::tree::one< Use_ECG_Gate_type > Use_ECG_Gate_;
+  ::xsd::cxx::tree::one< ECG_Gate_Range_type > ECG_Gate_Range_;
+  ::xsd::cxx::tree::one< Filter_Size_Perfusion_type > Filter_Size_Perfusion_;
+  ::xsd::cxx::tree::one< Max_Contrast_Size_Default_type > Max_Contrast_Size_Default_;
+  ::xsd::cxx::tree::one< Filter_Size_Default_type > Filter_Size_Default_;
+  ::xsd::cxx::tree::one< Cardiac_Divisions_type > Cardiac_Divisions_;
+  ::xsd::cxx::tree::one< Reference_3D_Scan_Distance_type > Reference_3D_Scan_Distance_;
+  ::xsd::cxx::tree::one< Median_Size_MIP_type > Median_Size_MIP_;
+  ::xsd::cxx::tree::one< Acquire_Both_Directions_type > Acquire_Both_Directions_;
+  ::xsd::cxx::tree::one< Data_Display_Scale_Shift_type > Data_Display_Scale_Shift_;
+  ::xsd::cxx::tree::one< Reference_Label_type > Reference_Label_;
+  ::xsd::cxx::tree::one< X_3D_Display_Mode_type > X_3D_Display_Mode_;
+  ::xsd::cxx::tree::one< Filter_Size_MIP_type > Filter_Size_MIP_;
+  ::xsd::cxx::tree::one< Contrast_Linear_Lock_Gain_type > Contrast_Linear_Lock_Gain_;
+  ::xsd::cxx::tree::one< Persistence_Process_Frames_type > Persistence_Process_Frames_;
+  ::xsd::cxx::tree::one< Reference_Range_Start_type > Reference_Range_Start_;
+  ::xsd::cxx::tree::one< Blur_MIP_BoxSize_type > Blur_MIP_BoxSize_;
+  ::xsd::cxx::tree::one< Threshold_type > Threshold_;
+  ::xsd::cxx::tree::one< Process_Direction_type > Process_Direction_;
+  ::xsd::cxx::tree::one< Reference_Range_Stop_type > Reference_Range_Stop_;
+  ::xsd::cxx::tree::one< Blur_MIP_type > Blur_MIP_;
+  ::xsd::cxx::tree::one< Persistence_Mode_type > Persistence_Mode_;
+  ::xsd::cxx::tree::one< Reference_3D_Volume_type > Reference_3D_Volume_;
+  ::xsd::cxx::tree::one< Gain_type > Gain_;
+  ::xsd::cxx::tree::one< Acquire_Persist_MIP_type > Acquire_Persist_MIP_;
+  ::xsd::cxx::tree::one< Dynamic_Range2_type > Dynamic_Range2_;
+  ::xsd::cxx::tree::one< Contast_3D_Brightness_type > Contast_3D_Brightness_;
+  ::xsd::cxx::tree::one< Reference_3D_Steps_type > Reference_3D_Steps_;
+};
+
+class MIS1: public ::xml_schema::type
+{
+  public:
+  // ECG-Gain
+  //
+  typedef ::xml_schema::string ECG_Gain_type;
+  typedef ::xsd::cxx::tree::traits< ECG_Gain_type, char > ECG_Gain_traits;
+
+  const ECG_Gain_type&
+  ECG_Gain () const;
+
+  ECG_Gain_type&
+  ECG_Gain ();
+
+  void
+  ECG_Gain (const ECG_Gain_type& x);
+
+  void
+  ECG_Gain (::std::auto_ptr< ECG_Gain_type > p);
+
+  // ECG-Available
+  //
+  typedef ::xml_schema::string ECG_Available_type;
+  typedef ::xsd::cxx::tree::traits< ECG_Available_type, char > ECG_Available_traits;
+
+  const ECG_Available_type&
+  ECG_Available () const;
+
+  ECG_Available_type&
+  ECG_Available ();
+
+  void
+  ECG_Available (const ECG_Available_type& x);
+
+  void
+  ECG_Available (::std::auto_ptr< ECG_Available_type > p);
+
+  // Blood-Pressure-Available
+  //
+  typedef ::xml_schema::string Blood_Pressure_Available_type;
+  typedef ::xsd::cxx::tree::traits< Blood_Pressure_Available_type, char > Blood_Pressure_Available_traits;
+
+  const Blood_Pressure_Available_type&
+  Blood_Pressure_Available () const;
+
+  Blood_Pressure_Available_type&
+  Blood_Pressure_Available ();
+
+  void
+  Blood_Pressure_Available (const Blood_Pressure_Available_type& x);
+
+  void
+  Blood_Pressure_Available (::std::auto_ptr< Blood_Pressure_Available_type > p);
+
+  // Respiration-Gating
+  //
+  typedef ::xml_schema::string Respiration_Gating_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Gating_type, char > Respiration_Gating_traits;
+
+  const Respiration_Gating_type&
+  Respiration_Gating () const;
+
+  Respiration_Gating_type&
+  Respiration_Gating ();
+
+  void
+  Respiration_Gating (const Respiration_Gating_type& x);
+
+  void
+  Respiration_Gating (::std::auto_ptr< Respiration_Gating_type > p);
+
+  // BP-Gain
+  //
+  typedef ::xml_schema::string BP_Gain_type;
+  typedef ::xsd::cxx::tree::traits< BP_Gain_type, char > BP_Gain_traits;
+
+  const BP_Gain_type&
+  BP_Gain () const;
+
+  BP_Gain_type&
+  BP_Gain ();
+
+  void
+  BP_Gain (const BP_Gain_type& x);
+
+  void
+  BP_Gain (::std::auto_ptr< BP_Gain_type > p);
+
+  // Temperature-Available
+  //
+  typedef ::xml_schema::string Temperature_Available_type;
+  typedef ::xsd::cxx::tree::traits< Temperature_Available_type, char > Temperature_Available_traits;
+
+  const Temperature_Available_type&
+  Temperature_Available () const;
+
+  Temperature_Available_type&
+  Temperature_Available ();
+
+  void
+  Temperature_Available (const Temperature_Available_type& x);
+
+  void
+  Temperature_Available (::std::auto_ptr< Temperature_Available_type > p);
+
+  // Respiration-Available
+  //
+  typedef ::xml_schema::string Respiration_Available_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Available_type, char > Respiration_Available_traits;
+
+  const Respiration_Available_type&
+  Respiration_Available () const;
+
+  Respiration_Available_type&
+  Respiration_Available ();
+
+  void
+  Respiration_Available (const Respiration_Available_type& x);
+
+  void
+  Respiration_Available (::std::auto_ptr< Respiration_Available_type > p);
+
+  // Control
+  //
+  typedef ::xml_schema::string Control_type;
+  typedef ::xsd::cxx::tree::traits< Control_type, char > Control_traits;
+
+  const Control_type&
+  Control () const;
+
+  Control_type&
+  Control ();
+
+  void
+  Control (const Control_type& x);
+
+  void
+  Control (::std::auto_ptr< Control_type > p);
+
+  // Constructors.
+  //
+  MIS1 (const ECG_Gain_type&,
+        const ECG_Available_type&,
+        const Blood_Pressure_Available_type&,
+        const Respiration_Gating_type&,
+        const BP_Gain_type&,
+        const Temperature_Available_type&,
+        const Respiration_Available_type&,
+        const Control_type&);
+
+  MIS1 (const ::xercesc::DOMElement& e,
+        ::xml_schema::flags f = 0,
+        ::xml_schema::container* c = 0);
+
+  MIS1 (const MIS1& x,
+        ::xml_schema::flags f = 0,
+        ::xml_schema::container* c = 0);
+
+  virtual MIS1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~MIS1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< ECG_Gain_type > ECG_Gain_;
+  ::xsd::cxx::tree::one< ECG_Available_type > ECG_Available_;
+  ::xsd::cxx::tree::one< Blood_Pressure_Available_type > Blood_Pressure_Available_;
+  ::xsd::cxx::tree::one< Respiration_Gating_type > Respiration_Gating_;
+  ::xsd::cxx::tree::one< BP_Gain_type > BP_Gain_;
+  ::xsd::cxx::tree::one< Temperature_Available_type > Temperature_Available_;
+  ::xsd::cxx::tree::one< Respiration_Available_type > Respiration_Available_;
+  ::xsd::cxx::tree::one< Control_type > Control_;
+};
+
+class Scan1: public ::xml_schema::type
+{
+  public:
+  // Encoder-Position
+  //
+  typedef ::xml_schema::string Encoder_Position_type;
+  typedef ::xsd::cxx::tree::traits< Encoder_Position_type, char > Encoder_Position_traits;
+
+  const Encoder_Position_type&
+  Encoder_Position () const;
+
+  Encoder_Position_type&
+  Encoder_Position ();
+
+  void
+  Encoder_Position (const Encoder_Position_type& x);
+
+  void
+  Encoder_Position (::std::auto_ptr< Encoder_Position_type > p);
+
+  // Center
+  //
+  typedef ::xml_schema::string Center_type;
+  typedef ::xsd::cxx::tree::traits< Center_type, char > Center_traits;
+
+  const Center_type&
+  Center () const;
+
+  Center_type&
+  Center ();
+
+  void
+  Center (const Center_type& x);
+
+  void
+  Center (::std::auto_ptr< Center_type > p);
+
+  // Control
+  //
+  typedef ::xml_schema::string Control_type;
+  typedef ::xsd::cxx::tree::traits< Control_type, char > Control_traits;
+
+  const Control_type&
+  Control () const;
+
+  Control_type&
+  Control ();
+
+  void
+  Control (const Control_type& x);
+
+  void
+  Control (::std::auto_ptr< Control_type > p);
+
+  // Probe-ID1
+  //
+  typedef ::xml_schema::string Probe_ID1_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID1_type, char > Probe_ID1_traits;
+
+  const Probe_ID1_type&
+  Probe_ID1 () const;
+
+  Probe_ID1_type&
+  Probe_ID1 ();
+
+  void
+  Probe_ID1 (const Probe_ID1_type& x);
+
+  void
+  Probe_ID1 (::std::auto_ptr< Probe_ID1_type > p);
+
+  // Probe-ID2
+  //
+  typedef ::xml_schema::string Probe_ID2_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID2_type, char > Probe_ID2_traits;
+
+  const Probe_ID2_type&
+  Probe_ID2 () const;
+
+  Probe_ID2_type&
+  Probe_ID2 ();
+
+  void
+  Probe_ID2 (const Probe_ID2_type& x);
+
+  void
+  Probe_ID2 (::std::auto_ptr< Probe_ID2_type > p);
+
+  // V-Scan-Speed
+  //
+  typedef ::xml_schema::string V_Scan_Speed_type;
+  typedef ::xsd::cxx::tree::traits< V_Scan_Speed_type, char > V_Scan_Speed_traits;
+
+  const V_Scan_Speed_type&
+  V_Scan_Speed () const;
+
+  V_Scan_Speed_type&
+  V_Scan_Speed ();
+
+  void
+  V_Scan_Speed (const V_Scan_Speed_type& x);
+
+  void
+  V_Scan_Speed (::std::auto_ptr< V_Scan_Speed_type > p);
+
+  // Probe-ID1-Reread
+  //
+  typedef ::xml_schema::string Probe_ID1_Reread_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID1_Reread_type, char > Probe_ID1_Reread_traits;
+
+  const Probe_ID1_Reread_type&
+  Probe_ID1_Reread () const;
+
+  Probe_ID1_Reread_type&
+  Probe_ID1_Reread ();
+
+  void
+  Probe_ID1_Reread (const Probe_ID1_Reread_type& x);
+
+  void
+  Probe_ID1_Reread (::std::auto_ptr< Probe_ID1_Reread_type > p);
+
+  // Probe-ID1-Valid
+  //
+  typedef ::xml_schema::string Probe_ID1_Valid_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID1_Valid_type, char > Probe_ID1_Valid_traits;
+
+  const Probe_ID1_Valid_type&
+  Probe_ID1_Valid () const;
+
+  Probe_ID1_Valid_type&
+  Probe_ID1_Valid ();
+
+  void
+  Probe_ID1_Valid (const Probe_ID1_Valid_type& x);
+
+  void
+  Probe_ID1_Valid (::std::auto_ptr< Probe_ID1_Valid_type > p);
+
+  // Probe-ID1-Voltage
+  //
+  typedef ::xml_schema::string Probe_ID1_Voltage_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID1_Voltage_type, char > Probe_ID1_Voltage_traits;
+
+  const Probe_ID1_Voltage_type&
+  Probe_ID1_Voltage () const;
+
+  Probe_ID1_Voltage_type&
+  Probe_ID1_Voltage ();
+
+  void
+  Probe_ID1_Voltage (const Probe_ID1_Voltage_type& x);
+
+  void
+  Probe_ID1_Voltage (::std::auto_ptr< Probe_ID1_Voltage_type > p);
+
+  // Probe-ID2-Reread
+  //
+  typedef ::xml_schema::string Probe_ID2_Reread_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID2_Reread_type, char > Probe_ID2_Reread_traits;
+
+  const Probe_ID2_Reread_type&
+  Probe_ID2_Reread () const;
+
+  Probe_ID2_Reread_type&
+  Probe_ID2_Reread ();
+
+  void
+  Probe_ID2_Reread (const Probe_ID2_Reread_type& x);
+
+  void
+  Probe_ID2_Reread (::std::auto_ptr< Probe_ID2_Reread_type > p);
+
+  // Probe-ID2-Valid
+  //
+  typedef ::xml_schema::string Probe_ID2_Valid_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID2_Valid_type, char > Probe_ID2_Valid_traits;
+
+  const Probe_ID2_Valid_type&
+  Probe_ID2_Valid () const;
+
+  Probe_ID2_Valid_type&
+  Probe_ID2_Valid ();
+
+  void
+  Probe_ID2_Valid (const Probe_ID2_Valid_type& x);
+
+  void
+  Probe_ID2_Valid (::std::auto_ptr< Probe_ID2_Valid_type > p);
+
+  // Probe-ID2-Voltage
+  //
+  typedef ::xml_schema::string Probe_ID2_Voltage_type;
+  typedef ::xsd::cxx::tree::traits< Probe_ID2_Voltage_type, char > Probe_ID2_Voltage_traits;
+
+  const Probe_ID2_Voltage_type&
+  Probe_ID2_Voltage () const;
+
+  Probe_ID2_Voltage_type&
+  Probe_ID2_Voltage ();
+
+  void
+  Probe_ID2_Voltage (const Probe_ID2_Voltage_type& x);
+
+  void
+  Probe_ID2_Voltage (::std::auto_ptr< Probe_ID2_Voltage_type > p);
+
+  // V-Scan-Rate
+  //
+  typedef ::xml_schema::string V_Scan_Rate_type;
+  typedef ::xsd::cxx::tree::traits< V_Scan_Rate_type, char > V_Scan_Rate_traits;
+
+  const V_Scan_Rate_type&
+  V_Scan_Rate () const;
+
+  V_Scan_Rate_type&
+  V_Scan_Rate ();
+
+  void
+  V_Scan_Rate (const V_Scan_Rate_type& x);
+
+  void
+  V_Scan_Rate (::std::auto_ptr< V_Scan_Rate_type > p);
+
+  // Position-Counter-Lock
+  //
+  typedef ::xml_schema::string Position_Counter_Lock_type;
+  typedef ::xsd::cxx::tree::traits< Position_Counter_Lock_type, char > Position_Counter_Lock_traits;
+
+  const Position_Counter_Lock_type&
+  Position_Counter_Lock () const;
+
+  Position_Counter_Lock_type&
+  Position_Counter_Lock ();
+
+  void
+  Position_Counter_Lock (const Position_Counter_Lock_type& x);
+
+  void
+  Position_Counter_Lock (::std::auto_ptr< Position_Counter_Lock_type > p);
+
+  // Scan-Width
+  //
+  typedef ::xml_schema::string Scan_Width_type;
+  typedef ::xsd::cxx::tree::traits< Scan_Width_type, char > Scan_Width_traits;
+
+  const Scan_Width_type&
+  Scan_Width () const;
+
+  Scan_Width_type&
+  Scan_Width ();
+
+  void
+  Scan_Width (const Scan_Width_type& x);
+
+  void
+  Scan_Width (::std::auto_ptr< Scan_Width_type > p);
+
+  // Position-Counter-Reset
+  //
+  typedef ::xml_schema::string Position_Counter_Reset_type;
+  typedef ::xsd::cxx::tree::traits< Position_Counter_Reset_type, char > Position_Counter_Reset_traits;
+
+  const Position_Counter_Reset_type&
+  Position_Counter_Reset () const;
+
+  Position_Counter_Reset_type&
+  Position_Counter_Reset ();
+
+  void
+  Position_Counter_Reset (const Position_Counter_Reset_type& x);
+
+  void
+  Position_Counter_Reset (::std::auto_ptr< Position_Counter_Reset_type > p);
+
+  // Constructors.
+  //
+  Scan1 (const Encoder_Position_type&,
+         const Center_type&,
+         const Control_type&,
+         const Probe_ID1_type&,
+         const Probe_ID2_type&,
+         const V_Scan_Speed_type&,
+         const Probe_ID1_Reread_type&,
+         const Probe_ID1_Valid_type&,
+         const Probe_ID1_Voltage_type&,
+         const Probe_ID2_Reread_type&,
+         const Probe_ID2_Valid_type&,
+         const Probe_ID2_Voltage_type&,
+         const V_Scan_Rate_type&,
+         const Position_Counter_Lock_type&,
+         const Scan_Width_type&,
+         const Position_Counter_Reset_type&);
+
+  Scan1 (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  Scan1 (const Scan1& x,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  virtual Scan1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Scan1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Encoder_Position_type > Encoder_Position_;
+  ::xsd::cxx::tree::one< Center_type > Center_;
+  ::xsd::cxx::tree::one< Control_type > Control_;
+  ::xsd::cxx::tree::one< Probe_ID1_type > Probe_ID1_;
+  ::xsd::cxx::tree::one< Probe_ID2_type > Probe_ID2_;
+  ::xsd::cxx::tree::one< V_Scan_Speed_type > V_Scan_Speed_;
+  ::xsd::cxx::tree::one< Probe_ID1_Reread_type > Probe_ID1_Reread_;
+  ::xsd::cxx::tree::one< Probe_ID1_Valid_type > Probe_ID1_Valid_;
+  ::xsd::cxx::tree::one< Probe_ID1_Voltage_type > Probe_ID1_Voltage_;
+  ::xsd::cxx::tree::one< Probe_ID2_Reread_type > Probe_ID2_Reread_;
+  ::xsd::cxx::tree::one< Probe_ID2_Valid_type > Probe_ID2_Valid_;
+  ::xsd::cxx::tree::one< Probe_ID2_Voltage_type > Probe_ID2_Voltage_;
+  ::xsd::cxx::tree::one< V_Scan_Rate_type > V_Scan_Rate_;
+  ::xsd::cxx::tree::one< Position_Counter_Lock_type > Position_Counter_Lock_;
+  ::xsd::cxx::tree::one< Scan_Width_type > Scan_Width_;
+  ::xsd::cxx::tree::one< Position_Counter_Reset_type > Position_Counter_Reset_;
+};
+
+class Motor1: public ::xml_schema::type
+{
+  public:
+  // Settle-Time-3d
+  //
+  typedef ::xml_schema::string Settle_Time_3d_type;
+  typedef ::xsd::cxx::tree::traits< Settle_Time_3d_type, char > Settle_Time_3d_traits;
+
+  const Settle_Time_3d_type&
+  Settle_Time_3d () const;
+
+  Settle_Time_3d_type&
+  Settle_Time_3d ();
+
+  void
+  Settle_Time_3d (const Settle_Time_3d_type& x);
+
+  void
+  Settle_Time_3d (::std::auto_ptr< Settle_Time_3d_type > p);
+
+  // Position
+  //
+  typedef ::xml_schema::string Position_type;
+  typedef ::xsd::cxx::tree::traits< Position_type, char > Position_traits;
+
+  const Position_type&
+  Position () const;
+
+  Position_type&
+  Position ();
+
+  void
+  Position (const Position_type& x);
+
+  void
+  Position (::std::auto_ptr< Position_type > p);
+
+  // R-Scan-Move-No-Wait
+  //
+  typedef ::xml_schema::string R_Scan_Move_No_Wait_type;
+  typedef ::xsd::cxx::tree::traits< R_Scan_Move_No_Wait_type, char > R_Scan_Move_No_Wait_traits;
+
+  const R_Scan_Move_No_Wait_type&
+  R_Scan_Move_No_Wait () const;
+
+  R_Scan_Move_No_Wait_type&
+  R_Scan_Move_No_Wait ();
+
+  void
+  R_Scan_Move_No_Wait (const R_Scan_Move_No_Wait_type& x);
+
+  void
+  R_Scan_Move_No_Wait (::std::auto_ptr< R_Scan_Move_No_Wait_type > p);
+
+  // Motor-Mode
+  //
+  typedef ::xml_schema::string Motor_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Motor_Mode_type, char > Motor_Mode_traits;
+
+  const Motor_Mode_type&
+  Motor_Mode () const;
+
+  Motor_Mode_type&
+  Motor_Mode ();
+
+  void
+  Motor_Mode (const Motor_Mode_type& x);
+
+  void
+  Motor_Mode (::std::auto_ptr< Motor_Mode_type > p);
+
+  // Acceleration
+  //
+  typedef ::xml_schema::string Acceleration_type;
+  typedef ::xsd::cxx::tree::traits< Acceleration_type, char > Acceleration_traits;
+
+  const Acceleration_type&
+  Acceleration () const;
+
+  Acceleration_type&
+  Acceleration ();
+
+  void
+  Acceleration (const Acceleration_type& x);
+
+  void
+  Acceleration (::std::auto_ptr< Acceleration_type > p);
+
+  // Serial-Port-Mode
+  //
+  typedef ::xml_schema::string Serial_Port_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Serial_Port_Mode_type, char > Serial_Port_Mode_traits;
+
+  const Serial_Port_Mode_type&
+  Serial_Port_Mode () const;
+
+  Serial_Port_Mode_type&
+  Serial_Port_Mode ();
+
+  void
+  Serial_Port_Mode (const Serial_Port_Mode_type& x);
+
+  void
+  Serial_Port_Mode (::std::auto_ptr< Serial_Port_Mode_type > p);
+
+  // Limit-Switch-Mode
+  //
+  typedef ::xml_schema::string Limit_Switch_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Limit_Switch_Mode_type, char > Limit_Switch_Mode_traits;
+
+  const Limit_Switch_Mode_type&
+  Limit_Switch_Mode () const;
+
+  Limit_Switch_Mode_type&
+  Limit_Switch_Mode ();
+
+  void
+  Limit_Switch_Mode (const Limit_Switch_Mode_type& x);
+
+  void
+  Limit_Switch_Mode (::std::auto_ptr< Limit_Switch_Mode_type > p);
+
+  // Breakpoint
+  //
+  typedef ::xml_schema::string Breakpoint_type;
+  typedef ::xsd::cxx::tree::traits< Breakpoint_type, char > Breakpoint_traits;
+
+  const Breakpoint_type&
+  Breakpoint () const;
+
+  Breakpoint_type&
+  Breakpoint ();
+
+  void
+  Breakpoint (const Breakpoint_type& x);
+
+  void
+  Breakpoint (::std::auto_ptr< Breakpoint_type > p);
+
+  // Update
+  //
+  typedef ::xml_schema::string Update_type;
+  typedef ::xsd::cxx::tree::traits< Update_type, char > Update_traits;
+
+  const Update_type&
+  Update () const;
+
+  Update_type&
+  Update ();
+
+  void
+  Update (const Update_type& x);
+
+  void
+  Update (::std::auto_ptr< Update_type > p);
+
+  // Breakpoint-Value
+  //
+  typedef ::xml_schema::string Breakpoint_Value_type;
+  typedef ::xsd::cxx::tree::traits< Breakpoint_Value_type, char > Breakpoint_Value_traits;
+
+  const Breakpoint_Value_type&
+  Breakpoint_Value () const;
+
+  Breakpoint_Value_type&
+  Breakpoint_Value ();
+
+  void
+  Breakpoint_Value (const Breakpoint_Value_type& x);
+
+  void
+  Breakpoint_Value (::std::auto_ptr< Breakpoint_Value_type > p);
+
+  // V-Switch-Limit
+  //
+  typedef ::xml_schema::string V_Switch_Limit_type;
+  typedef ::xsd::cxx::tree::traits< V_Switch_Limit_type, char > V_Switch_Limit_traits;
+
+  const V_Switch_Limit_type&
+  V_Switch_Limit () const;
+
+  V_Switch_Limit_type&
+  V_Switch_Limit ();
+
+  void
+  V_Switch_Limit (const V_Switch_Limit_type& x);
+
+  void
+  V_Switch_Limit (::std::auto_ptr< V_Switch_Limit_type > p);
+
+  // R-Retrieve-Trace
+  //
+  typedef ::xml_schema::string R_Retrieve_Trace_type;
+  typedef ::xsd::cxx::tree::traits< R_Retrieve_Trace_type, char > R_Retrieve_Trace_traits;
+
+  const R_Retrieve_Trace_type&
+  R_Retrieve_Trace () const;
+
+  R_Retrieve_Trace_type&
+  R_Retrieve_Trace ();
+
+  void
+  R_Retrieve_Trace (const R_Retrieve_Trace_type& x);
+
+  void
+  R_Retrieve_Trace (::std::auto_ptr< R_Retrieve_Trace_type > p);
+
+  // Velocity-Stationary
+  //
+  typedef ::xml_schema::string Velocity_Stationary_type;
+  typedef ::xsd::cxx::tree::traits< Velocity_Stationary_type, char > Velocity_Stationary_traits;
+
+  const Velocity_Stationary_type&
+  Velocity_Stationary () const;
+
+  Velocity_Stationary_type&
+  Velocity_Stationary ();
+
+  void
+  Velocity_Stationary (const Velocity_Stationary_type& x);
+
+  void
+  Velocity_Stationary (::std::auto_ptr< Velocity_Stationary_type > p);
+
+  // Reset-Event-Status
+  //
+  typedef ::xml_schema::string Reset_Event_Status_type;
+  typedef ::xsd::cxx::tree::traits< Reset_Event_Status_type, char > Reset_Event_Status_traits;
+
+  const Reset_Event_Status_type&
+  Reset_Event_Status () const;
+
+  Reset_Event_Status_type&
+  Reset_Event_Status ();
+
+  void
+  Reset_Event_Status (const Reset_Event_Status_type& x);
+
+  void
+  Reset_Event_Status (::std::auto_ptr< Reset_Event_Status_type > p);
+
+  // Actual-Position
+  //
+  typedef ::xml_schema::string Actual_Position_type;
+  typedef ::xsd::cxx::tree::traits< Actual_Position_type, char > Actual_Position_traits;
+
+  const Actual_Position_type&
+  Actual_Position () const;
+
+  Actual_Position_type&
+  Actual_Position ();
+
+  void
+  Actual_Position (const Actual_Position_type& x);
+
+  void
+  Actual_Position (::std::auto_ptr< Actual_Position_type > p);
+
+  // Buffer-Length
+  //
+  typedef ::xml_schema::string Buffer_Length_type;
+  typedef ::xsd::cxx::tree::traits< Buffer_Length_type, char > Buffer_Length_traits;
+
+  const Buffer_Length_type&
+  Buffer_Length () const;
+
+  Buffer_Length_type&
+  Buffer_Length ();
+
+  void
+  Buffer_Length (const Buffer_Length_type& x);
+
+  void
+  Buffer_Length (::std::auto_ptr< Buffer_Length_type > p);
+
+  // R-Scan-Move2
+  //
+  typedef ::xml_schema::string R_Scan_Move2_type;
+  typedef ::xsd::cxx::tree::traits< R_Scan_Move2_type, char > R_Scan_Move2_traits;
+
+  const R_Scan_Move2_type&
+  R_Scan_Move2 () const;
+
+  R_Scan_Move2_type&
+  R_Scan_Move2 ();
+
+  void
+  R_Scan_Move2 (const R_Scan_Move2_type& x);
+
+  void
+  R_Scan_Move2 (::std::auto_ptr< R_Scan_Move2_type > p);
+
+  // Position-Reverse
+  //
+  typedef ::xml_schema::string Position_Reverse_type;
+  typedef ::xsd::cxx::tree::traits< Position_Reverse_type, char > Position_Reverse_traits;
+
+  const Position_Reverse_type&
+  Position_Reverse () const;
+
+  Position_Reverse_type&
+  Position_Reverse ();
+
+  void
+  Position_Reverse (const Position_Reverse_type& x);
+
+  void
+  Position_Reverse (::std::auto_ptr< Position_Reverse_type > p);
+
+  // Reset
+  //
+  typedef ::xml_schema::string Reset_type;
+  typedef ::xsd::cxx::tree::traits< Reset_type, char > Reset_traits;
+
+  const Reset_type&
+  Reset () const;
+
+  Reset_type&
+  Reset ();
+
+  void
+  Reset (const Reset_type& x);
+
+  void
+  Reset (::std::auto_ptr< Reset_type > p);
+
+  // Trace-Count
+  //
+  typedef ::xml_schema::string Trace_Count_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Count_type, char > Trace_Count_traits;
+
+  const Trace_Count_type&
+  Trace_Count () const;
+
+  Trace_Count_type&
+  Trace_Count ();
+
+  void
+  Trace_Count (const Trace_Count_type& x);
+
+  void
+  Trace_Count (::std::auto_ptr< Trace_Count_type > p);
+
+  // R-Initialize
+  //
+  typedef ::xml_schema::string R_Initialize_type;
+  typedef ::xsd::cxx::tree::traits< R_Initialize_type, char > R_Initialize_traits;
+
+  const R_Initialize_type&
+  R_Initialize () const;
+
+  R_Initialize_type&
+  R_Initialize ();
+
+  void
+  R_Initialize (const R_Initialize_type& x);
+
+  void
+  R_Initialize (::std::auto_ptr< R_Initialize_type > p);
+
+  // Output-Mode
+  //
+  typedef ::xml_schema::string Output_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Output_Mode_type, char > Output_Mode_traits;
+
+  const Output_Mode_type&
+  Output_Mode () const;
+
+  Output_Mode_type&
+  Output_Mode ();
+
+  void
+  Output_Mode (const Output_Mode_type& x);
+
+  void
+  Output_Mode (::std::auto_ptr< Output_Mode_type > p);
+
+  // Position2
+  //
+  typedef ::xml_schema::string Position2_type;
+  typedef ::xsd::cxx::tree::traits< Position2_type, char > Position2_traits;
+
+  const Position2_type&
+  Position2 () const;
+
+  Position2_type&
+  Position2 ();
+
+  void
+  Position2 (const Position2_type& x);
+
+  void
+  Position2 (::std::auto_ptr< Position2_type > p);
+
+  // Integration-Limit
+  //
+  typedef ::xml_schema::string Integration_Limit_type;
+  typedef ::xsd::cxx::tree::traits< Integration_Limit_type, char > Integration_Limit_traits;
+
+  const Integration_Limit_type&
+  Integration_Limit () const;
+
+  Integration_Limit_type&
+  Integration_Limit ();
+
+  void
+  Integration_Limit (const Integration_Limit_type& x);
+
+  void
+  Integration_Limit (::std::auto_ptr< Integration_Limit_type > p);
+
+  // R-Home
+  //
+  typedef ::xml_schema::string R_Home_type;
+  typedef ::xsd::cxx::tree::traits< R_Home_type, char > R_Home_traits;
+
+  const R_Home_type&
+  R_Home () const;
+
+  R_Home_type&
+  R_Home ();
+
+  void
+  R_Home (const R_Home_type& x);
+
+  void
+  R_Home (::std::auto_ptr< R_Home_type > p);
+
+  // Error
+  //
+  typedef ::xml_schema::string Error_type;
+  typedef ::xsd::cxx::tree::traits< Error_type, char > Error_traits;
+
+  const Error_type&
+  Error () const;
+
+  Error_type&
+  Error ();
+
+  void
+  Error (const Error_type& x);
+
+  void
+  Error (::std::auto_ptr< Error_type > p);
+
+  // R-Reset-Limit-Switch
+  //
+  typedef ::xml_schema::string R_Reset_Limit_Switch_type;
+  typedef ::xsd::cxx::tree::traits< R_Reset_Limit_Switch_type, char > R_Reset_Limit_Switch_traits;
+
+  const R_Reset_Limit_Switch_type&
+  R_Reset_Limit_Switch () const;
+
+  R_Reset_Limit_Switch_type&
+  R_Reset_Limit_Switch ();
+
+  void
+  R_Reset_Limit_Switch (const R_Reset_Limit_Switch_type& x);
+
+  void
+  R_Reset_Limit_Switch (::std::auto_ptr< R_Reset_Limit_Switch_type > p);
+
+  // Settle-Window-3d
+  //
+  typedef ::xml_schema::string Settle_Window_3d_type;
+  typedef ::xsd::cxx::tree::traits< Settle_Window_3d_type, char > Settle_Window_3d_traits;
+
+  const Settle_Window_3d_type&
+  Settle_Window_3d () const;
+
+  Settle_Window_3d_type&
+  Settle_Window_3d ();
+
+  void
+  Settle_Window_3d (const Settle_Window_3d_type& x);
+
+  void
+  Settle_Window_3d (::std::auto_ptr< Settle_Window_3d_type > p);
+
+  // Interrupt-Mask
+  //
+  typedef ::xml_schema::string Interrupt_Mask_type;
+  typedef ::xsd::cxx::tree::traits< Interrupt_Mask_type, char > Interrupt_Mask_traits;
+
+  const Interrupt_Mask_type&
+  Interrupt_Mask () const;
+
+  Interrupt_Mask_type&
+  Interrupt_Mask ();
+
+  void
+  Interrupt_Mask (const Interrupt_Mask_type& x);
+
+  void
+  Interrupt_Mask (::std::auto_ptr< Interrupt_Mask_type > p);
+
+  // Scan-Move-Control
+  //
+  typedef ::xml_schema::string Scan_Move_Control_type;
+  typedef ::xsd::cxx::tree::traits< Scan_Move_Control_type, char > Scan_Move_Control_traits;
+
+  const Scan_Move_Control_type&
+  Scan_Move_Control () const;
+
+  Scan_Move_Control_type&
+  Scan_Move_Control ();
+
+  void
+  Scan_Move_Control (const Scan_Move_Control_type& x);
+
+  void
+  Scan_Move_Control (::std::auto_ptr< Scan_Move_Control_type > p);
+
+  // Axis-Out-Source
+  //
+  typedef ::xml_schema::string Axis_Out_Source_type;
+  typedef ::xsd::cxx::tree::traits< Axis_Out_Source_type, char > Axis_Out_Source_traits;
+
+  const Axis_Out_Source_type&
+  Axis_Out_Source () const;
+
+  Axis_Out_Source_type&
+  Axis_Out_Source ();
+
+  void
+  Axis_Out_Source (const Axis_Out_Source_type& x);
+
+  void
+  Axis_Out_Source (::std::auto_ptr< Axis_Out_Source_type > p);
+
+  // Trace-Stop
+  //
+  typedef ::xml_schema::string Trace_Stop_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Stop_type, char > Trace_Stop_traits;
+
+  const Trace_Stop_type&
+  Trace_Stop () const;
+
+  Trace_Stop_type&
+  Trace_Stop ();
+
+  void
+  Trace_Stop (const Trace_Stop_type& x);
+
+  void
+  Trace_Stop (::std::auto_ptr< Trace_Stop_type > p);
+
+  // Velocity
+  //
+  typedef ::xml_schema::string Velocity_type;
+  typedef ::xsd::cxx::tree::traits< Velocity_type, char > Velocity_traits;
+
+  const Velocity_type&
+  Velocity () const;
+
+  Velocity_type&
+  Velocity ();
+
+  void
+  Velocity (const Velocity_type& x);
+
+  void
+  Velocity (::std::auto_ptr< Velocity_type > p);
+
+  // R-Setup
+  //
+  typedef ::xml_schema::string R_Setup_type;
+  typedef ::xsd::cxx::tree::traits< R_Setup_type, char > R_Setup_traits;
+
+  const R_Setup_type&
+  R_Setup () const;
+
+  R_Setup_type&
+  R_Setup ();
+
+  void
+  R_Setup (const R_Setup_type& x);
+
+  void
+  R_Setup (::std::auto_ptr< R_Setup_type > p);
+
+  // Buffer-Start
+  //
+  typedef ::xml_schema::string Buffer_Start_type;
+  typedef ::xsd::cxx::tree::traits< Buffer_Start_type, char > Buffer_Start_traits;
+
+  const Buffer_Start_type&
+  Buffer_Start () const;
+
+  Buffer_Start_type&
+  Buffer_Start ();
+
+  void
+  Buffer_Start (const Buffer_Start_type& x);
+
+  void
+  Buffer_Start (::std::auto_ptr< Buffer_Start_type > p);
+
+  // Signal-Sense
+  //
+  typedef ::xml_schema::string Signal_Sense_type;
+  typedef ::xsd::cxx::tree::traits< Signal_Sense_type, char > Signal_Sense_traits;
+
+  const Signal_Sense_type&
+  Signal_Sense () const;
+
+  Signal_Sense_type&
+  Signal_Sense ();
+
+  void
+  Signal_Sense (const Signal_Sense_type& x);
+
+  void
+  Signal_Sense (::std::auto_ptr< Signal_Sense_type > p);
+
+  // R-Scan-Move
+  //
+  typedef ::xml_schema::string R_Scan_Move_type;
+  typedef ::xsd::cxx::tree::traits< R_Scan_Move_type, char > R_Scan_Move_traits;
+
+  const R_Scan_Move_type&
+  R_Scan_Move () const;
+
+  R_Scan_Move_type&
+  R_Scan_Move ();
+
+  void
+  R_Scan_Move (const R_Scan_Move_type& x);
+
+  void
+  R_Scan_Move (::std::auto_ptr< R_Scan_Move_type > p);
+
+  // Position-Forward
+  //
+  typedef ::xml_schema::string Position_Forward_type;
+  typedef ::xsd::cxx::tree::traits< Position_Forward_type, char > Position_Forward_traits;
+
+  const Position_Forward_type&
+  Position_Forward () const;
+
+  Position_Forward_type&
+  Position_Forward ();
+
+  void
+  Position_Forward (const Position_Forward_type& x);
+
+  void
+  Position_Forward (::std::auto_ptr< Position_Forward_type > p);
+
+  // Derivative-Time
+  //
+  typedef ::xml_schema::string Derivative_Time_type;
+  typedef ::xsd::cxx::tree::traits< Derivative_Time_type, char > Derivative_Time_traits;
+
+  const Derivative_Time_type&
+  Derivative_Time () const;
+
+  Derivative_Time_type&
+  Derivative_Time ();
+
+  void
+  Derivative_Time (const Derivative_Time_type& x);
+
+  void
+  Derivative_Time (::std::auto_ptr< Derivative_Time_type > p);
+
+  // Settle-Window
+  //
+  typedef ::xml_schema::string Settle_Window_type;
+  typedef ::xsd::cxx::tree::traits< Settle_Window_type, char > Settle_Window_traits;
+
+  const Settle_Window_type&
+  Settle_Window () const;
+
+  Settle_Window_type&
+  Settle_Window ();
+
+  void
+  Settle_Window (const Settle_Window_type& x);
+
+  void
+  Settle_Window (::std::auto_ptr< Settle_Window_type > p);
+
+  // Trace-Variable1
+  //
+  typedef ::xml_schema::string Trace_Variable1_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Variable1_type, char > Trace_Variable1_traits;
+
+  const Trace_Variable1_type&
+  Trace_Variable1 () const;
+
+  Trace_Variable1_type&
+  Trace_Variable1 ();
+
+  void
+  Trace_Variable1 (const Trace_Variable1_type& x);
+
+  void
+  Trace_Variable1 (::std::auto_ptr< Trace_Variable1_type > p);
+
+  // Trace-Variable2
+  //
+  typedef ::xml_schema::string Trace_Variable2_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Variable2_type, char > Trace_Variable2_traits;
+
+  const Trace_Variable2_type&
+  Trace_Variable2 () const;
+
+  Trace_Variable2_type&
+  Trace_Variable2 ();
+
+  void
+  Trace_Variable2 (const Trace_Variable2_type& x);
+
+  void
+  Trace_Variable2 (::std::auto_ptr< Trace_Variable2_type > p);
+
+  // Buffer-Read-Index
+  //
+  typedef ::xml_schema::string Buffer_Read_Index_type;
+  typedef ::xsd::cxx::tree::traits< Buffer_Read_Index_type, char > Buffer_Read_Index_traits;
+
+  const Buffer_Read_Index_type&
+  Buffer_Read_Index () const;
+
+  Buffer_Read_Index_type&
+  Buffer_Read_Index ();
+
+  void
+  Buffer_Read_Index (const Buffer_Read_Index_type& x);
+
+  void
+  Buffer_Read_Index (::std::auto_ptr< Buffer_Read_Index_type > p);
+
+  // Signal-Status
+  //
+  typedef ::xml_schema::string Signal_Status_type;
+  typedef ::xsd::cxx::tree::traits< Signal_Status_type, char > Signal_Status_traits;
+
+  const Signal_Status_type&
+  Signal_Status () const;
+
+  Signal_Status_type&
+  Signal_Status ();
+
+  void
+  Signal_Status (const Signal_Status_type& x);
+
+  void
+  Signal_Status (::std::auto_ptr< Signal_Status_type > p);
+
+  // Alarm-Clear
+  //
+  typedef ::xml_schema::string Alarm_Clear_type;
+  typedef ::xsd::cxx::tree::traits< Alarm_Clear_type, char > Alarm_Clear_traits;
+
+  const Alarm_Clear_type&
+  Alarm_Clear () const;
+
+  Alarm_Clear_type&
+  Alarm_Clear ();
+
+  void
+  Alarm_Clear (const Alarm_Clear_type& x);
+
+  void
+  Alarm_Clear (::std::auto_ptr< Alarm_Clear_type > p);
+
+  // Motion-Complete-Mode
+  //
+  typedef ::xml_schema::string Motion_Complete_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Motion_Complete_Mode_type, char > Motion_Complete_Mode_traits;
+
+  const Motion_Complete_Mode_type&
+  Motion_Complete_Mode () const;
+
+  Motion_Complete_Mode_type&
+  Motion_Complete_Mode ();
+
+  void
+  Motion_Complete_Mode (const Motion_Complete_Mode_type& x);
+
+  void
+  Motion_Complete_Mode (::std::auto_ptr< Motion_Complete_Mode_type > p);
+
+  // R-Setup-Abort
+  //
+  typedef ::xml_schema::string R_Setup_Abort_type;
+  typedef ::xsd::cxx::tree::traits< R_Setup_Abort_type, char > R_Setup_Abort_traits;
+
+  const R_Setup_Abort_type&
+  R_Setup_Abort () const;
+
+  R_Setup_Abort_type&
+  R_Setup_Abort ();
+
+  void
+  R_Setup_Abort (const R_Setup_Abort_type& x);
+
+  void
+  R_Setup_Abort (::std::auto_ptr< R_Setup_Abort_type > p);
+
+  // Read-Buffer
+  //
+  typedef ::xml_schema::string Read_Buffer_type;
+  typedef ::xsd::cxx::tree::traits< Read_Buffer_type, char > Read_Buffer_traits;
+
+  const Read_Buffer_type&
+  Read_Buffer () const;
+
+  Read_Buffer_type&
+  Read_Buffer ();
+
+  void
+  Read_Buffer (const Read_Buffer_type& x);
+
+  void
+  Read_Buffer (::std::auto_ptr< Read_Buffer_type > p);
+
+  // Kd
+  //
+  typedef ::xml_schema::string Kd_type;
+  typedef ::xsd::cxx::tree::traits< Kd_type, char > Kd_traits;
+
+  const Kd_type&
+  Kd () const;
+
+  Kd_type&
+  Kd ();
+
+  void
+  Kd (const Kd_type& x);
+
+  void
+  Kd (::std::auto_ptr< Kd_type > p);
+
+  // Clear-Interrupt
+  //
+  typedef ::xml_schema::string Clear_Interrupt_type;
+  typedef ::xsd::cxx::tree::traits< Clear_Interrupt_type, char > Clear_Interrupt_traits;
+
+  const Clear_Interrupt_type&
+  Clear_Interrupt () const;
+
+  Clear_Interrupt_type&
+  Clear_Interrupt ();
+
+  void
+  Clear_Interrupt (const Clear_Interrupt_type& x);
+
+  void
+  Clear_Interrupt (::std::auto_ptr< Clear_Interrupt_type > p);
+
+  // Profile-Mode
+  //
+  typedef ::xml_schema::string Profile_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Profile_Mode_type, char > Profile_Mode_traits;
+
+  const Profile_Mode_type&
+  Profile_Mode () const;
+
+  Profile_Mode_type&
+  Profile_Mode ();
+
+  void
+  Profile_Mode (const Profile_Mode_type& x);
+
+  void
+  Profile_Mode (::std::auto_ptr< Profile_Mode_type > p);
+
+  // R-Setup-Trace
+  //
+  typedef ::xml_schema::string R_Setup_Trace_type;
+  typedef ::xsd::cxx::tree::traits< R_Setup_Trace_type, char > R_Setup_Trace_traits;
+
+  const R_Setup_Trace_type&
+  R_Setup_Trace () const;
+
+  R_Setup_Trace_type&
+  R_Setup_Trace ();
+
+  void
+  R_Setup_Trace (const R_Setup_Trace_type& x);
+
+  void
+  R_Setup_Trace (::std::auto_ptr< R_Setup_Trace_type > p);
+
+  // No-Operation
+  //
+  typedef ::xml_schema::string No_Operation_type;
+  typedef ::xsd::cxx::tree::traits< No_Operation_type, char > No_Operation_traits;
+
+  const No_Operation_type&
+  No_Operation () const;
+
+  No_Operation_type&
+  No_Operation ();
+
+  void
+  No_Operation (const No_Operation_type& x);
+
+  void
+  No_Operation (::std::auto_ptr< No_Operation_type > p);
+
+  // Ki
+  //
+  typedef ::xml_schema::string Ki_type;
+  typedef ::xsd::cxx::tree::traits< Ki_type, char > Ki_traits;
+
+  const Ki_type&
+  Ki () const;
+
+  Ki_type&
+  Ki ();
+
+  void
+  Ki (const Ki_type& x);
+
+  void
+  Ki (::std::auto_ptr< Ki_type > p);
+
+  // Sample-Time
+  //
+  typedef ::xml_schema::string Sample_Time_type;
+  typedef ::xsd::cxx::tree::traits< Sample_Time_type, char > Sample_Time_traits;
+
+  const Sample_Time_type&
+  Sample_Time () const;
+
+  Sample_Time_type&
+  Sample_Time ();
+
+  void
+  Sample_Time (const Sample_Time_type& x);
+
+  void
+  Sample_Time (::std::auto_ptr< Sample_Time_type > p);
+
+  // Event-Status
+  //
+  typedef ::xml_schema::string Event_Status_type;
+  typedef ::xsd::cxx::tree::traits< Event_Status_type, char > Event_Status_traits;
+
+  const Event_Status_type&
+  Event_Status () const;
+
+  Event_Status_type&
+  Event_Status ();
+
+  void
+  Event_Status (const Event_Status_type& x);
+
+  void
+  Event_Status (::std::auto_ptr< Event_Status_type > p);
+
+  // Kp
+  //
+  typedef ::xml_schema::string Kp_type;
+  typedef ::xsd::cxx::tree::traits< Kp_type, char > Kp_traits;
+
+  const Kp_type&
+  Kp () const;
+
+  Kp_type&
+  Kp ();
+
+  void
+  Kp (const Kp_type& x);
+
+  void
+  Kp (::std::auto_ptr< Kp_type > p);
+
+  // R-Wait-Finish-Scan-Move
+  //
+  typedef ::xml_schema::string R_Wait_Finish_Scan_Move_type;
+  typedef ::xsd::cxx::tree::traits< R_Wait_Finish_Scan_Move_type, char > R_Wait_Finish_Scan_Move_traits;
+
+  const R_Wait_Finish_Scan_Move_type&
+  R_Wait_Finish_Scan_Move () const;
+
+  R_Wait_Finish_Scan_Move_type&
+  R_Wait_Finish_Scan_Move ();
+
+  void
+  R_Wait_Finish_Scan_Move (const R_Wait_Finish_Scan_Move_type& x);
+
+  void
+  R_Wait_Finish_Scan_Move (::std::auto_ptr< R_Wait_Finish_Scan_Move_type > p);
+
+  // Settle-Time
+  //
+  typedef ::xml_schema::string Settle_Time_type;
+  typedef ::xsd::cxx::tree::traits< Settle_Time_type, char > Settle_Time_traits;
+
+  const Settle_Time_type&
+  Settle_Time () const;
+
+  Settle_Time_type&
+  Settle_Time ();
+
+  void
+  Settle_Time (const Settle_Time_type& x);
+
+  void
+  Settle_Time (::std::auto_ptr< Settle_Time_type > p);
+
+  // Acceleration-Stationary
+  //
+  typedef ::xml_schema::string Acceleration_Stationary_type;
+  typedef ::xsd::cxx::tree::traits< Acceleration_Stationary_type, char > Acceleration_Stationary_traits;
+
+  const Acceleration_Stationary_type&
+  Acceleration_Stationary () const;
+
+  Acceleration_Stationary_type&
+  Acceleration_Stationary ();
+
+  void
+  Acceleration_Stationary (const Acceleration_Stationary_type& x);
+
+  void
+  Acceleration_Stationary (::std::auto_ptr< Acceleration_Stationary_type > p);
+
+  // Trace-Mode
+  //
+  typedef ::xml_schema::string Trace_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Mode_type, char > Trace_Mode_traits;
+
+  const Trace_Mode_type&
+  Trace_Mode () const;
+
+  Trace_Mode_type&
+  Trace_Mode ();
+
+  void
+  Trace_Mode (const Trace_Mode_type& x);
+
+  void
+  Trace_Mode (::std::auto_ptr< Trace_Mode_type > p);
+
+  // Trace-Period
+  //
+  typedef ::xml_schema::string Trace_Period_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Period_type, char > Trace_Period_traits;
+
+  const Trace_Period_type&
+  Trace_Period () const;
+
+  Trace_Period_type&
+  Trace_Period ();
+
+  void
+  Trace_Period (const Trace_Period_type& x);
+
+  void
+  Trace_Period (::std::auto_ptr< Trace_Period_type > p);
+
+  // Trace-Start
+  //
+  typedef ::xml_schema::string Trace_Start_type;
+  typedef ::xsd::cxx::tree::traits< Trace_Start_type, char > Trace_Start_traits;
+
+  const Trace_Start_type&
+  Trace_Start () const;
+
+  Trace_Start_type&
+  Trace_Start ();
+
+  void
+  Trace_Start (const Trace_Start_type& x);
+
+  void
+  Trace_Start (::std::auto_ptr< Trace_Start_type > p);
+
+  // Constructors.
+  //
+  Motor1 (const Settle_Time_3d_type&,
+          const Position_type&,
+          const R_Scan_Move_No_Wait_type&,
+          const Motor_Mode_type&,
+          const Acceleration_type&,
+          const Serial_Port_Mode_type&,
+          const Limit_Switch_Mode_type&,
+          const Breakpoint_type&,
+          const Update_type&,
+          const Breakpoint_Value_type&,
+          const V_Switch_Limit_type&,
+          const R_Retrieve_Trace_type&,
+          const Velocity_Stationary_type&,
+          const Reset_Event_Status_type&,
+          const Actual_Position_type&,
+          const Buffer_Length_type&,
+          const R_Scan_Move2_type&,
+          const Position_Reverse_type&,
+          const Reset_type&,
+          const Trace_Count_type&,
+          const R_Initialize_type&,
+          const Output_Mode_type&,
+          const Position2_type&,
+          const Integration_Limit_type&,
+          const R_Home_type&,
+          const Error_type&,
+          const R_Reset_Limit_Switch_type&,
+          const Settle_Window_3d_type&,
+          const Interrupt_Mask_type&,
+          const Scan_Move_Control_type&,
+          const Axis_Out_Source_type&,
+          const Trace_Stop_type&,
+          const Velocity_type&,
+          const R_Setup_type&,
+          const Buffer_Start_type&,
+          const Signal_Sense_type&,
+          const R_Scan_Move_type&,
+          const Position_Forward_type&,
+          const Derivative_Time_type&,
+          const Settle_Window_type&,
+          const Trace_Variable1_type&,
+          const Trace_Variable2_type&,
+          const Buffer_Read_Index_type&,
+          const Signal_Status_type&,
+          const Alarm_Clear_type&,
+          const Motion_Complete_Mode_type&,
+          const R_Setup_Abort_type&,
+          const Read_Buffer_type&,
+          const Kd_type&,
+          const Clear_Interrupt_type&,
+          const Profile_Mode_type&,
+          const R_Setup_Trace_type&,
+          const No_Operation_type&,
+          const Ki_type&,
+          const Sample_Time_type&,
+          const Event_Status_type&,
+          const Kp_type&,
+          const R_Wait_Finish_Scan_Move_type&,
+          const Settle_Time_type&,
+          const Acceleration_Stationary_type&,
+          const Trace_Mode_type&,
+          const Trace_Period_type&,
+          const Trace_Start_type&);
+
+  Motor1 (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  Motor1 (const Motor1& x,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  virtual Motor1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Motor1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Settle_Time_3d_type > Settle_Time_3d_;
+  ::xsd::cxx::tree::one< Position_type > Position_;
+  ::xsd::cxx::tree::one< R_Scan_Move_No_Wait_type > R_Scan_Move_No_Wait_;
+  ::xsd::cxx::tree::one< Motor_Mode_type > Motor_Mode_;
+  ::xsd::cxx::tree::one< Acceleration_type > Acceleration_;
+  ::xsd::cxx::tree::one< Serial_Port_Mode_type > Serial_Port_Mode_;
+  ::xsd::cxx::tree::one< Limit_Switch_Mode_type > Limit_Switch_Mode_;
+  ::xsd::cxx::tree::one< Breakpoint_type > Breakpoint_;
+  ::xsd::cxx::tree::one< Update_type > Update_;
+  ::xsd::cxx::tree::one< Breakpoint_Value_type > Breakpoint_Value_;
+  ::xsd::cxx::tree::one< V_Switch_Limit_type > V_Switch_Limit_;
+  ::xsd::cxx::tree::one< R_Retrieve_Trace_type > R_Retrieve_Trace_;
+  ::xsd::cxx::tree::one< Velocity_Stationary_type > Velocity_Stationary_;
+  ::xsd::cxx::tree::one< Reset_Event_Status_type > Reset_Event_Status_;
+  ::xsd::cxx::tree::one< Actual_Position_type > Actual_Position_;
+  ::xsd::cxx::tree::one< Buffer_Length_type > Buffer_Length_;
+  ::xsd::cxx::tree::one< R_Scan_Move2_type > R_Scan_Move2_;
+  ::xsd::cxx::tree::one< Position_Reverse_type > Position_Reverse_;
+  ::xsd::cxx::tree::one< Reset_type > Reset_;
+  ::xsd::cxx::tree::one< Trace_Count_type > Trace_Count_;
+  ::xsd::cxx::tree::one< R_Initialize_type > R_Initialize_;
+  ::xsd::cxx::tree::one< Output_Mode_type > Output_Mode_;
+  ::xsd::cxx::tree::one< Position2_type > Position2_;
+  ::xsd::cxx::tree::one< Integration_Limit_type > Integration_Limit_;
+  ::xsd::cxx::tree::one< R_Home_type > R_Home_;
+  ::xsd::cxx::tree::one< Error_type > Error_;
+  ::xsd::cxx::tree::one< R_Reset_Limit_Switch_type > R_Reset_Limit_Switch_;
+  ::xsd::cxx::tree::one< Settle_Window_3d_type > Settle_Window_3d_;
+  ::xsd::cxx::tree::one< Interrupt_Mask_type > Interrupt_Mask_;
+  ::xsd::cxx::tree::one< Scan_Move_Control_type > Scan_Move_Control_;
+  ::xsd::cxx::tree::one< Axis_Out_Source_type > Axis_Out_Source_;
+  ::xsd::cxx::tree::one< Trace_Stop_type > Trace_Stop_;
+  ::xsd::cxx::tree::one< Velocity_type > Velocity_;
+  ::xsd::cxx::tree::one< R_Setup_type > R_Setup_;
+  ::xsd::cxx::tree::one< Buffer_Start_type > Buffer_Start_;
+  ::xsd::cxx::tree::one< Signal_Sense_type > Signal_Sense_;
+  ::xsd::cxx::tree::one< R_Scan_Move_type > R_Scan_Move_;
+  ::xsd::cxx::tree::one< Position_Forward_type > Position_Forward_;
+  ::xsd::cxx::tree::one< Derivative_Time_type > Derivative_Time_;
+  ::xsd::cxx::tree::one< Settle_Window_type > Settle_Window_;
+  ::xsd::cxx::tree::one< Trace_Variable1_type > Trace_Variable1_;
+  ::xsd::cxx::tree::one< Trace_Variable2_type > Trace_Variable2_;
+  ::xsd::cxx::tree::one< Buffer_Read_Index_type > Buffer_Read_Index_;
+  ::xsd::cxx::tree::one< Signal_Status_type > Signal_Status_;
+  ::xsd::cxx::tree::one< Alarm_Clear_type > Alarm_Clear_;
+  ::xsd::cxx::tree::one< Motion_Complete_Mode_type > Motion_Complete_Mode_;
+  ::xsd::cxx::tree::one< R_Setup_Abort_type > R_Setup_Abort_;
+  ::xsd::cxx::tree::one< Read_Buffer_type > Read_Buffer_;
+  ::xsd::cxx::tree::one< Kd_type > Kd_;
+  ::xsd::cxx::tree::one< Clear_Interrupt_type > Clear_Interrupt_;
+  ::xsd::cxx::tree::one< Profile_Mode_type > Profile_Mode_;
+  ::xsd::cxx::tree::one< R_Setup_Trace_type > R_Setup_Trace_;
+  ::xsd::cxx::tree::one< No_Operation_type > No_Operation_;
+  ::xsd::cxx::tree::one< Ki_type > Ki_;
+  ::xsd::cxx::tree::one< Sample_Time_type > Sample_Time_;
+  ::xsd::cxx::tree::one< Event_Status_type > Event_Status_;
+  ::xsd::cxx::tree::one< Kp_type > Kp_;
+  ::xsd::cxx::tree::one< R_Wait_Finish_Scan_Move_type > R_Wait_Finish_Scan_Move_;
+  ::xsd::cxx::tree::one< Settle_Time_type > Settle_Time_;
+  ::xsd::cxx::tree::one< Acceleration_Stationary_type > Acceleration_Stationary_;
+  ::xsd::cxx::tree::one< Trace_Mode_type > Trace_Mode_;
+  ::xsd::cxx::tree::one< Trace_Period_type > Trace_Period_;
+  ::xsd::cxx::tree::one< Trace_Start_type > Trace_Start_;
+};
+
+class ContrastDlg: public ::xml_schema::type
+{
+  public:
+  // Contrast-YAxis-Auto-Scale
+  //
+  typedef ::xml_schema::string Contrast_YAxis_Auto_Scale_type;
+  typedef ::xsd::cxx::tree::traits< Contrast_YAxis_Auto_Scale_type, char > Contrast_YAxis_Auto_Scale_traits;
+
+  const Contrast_YAxis_Auto_Scale_type&
+  Contrast_YAxis_Auto_Scale () const;
+
+  Contrast_YAxis_Auto_Scale_type&
+  Contrast_YAxis_Auto_Scale ();
+
+  void
+  Contrast_YAxis_Auto_Scale (const Contrast_YAxis_Auto_Scale_type& x);
+
+  void
+  Contrast_YAxis_Auto_Scale (::std::auto_ptr< Contrast_YAxis_Auto_Scale_type > p);
+
+  // Draw-Cardiac-Average
+  //
+  typedef ::xml_schema::string Draw_Cardiac_Average_type;
+  typedef ::xsd::cxx::tree::traits< Draw_Cardiac_Average_type, char > Draw_Cardiac_Average_traits;
+
+  const Draw_Cardiac_Average_type&
+  Draw_Cardiac_Average () const;
+
+  Draw_Cardiac_Average_type&
+  Draw_Cardiac_Average ();
+
+  void
+  Draw_Cardiac_Average (const Draw_Cardiac_Average_type& x);
+
+  void
+  Draw_Cardiac_Average (::std::auto_ptr< Draw_Cardiac_Average_type > p);
+
+  // Average-Frames
+  //
+  typedef ::xml_schema::string Average_Frames_type;
+  typedef ::xsd::cxx::tree::traits< Average_Frames_type, char > Average_Frames_traits;
+
+  const Average_Frames_type&
+  Average_Frames () const;
+
+  Average_Frames_type&
+  Average_Frames ();
+
+  void
+  Average_Frames (const Average_Frames_type& x);
+
+  void
+  Average_Frames (::std::auto_ptr< Average_Frames_type > p);
+
+  // Contrast-YAxis-Max
+  //
+  typedef ::xml_schema::string Contrast_YAxis_Max_type;
+  typedef ::xsd::cxx::tree::traits< Contrast_YAxis_Max_type, char > Contrast_YAxis_Max_traits;
+
+  const Contrast_YAxis_Max_type&
+  Contrast_YAxis_Max () const;
+
+  Contrast_YAxis_Max_type&
+  Contrast_YAxis_Max ();
+
+  void
+  Contrast_YAxis_Max (const Contrast_YAxis_Max_type& x);
+
+  void
+  Contrast_YAxis_Max (::std::auto_ptr< Contrast_YAxis_Max_type > p);
+
+  // Draw-Destroy-Markers
+  //
+  typedef ::xml_schema::string Draw_Destroy_Markers_type;
+  typedef ::xsd::cxx::tree::traits< Draw_Destroy_Markers_type, char > Draw_Destroy_Markers_traits;
+
+  const Draw_Destroy_Markers_type&
+  Draw_Destroy_Markers () const;
+
+  Draw_Destroy_Markers_type&
+  Draw_Destroy_Markers ();
+
+  void
+  Draw_Destroy_Markers (const Draw_Destroy_Markers_type& x);
+
+  void
+  Draw_Destroy_Markers (::std::auto_ptr< Draw_Destroy_Markers_type > p);
+
+  // Draw-Time-Axis
+  //
+  typedef ::xml_schema::string Draw_Time_Axis_type;
+  typedef ::xsd::cxx::tree::traits< Draw_Time_Axis_type, char > Draw_Time_Axis_traits;
+
+  const Draw_Time_Axis_type&
+  Draw_Time_Axis () const;
+
+  Draw_Time_Axis_type&
+  Draw_Time_Axis ();
+
+  void
+  Draw_Time_Axis (const Draw_Time_Axis_type& x);
+
+  void
+  Draw_Time_Axis (::std::auto_ptr< Draw_Time_Axis_type > p);
+
+  // Draw-Cardiac-Grayscale
+  //
+  typedef ::xml_schema::string Draw_Cardiac_Grayscale_type;
+  typedef ::xsd::cxx::tree::traits< Draw_Cardiac_Grayscale_type, char > Draw_Cardiac_Grayscale_traits;
+
+  const Draw_Cardiac_Grayscale_type&
+  Draw_Cardiac_Grayscale () const;
+
+  Draw_Cardiac_Grayscale_type&
+  Draw_Cardiac_Grayscale ();
+
+  void
+  Draw_Cardiac_Grayscale (const Draw_Cardiac_Grayscale_type& x);
+
+  void
+  Draw_Cardiac_Grayscale (::std::auto_ptr< Draw_Cardiac_Grayscale_type > p);
+
+  // Draw-Grayscale
+  //
+  typedef ::xml_schema::string Draw_Grayscale_type;
+  typedef ::xsd::cxx::tree::traits< Draw_Grayscale_type, char > Draw_Grayscale_traits;
+
+  const Draw_Grayscale_type&
+  Draw_Grayscale () const;
+
+  Draw_Grayscale_type&
+  Draw_Grayscale ();
+
+  void
+  Draw_Grayscale (const Draw_Grayscale_type& x);
+
+  void
+  Draw_Grayscale (::std::auto_ptr< Draw_Grayscale_type > p);
+
+  // Draw-Markers
+  //
+  typedef ::xml_schema::string Draw_Markers_type;
+  typedef ::xsd::cxx::tree::traits< Draw_Markers_type, char > Draw_Markers_traits;
+
+  const Draw_Markers_type&
+  Draw_Markers () const;
+
+  Draw_Markers_type&
+  Draw_Markers ();
+
+  void
+  Draw_Markers (const Draw_Markers_type& x);
+
+  void
+  Draw_Markers (::std::auto_ptr< Draw_Markers_type > p);
+
+  // Contrast-Linear
+  //
+  typedef ::xml_schema::string Contrast_Linear_type;
+  typedef ::xsd::cxx::tree::traits< Contrast_Linear_type, char > Contrast_Linear_traits;
+
+  const Contrast_Linear_type&
+  Contrast_Linear () const;
+
+  Contrast_Linear_type&
+  Contrast_Linear ();
+
+  void
+  Contrast_Linear (const Contrast_Linear_type& x);
+
+  void
+  Contrast_Linear (::std::auto_ptr< Contrast_Linear_type > p);
+
+  // Cardiac-YAxis-Max
+  //
+  typedef ::xml_schema::string Cardiac_YAxis_Max_type;
+  typedef ::xsd::cxx::tree::traits< Cardiac_YAxis_Max_type, char > Cardiac_YAxis_Max_traits;
+
+  const Cardiac_YAxis_Max_type&
+  Cardiac_YAxis_Max () const;
+
+  Cardiac_YAxis_Max_type&
+  Cardiac_YAxis_Max ();
+
+  void
+  Cardiac_YAxis_Max (const Cardiac_YAxis_Max_type& x);
+
+  void
+  Cardiac_YAxis_Max (::std::auto_ptr< Cardiac_YAxis_Max_type > p);
+
+  // Cardiac-YAxis-Auto-Scale
+  //
+  typedef ::xml_schema::string Cardiac_YAxis_Auto_Scale_type;
+  typedef ::xsd::cxx::tree::traits< Cardiac_YAxis_Auto_Scale_type, char > Cardiac_YAxis_Auto_Scale_traits;
+
+  const Cardiac_YAxis_Auto_Scale_type&
+  Cardiac_YAxis_Auto_Scale () const;
+
+  Cardiac_YAxis_Auto_Scale_type&
+  Cardiac_YAxis_Auto_Scale ();
+
+  void
+  Cardiac_YAxis_Auto_Scale (const Cardiac_YAxis_Auto_Scale_type& x);
+
+  void
+  Cardiac_YAxis_Auto_Scale (::std::auto_ptr< Cardiac_YAxis_Auto_Scale_type > p);
+
+  // Draw-Moving-Average
+  //
+  typedef ::xml_schema::string Draw_Moving_Average_type;
+  typedef ::xsd::cxx::tree::traits< Draw_Moving_Average_type, char > Draw_Moving_Average_traits;
+
+  const Draw_Moving_Average_type&
+  Draw_Moving_Average () const;
+
+  Draw_Moving_Average_type&
+  Draw_Moving_Average ();
+
+  void
+  Draw_Moving_Average (const Draw_Moving_Average_type& x);
+
+  void
+  Draw_Moving_Average (::std::auto_ptr< Draw_Moving_Average_type > p);
+
+  // Draw-Percent-Area
+  //
+  typedef ::xml_schema::string Draw_Percent_Area_type;
+  typedef ::xsd::cxx::tree::traits< Draw_Percent_Area_type, char > Draw_Percent_Area_traits;
+
+  const Draw_Percent_Area_type&
+  Draw_Percent_Area () const;
+
+  Draw_Percent_Area_type&
+  Draw_Percent_Area ();
+
+  void
+  Draw_Percent_Area (const Draw_Percent_Area_type& x);
+
+  void
+  Draw_Percent_Area (::std::auto_ptr< Draw_Percent_Area_type > p);
+
+  // Percent-Area-Thresh
+  //
+  typedef ::xml_schema::string Percent_Area_Thresh_type;
+  typedef ::xsd::cxx::tree::traits< Percent_Area_Thresh_type, char > Percent_Area_Thresh_traits;
+
+  const Percent_Area_Thresh_type&
+  Percent_Area_Thresh () const;
+
+  Percent_Area_Thresh_type&
+  Percent_Area_Thresh ();
+
+  void
+  Percent_Area_Thresh (const Percent_Area_Thresh_type& x);
+
+  void
+  Percent_Area_Thresh (::std::auto_ptr< Percent_Area_Thresh_type > p);
+
+  // Cardiac-Display-Frame
+  //
+  typedef ::xml_schema::string Cardiac_Display_Frame_type;
+  typedef ::xsd::cxx::tree::traits< Cardiac_Display_Frame_type, char > Cardiac_Display_Frame_traits;
+
+  const Cardiac_Display_Frame_type&
+  Cardiac_Display_Frame () const;
+
+  Cardiac_Display_Frame_type&
+  Cardiac_Display_Frame ();
+
+  void
+  Cardiac_Display_Frame (const Cardiac_Display_Frame_type& x);
+
+  void
+  Cardiac_Display_Frame (::std::auto_ptr< Cardiac_Display_Frame_type > p);
+
+  // Constructors.
+  //
+  ContrastDlg (const Contrast_YAxis_Auto_Scale_type&,
+               const Draw_Cardiac_Average_type&,
+               const Average_Frames_type&,
+               const Contrast_YAxis_Max_type&,
+               const Draw_Destroy_Markers_type&,
+               const Draw_Time_Axis_type&,
+               const Draw_Cardiac_Grayscale_type&,
+               const Draw_Grayscale_type&,
+               const Draw_Markers_type&,
+               const Contrast_Linear_type&,
+               const Cardiac_YAxis_Max_type&,
+               const Cardiac_YAxis_Auto_Scale_type&,
+               const Draw_Moving_Average_type&,
+               const Draw_Percent_Area_type&,
+               const Percent_Area_Thresh_type&,
+               const Cardiac_Display_Frame_type&);
+
+  ContrastDlg (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  ContrastDlg (const ContrastDlg& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual ContrastDlg*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~ContrastDlg ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Contrast_YAxis_Auto_Scale_type > Contrast_YAxis_Auto_Scale_;
+  ::xsd::cxx::tree::one< Draw_Cardiac_Average_type > Draw_Cardiac_Average_;
+  ::xsd::cxx::tree::one< Average_Frames_type > Average_Frames_;
+  ::xsd::cxx::tree::one< Contrast_YAxis_Max_type > Contrast_YAxis_Max_;
+  ::xsd::cxx::tree::one< Draw_Destroy_Markers_type > Draw_Destroy_Markers_;
+  ::xsd::cxx::tree::one< Draw_Time_Axis_type > Draw_Time_Axis_;
+  ::xsd::cxx::tree::one< Draw_Cardiac_Grayscale_type > Draw_Cardiac_Grayscale_;
+  ::xsd::cxx::tree::one< Draw_Grayscale_type > Draw_Grayscale_;
+  ::xsd::cxx::tree::one< Draw_Markers_type > Draw_Markers_;
+  ::xsd::cxx::tree::one< Contrast_Linear_type > Contrast_Linear_;
+  ::xsd::cxx::tree::one< Cardiac_YAxis_Max_type > Cardiac_YAxis_Max_;
+  ::xsd::cxx::tree::one< Cardiac_YAxis_Auto_Scale_type > Cardiac_YAxis_Auto_Scale_;
+  ::xsd::cxx::tree::one< Draw_Moving_Average_type > Draw_Moving_Average_;
+  ::xsd::cxx::tree::one< Draw_Percent_Area_type > Draw_Percent_Area_;
+  ::xsd::cxx::tree::one< Percent_Area_Thresh_type > Percent_Area_Thresh_;
+  ::xsd::cxx::tree::one< Cardiac_Display_Frame_type > Cardiac_Display_Frame_;
+};
+
+class Diag1: public ::xml_schema::type
+{
+  public:
+  // Mem-Pagefile
+  //
+  typedef ::xml_schema::string Mem_Pagefile_type;
+  typedef ::xsd::cxx::tree::traits< Mem_Pagefile_type, char > Mem_Pagefile_traits;
+
+  const Mem_Pagefile_type&
+  Mem_Pagefile () const;
+
+  Mem_Pagefile_type&
+  Mem_Pagefile ();
+
+  void
+  Mem_Pagefile (const Mem_Pagefile_type& x);
+
+  void
+  Mem_Pagefile (::std::auto_ptr< Mem_Pagefile_type > p);
+
+  // Monitor-3point3V
+  //
+  typedef ::xml_schema::string Monitor_3point3V_type;
+  typedef ::xsd::cxx::tree::traits< Monitor_3point3V_type, char > Monitor_3point3V_traits;
+
+  const Monitor_3point3V_type&
+  Monitor_3point3V () const;
+
+  Monitor_3point3V_type&
+  Monitor_3point3V ();
+
+  void
+  Monitor_3point3V (const Monitor_3point3V_type& x);
+
+  void
+  Monitor_3point3V (::std::auto_ptr< Monitor_3point3V_type > p);
+
+  // USER-Objects
+  //
+  typedef ::xml_schema::string USER_Objects_type;
+  typedef ::xsd::cxx::tree::traits< USER_Objects_type, char > USER_Objects_traits;
+
+  const USER_Objects_type&
+  USER_Objects () const;
+
+  USER_Objects_type&
+  USER_Objects ();
+
+  void
+  USER_Objects (const USER_Objects_type& x);
+
+  void
+  USER_Objects (::std::auto_ptr< USER_Objects_type > p);
+
+  // Motor-FPGA-Revision
+  //
+  typedef ::xml_schema::string Motor_FPGA_Revision_type;
+  typedef ::xsd::cxx::tree::traits< Motor_FPGA_Revision_type, char > Motor_FPGA_Revision_traits;
+
+  const Motor_FPGA_Revision_type&
+  Motor_FPGA_Revision () const;
+
+  Motor_FPGA_Revision_type&
+  Motor_FPGA_Revision ();
+
+  void
+  Motor_FPGA_Revision (const Motor_FPGA_Revision_type& x);
+
+  void
+  Motor_FPGA_Revision (::std::auto_ptr< Motor_FPGA_Revision_type > p);
+
+  // Product-Name
+  //
+  typedef ::xml_schema::string Product_Name_type;
+  typedef ::xsd::cxx::tree::traits< Product_Name_type, char > Product_Name_traits;
+
+  const Product_Name_type&
+  Product_Name () const;
+
+  Product_Name_type&
+  Product_Name ();
+
+  void
+  Product_Name (const Product_Name_type& x);
+
+  void
+  Product_Name (::std::auto_ptr< Product_Name_type > p);
+
+  // Build-Version
+  //
+  typedef ::xml_schema::string Build_Version_type;
+  typedef ::xsd::cxx::tree::traits< Build_Version_type, char > Build_Version_traits;
+
+  const Build_Version_type&
+  Build_Version () const;
+
+  Build_Version_type&
+  Build_Version ();
+
+  void
+  Build_Version (const Build_Version_type& x);
+
+  void
+  Build_Version (::std::auto_ptr< Build_Version_type > p);
+
+  // ICB-PCB-ID
+  //
+  typedef ::xml_schema::string ICB_PCB_ID_type;
+  typedef ::xsd::cxx::tree::traits< ICB_PCB_ID_type, char > ICB_PCB_ID_traits;
+
+  const ICB_PCB_ID_type&
+  ICB_PCB_ID () const;
+
+  ICB_PCB_ID_type&
+  ICB_PCB_ID ();
+
+  void
+  ICB_PCB_ID (const ICB_PCB_ID_type& x);
+
+  void
+  ICB_PCB_ID (::std::auto_ptr< ICB_PCB_ID_type > p);
+
+  // Software-Version
+  //
+  typedef ::xml_schema::string Software_Version_type;
+  typedef ::xsd::cxx::tree::traits< Software_Version_type, char > Software_Version_traits;
+
+  const Software_Version_type&
+  Software_Version () const;
+
+  Software_Version_type&
+  Software_Version ();
+
+  void
+  Software_Version (const Software_Version_type& x);
+
+  void
+  Software_Version (::std::auto_ptr< Software_Version_type > p);
+
+  // Receive-PCB-ID
+  //
+  typedef ::xml_schema::string Receive_PCB_ID_type;
+  typedef ::xsd::cxx::tree::traits< Receive_PCB_ID_type, char > Receive_PCB_ID_traits;
+
+  const Receive_PCB_ID_type&
+  Receive_PCB_ID () const;
+
+  Receive_PCB_ID_type&
+  Receive_PCB_ID ();
+
+  void
+  Receive_PCB_ID (const Receive_PCB_ID_type& x);
+
+  void
+  Receive_PCB_ID (::std::auto_ptr< Receive_PCB_ID_type > p);
+
+  // Mem-Private
+  //
+  typedef ::xml_schema::string Mem_Private_type;
+  typedef ::xsd::cxx::tree::traits< Mem_Private_type, char > Mem_Private_traits;
+
+  const Mem_Private_type&
+  Mem_Private () const;
+
+  Mem_Private_type&
+  Mem_Private ();
+
+  void
+  Mem_Private (const Mem_Private_type& x);
+
+  void
+  Mem_Private (::std::auto_ptr< Mem_Private_type > p);
+
+  // Monitor-5V
+  //
+  typedef ::xml_schema::string Monitor_5V_type;
+  typedef ::xsd::cxx::tree::traits< Monitor_5V_type, char > Monitor_5V_traits;
+
+  const Monitor_5V_type&
+  Monitor_5V () const;
+
+  Monitor_5V_type&
+  Monitor_5V ();
+
+  void
+  Monitor_5V (const Monitor_5V_type& x);
+
+  void
+  Monitor_5V (::std::auto_ptr< Monitor_5V_type > p);
+
+  // Motor-PCB-Revision
+  //
+  typedef ::xml_schema::string Motor_PCB_Revision_type;
+  typedef ::xsd::cxx::tree::traits< Motor_PCB_Revision_type, char > Motor_PCB_Revision_traits;
+
+  const Motor_PCB_Revision_type&
+  Motor_PCB_Revision () const;
+
+  Motor_PCB_Revision_type&
+  Motor_PCB_Revision ();
+
+  void
+  Motor_PCB_Revision (const Motor_PCB_Revision_type& x);
+
+  void
+  Motor_PCB_Revision (::std::auto_ptr< Motor_PCB_Revision_type > p);
+
+  // NE1619
+  //
+  typedef ::xml_schema::string NE1619_type;
+  typedef ::xsd::cxx::tree::traits< NE1619_type, char > NE1619_traits;
+
+  const NE1619_type&
+  NE1619 () const;
+
+  NE1619_type&
+  NE1619 ();
+
+  void
+  NE1619 (const NE1619_type& x);
+
+  void
+  NE1619 (::std::auto_ptr< NE1619_type > p);
+
+  // Motor-PCB-ID
+  //
+  typedef ::xml_schema::string Motor_PCB_ID_type;
+  typedef ::xsd::cxx::tree::traits< Motor_PCB_ID_type, char > Motor_PCB_ID_traits;
+
+  const Motor_PCB_ID_type&
+  Motor_PCB_ID () const;
+
+  Motor_PCB_ID_type&
+  Motor_PCB_ID ();
+
+  void
+  Motor_PCB_ID (const Motor_PCB_ID_type& x);
+
+  void
+  Motor_PCB_ID (::std::auto_ptr< Motor_PCB_ID_type > p);
+
+  // Transmit-PCB-Revision
+  //
+  typedef ::xml_schema::string Transmit_PCB_Revision_type;
+  typedef ::xsd::cxx::tree::traits< Transmit_PCB_Revision_type, char > Transmit_PCB_Revision_traits;
+
+  const Transmit_PCB_Revision_type&
+  Transmit_PCB_Revision () const;
+
+  Transmit_PCB_Revision_type&
+  Transmit_PCB_Revision ();
+
+  void
+  Transmit_PCB_Revision (const Transmit_PCB_Revision_type& x);
+
+  void
+  Transmit_PCB_Revision (::std::auto_ptr< Transmit_PCB_Revision_type > p);
+
+  // MAX1137
+  //
+  typedef ::xml_schema::string MAX1137_type;
+  typedef ::xsd::cxx::tree::traits< MAX1137_type, char > MAX1137_traits;
+
+  const MAX1137_type&
+  MAX1137 () const;
+
+  MAX1137_type&
+  MAX1137 ();
+
+  void
+  MAX1137 (const MAX1137_type& x);
+
+  void
+  MAX1137 (::std::auto_ptr< MAX1137_type > p);
+
+  // Monitor-Neg15V
+  //
+  typedef ::xml_schema::string Monitor_Neg15V_type;
+  typedef ::xsd::cxx::tree::traits< Monitor_Neg15V_type, char > Monitor_Neg15V_traits;
+
+  const Monitor_Neg15V_type&
+  Monitor_Neg15V () const;
+
+  Monitor_Neg15V_type&
+  Monitor_Neg15V ();
+
+  void
+  Monitor_Neg15V (const Monitor_Neg15V_type& x);
+
+  void
+  Monitor_Neg15V (::std::auto_ptr< Monitor_Neg15V_type > p);
+
+  // Monitor-Neg5V
+  //
+  typedef ::xml_schema::string Monitor_Neg5V_type;
+  typedef ::xsd::cxx::tree::traits< Monitor_Neg5V_type, char > Monitor_Neg5V_traits;
+
+  const Monitor_Neg5V_type&
+  Monitor_Neg5V () const;
+
+  Monitor_Neg5V_type&
+  Monitor_Neg5V ();
+
+  void
+  Monitor_Neg5V (const Monitor_Neg5V_type& x);
+
+  void
+  Monitor_Neg5V (::std::auto_ptr< Monitor_Neg5V_type > p);
+
+  // Switch-PCB-Revision
+  //
+  typedef ::xml_schema::string Switch_PCB_Revision_type;
+  typedef ::xsd::cxx::tree::traits< Switch_PCB_Revision_type, char > Switch_PCB_Revision_traits;
+
+  const Switch_PCB_Revision_type&
+  Switch_PCB_Revision () const;
+
+  Switch_PCB_Revision_type&
+  Switch_PCB_Revision ();
+
+  void
+  Switch_PCB_Revision (const Switch_PCB_Revision_type& x);
+
+  void
+  Switch_PCB_Revision (::std::auto_ptr< Switch_PCB_Revision_type > p);
+
+  // Receive-PCB-Revision
+  //
+  typedef ::xml_schema::string Receive_PCB_Revision_type;
+  typedef ::xsd::cxx::tree::traits< Receive_PCB_Revision_type, char > Receive_PCB_Revision_traits;
+
+  const Receive_PCB_Revision_type&
+  Receive_PCB_Revision () const;
+
+  Receive_PCB_Revision_type&
+  Receive_PCB_Revision ();
+
+  void
+  Receive_PCB_Revision (const Receive_PCB_Revision_type& x);
+
+  void
+  Receive_PCB_Revision (::std::auto_ptr< Receive_PCB_Revision_type > p);
+
+  // ICB-PCB-Revision
+  //
+  typedef ::xml_schema::string ICB_PCB_Revision_type;
+  typedef ::xsd::cxx::tree::traits< ICB_PCB_Revision_type, char > ICB_PCB_Revision_traits;
+
+  const ICB_PCB_Revision_type&
+  ICB_PCB_Revision () const;
+
+  ICB_PCB_Revision_type&
+  ICB_PCB_Revision ();
+
+  void
+  ICB_PCB_Revision (const ICB_PCB_Revision_type& x);
+
+  void
+  ICB_PCB_Revision (::std::auto_ptr< ICB_PCB_Revision_type > p);
+
+  // Transmit-PCB-ID
+  //
+  typedef ::xml_schema::string Transmit_PCB_ID_type;
+  typedef ::xsd::cxx::tree::traits< Transmit_PCB_ID_type, char > Transmit_PCB_ID_traits;
+
+  const Transmit_PCB_ID_type&
+  Transmit_PCB_ID () const;
+
+  Transmit_PCB_ID_type&
+  Transmit_PCB_ID ();
+
+  void
+  Transmit_PCB_ID (const Transmit_PCB_ID_type& x);
+
+  void
+  Transmit_PCB_ID (::std::auto_ptr< Transmit_PCB_ID_type > p);
+
+  // Monitor-Temperature
+  //
+  typedef ::xml_schema::string Monitor_Temperature_type;
+  typedef ::xsd::cxx::tree::traits< Monitor_Temperature_type, char > Monitor_Temperature_traits;
+
+  const Monitor_Temperature_type&
+  Monitor_Temperature () const;
+
+  Monitor_Temperature_type&
+  Monitor_Temperature ();
+
+  void
+  Monitor_Temperature (const Monitor_Temperature_type& x);
+
+  void
+  Monitor_Temperature (::std::auto_ptr< Monitor_Temperature_type > p);
+
+  // Receive-FPGA-Revision
+  //
+  typedef ::xml_schema::string Receive_FPGA_Revision_type;
+  typedef ::xsd::cxx::tree::traits< Receive_FPGA_Revision_type, char > Receive_FPGA_Revision_traits;
+
+  const Receive_FPGA_Revision_type&
+  Receive_FPGA_Revision () const;
+
+  Receive_FPGA_Revision_type&
+  Receive_FPGA_Revision ();
+
+  void
+  Receive_FPGA_Revision (const Receive_FPGA_Revision_type& x);
+
+  void
+  Receive_FPGA_Revision (::std::auto_ptr< Receive_FPGA_Revision_type > p);
+
+  // Monitor-15V
+  //
+  typedef ::xml_schema::string Monitor_15V_type;
+  typedef ::xsd::cxx::tree::traits< Monitor_15V_type, char > Monitor_15V_traits;
+
+  const Monitor_15V_type&
+  Monitor_15V () const;
+
+  Monitor_15V_type&
+  Monitor_15V ();
+
+  void
+  Monitor_15V (const Monitor_15V_type& x);
+
+  void
+  Monitor_15V (::std::auto_ptr< Monitor_15V_type > p);
+
+  // ICB-FPGA-Revision
+  //
+  typedef ::xml_schema::string ICB_FPGA_Revision_type;
+  typedef ::xsd::cxx::tree::traits< ICB_FPGA_Revision_type, char > ICB_FPGA_Revision_traits;
+
+  const ICB_FPGA_Revision_type&
+  ICB_FPGA_Revision () const;
+
+  ICB_FPGA_Revision_type&
+  ICB_FPGA_Revision ();
+
+  void
+  ICB_FPGA_Revision (const ICB_FPGA_Revision_type& x);
+
+  void
+  ICB_FPGA_Revision (::std::auto_ptr< ICB_FPGA_Revision_type > p);
+
+  // GDI-Objects
+  //
+  typedef ::xml_schema::string GDI_Objects_type;
+  typedef ::xsd::cxx::tree::traits< GDI_Objects_type, char > GDI_Objects_traits;
+
+  const GDI_Objects_type&
+  GDI_Objects () const;
+
+  GDI_Objects_type&
+  GDI_Objects ();
+
+  void
+  GDI_Objects (const GDI_Objects_type& x);
+
+  void
+  GDI_Objects (::std::auto_ptr< GDI_Objects_type > p);
+
+  // Mem-WorkingSet
+  //
+  typedef ::xml_schema::string Mem_WorkingSet_type;
+  typedef ::xsd::cxx::tree::traits< Mem_WorkingSet_type, char > Mem_WorkingSet_traits;
+
+  const Mem_WorkingSet_type&
+  Mem_WorkingSet () const;
+
+  Mem_WorkingSet_type&
+  Mem_WorkingSet ();
+
+  void
+  Mem_WorkingSet (const Mem_WorkingSet_type& x);
+
+  void
+  Mem_WorkingSet (::std::auto_ptr< Mem_WorkingSet_type > p);
+
+  // Switch-PCB-ID
+  //
+  typedef ::xml_schema::string Switch_PCB_ID_type;
+  typedef ::xsd::cxx::tree::traits< Switch_PCB_ID_type, char > Switch_PCB_ID_traits;
+
+  const Switch_PCB_ID_type&
+  Switch_PCB_ID () const;
+
+  Switch_PCB_ID_type&
+  Switch_PCB_ID ();
+
+  void
+  Switch_PCB_ID (const Switch_PCB_ID_type& x);
+
+  void
+  Switch_PCB_ID (::std::auto_ptr< Switch_PCB_ID_type > p);
+
+  // Constructors.
+  //
+  Diag1 (const Mem_Pagefile_type&,
+         const Monitor_3point3V_type&,
+         const USER_Objects_type&,
+         const Motor_FPGA_Revision_type&,
+         const Product_Name_type&,
+         const Build_Version_type&,
+         const ICB_PCB_ID_type&,
+         const Software_Version_type&,
+         const Receive_PCB_ID_type&,
+         const Mem_Private_type&,
+         const Monitor_5V_type&,
+         const Motor_PCB_Revision_type&,
+         const NE1619_type&,
+         const Motor_PCB_ID_type&,
+         const Transmit_PCB_Revision_type&,
+         const MAX1137_type&,
+         const Monitor_Neg15V_type&,
+         const Monitor_Neg5V_type&,
+         const Switch_PCB_Revision_type&,
+         const Receive_PCB_Revision_type&,
+         const ICB_PCB_Revision_type&,
+         const Transmit_PCB_ID_type&,
+         const Monitor_Temperature_type&,
+         const Receive_FPGA_Revision_type&,
+         const Monitor_15V_type&,
+         const ICB_FPGA_Revision_type&,
+         const GDI_Objects_type&,
+         const Mem_WorkingSet_type&,
+         const Switch_PCB_ID_type&);
+
+  Diag1 (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  Diag1 (const Diag1& x,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  virtual Diag1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Diag1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Mem_Pagefile_type > Mem_Pagefile_;
+  ::xsd::cxx::tree::one< Monitor_3point3V_type > Monitor_3point3V_;
+  ::xsd::cxx::tree::one< USER_Objects_type > USER_Objects_;
+  ::xsd::cxx::tree::one< Motor_FPGA_Revision_type > Motor_FPGA_Revision_;
+  ::xsd::cxx::tree::one< Product_Name_type > Product_Name_;
+  ::xsd::cxx::tree::one< Build_Version_type > Build_Version_;
+  ::xsd::cxx::tree::one< ICB_PCB_ID_type > ICB_PCB_ID_;
+  ::xsd::cxx::tree::one< Software_Version_type > Software_Version_;
+  ::xsd::cxx::tree::one< Receive_PCB_ID_type > Receive_PCB_ID_;
+  ::xsd::cxx::tree::one< Mem_Private_type > Mem_Private_;
+  ::xsd::cxx::tree::one< Monitor_5V_type > Monitor_5V_;
+  ::xsd::cxx::tree::one< Motor_PCB_Revision_type > Motor_PCB_Revision_;
+  ::xsd::cxx::tree::one< NE1619_type > NE1619_;
+  ::xsd::cxx::tree::one< Motor_PCB_ID_type > Motor_PCB_ID_;
+  ::xsd::cxx::tree::one< Transmit_PCB_Revision_type > Transmit_PCB_Revision_;
+  ::xsd::cxx::tree::one< MAX1137_type > MAX1137_;
+  ::xsd::cxx::tree::one< Monitor_Neg15V_type > Monitor_Neg15V_;
+  ::xsd::cxx::tree::one< Monitor_Neg5V_type > Monitor_Neg5V_;
+  ::xsd::cxx::tree::one< Switch_PCB_Revision_type > Switch_PCB_Revision_;
+  ::xsd::cxx::tree::one< Receive_PCB_Revision_type > Receive_PCB_Revision_;
+  ::xsd::cxx::tree::one< ICB_PCB_Revision_type > ICB_PCB_Revision_;
+  ::xsd::cxx::tree::one< Transmit_PCB_ID_type > Transmit_PCB_ID_;
+  ::xsd::cxx::tree::one< Monitor_Temperature_type > Monitor_Temperature_;
+  ::xsd::cxx::tree::one< Receive_FPGA_Revision_type > Receive_FPGA_Revision_;
+  ::xsd::cxx::tree::one< Monitor_15V_type > Monitor_15V_;
+  ::xsd::cxx::tree::one< ICB_FPGA_Revision_type > ICB_FPGA_Revision_;
+  ::xsd::cxx::tree::one< GDI_Objects_type > GDI_Objects_;
+  ::xsd::cxx::tree::one< Mem_WorkingSet_type > Mem_WorkingSet_;
+  ::xsd::cxx::tree::one< Switch_PCB_ID_type > Switch_PCB_ID_;
+};
+
+class ECG1: public ::xml_schema::type
+{
+  public:
+  // Respiration-Threshold-Change
+  //
+  typedef ::xml_schema::string Respiration_Threshold_Change_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Threshold_Change_type, char > Respiration_Threshold_Change_traits;
+
+  const Respiration_Threshold_Change_type&
+  Respiration_Threshold_Change () const;
+
+  Respiration_Threshold_Change_type&
+  Respiration_Threshold_Change ();
+
+  void
+  Respiration_Threshold_Change (const Respiration_Threshold_Change_type& x);
+
+  void
+  Respiration_Threshold_Change (::std::auto_ptr< Respiration_Threshold_Change_type > p);
+
+  // Respiration-Threshold
+  //
+  typedef ::xml_schema::string Respiration_Threshold_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Threshold_type, char > Respiration_Threshold_traits;
+
+  const Respiration_Threshold_type&
+  Respiration_Threshold () const;
+
+  Respiration_Threshold_type&
+  Respiration_Threshold ();
+
+  void
+  Respiration_Threshold (const Respiration_Threshold_type& x);
+
+  void
+  Respiration_Threshold (::std::auto_ptr< Respiration_Threshold_type > p);
+
+  // Pressure-Range
+  //
+  typedef ::xml_schema::string Pressure_Range_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Range_type, char > Pressure_Range_traits;
+
+  const Pressure_Range_type&
+  Pressure_Range () const;
+
+  Pressure_Range_type&
+  Pressure_Range ();
+
+  void
+  Pressure_Range (const Pressure_Range_type& x);
+
+  void
+  Pressure_Range (::std::auto_ptr< Pressure_Range_type > p);
+
+  // Respiration-Gate-Delay
+  //
+  typedef ::xml_schema::string Respiration_Gate_Delay_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Gate_Delay_type, char > Respiration_Gate_Delay_traits;
+
+  const Respiration_Gate_Delay_type&
+  Respiration_Gate_Delay () const;
+
+  Respiration_Gate_Delay_type&
+  Respiration_Gate_Delay ();
+
+  void
+  Respiration_Gate_Delay (const Respiration_Gate_Delay_type& x);
+
+  void
+  Respiration_Gate_Delay (::std::auto_ptr< Respiration_Gate_Delay_type > p);
+
+  // Respiration-Timeout
+  //
+  typedef ::xml_schema::string Respiration_Timeout_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Timeout_type, char > Respiration_Timeout_traits;
+
+  const Respiration_Timeout_type&
+  Respiration_Timeout () const;
+
+  Respiration_Timeout_type&
+  Respiration_Timeout ();
+
+  void
+  Respiration_Timeout (const Respiration_Timeout_type& x);
+
+  void
+  Respiration_Timeout (::std::auto_ptr< Respiration_Timeout_type > p);
+
+  // RWave-Max-Change-Factor-Percent
+  //
+  typedef ::xml_schema::string RWave_Max_Change_Factor_Percent_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Max_Change_Factor_Percent_type, char > RWave_Max_Change_Factor_Percent_traits;
+
+  const RWave_Max_Change_Factor_Percent_type&
+  RWave_Max_Change_Factor_Percent () const;
+
+  RWave_Max_Change_Factor_Percent_type&
+  RWave_Max_Change_Factor_Percent ();
+
+  void
+  RWave_Max_Change_Factor_Percent (const RWave_Max_Change_Factor_Percent_type& x);
+
+  void
+  RWave_Max_Change_Factor_Percent (::std::auto_ptr< RWave_Max_Change_Factor_Percent_type > p);
+
+  // Respiration-Period
+  //
+  typedef ::xml_schema::string Respiration_Period_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Period_type, char > Respiration_Period_traits;
+
+  const Respiration_Period_type&
+  Respiration_Period () const;
+
+  Respiration_Period_type&
+  Respiration_Period ();
+
+  void
+  Respiration_Period (const Respiration_Period_type& x);
+
+  void
+  Respiration_Period (::std::auto_ptr< Respiration_Period_type > p);
+
+  // Respiration-Subsample-Rate
+  //
+  typedef ::xml_schema::string Respiration_Subsample_Rate_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Subsample_Rate_type, char > Respiration_Subsample_Rate_traits;
+
+  const Respiration_Subsample_Rate_type&
+  Respiration_Subsample_Rate () const;
+
+  Respiration_Subsample_Rate_type&
+  Respiration_Subsample_Rate ();
+
+  void
+  Respiration_Subsample_Rate (const Respiration_Subsample_Rate_type& x);
+
+  void
+  Respiration_Subsample_Rate (::std::auto_ptr< Respiration_Subsample_Rate_type > p);
+
+  // Show-RWaves
+  //
+  typedef ::xml_schema::string Show_RWaves_type;
+  typedef ::xsd::cxx::tree::traits< Show_RWaves_type, char > Show_RWaves_traits;
+
+  const Show_RWaves_type&
+  Show_RWaves () const;
+
+  Show_RWaves_type&
+  Show_RWaves ();
+
+  void
+  Show_RWaves (const Show_RWaves_type& x);
+
+  void
+  Show_RWaves (::std::auto_ptr< Show_RWaves_type > p);
+
+  // Respiration-Minimal-Peak-2-Peak
+  //
+  typedef ::xml_schema::string Respiration_Minimal_Peak_2_Peak_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Minimal_Peak_2_Peak_type, char > Respiration_Minimal_Peak_2_Peak_traits;
+
+  const Respiration_Minimal_Peak_2_Peak_type&
+  Respiration_Minimal_Peak_2_Peak () const;
+
+  Respiration_Minimal_Peak_2_Peak_type&
+  Respiration_Minimal_Peak_2_Peak ();
+
+  void
+  Respiration_Minimal_Peak_2_Peak (const Respiration_Minimal_Peak_2_Peak_type& x);
+
+  void
+  Respiration_Minimal_Peak_2_Peak (::std::auto_ptr< Respiration_Minimal_Peak_2_Peak_type > p);
+
+  // Respiration-Window
+  //
+  typedef ::xml_schema::string Respiration_Window_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Window_type, char > Respiration_Window_traits;
+
+  const Respiration_Window_type&
+  Respiration_Window () const;
+
+  Respiration_Window_type&
+  Respiration_Window ();
+
+  void
+  Respiration_Window (const Respiration_Window_type& x);
+
+  void
+  Respiration_Window (::std::auto_ptr< Respiration_Window_type > p);
+
+  // Pressure-Zeroed
+  //
+  typedef ::xml_schema::string Pressure_Zeroed_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Zeroed_type, char > Pressure_Zeroed_traits;
+
+  const Pressure_Zeroed_type&
+  Pressure_Zeroed () const;
+
+  Pressure_Zeroed_type&
+  Pressure_Zeroed ();
+
+  void
+  Pressure_Zeroed (const Pressure_Zeroed_type& x);
+
+  void
+  Pressure_Zeroed (::std::auto_ptr< Pressure_Zeroed_type > p);
+
+  // Pressure-Systolic
+  //
+  typedef ::xml_schema::string Pressure_Systolic_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Systolic_type, char > Pressure_Systolic_traits;
+
+  const Pressure_Systolic_type&
+  Pressure_Systolic () const;
+
+  Pressure_Systolic_type&
+  Pressure_Systolic ();
+
+  void
+  Pressure_Systolic (const Pressure_Systolic_type& x);
+
+  void
+  Pressure_Systolic (::std::auto_ptr< Pressure_Systolic_type > p);
+
+  // Respiration-Show-Window
+  //
+  typedef ::xml_schema::string Respiration_Show_Window_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Show_Window_type, char > Respiration_Show_Window_traits;
+
+  const Respiration_Show_Window_type&
+  Respiration_Show_Window () const;
+
+  Respiration_Show_Window_type&
+  Respiration_Show_Window ();
+
+  void
+  Respiration_Show_Window (const Respiration_Show_Window_type& x);
+
+  void
+  Respiration_Show_Window (::std::auto_ptr< Respiration_Show_Window_type > p);
+
+  // Frequency
+  //
+  typedef ::xml_schema::string Frequency_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
+
+  const Frequency_type&
+  Frequency () const;
+
+  Frequency_type&
+  Frequency ();
+
+  void
+  Frequency (const Frequency_type& x);
+
+  void
+  Frequency (::std::auto_ptr< Frequency_type > p);
+
+  // Respiration-Blank-Period
+  //
+  typedef ::xml_schema::string Respiration_Blank_Period_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Blank_Period_type, char > Respiration_Blank_Period_traits;
+
+  const Respiration_Blank_Period_type&
+  Respiration_Blank_Period () const;
+
+  Respiration_Blank_Period_type&
+  Respiration_Blank_Period ();
+
+  void
+  Respiration_Blank_Period (const Respiration_Blank_Period_type& x);
+
+  void
+  Respiration_Blank_Period (::std::auto_ptr< Respiration_Blank_Period_type > p);
+
+  // Respiration-Range
+  //
+  typedef ::xml_schema::string Respiration_Range_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Range_type, char > Respiration_Range_traits;
+
+  const Respiration_Range_type&
+  Respiration_Range () const;
+
+  Respiration_Range_type&
+  Respiration_Range ();
+
+  void
+  Respiration_Range (const Respiration_Range_type& x);
+
+  void
+  Respiration_Range (::std::auto_ptr< Respiration_Range_type > p);
+
+  // Pressure-Zero
+  //
+  typedef ::xml_schema::string Pressure_Zero_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Zero_type, char > Pressure_Zero_traits;
+
+  const Pressure_Zero_type&
+  Pressure_Zero () const;
+
+  Pressure_Zero_type&
+  Pressure_Zero ();
+
+  void
+  Pressure_Zero (const Pressure_Zero_type& x);
+
+  void
+  Pressure_Zero (::std::auto_ptr< Pressure_Zero_type > p);
+
+  // Temperature-Amplification
+  //
+  typedef ::xml_schema::string Temperature_Amplification_type;
+  typedef ::xsd::cxx::tree::traits< Temperature_Amplification_type, char > Temperature_Amplification_traits;
+
+  const Temperature_Amplification_type&
+  Temperature_Amplification () const;
+
+  Temperature_Amplification_type&
+  Temperature_Amplification ();
+
+  void
+  Temperature_Amplification (const Temperature_Amplification_type& x);
+
+  void
+  Temperature_Amplification (::std::auto_ptr< Temperature_Amplification_type > p);
+
+  // P-Wave-Start
+  //
+  typedef ::xml_schema::string P_Wave_Start_type;
+  typedef ::xsd::cxx::tree::traits< P_Wave_Start_type, char > P_Wave_Start_traits;
+
+  const P_Wave_Start_type&
+  P_Wave_Start () const;
+
+  P_Wave_Start_type&
+  P_Wave_Start ();
+
+  void
+  P_Wave_Start (const P_Wave_Start_type& x);
+
+  void
+  P_Wave_Start (::std::auto_ptr< P_Wave_Start_type > p);
+
+  // ECG-Filter-Taps
+  //
+  typedef ::xml_schema::string ECG_Filter_Taps_type;
+  typedef ::xsd::cxx::tree::traits< ECG_Filter_Taps_type, char > ECG_Filter_Taps_traits;
+
+  const ECG_Filter_Taps_type&
+  ECG_Filter_Taps () const;
+
+  ECG_Filter_Taps_type&
+  ECG_Filter_Taps ();
+
+  void
+  ECG_Filter_Taps (const ECG_Filter_Taps_type& x);
+
+  void
+  ECG_Filter_Taps (::std::auto_ptr< ECG_Filter_Taps_type > p);
+
+  // Respiration-Percent-Peak
+  //
+  typedef ::xml_schema::string Respiration_Percent_Peak_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Percent_Peak_type, char > Respiration_Percent_Peak_traits;
+
+  const Respiration_Percent_Peak_type&
+  Respiration_Percent_Peak () const;
+
+  Respiration_Percent_Peak_type&
+  Respiration_Percent_Peak ();
+
+  void
+  Respiration_Percent_Peak (const Respiration_Percent_Peak_type& x);
+
+  void
+  Respiration_Percent_Peak (::std::auto_ptr< Respiration_Percent_Peak_type > p);
+
+  // T-Wave-Start
+  //
+  typedef ::xml_schema::string T_Wave_Start_type;
+  typedef ::xsd::cxx::tree::traits< T_Wave_Start_type, char > T_Wave_Start_traits;
+
+  const T_Wave_Start_type&
+  T_Wave_Start () const;
+
+  T_Wave_Start_type&
+  T_Wave_Start ();
+
+  void
+  T_Wave_Start (const T_Wave_Start_type& x);
+
+  void
+  T_Wave_Start (::std::auto_ptr< T_Wave_Start_type > p);
+
+  // Strain-Rate-RR-Diff-Ratio
+  //
+  typedef ::xml_schema::string Strain_Rate_RR_Diff_Ratio_type;
+  typedef ::xsd::cxx::tree::traits< Strain_Rate_RR_Diff_Ratio_type, char > Strain_Rate_RR_Diff_Ratio_traits;
+
+  const Strain_Rate_RR_Diff_Ratio_type&
+  Strain_Rate_RR_Diff_Ratio () const;
+
+  Strain_Rate_RR_Diff_Ratio_type&
+  Strain_Rate_RR_Diff_Ratio ();
+
+  void
+  Strain_Rate_RR_Diff_Ratio (const Strain_Rate_RR_Diff_Ratio_type& x);
+
+  void
+  Strain_Rate_RR_Diff_Ratio (::std::auto_ptr< Strain_Rate_RR_Diff_Ratio_type > p);
+
+  // Pressure-Calibration-Min-Level
+  //
+  typedef ::xml_schema::string Pressure_Calibration_Min_Level_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Calibration_Min_Level_type, char > Pressure_Calibration_Min_Level_traits;
+
+  const Pressure_Calibration_Min_Level_type&
+  Pressure_Calibration_Min_Level () const;
+
+  Pressure_Calibration_Min_Level_type&
+  Pressure_Calibration_Min_Level ();
+
+  void
+  Pressure_Calibration_Min_Level (const Pressure_Calibration_Min_Level_type& x);
+
+  void
+  Pressure_Calibration_Min_Level (::std::auto_ptr< Pressure_Calibration_Min_Level_type > p);
+
+  // DPDT-Range
+  //
+  typedef ::xml_schema::string DPDT_Range_type;
+  typedef ::xsd::cxx::tree::traits< DPDT_Range_type, char > DPDT_Range_traits;
+
+  const DPDT_Range_type&
+  DPDT_Range () const;
+
+  DPDT_Range_type&
+  DPDT_Range ();
+
+  void
+  DPDT_Range (const DPDT_Range_type& x);
+
+  void
+  DPDT_Range (::std::auto_ptr< DPDT_Range_type > p);
+
+  // Respiration-Show-Event
+  //
+  typedef ::xml_schema::string Respiration_Show_Event_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Show_Event_type, char > Respiration_Show_Event_traits;
+
+  const Respiration_Show_Event_type&
+  Respiration_Show_Event () const;
+
+  Respiration_Show_Event_type&
+  Respiration_Show_Event ();
+
+  void
+  Respiration_Show_Event (const Respiration_Show_Event_type& x);
+
+  void
+  Respiration_Show_Event (::std::auto_ptr< Respiration_Show_Event_type > p);
+
+  // Pressure-Diastolic
+  //
+  typedef ::xml_schema::string Pressure_Diastolic_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Diastolic_type, char > Pressure_Diastolic_traits;
+
+  const Pressure_Diastolic_type&
+  Pressure_Diastolic () const;
+
+  Pressure_Diastolic_type&
+  Pressure_Diastolic ();
+
+  void
+  Pressure_Diastolic (const Pressure_Diastolic_type& x);
+
+  void
+  Pressure_Diastolic (::std::auto_ptr< Pressure_Diastolic_type > p);
+
+  // Temperature-Calibration
+  //
+  typedef ::xml_schema::string Temperature_Calibration_type;
+  typedef ::xsd::cxx::tree::traits< Temperature_Calibration_type, char > Temperature_Calibration_traits;
+
+  const Temperature_Calibration_type&
+  Temperature_Calibration () const;
+
+  Temperature_Calibration_type&
+  Temperature_Calibration ();
+
+  void
+  Temperature_Calibration (const Temperature_Calibration_type& x);
+
+  void
+  Temperature_Calibration (::std::auto_ptr< Temperature_Calibration_type > p);
+
+  // Temperature
+  //
+  typedef ::xml_schema::string Temperature_type;
+  typedef ::xsd::cxx::tree::traits< Temperature_type, char > Temperature_traits;
+
+  const Temperature_type&
+  Temperature () const;
+
+  Temperature_type&
+  Temperature ();
+
+  void
+  Temperature (const Temperature_type& x);
+
+  void
+  Temperature (::std::auto_ptr< Temperature_type > p);
+
+  // Respiration-Beats-To-Average
+  //
+  typedef ::xml_schema::string Respiration_Beats_To_Average_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Beats_To_Average_type, char > Respiration_Beats_To_Average_traits;
+
+  const Respiration_Beats_To_Average_type&
+  Respiration_Beats_To_Average () const;
+
+  Respiration_Beats_To_Average_type&
+  Respiration_Beats_To_Average ();
+
+  void
+  Respiration_Beats_To_Average (const Respiration_Beats_To_Average_type& x);
+
+  void
+  Respiration_Beats_To_Average (::std::auto_ptr< Respiration_Beats_To_Average_type > p);
+
+  // RWave-Thresh-Trigger-Percent
+  //
+  typedef ::xml_schema::string RWave_Thresh_Trigger_Percent_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Thresh_Trigger_Percent_type, char > RWave_Thresh_Trigger_Percent_traits;
+
+  const RWave_Thresh_Trigger_Percent_type&
+  RWave_Thresh_Trigger_Percent () const;
+
+  RWave_Thresh_Trigger_Percent_type&
+  RWave_Thresh_Trigger_Percent ();
+
+  void
+  RWave_Thresh_Trigger_Percent (const RWave_Thresh_Trigger_Percent_type& x);
+
+  void
+  RWave_Thresh_Trigger_Percent (::std::auto_ptr< RWave_Thresh_Trigger_Percent_type > p);
+
+  // Respiration-Time-To-Average
+  //
+  typedef ::xml_schema::string Respiration_Time_To_Average_type;
+  typedef ::xsd::cxx::tree::traits< Respiration_Time_To_Average_type, char > Respiration_Time_To_Average_traits;
+
+  const Respiration_Time_To_Average_type&
+  Respiration_Time_To_Average () const;
+
+  Respiration_Time_To_Average_type&
+  Respiration_Time_To_Average ();
+
+  void
+  Respiration_Time_To_Average (const Respiration_Time_To_Average_type& x);
+
+  void
+  Respiration_Time_To_Average (::std::auto_ptr< Respiration_Time_To_Average_type > p);
+
+  // Pressure-Amplification
+  //
+  typedef ::xml_schema::string Pressure_Amplification_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Amplification_type, char > Pressure_Amplification_traits;
+
+  const Pressure_Amplification_type&
+  Pressure_Amplification () const;
+
+  Pressure_Amplification_type&
+  Pressure_Amplification ();
+
+  void
+  Pressure_Amplification (const Pressure_Amplification_type& x);
+
+  void
+  Pressure_Amplification (::std::auto_ptr< Pressure_Amplification_type > p);
+
+  // Heart-Period
+  //
+  typedef ::xml_schema::string Heart_Period_type;
+  typedef ::xsd::cxx::tree::traits< Heart_Period_type, char > Heart_Period_traits;
+
+  const Heart_Period_type&
+  Heart_Period () const;
+
+  Heart_Period_type&
+  Heart_Period ();
+
+  void
+  Heart_Period (const Heart_Period_type& x);
+
+  void
+  Heart_Period (::std::auto_ptr< Heart_Period_type > p);
+
+  // Pressure-Show-Event
+  //
+  typedef ::xml_schema::string Pressure_Show_Event_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Show_Event_type, char > Pressure_Show_Event_traits;
+
+  const Pressure_Show_Event_type&
+  Pressure_Show_Event () const;
+
+  Pressure_Show_Event_type&
+  Pressure_Show_Event ();
+
+  void
+  Pressure_Show_Event (const Pressure_Show_Event_type& x);
+
+  void
+  Pressure_Show_Event (::std::auto_ptr< Pressure_Show_Event_type > p);
+
+  // RWave-Default-Threshold
+  //
+  typedef ::xml_schema::string RWave_Default_Threshold_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Default_Threshold_type, char > RWave_Default_Threshold_traits;
+
+  const RWave_Default_Threshold_type&
+  RWave_Default_Threshold () const;
+
+  RWave_Default_Threshold_type&
+  RWave_Default_Threshold ();
+
+  void
+  RWave_Default_Threshold (const RWave_Default_Threshold_type& x);
+
+  void
+  RWave_Default_Threshold (::std::auto_ptr< RWave_Default_Threshold_type > p);
+
+  // Show-Filtered-Data
+  //
+  typedef ::xml_schema::string Show_Filtered_Data_type;
+  typedef ::xsd::cxx::tree::traits< Show_Filtered_Data_type, char > Show_Filtered_Data_traits;
+
+  const Show_Filtered_Data_type&
+  Show_Filtered_Data () const;
+
+  Show_Filtered_Data_type&
+  Show_Filtered_Data ();
+
+  void
+  Show_Filtered_Data (const Show_Filtered_Data_type& x);
+
+  void
+  Show_Filtered_Data (::std::auto_ptr< Show_Filtered_Data_type > p);
+
+  // ECG-Range
+  //
+  typedef ::xml_schema::string ECG_Range_type;
+  typedef ::xsd::cxx::tree::traits< ECG_Range_type, char > ECG_Range_traits;
+
+  const ECG_Range_type&
+  ECG_Range () const;
+
+  ECG_Range_type&
+  ECG_Range ();
+
+  void
+  ECG_Range (const ECG_Range_type& x);
+
+  void
+  ECG_Range (::std::auto_ptr< ECG_Range_type > p);
+
+  // RWave-Maxima-Block-Time
+  //
+  typedef ::xml_schema::string RWave_Maxima_Block_Time_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Maxima_Block_Time_type, char > RWave_Maxima_Block_Time_traits;
+
+  const RWave_Maxima_Block_Time_type&
+  RWave_Maxima_Block_Time () const;
+
+  RWave_Maxima_Block_Time_type&
+  RWave_Maxima_Block_Time ();
+
+  void
+  RWave_Maxima_Block_Time (const RWave_Maxima_Block_Time_type& x);
+
+  void
+  RWave_Maxima_Block_Time (::std::auto_ptr< RWave_Maxima_Block_Time_type > p);
+
+  // RWave-Noise-Threshold
+  //
+  typedef ::xml_schema::string RWave_Noise_Threshold_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Noise_Threshold_type, char > RWave_Noise_Threshold_traits;
+
+  const RWave_Noise_Threshold_type&
+  RWave_Noise_Threshold () const;
+
+  RWave_Noise_Threshold_type&
+  RWave_Noise_Threshold ();
+
+  void
+  RWave_Noise_Threshold (const RWave_Noise_Threshold_type& x);
+
+  void
+  RWave_Noise_Threshold (::std::auto_ptr< RWave_Noise_Threshold_type > p);
+
+  // Pressure-Calibration-Level
+  //
+  typedef ::xml_schema::string Pressure_Calibration_Level_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Calibration_Level_type, char > Pressure_Calibration_Level_traits;
+
+  const Pressure_Calibration_Level_type&
+  Pressure_Calibration_Level () const;
+
+  Pressure_Calibration_Level_type&
+  Pressure_Calibration_Level ();
+
+  void
+  Pressure_Calibration_Level (const Pressure_Calibration_Level_type& x);
+
+  void
+  Pressure_Calibration_Level (::std::auto_ptr< Pressure_Calibration_Level_type > p);
+
+  // ECG-HP-Filter
+  //
+  typedef ::xml_schema::string ECG_HP_Filter_type;
+  typedef ::xsd::cxx::tree::traits< ECG_HP_Filter_type, char > ECG_HP_Filter_traits;
+
+  const ECG_HP_Filter_type&
+  ECG_HP_Filter () const;
+
+  ECG_HP_Filter_type&
+  ECG_HP_Filter ();
+
+  void
+  ECG_HP_Filter (const ECG_HP_Filter_type& x);
+
+  void
+  ECG_HP_Filter (::std::auto_ptr< ECG_HP_Filter_type > p);
+
+  // ECG-LP-Filter
+  //
+  typedef ::xml_schema::string ECG_LP_Filter_type;
+  typedef ::xsd::cxx::tree::traits< ECG_LP_Filter_type, char > ECG_LP_Filter_traits;
+
+  const ECG_LP_Filter_type&
+  ECG_LP_Filter () const;
+
+  ECG_LP_Filter_type&
+  ECG_LP_Filter ();
+
+  void
+  ECG_LP_Filter (const ECG_LP_Filter_type& x);
+
+  void
+  ECG_LP_Filter (::std::auto_ptr< ECG_LP_Filter_type > p);
+
+  // RWave-Max-Change-Period
+  //
+  typedef ::xml_schema::string RWave_Max_Change_Period_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Max_Change_Period_type, char > RWave_Max_Change_Period_traits;
+
+  const RWave_Max_Change_Period_type&
+  RWave_Max_Change_Period () const;
+
+  RWave_Max_Change_Period_type&
+  RWave_Max_Change_Period ();
+
+  void
+  RWave_Max_Change_Period (const RWave_Max_Change_Period_type& x);
+
+  void
+  RWave_Max_Change_Period (::std::auto_ptr< RWave_Max_Change_Period_type > p);
+
+  // Pressure-Time-Out
+  //
+  typedef ::xml_schema::string Pressure_Time_Out_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Time_Out_type, char > Pressure_Time_Out_traits;
+
+  const Pressure_Time_Out_type&
+  Pressure_Time_Out () const;
+
+  Pressure_Time_Out_type&
+  Pressure_Time_Out ();
+
+  void
+  Pressure_Time_Out (const Pressure_Time_Out_type& x);
+
+  void
+  Pressure_Time_Out (::std::auto_ptr< Pressure_Time_Out_type > p);
+
+  // Pressure-Calibration
+  //
+  typedef ::xml_schema::string Pressure_Calibration_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Calibration_type, char > Pressure_Calibration_traits;
+
+  const Pressure_Calibration_type&
+  Pressure_Calibration () const;
+
+  Pressure_Calibration_type&
+  Pressure_Calibration ();
+
+  void
+  Pressure_Calibration (const Pressure_Calibration_type& x);
+
+  void
+  Pressure_Calibration (::std::auto_ptr< Pressure_Calibration_type > p);
+
+  // RWave-Blank-Time
+  //
+  typedef ::xml_schema::string RWave_Blank_Time_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Blank_Time_type, char > RWave_Blank_Time_traits;
+
+  const RWave_Blank_Time_type&
+  RWave_Blank_Time () const;
+
+  RWave_Blank_Time_type&
+  RWave_Blank_Time ();
+
+  void
+  RWave_Blank_Time (const RWave_Blank_Time_type& x);
+
+  void
+  RWave_Blank_Time (::std::auto_ptr< RWave_Blank_Time_type > p);
+
+  // RWave-Future-Search-Time
+  //
+  typedef ::xml_schema::string RWave_Future_Search_Time_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Future_Search_Time_type, char > RWave_Future_Search_Time_traits;
+
+  const RWave_Future_Search_Time_type&
+  RWave_Future_Search_Time () const;
+
+  RWave_Future_Search_Time_type&
+  RWave_Future_Search_Time ();
+
+  void
+  RWave_Future_Search_Time (const RWave_Future_Search_Time_type& x);
+
+  void
+  RWave_Future_Search_Time (::std::auto_ptr< RWave_Future_Search_Time_type > p);
+
+  // Pressure-Calibrated
+  //
+  typedef ::xml_schema::string Pressure_Calibrated_type;
+  typedef ::xsd::cxx::tree::traits< Pressure_Calibrated_type, char > Pressure_Calibrated_traits;
+
+  const Pressure_Calibrated_type&
+  Pressure_Calibrated () const;
+
+  Pressure_Calibrated_type&
+  Pressure_Calibrated ();
+
+  void
+  Pressure_Calibrated (const Pressure_Calibrated_type& x);
+
+  void
+  Pressure_Calibrated (::std::auto_ptr< Pressure_Calibrated_type > p);
+
+  // Constructors.
+  //
+  ECG1 (const Respiration_Threshold_Change_type&,
+        const Respiration_Threshold_type&,
+        const Pressure_Range_type&,
+        const Respiration_Gate_Delay_type&,
+        const Respiration_Timeout_type&,
+        const RWave_Max_Change_Factor_Percent_type&,
+        const Respiration_Period_type&,
+        const Respiration_Subsample_Rate_type&,
+        const Show_RWaves_type&,
+        const Respiration_Minimal_Peak_2_Peak_type&,
+        const Respiration_Window_type&,
+        const Pressure_Zeroed_type&,
+        const Pressure_Systolic_type&,
+        const Respiration_Show_Window_type&,
+        const Frequency_type&,
+        const Respiration_Blank_Period_type&,
+        const Respiration_Range_type&,
+        const Pressure_Zero_type&,
+        const Temperature_Amplification_type&,
+        const P_Wave_Start_type&,
+        const ECG_Filter_Taps_type&,
+        const Respiration_Percent_Peak_type&,
+        const T_Wave_Start_type&,
+        const Strain_Rate_RR_Diff_Ratio_type&,
+        const Pressure_Calibration_Min_Level_type&,
+        const DPDT_Range_type&,
+        const Respiration_Show_Event_type&,
+        const Pressure_Diastolic_type&,
+        const Temperature_Calibration_type&,
+        const Temperature_type&,
+        const Respiration_Beats_To_Average_type&,
+        const RWave_Thresh_Trigger_Percent_type&,
+        const Respiration_Time_To_Average_type&,
+        const Pressure_Amplification_type&,
+        const Heart_Period_type&,
+        const Pressure_Show_Event_type&,
+        const RWave_Default_Threshold_type&,
+        const Show_Filtered_Data_type&,
+        const ECG_Range_type&,
+        const RWave_Maxima_Block_Time_type&,
+        const RWave_Noise_Threshold_type&,
+        const Pressure_Calibration_Level_type&,
+        const ECG_HP_Filter_type&,
+        const ECG_LP_Filter_type&,
+        const RWave_Max_Change_Period_type&,
+        const Pressure_Time_Out_type&,
+        const Pressure_Calibration_type&,
+        const RWave_Blank_Time_type&,
+        const RWave_Future_Search_Time_type&,
+        const Pressure_Calibrated_type&);
+
+  ECG1 (const ::xercesc::DOMElement& e,
+        ::xml_schema::flags f = 0,
+        ::xml_schema::container* c = 0);
+
+  ECG1 (const ECG1& x,
+        ::xml_schema::flags f = 0,
+        ::xml_schema::container* c = 0);
+
+  virtual ECG1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~ECG1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Respiration_Threshold_Change_type > Respiration_Threshold_Change_;
+  ::xsd::cxx::tree::one< Respiration_Threshold_type > Respiration_Threshold_;
+  ::xsd::cxx::tree::one< Pressure_Range_type > Pressure_Range_;
+  ::xsd::cxx::tree::one< Respiration_Gate_Delay_type > Respiration_Gate_Delay_;
+  ::xsd::cxx::tree::one< Respiration_Timeout_type > Respiration_Timeout_;
+  ::xsd::cxx::tree::one< RWave_Max_Change_Factor_Percent_type > RWave_Max_Change_Factor_Percent_;
+  ::xsd::cxx::tree::one< Respiration_Period_type > Respiration_Period_;
+  ::xsd::cxx::tree::one< Respiration_Subsample_Rate_type > Respiration_Subsample_Rate_;
+  ::xsd::cxx::tree::one< Show_RWaves_type > Show_RWaves_;
+  ::xsd::cxx::tree::one< Respiration_Minimal_Peak_2_Peak_type > Respiration_Minimal_Peak_2_Peak_;
+  ::xsd::cxx::tree::one< Respiration_Window_type > Respiration_Window_;
+  ::xsd::cxx::tree::one< Pressure_Zeroed_type > Pressure_Zeroed_;
+  ::xsd::cxx::tree::one< Pressure_Systolic_type > Pressure_Systolic_;
+  ::xsd::cxx::tree::one< Respiration_Show_Window_type > Respiration_Show_Window_;
+  ::xsd::cxx::tree::one< Frequency_type > Frequency_;
+  ::xsd::cxx::tree::one< Respiration_Blank_Period_type > Respiration_Blank_Period_;
+  ::xsd::cxx::tree::one< Respiration_Range_type > Respiration_Range_;
+  ::xsd::cxx::tree::one< Pressure_Zero_type > Pressure_Zero_;
+  ::xsd::cxx::tree::one< Temperature_Amplification_type > Temperature_Amplification_;
+  ::xsd::cxx::tree::one< P_Wave_Start_type > P_Wave_Start_;
+  ::xsd::cxx::tree::one< ECG_Filter_Taps_type > ECG_Filter_Taps_;
+  ::xsd::cxx::tree::one< Respiration_Percent_Peak_type > Respiration_Percent_Peak_;
+  ::xsd::cxx::tree::one< T_Wave_Start_type > T_Wave_Start_;
+  ::xsd::cxx::tree::one< Strain_Rate_RR_Diff_Ratio_type > Strain_Rate_RR_Diff_Ratio_;
+  ::xsd::cxx::tree::one< Pressure_Calibration_Min_Level_type > Pressure_Calibration_Min_Level_;
+  ::xsd::cxx::tree::one< DPDT_Range_type > DPDT_Range_;
+  ::xsd::cxx::tree::one< Respiration_Show_Event_type > Respiration_Show_Event_;
+  ::xsd::cxx::tree::one< Pressure_Diastolic_type > Pressure_Diastolic_;
+  ::xsd::cxx::tree::one< Temperature_Calibration_type > Temperature_Calibration_;
+  ::xsd::cxx::tree::one< Temperature_type > Temperature_;
+  ::xsd::cxx::tree::one< Respiration_Beats_To_Average_type > Respiration_Beats_To_Average_;
+  ::xsd::cxx::tree::one< RWave_Thresh_Trigger_Percent_type > RWave_Thresh_Trigger_Percent_;
+  ::xsd::cxx::tree::one< Respiration_Time_To_Average_type > Respiration_Time_To_Average_;
+  ::xsd::cxx::tree::one< Pressure_Amplification_type > Pressure_Amplification_;
+  ::xsd::cxx::tree::one< Heart_Period_type > Heart_Period_;
+  ::xsd::cxx::tree::one< Pressure_Show_Event_type > Pressure_Show_Event_;
+  ::xsd::cxx::tree::one< RWave_Default_Threshold_type > RWave_Default_Threshold_;
+  ::xsd::cxx::tree::one< Show_Filtered_Data_type > Show_Filtered_Data_;
+  ::xsd::cxx::tree::one< ECG_Range_type > ECG_Range_;
+  ::xsd::cxx::tree::one< RWave_Maxima_Block_Time_type > RWave_Maxima_Block_Time_;
+  ::xsd::cxx::tree::one< RWave_Noise_Threshold_type > RWave_Noise_Threshold_;
+  ::xsd::cxx::tree::one< Pressure_Calibration_Level_type > Pressure_Calibration_Level_;
+  ::xsd::cxx::tree::one< ECG_HP_Filter_type > ECG_HP_Filter_;
+  ::xsd::cxx::tree::one< ECG_LP_Filter_type > ECG_LP_Filter_;
+  ::xsd::cxx::tree::one< RWave_Max_Change_Period_type > RWave_Max_Change_Period_;
+  ::xsd::cxx::tree::one< Pressure_Time_Out_type > Pressure_Time_Out_;
+  ::xsd::cxx::tree::one< Pressure_Calibration_type > Pressure_Calibration_;
+  ::xsd::cxx::tree::one< RWave_Blank_Time_type > RWave_Blank_Time_;
+  ::xsd::cxx::tree::one< RWave_Future_Search_Time_type > RWave_Future_Search_Time_;
+  ::xsd::cxx::tree::one< Pressure_Calibrated_type > Pressure_Calibrated_;
+};
+
+class TX1: public ::xml_schema::type
+{
+  public:
+  // V-Position-Table
+  //
+  typedef ::xml_schema::string V_Position_Table_type;
+  typedef ::xsd::cxx::tree::traits< V_Position_Table_type, char > V_Position_Table_traits;
+
+  const V_Position_Table_type&
+  V_Position_Table () const;
+
+  V_Position_Table_type&
+  V_Position_Table ();
+
+  void
+  V_Position_Table (const V_Position_Table_type& x);
+
+  void
+  V_Position_Table (::std::auto_ptr< V_Position_Table_type > p);
+
+  // V-Transmit-Length
+  //
+  typedef ::xml_schema::string V_Transmit_Length_type;
+  typedef ::xsd::cxx::tree::traits< V_Transmit_Length_type, char > V_Transmit_Length_traits;
+
+  const V_Transmit_Length_type&
+  V_Transmit_Length () const;
+
+  V_Transmit_Length_type&
+  V_Transmit_Length ();
+
+  void
+  V_Transmit_Length (const V_Transmit_Length_type& x);
+
+  void
+  V_Transmit_Length (::std::auto_ptr< V_Transmit_Length_type > p);
+
+  // Trigger-Counter-Clear
+  //
+  typedef ::xml_schema::string Trigger_Counter_Clear_type;
+  typedef ::xsd::cxx::tree::traits< Trigger_Counter_Clear_type, char > Trigger_Counter_Clear_traits;
+
+  const Trigger_Counter_Clear_type&
+  Trigger_Counter_Clear () const;
+
+  Trigger_Counter_Clear_type&
+  Trigger_Counter_Clear ();
+
+  void
+  Trigger_Counter_Clear (const Trigger_Counter_Clear_type& x);
+
+  void
+  Trigger_Counter_Clear (::std::auto_ptr< Trigger_Counter_Clear_type > p);
+
+  // Trigger-Counter
+  //
+  typedef ::xml_schema::string Trigger_Counter_type;
+  typedef ::xsd::cxx::tree::traits< Trigger_Counter_type, char > Trigger_Counter_traits;
+
+  const Trigger_Counter_type&
+  Trigger_Counter () const;
+
+  Trigger_Counter_type&
+  Trigger_Counter ();
+
+  void
+  Trigger_Counter (const Trigger_Counter_type& x);
+
+  void
+  Trigger_Counter (::std::auto_ptr< Trigger_Counter_type > p);
+
+  // RF-Amp
+  //
+  typedef ::xml_schema::string RF_Amp_type;
+  typedef ::xsd::cxx::tree::traits< RF_Amp_type, char > RF_Amp_traits;
+
+  const RF_Amp_type&
+  RF_Amp () const;
+
+  RF_Amp_type&
+  RF_Amp ();
+
+  void
+  RF_Amp (const RF_Amp_type& x);
+
+  void
+  RF_Amp (::std::auto_ptr< RF_Amp_type > p);
+
+  // Trigger-Control
+  //
+  typedef ::xml_schema::string Trigger_Control_type;
+  typedef ::xsd::cxx::tree::traits< Trigger_Control_type, char > Trigger_Control_traits;
+
+  const Trigger_Control_type&
+  Trigger_Control () const;
+
+  Trigger_Control_type&
+  Trigger_Control ();
+
+  void
+  Trigger_Control (const Trigger_Control_type& x);
+
+  void
+  Trigger_Control (::std::auto_ptr< Trigger_Control_type > p);
+
+  // V-Pulse-Rep-Freq
+  //
+  typedef ::xml_schema::string V_Pulse_Rep_Freq_type;
+  typedef ::xsd::cxx::tree::traits< V_Pulse_Rep_Freq_type, char > V_Pulse_Rep_Freq_traits;
+
+  const V_Pulse_Rep_Freq_type&
+  V_Pulse_Rep_Freq () const;
+
+  V_Pulse_Rep_Freq_type&
+  V_Pulse_Rep_Freq ();
+
+  void
+  V_Pulse_Rep_Freq (const V_Pulse_Rep_Freq_type& x);
+
+  void
+  V_Pulse_Rep_Freq (::std::auto_ptr< V_Pulse_Rep_Freq_type > p);
+
+  // Phase
+  //
+  typedef ::xml_schema::string Phase_type;
+  typedef ::xsd::cxx::tree::traits< Phase_type, char > Phase_traits;
+
+  const Phase_type&
+  Phase () const;
+
+  Phase_type&
+  Phase ();
+
+  void
+  Phase (const Phase_type& x);
+
+  void
+  Phase (::std::auto_ptr< Phase_type > p);
+
+  // Frequency
+  //
+  typedef ::xml_schema::string Frequency_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
+
+  const Frequency_type&
+  Frequency () const;
+
+  Frequency_type&
+  Frequency ();
+
+  void
+  Frequency (const Frequency_type& x);
+
+  void
+  Frequency (::std::auto_ptr< Frequency_type > p);
+
+  // V-Unblank-Time
+  //
+  typedef ::xml_schema::string V_Unblank_Time_type;
+  typedef ::xsd::cxx::tree::traits< V_Unblank_Time_type, char > V_Unblank_Time_traits;
+
+  const V_Unblank_Time_type&
+  V_Unblank_Time () const;
+
+  V_Unblank_Time_type&
+  V_Unblank_Time ();
+
+  void
+  V_Unblank_Time (const V_Unblank_Time_type& x);
+
+  void
+  V_Unblank_Time (::std::auto_ptr< V_Unblank_Time_type > p);
+
+  // V-Frequency
+  //
+  typedef ::xml_schema::string V_Frequency_type;
+  typedef ::xsd::cxx::tree::traits< V_Frequency_type, char > V_Frequency_traits;
+
+  const V_Frequency_type&
+  V_Frequency () const;
+
+  V_Frequency_type&
+  V_Frequency ();
+
+  void
+  V_Frequency (const V_Frequency_type& x);
+
+  void
+  V_Frequency (::std::auto_ptr< V_Frequency_type > p);
+
+  // Pulse-Rep-Frequency
+  //
+  typedef ::xml_schema::string Pulse_Rep_Frequency_type;
+  typedef ::xsd::cxx::tree::traits< Pulse_Rep_Frequency_type, char > Pulse_Rep_Frequency_traits;
+
+  const Pulse_Rep_Frequency_type&
+  Pulse_Rep_Frequency () const;
+
+  Pulse_Rep_Frequency_type&
+  Pulse_Rep_Frequency ();
+
+  void
+  Pulse_Rep_Frequency (const Pulse_Rep_Frequency_type& x);
+
+  void
+  Pulse_Rep_Frequency (::std::auto_ptr< Pulse_Rep_Frequency_type > p);
+
+  // Multi-Trigger
+  //
+  typedef ::xml_schema::string Multi_Trigger_type;
+  typedef ::xsd::cxx::tree::traits< Multi_Trigger_type, char > Multi_Trigger_traits;
+
+  const Multi_Trigger_type&
+  Multi_Trigger () const;
+
+  Multi_Trigger_type&
+  Multi_Trigger ();
+
+  void
+  Multi_Trigger (const Multi_Trigger_type& x);
+
+  void
+  Multi_Trigger (::std::auto_ptr< Multi_Trigger_type > p);
+
+  // Trig-Tbl-Trigs
+  //
+  typedef ::xml_schema::string Trig_Tbl_Trigs_type;
+  typedef ::xsd::cxx::tree::traits< Trig_Tbl_Trigs_type, char > Trig_Tbl_Trigs_traits;
+
+  const Trig_Tbl_Trigs_type&
+  Trig_Tbl_Trigs () const;
+
+  Trig_Tbl_Trigs_type&
+  Trig_Tbl_Trigs ();
+
+  void
+  Trig_Tbl_Trigs (const Trig_Tbl_Trigs_type& x);
+
+  void
+  Trig_Tbl_Trigs (::std::auto_ptr< Trig_Tbl_Trigs_type > p);
+
+  // Width
+  //
+  typedef ::xml_schema::string Width_type;
+  typedef ::xsd::cxx::tree::traits< Width_type, char > Width_traits;
+
+  const Width_type&
+  Width () const;
+
+  Width_type&
+  Width ();
+
+  void
+  Width (const Width_type& x);
+
+  void
+  Width (::std::auto_ptr< Width_type > p);
+
+  // Unblank-Cycles
+  //
+  typedef ::xml_schema::string Unblank_Cycles_type;
+  typedef ::xsd::cxx::tree::traits< Unblank_Cycles_type, char > Unblank_Cycles_traits;
+
+  const Unblank_Cycles_type&
+  Unblank_Cycles () const;
+
+  Unblank_Cycles_type&
+  Unblank_Cycles ();
+
+  void
+  Unblank_Cycles (const Unblank_Cycles_type& x);
+
+  void
+  Unblank_Cycles (::std::auto_ptr< Unblank_Cycles_type > p);
+
+  // V-Width
+  //
+  typedef ::xml_schema::string V_Width_type;
+  typedef ::xsd::cxx::tree::traits< V_Width_type, char > V_Width_traits;
+
+  const V_Width_type&
+  V_Width () const;
+
+  V_Width_type&
+  V_Width ();
+
+  void
+  V_Width (const V_Width_type& x);
+
+  void
+  V_Width (::std::auto_ptr< V_Width_type > p);
+
+  // Unblank-Time
+  //
+  typedef ::xml_schema::string Unblank_Time_type;
+  typedef ::xsd::cxx::tree::traits< Unblank_Time_type, char > Unblank_Time_traits;
+
+  const Unblank_Time_type&
+  Unblank_Time () const;
+
+  Unblank_Time_type&
+  Unblank_Time ();
+
+  void
+  Unblank_Time (const Unblank_Time_type& x);
+
+  void
+  Unblank_Time (::std::auto_ptr< Unblank_Time_type > p);
+
+  // Attenuation
+  //
+  typedef ::xml_schema::string Attenuation_type;
+  typedef ::xsd::cxx::tree::traits< Attenuation_type, char > Attenuation_traits;
+
+  const Attenuation_type&
+  Attenuation () const;
+
+  Attenuation_type&
+  Attenuation ();
+
+  void
+  Attenuation (const Attenuation_type& x);
+
+  void
+  Attenuation (::std::auto_ptr< Attenuation_type > p);
+
+  // V-Power
+  //
+  typedef ::xml_schema::string V_Power_type;
+  typedef ::xsd::cxx::tree::traits< V_Power_type, char > V_Power_traits;
+
+  const V_Power_type&
+  V_Power () const;
+
+  V_Power_type&
+  V_Power ();
+
+  void
+  V_Power (const V_Power_type& x);
+
+  void
+  V_Power (::std::auto_ptr< V_Power_type > p);
+
+  // Computer-Trigger
+  //
+  typedef ::xml_schema::string Computer_Trigger_type;
+  typedef ::xsd::cxx::tree::traits< Computer_Trigger_type, char > Computer_Trigger_traits;
+
+  const Computer_Trigger_type&
+  Computer_Trigger () const;
+
+  Computer_Trigger_type&
+  Computer_Trigger ();
+
+  void
+  Computer_Trigger (const Computer_Trigger_type& x);
+
+  void
+  Computer_Trigger (::std::auto_ptr< Computer_Trigger_type > p);
+
+  // Multi-Trigger-Freq
+  //
+  typedef ::xml_schema::string Multi_Trigger_Freq_type;
+  typedef ::xsd::cxx::tree::traits< Multi_Trigger_Freq_type, char > Multi_Trigger_Freq_traits;
+
+  const Multi_Trigger_Freq_type&
+  Multi_Trigger_Freq () const;
+
+  Multi_Trigger_Freq_type&
+  Multi_Trigger_Freq ();
+
+  void
+  Multi_Trigger_Freq (const Multi_Trigger_Freq_type& x);
+
+  void
+  Multi_Trigger_Freq (::std::auto_ptr< Multi_Trigger_Freq_type > p);
+
+  // Constructors.
+  //
+  TX1 (const V_Position_Table_type&,
+       const V_Transmit_Length_type&,
+       const Trigger_Counter_Clear_type&,
+       const Trigger_Counter_type&,
+       const RF_Amp_type&,
+       const Trigger_Control_type&,
+       const V_Pulse_Rep_Freq_type&,
+       const Phase_type&,
+       const Frequency_type&,
+       const V_Unblank_Time_type&,
+       const V_Frequency_type&,
+       const Pulse_Rep_Frequency_type&,
+       const Multi_Trigger_type&,
+       const Trig_Tbl_Trigs_type&,
+       const Width_type&,
+       const Unblank_Cycles_type&,
+       const V_Width_type&,
+       const Unblank_Time_type&,
+       const Attenuation_type&,
+       const V_Power_type&,
+       const Computer_Trigger_type&,
+       const Multi_Trigger_Freq_type&);
+
+  TX1 (const ::xercesc::DOMElement& e,
+       ::xml_schema::flags f = 0,
+       ::xml_schema::container* c = 0);
+
+  TX1 (const TX1& x,
+       ::xml_schema::flags f = 0,
+       ::xml_schema::container* c = 0);
+
+  virtual TX1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~TX1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< V_Position_Table_type > V_Position_Table_;
+  ::xsd::cxx::tree::one< V_Transmit_Length_type > V_Transmit_Length_;
+  ::xsd::cxx::tree::one< Trigger_Counter_Clear_type > Trigger_Counter_Clear_;
+  ::xsd::cxx::tree::one< Trigger_Counter_type > Trigger_Counter_;
+  ::xsd::cxx::tree::one< RF_Amp_type > RF_Amp_;
+  ::xsd::cxx::tree::one< Trigger_Control_type > Trigger_Control_;
+  ::xsd::cxx::tree::one< V_Pulse_Rep_Freq_type > V_Pulse_Rep_Freq_;
+  ::xsd::cxx::tree::one< Phase_type > Phase_;
+  ::xsd::cxx::tree::one< Frequency_type > Frequency_;
+  ::xsd::cxx::tree::one< V_Unblank_Time_type > V_Unblank_Time_;
+  ::xsd::cxx::tree::one< V_Frequency_type > V_Frequency_;
+  ::xsd::cxx::tree::one< Pulse_Rep_Frequency_type > Pulse_Rep_Frequency_;
+  ::xsd::cxx::tree::one< Multi_Trigger_type > Multi_Trigger_;
+  ::xsd::cxx::tree::one< Trig_Tbl_Trigs_type > Trig_Tbl_Trigs_;
+  ::xsd::cxx::tree::one< Width_type > Width_;
+  ::xsd::cxx::tree::one< Unblank_Cycles_type > Unblank_Cycles_;
+  ::xsd::cxx::tree::one< V_Width_type > V_Width_;
+  ::xsd::cxx::tree::one< Unblank_Time_type > Unblank_Time_;
+  ::xsd::cxx::tree::one< Attenuation_type > Attenuation_;
+  ::xsd::cxx::tree::one< V_Power_type > V_Power_;
+  ::xsd::cxx::tree::one< Computer_Trigger_type > Computer_Trigger_;
+  ::xsd::cxx::tree::one< Multi_Trigger_Freq_type > Multi_Trigger_Freq_;
+};
+
+class ContrastDestroy: public ::xml_schema::type
+{
+  public:
+  // Tx-Width
+  //
+  typedef ::xml_schema::string Tx_Width_type;
+  typedef ::xsd::cxx::tree::traits< Tx_Width_type, char > Tx_Width_traits;
+
+  const Tx_Width_type&
+  Tx_Width () const;
+
+  Tx_Width_type&
+  Tx_Width ();
+
+  void
+  Tx_Width (const Tx_Width_type& x);
+
+  void
+  Tx_Width (::std::auto_ptr< Tx_Width_type > p);
+
+  // Destroy-External
+  //
+  typedef ::xml_schema::string Destroy_External_type;
+  typedef ::xsd::cxx::tree::traits< Destroy_External_type, char > Destroy_External_traits;
+
+  const Destroy_External_type&
+  Destroy_External () const;
+
+  Destroy_External_type&
+  Destroy_External ();
+
+  void
+  Destroy_External (const Destroy_External_type& x);
+
+  void
+  Destroy_External (::std::auto_ptr< Destroy_External_type > p);
+
+  // Frames
+  //
+  typedef ::xml_schema::string Frames_type;
+  typedef ::xsd::cxx::tree::traits< Frames_type, char > Frames_traits;
+
+  const Frames_type&
+  Frames () const;
+
+  Frames_type&
+  Frames ();
+
+  void
+  Frames (const Frames_type& x);
+
+  void
+  Frames (::std::auto_ptr< Frames_type > p);
+
+  // Frame-Rate
+  //
+  typedef ::xml_schema::string Frame_Rate_type;
+  typedef ::xsd::cxx::tree::traits< Frame_Rate_type, char > Frame_Rate_traits;
+
+  const Frame_Rate_type&
+  Frame_Rate () const;
+
+  Frame_Rate_type&
+  Frame_Rate ();
+
+  void
+  Frame_Rate (const Frame_Rate_type& x);
+
+  void
+  Frame_Rate (::std::auto_ptr< Frame_Rate_type > p);
+
+  // Tx-PRF
+  //
+  typedef ::xml_schema::string Tx_PRF_type;
+  typedef ::xsd::cxx::tree::traits< Tx_PRF_type, char > Tx_PRF_traits;
+
+  const Tx_PRF_type&
+  Tx_PRF () const;
+
+  Tx_PRF_type&
+  Tx_PRF ();
+
+  void
+  Tx_PRF (const Tx_PRF_type& x);
+
+  void
+  Tx_PRF (::std::auto_ptr< Tx_PRF_type > p);
+
+  // Tx-Power
+  //
+  typedef ::xml_schema::string Tx_Power_type;
+  typedef ::xsd::cxx::tree::traits< Tx_Power_type, char > Tx_Power_traits;
+
+  const Tx_Power_type&
+  Tx_Power () const;
+
+  Tx_Power_type&
+  Tx_Power ();
+
+  void
+  Tx_Power (const Tx_Power_type& x);
+
+  void
+  Tx_Power (::std::auto_ptr< Tx_Power_type > p);
+
+  // Duration
+  //
+  typedef ::xml_schema::string Duration_type;
+  typedef ::xsd::cxx::tree::traits< Duration_type, char > Duration_traits;
+
+  const Duration_type&
+  Duration () const;
+
+  Duration_type&
+  Duration ();
+
+  void
+  Duration (const Duration_type& x);
+
+  void
+  Duration (::std::auto_ptr< Duration_type > p);
+
+  // Control
+  //
+  typedef ::xml_schema::string Control_type;
+  typedef ::xsd::cxx::tree::traits< Control_type, char > Control_traits;
+
+  const Control_type&
+  Control () const;
+
+  Control_type&
+  Control ();
+
+  void
+  Control (const Control_type& x);
+
+  void
+  Control (::std::auto_ptr< Control_type > p);
+
+  // Tx-Frequency
+  //
+  typedef ::xml_schema::string Tx_Frequency_type;
+  typedef ::xsd::cxx::tree::traits< Tx_Frequency_type, char > Tx_Frequency_traits;
+
+  const Tx_Frequency_type&
+  Tx_Frequency () const;
+
+  Tx_Frequency_type&
+  Tx_Frequency ();
+
+  void
+  Tx_Frequency (const Tx_Frequency_type& x);
+
+  void
+  Tx_Frequency (::std::auto_ptr< Tx_Frequency_type > p);
+
+  // Destroy-Sequence-Active
+  //
+  typedef ::xml_schema::string Destroy_Sequence_Active_type;
+  typedef ::xsd::cxx::tree::traits< Destroy_Sequence_Active_type, char > Destroy_Sequence_Active_traits;
+
+  const Destroy_Sequence_Active_type&
+  Destroy_Sequence_Active () const;
+
+  Destroy_Sequence_Active_type&
+  Destroy_Sequence_Active ();
+
+  void
+  Destroy_Sequence_Active (const Destroy_Sequence_Active_type& x);
+
+  void
+  Destroy_Sequence_Active (::std::auto_ptr< Destroy_Sequence_Active_type > p);
+
+  // Destroy-Sequence-Position
+  //
+  typedef ::xml_schema::string Destroy_Sequence_Position_type;
+  typedef ::xsd::cxx::tree::traits< Destroy_Sequence_Position_type, char > Destroy_Sequence_Position_traits;
+
+  const Destroy_Sequence_Position_type&
+  Destroy_Sequence_Position () const;
+
+  Destroy_Sequence_Position_type&
+  Destroy_Sequence_Position ();
+
+  void
+  Destroy_Sequence_Position (const Destroy_Sequence_Position_type& x);
+
+  void
+  Destroy_Sequence_Position (::std::auto_ptr< Destroy_Sequence_Position_type > p);
+
+  // Constructors.
+  //
+  ContrastDestroy (const Tx_Width_type&,
+                   const Destroy_External_type&,
+                   const Frames_type&,
+                   const Frame_Rate_type&,
+                   const Tx_PRF_type&,
+                   const Tx_Power_type&,
+                   const Duration_type&,
+                   const Control_type&,
+                   const Tx_Frequency_type&,
+                   const Destroy_Sequence_Active_type&,
+                   const Destroy_Sequence_Position_type&);
+
+  ContrastDestroy (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  ContrastDestroy (const ContrastDestroy& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual ContrastDestroy*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~ContrastDestroy ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Tx_Width_type > Tx_Width_;
+  ::xsd::cxx::tree::one< Destroy_External_type > Destroy_External_;
+  ::xsd::cxx::tree::one< Frames_type > Frames_;
+  ::xsd::cxx::tree::one< Frame_Rate_type > Frame_Rate_;
+  ::xsd::cxx::tree::one< Tx_PRF_type > Tx_PRF_;
+  ::xsd::cxx::tree::one< Tx_Power_type > Tx_Power_;
+  ::xsd::cxx::tree::one< Duration_type > Duration_;
+  ::xsd::cxx::tree::one< Control_type > Control_;
+  ::xsd::cxx::tree::one< Tx_Frequency_type > Tx_Frequency_;
+  ::xsd::cxx::tree::one< Destroy_Sequence_Active_type > Destroy_Sequence_Active_;
+  ::xsd::cxx::tree::one< Destroy_Sequence_Position_type > Destroy_Sequence_Position_;
+};
+
+class X_3D1: public ::xml_schema::type
+{
+  public:
+  // Speed
+  //
+  typedef ::xml_schema::string Speed_type;
+  typedef ::xsd::cxx::tree::traits< Speed_type, char > Speed_traits;
+
+  const Speed_type&
+  Speed () const;
+
+  Speed_type&
+  Speed ();
+
+  void
+  Speed (const Speed_type& x);
+
+  void
+  Speed (::std::auto_ptr< Speed_type > p);
+
+  // Status
+  //
+  typedef ::xml_schema::string Status_type;
+  typedef ::xsd::cxx::tree::traits< Status_type, char > Status_traits;
+
+  const Status_type&
+  Status () const;
+
+  Status_type&
+  Status ();
+
+  void
+  Status (const Status_type& x);
+
+  void
+  Status (::std::auto_ptr< Status_type > p);
+
+  // Motor-Enable
+  //
+  typedef ::xml_schema::string Motor_Enable_type;
+  typedef ::xsd::cxx::tree::traits< Motor_Enable_type, char > Motor_Enable_traits;
+
+  const Motor_Enable_type&
+  Motor_Enable () const;
+
+  Motor_Enable_type&
+  Motor_Enable ();
+
+  void
+  Motor_Enable (const Motor_Enable_type& x);
+
+  void
+  Motor_Enable (::std::auto_ptr< Motor_Enable_type > p);
+
+  // Scan-Distance
+  //
+  typedef ::xml_schema::string Scan_Distance_type;
+  typedef ::xsd::cxx::tree::traits< Scan_Distance_type, char > Scan_Distance_traits;
+
+  const Scan_Distance_type&
+  Scan_Distance () const;
+
+  Scan_Distance_type&
+  Scan_Distance ();
+
+  void
+  Scan_Distance (const Scan_Distance_type& x);
+
+  void
+  Scan_Distance (::std::auto_ptr< Scan_Distance_type > p);
+
+  // Error
+  //
+  typedef ::xml_schema::string Error_type;
+  typedef ::xsd::cxx::tree::traits< Error_type, char > Error_traits;
+
+  const Error_type&
+  Error () const;
+
+  Error_type&
+  Error ();
+
+  void
+  Error (const Error_type& x);
+
+  void
+  Error (::std::auto_ptr< Error_type > p);
+
+  // Steps
+  //
+  typedef ::xml_schema::string Steps_type;
+  typedef ::xsd::cxx::tree::traits< Steps_type, char > Steps_traits;
+
+  const Steps_type&
+  Steps () const;
+
+  Steps_type&
+  Steps ();
+
+  void
+  Steps (const Steps_type& x);
+
+  void
+  Steps (::std::auto_ptr< Steps_type > p);
+
+  // Action
+  //
+  typedef ::xml_schema::string Action_type;
+  typedef ::xsd::cxx::tree::traits< Action_type, char > Action_traits;
+
+  const Action_type&
+  Action () const;
+
+  Action_type&
+  Action ();
+
+  void
+  Action (const Action_type& x);
+
+  void
+  Action (::std::auto_ptr< Action_type > p);
+
+  // Clear-Error
+  //
+  typedef ::xml_schema::string Clear_Error_type;
+  typedef ::xsd::cxx::tree::traits< Clear_Error_type, char > Clear_Error_traits;
+
+  const Clear_Error_type&
+  Clear_Error () const;
+
+  Clear_Error_type&
+  Clear_Error ();
+
+  void
+  Clear_Error (const Clear_Error_type& x);
+
+  void
+  Clear_Error (::std::auto_ptr< Clear_Error_type > p);
+
+  // Direction
+  //
+  typedef ::xml_schema::string Direction_type;
+  typedef ::xsd::cxx::tree::traits< Direction_type, char > Direction_traits;
+
+  const Direction_type&
+  Direction () const;
+
+  Direction_type&
+  Direction ();
+
+  void
+  Direction (const Direction_type& x);
+
+  void
+  Direction (::std::auto_ptr< Direction_type > p);
+
+  // Step-Size
+  //
+  typedef ::xml_schema::string Step_Size_type;
+  typedef ::xsd::cxx::tree::traits< Step_Size_type, char > Step_Size_traits;
+
+  const Step_Size_type&
+  Step_Size () const;
+
+  Step_Size_type&
+  Step_Size ();
+
+  void
+  Step_Size (const Step_Size_type& x);
+
+  void
+  Step_Size (::std::auto_ptr< Step_Size_type > p);
+
+  // Max-Scan-Steps
+  //
+  typedef ::xml_schema::string Max_Scan_Steps_type;
+  typedef ::xsd::cxx::tree::traits< Max_Scan_Steps_type, char > Max_Scan_Steps_traits;
+
+  const Max_Scan_Steps_type&
+  Max_Scan_Steps () const;
+
+  Max_Scan_Steps_type&
+  Max_Scan_Steps ();
+
+  void
+  Max_Scan_Steps (const Max_Scan_Steps_type& x);
+
+  void
+  Max_Scan_Steps (::std::auto_ptr< Max_Scan_Steps_type > p);
+
+  // Position
+  //
+  typedef ::xml_schema::string Position_type;
+  typedef ::xsd::cxx::tree::traits< Position_type, char > Position_traits;
+
+  const Position_type&
+  Position () const;
+
+  Position_type&
+  Position ();
+
+  void
+  Position (const Position_type& x);
+
+  void
+  Position (::std::auto_ptr< Position_type > p);
+
+  // Constructors.
+  //
+  X_3D1 (const Speed_type&,
+         const Status_type&,
+         const Motor_Enable_type&,
+         const Scan_Distance_type&,
+         const Error_type&,
+         const Steps_type&,
+         const Action_type&,
+         const Clear_Error_type&,
+         const Direction_type&,
+         const Step_Size_type&,
+         const Max_Scan_Steps_type&,
+         const Position_type&);
+
+  X_3D1 (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  X_3D1 (const X_3D1& x,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  virtual X_3D1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~X_3D1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Speed_type > Speed_;
+  ::xsd::cxx::tree::one< Status_type > Status_;
+  ::xsd::cxx::tree::one< Motor_Enable_type > Motor_Enable_;
+  ::xsd::cxx::tree::one< Scan_Distance_type > Scan_Distance_;
+  ::xsd::cxx::tree::one< Error_type > Error_;
+  ::xsd::cxx::tree::one< Steps_type > Steps_;
+  ::xsd::cxx::tree::one< Action_type > Action_;
+  ::xsd::cxx::tree::one< Clear_Error_type > Clear_Error_;
+  ::xsd::cxx::tree::one< Direction_type > Direction_;
+  ::xsd::cxx::tree::one< Step_Size_type > Step_Size_;
+  ::xsd::cxx::tree::one< Max_Scan_Steps_type > Max_Scan_Steps_;
+  ::xsd::cxx::tree::one< Position_type > Position_;
+};
+
+class X_3DSoft: public ::xml_schema::type
+{
+  public:
+  // Acquire-Persist-3DMIP
+  //
+  typedef ::xml_schema::string Acquire_Persist_3DMIP_type;
+  typedef ::xsd::cxx::tree::traits< Acquire_Persist_3DMIP_type, char > Acquire_Persist_3DMIP_traits;
+
+  const Acquire_Persist_3DMIP_type&
+  Acquire_Persist_3DMIP () const;
+
+  Acquire_Persist_3DMIP_type&
+  Acquire_Persist_3DMIP ();
+
+  void
+  Acquire_Persist_3DMIP (const Acquire_Persist_3DMIP_type& x);
+
+  void
+  Acquire_Persist_3DMIP (::std::auto_ptr< Acquire_Persist_3DMIP_type > p);
+
+  // Acquire-Persist-3D-Frames
+  //
+  typedef ::xml_schema::string Acquire_Persist_3D_Frames_type;
+  typedef ::xsd::cxx::tree::traits< Acquire_Persist_3D_Frames_type, char > Acquire_Persist_3D_Frames_traits;
+
+  const Acquire_Persist_3D_Frames_type&
+  Acquire_Persist_3D_Frames () const;
+
+  Acquire_Persist_3D_Frames_type&
+  Acquire_Persist_3D_Frames ();
+
+  void
+  Acquire_Persist_3D_Frames (const Acquire_Persist_3D_Frames_type& x);
+
+  void
+  Acquire_Persist_3D_Frames (::std::auto_ptr< Acquire_Persist_3D_Frames_type > p);
+
+  // Acquire-Persist-3DAVR
+  //
+  typedef ::xml_schema::string Acquire_Persist_3DAVR_type;
+  typedef ::xsd::cxx::tree::traits< Acquire_Persist_3DAVR_type, char > Acquire_Persist_3DAVR_traits;
+
+  const Acquire_Persist_3DAVR_type&
+  Acquire_Persist_3DAVR () const;
+
+  Acquire_Persist_3DAVR_type&
+  Acquire_Persist_3DAVR ();
+
+  void
+  Acquire_Persist_3DAVR (const Acquire_Persist_3DAVR_type& x);
+
+  void
+  Acquire_Persist_3DAVR (::std::auto_ptr< Acquire_Persist_3DAVR_type > p);
+
+  // Rotational-Direction
+  //
+  typedef ::xml_schema::string Rotational_Direction_type;
+  typedef ::xsd::cxx::tree::traits< Rotational_Direction_type, char > Rotational_Direction_traits;
+
+  const Rotational_Direction_type&
+  Rotational_Direction () const;
+
+  Rotational_Direction_type&
+  Rotational_Direction ();
+
+  void
+  Rotational_Direction (const Rotational_Direction_type& x);
+
+  void
+  Rotational_Direction (::std::auto_ptr< Rotational_Direction_type > p);
+
+  // Sigma
+  //
+  typedef ::xml_schema::string Sigma_type;
+  typedef ::xsd::cxx::tree::traits< Sigma_type, char > Sigma_traits;
+
+  const Sigma_type&
+  Sigma () const;
+
+  Sigma_type&
+  Sigma ();
+
+  void
+  Sigma (const Sigma_type& x);
+
+  void
+  Sigma (::std::auto_ptr< Sigma_type > p);
+
+  // Dilation-Iteration
+  //
+  typedef ::xml_schema::string Dilation_Iteration_type;
+  typedef ::xsd::cxx::tree::traits< Dilation_Iteration_type, char > Dilation_Iteration_traits;
+
+  const Dilation_Iteration_type&
+  Dilation_Iteration () const;
+
+  Dilation_Iteration_type&
+  Dilation_Iteration ();
+
+  void
+  Dilation_Iteration (const Dilation_Iteration_type& x);
+
+  void
+  Dilation_Iteration (::std::auto_ptr< Dilation_Iteration_type > p);
+
+  // Parallel-Direction
+  //
+  typedef ::xml_schema::string Parallel_Direction_type;
+  typedef ::xsd::cxx::tree::traits< Parallel_Direction_type, char > Parallel_Direction_traits;
+
+  const Parallel_Direction_type&
+  Parallel_Direction () const;
+
+  Parallel_Direction_type&
+  Parallel_Direction ();
+
+  void
+  Parallel_Direction (const Parallel_Direction_type& x);
+
+  void
+  Parallel_Direction (::std::auto_ptr< Parallel_Direction_type > p);
+
+  // Class
+  //
+  typedef ::xml_schema::string Class_type;
+  typedef ::xsd::cxx::tree::traits< Class_type, char > Class_traits;
+
+  const Class_type&
+  Class () const;
+
+  Class_type&
+  Class ();
+
+  void
+  Class (const Class_type& x);
+
+  void
+  Class (::std::auto_ptr< Class_type > p);
+
+  // Orientation-Length
+  //
+  typedef ::xml_schema::string Orientation_Length_type;
+  typedef ::xsd::cxx::tree::traits< Orientation_Length_type, char > Orientation_Length_traits;
+
+  const Orientation_Length_type&
+  Orientation_Length () const;
+
+  Orientation_Length_type&
+  Orientation_Length ();
+
+  void
+  Orientation_Length (const Orientation_Length_type& x);
+
+  void
+  Orientation_Length (::std::auto_ptr< Orientation_Length_type > p);
+
+  // External-Force
+  //
+  typedef ::xml_schema::string External_Force_type;
+  typedef ::xsd::cxx::tree::traits< External_Force_type, char > External_Force_traits;
+
+  const External_Force_type&
+  External_Force () const;
+
+  External_Force_type&
+  External_Force ();
+
+  void
+  External_Force (const External_Force_type& x);
+
+  void
+  External_Force (::std::auto_ptr< External_Force_type > p);
+
+  // Interpolation-Resolution
+  //
+  typedef ::xml_schema::string Interpolation_Resolution_type;
+  typedef ::xsd::cxx::tree::traits< Interpolation_Resolution_type, char > Interpolation_Resolution_traits;
+
+  const Interpolation_Resolution_type&
+  Interpolation_Resolution () const;
+
+  Interpolation_Resolution_type&
+  Interpolation_Resolution ();
+
+  void
+  Interpolation_Resolution (const Interpolation_Resolution_type& x);
+
+  void
+  Interpolation_Resolution (::std::auto_ptr< Interpolation_Resolution_type > p);
+
+  // Steps
+  //
+  typedef ::xml_schema::string Steps_type;
+  typedef ::xsd::cxx::tree::traits< Steps_type, char > Steps_traits;
+
+  const Steps_type&
+  Steps () const;
+
+  Steps_type&
+  Steps ();
+
+  void
+  Steps (const Steps_type& x);
+
+  void
+  Steps (::std::auto_ptr< Steps_type > p);
+
+  // Parallel-Recon-Resolution
+  //
+  typedef ::xml_schema::string Parallel_Recon_Resolution_type;
+  typedef ::xsd::cxx::tree::traits< Parallel_Recon_Resolution_type, char > Parallel_Recon_Resolution_traits;
+
+  const Parallel_Recon_Resolution_type&
+  Parallel_Recon_Resolution () const;
+
+  Parallel_Recon_Resolution_type&
+  Parallel_Recon_Resolution ();
+
+  void
+  Parallel_Recon_Resolution (const Parallel_Recon_Resolution_type& x);
+
+  void
+  Parallel_Recon_Resolution (::std::auto_ptr< Parallel_Recon_Resolution_type > p);
+
+  // Iteration
+  //
+  typedef ::xml_schema::string Iteration_type;
+  typedef ::xsd::cxx::tree::traits< Iteration_type, char > Iteration_traits;
+
+  const Iteration_type&
+  Iteration () const;
+
+  Iteration_type&
+  Iteration ();
+
+  void
+  Iteration (const Iteration_type& x);
+
+  void
+  Iteration (::std::auto_ptr< Iteration_type > p);
+
+  // Type
+  //
+  typedef ::xml_schema::string Type_type;
+  typedef ::xsd::cxx::tree::traits< Type_type, char > Type_traits;
+
+  const Type_type&
+  Type () const;
+
+  Type_type&
+  Type ();
+
+  void
+  Type (const Type_type& x);
+
+  void
+  Type (::std::auto_ptr< Type_type > p);
+
+  // Rotational-Step-Size
+  //
+  typedef ::xml_schema::string Rotational_Step_Size_type;
+  typedef ::xsd::cxx::tree::traits< Rotational_Step_Size_type, char > Rotational_Step_Size_traits;
+
+  const Rotational_Step_Size_type&
+  Rotational_Step_Size () const;
+
+  Rotational_Step_Size_type&
+  Rotational_Step_Size ();
+
+  void
+  Rotational_Step_Size (const Rotational_Step_Size_type& x);
+
+  void
+  Rotational_Step_Size (::std::auto_ptr< Rotational_Step_Size_type > p);
+
+  // Internal-Force
+  //
+  typedef ::xml_schema::string Internal_Force_type;
+  typedef ::xsd::cxx::tree::traits< Internal_Force_type, char > Internal_Force_traits;
+
+  const Internal_Force_type&
+  Internal_Force () const;
+
+  Internal_Force_type&
+  Internal_Force ();
+
+  void
+  Internal_Force (const Internal_Force_type& x);
+
+  void
+  Internal_Force (::std::auto_ptr< Internal_Force_type > p);
+
+  // Parallel-Step-Size
+  //
+  typedef ::xml_schema::string Parallel_Step_Size_type;
+  typedef ::xsd::cxx::tree::traits< Parallel_Step_Size_type, char > Parallel_Step_Size_traits;
+
+  const Parallel_Step_Size_type&
+  Parallel_Step_Size () const;
+
+  Parallel_Step_Size_type&
+  Parallel_Step_Size ();
+
+  void
+  Parallel_Step_Size (const Parallel_Step_Size_type& x);
+
+  void
+  Parallel_Step_Size (::std::auto_ptr< Parallel_Step_Size_type > p);
+
+  // Constructors.
+  //
+  X_3DSoft (const Acquire_Persist_3DMIP_type&,
+            const Acquire_Persist_3D_Frames_type&,
+            const Acquire_Persist_3DAVR_type&,
+            const Rotational_Direction_type&,
+            const Sigma_type&,
+            const Dilation_Iteration_type&,
+            const Parallel_Direction_type&,
+            const Class_type&,
+            const Orientation_Length_type&,
+            const External_Force_type&,
+            const Interpolation_Resolution_type&,
+            const Steps_type&,
+            const Parallel_Recon_Resolution_type&,
+            const Iteration_type&,
+            const Type_type&,
+            const Rotational_Step_Size_type&,
+            const Internal_Force_type&,
+            const Parallel_Step_Size_type&);
+
+  X_3DSoft (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  X_3DSoft (const X_3DSoft& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  virtual X_3DSoft*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~X_3DSoft ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Acquire_Persist_3DMIP_type > Acquire_Persist_3DMIP_;
+  ::xsd::cxx::tree::one< Acquire_Persist_3D_Frames_type > Acquire_Persist_3D_Frames_;
+  ::xsd::cxx::tree::one< Acquire_Persist_3DAVR_type > Acquire_Persist_3DAVR_;
+  ::xsd::cxx::tree::one< Rotational_Direction_type > Rotational_Direction_;
+  ::xsd::cxx::tree::one< Sigma_type > Sigma_;
+  ::xsd::cxx::tree::one< Dilation_Iteration_type > Dilation_Iteration_;
+  ::xsd::cxx::tree::one< Parallel_Direction_type > Parallel_Direction_;
+  ::xsd::cxx::tree::one< Class_type > Class_;
+  ::xsd::cxx::tree::one< Orientation_Length_type > Orientation_Length_;
+  ::xsd::cxx::tree::one< External_Force_type > External_Force_;
+  ::xsd::cxx::tree::one< Interpolation_Resolution_type > Interpolation_Resolution_;
+  ::xsd::cxx::tree::one< Steps_type > Steps_;
+  ::xsd::cxx::tree::one< Parallel_Recon_Resolution_type > Parallel_Recon_Resolution_;
+  ::xsd::cxx::tree::one< Iteration_type > Iteration_;
+  ::xsd::cxx::tree::one< Type_type > Type_;
+  ::xsd::cxx::tree::one< Rotational_Step_Size_type > Rotational_Step_Size_;
+  ::xsd::cxx::tree::one< Internal_Force_type > Internal_Force_;
+  ::xsd::cxx::tree::one< Parallel_Step_Size_type > Parallel_Step_Size_;
+};
+
+class RX1: public ::xml_schema::type
+{
+  public:
+  // AD-IF
+  //
+  typedef ::xml_schema::string AD_IF_type;
+  typedef ::xsd::cxx::tree::traits< AD_IF_type, char > AD_IF_traits;
+
+  const AD_IF_type&
+  AD_IF () const;
+
+  AD_IF_type&
+  AD_IF ();
+
+  void
+  AD_IF (const AD_IF_type& x);
+
+  void
+  AD_IF (::std::auto_ptr< AD_IF_type > p);
+
+  // Sector-Width-Target
+  //
+  typedef ::xml_schema::string Sector_Width_Target_type;
+  typedef ::xsd::cxx::tree::traits< Sector_Width_Target_type, char > Sector_Width_Target_traits;
+
+  const Sector_Width_Target_type&
+  Sector_Width_Target () const;
+
+  Sector_Width_Target_type&
+  Sector_Width_Target ();
+
+  void
+  Sector_Width_Target (const Sector_Width_Target_type& x);
+
+  void
+  Sector_Width_Target (::std::auto_ptr< Sector_Width_Target_type > p);
+
+  // RF-Gain
+  //
+  typedef ::xml_schema::string RF_Gain_type;
+  typedef ::xsd::cxx::tree::traits< RF_Gain_type, char > RF_Gain_traits;
+
+  const RF_Gain_type&
+  RF_Gain () const;
+
+  RF_Gain_type&
+  RF_Gain ();
+
+  void
+  RF_Gain (const RF_Gain_type& x);
+
+  void
+  RF_Gain (::std::auto_ptr< RF_Gain_type > p);
+
+  // TGC-Enable
+  //
+  typedef ::xml_schema::string TGC_Enable_type;
+  typedef ::xsd::cxx::tree::traits< TGC_Enable_type, char > TGC_Enable_traits;
+
+  const TGC_Enable_type&
+  TGC_Enable () const;
+
+  TGC_Enable_type&
+  TGC_Enable ();
+
+  void
+  TGC_Enable (const TGC_Enable_type& x);
+
+  void
+  TGC_Enable (::std::auto_ptr< TGC_Enable_type > p);
+
+  // V-Digi-Depth-Imaging
+  //
+  typedef ::xml_schema::string V_Digi_Depth_Imaging_type;
+  typedef ::xsd::cxx::tree::traits< V_Digi_Depth_Imaging_type, char > V_Digi_Depth_Imaging_traits;
+
+  const V_Digi_Depth_Imaging_type&
+  V_Digi_Depth_Imaging () const;
+
+  V_Digi_Depth_Imaging_type&
+  V_Digi_Depth_Imaging ();
+
+  void
+  V_Digi_Depth_Imaging (const V_Digi_Depth_Imaging_type& x);
+
+  void
+  V_Digi_Depth_Imaging (::std::auto_ptr< V_Digi_Depth_Imaging_type > p);
+
+  // RF-Bandwidth
+  //
+  typedef ::xml_schema::string RF_Bandwidth_type;
+  typedef ::xsd::cxx::tree::traits< RF_Bandwidth_type, char > RF_Bandwidth_traits;
+
+  const RF_Bandwidth_type&
+  RF_Bandwidth () const;
+
+  RF_Bandwidth_type&
+  RF_Bandwidth ();
+
+  void
+  RF_Bandwidth (const RF_Bandwidth_type& x);
+
+  void
+  RF_Bandwidth (::std::auto_ptr< RF_Bandwidth_type > p);
+
+  // Test-Freq
+  //
+  typedef ::xml_schema::string Test_Freq_type;
+  typedef ::xsd::cxx::tree::traits< Test_Freq_type, char > Test_Freq_traits;
+
+  const Test_Freq_type&
+  Test_Freq () const;
+
+  Test_Freq_type&
+  Test_Freq ();
+
+  void
+  Test_Freq (const Test_Freq_type& x);
+
+  void
+  Test_Freq (::std::auto_ptr< Test_Freq_type > p);
+
+  // V-TGC
+  //
+  typedef ::xml_schema::string V_TGC_type;
+  typedef ::xsd::cxx::tree::traits< V_TGC_type, char > V_TGC_traits;
+
+  const V_TGC_type&
+  V_TGC () const;
+
+  V_TGC_type&
+  V_TGC ();
+
+  void
+  V_TGC (const V_TGC_type& x);
+
+  void
+  V_TGC (::std::auto_ptr< V_TGC_type > p);
+
+  // Current-Channel
+  //
+  typedef ::xml_schema::string Current_Channel_type;
+  typedef ::xsd::cxx::tree::traits< Current_Channel_type, char > Current_Channel_traits;
+
+  const Current_Channel_type&
+  Current_Channel () const;
+
+  Current_Channel_type&
+  Current_Channel ();
+
+  void
+  Current_Channel (const Current_Channel_type& x);
+
+  void
+  Current_Channel (::std::auto_ptr< Current_Channel_type > p);
+
+  // AD-In
+  //
+  typedef ::xml_schema::string AD_In_type;
+  typedef ::xsd::cxx::tree::traits< AD_In_type, char > AD_In_traits;
+
+  const AD_In_type&
+  AD_In () const;
+
+  AD_In_type&
+  AD_In ();
+
+  void
+  AD_In (const AD_In_type& x);
+
+  void
+  AD_In (::std::auto_ptr< AD_In_type > p);
+
+  // Image-FIFO-Status
+  //
+  typedef ::xml_schema::string Image_FIFO_Status_type;
+  typedef ::xsd::cxx::tree::traits< Image_FIFO_Status_type, char > Image_FIFO_Status_traits;
+
+  const Image_FIFO_Status_type&
+  Image_FIFO_Status () const;
+
+  Image_FIFO_Status_type&
+  Image_FIFO_Status ();
+
+  void
+  Image_FIFO_Status (const Image_FIFO_Status_type& x);
+
+  void
+  Image_FIFO_Status (::std::auto_ptr< Image_FIFO_Status_type > p);
+
+  // RF-Filter
+  //
+  typedef ::xml_schema::string RF_Filter_type;
+  typedef ::xsd::cxx::tree::traits< RF_Filter_type, char > RF_Filter_traits;
+
+  const RF_Filter_type&
+  RF_Filter () const;
+
+  RF_Filter_type&
+  RF_Filter ();
+
+  void
+  RF_Filter (const RF_Filter_type& x);
+
+  void
+  RF_Filter (::std::auto_ptr< RF_Filter_type > p);
+
+  // DDRS
+  //
+  typedef ::xml_schema::string DDRS_type;
+  typedef ::xsd::cxx::tree::traits< DDRS_type, char > DDRS_traits;
+
+  const DDRS_type&
+  DDRS () const;
+
+  DDRS_type&
+  DDRS ();
+
+  void
+  DDRS (const DDRS_type& x);
+
+  void
+  DDRS (::std::auto_ptr< DDRS_type > p);
+
+  // ADCA-Out
+  //
+  typedef ::xml_schema::string ADCA_Out_type;
+  typedef ::xsd::cxx::tree::traits< ADCA_Out_type, char > ADCA_Out_traits;
+
+  const ADCA_Out_type&
+  ADCA_Out () const;
+
+  ADCA_Out_type&
+  ADCA_Out ();
+
+  void
+  ADCA_Out (const ADCA_Out_type& x);
+
+  void
+  ADCA_Out (::std::auto_ptr< ADCA_Out_type > p);
+
+  // AD-Clock-Div
+  //
+  typedef ::xml_schema::string AD_Clock_Div_type;
+  typedef ::xsd::cxx::tree::traits< AD_Clock_Div_type, char > AD_Clock_Div_traits;
+
+  const AD_Clock_Div_type&
+  AD_Clock_Div () const;
+
+  AD_Clock_Div_type&
+  AD_Clock_Div ();
+
+  void
+  AD_Clock_Div (const AD_Clock_Div_type& x);
+
+  void
+  AD_Clock_Div (::std::auto_ptr< AD_Clock_Div_type > p);
+
+  // Imaging-Mode
+  //
+  typedef ::xml_schema::string Imaging_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Imaging_Mode_type, char > Imaging_Mode_traits;
+
+  const Imaging_Mode_type&
+  Imaging_Mode () const;
+
+  Imaging_Mode_type&
+  Imaging_Mode ();
+
+  void
+  Imaging_Mode (const Imaging_Mode_type& x);
+
+  void
+  Imaging_Mode (::std::auto_ptr< Imaging_Mode_type > p);
+
+  // V-RF-Filter
+  //
+  typedef ::xml_schema::string V_RF_Filter_type;
+  typedef ::xsd::cxx::tree::traits< V_RF_Filter_type, char > V_RF_Filter_traits;
+
+  const V_RF_Filter_type&
+  V_RF_Filter () const;
+
+  V_RF_Filter_type&
+  V_RF_Filter ();
+
+  void
+  V_RF_Filter (const V_RF_Filter_type& x);
+
+  void
+  V_RF_Filter (::std::auto_ptr< V_RF_Filter_type > p);
+
+  // ADCB-Out
+  //
+  typedef ::xml_schema::string ADCB_Out_type;
+  typedef ::xsd::cxx::tree::traits< ADCB_Out_type, char > ADCB_Out_traits;
+
+  const ADCB_Out_type&
+  ADCB_Out () const;
+
+  ADCB_Out_type&
+  ADCB_Out ();
+
+  void
+  ADCB_Out (const ADCB_Out_type& x);
+
+  void
+  ADCB_Out (::std::auto_ptr< ADCB_Out_type > p);
+
+  // Delay
+  //
+  typedef ::xml_schema::string Delay_type;
+  typedef ::xsd::cxx::tree::traits< Delay_type, char > Delay_traits;
+
+  const Delay_type&
+  Delay () const;
+
+  Delay_type&
+  Delay ();
+
+  void
+  Delay (const Delay_type& x);
+
+  void
+  Delay (::std::auto_ptr< Delay_type > p);
+
+  // AD-Gate-Width
+  //
+  typedef ::xml_schema::string AD_Gate_Width_type;
+  typedef ::xsd::cxx::tree::traits< AD_Gate_Width_type, char > AD_Gate_Width_traits;
+
+  const AD_Gate_Width_type&
+  AD_Gate_Width () const;
+
+  AD_Gate_Width_type&
+  AD_Gate_Width ();
+
+  void
+  AD_Gate_Width (const AD_Gate_Width_type& x);
+
+  void
+  AD_Gate_Width (::std::auto_ptr< AD_Gate_Width_type > p);
+
+  // Frequency
+  //
+  typedef ::xml_schema::string Frequency_type;
+  typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
+
+  const Frequency_type&
+  Frequency () const;
+
+  Frequency_type&
+  Frequency ();
+
+  void
+  Frequency (const Frequency_type& x);
+
+  void
+  Frequency (::std::auto_ptr< Frequency_type > p);
+
+  // V-Frequency
+  //
+  typedef ::xml_schema::string V_Frequency_type;
+  typedef ::xsd::cxx::tree::traits< V_Frequency_type, char > V_Frequency_traits;
+
+  const V_Frequency_type&
+  V_Frequency () const;
+
+  V_Frequency_type&
+  V_Frequency ();
+
+  void
+  V_Frequency (const V_Frequency_type& x);
+
+  void
+  V_Frequency (::std::auto_ptr< V_Frequency_type > p);
+
+  // V-Field-Of-View
+  //
+  typedef ::xml_schema::string V_Field_Of_View_type;
+  typedef ::xsd::cxx::tree::traits< V_Field_Of_View_type, char > V_Field_Of_View_traits;
+
+  const V_Field_Of_View_type&
+  V_Field_Of_View () const;
+
+  V_Field_Of_View_type&
+  V_Field_Of_View ();
+
+  void
+  V_Field_Of_View (const V_Field_Of_View_type& x);
+
+  void
+  V_Field_Of_View (::std::auto_ptr< V_Field_Of_View_type > p);
+
+  // Packet-Format
+  //
+  typedef ::xml_schema::string Packet_Format_type;
+  typedef ::xsd::cxx::tree::traits< Packet_Format_type, char > Packet_Format_traits;
+
+  const Packet_Format_type&
+  Packet_Format () const;
+
+  Packet_Format_type&
+  Packet_Format ();
+
+  void
+  Packet_Format (const Packet_Format_type& x);
+
+  void
+  Packet_Format (::std::auto_ptr< Packet_Format_type > p);
+
+  // Sector-Height-Target
+  //
+  typedef ::xml_schema::string Sector_Height_Target_type;
+  typedef ::xsd::cxx::tree::traits< Sector_Height_Target_type, char > Sector_Height_Target_traits;
+
+  const Sector_Height_Target_type&
+  Sector_Height_Target () const;
+
+  Sector_Height_Target_type&
+  Sector_Height_Target ();
+
+  void
+  Sector_Height_Target (const Sector_Height_Target_type& x);
+
+  void
+  Sector_Height_Target (::std::auto_ptr< Sector_Height_Target_type > p);
+
+  // Low-Speed-FIFO-Status
+  //
+  typedef ::xml_schema::string Low_Speed_FIFO_Status_type;
+  typedef ::xsd::cxx::tree::traits< Low_Speed_FIFO_Status_type, char > Low_Speed_FIFO_Status_traits;
+
+  const Low_Speed_FIFO_Status_type&
+  Low_Speed_FIFO_Status () const;
+
+  Low_Speed_FIFO_Status_type&
+  Low_Speed_FIFO_Status ();
+
+  void
+  Low_Speed_FIFO_Status (const Low_Speed_FIFO_Status_type& x);
+
+  void
+  Low_Speed_FIFO_Status (::std::auto_ptr< Low_Speed_FIFO_Status_type > p);
+
+  // AD-TestIn
+  //
+  typedef ::xml_schema::string AD_TestIn_type;
+  typedef ::xsd::cxx::tree::traits< AD_TestIn_type, char > AD_TestIn_traits;
+
+  const AD_TestIn_type&
+  AD_TestIn () const;
+
+  AD_TestIn_type&
+  AD_TestIn ();
+
+  void
+  AD_TestIn (const AD_TestIn_type& x);
+
+  void
+  AD_TestIn (::std::auto_ptr< AD_TestIn_type > p);
+
+  // Error
+  //
+  typedef ::xml_schema::string Error_type;
+  typedef ::xsd::cxx::tree::traits< Error_type, char > Error_traits;
+
+  const Error_type&
+  Error () const;
+
+  Error_type&
+  Error ();
+
+  void
+  Error (const Error_type& x);
+
+  void
+  Error (::std::auto_ptr< Error_type > p);
+
+  // Test-On
+  //
+  typedef ::xml_schema::string Test_On_type;
+  typedef ::xsd::cxx::tree::traits< Test_On_type, char > Test_On_traits;
+
+  const Test_On_type&
+  Test_On () const;
+
+  Test_On_type&
+  Test_On ();
+
+  void
+  Test_On (const Test_On_type& x);
+
+  void
+  Test_On (::std::auto_ptr< Test_On_type > p);
+
+  // AD-DCS
+  //
+  typedef ::xml_schema::string AD_DCS_type;
+  typedef ::xsd::cxx::tree::traits< AD_DCS_type, char > AD_DCS_traits;
+
+  const AD_DCS_type&
+  AD_DCS () const;
+
+  AD_DCS_type&
+  AD_DCS ();
+
+  void
+  AD_DCS (const AD_DCS_type& x);
+
+  void
+  AD_DCS (::std::auto_ptr< AD_DCS_type > p);
+
+  // DTB-Tfr-Enable
+  //
+  typedef ::xml_schema::string DTB_Tfr_Enable_type;
+  typedef ::xsd::cxx::tree::traits< DTB_Tfr_Enable_type, char > DTB_Tfr_Enable_traits;
+
+  const DTB_Tfr_Enable_type&
+  DTB_Tfr_Enable () const;
+
+  DTB_Tfr_Enable_type&
+  DTB_Tfr_Enable ();
+
+  void
+  DTB_Tfr_Enable (const DTB_Tfr_Enable_type& x);
+
+  void
+  DTB_Tfr_Enable (::std::auto_ptr< DTB_Tfr_Enable_type > p);
+
+  // DTB-Test-Enable
+  //
+  typedef ::xml_schema::string DTB_Test_Enable_type;
+  typedef ::xsd::cxx::tree::traits< DTB_Test_Enable_type, char > DTB_Test_Enable_traits;
+
+  const DTB_Test_Enable_type&
+  DTB_Test_Enable () const;
+
+  DTB_Test_Enable_type&
+  DTB_Test_Enable ();
+
+  void
+  DTB_Test_Enable (const DTB_Test_Enable_type& x);
+
+  void
+  DTB_Test_Enable (::std::auto_ptr< DTB_Test_Enable_type > p);
+
+  // V-Delay-Length
+  //
+  typedef ::xml_schema::string V_Delay_Length_type;
+  typedef ::xsd::cxx::tree::traits< V_Delay_Length_type, char > V_Delay_Length_traits;
+
+  const V_Delay_Length_type&
+  V_Delay_Length () const;
+
+  V_Delay_Length_type&
+  V_Delay_Length ();
+
+  void
+  V_Delay_Length (const V_Delay_Length_type& x);
+
+  void
+  V_Delay_Length (::std::auto_ptr< V_Delay_Length_type > p);
+
+  // Current-Mode
+  //
+  typedef ::xml_schema::string Current_Mode_type;
+  typedef ::xsd::cxx::tree::traits< Current_Mode_type, char > Current_Mode_traits;
+
+  const Current_Mode_type&
+  Current_Mode () const;
+
+  Current_Mode_type&
+  Current_Mode ();
+
+  void
+  Current_Mode (const Current_Mode_type& x);
+
+  void
+  Current_Mode (::std::auto_ptr< Current_Mode_type > p);
+
+  // Line-Number
+  //
+  typedef ::xml_schema::string Line_Number_type;
+  typedef ::xsd::cxx::tree::traits< Line_Number_type, char > Line_Number_traits;
+
+  const Line_Number_type&
+  Line_Number () const;
+
+  Line_Number_type&
+  Line_Number ();
+
+  void
+  Line_Number (const Line_Number_type& x);
+
+  void
+  Line_Number (::std::auto_ptr< Line_Number_type > p);
+
+  // IF-Filter
+  //
+  typedef ::xml_schema::string IF_Filter_type;
+  typedef ::xsd::cxx::tree::traits< IF_Filter_type, char > IF_Filter_traits;
+
+  const IF_Filter_type&
+  IF_Filter () const;
+
+  IF_Filter_type&
+  IF_Filter ();
+
+  void
+  IF_Filter (const IF_Filter_type& x);
+
+  void
+  IF_Filter (::std::auto_ptr< IF_Filter_type > p);
+
+  // Track-Width
+  //
+  typedef ::xml_schema::string Track_Width_type;
+  typedef ::xsd::cxx::tree::traits< Track_Width_type, char > Track_Width_traits;
+
+  const Track_Width_type&
+  Track_Width () const;
+
+  Track_Width_type&
+  Track_Width ();
+
+  void
+  Track_Width (const Track_Width_type& x);
+
+  void
+  Track_Width (::std::auto_ptr< Track_Width_type > p);
+
+  // DTB-Error-Clr
+  //
+  typedef ::xml_schema::string DTB_Error_Clr_type;
+  typedef ::xsd::cxx::tree::traits< DTB_Error_Clr_type, char > DTB_Error_Clr_traits;
+
+  const DTB_Error_Clr_type&
+  DTB_Error_Clr () const;
+
+  DTB_Error_Clr_type&
+  DTB_Error_Clr ();
+
+  void
+  DTB_Error_Clr (const DTB_Error_Clr_type& x);
+
+  void
+  DTB_Error_Clr (::std::auto_ptr< DTB_Error_Clr_type > p);
+
+  // V-IF-Filter
+  //
+  typedef ::xml_schema::string V_IF_Filter_type;
+  typedef ::xsd::cxx::tree::traits< V_IF_Filter_type, char > V_IF_Filter_traits;
+
+  const V_IF_Filter_type&
+  V_IF_Filter () const;
+
+  V_IF_Filter_type&
+  V_IF_Filter ();
+
+  void
+  V_IF_Filter (const V_IF_Filter_type& x);
+
+  void
+  V_IF_Filter (::std::auto_ptr< V_IF_Filter_type > p);
+
+  // IQ-Select
+  //
+  typedef ::xml_schema::string IQ_Select_type;
+  typedef ::xsd::cxx::tree::traits< IQ_Select_type, char > IQ_Select_traits;
+
+  const IQ_Select_type&
+  IQ_Select () const;
+
+  IQ_Select_type&
+  IQ_Select ();
+
+  void
+  IQ_Select (const IQ_Select_type& x);
+
+  void
+  IQ_Select (::std::auto_ptr< IQ_Select_type > p);
+
+  // HP-Clutter
+  //
+  typedef ::xml_schema::string HP_Clutter_type;
+  typedef ::xsd::cxx::tree::traits< HP_Clutter_type, char > HP_Clutter_traits;
+
+  const HP_Clutter_type&
+  HP_Clutter () const;
+
+  HP_Clutter_type&
+  HP_Clutter ();
+
+  void
+  HP_Clutter (const HP_Clutter_type& x);
+
+  void
+  HP_Clutter (::std::auto_ptr< HP_Clutter_type > p);
+
+  // V-TGC-Copy
+  //
+  typedef ::xml_schema::string V_TGC_Copy_type;
+  typedef ::xsd::cxx::tree::traits< V_TGC_Copy_type, char > V_TGC_Copy_traits;
+
+  const V_TGC_Copy_type&
+  V_TGC_Copy () const;
+
+  V_TGC_Copy_type&
+  V_TGC_Copy ();
+
+  void
+  V_TGC_Copy (const V_TGC_Copy_type& x);
+
+  void
+  V_TGC_Copy (::std::auto_ptr< V_TGC_Copy_type > p);
+
+  // Constructors.
+  //
+  RX1 (const AD_IF_type&,
+       const Sector_Width_Target_type&,
+       const RF_Gain_type&,
+       const TGC_Enable_type&,
+       const V_Digi_Depth_Imaging_type&,
+       const RF_Bandwidth_type&,
+       const Test_Freq_type&,
+       const V_TGC_type&,
+       const Current_Channel_type&,
+       const AD_In_type&,
+       const Image_FIFO_Status_type&,
+       const RF_Filter_type&,
+       const DDRS_type&,
+       const ADCA_Out_type&,
+       const AD_Clock_Div_type&,
+       const Imaging_Mode_type&,
+       const V_RF_Filter_type&,
+       const ADCB_Out_type&,
+       const Delay_type&,
+       const AD_Gate_Width_type&,
+       const Frequency_type&,
+       const V_Frequency_type&,
+       const V_Field_Of_View_type&,
+       const Packet_Format_type&,
+       const Sector_Height_Target_type&,
+       const Low_Speed_FIFO_Status_type&,
+       const AD_TestIn_type&,
+       const Error_type&,
+       const Test_On_type&,
+       const AD_DCS_type&,
+       const DTB_Tfr_Enable_type&,
+       const DTB_Test_Enable_type&,
+       const V_Delay_Length_type&,
+       const Current_Mode_type&,
+       const Line_Number_type&,
+       const IF_Filter_type&,
+       const Track_Width_type&,
+       const DTB_Error_Clr_type&,
+       const V_IF_Filter_type&,
+       const IQ_Select_type&,
+       const HP_Clutter_type&,
+       const V_TGC_Copy_type&);
+
+  RX1 (const ::xercesc::DOMElement& e,
+       ::xml_schema::flags f = 0,
+       ::xml_schema::container* c = 0);
+
+  RX1 (const RX1& x,
+       ::xml_schema::flags f = 0,
+       ::xml_schema::container* c = 0);
+
+  virtual RX1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RX1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< AD_IF_type > AD_IF_;
+  ::xsd::cxx::tree::one< Sector_Width_Target_type > Sector_Width_Target_;
+  ::xsd::cxx::tree::one< RF_Gain_type > RF_Gain_;
+  ::xsd::cxx::tree::one< TGC_Enable_type > TGC_Enable_;
+  ::xsd::cxx::tree::one< V_Digi_Depth_Imaging_type > V_Digi_Depth_Imaging_;
+  ::xsd::cxx::tree::one< RF_Bandwidth_type > RF_Bandwidth_;
+  ::xsd::cxx::tree::one< Test_Freq_type > Test_Freq_;
+  ::xsd::cxx::tree::one< V_TGC_type > V_TGC_;
+  ::xsd::cxx::tree::one< Current_Channel_type > Current_Channel_;
+  ::xsd::cxx::tree::one< AD_In_type > AD_In_;
+  ::xsd::cxx::tree::one< Image_FIFO_Status_type > Image_FIFO_Status_;
+  ::xsd::cxx::tree::one< RF_Filter_type > RF_Filter_;
+  ::xsd::cxx::tree::one< DDRS_type > DDRS_;
+  ::xsd::cxx::tree::one< ADCA_Out_type > ADCA_Out_;
+  ::xsd::cxx::tree::one< AD_Clock_Div_type > AD_Clock_Div_;
+  ::xsd::cxx::tree::one< Imaging_Mode_type > Imaging_Mode_;
+  ::xsd::cxx::tree::one< V_RF_Filter_type > V_RF_Filter_;
+  ::xsd::cxx::tree::one< ADCB_Out_type > ADCB_Out_;
+  ::xsd::cxx::tree::one< Delay_type > Delay_;
+  ::xsd::cxx::tree::one< AD_Gate_Width_type > AD_Gate_Width_;
+  ::xsd::cxx::tree::one< Frequency_type > Frequency_;
+  ::xsd::cxx::tree::one< V_Frequency_type > V_Frequency_;
+  ::xsd::cxx::tree::one< V_Field_Of_View_type > V_Field_Of_View_;
+  ::xsd::cxx::tree::one< Packet_Format_type > Packet_Format_;
+  ::xsd::cxx::tree::one< Sector_Height_Target_type > Sector_Height_Target_;
+  ::xsd::cxx::tree::one< Low_Speed_FIFO_Status_type > Low_Speed_FIFO_Status_;
+  ::xsd::cxx::tree::one< AD_TestIn_type > AD_TestIn_;
+  ::xsd::cxx::tree::one< Error_type > Error_;
+  ::xsd::cxx::tree::one< Test_On_type > Test_On_;
+  ::xsd::cxx::tree::one< AD_DCS_type > AD_DCS_;
+  ::xsd::cxx::tree::one< DTB_Tfr_Enable_type > DTB_Tfr_Enable_;
+  ::xsd::cxx::tree::one< DTB_Test_Enable_type > DTB_Test_Enable_;
+  ::xsd::cxx::tree::one< V_Delay_Length_type > V_Delay_Length_;
+  ::xsd::cxx::tree::one< Current_Mode_type > Current_Mode_;
+  ::xsd::cxx::tree::one< Line_Number_type > Line_Number_;
+  ::xsd::cxx::tree::one< IF_Filter_type > IF_Filter_;
+  ::xsd::cxx::tree::one< Track_Width_type > Track_Width_;
+  ::xsd::cxx::tree::one< DTB_Error_Clr_type > DTB_Error_Clr_;
+  ::xsd::cxx::tree::one< V_IF_Filter_type > V_IF_Filter_;
+  ::xsd::cxx::tree::one< IQ_Select_type > IQ_Select_;
+  ::xsd::cxx::tree::one< HP_Clutter_type > HP_Clutter_;
+  ::xsd::cxx::tree::one< V_TGC_Copy_type > V_TGC_Copy_;
+};
+
+class Display1: public ::xml_schema::type
+{
+  public:
+  // Direction
+  //
+  typedef ::xml_schema::string Direction_type;
+  typedef ::xsd::cxx::tree::traits< Direction_type, char > Direction_traits;
+
+  const Direction_type&
+  Direction () const;
+
+  Direction_type&
+  Direction ();
+
+  void
+  Direction (const Direction_type& x);
+
+  void
+  Direction (::std::auto_ptr< Direction_type > p);
+
+  // V-SV-TissueMode
+  //
+  typedef ::xml_schema::string V_SV_TissueMode_type;
+  typedef ::xsd::cxx::tree::traits< V_SV_TissueMode_type, char > V_SV_TissueMode_traits;
+
+  const V_SV_TissueMode_type&
+  V_SV_TissueMode () const;
+
+  V_SV_TissueMode_type&
+  V_SV_TissueMode ();
+
+  void
+  V_SV_TissueMode (const V_SV_TissueMode_type& x);
+
+  void
+  V_SV_TissueMode (::std::auto_ptr< V_SV_TissueMode_type > p);
+
+  // V-SV-MMode
+  //
+  typedef ::xml_schema::string V_SV_MMode_type;
+  typedef ::xsd::cxx::tree::traits< V_SV_MMode_type, char > V_SV_MMode_traits;
+
+  const V_SV_MMode_type&
+  V_SV_MMode () const;
+
+  V_SV_MMode_type&
+  V_SV_MMode ();
+
+  void
+  V_SV_MMode (const V_SV_MMode_type& x);
+
+  void
+  V_SV_MMode (::std::auto_ptr< V_SV_MMode_type > p);
+
+  // X_3D-Gain
+  //
+  typedef ::xml_schema::string X_3D_Gain_type;
+  typedef ::xsd::cxx::tree::traits< X_3D_Gain_type, char > X_3D_Gain_traits;
+
+  const X_3D_Gain_type&
+  X_3D_Gain () const;
+
+  X_3D_Gain_type&
+  X_3D_Gain ();
+
+  void
+  X_3D_Gain (const X_3D_Gain_type& x);
+
+  void
+  X_3D_Gain (::std::auto_ptr< X_3D_Gain_type > p);
+
+  // X_3D-Dynamic-Range
+  //
+  typedef ::xml_schema::string X_3D_Dynamic_Range_type;
+  typedef ::xsd::cxx::tree::traits< X_3D_Dynamic_Range_type, char > X_3D_Dynamic_Range_traits;
+
+  const X_3D_Dynamic_Range_type&
+  X_3D_Dynamic_Range () const;
+
+  X_3D_Dynamic_Range_type&
+  X_3D_Dynamic_Range ();
+
+  void
+  X_3D_Dynamic_Range (const X_3D_Dynamic_Range_type& x);
+
+  void
+  X_3D_Dynamic_Range (::std::auto_ptr< X_3D_Dynamic_Range_type > p);
+
+  // Gain
+  //
+  typedef ::xml_schema::string Gain_type;
+  typedef ::xsd::cxx::tree::traits< Gain_type, char > Gain_traits;
+
+  const Gain_type&
+  Gain () const;
+
+  Gain_type&
+  Gain ();
+
+  void
+  Gain (const Gain_type& x);
+
+  void
+  Gain (::std::auto_ptr< Gain_type > p);
+
+  // V-SV-RfMode
+  //
+  typedef ::xml_schema::string V_SV_RfMode_type;
+  typedef ::xsd::cxx::tree::traits< V_SV_RfMode_type, char > V_SV_RfMode_traits;
+
+  const V_SV_RfMode_type&
+  V_SV_RfMode () const;
+
+  V_SV_RfMode_type&
+  V_SV_RfMode ();
+
+  void
+  V_SV_RfMode (const V_SV_RfMode_type& x);
+
+  void
+  V_SV_RfMode (::std::auto_ptr< V_SV_RfMode_type > p);
+
+  // V-SV-EkvMode
+  //
+  typedef ::xml_schema::string V_SV_EkvMode_type;
+  typedef ::xsd::cxx::tree::traits< V_SV_EkvMode_type, char > V_SV_EkvMode_traits;
+
+  const V_SV_EkvMode_type&
+  V_SV_EkvMode () const;
+
+  V_SV_EkvMode_type&
+  V_SV_EkvMode ();
+
+  void
+  V_SV_EkvMode (const V_SV_EkvMode_type& x);
+
+  void
+  V_SV_EkvMode (::std::auto_ptr< V_SV_EkvMode_type > p);
+
+  // Dynamic-Range
+  //
+  typedef ::xml_schema::string Dynamic_Range_type;
+  typedef ::xsd::cxx::tree::traits< Dynamic_Range_type, char > Dynamic_Range_traits;
+
+  const Dynamic_Range_type&
+  Dynamic_Range () const;
+
+  Dynamic_Range_type&
+  Dynamic_Range ();
+
+  void
+  Dynamic_Range (const Dynamic_Range_type& x);
+
+  void
+  Dynamic_Range (::std::auto_ptr< Dynamic_Range_type > p);
+
+  // Window-Time
+  //
+  typedef ::xml_schema::string Window_Time_type;
+  typedef ::xsd::cxx::tree::traits< Window_Time_type, char > Window_Time_traits;
+
+  const Window_Time_type&
+  Window_Time () const;
+
+  Window_Time_type&
+  Window_Time ();
+
+  void
+  Window_Time (const Window_Time_type& x);
+
+  void
+  Window_Time (::std::auto_ptr< Window_Time_type > p);
+
+  // V-SV-DopplerMode
+  //
+  typedef ::xml_schema::string V_SV_DopplerMode_type;
+  typedef ::xsd::cxx::tree::traits< V_SV_DopplerMode_type, char > V_SV_DopplerMode_traits;
+
+  const V_SV_DopplerMode_type&
+  V_SV_DopplerMode () const;
+
+  V_SV_DopplerMode_type&
+  V_SV_DopplerMode ();
+
+  void
+  V_SV_DopplerMode (const V_SV_DopplerMode_type& x);
+
+  void
+  V_SV_DopplerMode (::std::auto_ptr< V_SV_DopplerMode_type > p);
+
+  // V-SV-NeedleGuide
+  //
+  typedef ::xml_schema::string V_SV_NeedleGuide_type;
+  typedef ::xsd::cxx::tree::traits< V_SV_NeedleGuide_type, char > V_SV_NeedleGuide_traits;
+
+  const V_SV_NeedleGuide_type&
+  V_SV_NeedleGuide () const;
+
+  V_SV_NeedleGuide_type&
+  V_SV_NeedleGuide ();
+
+  void
+  V_SV_NeedleGuide (const V_SV_NeedleGuide_type& x);
+
+  void
+  V_SV_NeedleGuide (::std::auto_ptr< V_SV_NeedleGuide_type > p);
+
+  // V-SV-ColorMode
+  //
+  typedef ::xml_schema::string V_SV_ColorMode_type;
+  typedef ::xsd::cxx::tree::traits< V_SV_ColorMode_type, char > V_SV_ColorMode_traits;
+
+  const V_SV_ColorMode_type&
+  V_SV_ColorMode () const;
+
+  V_SV_ColorMode_type&
+  V_SV_ColorMode ();
+
+  void
+  V_SV_ColorMode (const V_SV_ColorMode_type& x);
+
+  void
+  V_SV_ColorMode (::std::auto_ptr< V_SV_ColorMode_type > p);
+
+  // Constructors.
+  //
+  Display1 (const Direction_type&,
+            const V_SV_TissueMode_type&,
+            const V_SV_MMode_type&,
+            const X_3D_Gain_type&,
+            const X_3D_Dynamic_Range_type&,
+            const Gain_type&,
+            const V_SV_RfMode_type&,
+            const V_SV_EkvMode_type&,
+            const Dynamic_Range_type&,
+            const Window_Time_type&,
+            const V_SV_DopplerMode_type&,
+            const V_SV_NeedleGuide_type&,
+            const V_SV_ColorMode_type&);
+
+  Display1 (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  Display1 (const Display1& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  virtual Display1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Display1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Direction_type > Direction_;
+  ::xsd::cxx::tree::one< V_SV_TissueMode_type > V_SV_TissueMode_;
+  ::xsd::cxx::tree::one< V_SV_MMode_type > V_SV_MMode_;
+  ::xsd::cxx::tree::one< X_3D_Gain_type > X_3D_Gain_;
+  ::xsd::cxx::tree::one< X_3D_Dynamic_Range_type > X_3D_Dynamic_Range_;
+  ::xsd::cxx::tree::one< Gain_type > Gain_;
+  ::xsd::cxx::tree::one< V_SV_RfMode_type > V_SV_RfMode_;
+  ::xsd::cxx::tree::one< V_SV_EkvMode_type > V_SV_EkvMode_;
+  ::xsd::cxx::tree::one< Dynamic_Range_type > Dynamic_Range_;
+  ::xsd::cxx::tree::one< Window_Time_type > Window_Time_;
+  ::xsd::cxx::tree::one< V_SV_DopplerMode_type > V_SV_DopplerMode_;
+  ::xsd::cxx::tree::one< V_SV_NeedleGuide_type > V_SV_NeedleGuide_;
+  ::xsd::cxx::tree::one< V_SV_ColorMode_type > V_SV_ColorMode_;
+};
+
+class EKVModeSoft: public ::xml_schema::type
+{
+  public:
+  // RWave-Time-Tollerance
+  //
+  typedef ::xml_schema::string RWave_Time_Tollerance_type;
+  typedef ::xsd::cxx::tree::traits< RWave_Time_Tollerance_type, char > RWave_Time_Tollerance_traits;
+
+  const RWave_Time_Tollerance_type&
+  RWave_Time_Tollerance () const;
+
+  RWave_Time_Tollerance_type&
+  RWave_Time_Tollerance ();
+
+  void
+  RWave_Time_Tollerance (const RWave_Time_Tollerance_type& x);
+
+  void
+  RWave_Time_Tollerance (::std::auto_ptr< RWave_Time_Tollerance_type > p);
+
+  // EKV-Start
+  //
+  typedef ::xml_schema::string EKV_Start_type;
+  typedef ::xsd::cxx::tree::traits< EKV_Start_type, char > EKV_Start_traits;
+
+  const EKV_Start_type&
+  EKV_Start () const;
+
+  EKV_Start_type&
+  EKV_Start ();
+
+  void
+  EKV_Start (const EKV_Start_type& x);
+
+  void
+  EKV_Start (::std::auto_ptr< EKV_Start_type > p);
+
+  // EKV-Stop
+  //
+  typedef ::xml_schema::string EKV_Stop_type;
+  typedef ::xsd::cxx::tree::traits< EKV_Stop_type, char > EKV_Stop_traits;
+
+  const EKV_Stop_type&
+  EKV_Stop () const;
+
+  EKV_Stop_type&
+  EKV_Stop ();
+
+  void
+  EKV_Stop (const EKV_Stop_type& x);
+
+  void
+  EKV_Stop (::std::auto_ptr< EKV_Stop_type > p);
+
+  // EKV-Quality-Times
+  //
+  typedef ::xml_schema::string EKV_Quality_Times_type;
+  typedef ::xsd::cxx::tree::traits< EKV_Quality_Times_type, char > EKV_Quality_Times_traits;
+
+  const EKV_Quality_Times_type&
+  EKV_Quality_Times () const;
+
+  EKV_Quality_Times_type&
+  EKV_Quality_Times ();
+
+  void
+  EKV_Quality_Times (const EKV_Quality_Times_type& x);
+
+  void
+  EKV_Quality_Times (::std::auto_ptr< EKV_Quality_Times_type > p);
+
+  // EKV-Quality
+  //
+  typedef ::xml_schema::string EKV_Quality_type;
+  typedef ::xsd::cxx::tree::traits< EKV_Quality_type, char > EKV_Quality_traits;
+
+  const EKV_Quality_type&
+  EKV_Quality () const;
+
+  EKV_Quality_type&
+  EKV_Quality ();
+
+  void
+  EKV_Quality (const EKV_Quality_type& x);
+
+  void
+  EKV_Quality (::std::auto_ptr< EKV_Quality_type > p);
+
+  // EKV-Quality-Resolution
+  //
+  typedef ::xml_schema::string EKV_Quality_Resolution_type;
+  typedef ::xsd::cxx::tree::traits< EKV_Quality_Resolution_type, char > EKV_Quality_Resolution_traits;
+
+  const EKV_Quality_Resolution_type&
+  EKV_Quality_Resolution () const;
+
+  EKV_Quality_Resolution_type&
+  EKV_Quality_Resolution ();
+
+  void
+  EKV_Quality_Resolution (const EKV_Quality_Resolution_type& x);
+
+  void
+  EKV_Quality_Resolution (::std::auto_ptr< EKV_Quality_Resolution_type > p);
+
+  // Difference-Percent-Periods-Keep
+  //
+  typedef ::xml_schema::string Difference_Percent_Periods_Keep_type;
+  typedef ::xsd::cxx::tree::traits< Difference_Percent_Periods_Keep_type, char > Difference_Percent_Periods_Keep_traits;
+
+  const Difference_Percent_Periods_Keep_type&
+  Difference_Percent_Periods_Keep () const;
+
+  Difference_Percent_Periods_Keep_type&
+  Difference_Percent_Periods_Keep ();
+
+  void
+  Difference_Percent_Periods_Keep (const Difference_Percent_Periods_Keep_type& x);
+
+  void
+  Difference_Percent_Periods_Keep (::std::auto_ptr< Difference_Percent_Periods_Keep_type > p);
+
+  // EKV-Advanced
+  //
+  typedef ::xml_schema::string EKV_Advanced_type;
+  typedef ::xsd::cxx::tree::traits< EKV_Advanced_type, char > EKV_Advanced_traits;
+
+  const EKV_Advanced_type&
+  EKV_Advanced () const;
+
+  EKV_Advanced_type&
+  EKV_Advanced ();
+
+  void
+  EKV_Advanced (const EKV_Advanced_type& x);
+
+  void
+  EKV_Advanced (::std::auto_ptr< EKV_Advanced_type > p);
+
+  // EKV-Variance
+  //
+  typedef ::xml_schema::string EKV_Variance_type;
+  typedef ::xsd::cxx::tree::traits< EKV_Variance_type, char > EKV_Variance_traits;
+
+  const EKV_Variance_type&
+  EKV_Variance () const;
+
+  EKV_Variance_type&
+  EKV_Variance ();
+
+  void
+  EKV_Variance (const EKV_Variance_type& x);
+
+  void
+  EKV_Variance (::std::auto_ptr< EKV_Variance_type > p);
+
+  // EKV-Triggers
+  //
+  typedef ::xml_schema::string EKV_Triggers_type;
+  typedef ::xsd::cxx::tree::traits< EKV_Triggers_type, char > EKV_Triggers_traits;
+
+  const EKV_Triggers_type&
+  EKV_Triggers () const;
+
+  EKV_Triggers_type&
+  EKV_Triggers ();
+
+  void
+  EKV_Triggers (const EKV_Triggers_type& x);
+
+  void
+  EKV_Triggers (::std::auto_ptr< EKV_Triggers_type > p);
+
+  // Constructors.
+  //
+  EKVModeSoft (const RWave_Time_Tollerance_type&,
+               const EKV_Start_type&,
+               const EKV_Stop_type&,
+               const EKV_Quality_Times_type&,
+               const EKV_Quality_type&,
+               const EKV_Quality_Resolution_type&,
+               const Difference_Percent_Periods_Keep_type&,
+               const EKV_Advanced_type&,
+               const EKV_Variance_type&,
+               const EKV_Triggers_type&);
+
+  EKVModeSoft (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  EKVModeSoft (const EKVModeSoft& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual EKVModeSoft*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~EKVModeSoft ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< RWave_Time_Tollerance_type > RWave_Time_Tollerance_;
+  ::xsd::cxx::tree::one< EKV_Start_type > EKV_Start_;
+  ::xsd::cxx::tree::one< EKV_Stop_type > EKV_Stop_;
+  ::xsd::cxx::tree::one< EKV_Quality_Times_type > EKV_Quality_Times_;
+  ::xsd::cxx::tree::one< EKV_Quality_type > EKV_Quality_;
+  ::xsd::cxx::tree::one< EKV_Quality_Resolution_type > EKV_Quality_Resolution_;
+  ::xsd::cxx::tree::one< Difference_Percent_Periods_Keep_type > Difference_Percent_Periods_Keep_;
+  ::xsd::cxx::tree::one< EKV_Advanced_type > EKV_Advanced_;
+  ::xsd::cxx::tree::one< EKV_Variance_type > EKV_Variance_;
+  ::xsd::cxx::tree::one< EKV_Triggers_type > EKV_Triggers_;
+};
+
+class BModeLVAnalysis: public ::xml_schema::type
+{
+  public:
+  // Cycles-Cardiac-Region
+  //
+  typedef ::xml_schema::string Cycles_Cardiac_Region_type;
+  typedef ::xsd::cxx::tree::traits< Cycles_Cardiac_Region_type, char > Cycles_Cardiac_Region_traits;
+
+  const Cycles_Cardiac_Region_type&
+  Cycles_Cardiac_Region () const;
+
+  Cycles_Cardiac_Region_type&
+  Cycles_Cardiac_Region ();
+
+  void
+  Cycles_Cardiac_Region (const Cycles_Cardiac_Region_type& x);
+
+  void
+  Cycles_Cardiac_Region (::std::auto_ptr< Cycles_Cardiac_Region_type > p);
+
+  // Cycles
+  //
+  typedef ::xml_schema::string Cycles_type;
+  typedef ::xsd::cxx::tree::traits< Cycles_type, char > Cycles_traits;
+
+  const Cycles_type&
+  Cycles () const;
+
+  Cycles_type&
+  Cycles ();
+
+  void
+  Cycles (const Cycles_type& x);
+
+  void
+  Cycles (::std::auto_ptr< Cycles_type > p);
+
+  // Spline-Process-Points
+  //
+  typedef ::xml_schema::string Spline_Process_Points_type;
+  typedef ::xsd::cxx::tree::traits< Spline_Process_Points_type, char > Spline_Process_Points_traits;
+
+  const Spline_Process_Points_type&
+  Spline_Process_Points () const;
+
+  Spline_Process_Points_type&
+  Spline_Process_Points ();
+
+  void
+  Spline_Process_Points (const Spline_Process_Points_type& x);
+
+  void
+  Spline_Process_Points (::std::auto_ptr< Spline_Process_Points_type > p);
+
+  // Speckle-Search-Size
+  //
+  typedef ::xml_schema::string Speckle_Search_Size_type;
+  typedef ::xsd::cxx::tree::traits< Speckle_Search_Size_type, char > Speckle_Search_Size_traits;
+
+  const Speckle_Search_Size_type&
+  Speckle_Search_Size () const;
+
+  Speckle_Search_Size_type&
+  Speckle_Search_Size ();
+
+  void
+  Speckle_Search_Size (const Speckle_Search_Size_type& x);
+
+  void
+  Speckle_Search_Size (::std::auto_ptr< Speckle_Search_Size_type > p);
+
+  // Speckle-Compare-Size
+  //
+  typedef ::xml_schema::string Speckle_Compare_Size_type;
+  typedef ::xsd::cxx::tree::traits< Speckle_Compare_Size_type, char > Speckle_Compare_Size_traits;
+
+  const Speckle_Compare_Size_type&
+  Speckle_Compare_Size () const;
+
+  Speckle_Compare_Size_type&
+  Speckle_Compare_Size ();
+
+  void
+  Speckle_Compare_Size (const Speckle_Compare_Size_type& x);
+
+  void
+  Speckle_Compare_Size (::std::auto_ptr< Speckle_Compare_Size_type > p);
+
+  // EKV-Frames
+  //
+  typedef ::xml_schema::string EKV_Frames_type;
+  typedef ::xsd::cxx::tree::traits< EKV_Frames_type, char > EKV_Frames_traits;
+
+  const EKV_Frames_type&
+  EKV_Frames () const;
+
+  EKV_Frames_type&
+  EKV_Frames ();
+
+  void
+  EKV_Frames (const EKV_Frames_type& x);
+
+  void
+  EKV_Frames (::std::auto_ptr< EKV_Frames_type > p);
+
+  // Axis
+  //
+  typedef ::xml_schema::string Axis_type;
+  typedef ::xsd::cxx::tree::traits< Axis_type, char > Axis_traits;
+
+  const Axis_type&
+  Axis () const;
+
+  Axis_type&
+  Axis ();
+
+  void
+  Axis (const Axis_type& x);
+
+  void
+  Axis (::std::auto_ptr< Axis_type > p);
+
+  // Cardinal-Tension
+  //
+  typedef ::xml_schema::string Cardinal_Tension_type;
+  typedef ::xsd::cxx::tree::traits< Cardinal_Tension_type, char > Cardinal_Tension_traits;
+
+  const Cardinal_Tension_type&
+  Cardinal_Tension () const;
+
+  Cardinal_Tension_type&
+  Cardinal_Tension ();
+
+  void
+  Cardinal_Tension (const Cardinal_Tension_type& x);
+
+  void
+  Cardinal_Tension (::std::auto_ptr< Cardinal_Tension_type > p);
+
+  // Constructors.
+  //
+  BModeLVAnalysis (const Cycles_Cardiac_Region_type&,
+                   const Cycles_type&,
+                   const Spline_Process_Points_type&,
+                   const Speckle_Search_Size_type&,
+                   const Speckle_Compare_Size_type&,
+                   const EKV_Frames_type&,
+                   const Axis_type&,
+                   const Cardinal_Tension_type&);
+
+  BModeLVAnalysis (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  BModeLVAnalysis (const BModeLVAnalysis& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual BModeLVAnalysis*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~BModeLVAnalysis ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< Cycles_Cardiac_Region_type > Cycles_Cardiac_Region_;
+  ::xsd::cxx::tree::one< Cycles_type > Cycles_;
+  ::xsd::cxx::tree::one< Spline_Process_Points_type > Spline_Process_Points_;
+  ::xsd::cxx::tree::one< Speckle_Search_Size_type > Speckle_Search_Size_;
+  ::xsd::cxx::tree::one< Speckle_Compare_Size_type > Speckle_Compare_Size_;
+  ::xsd::cxx::tree::one< EKV_Frames_type > EKV_Frames_;
+  ::xsd::cxx::tree::one< Axis_type > Axis_;
+  ::xsd::cxx::tree::one< Cardinal_Tension_type > Cardinal_Tension_;
+};
+
 #include <iosfwd>
 
 ::std::ostream&
@@ -678,6 +18811,111 @@ operator<< (::std::ostream&, const image_parameters_t&);
 
 ::std::ostream&
 operator<< (::std::ostream&, const rdi_t&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RF_Mode&);
+
+::std::ostream&
+operator<< (::std::ostream&, const B_Mode&);
+
+::std::ostream&
+operator<< (::std::ostream&, const ActiveProbe&);
+
+::std::ostream&
+operator<< (::std::ostream&, const BModeSoft&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sys&);
+
+::std::ostream&
+operator<< (::std::ostream&, const MIS&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Scan&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Motor&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Diag&);
+
+::std::ostream&
+operator<< (::std::ostream&, const ECG&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RfModeSoft&);
+
+::std::ostream&
+operator<< (::std::ostream&, const TX&);
+
+::std::ostream&
+operator<< (::std::ostream&, const X_3D&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RfAnalysis&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RX&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Display&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Acqiris&);
+
+::std::ostream&
+operator<< (::std::ostream&, const ActiveProbe1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const BModeSoft1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sys1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Contrast&);
+
+::std::ostream&
+operator<< (::std::ostream&, const MIS1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Scan1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Motor1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const ContrastDlg&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Diag1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const ECG1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const TX1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const ContrastDestroy&);
+
+::std::ostream&
+operator<< (::std::ostream&, const X_3D1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const X_3DSoft&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RX1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Display1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const EKVModeSoft&);
+
+::std::ostream&
+operator<< (::std::ostream&, const BModeLVAnalysis&);
 
 #include <iosfwd>
 
@@ -803,13 +19041,6 @@ void
 operator<< (::xercesc::DOMElement&, const image_parameters_t&);
 
 void
-operator<< (::xercesc::DOMAttr&, const image_parameters_t&);
-
-void
-operator<< (::xml_schema::list_stream&,
-            const image_parameters_t&);
-
-void
 operator<< (::xercesc::DOMElement&, const rdi_t&);
 
 // Serialize to std::ostream.
@@ -879,6 +19110,111 @@ rdi (::xercesc::DOMDocument& d,
 rdi (const ::rdi_t& x,
      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
      ::xml_schema::flags f = 0);
+
+void
+operator<< (::xercesc::DOMElement&, const RF_Mode&);
+
+void
+operator<< (::xercesc::DOMElement&, const B_Mode&);
+
+void
+operator<< (::xercesc::DOMElement&, const ActiveProbe&);
+
+void
+operator<< (::xercesc::DOMElement&, const BModeSoft&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sys&);
+
+void
+operator<< (::xercesc::DOMElement&, const MIS&);
+
+void
+operator<< (::xercesc::DOMElement&, const Scan&);
+
+void
+operator<< (::xercesc::DOMElement&, const Motor&);
+
+void
+operator<< (::xercesc::DOMElement&, const Diag&);
+
+void
+operator<< (::xercesc::DOMElement&, const ECG&);
+
+void
+operator<< (::xercesc::DOMElement&, const RfModeSoft&);
+
+void
+operator<< (::xercesc::DOMElement&, const TX&);
+
+void
+operator<< (::xercesc::DOMElement&, const X_3D&);
+
+void
+operator<< (::xercesc::DOMElement&, const RfAnalysis&);
+
+void
+operator<< (::xercesc::DOMElement&, const RX&);
+
+void
+operator<< (::xercesc::DOMElement&, const Display&);
+
+void
+operator<< (::xercesc::DOMElement&, const Acqiris&);
+
+void
+operator<< (::xercesc::DOMElement&, const ActiveProbe1&);
+
+void
+operator<< (::xercesc::DOMElement&, const BModeSoft1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sys1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Contrast&);
+
+void
+operator<< (::xercesc::DOMElement&, const MIS1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Scan1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Motor1&);
+
+void
+operator<< (::xercesc::DOMElement&, const ContrastDlg&);
+
+void
+operator<< (::xercesc::DOMElement&, const Diag1&);
+
+void
+operator<< (::xercesc::DOMElement&, const ECG1&);
+
+void
+operator<< (::xercesc::DOMElement&, const TX1&);
+
+void
+operator<< (::xercesc::DOMElement&, const ContrastDestroy&);
+
+void
+operator<< (::xercesc::DOMElement&, const X_3D1&);
+
+void
+operator<< (::xercesc::DOMElement&, const X_3DSoft&);
+
+void
+operator<< (::xercesc::DOMElement&, const RX1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Display1&);
+
+void
+operator<< (::xercesc::DOMElement&, const EKVModeSoft&);
+
+void
+operator<< (::xercesc::DOMElement&, const BModeLVAnalysis&);
 
 #include <xsd/cxx/post.hxx>
 

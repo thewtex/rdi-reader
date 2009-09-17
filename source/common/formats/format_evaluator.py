@@ -52,7 +52,6 @@ class RDILineParser:
         raw_line = raw_line[1:-2]
         raw_line = raw_line.replace('",','')
         split_line = raw_line.split('"')
-        print("Processing: ", split_line)
         param_hierarchy = split_line[0].split('/')
         for node in range(len(param_hierarchy)):
             param_hierarchy[node] = self.get_element_name(param_hierarchy[node])
@@ -64,7 +63,9 @@ class RDILineParser:
 #
 # @return
     def get_raw_line(self):
-        return self.rdi_file.readline()
+        raw_line = self.rdi_file.readline()
+        print("Processing: ", raw_line, end='')
+        return raw_line
 
 ##
 # @brief clean rdi so it is a valid XML element name
@@ -76,7 +77,7 @@ class RDILineParser:
 # @return valid_element_name
     def get_element_name(self, rdi_name):
         element_name = rdi_name.replace(' ', '_')
-        if self.digit_re.match(rdi_name[0]):
+        if len(rdi_name) > 0 and self.digit_re.match(rdi_name[0]):
             element_name = 'X_' + element_name
         return element_name
 
@@ -122,7 +123,7 @@ def main(rdi_filepath):
         image_data_t = etree.SubElement(rdi_schema, XS + 'complexType', \
                 name='image_data_t')
         next_line = rdi_line_parser.get_raw_line()
-        while(next_line != '"===_IMAGE_PARAMETERS_==="\n'):
+        while(next_line != '"=== IMAGE PARAMETERS ==="\n'):
             next_line = rdi_line_parser.get_raw_line()
 
 # parse IMAGE PARAMETERS

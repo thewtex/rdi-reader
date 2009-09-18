@@ -12,17 +12,31 @@ using namespace std;
 
 #include "rdiReader.h"
 
+/**
+ * @brief print program usage
+ *
+ * @param program_name
+ *
+ * @return exit error num
+ */
+int usage(char* program_name)
+{
+    cerr << "usage: " << program_name << " filename.rdi [output_filename.xml]" << endl;
+    return 1;
+}
+
 
 int main(int argc, char* argv[])
 {
+  if(argc < 2)
+    return usage(argv[0]);
   string out_file(argv[1]);
-  if(argc < 2 ||
-      argc > 3 ||
-      out_file.substr(out_file.length()-5) == ".rdi")
-    {
-    cerr << "usage: " << argv[0] << " filename.rdi <output_filename.xml>" << endl;
-    return 1;
-    }
+  if(argc > 3 ||
+     out_file.length() < 4 ||
+     !(out_file.substr(out_file.length()-4) == ".rdi") ||
+     out_file == "--help"
+     )
+    return usage(argv[0]);
 
   try
   {
@@ -33,7 +47,6 @@ int main(int argc, char* argv[])
     // debug
     cout << "Acquisition Mode: " << rdi_i->image_info().Acquisition_Mode() << endl;
     cout << "Image Frames: "  << rdi_i->image_info().Image_Frames() << endl;
-
     // end debug
 
     if(argc == 2)

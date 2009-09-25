@@ -74,6 +74,7 @@ auto_ptr<rdi_t> rdiReader::parse()
 
   std::string line;
 
+  // @todo split these sections of code up into functions
   // parse IMAGE INFO SECTION
   getline(infile, line);
   if(line == "=== IMAGE INFO ===")
@@ -96,6 +97,7 @@ auto_ptr<rdi_t> rdiReader::parse()
       child->setAttribute(units, X(m_line_parser.units.c_str()));
     }
 
+  // parse IMAGE DATA SECTION
   getline(infile, line);
   while(!(line == "\"=== IMAGE PARAMETERS ===\"\r"))
     getline(infile, line);
@@ -103,8 +105,49 @@ auto_ptr<rdi_t> rdiReader::parse()
   DOMElement* image_data = domdoc->createElement(X("image_data"));
   root_elem->appendChild(image_data);
 
+  // parse IMAGE PARAMETERS SECTION
   DOMElement* image_parameters = domdoc->createElement(X("image_parameters"));
   root_elem->appendChild(image_parameters);
+  try
+    {
+    //skip first "
+    infile.seekg(1, ios::cur);
+    size_t node_depth = 0;
+    DOMElement* current_element;
+    DOMElement* new_child;
+    DOMNodeList* child_elements_with_tag;
+    while(m_line_parser.parse_line(infile))
+      {
+      current_element = image_parameters;
+      for(node_depth = 0; node_depth < m_line_parser.elements.size() - 1; ++node_depth)
+	{
+	child_elements_with_tag =
+	  current_element->getElementsByTagName(X(m_line_parser.elements[node_depth].c_str()));
+	if(child_elements_with_tag->getLength() == 0)
+	  {
+	  new_child = domdoc->createElement(X(m_line_parser.elements[node_depth].c_str()));
+	  current_element->appendChild(new_child);
+	  current_element = new_child;
+	  }
+	else
+	  {
+	  current_element = dynamic_cast<DOMElement*>(child_elements_with_tag->item(0));
+	  }
+	}
+      new_child = domdoc->createElement(X(m_line_parser.elements[node_depth].c_str()));
+      current_element->appendChild(new_child);
+      text = domdoc->createTextNode(X(m_line_parser.content.c_str()));
+      new_child->appendChild(text);
+      if(m_line_parser.units.size() > 0)
+	child->setAttribute(units, X(m_line_parser.units.c_str()));
+      } // end parsing and handling a line
+    }
+  catch(const ifstream::failure& e)
+    {
+    if(!infile.eof())
+      throw e;
+    }
+
   //// for debugging
       namespace xml = xsd::cxx::xml;
     namespace tree = xsd::cxx::tree;
@@ -149,6 +192,14 @@ eh.throw_if_failed<tree::serialization<char> > ();
 }
 
 
+string rdiReader::LineParser::make_element_name_valid(const string& element_name)
+{
+  if(element_name.substr(0,1).find_first_of("0123456789-") == 0)
+    return string("X_") + element_name;
+  return element_name;
+}
+
+
 bool rdiReader::LineParser::parse_line(istream& f)
 {
   units.clear();
@@ -162,12 +213,12 @@ bool rdiReader::LineParser::parse_line(istream& f)
   size_t element_index=0;
   while(next_separator_pos != string::npos)
     {
-    elements[element_index] = m_subline.substr(previous_separator_pos, next_separator_pos - previous_separator_pos);
+    elements[element_index] = make_element_name_valid(m_subline.substr(previous_separator_pos, next_separator_pos - previous_separator_pos));
     previous_separator_pos = next_separator_pos + 1;
     next_separator_pos = m_subline.find_first_of('/', previous_separator_pos);
     element_index++;
     }
-  elements[element_index] = m_subline.substr(previous_separator_pos);
+  elements[element_index] = make_element_name_valid(m_subline.substr(previous_separator_pos));
 
   getline(f, m_subline, '"');
   if(!(m_subline == ","))

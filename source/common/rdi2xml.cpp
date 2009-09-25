@@ -59,6 +59,9 @@ int main(int argc, char* argv[])
     map[""].schema = "rdi.xsd";
     rdi(ofs, *rdi_i, map);
   }
+  // @todo move some of the exception handling up into rdiReader excecution,
+  // throw a general more general exception with informative e.what() after
+  // caught
   catch (const ifstream::failure& e)
     {
     cerr << "Error: failure opening/reading file." << endl;
@@ -81,7 +84,7 @@ int main(int argc, char* argv[])
     }
   catch (const xsd::cxx::tree::expected_element<char>& e)
     {
-    cerr << "Error: " << e.what() << ": '" << e.name() << "' in " << e.namespace_() << endl;
+    cerr << "Error: " << e.what() << ": '" << e.name() << "' in namespace: " << e.namespace_() << endl;
     return 1;
     }
   catch (const std::exception& e)

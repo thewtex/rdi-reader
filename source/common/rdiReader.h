@@ -64,6 +64,15 @@ protected:
      */
     bool parse_line(istream& f);
   private:
+    /**
+     * @brief purify the proposed element name so that it is a valid XML element
+     * name
+     *
+     * @param element_name
+     *
+     * @return purified element name
+     */
+    string make_element_name_valid(const string& element_name);
     string m_subline;
     }; // end LineParser nested class
   LineParser m_line_parser;

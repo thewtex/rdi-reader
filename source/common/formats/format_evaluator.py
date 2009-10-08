@@ -154,10 +154,28 @@ def main(rdi_filepath):
                     node_e = next_node_locator(node_e)[0]
                     node_e = node_e[0][0]
             element_name = next_line[0][-1]
-            element = etree.Element(XS + 'element',
-                    name = element_name,
-                    type = etyper.get_type(next_line))
-            node_e.append(element)
+            if len(next_line) < 3: # no units attribute
+                element = etree.Element(XS + 'element',
+                        name = element_name,
+                        type = etyper.get_type(next_line))
+                node_e.append(element)
+            else: # units attribute,
+                # http://www.w3.org/TR/xmlschema-0/ 2.5.1
+                element = etree.Element(XS + 'element',
+                        name = element_name)
+                element_ct = etree.Element(XS + 'complexType')
+                element_sc = etree.Element(XS + 'simpleContent')
+                element_ex = etree.Element(XS + 'extension',
+                        base = etyper.get_type(next_line) )
+                element_attr = etree.Element(XS + 'attribute',
+                        name = 'units',
+                        type = XS_NS + 'string',
+                        use = 'required')
+                element_ex.append(element_attr)
+                element_sc.append(element_ex)
+                element_ct.append(element_sc)
+                element.append(element_ct)
+                node_e.append(element)
             next_line = rdi_line_parser.get_line()
 
 # create rdi root element and main IMAGE* sub elements

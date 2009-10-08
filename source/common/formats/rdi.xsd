@@ -26,62 +26,302 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="Notes"/>
-                  <xs:element type="xs:string" name="Sample-Time"/>
-                  <xs:element type="xs:string" name="Focal-Length"/>
+                  <xs:element name="Sample-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Focal-Length">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Acceleration-Limit-Slope"/>
                   <xs:element type="xs:string" name="Type"/>
                   <xs:element type="xs:string" name="Detect-Id"/>
-                  <xs:element type="xs:string" name="Default-Scan-Speed"/>
+                  <xs:element name="Default-Scan-Speed">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="K1-Power"/>
-                  <xs:element type="xs:string" name="Cutoff-Scan-Speed"/>
-                  <xs:element type="xs:string" name="Frequency-Low"/>
-                  <xs:element type="xs:string" name="Default-FOV"/>
-                  <xs:element type="xs:string" name="Frequency-Doppler-Default"/>
+                  <xs:element name="Cutoff-Scan-Speed">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Frequency-Low">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Default-FOV">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Frequency-Doppler-Default">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Default-SvSize-MMode"/>
                   <xs:element type="xs:string" name="Axial-Res-Factor-Target"/>
                   <xs:element type="xs:string" name="F-Number"/>
                   <xs:element type="xs:string" name="Acc-Time-Factor"/>
-                  <xs:element type="xs:string" name="Frequency-Doppler"/>
-                  <xs:element type="xs:string" name="Axial-Res"/>
+                  <xs:element name="Frequency-Doppler">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Axial-Res">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Detect-Ratio-Min"/>
                   <xs:element type="xs:string" name="Lateral-Res-Factor-Target"/>
                   <xs:element type="xs:string" name="Derivative-Time"/>
-                  <xs:element type="xs:string" name="Filter-High"/>
-                  <xs:element type="xs:string" name="Pivot-Encoder-Dist"/>
-                  <xs:element type="xs:string" name="Encoder-Range-Max"/>
-                  <xs:element type="xs:string" name="Encoder-Range-Min"/>
-                  <xs:element type="xs:string" name="Lateral-Res"/>
-                  <xs:element type="xs:string" name="Motor-Overhead"/>
-                  <xs:element type="xs:string" name="Max-Scan-Distance"/>
+                  <xs:element name="Filter-High">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Pivot-Encoder-Dist">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Encoder-Range-Max">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Encoder-Range-Min">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Lateral-Res">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Motor-Overhead">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Max-Scan-Distance">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Version"/>
-                  <xs:element type="xs:string" name="Default-Rx-Gain"/>
-                  <xs:element type="xs:string" name="Filter-Low"/>
+                  <xs:element name="Default-Rx-Gain">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Filter-Low">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="PID-KD-High"/>
                   <xs:element type="xs:string" name="PID-KI-High"/>
                   <xs:element type="xs:string" name="PID-KP-High"/>
-                  <xs:element type="xs:string" name="Frequency-High"/>
+                  <xs:element name="Frequency-High">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Lateral-Res-Factor-Max"/>
-                  <xs:element type="xs:string" name="Scan-Speeds"/>
-                  <xs:element type="xs:string" name="Filter-Doppler-Cutoff"/>
+                  <xs:element name="Scan-Speeds">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Filter-Doppler-Cutoff">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Name"/>
                   <xs:element type="xs:string" name="PID-KD-Low"/>
                   <xs:element type="xs:string" name="PID-KI-Low"/>
                   <xs:element type="xs:string" name="PID-KP-Low"/>
                   <xs:element type="xs:string" name="Peak-Bandwidth-Correction"/>
-                  <xs:element type="xs:string" name="Frequency-Doppler-Low"/>
-                  <xs:element type="xs:string" name="Pivot-Transducer-Face-Dist"/>
-                  <xs:element type="xs:string" name="Filter-Doppler"/>
-                  <xs:element type="xs:string" name="Frequency"/>
+                  <xs:element name="Frequency-Doppler-Low">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Pivot-Transducer-Face-Dist">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Filter-Doppler">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Integration-Limit"/>
-                  <xs:element type="xs:string" name="Encoder-Separation"/>
-                  <xs:element type="xs:string" name="Overshoot"/>
+                  <xs:element name="Encoder-Separation">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Overshoot">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Attenuation-Shift"/>
-                  <xs:element type="xs:string" name="Filter"/>
-                  <xs:element type="xs:string" name="Default-Rx-Gain-Doppler"/>
+                  <xs:element name="Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Default-Rx-Gain-Doppler">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Peak-Vel-Correction"/>
                   <xs:element type="xs:string" name="Detect-Ratio-Max"/>
                   <xs:element type="xs:string" name="Acceleration-Limit-Constant"/>
-                  <xs:element type="xs:string" name="Filter-Doppler-Low"/>
+                  <xs:element name="Filter-Doppler-Low">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -90,17 +330,57 @@
                 <xs:sequence>
                   <xs:element type="xs:string" name="V-Relative-Frame-Rate"/>
                   <xs:element type="xs:string" name="Max-Power-Size-Default"/>
-                  <xs:element type="xs:string" name="Buffer-Size"/>
+                  <xs:element name="Buffer-Size">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="AVR-Factor"/>
                   <xs:element type="xs:string" name="AVR-Startup-Frames"/>
-                  <xs:element type="xs:string" name="BMode-Size-Default"/>
+                  <xs:element name="BMode-Size-Default">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Relative-Frame-Rate"/>
-                  <xs:element type="xs:string" name="Refresh-Rate"/>
+                  <xs:element name="Refresh-Rate">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Acquire-Both-Directions"/>
                   <xs:element type="xs:string" name="Acquire-Persist-AVR"/>
-                  <xs:element type="xs:string" name="Power-Size-Default"/>
+                  <xs:element name="Power-Size-Default">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Max-BMode-Size-Default"/>
-                  <xs:element type="xs:string" name="Target-Field-Of-View"/>
+                  <xs:element name="Target-Field-Of-View">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Processing-Command"/>
                 </xs:sequence>
               </xs:complexType>
@@ -109,7 +389,15 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="Query-Discard-Loop-On-Save-Frame"/>
-                  <xs:element type="xs:string" name="Sound-Speed"/>
+                  <xs:element name="Sound-Speed">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="SubMode"/>
                   <xs:element type="xs:string" name="Interrupt-Mask"/>
                   <xs:element type="xs:string" name="Calculation-Instances"/>
@@ -126,7 +414,15 @@
                   <xs:element type="xs:string" name="Company-Name"/>
                   <xs:element type="xs:string" name="Image-To-Auto-Save-On-Label"/>
                   <xs:element type="xs:string" name="DICOM-Encode-Regions"/>
-                  <xs:element type="xs:string" name="Pipeline-Delay"/>
+                  <xs:element name="Pipeline-Delay">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="DDS-Control"/>
                   <xs:element type="xs:string" name="Mode"/>
                 </xs:sequence>
@@ -150,20 +446,52 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="Encoder-Position"/>
-                  <xs:element type="xs:string" name="Center"/>
+                  <xs:element name="Center">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Control"/>
                   <xs:element type="xs:string" name="Probe-ID1"/>
                   <xs:element type="xs:string" name="Probe-ID2"/>
-                  <xs:element type="xs:string" name="V-Scan-Speed"/>
+                  <xs:element name="V-Scan-Speed">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Probe-ID1-Reread"/>
                   <xs:element type="xs:string" name="Probe-ID1-Valid"/>
                   <xs:element type="xs:string" name="Probe-ID1-Voltage"/>
                   <xs:element type="xs:string" name="Probe-ID2-Reread"/>
                   <xs:element type="xs:string" name="Probe-ID2-Valid"/>
                   <xs:element type="xs:string" name="Probe-ID2-Voltage"/>
-                  <xs:element type="xs:string" name="V-Scan-Rate"/>
+                  <xs:element name="V-Scan-Rate">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Position-Counter-Lock"/>
-                  <xs:element type="xs:string" name="Scan-Width"/>
+                  <xs:element name="Scan-Width">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Position-Counter-Reset"/>
                 </xs:sequence>
               </xs:complexType>
@@ -172,10 +500,34 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="Settle-Time-3d"/>
-                  <xs:element type="xs:string" name="Position"/>
-                  <xs:element type="xs:string" name="R-Scan-Move-No-Wait"/>
+                  <xs:element name="Position">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="R-Scan-Move-No-Wait">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Motor-Mode"/>
-                  <xs:element type="xs:string" name="Acceleration"/>
+                  <xs:element name="Acceleration">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Serial-Port-Mode"/>
                   <xs:element type="xs:string" name="Limit-Switch-Mode"/>
                   <xs:element type="xs:string" name="Breakpoint"/>
@@ -183,25 +535,65 @@
                   <xs:element type="xs:string" name="Breakpoint-Value"/>
                   <xs:element type="xs:string" name="V-Switch-Limit"/>
                   <xs:element type="xs:string" name="R-Retrieve-Trace"/>
-                  <xs:element type="xs:string" name="Velocity-Stationary"/>
+                  <xs:element name="Velocity-Stationary">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Reset-Event-Status"/>
                   <xs:element type="xs:string" name="Actual-Position"/>
                   <xs:element type="xs:string" name="Buffer-Length"/>
                   <xs:element type="xs:string" name="Event-Status"/>
-                  <xs:element type="xs:string" name="R-Scan-Move2"/>
+                  <xs:element name="R-Scan-Move2">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Kp"/>
                   <xs:element type="xs:string" name="R-Wait-Finish-Scan-Move"/>
                   <xs:element type="xs:string" name="Settle-Time"/>
-                  <xs:element type="xs:string" name="Acceleration-Stationary"/>
+                  <xs:element name="Acceleration-Stationary">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Trace-Mode"/>
                   <xs:element type="xs:string" name="Trace-Period"/>
                   <xs:element type="xs:string" name="Trace-Start"/>
-                  <xs:element type="xs:string" name="Position-Reverse"/>
+                  <xs:element name="Position-Reverse">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Reset"/>
                   <xs:element type="xs:string" name="Trace-Count"/>
                   <xs:element type="xs:string" name="R-Initialize"/>
                   <xs:element type="xs:string" name="Output-Mode"/>
-                  <xs:element type="xs:string" name="Position2"/>
+                  <xs:element name="Position2">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Integration-Limit"/>
                   <xs:element type="xs:string" name="R-Home"/>
                   <xs:element type="xs:string" name="Error"/>
@@ -211,12 +603,36 @@
                   <xs:element type="xs:string" name="Scan-Move-Control"/>
                   <xs:element type="xs:string" name="Axis-Out-Source"/>
                   <xs:element type="xs:string" name="Trace-Stop"/>
-                  <xs:element type="xs:string" name="Velocity"/>
+                  <xs:element name="Velocity">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="R-Setup"/>
                   <xs:element type="xs:string" name="Buffer-Start"/>
                   <xs:element type="xs:string" name="Signal-Sense"/>
-                  <xs:element type="xs:string" name="R-Scan-Move"/>
-                  <xs:element type="xs:string" name="Position-Forward"/>
+                  <xs:element name="R-Scan-Move">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Position-Forward">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Derivative-Time"/>
                   <xs:element type="xs:string" name="Settle-Window"/>
                   <xs:element type="xs:string" name="Trace-Variable1"/>
@@ -241,7 +657,15 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="Mem-Pagefile"/>
-                  <xs:element type="xs:string" name="Monitor-3point3V"/>
+                  <xs:element name="Monitor-3point3V">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="USER-Objects"/>
                   <xs:element type="xs:string" name="Motor-FPGA-Revision"/>
                   <xs:element type="xs:string" name="Product-Name"/>
@@ -250,20 +674,52 @@
                   <xs:element type="xs:string" name="Software-Version"/>
                   <xs:element type="xs:string" name="Receive-PCB-ID"/>
                   <xs:element type="xs:string" name="Receive-FPGA-Revision"/>
-                  <xs:element type="xs:string" name="Monitor-15V"/>
+                  <xs:element name="Monitor-15V">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="ICB-FPGA-Revision"/>
                   <xs:element type="xs:string" name="GDI-Objects"/>
                   <xs:element type="xs:string" name="Mem-WorkingSet"/>
                   <xs:element type="xs:string" name="Mem-Private"/>
                   <xs:element type="xs:string" name="Switch-PCB-ID"/>
-                  <xs:element type="xs:string" name="Monitor-5V"/>
+                  <xs:element name="Monitor-5V">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Motor-PCB-Revision"/>
                   <xs:element type="xs:string" name="NE1619"/>
                   <xs:element type="xs:string" name="Motor-PCB-ID"/>
                   <xs:element type="xs:string" name="Transmit-PCB-Revision"/>
                   <xs:element type="xs:string" name="MAX1137"/>
-                  <xs:element type="xs:string" name="Monitor-Neg15V"/>
-                  <xs:element type="xs:string" name="Monitor-Neg5V"/>
+                  <xs:element name="Monitor-Neg15V">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Monitor-Neg5V">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Switch-PCB-Revision"/>
                   <xs:element type="xs:string" name="Receive-PCB-Revision"/>
                   <xs:element type="xs:string" name="ICB-PCB-Revision"/>
@@ -275,56 +731,320 @@
             <xs:element name="ECG">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element type="xs:string" name="Respiration-Threshold-Change"/>
+                  <xs:element name="Respiration-Threshold-Change">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Respiration-Threshold"/>
-                  <xs:element type="xs:string" name="Pressure-Range"/>
-                  <xs:element type="xs:string" name="Respiration-Gate-Delay"/>
-                  <xs:element type="xs:string" name="Respiration-Timeout"/>
-                  <xs:element type="xs:string" name="RWave-Max-Change-Factor-Percent"/>
-                  <xs:element type="xs:string" name="Respiration-Period"/>
-                  <xs:element type="xs:string" name="Respiration-Subsample-Rate"/>
+                  <xs:element name="Pressure-Range">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Gate-Delay">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Timeout">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RWave-Max-Change-Factor-Percent">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Period">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Subsample-Rate">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Show-RWaves"/>
                   <xs:element type="xs:string" name="Respiration-Minimal-Peak-2-Peak"/>
-                  <xs:element type="xs:string" name="Respiration-Window"/>
+                  <xs:element name="Respiration-Window">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Pressure-Zeroed"/>
-                  <xs:element type="xs:string" name="Pressure-Systolic"/>
+                  <xs:element name="Pressure-Systolic">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Respiration-Show-Window"/>
-                  <xs:element type="xs:string" name="Frequency"/>
-                  <xs:element type="xs:string" name="Respiration-Blank-Period"/>
-                  <xs:element type="xs:string" name="Respiration-Range"/>
-                  <xs:element type="xs:string" name="Pressure-Zero"/>
+                  <xs:element name="Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Blank-Period">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Range">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Pressure-Zero">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Temperature-Amplification"/>
-                  <xs:element type="xs:string" name="P-Wave-Start"/>
+                  <xs:element name="P-Wave-Start">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="ECG-Filter-Taps"/>
-                  <xs:element type="xs:string" name="RWave-Future-Search-Time"/>
-                  <xs:element type="xs:string" name="Respiration-Percent-Peak"/>
-                  <xs:element type="xs:string" name="T-Wave-Start"/>
-                  <xs:element type="xs:string" name="Strain-Rate-RR-Diff-Ratio"/>
+                  <xs:element name="RWave-Future-Search-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Percent-Peak">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="T-Wave-Start">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Strain-Rate-RR-Diff-Ratio">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Pressure-Calibration-Min-Level"/>
                   <xs:element type="xs:string" name="Pressure-Calibrated"/>
                   <xs:element type="xs:string" name="DPDT-Range"/>
                   <xs:element type="xs:string" name="Respiration-Show-Event"/>
-                  <xs:element type="xs:string" name="Pressure-Diastolic"/>
-                  <xs:element type="xs:string" name="Temperature-Calibration"/>
-                  <xs:element type="xs:string" name="Temperature"/>
-                  <xs:element type="xs:string" name="Respiration-Beats-To-Average"/>
-                  <xs:element type="xs:string" name="RWave-Thresh-Trigger-Percent"/>
-                  <xs:element type="xs:string" name="Respiration-Time-To-Average"/>
+                  <xs:element name="Pressure-Diastolic">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Temperature-Calibration">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Temperature">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Beats-To-Average">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RWave-Thresh-Trigger-Percent">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Time-To-Average">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Pressure-Amplification"/>
-                  <xs:element type="xs:string" name="Heart-Period"/>
+                  <xs:element name="Heart-Period">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Pressure-Show-Event"/>
                   <xs:element type="xs:string" name="RWave-Default-Threshold"/>
                   <xs:element type="xs:string" name="Show-Filtered-Data"/>
-                  <xs:element type="xs:string" name="ECG-Range"/>
-                  <xs:element type="xs:string" name="RWave-Maxima-Block-Time"/>
+                  <xs:element name="ECG-Range">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RWave-Maxima-Block-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="RWave-Noise-Threshold"/>
-                  <xs:element type="xs:string" name="Pressure-Calibration-Level"/>
-                  <xs:element type="xs:string" name="ECG-HP-Filter"/>
-                  <xs:element type="xs:string" name="ECG-LP-Filter"/>
-                  <xs:element type="xs:string" name="RWave-Max-Change-Period"/>
+                  <xs:element name="Pressure-Calibration-Level">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="ECG-HP-Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="ECG-LP-Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RWave-Max-Change-Period">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Pressure-Time-Out"/>
-                  <xs:element type="xs:string" name="Pressure-Calibration"/>
-                  <xs:element type="xs:string" name="RWave-Blank-Time"/>
+                  <xs:element name="Pressure-Calibration">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RWave-Blank-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -332,8 +1052,24 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="Amplitude-Height"/>
-                  <xs:element type="xs:string" name="Magnitude-Origin"/>
-                  <xs:element type="xs:string" name="Frequency-Origin"/>
+                  <xs:element name="Magnitude-Origin">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Frequency-Origin">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Samples"/>
                   <xs:element type="xs:string" name="Saturation-Threshold"/>
                   <xs:element type="xs:string" name="Amplitude-Origin"/>
@@ -341,30 +1077,110 @@
                   <xs:element type="xs:string" name="AcqPerLine"/>
                   <xs:element type="xs:string" name="Lines"/>
                   <xs:element type="xs:string" name="Windowing-Mode"/>
-                  <xs:element type="xs:string" name="Length-Origin"/>
+                  <xs:element name="Length-Origin">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Line-Selected"/>
                   <xs:element type="xs:string" name="V-Lines-Pos"/>
                   <xs:element type="xs:string" name="Bounce-Test-AscanData"/>
-                  <xs:element type="xs:string" name="Vertical-Scale"/>
+                  <xs:element name="Vertical-Scale">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Bounce-Test-RFData"/>
-                  <xs:element type="xs:string" name="SamplesPerSec"/>
+                  <xs:element name="SamplesPerSec">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Frames"/>
                   <xs:element type="xs:string" name="Digitizer"/>
-                  <xs:element type="xs:string" name="Magnitude-Height"/>
+                  <xs:element name="Magnitude-Height">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Saturation"/>
-                  <xs:element type="xs:string" name="Length-Length"/>
-                  <xs:element type="xs:string" name="Frequency-Length"/>
+                  <xs:element name="Length-Length">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Frequency-Length">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="State"/>
-                  <xs:element type="xs:string" name="SV-Center"/>
+                  <xs:element name="SV-Center">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Continuous-RF-FrameRate"/>
                   <xs:element type="xs:string" name="Quantify-Bounce-Test"/>
                   <xs:element type="xs:string" name="X_3D-Volume"/>
                   <xs:element type="xs:string" name="Shift-RF-Data"/>
                   <xs:element type="xs:string" name="V-Lines"/>
                   <xs:element type="xs:string" name="Graph-Mode"/>
-                  <xs:element type="xs:string" name="RF-Path-15Mhz-Time-Correction"/>
-                  <xs:element type="xs:string" name="RF-Path-23Mhz-Time-Correction"/>
-                  <xs:element type="xs:string" name="SV-Length-Limits"/>
+                  <xs:element name="RF-Path-15Mhz-Time-Correction">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RF-Path-23Mhz-Time-Correction">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="SV-Length-Limits">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -372,26 +1188,114 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="V-Position-Table"/>
-                  <xs:element type="xs:string" name="V-Transmit-Length"/>
+                  <xs:element name="V-Transmit-Length">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Trigger-Counter-Clear"/>
                   <xs:element type="xs:string" name="Trigger-Counter"/>
                   <xs:element type="xs:string" name="Multi-Trigger-Freq"/>
                   <xs:element type="xs:string" name="RF-Amp"/>
                   <xs:element type="xs:string" name="Trigger-Control"/>
-                  <xs:element type="xs:string" name="V-Pulse-Rep-Freq"/>
+                  <xs:element name="V-Pulse-Rep-Freq">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Phase"/>
-                  <xs:element type="xs:string" name="Frequency"/>
-                  <xs:element type="xs:string" name="V-Unblank-Time"/>
-                  <xs:element type="xs:string" name="V-Frequency"/>
-                  <xs:element type="xs:string" name="Pulse-Rep-Frequency"/>
+                  <xs:element name="Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="V-Unblank-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="V-Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Pulse-Rep-Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Multi-Trigger"/>
-                  <xs:element type="xs:string" name="Trig-Tbl-Trigs"/>
+                  <xs:element name="Trig-Tbl-Trigs">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Width"/>
-                  <xs:element type="xs:string" name="Unblank-Cycles"/>
+                  <xs:element name="Unblank-Cycles">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="V-Width"/>
-                  <xs:element type="xs:string" name="Unblank-Time"/>
-                  <xs:element type="xs:string" name="Attenuation"/>
-                  <xs:element type="xs:string" name="V-Power"/>
+                  <xs:element name="Unblank-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Attenuation">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="V-Power">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Computer-Trigger"/>
                 </xs:sequence>
               </xs:complexType>
@@ -402,7 +1306,15 @@
                   <xs:element type="xs:string" name="Speed"/>
                   <xs:element type="xs:string" name="Status"/>
                   <xs:element type="xs:string" name="Motor-Enable"/>
-                  <xs:element type="xs:string" name="Scan-Distance"/>
+                  <xs:element name="Scan-Distance">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Error"/>
                   <xs:element type="xs:string" name="Steps"/>
                   <xs:element type="xs:string" name="Max-Scan-Steps"/>
@@ -410,7 +1322,15 @@
                   <xs:element type="xs:string" name="Action"/>
                   <xs:element type="xs:string" name="Clear-Error"/>
                   <xs:element type="xs:string" name="Direction"/>
-                  <xs:element type="xs:string" name="Step-Size"/>
+                  <xs:element name="Step-Size">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -419,19 +1339,75 @@
                 <xs:sequence>
                   <xs:element type="xs:string" name="Reference"/>
                   <xs:element type="xs:string" name="Ref-Probe-F-Number"/>
-                  <xs:element type="xs:string" name="Ref-Probe-Focal-Length"/>
-                  <xs:element type="xs:string" name="Ref-Tx-Frequency"/>
+                  <xs:element name="Ref-Probe-Focal-Length">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Ref-Tx-Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Freq-Range"/>
                   <xs:element type="xs:string" name="Ref-Probe-Name"/>
                   <xs:element type="xs:string" name="Graph-Mode"/>
-                  <xs:element type="xs:string" name="Normalized-Height"/>
+                  <xs:element name="Normalized-Height">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Ref-Tx-Width"/>
-                  <xs:element type="xs:string" name="Normalized-Origin"/>
+                  <xs:element name="Normalized-Origin">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Freq-Range-f"/>
                   <xs:element type="xs:string" name="FFT-Offset"/>
-                  <xs:element type="xs:string" name="Ref-Tx-Power"/>
-                  <xs:element type="xs:string" name="Freq-Range-Max"/>
-                  <xs:element type="xs:string" name="Freq-Range-Min"/>
+                  <xs:element name="Ref-Tx-Power">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Freq-Range-Max">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Freq-Range-Min">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Ref-Offset"/>
                 </xs:sequence>
               </xs:complexType>
@@ -440,46 +1416,190 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="AD-IF"/>
-                  <xs:element type="xs:string" name="Sector-Width-Target"/>
-                  <xs:element type="xs:string" name="RF-Gain"/>
+                  <xs:element name="Sector-Width-Target">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RF-Gain">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="TGC-Enable"/>
-                  <xs:element type="xs:string" name="V-Digi-Depth-Imaging"/>
+                  <xs:element name="V-Digi-Depth-Imaging">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="RF-Bandwidth"/>
-                  <xs:element type="xs:string" name="Test-Freq"/>
+                  <xs:element name="Test-Freq">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Line-Number"/>
                   <xs:element type="xs:string" name="V-TGC"/>
-                  <xs:element type="xs:string" name="IF-Filter"/>
-                  <xs:element type="xs:string" name="Track-Width"/>
+                  <xs:element name="IF-Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Track-Width">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="DTB-Error-Clr"/>
                   <xs:element type="xs:string" name="Current-Channel"/>
-                  <xs:element type="xs:string" name="V-IF-Filter"/>
+                  <xs:element name="V-IF-Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="IQ-Select"/>
-                  <xs:element type="xs:string" name="HP-Clutter"/>
+                  <xs:element name="HP-Clutter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="AD-In"/>
                   <xs:element type="xs:string" name="V-TGC-Copy"/>
                   <xs:element type="xs:string" name="Image-FIFO-Status"/>
-                  <xs:element type="xs:string" name="RF-Filter"/>
+                  <xs:element name="RF-Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="DDRS"/>
                   <xs:element type="xs:string" name="ADCA-Out"/>
                   <xs:element type="xs:string" name="AD-Clock-Div"/>
                   <xs:element type="xs:string" name="Imaging-Mode"/>
-                  <xs:element type="xs:string" name="V-RF-Filter"/>
+                  <xs:element name="V-RF-Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="ADCB-Out"/>
-                  <xs:element type="xs:string" name="Delay"/>
-                  <xs:element type="xs:string" name="AD-Gate-Width"/>
-                  <xs:element type="xs:string" name="Frequency"/>
-                  <xs:element type="xs:string" name="V-Frequency"/>
-                  <xs:element type="xs:string" name="V-Field-Of-View"/>
+                  <xs:element name="Delay">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="AD-Gate-Width">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="V-Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="V-Field-Of-View">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Packet-Format"/>
-                  <xs:element type="xs:string" name="Sector-Height-Target"/>
+                  <xs:element name="Sector-Height-Target">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Low-Speed-FIFO-Status"/>
-                  <xs:element type="xs:string" name="AD-TestIn"/>
+                  <xs:element name="AD-TestIn">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Error"/>
                   <xs:element type="xs:string" name="Test-On"/>
                   <xs:element type="xs:string" name="AD-DCS"/>
                   <xs:element type="xs:string" name="DTB-Tfr-Enable"/>
                   <xs:element type="xs:string" name="DTB-Test-Enable"/>
-                  <xs:element type="xs:string" name="V-Delay-Length"/>
+                  <xs:element name="V-Delay-Length">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Current-Mode"/>
                 </xs:sequence>
               </xs:complexType>
@@ -493,7 +1613,15 @@
                   <xs:element type="xs:string" name="V-Selection"/>
                   <xs:element type="xs:string" name="Gain"/>
                   <xs:element type="xs:string" name="Dynamic-Range"/>
-                  <xs:element type="xs:string" name="Window-Time"/>
+                  <xs:element name="Window-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -522,62 +1650,302 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="Notes"/>
-                  <xs:element type="xs:string" name="Sample-Time"/>
-                  <xs:element type="xs:string" name="Focal-Length"/>
+                  <xs:element name="Sample-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Focal-Length">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Acceleration-Limit-Slope"/>
                   <xs:element type="xs:string" name="Type"/>
                   <xs:element type="xs:string" name="Detect-Id"/>
-                  <xs:element type="xs:string" name="Default-Scan-Speed"/>
+                  <xs:element name="Default-Scan-Speed">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="K1-Power"/>
-                  <xs:element type="xs:string" name="Cutoff-Scan-Speed"/>
-                  <xs:element type="xs:string" name="Frequency-Low"/>
-                  <xs:element type="xs:string" name="Default-FOV"/>
-                  <xs:element type="xs:string" name="Frequency-Doppler-Default"/>
+                  <xs:element name="Cutoff-Scan-Speed">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Frequency-Low">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Default-FOV">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Frequency-Doppler-Default">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Default-SvSize-MMode"/>
                   <xs:element type="xs:string" name="Axial-Res-Factor-Target"/>
                   <xs:element type="xs:string" name="F-Number"/>
                   <xs:element type="xs:string" name="Acc-Time-Factor"/>
-                  <xs:element type="xs:string" name="Axial-Res"/>
+                  <xs:element name="Axial-Res">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Lateral-Res-Factor-Target"/>
-                  <xs:element type="xs:string" name="Pivot-Encoder-Dist"/>
-                  <xs:element type="xs:string" name="Encoder-Range-Max"/>
-                  <xs:element type="xs:string" name="Encoder-Range-Min"/>
-                  <xs:element type="xs:string" name="Lateral-Res"/>
-                  <xs:element type="xs:string" name="Max-Scan-Distance"/>
-                  <xs:element type="xs:string" name="Default-Rx-Gain"/>
+                  <xs:element name="Pivot-Encoder-Dist">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Encoder-Range-Max">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Encoder-Range-Min">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Lateral-Res">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Max-Scan-Distance">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Default-Rx-Gain">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="PID-KD-High"/>
                   <xs:element type="xs:string" name="PID-KI-High"/>
                   <xs:element type="xs:string" name="PID-KP-High"/>
-                  <xs:element type="xs:string" name="Frequency-High"/>
+                  <xs:element name="Frequency-High">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Lateral-Res-Factor-Max"/>
-                  <xs:element type="xs:string" name="Scan-Speeds"/>
-                  <xs:element type="xs:string" name="Filter-Doppler-Cutoff"/>
+                  <xs:element name="Scan-Speeds">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Filter-Doppler-Cutoff">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Name"/>
                   <xs:element type="xs:string" name="PID-KD-Low"/>
                   <xs:element type="xs:string" name="PID-KI-Low"/>
                   <xs:element type="xs:string" name="PID-KP-Low"/>
                   <xs:element type="xs:string" name="Peak-Bandwidth-Correction"/>
-                  <xs:element type="xs:string" name="Frequency-Doppler-Low"/>
-                  <xs:element type="xs:string" name="Pivot-Transducer-Face-Dist"/>
-                  <xs:element type="xs:string" name="Filter-Doppler"/>
-                  <xs:element type="xs:string" name="Frequency"/>
+                  <xs:element name="Frequency-Doppler-Low">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Pivot-Transducer-Face-Dist">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Filter-Doppler">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Integration-Limit"/>
-                  <xs:element type="xs:string" name="Encoder-Separation"/>
-                  <xs:element type="xs:string" name="Overshoot"/>
+                  <xs:element name="Encoder-Separation">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Overshoot">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Attenuation-Shift"/>
-                  <xs:element type="xs:string" name="Filter"/>
-                  <xs:element type="xs:string" name="Default-Rx-Gain-Doppler"/>
+                  <xs:element name="Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Default-Rx-Gain-Doppler">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Peak-Vel-Correction"/>
                   <xs:element type="xs:string" name="Detect-Ratio-Max"/>
                   <xs:element type="xs:string" name="Acceleration-Limit-Constant"/>
-                  <xs:element type="xs:string" name="Filter-Doppler-Low"/>
-                  <xs:element type="xs:string" name="Frequency-Doppler"/>
+                  <xs:element name="Filter-Doppler-Low">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Frequency-Doppler">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Detect-Ratio-Min"/>
                   <xs:element type="xs:string" name="Derivative-Time"/>
-                  <xs:element type="xs:string" name="Filter-High"/>
-                  <xs:element type="xs:string" name="Motor-Overhead"/>
+                  <xs:element name="Filter-High">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Motor-Overhead">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Version"/>
-                  <xs:element type="xs:string" name="Filter-Low"/>
+                  <xs:element name="Filter-Low">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -587,26 +1955,122 @@
                   <xs:element type="xs:string" name="Anti-Aliasing"/>
                   <xs:element type="xs:string" name="V-Relative-Frame-Rate"/>
                   <xs:element type="xs:string" name="Max-Power-Size-Default"/>
-                  <xs:element type="xs:string" name="Buffer-Size"/>
+                  <xs:element name="Buffer-Size">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Sector-Convert"/>
                   <xs:element type="xs:string" name="AVR-Factor"/>
                   <xs:element type="xs:string" name="Flip-Image"/>
                   <xs:element type="xs:string" name="AVR-Startup-Frames"/>
-                  <xs:element type="xs:string" name="BMode-Size-Default"/>
+                  <xs:element name="BMode-Size-Default">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Relative-Frame-Rate"/>
-                  <xs:element type="xs:string" name="Overlay-Mode"/>
-                  <xs:element type="xs:string" name="Refresh-Rate"/>
-                  <xs:element type="xs:string" name="Acquisition-Mode"/>
+                  <xs:element name="Overlay-Mode">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Refresh-Rate">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Acquisition-Mode">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Acquire-Both-Directions"/>
-                  <xs:element type="xs:string" name="Actual-Scan-Rate"/>
+                  <xs:element name="Actual-Scan-Rate">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Acquire-Persist-AVR"/>
-                  <xs:element type="xs:string" name="Sector-X-Res"/>
-                  <xs:element type="xs:string" name="Sector-Y-Res"/>
-                  <xs:element type="xs:string" name="Power-Size-Default"/>
-                  <xs:element type="xs:string" name="Sector-X-Start"/>
-                  <xs:element type="xs:string" name="Sector-Y-Start"/>
+                  <xs:element name="Sector-X-Res">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Sector-Y-Res">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Power-Size-Default">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Sector-X-Start">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Sector-Y-Start">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Max-BMode-Size-Default"/>
-                  <xs:element type="xs:string" name="Target-Field-Of-View"/>
+                  <xs:element name="Target-Field-Of-View">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Processing-Command"/>
                 </xs:sequence>
               </xs:complexType>
@@ -615,7 +2079,15 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="Query-Discard-Loop-On-Save-Frame"/>
-                  <xs:element type="xs:string" name="Sound-Speed"/>
+                  <xs:element name="Sound-Speed">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="SubMode"/>
                   <xs:element type="xs:string" name="Interrupt-Mask"/>
                   <xs:element type="xs:string" name="Calculation-Instances"/>
@@ -631,7 +2103,15 @@
                   <xs:element type="xs:string" name="Company-Name"/>
                   <xs:element type="xs:string" name="Image-To-Auto-Save-On-Label"/>
                   <xs:element type="xs:string" name="DICOM-Encode-Regions"/>
-                  <xs:element type="xs:string" name="Pipeline-Delay"/>
+                  <xs:element name="Pipeline-Delay">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="DDS-Control"/>
                   <xs:element type="xs:string" name="Mode"/>
                   <xs:element type="xs:string" name="Review-Setup-Dialog"/>
@@ -643,13 +2123,29 @@
                 <xs:sequence>
                   <xs:element type="xs:string" name="Acquisition-3D-Volume"/>
                   <xs:element type="xs:string" name="Contrast-Linear-Scale"/>
-                  <xs:element type="xs:string" name="Reference-3D-Step-Size"/>
+                  <xs:element name="Reference-3D-Step-Size">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Remap-Color"/>
                   <xs:element type="xs:string" name="Display-Mode"/>
                   <xs:element type="xs:string" name="Contrast-Linear-Offset"/>
                   <xs:element type="xs:string" name="Contrast-Linear-Slope"/>
                   <xs:element type="xs:string" name="Median-Size-Perfusion"/>
-                  <xs:element type="xs:string" name="Contrast-Size-Default"/>
+                  <xs:element name="Contrast-Size-Default">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Median-Size-Default"/>
                   <xs:element type="xs:string" name="Use-ECG-Gate"/>
                   <xs:element type="xs:string" name="ECG-Gate-Range"/>
@@ -657,7 +2153,15 @@
                   <xs:element type="xs:string" name="Max-Contrast-Size-Default"/>
                   <xs:element type="xs:string" name="Filter-Size-Default"/>
                   <xs:element type="xs:string" name="Cardiac-Divisions"/>
-                  <xs:element type="xs:string" name="Reference-3D-Scan-Distance"/>
+                  <xs:element name="Reference-3D-Scan-Distance">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Median-Size-MIP"/>
                   <xs:element type="xs:string" name="Acquire-Both-Directions"/>
                   <xs:element type="xs:string" name="Data-Display-Scale-Shift"/>
@@ -700,20 +2204,52 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="Encoder-Position"/>
-                  <xs:element type="xs:string" name="Center"/>
+                  <xs:element name="Center">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Control"/>
                   <xs:element type="xs:string" name="Probe-ID1"/>
                   <xs:element type="xs:string" name="Probe-ID2"/>
-                  <xs:element type="xs:string" name="V-Scan-Speed"/>
+                  <xs:element name="V-Scan-Speed">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Probe-ID1-Reread"/>
                   <xs:element type="xs:string" name="Probe-ID1-Valid"/>
                   <xs:element type="xs:string" name="Probe-ID1-Voltage"/>
                   <xs:element type="xs:string" name="Probe-ID2-Reread"/>
                   <xs:element type="xs:string" name="Probe-ID2-Valid"/>
                   <xs:element type="xs:string" name="Probe-ID2-Voltage"/>
-                  <xs:element type="xs:string" name="V-Scan-Rate"/>
+                  <xs:element name="V-Scan-Rate">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Position-Counter-Lock"/>
-                  <xs:element type="xs:string" name="Scan-Width"/>
+                  <xs:element name="Scan-Width">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Position-Counter-Reset"/>
                 </xs:sequence>
               </xs:complexType>
@@ -722,10 +2258,34 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="Settle-Time-3d"/>
-                  <xs:element type="xs:string" name="Position"/>
-                  <xs:element type="xs:string" name="R-Scan-Move-No-Wait"/>
+                  <xs:element name="Position">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="R-Scan-Move-No-Wait">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Motor-Mode"/>
-                  <xs:element type="xs:string" name="Acceleration"/>
+                  <xs:element name="Acceleration">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Serial-Port-Mode"/>
                   <xs:element type="xs:string" name="Limit-Switch-Mode"/>
                   <xs:element type="xs:string" name="Breakpoint"/>
@@ -733,17 +2293,49 @@
                   <xs:element type="xs:string" name="Breakpoint-Value"/>
                   <xs:element type="xs:string" name="V-Switch-Limit"/>
                   <xs:element type="xs:string" name="R-Retrieve-Trace"/>
-                  <xs:element type="xs:string" name="Velocity-Stationary"/>
+                  <xs:element name="Velocity-Stationary">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Reset-Event-Status"/>
                   <xs:element type="xs:string" name="Actual-Position"/>
                   <xs:element type="xs:string" name="Buffer-Length"/>
-                  <xs:element type="xs:string" name="R-Scan-Move2"/>
-                  <xs:element type="xs:string" name="Position-Reverse"/>
+                  <xs:element name="R-Scan-Move2">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Position-Reverse">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Reset"/>
                   <xs:element type="xs:string" name="Trace-Count"/>
                   <xs:element type="xs:string" name="R-Initialize"/>
                   <xs:element type="xs:string" name="Output-Mode"/>
-                  <xs:element type="xs:string" name="Position2"/>
+                  <xs:element name="Position2">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Integration-Limit"/>
                   <xs:element type="xs:string" name="R-Home"/>
                   <xs:element type="xs:string" name="Error"/>
@@ -753,12 +2345,36 @@
                   <xs:element type="xs:string" name="Scan-Move-Control"/>
                   <xs:element type="xs:string" name="Axis-Out-Source"/>
                   <xs:element type="xs:string" name="Trace-Stop"/>
-                  <xs:element type="xs:string" name="Velocity"/>
+                  <xs:element name="Velocity">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="R-Setup"/>
                   <xs:element type="xs:string" name="Buffer-Start"/>
                   <xs:element type="xs:string" name="Signal-Sense"/>
-                  <xs:element type="xs:string" name="R-Scan-Move"/>
-                  <xs:element type="xs:string" name="Position-Forward"/>
+                  <xs:element name="R-Scan-Move">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Position-Forward">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Derivative-Time"/>
                   <xs:element type="xs:string" name="Settle-Window"/>
                   <xs:element type="xs:string" name="Trace-Variable1"/>
@@ -780,7 +2396,15 @@
                   <xs:element type="xs:string" name="Kp"/>
                   <xs:element type="xs:string" name="R-Wait-Finish-Scan-Move"/>
                   <xs:element type="xs:string" name="Settle-Time"/>
-                  <xs:element type="xs:string" name="Acceleration-Stationary"/>
+                  <xs:element name="Acceleration-Stationary">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Trace-Mode"/>
                   <xs:element type="xs:string" name="Trace-Period"/>
                   <xs:element type="xs:string" name="Trace-Start"/>
@@ -813,7 +2437,15 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="Mem-Pagefile"/>
-                  <xs:element type="xs:string" name="Monitor-3point3V"/>
+                  <xs:element name="Monitor-3point3V">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="USER-Objects"/>
                   <xs:element type="xs:string" name="Motor-FPGA-Revision"/>
                   <xs:element type="xs:string" name="Product-Name"/>
@@ -822,21 +2454,53 @@
                   <xs:element type="xs:string" name="Software-Version"/>
                   <xs:element type="xs:string" name="Receive-PCB-ID"/>
                   <xs:element type="xs:string" name="Mem-Private"/>
-                  <xs:element type="xs:string" name="Monitor-5V"/>
+                  <xs:element name="Monitor-5V">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Motor-PCB-Revision"/>
                   <xs:element type="xs:string" name="NE1619"/>
                   <xs:element type="xs:string" name="Motor-PCB-ID"/>
                   <xs:element type="xs:string" name="Transmit-PCB-Revision"/>
                   <xs:element type="xs:string" name="MAX1137"/>
-                  <xs:element type="xs:string" name="Monitor-Neg15V"/>
-                  <xs:element type="xs:string" name="Monitor-Neg5V"/>
+                  <xs:element name="Monitor-Neg15V">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Monitor-Neg5V">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Switch-PCB-Revision"/>
                   <xs:element type="xs:string" name="Receive-PCB-Revision"/>
                   <xs:element type="xs:string" name="ICB-PCB-Revision"/>
                   <xs:element type="xs:string" name="Transmit-PCB-ID"/>
                   <xs:element type="xs:string" name="Monitor-Temperature"/>
                   <xs:element type="xs:string" name="Receive-FPGA-Revision"/>
-                  <xs:element type="xs:string" name="Monitor-15V"/>
+                  <xs:element name="Monitor-15V">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="ICB-FPGA-Revision"/>
                   <xs:element type="xs:string" name="GDI-Objects"/>
                   <xs:element type="xs:string" name="Mem-WorkingSet"/>
@@ -847,55 +2511,319 @@
             <xs:element name="ECG">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element type="xs:string" name="Respiration-Threshold-Change"/>
+                  <xs:element name="Respiration-Threshold-Change">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Respiration-Threshold"/>
-                  <xs:element type="xs:string" name="Pressure-Range"/>
-                  <xs:element type="xs:string" name="Respiration-Gate-Delay"/>
-                  <xs:element type="xs:string" name="Respiration-Timeout"/>
-                  <xs:element type="xs:string" name="RWave-Max-Change-Factor-Percent"/>
-                  <xs:element type="xs:string" name="Respiration-Period"/>
-                  <xs:element type="xs:string" name="Respiration-Subsample-Rate"/>
+                  <xs:element name="Pressure-Range">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Gate-Delay">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Timeout">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RWave-Max-Change-Factor-Percent">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Period">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Subsample-Rate">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Show-RWaves"/>
                   <xs:element type="xs:string" name="Respiration-Minimal-Peak-2-Peak"/>
-                  <xs:element type="xs:string" name="Respiration-Window"/>
+                  <xs:element name="Respiration-Window">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Pressure-Zeroed"/>
-                  <xs:element type="xs:string" name="Pressure-Systolic"/>
+                  <xs:element name="Pressure-Systolic">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Respiration-Show-Window"/>
-                  <xs:element type="xs:string" name="Frequency"/>
-                  <xs:element type="xs:string" name="Respiration-Blank-Period"/>
-                  <xs:element type="xs:string" name="Respiration-Range"/>
-                  <xs:element type="xs:string" name="Pressure-Zero"/>
+                  <xs:element name="Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Blank-Period">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Range">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Pressure-Zero">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Temperature-Amplification"/>
-                  <xs:element type="xs:string" name="P-Wave-Start"/>
+                  <xs:element name="P-Wave-Start">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="ECG-Filter-Taps"/>
-                  <xs:element type="xs:string" name="Respiration-Percent-Peak"/>
-                  <xs:element type="xs:string" name="T-Wave-Start"/>
-                  <xs:element type="xs:string" name="Strain-Rate-RR-Diff-Ratio"/>
+                  <xs:element name="Respiration-Percent-Peak">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="T-Wave-Start">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Strain-Rate-RR-Diff-Ratio">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Pressure-Calibration-Min-Level"/>
                   <xs:element type="xs:string" name="DPDT-Range"/>
                   <xs:element type="xs:string" name="Respiration-Show-Event"/>
-                  <xs:element type="xs:string" name="Pressure-Diastolic"/>
-                  <xs:element type="xs:string" name="Temperature-Calibration"/>
-                  <xs:element type="xs:string" name="Temperature"/>
-                  <xs:element type="xs:string" name="Respiration-Beats-To-Average"/>
-                  <xs:element type="xs:string" name="RWave-Thresh-Trigger-Percent"/>
-                  <xs:element type="xs:string" name="Respiration-Time-To-Average"/>
+                  <xs:element name="Pressure-Diastolic">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Temperature-Calibration">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Temperature">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Beats-To-Average">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RWave-Thresh-Trigger-Percent">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Respiration-Time-To-Average">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Pressure-Amplification"/>
-                  <xs:element type="xs:string" name="Heart-Period"/>
+                  <xs:element name="Heart-Period">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Pressure-Show-Event"/>
                   <xs:element type="xs:string" name="RWave-Default-Threshold"/>
                   <xs:element type="xs:string" name="Show-Filtered-Data"/>
-                  <xs:element type="xs:string" name="ECG-Range"/>
-                  <xs:element type="xs:string" name="RWave-Maxima-Block-Time"/>
+                  <xs:element name="ECG-Range">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RWave-Maxima-Block-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="RWave-Noise-Threshold"/>
-                  <xs:element type="xs:string" name="Pressure-Calibration-Level"/>
-                  <xs:element type="xs:string" name="ECG-HP-Filter"/>
-                  <xs:element type="xs:string" name="ECG-LP-Filter"/>
-                  <xs:element type="xs:string" name="RWave-Max-Change-Period"/>
+                  <xs:element name="Pressure-Calibration-Level">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="ECG-HP-Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="ECG-LP-Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RWave-Max-Change-Period">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Pressure-Time-Out"/>
-                  <xs:element type="xs:string" name="Pressure-Calibration"/>
-                  <xs:element type="xs:string" name="RWave-Blank-Time"/>
-                  <xs:element type="xs:string" name="RWave-Future-Search-Time"/>
+                  <xs:element name="Pressure-Calibration">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RWave-Blank-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RWave-Future-Search-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Pressure-Calibrated"/>
                 </xs:sequence>
               </xs:complexType>
@@ -904,25 +2832,113 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="V-Position-Table"/>
-                  <xs:element type="xs:string" name="V-Transmit-Length"/>
+                  <xs:element name="V-Transmit-Length">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Trigger-Counter-Clear"/>
                   <xs:element type="xs:string" name="Trigger-Counter"/>
                   <xs:element type="xs:string" name="RF-Amp"/>
                   <xs:element type="xs:string" name="Trigger-Control"/>
-                  <xs:element type="xs:string" name="V-Pulse-Rep-Freq"/>
+                  <xs:element name="V-Pulse-Rep-Freq">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Phase"/>
-                  <xs:element type="xs:string" name="Frequency"/>
-                  <xs:element type="xs:string" name="V-Unblank-Time"/>
-                  <xs:element type="xs:string" name="V-Frequency"/>
-                  <xs:element type="xs:string" name="Pulse-Rep-Frequency"/>
+                  <xs:element name="Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="V-Unblank-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="V-Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Pulse-Rep-Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Multi-Trigger"/>
-                  <xs:element type="xs:string" name="Trig-Tbl-Trigs"/>
+                  <xs:element name="Trig-Tbl-Trigs">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Width"/>
-                  <xs:element type="xs:string" name="Unblank-Cycles"/>
+                  <xs:element name="Unblank-Cycles">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="V-Width"/>
-                  <xs:element type="xs:string" name="Unblank-Time"/>
-                  <xs:element type="xs:string" name="Attenuation"/>
-                  <xs:element type="xs:string" name="V-Power"/>
+                  <xs:element name="Unblank-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Attenuation">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="V-Power">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Computer-Trigger"/>
                   <xs:element type="xs:string" name="Multi-Trigger-Freq"/>
                 </xs:sequence>
@@ -933,15 +2949,71 @@
                 <xs:sequence>
                   <xs:element type="xs:string" name="Tx-Width"/>
                   <xs:element type="xs:string" name="Destroy-External"/>
-                  <xs:element type="xs:string" name="Frames"/>
-                  <xs:element type="xs:string" name="Frame-Rate"/>
-                  <xs:element type="xs:string" name="Tx-PRF"/>
-                  <xs:element type="xs:string" name="Tx-Power"/>
-                  <xs:element type="xs:string" name="Duration"/>
+                  <xs:element name="Frames">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Frame-Rate">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Tx-PRF">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Tx-Power">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Duration">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Control"/>
-                  <xs:element type="xs:string" name="Tx-Frequency"/>
+                  <xs:element name="Tx-Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Destroy-Sequence-Active"/>
-                  <xs:element type="xs:string" name="Destroy-Sequence-Position"/>
+                  <xs:element name="Destroy-Sequence-Position">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -951,13 +3023,29 @@
                   <xs:element type="xs:string" name="Speed"/>
                   <xs:element type="xs:string" name="Status"/>
                   <xs:element type="xs:string" name="Motor-Enable"/>
-                  <xs:element type="xs:string" name="Scan-Distance"/>
+                  <xs:element name="Scan-Distance">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Error"/>
                   <xs:element type="xs:string" name="Steps"/>
                   <xs:element type="xs:string" name="Action"/>
                   <xs:element type="xs:string" name="Clear-Error"/>
                   <xs:element type="xs:string" name="Direction"/>
-                  <xs:element type="xs:string" name="Step-Size"/>
+                  <xs:element name="Step-Size">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Max-Scan-Steps"/>
                   <xs:element type="xs:string" name="Position"/>
                 </xs:sequence>
@@ -983,7 +3071,15 @@
                   <xs:element type="xs:string" name="Type"/>
                   <xs:element type="xs:string" name="Rotational-Step-Size"/>
                   <xs:element type="xs:string" name="Internal-Force"/>
-                  <xs:element type="xs:string" name="Parallel-Step-Size"/>
+                  <xs:element name="Parallel-Step-Size">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -991,46 +3087,190 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="AD-IF"/>
-                  <xs:element type="xs:string" name="Sector-Width-Target"/>
-                  <xs:element type="xs:string" name="RF-Gain"/>
+                  <xs:element name="Sector-Width-Target">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="RF-Gain">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="TGC-Enable"/>
-                  <xs:element type="xs:string" name="V-Digi-Depth-Imaging"/>
+                  <xs:element name="V-Digi-Depth-Imaging">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="RF-Bandwidth"/>
-                  <xs:element type="xs:string" name="Test-Freq"/>
+                  <xs:element name="Test-Freq">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="V-TGC"/>
                   <xs:element type="xs:string" name="Current-Channel"/>
                   <xs:element type="xs:string" name="AD-In"/>
                   <xs:element type="xs:string" name="Image-FIFO-Status"/>
-                  <xs:element type="xs:string" name="RF-Filter"/>
+                  <xs:element name="RF-Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="DDRS"/>
                   <xs:element type="xs:string" name="ADCA-Out"/>
                   <xs:element type="xs:string" name="AD-Clock-Div"/>
                   <xs:element type="xs:string" name="Imaging-Mode"/>
-                  <xs:element type="xs:string" name="V-RF-Filter"/>
+                  <xs:element name="V-RF-Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="ADCB-Out"/>
-                  <xs:element type="xs:string" name="Delay"/>
-                  <xs:element type="xs:string" name="AD-Gate-Width"/>
-                  <xs:element type="xs:string" name="Frequency"/>
-                  <xs:element type="xs:string" name="V-Frequency"/>
-                  <xs:element type="xs:string" name="V-Field-Of-View"/>
+                  <xs:element name="Delay">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="AD-Gate-Width">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="V-Frequency">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="V-Field-Of-View">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Packet-Format"/>
-                  <xs:element type="xs:string" name="Sector-Height-Target"/>
+                  <xs:element name="Sector-Height-Target">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Low-Speed-FIFO-Status"/>
-                  <xs:element type="xs:string" name="AD-TestIn"/>
+                  <xs:element name="AD-TestIn">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Error"/>
                   <xs:element type="xs:string" name="Test-On"/>
                   <xs:element type="xs:string" name="AD-DCS"/>
                   <xs:element type="xs:string" name="DTB-Tfr-Enable"/>
                   <xs:element type="xs:string" name="DTB-Test-Enable"/>
-                  <xs:element type="xs:string" name="V-Delay-Length"/>
+                  <xs:element name="V-Delay-Length">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Current-Mode"/>
                   <xs:element type="xs:string" name="Line-Number"/>
-                  <xs:element type="xs:string" name="IF-Filter"/>
-                  <xs:element type="xs:string" name="Track-Width"/>
+                  <xs:element name="IF-Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="Track-Width">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="DTB-Error-Clr"/>
-                  <xs:element type="xs:string" name="V-IF-Filter"/>
+                  <xs:element name="V-IF-Filter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="IQ-Select"/>
-                  <xs:element type="xs:string" name="HP-Clutter"/>
+                  <xs:element name="HP-Clutter">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="V-TGC-Copy"/>
                 </xs:sequence>
               </xs:complexType>
@@ -1047,7 +3287,15 @@
                   <xs:element type="xs:string" name="V-SV-RfMode"/>
                   <xs:element type="xs:string" name="V-SV-EkvMode"/>
                   <xs:element type="xs:string" name="Dynamic-Range"/>
-                  <xs:element type="xs:string" name="Window-Time"/>
+                  <xs:element name="Window-Time">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="V-SV-DopplerMode"/>
                   <xs:element type="xs:string" name="V-SV-NeedleGuide"/>
                   <xs:element type="xs:string" name="V-SV-ColorMode"/>
@@ -1058,15 +3306,71 @@
               <xs:complexType>
                 <xs:sequence>
                   <xs:element type="xs:string" name="RWave-Time-Tollerance"/>
-                  <xs:element type="xs:string" name="EKV-Start"/>
-                  <xs:element type="xs:string" name="EKV-Stop"/>
-                  <xs:element type="xs:string" name="EKV-Quality-Times"/>
-                  <xs:element type="xs:string" name="EKV-Quality"/>
-                  <xs:element type="xs:string" name="EKV-Quality-Resolution"/>
+                  <xs:element name="EKV-Start">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="EKV-Stop">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="EKV-Quality-Times">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="EKV-Quality">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="EKV-Quality-Resolution">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                   <xs:element type="xs:string" name="Difference-Percent-Periods-Keep"/>
                   <xs:element type="xs:string" name="EKV-Advanced"/>
-                  <xs:element type="xs:string" name="EKV-Variance"/>
-                  <xs:element type="xs:string" name="EKV-Triggers"/>
+                  <xs:element name="EKV-Variance">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="EKV-Triggers">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                          <xs:attribute use="required" type="xs:string" name="units"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>

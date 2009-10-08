@@ -139,7 +139,7 @@ auto_ptr<rdi_t> rdiReader::parse()
       text = domdoc->createTextNode(X(m_line_parser.content.c_str()));
       new_child->appendChild(text);
       if(m_line_parser.units.size() > 0)
-	child->setAttribute(units, X(m_line_parser.units.c_str()));
+	new_child->setAttribute(units, X(m_line_parser.units.c_str()));
       } // end parsing and handling a line
     }
   catch(const ifstream::failure& e)

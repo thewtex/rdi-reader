@@ -286,6 +286,294 @@ class RX1;
 class Display1;
 class EKVModeSoft;
 class BModeLVAnalysis;
+class Sample_Time;
+class Focal_Length;
+class Default_Scan_Speed;
+class Cutoff_Scan_Speed;
+class Frequency_Low;
+class Default_FOV;
+class Frequency_Doppler_Default;
+class Frequency_Doppler;
+class Axial_Res;
+class Filter_High;
+class Pivot_Encoder_Dist;
+class Encoder_Range_Max;
+class Encoder_Range_Min;
+class Lateral_Res;
+class Motor_Overhead;
+class Max_Scan_Distance;
+class Default_Rx_Gain;
+class Filter_Low;
+class Frequency_High;
+class Scan_Speeds;
+class Filter_Doppler_Cutoff;
+class Frequency_Doppler_Low;
+class Pivot_Transducer_Face_Dist;
+class Filter_Doppler;
+class Frequency;
+class Encoder_Separation;
+class Overshoot;
+class Filter;
+class Default_Rx_Gain_Doppler;
+class Filter_Doppler_Low;
+class Buffer_Size;
+class BMode_Size_Default;
+class Refresh_Rate;
+class Power_Size_Default;
+class Target_Field_Of_View;
+class Sound_Speed;
+class Pipeline_Delay;
+class Center;
+class V_Scan_Speed;
+class V_Scan_Rate;
+class Scan_Width;
+class Position;
+class R_Scan_Move_No_Wait;
+class Acceleration;
+class Velocity_Stationary;
+class R_Scan_Move2;
+class Acceleration_Stationary;
+class Position_Reverse;
+class Position2;
+class Velocity;
+class R_Scan_Move;
+class Position_Forward;
+class Monitor_3point3V;
+class Monitor_15V;
+class Monitor_5V;
+class Monitor_Neg15V;
+class Monitor_Neg5V;
+class Respiration_Threshold_Change;
+class Pressure_Range;
+class Respiration_Gate_Delay;
+class Respiration_Timeout;
+class RWave_Max_Change_Factor_Percent;
+class Respiration_Period;
+class Respiration_Subsample_Rate;
+class Respiration_Window;
+class Pressure_Systolic;
+class Frequency1;
+class Respiration_Blank_Period;
+class Respiration_Range;
+class Pressure_Zero;
+class P_Wave_Start;
+class RWave_Future_Search_Time;
+class Respiration_Percent_Peak;
+class T_Wave_Start;
+class Strain_Rate_RR_Diff_Ratio;
+class Pressure_Diastolic;
+class Temperature_Calibration;
+class Temperature;
+class Respiration_Beats_To_Average;
+class RWave_Thresh_Trigger_Percent;
+class Respiration_Time_To_Average;
+class Heart_Period;
+class ECG_Range;
+class RWave_Maxima_Block_Time;
+class Pressure_Calibration_Level;
+class ECG_HP_Filter;
+class ECG_LP_Filter;
+class RWave_Max_Change_Period;
+class Pressure_Calibration;
+class RWave_Blank_Time;
+class Magnitude_Origin;
+class Frequency_Origin;
+class Length_Origin;
+class Vertical_Scale;
+class SamplesPerSec;
+class Magnitude_Height;
+class Length_Length;
+class Frequency_Length;
+class SV_Center;
+class RF_Path_15Mhz_Time_Correction;
+class RF_Path_23Mhz_Time_Correction;
+class SV_Length_Limits;
+class V_Transmit_Length;
+class V_Pulse_Rep_Freq;
+class Frequency2;
+class V_Unblank_Time;
+class V_Frequency;
+class Pulse_Rep_Frequency;
+class Trig_Tbl_Trigs;
+class Unblank_Cycles;
+class Unblank_Time;
+class Attenuation;
+class V_Power;
+class Scan_Distance;
+class Step_Size;
+class Ref_Probe_Focal_Length;
+class Ref_Tx_Frequency;
+class Normalized_Height;
+class Normalized_Origin;
+class Ref_Tx_Power;
+class Freq_Range_Max;
+class Freq_Range_Min;
+class Sector_Width_Target;
+class RF_Gain;
+class V_Digi_Depth_Imaging;
+class Test_Freq;
+class IF_Filter;
+class Track_Width;
+class V_IF_Filter;
+class HP_Clutter;
+class RF_Filter;
+class V_RF_Filter;
+class Delay;
+class AD_Gate_Width;
+class Frequency3;
+class V_Frequency1;
+class V_Field_Of_View;
+class Sector_Height_Target;
+class AD_TestIn;
+class V_Delay_Length;
+class Window_Time;
+class Sample_Time1;
+class Focal_Length1;
+class Default_Scan_Speed1;
+class Cutoff_Scan_Speed1;
+class Frequency_Low1;
+class Default_FOV1;
+class Frequency_Doppler_Default1;
+class Axial_Res1;
+class Pivot_Encoder_Dist1;
+class Encoder_Range_Max1;
+class Encoder_Range_Min1;
+class Lateral_Res1;
+class Max_Scan_Distance1;
+class Default_Rx_Gain1;
+class Frequency_High1;
+class Scan_Speeds1;
+class Filter_Doppler_Cutoff1;
+class Frequency_Doppler_Low1;
+class Pivot_Transducer_Face_Dist1;
+class Filter_Doppler1;
+class Frequency4;
+class Encoder_Separation1;
+class Overshoot1;
+class Filter1;
+class Default_Rx_Gain_Doppler1;
+class Filter_Doppler_Low1;
+class Frequency_Doppler1;
+class Filter_High1;
+class Motor_Overhead1;
+class Filter_Low1;
+class Buffer_Size1;
+class BMode_Size_Default1;
+class Overlay_Mode;
+class Refresh_Rate1;
+class Acquisition_Mode;
+class Actual_Scan_Rate;
+class Sector_X_Res;
+class Sector_Y_Res;
+class Power_Size_Default1;
+class Sector_X_Start;
+class Sector_Y_Start;
+class Target_Field_Of_View1;
+class Sound_Speed1;
+class Pipeline_Delay1;
+class Reference_3D_Step_Size;
+class Contrast_Size_Default;
+class Reference_3D_Scan_Distance;
+class Center1;
+class V_Scan_Speed1;
+class V_Scan_Rate1;
+class Scan_Width1;
+class Position1;
+class R_Scan_Move_No_Wait1;
+class Acceleration1;
+class Velocity_Stationary1;
+class R_Scan_Move21;
+class Position_Reverse1;
+class Position21;
+class Velocity1;
+class R_Scan_Move1;
+class Position_Forward1;
+class Acceleration_Stationary1;
+class Monitor_3point3V1;
+class Monitor_5V1;
+class Monitor_Neg15V1;
+class Monitor_Neg5V1;
+class Monitor_15V1;
+class Respiration_Threshold_Change1;
+class Pressure_Range1;
+class Respiration_Gate_Delay1;
+class Respiration_Timeout1;
+class RWave_Max_Change_Factor_Percent1;
+class Respiration_Period1;
+class Respiration_Subsample_Rate1;
+class Respiration_Window1;
+class Pressure_Systolic1;
+class Frequency5;
+class Respiration_Blank_Period1;
+class Respiration_Range1;
+class Pressure_Zero1;
+class P_Wave_Start1;
+class Respiration_Percent_Peak1;
+class T_Wave_Start1;
+class Strain_Rate_RR_Diff_Ratio1;
+class Pressure_Diastolic1;
+class Temperature_Calibration1;
+class Temperature1;
+class Respiration_Beats_To_Average1;
+class RWave_Thresh_Trigger_Percent1;
+class Respiration_Time_To_Average1;
+class Heart_Period1;
+class ECG_Range1;
+class RWave_Maxima_Block_Time1;
+class Pressure_Calibration_Level1;
+class ECG_HP_Filter1;
+class ECG_LP_Filter1;
+class RWave_Max_Change_Period1;
+class Pressure_Calibration1;
+class RWave_Blank_Time1;
+class RWave_Future_Search_Time1;
+class V_Transmit_Length1;
+class V_Pulse_Rep_Freq1;
+class Frequency6;
+class V_Unblank_Time1;
+class V_Frequency2;
+class Pulse_Rep_Frequency1;
+class Trig_Tbl_Trigs1;
+class Unblank_Cycles1;
+class Unblank_Time1;
+class Attenuation1;
+class V_Power1;
+class Frames;
+class Frame_Rate;
+class Tx_PRF;
+class Tx_Power;
+class Duration;
+class Tx_Frequency;
+class Destroy_Sequence_Position;
+class Scan_Distance1;
+class Step_Size1;
+class Parallel_Step_Size;
+class Sector_Width_Target1;
+class RF_Gain1;
+class V_Digi_Depth_Imaging1;
+class Test_Freq1;
+class RF_Filter1;
+class V_RF_Filter1;
+class Delay1;
+class AD_Gate_Width1;
+class Frequency7;
+class V_Frequency3;
+class V_Field_Of_View1;
+class Sector_Height_Target1;
+class AD_TestIn1;
+class V_Delay_Length1;
+class IF_Filter1;
+class Track_Width1;
+class V_IF_Filter1;
+class HP_Clutter1;
+class Window_Time1;
+class EKV_Start;
+class EKV_Stop;
+class EKV_Quality_Times;
+class EKV_Quality;
+class EKV_Quality_Resolution;
+class EKV_Variance;
+class EKV_Triggers;
 
 #include <memory>    // std::auto_ptr
 #include <algorithm> // std::binary_search
@@ -1495,7 +1783,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Sample-Time
   //
-  typedef ::xml_schema::string Sample_Time_type;
+  typedef ::Sample_Time Sample_Time_type;
   typedef ::xsd::cxx::tree::traits< Sample_Time_type, char > Sample_Time_traits;
 
   const Sample_Time_type&
@@ -1512,7 +1800,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Focal-Length
   //
-  typedef ::xml_schema::string Focal_Length_type;
+  typedef ::Focal_Length Focal_Length_type;
   typedef ::xsd::cxx::tree::traits< Focal_Length_type, char > Focal_Length_traits;
 
   const Focal_Length_type&
@@ -1580,7 +1868,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Default-Scan-Speed
   //
-  typedef ::xml_schema::string Default_Scan_Speed_type;
+  typedef ::Default_Scan_Speed Default_Scan_Speed_type;
   typedef ::xsd::cxx::tree::traits< Default_Scan_Speed_type, char > Default_Scan_Speed_traits;
 
   const Default_Scan_Speed_type&
@@ -1614,7 +1902,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Cutoff-Scan-Speed
   //
-  typedef ::xml_schema::string Cutoff_Scan_Speed_type;
+  typedef ::Cutoff_Scan_Speed Cutoff_Scan_Speed_type;
   typedef ::xsd::cxx::tree::traits< Cutoff_Scan_Speed_type, char > Cutoff_Scan_Speed_traits;
 
   const Cutoff_Scan_Speed_type&
@@ -1631,7 +1919,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Frequency-Low
   //
-  typedef ::xml_schema::string Frequency_Low_type;
+  typedef ::Frequency_Low Frequency_Low_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Low_type, char > Frequency_Low_traits;
 
   const Frequency_Low_type&
@@ -1648,7 +1936,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Default-FOV
   //
-  typedef ::xml_schema::string Default_FOV_type;
+  typedef ::Default_FOV Default_FOV_type;
   typedef ::xsd::cxx::tree::traits< Default_FOV_type, char > Default_FOV_traits;
 
   const Default_FOV_type&
@@ -1665,7 +1953,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Frequency-Doppler-Default
   //
-  typedef ::xml_schema::string Frequency_Doppler_Default_type;
+  typedef ::Frequency_Doppler_Default Frequency_Doppler_Default_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Doppler_Default_type, char > Frequency_Doppler_Default_traits;
 
   const Frequency_Doppler_Default_type&
@@ -1750,7 +2038,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Frequency-Doppler
   //
-  typedef ::xml_schema::string Frequency_Doppler_type;
+  typedef ::Frequency_Doppler Frequency_Doppler_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Doppler_type, char > Frequency_Doppler_traits;
 
   const Frequency_Doppler_type&
@@ -1767,7 +2055,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Axial-Res
   //
-  typedef ::xml_schema::string Axial_Res_type;
+  typedef ::Axial_Res Axial_Res_type;
   typedef ::xsd::cxx::tree::traits< Axial_Res_type, char > Axial_Res_traits;
 
   const Axial_Res_type&
@@ -1835,7 +2123,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Filter-High
   //
-  typedef ::xml_schema::string Filter_High_type;
+  typedef ::Filter_High Filter_High_type;
   typedef ::xsd::cxx::tree::traits< Filter_High_type, char > Filter_High_traits;
 
   const Filter_High_type&
@@ -1852,7 +2140,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Pivot-Encoder-Dist
   //
-  typedef ::xml_schema::string Pivot_Encoder_Dist_type;
+  typedef ::Pivot_Encoder_Dist Pivot_Encoder_Dist_type;
   typedef ::xsd::cxx::tree::traits< Pivot_Encoder_Dist_type, char > Pivot_Encoder_Dist_traits;
 
   const Pivot_Encoder_Dist_type&
@@ -1869,7 +2157,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Encoder-Range-Max
   //
-  typedef ::xml_schema::string Encoder_Range_Max_type;
+  typedef ::Encoder_Range_Max Encoder_Range_Max_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Range_Max_type, char > Encoder_Range_Max_traits;
 
   const Encoder_Range_Max_type&
@@ -1886,7 +2174,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Encoder-Range-Min
   //
-  typedef ::xml_schema::string Encoder_Range_Min_type;
+  typedef ::Encoder_Range_Min Encoder_Range_Min_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Range_Min_type, char > Encoder_Range_Min_traits;
 
   const Encoder_Range_Min_type&
@@ -1903,7 +2191,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Lateral-Res
   //
-  typedef ::xml_schema::string Lateral_Res_type;
+  typedef ::Lateral_Res Lateral_Res_type;
   typedef ::xsd::cxx::tree::traits< Lateral_Res_type, char > Lateral_Res_traits;
 
   const Lateral_Res_type&
@@ -1920,7 +2208,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Motor-Overhead
   //
-  typedef ::xml_schema::string Motor_Overhead_type;
+  typedef ::Motor_Overhead Motor_Overhead_type;
   typedef ::xsd::cxx::tree::traits< Motor_Overhead_type, char > Motor_Overhead_traits;
 
   const Motor_Overhead_type&
@@ -1937,7 +2225,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Max-Scan-Distance
   //
-  typedef ::xml_schema::string Max_Scan_Distance_type;
+  typedef ::Max_Scan_Distance Max_Scan_Distance_type;
   typedef ::xsd::cxx::tree::traits< Max_Scan_Distance_type, char > Max_Scan_Distance_traits;
 
   const Max_Scan_Distance_type&
@@ -1971,7 +2259,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Default-Rx-Gain
   //
-  typedef ::xml_schema::string Default_Rx_Gain_type;
+  typedef ::Default_Rx_Gain Default_Rx_Gain_type;
   typedef ::xsd::cxx::tree::traits< Default_Rx_Gain_type, char > Default_Rx_Gain_traits;
 
   const Default_Rx_Gain_type&
@@ -1988,7 +2276,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Filter-Low
   //
-  typedef ::xml_schema::string Filter_Low_type;
+  typedef ::Filter_Low Filter_Low_type;
   typedef ::xsd::cxx::tree::traits< Filter_Low_type, char > Filter_Low_traits;
 
   const Filter_Low_type&
@@ -2056,7 +2344,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Frequency-High
   //
-  typedef ::xml_schema::string Frequency_High_type;
+  typedef ::Frequency_High Frequency_High_type;
   typedef ::xsd::cxx::tree::traits< Frequency_High_type, char > Frequency_High_traits;
 
   const Frequency_High_type&
@@ -2090,7 +2378,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Scan-Speeds
   //
-  typedef ::xml_schema::string Scan_Speeds_type;
+  typedef ::Scan_Speeds Scan_Speeds_type;
   typedef ::xsd::cxx::tree::traits< Scan_Speeds_type, char > Scan_Speeds_traits;
 
   const Scan_Speeds_type&
@@ -2107,7 +2395,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Filter-Doppler-Cutoff
   //
-  typedef ::xml_schema::string Filter_Doppler_Cutoff_type;
+  typedef ::Filter_Doppler_Cutoff Filter_Doppler_Cutoff_type;
   typedef ::xsd::cxx::tree::traits< Filter_Doppler_Cutoff_type, char > Filter_Doppler_Cutoff_traits;
 
   const Filter_Doppler_Cutoff_type&
@@ -2209,7 +2497,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Frequency-Doppler-Low
   //
-  typedef ::xml_schema::string Frequency_Doppler_Low_type;
+  typedef ::Frequency_Doppler_Low Frequency_Doppler_Low_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Doppler_Low_type, char > Frequency_Doppler_Low_traits;
 
   const Frequency_Doppler_Low_type&
@@ -2226,7 +2514,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Pivot-Transducer-Face-Dist
   //
-  typedef ::xml_schema::string Pivot_Transducer_Face_Dist_type;
+  typedef ::Pivot_Transducer_Face_Dist Pivot_Transducer_Face_Dist_type;
   typedef ::xsd::cxx::tree::traits< Pivot_Transducer_Face_Dist_type, char > Pivot_Transducer_Face_Dist_traits;
 
   const Pivot_Transducer_Face_Dist_type&
@@ -2243,7 +2531,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Filter-Doppler
   //
-  typedef ::xml_schema::string Filter_Doppler_type;
+  typedef ::Filter_Doppler Filter_Doppler_type;
   typedef ::xsd::cxx::tree::traits< Filter_Doppler_type, char > Filter_Doppler_traits;
 
   const Filter_Doppler_type&
@@ -2260,7 +2548,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Frequency
   //
-  typedef ::xml_schema::string Frequency_type;
+  typedef ::Frequency Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
   const Frequency_type&
@@ -2294,7 +2582,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Encoder-Separation
   //
-  typedef ::xml_schema::string Encoder_Separation_type;
+  typedef ::Encoder_Separation Encoder_Separation_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Separation_type, char > Encoder_Separation_traits;
 
   const Encoder_Separation_type&
@@ -2311,7 +2599,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Overshoot
   //
-  typedef ::xml_schema::string Overshoot_type;
+  typedef ::Overshoot Overshoot_type;
   typedef ::xsd::cxx::tree::traits< Overshoot_type, char > Overshoot_traits;
 
   const Overshoot_type&
@@ -2345,7 +2633,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Filter
   //
-  typedef ::xml_schema::string Filter_type;
+  typedef ::Filter Filter_type;
   typedef ::xsd::cxx::tree::traits< Filter_type, char > Filter_traits;
 
   const Filter_type&
@@ -2362,7 +2650,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Default-Rx-Gain-Doppler
   //
-  typedef ::xml_schema::string Default_Rx_Gain_Doppler_type;
+  typedef ::Default_Rx_Gain_Doppler Default_Rx_Gain_Doppler_type;
   typedef ::xsd::cxx::tree::traits< Default_Rx_Gain_Doppler_type, char > Default_Rx_Gain_Doppler_traits;
 
   const Default_Rx_Gain_Doppler_type&
@@ -2430,7 +2718,7 @@ class ActiveProbe: public ::xml_schema::type
 
   // Filter-Doppler-Low
   //
-  typedef ::xml_schema::string Filter_Doppler_Low_type;
+  typedef ::Filter_Doppler_Low Filter_Doppler_Low_type;
   typedef ::xsd::cxx::tree::traits< Filter_Doppler_Low_type, char > Filter_Doppler_Low_traits;
 
   const Filter_Doppler_Low_type&
@@ -2504,6 +2792,64 @@ class ActiveProbe: public ::xml_schema::type
                const Detect_Ratio_Max_type&,
                const Acceleration_Limit_Constant_type&,
                const Filter_Doppler_Low_type&);
+
+  ActiveProbe (const Notes_type&,
+               ::std::auto_ptr< Sample_Time_type >&,
+               ::std::auto_ptr< Focal_Length_type >&,
+               const Acceleration_Limit_Slope_type&,
+               const Type_type&,
+               const Detect_Id_type&,
+               ::std::auto_ptr< Default_Scan_Speed_type >&,
+               const K1_Power_type&,
+               ::std::auto_ptr< Cutoff_Scan_Speed_type >&,
+               ::std::auto_ptr< Frequency_Low_type >&,
+               ::std::auto_ptr< Default_FOV_type >&,
+               ::std::auto_ptr< Frequency_Doppler_Default_type >&,
+               const Default_SvSize_MMode_type&,
+               const Axial_Res_Factor_Target_type&,
+               const F_Number_type&,
+               const Acc_Time_Factor_type&,
+               ::std::auto_ptr< Frequency_Doppler_type >&,
+               ::std::auto_ptr< Axial_Res_type >&,
+               const Detect_Ratio_Min_type&,
+               const Lateral_Res_Factor_Target_type&,
+               const Derivative_Time_type&,
+               ::std::auto_ptr< Filter_High_type >&,
+               ::std::auto_ptr< Pivot_Encoder_Dist_type >&,
+               ::std::auto_ptr< Encoder_Range_Max_type >&,
+               ::std::auto_ptr< Encoder_Range_Min_type >&,
+               ::std::auto_ptr< Lateral_Res_type >&,
+               ::std::auto_ptr< Motor_Overhead_type >&,
+               ::std::auto_ptr< Max_Scan_Distance_type >&,
+               const Version_type&,
+               ::std::auto_ptr< Default_Rx_Gain_type >&,
+               ::std::auto_ptr< Filter_Low_type >&,
+               const PID_KD_High_type&,
+               const PID_KI_High_type&,
+               const PID_KP_High_type&,
+               ::std::auto_ptr< Frequency_High_type >&,
+               const Lateral_Res_Factor_Max_type&,
+               ::std::auto_ptr< Scan_Speeds_type >&,
+               ::std::auto_ptr< Filter_Doppler_Cutoff_type >&,
+               const Name_type&,
+               const PID_KD_Low_type&,
+               const PID_KI_Low_type&,
+               const PID_KP_Low_type&,
+               const Peak_Bandwidth_Correction_type&,
+               ::std::auto_ptr< Frequency_Doppler_Low_type >&,
+               ::std::auto_ptr< Pivot_Transducer_Face_Dist_type >&,
+               ::std::auto_ptr< Filter_Doppler_type >&,
+               ::std::auto_ptr< Frequency_type >&,
+               const Integration_Limit_type&,
+               ::std::auto_ptr< Encoder_Separation_type >&,
+               ::std::auto_ptr< Overshoot_type >&,
+               const Attenuation_Shift_type&,
+               ::std::auto_ptr< Filter_type >&,
+               ::std::auto_ptr< Default_Rx_Gain_Doppler_type >&,
+               const Peak_Vel_Correction_type&,
+               const Detect_Ratio_Max_type&,
+               const Acceleration_Limit_Constant_type&,
+               ::std::auto_ptr< Filter_Doppler_Low_type >&);
 
   ActiveProbe (const ::xercesc::DOMElement& e,
                ::xml_schema::flags f = 0,
@@ -2626,7 +2972,7 @@ class BModeSoft: public ::xml_schema::type
 
   // Buffer-Size
   //
-  typedef ::xml_schema::string Buffer_Size_type;
+  typedef ::Buffer_Size Buffer_Size_type;
   typedef ::xsd::cxx::tree::traits< Buffer_Size_type, char > Buffer_Size_traits;
 
   const Buffer_Size_type&
@@ -2677,7 +3023,7 @@ class BModeSoft: public ::xml_schema::type
 
   // BMode-Size-Default
   //
-  typedef ::xml_schema::string BMode_Size_Default_type;
+  typedef ::BMode_Size_Default BMode_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< BMode_Size_Default_type, char > BMode_Size_Default_traits;
 
   const BMode_Size_Default_type&
@@ -2711,7 +3057,7 @@ class BModeSoft: public ::xml_schema::type
 
   // Refresh-Rate
   //
-  typedef ::xml_schema::string Refresh_Rate_type;
+  typedef ::Refresh_Rate Refresh_Rate_type;
   typedef ::xsd::cxx::tree::traits< Refresh_Rate_type, char > Refresh_Rate_traits;
 
   const Refresh_Rate_type&
@@ -2762,7 +3108,7 @@ class BModeSoft: public ::xml_schema::type
 
   // Power-Size-Default
   //
-  typedef ::xml_schema::string Power_Size_Default_type;
+  typedef ::Power_Size_Default Power_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Power_Size_Default_type, char > Power_Size_Default_traits;
 
   const Power_Size_Default_type&
@@ -2796,7 +3142,7 @@ class BModeSoft: public ::xml_schema::type
 
   // Target-Field-Of-View
   //
-  typedef ::xml_schema::string Target_Field_Of_View_type;
+  typedef ::Target_Field_Of_View Target_Field_Of_View_type;
   typedef ::xsd::cxx::tree::traits< Target_Field_Of_View_type, char > Target_Field_Of_View_traits;
 
   const Target_Field_Of_View_type&
@@ -2843,6 +3189,21 @@ class BModeSoft: public ::xml_schema::type
              const Power_Size_Default_type&,
              const Max_BMode_Size_Default_type&,
              const Target_Field_Of_View_type&,
+             const Processing_Command_type&);
+
+  BModeSoft (const V_Relative_Frame_Rate_type&,
+             const Max_Power_Size_Default_type&,
+             ::std::auto_ptr< Buffer_Size_type >&,
+             const AVR_Factor_type&,
+             const AVR_Startup_Frames_type&,
+             ::std::auto_ptr< BMode_Size_Default_type >&,
+             const Relative_Frame_Rate_type&,
+             ::std::auto_ptr< Refresh_Rate_type >&,
+             const Acquire_Both_Directions_type&,
+             const Acquire_Persist_AVR_type&,
+             ::std::auto_ptr< Power_Size_Default_type >&,
+             const Max_BMode_Size_Default_type&,
+             ::std::auto_ptr< Target_Field_Of_View_type >&,
              const Processing_Command_type&);
 
   BModeSoft (const ::xercesc::DOMElement& e,
@@ -2906,7 +3267,7 @@ class Sys: public ::xml_schema::type
 
   // Sound-Speed
   //
-  typedef ::xml_schema::string Sound_Speed_type;
+  typedef ::Sound_Speed Sound_Speed_type;
   typedef ::xsd::cxx::tree::traits< Sound_Speed_type, char > Sound_Speed_traits;
 
   const Sound_Speed_type&
@@ -3195,7 +3556,7 @@ class Sys: public ::xml_schema::type
 
   // Pipeline-Delay
   //
-  typedef ::xml_schema::string Pipeline_Delay_type;
+  typedef ::Pipeline_Delay Pipeline_Delay_type;
   typedef ::xsd::cxx::tree::traits< Pipeline_Delay_type, char > Pipeline_Delay_traits;
 
   const Pipeline_Delay_type&
@@ -3265,6 +3626,28 @@ class Sys: public ::xml_schema::type
        const Image_To_Auto_Save_On_Label_type&,
        const DICOM_Encode_Regions_type&,
        const Pipeline_Delay_type&,
+       const DDS_Control_type&,
+       const Mode_type&);
+
+  Sys (const Query_Discard_Loop_On_Save_Frame_type&,
+       ::std::auto_ptr< Sound_Speed_type >&,
+       const SubMode_type&,
+       const Interrupt_Mask_type&,
+       const Calculation_Instances_type&,
+       const Start_Licence_Date_type&,
+       const End_Licence_Date_type&,
+       const Auto_Save_PreTrig_Loop_type&,
+       const Feature_type&,
+       const Review_Setup_Dialog_type&,
+       const Acq_Setup_Dialog_type&,
+       const Interrupt_Clear_type&,
+       const Interrupt_Status_type&,
+       const Auto_Save_Load_3D_type&,
+       const DICOM_Root_ID_type&,
+       const Company_Name_type&,
+       const Image_To_Auto_Save_On_Label_type&,
+       const DICOM_Encode_Regions_type&,
+       ::std::auto_ptr< Pipeline_Delay_type >&,
        const DDS_Control_type&,
        const Mode_type&);
 
@@ -3519,7 +3902,7 @@ class Scan: public ::xml_schema::type
 
   // Center
   //
-  typedef ::xml_schema::string Center_type;
+  typedef ::Center Center_type;
   typedef ::xsd::cxx::tree::traits< Center_type, char > Center_traits;
 
   const Center_type&
@@ -3587,7 +3970,7 @@ class Scan: public ::xml_schema::type
 
   // V-Scan-Speed
   //
-  typedef ::xml_schema::string V_Scan_Speed_type;
+  typedef ::V_Scan_Speed V_Scan_Speed_type;
   typedef ::xsd::cxx::tree::traits< V_Scan_Speed_type, char > V_Scan_Speed_traits;
 
   const V_Scan_Speed_type&
@@ -3706,7 +4089,7 @@ class Scan: public ::xml_schema::type
 
   // V-Scan-Rate
   //
-  typedef ::xml_schema::string V_Scan_Rate_type;
+  typedef ::V_Scan_Rate V_Scan_Rate_type;
   typedef ::xsd::cxx::tree::traits< V_Scan_Rate_type, char > V_Scan_Rate_traits;
 
   const V_Scan_Rate_type&
@@ -3740,7 +4123,7 @@ class Scan: public ::xml_schema::type
 
   // Scan-Width
   //
-  typedef ::xml_schema::string Scan_Width_type;
+  typedef ::Scan_Width Scan_Width_type;
   typedef ::xsd::cxx::tree::traits< Scan_Width_type, char > Scan_Width_traits;
 
   const Scan_Width_type&
@@ -3789,6 +4172,23 @@ class Scan: public ::xml_schema::type
         const V_Scan_Rate_type&,
         const Position_Counter_Lock_type&,
         const Scan_Width_type&,
+        const Position_Counter_Reset_type&);
+
+  Scan (const Encoder_Position_type&,
+        ::std::auto_ptr< Center_type >&,
+        const Control_type&,
+        const Probe_ID1_type&,
+        const Probe_ID2_type&,
+        ::std::auto_ptr< V_Scan_Speed_type >&,
+        const Probe_ID1_Reread_type&,
+        const Probe_ID1_Valid_type&,
+        const Probe_ID1_Voltage_type&,
+        const Probe_ID2_Reread_type&,
+        const Probe_ID2_Valid_type&,
+        const Probe_ID2_Voltage_type&,
+        ::std::auto_ptr< V_Scan_Rate_type >&,
+        const Position_Counter_Lock_type&,
+        ::std::auto_ptr< Scan_Width_type >&,
         const Position_Counter_Reset_type&);
 
   Scan (const ::xercesc::DOMElement& e,
@@ -3854,7 +4254,7 @@ class Motor: public ::xml_schema::type
 
   // Position
   //
-  typedef ::xml_schema::string Position_type;
+  typedef ::Position Position_type;
   typedef ::xsd::cxx::tree::traits< Position_type, char > Position_traits;
 
   const Position_type&
@@ -3871,7 +4271,7 @@ class Motor: public ::xml_schema::type
 
   // R-Scan-Move-No-Wait
   //
-  typedef ::xml_schema::string R_Scan_Move_No_Wait_type;
+  typedef ::R_Scan_Move_No_Wait R_Scan_Move_No_Wait_type;
   typedef ::xsd::cxx::tree::traits< R_Scan_Move_No_Wait_type, char > R_Scan_Move_No_Wait_traits;
 
   const R_Scan_Move_No_Wait_type&
@@ -3905,7 +4305,7 @@ class Motor: public ::xml_schema::type
 
   // Acceleration
   //
-  typedef ::xml_schema::string Acceleration_type;
+  typedef ::Acceleration Acceleration_type;
   typedef ::xsd::cxx::tree::traits< Acceleration_type, char > Acceleration_traits;
 
   const Acceleration_type&
@@ -4041,7 +4441,7 @@ class Motor: public ::xml_schema::type
 
   // Velocity-Stationary
   //
-  typedef ::xml_schema::string Velocity_Stationary_type;
+  typedef ::Velocity_Stationary Velocity_Stationary_type;
   typedef ::xsd::cxx::tree::traits< Velocity_Stationary_type, char > Velocity_Stationary_traits;
 
   const Velocity_Stationary_type&
@@ -4126,7 +4526,7 @@ class Motor: public ::xml_schema::type
 
   // R-Scan-Move2
   //
-  typedef ::xml_schema::string R_Scan_Move2_type;
+  typedef ::R_Scan_Move2 R_Scan_Move2_type;
   typedef ::xsd::cxx::tree::traits< R_Scan_Move2_type, char > R_Scan_Move2_traits;
 
   const R_Scan_Move2_type&
@@ -4194,7 +4594,7 @@ class Motor: public ::xml_schema::type
 
   // Acceleration-Stationary
   //
-  typedef ::xml_schema::string Acceleration_Stationary_type;
+  typedef ::Acceleration_Stationary Acceleration_Stationary_type;
   typedef ::xsd::cxx::tree::traits< Acceleration_Stationary_type, char > Acceleration_Stationary_traits;
 
   const Acceleration_Stationary_type&
@@ -4262,7 +4662,7 @@ class Motor: public ::xml_schema::type
 
   // Position-Reverse
   //
-  typedef ::xml_schema::string Position_Reverse_type;
+  typedef ::Position_Reverse Position_Reverse_type;
   typedef ::xsd::cxx::tree::traits< Position_Reverse_type, char > Position_Reverse_traits;
 
   const Position_Reverse_type&
@@ -4347,7 +4747,7 @@ class Motor: public ::xml_schema::type
 
   // Position2
   //
-  typedef ::xml_schema::string Position2_type;
+  typedef ::Position2 Position2_type;
   typedef ::xsd::cxx::tree::traits< Position2_type, char > Position2_traits;
 
   const Position2_type&
@@ -4517,7 +4917,7 @@ class Motor: public ::xml_schema::type
 
   // Velocity
   //
-  typedef ::xml_schema::string Velocity_type;
+  typedef ::Velocity Velocity_type;
   typedef ::xsd::cxx::tree::traits< Velocity_type, char > Velocity_traits;
 
   const Velocity_type&
@@ -4585,7 +4985,7 @@ class Motor: public ::xml_schema::type
 
   // R-Scan-Move
   //
-  typedef ::xml_schema::string R_Scan_Move_type;
+  typedef ::R_Scan_Move R_Scan_Move_type;
   typedef ::xsd::cxx::tree::traits< R_Scan_Move_type, char > R_Scan_Move_traits;
 
   const R_Scan_Move_type&
@@ -4602,7 +5002,7 @@ class Motor: public ::xml_schema::type
 
   // Position-Forward
   //
-  typedef ::xml_schema::string Position_Forward_type;
+  typedef ::Position_Forward Position_Forward_type;
   typedef ::xsd::cxx::tree::traits< Position_Forward_type, char > Position_Forward_traits;
 
   const Position_Forward_type&
@@ -4972,6 +5372,70 @@ class Motor: public ::xml_schema::type
          const Ki_type&,
          const Sample_Time_type&);
 
+  Motor (const Settle_Time_3d_type&,
+         ::std::auto_ptr< Position_type >&,
+         ::std::auto_ptr< R_Scan_Move_No_Wait_type >&,
+         const Motor_Mode_type&,
+         ::std::auto_ptr< Acceleration_type >&,
+         const Serial_Port_Mode_type&,
+         const Limit_Switch_Mode_type&,
+         const Breakpoint_type&,
+         const Update_type&,
+         const Breakpoint_Value_type&,
+         const V_Switch_Limit_type&,
+         const R_Retrieve_Trace_type&,
+         ::std::auto_ptr< Velocity_Stationary_type >&,
+         const Reset_Event_Status_type&,
+         const Actual_Position_type&,
+         const Buffer_Length_type&,
+         const Event_Status_type&,
+         ::std::auto_ptr< R_Scan_Move2_type >&,
+         const Kp_type&,
+         const R_Wait_Finish_Scan_Move_type&,
+         const Settle_Time_type&,
+         ::std::auto_ptr< Acceleration_Stationary_type >&,
+         const Trace_Mode_type&,
+         const Trace_Period_type&,
+         const Trace_Start_type&,
+         ::std::auto_ptr< Position_Reverse_type >&,
+         const Reset_type&,
+         const Trace_Count_type&,
+         const R_Initialize_type&,
+         const Output_Mode_type&,
+         ::std::auto_ptr< Position2_type >&,
+         const Integration_Limit_type&,
+         const R_Home_type&,
+         const Error_type&,
+         const R_Reset_Limit_Switch_type&,
+         const Settle_Window_3d_type&,
+         const Interrupt_Mask_type&,
+         const Scan_Move_Control_type&,
+         const Axis_Out_Source_type&,
+         const Trace_Stop_type&,
+         ::std::auto_ptr< Velocity_type >&,
+         const R_Setup_type&,
+         const Buffer_Start_type&,
+         const Signal_Sense_type&,
+         ::std::auto_ptr< R_Scan_Move_type >&,
+         ::std::auto_ptr< Position_Forward_type >&,
+         const Derivative_Time_type&,
+         const Settle_Window_type&,
+         const Trace_Variable1_type&,
+         const Trace_Variable2_type&,
+         const Buffer_Read_Index_type&,
+         const Signal_Status_type&,
+         const Alarm_Clear_type&,
+         const Motion_Complete_Mode_type&,
+         const R_Setup_Abort_type&,
+         const Read_Buffer_type&,
+         const Kd_type&,
+         const Clear_Interrupt_type&,
+         const Profile_Mode_type&,
+         const R_Setup_Trace_type&,
+         const No_Operation_type&,
+         const Ki_type&,
+         const Sample_Time_type&);
+
   Motor (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f = 0,
          ::xml_schema::container* c = 0);
@@ -5082,7 +5546,7 @@ class Diag: public ::xml_schema::type
 
   // Monitor-3point3V
   //
-  typedef ::xml_schema::string Monitor_3point3V_type;
+  typedef ::Monitor_3point3V Monitor_3point3V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_3point3V_type, char > Monitor_3point3V_traits;
 
   const Monitor_3point3V_type&
@@ -5235,7 +5699,7 @@ class Diag: public ::xml_schema::type
 
   // Monitor-15V
   //
-  typedef ::xml_schema::string Monitor_15V_type;
+  typedef ::Monitor_15V Monitor_15V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_15V_type, char > Monitor_15V_traits;
 
   const Monitor_15V_type&
@@ -5337,7 +5801,7 @@ class Diag: public ::xml_schema::type
 
   // Monitor-5V
   //
-  typedef ::xml_schema::string Monitor_5V_type;
+  typedef ::Monitor_5V Monitor_5V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_5V_type, char > Monitor_5V_traits;
 
   const Monitor_5V_type&
@@ -5439,7 +5903,7 @@ class Diag: public ::xml_schema::type
 
   // Monitor-Neg15V
   //
-  typedef ::xml_schema::string Monitor_Neg15V_type;
+  typedef ::Monitor_Neg15V Monitor_Neg15V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_Neg15V_type, char > Monitor_Neg15V_traits;
 
   const Monitor_Neg15V_type&
@@ -5456,7 +5920,7 @@ class Diag: public ::xml_schema::type
 
   // Monitor-Neg5V
   //
-  typedef ::xml_schema::string Monitor_Neg5V_type;
+  typedef ::Monitor_Neg5V Monitor_Neg5V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_Neg5V_type, char > Monitor_Neg5V_traits;
 
   const Monitor_Neg5V_type&
@@ -5588,6 +6052,36 @@ class Diag: public ::xml_schema::type
         const Transmit_PCB_ID_type&,
         const Monitor_Temperature_type&);
 
+  Diag (const Mem_Pagefile_type&,
+        ::std::auto_ptr< Monitor_3point3V_type >&,
+        const USER_Objects_type&,
+        const Motor_FPGA_Revision_type&,
+        const Product_Name_type&,
+        const Build_Version_type&,
+        const ICB_PCB_ID_type&,
+        const Software_Version_type&,
+        const Receive_PCB_ID_type&,
+        const Receive_FPGA_Revision_type&,
+        ::std::auto_ptr< Monitor_15V_type >&,
+        const ICB_FPGA_Revision_type&,
+        const GDI_Objects_type&,
+        const Mem_WorkingSet_type&,
+        const Mem_Private_type&,
+        const Switch_PCB_ID_type&,
+        ::std::auto_ptr< Monitor_5V_type >&,
+        const Motor_PCB_Revision_type&,
+        const NE1619_type&,
+        const Motor_PCB_ID_type&,
+        const Transmit_PCB_Revision_type&,
+        const MAX1137_type&,
+        ::std::auto_ptr< Monitor_Neg15V_type >&,
+        ::std::auto_ptr< Monitor_Neg5V_type >&,
+        const Switch_PCB_Revision_type&,
+        const Receive_PCB_Revision_type&,
+        const ICB_PCB_Revision_type&,
+        const Transmit_PCB_ID_type&,
+        const Monitor_Temperature_type&);
+
   Diag (const ::xercesc::DOMElement& e,
         ::xml_schema::flags f = 0,
         ::xml_schema::container* c = 0);
@@ -5647,7 +6141,7 @@ class ECG: public ::xml_schema::type
   public:
   // Respiration-Threshold-Change
   //
-  typedef ::xml_schema::string Respiration_Threshold_Change_type;
+  typedef ::Respiration_Threshold_Change Respiration_Threshold_Change_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Threshold_Change_type, char > Respiration_Threshold_Change_traits;
 
   const Respiration_Threshold_Change_type&
@@ -5681,7 +6175,7 @@ class ECG: public ::xml_schema::type
 
   // Pressure-Range
   //
-  typedef ::xml_schema::string Pressure_Range_type;
+  typedef ::Pressure_Range Pressure_Range_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Range_type, char > Pressure_Range_traits;
 
   const Pressure_Range_type&
@@ -5698,7 +6192,7 @@ class ECG: public ::xml_schema::type
 
   // Respiration-Gate-Delay
   //
-  typedef ::xml_schema::string Respiration_Gate_Delay_type;
+  typedef ::Respiration_Gate_Delay Respiration_Gate_Delay_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Gate_Delay_type, char > Respiration_Gate_Delay_traits;
 
   const Respiration_Gate_Delay_type&
@@ -5715,7 +6209,7 @@ class ECG: public ::xml_schema::type
 
   // Respiration-Timeout
   //
-  typedef ::xml_schema::string Respiration_Timeout_type;
+  typedef ::Respiration_Timeout Respiration_Timeout_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Timeout_type, char > Respiration_Timeout_traits;
 
   const Respiration_Timeout_type&
@@ -5732,7 +6226,7 @@ class ECG: public ::xml_schema::type
 
   // RWave-Max-Change-Factor-Percent
   //
-  typedef ::xml_schema::string RWave_Max_Change_Factor_Percent_type;
+  typedef ::RWave_Max_Change_Factor_Percent RWave_Max_Change_Factor_Percent_type;
   typedef ::xsd::cxx::tree::traits< RWave_Max_Change_Factor_Percent_type, char > RWave_Max_Change_Factor_Percent_traits;
 
   const RWave_Max_Change_Factor_Percent_type&
@@ -5749,7 +6243,7 @@ class ECG: public ::xml_schema::type
 
   // Respiration-Period
   //
-  typedef ::xml_schema::string Respiration_Period_type;
+  typedef ::Respiration_Period Respiration_Period_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Period_type, char > Respiration_Period_traits;
 
   const Respiration_Period_type&
@@ -5766,7 +6260,7 @@ class ECG: public ::xml_schema::type
 
   // Respiration-Subsample-Rate
   //
-  typedef ::xml_schema::string Respiration_Subsample_Rate_type;
+  typedef ::Respiration_Subsample_Rate Respiration_Subsample_Rate_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Subsample_Rate_type, char > Respiration_Subsample_Rate_traits;
 
   const Respiration_Subsample_Rate_type&
@@ -5817,7 +6311,7 @@ class ECG: public ::xml_schema::type
 
   // Respiration-Window
   //
-  typedef ::xml_schema::string Respiration_Window_type;
+  typedef ::Respiration_Window Respiration_Window_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Window_type, char > Respiration_Window_traits;
 
   const Respiration_Window_type&
@@ -5851,7 +6345,7 @@ class ECG: public ::xml_schema::type
 
   // Pressure-Systolic
   //
-  typedef ::xml_schema::string Pressure_Systolic_type;
+  typedef ::Pressure_Systolic Pressure_Systolic_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Systolic_type, char > Pressure_Systolic_traits;
 
   const Pressure_Systolic_type&
@@ -5885,7 +6379,7 @@ class ECG: public ::xml_schema::type
 
   // Frequency
   //
-  typedef ::xml_schema::string Frequency_type;
+  typedef ::Frequency1 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
   const Frequency_type&
@@ -5902,7 +6396,7 @@ class ECG: public ::xml_schema::type
 
   // Respiration-Blank-Period
   //
-  typedef ::xml_schema::string Respiration_Blank_Period_type;
+  typedef ::Respiration_Blank_Period Respiration_Blank_Period_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Blank_Period_type, char > Respiration_Blank_Period_traits;
 
   const Respiration_Blank_Period_type&
@@ -5919,7 +6413,7 @@ class ECG: public ::xml_schema::type
 
   // Respiration-Range
   //
-  typedef ::xml_schema::string Respiration_Range_type;
+  typedef ::Respiration_Range Respiration_Range_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Range_type, char > Respiration_Range_traits;
 
   const Respiration_Range_type&
@@ -5936,7 +6430,7 @@ class ECG: public ::xml_schema::type
 
   // Pressure-Zero
   //
-  typedef ::xml_schema::string Pressure_Zero_type;
+  typedef ::Pressure_Zero Pressure_Zero_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Zero_type, char > Pressure_Zero_traits;
 
   const Pressure_Zero_type&
@@ -5970,7 +6464,7 @@ class ECG: public ::xml_schema::type
 
   // P-Wave-Start
   //
-  typedef ::xml_schema::string P_Wave_Start_type;
+  typedef ::P_Wave_Start P_Wave_Start_type;
   typedef ::xsd::cxx::tree::traits< P_Wave_Start_type, char > P_Wave_Start_traits;
 
   const P_Wave_Start_type&
@@ -6004,7 +6498,7 @@ class ECG: public ::xml_schema::type
 
   // RWave-Future-Search-Time
   //
-  typedef ::xml_schema::string RWave_Future_Search_Time_type;
+  typedef ::RWave_Future_Search_Time RWave_Future_Search_Time_type;
   typedef ::xsd::cxx::tree::traits< RWave_Future_Search_Time_type, char > RWave_Future_Search_Time_traits;
 
   const RWave_Future_Search_Time_type&
@@ -6021,7 +6515,7 @@ class ECG: public ::xml_schema::type
 
   // Respiration-Percent-Peak
   //
-  typedef ::xml_schema::string Respiration_Percent_Peak_type;
+  typedef ::Respiration_Percent_Peak Respiration_Percent_Peak_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Percent_Peak_type, char > Respiration_Percent_Peak_traits;
 
   const Respiration_Percent_Peak_type&
@@ -6038,7 +6532,7 @@ class ECG: public ::xml_schema::type
 
   // T-Wave-Start
   //
-  typedef ::xml_schema::string T_Wave_Start_type;
+  typedef ::T_Wave_Start T_Wave_Start_type;
   typedef ::xsd::cxx::tree::traits< T_Wave_Start_type, char > T_Wave_Start_traits;
 
   const T_Wave_Start_type&
@@ -6055,7 +6549,7 @@ class ECG: public ::xml_schema::type
 
   // Strain-Rate-RR-Diff-Ratio
   //
-  typedef ::xml_schema::string Strain_Rate_RR_Diff_Ratio_type;
+  typedef ::Strain_Rate_RR_Diff_Ratio Strain_Rate_RR_Diff_Ratio_type;
   typedef ::xsd::cxx::tree::traits< Strain_Rate_RR_Diff_Ratio_type, char > Strain_Rate_RR_Diff_Ratio_traits;
 
   const Strain_Rate_RR_Diff_Ratio_type&
@@ -6140,7 +6634,7 @@ class ECG: public ::xml_schema::type
 
   // Pressure-Diastolic
   //
-  typedef ::xml_schema::string Pressure_Diastolic_type;
+  typedef ::Pressure_Diastolic Pressure_Diastolic_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Diastolic_type, char > Pressure_Diastolic_traits;
 
   const Pressure_Diastolic_type&
@@ -6157,7 +6651,7 @@ class ECG: public ::xml_schema::type
 
   // Temperature-Calibration
   //
-  typedef ::xml_schema::string Temperature_Calibration_type;
+  typedef ::Temperature_Calibration Temperature_Calibration_type;
   typedef ::xsd::cxx::tree::traits< Temperature_Calibration_type, char > Temperature_Calibration_traits;
 
   const Temperature_Calibration_type&
@@ -6174,7 +6668,7 @@ class ECG: public ::xml_schema::type
 
   // Temperature
   //
-  typedef ::xml_schema::string Temperature_type;
+  typedef ::Temperature Temperature_type;
   typedef ::xsd::cxx::tree::traits< Temperature_type, char > Temperature_traits;
 
   const Temperature_type&
@@ -6191,7 +6685,7 @@ class ECG: public ::xml_schema::type
 
   // Respiration-Beats-To-Average
   //
-  typedef ::xml_schema::string Respiration_Beats_To_Average_type;
+  typedef ::Respiration_Beats_To_Average Respiration_Beats_To_Average_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Beats_To_Average_type, char > Respiration_Beats_To_Average_traits;
 
   const Respiration_Beats_To_Average_type&
@@ -6208,7 +6702,7 @@ class ECG: public ::xml_schema::type
 
   // RWave-Thresh-Trigger-Percent
   //
-  typedef ::xml_schema::string RWave_Thresh_Trigger_Percent_type;
+  typedef ::RWave_Thresh_Trigger_Percent RWave_Thresh_Trigger_Percent_type;
   typedef ::xsd::cxx::tree::traits< RWave_Thresh_Trigger_Percent_type, char > RWave_Thresh_Trigger_Percent_traits;
 
   const RWave_Thresh_Trigger_Percent_type&
@@ -6225,7 +6719,7 @@ class ECG: public ::xml_schema::type
 
   // Respiration-Time-To-Average
   //
-  typedef ::xml_schema::string Respiration_Time_To_Average_type;
+  typedef ::Respiration_Time_To_Average Respiration_Time_To_Average_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Time_To_Average_type, char > Respiration_Time_To_Average_traits;
 
   const Respiration_Time_To_Average_type&
@@ -6259,7 +6753,7 @@ class ECG: public ::xml_schema::type
 
   // Heart-Period
   //
-  typedef ::xml_schema::string Heart_Period_type;
+  typedef ::Heart_Period Heart_Period_type;
   typedef ::xsd::cxx::tree::traits< Heart_Period_type, char > Heart_Period_traits;
 
   const Heart_Period_type&
@@ -6327,7 +6821,7 @@ class ECG: public ::xml_schema::type
 
   // ECG-Range
   //
-  typedef ::xml_schema::string ECG_Range_type;
+  typedef ::ECG_Range ECG_Range_type;
   typedef ::xsd::cxx::tree::traits< ECG_Range_type, char > ECG_Range_traits;
 
   const ECG_Range_type&
@@ -6344,7 +6838,7 @@ class ECG: public ::xml_schema::type
 
   // RWave-Maxima-Block-Time
   //
-  typedef ::xml_schema::string RWave_Maxima_Block_Time_type;
+  typedef ::RWave_Maxima_Block_Time RWave_Maxima_Block_Time_type;
   typedef ::xsd::cxx::tree::traits< RWave_Maxima_Block_Time_type, char > RWave_Maxima_Block_Time_traits;
 
   const RWave_Maxima_Block_Time_type&
@@ -6378,7 +6872,7 @@ class ECG: public ::xml_schema::type
 
   // Pressure-Calibration-Level
   //
-  typedef ::xml_schema::string Pressure_Calibration_Level_type;
+  typedef ::Pressure_Calibration_Level Pressure_Calibration_Level_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Calibration_Level_type, char > Pressure_Calibration_Level_traits;
 
   const Pressure_Calibration_Level_type&
@@ -6395,7 +6889,7 @@ class ECG: public ::xml_schema::type
 
   // ECG-HP-Filter
   //
-  typedef ::xml_schema::string ECG_HP_Filter_type;
+  typedef ::ECG_HP_Filter ECG_HP_Filter_type;
   typedef ::xsd::cxx::tree::traits< ECG_HP_Filter_type, char > ECG_HP_Filter_traits;
 
   const ECG_HP_Filter_type&
@@ -6412,7 +6906,7 @@ class ECG: public ::xml_schema::type
 
   // ECG-LP-Filter
   //
-  typedef ::xml_schema::string ECG_LP_Filter_type;
+  typedef ::ECG_LP_Filter ECG_LP_Filter_type;
   typedef ::xsd::cxx::tree::traits< ECG_LP_Filter_type, char > ECG_LP_Filter_traits;
 
   const ECG_LP_Filter_type&
@@ -6429,7 +6923,7 @@ class ECG: public ::xml_schema::type
 
   // RWave-Max-Change-Period
   //
-  typedef ::xml_schema::string RWave_Max_Change_Period_type;
+  typedef ::RWave_Max_Change_Period RWave_Max_Change_Period_type;
   typedef ::xsd::cxx::tree::traits< RWave_Max_Change_Period_type, char > RWave_Max_Change_Period_traits;
 
   const RWave_Max_Change_Period_type&
@@ -6463,7 +6957,7 @@ class ECG: public ::xml_schema::type
 
   // Pressure-Calibration
   //
-  typedef ::xml_schema::string Pressure_Calibration_type;
+  typedef ::Pressure_Calibration Pressure_Calibration_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Calibration_type, char > Pressure_Calibration_traits;
 
   const Pressure_Calibration_type&
@@ -6480,7 +6974,7 @@ class ECG: public ::xml_schema::type
 
   // RWave-Blank-Time
   //
-  typedef ::xml_schema::string RWave_Blank_Time_type;
+  typedef ::RWave_Blank_Time RWave_Blank_Time_type;
   typedef ::xsd::cxx::tree::traits< RWave_Blank_Time_type, char > RWave_Blank_Time_traits;
 
   const RWave_Blank_Time_type&
@@ -6547,6 +7041,57 @@ class ECG: public ::xml_schema::type
        const Pressure_Time_Out_type&,
        const Pressure_Calibration_type&,
        const RWave_Blank_Time_type&);
+
+  ECG (::std::auto_ptr< Respiration_Threshold_Change_type >&,
+       const Respiration_Threshold_type&,
+       ::std::auto_ptr< Pressure_Range_type >&,
+       ::std::auto_ptr< Respiration_Gate_Delay_type >&,
+       ::std::auto_ptr< Respiration_Timeout_type >&,
+       ::std::auto_ptr< RWave_Max_Change_Factor_Percent_type >&,
+       ::std::auto_ptr< Respiration_Period_type >&,
+       ::std::auto_ptr< Respiration_Subsample_Rate_type >&,
+       const Show_RWaves_type&,
+       const Respiration_Minimal_Peak_2_Peak_type&,
+       ::std::auto_ptr< Respiration_Window_type >&,
+       const Pressure_Zeroed_type&,
+       ::std::auto_ptr< Pressure_Systolic_type >&,
+       const Respiration_Show_Window_type&,
+       ::std::auto_ptr< Frequency_type >&,
+       ::std::auto_ptr< Respiration_Blank_Period_type >&,
+       ::std::auto_ptr< Respiration_Range_type >&,
+       ::std::auto_ptr< Pressure_Zero_type >&,
+       const Temperature_Amplification_type&,
+       ::std::auto_ptr< P_Wave_Start_type >&,
+       const ECG_Filter_Taps_type&,
+       ::std::auto_ptr< RWave_Future_Search_Time_type >&,
+       ::std::auto_ptr< Respiration_Percent_Peak_type >&,
+       ::std::auto_ptr< T_Wave_Start_type >&,
+       ::std::auto_ptr< Strain_Rate_RR_Diff_Ratio_type >&,
+       const Pressure_Calibration_Min_Level_type&,
+       const Pressure_Calibrated_type&,
+       const DPDT_Range_type&,
+       const Respiration_Show_Event_type&,
+       ::std::auto_ptr< Pressure_Diastolic_type >&,
+       ::std::auto_ptr< Temperature_Calibration_type >&,
+       ::std::auto_ptr< Temperature_type >&,
+       ::std::auto_ptr< Respiration_Beats_To_Average_type >&,
+       ::std::auto_ptr< RWave_Thresh_Trigger_Percent_type >&,
+       ::std::auto_ptr< Respiration_Time_To_Average_type >&,
+       const Pressure_Amplification_type&,
+       ::std::auto_ptr< Heart_Period_type >&,
+       const Pressure_Show_Event_type&,
+       const RWave_Default_Threshold_type&,
+       const Show_Filtered_Data_type&,
+       ::std::auto_ptr< ECG_Range_type >&,
+       ::std::auto_ptr< RWave_Maxima_Block_Time_type >&,
+       const RWave_Noise_Threshold_type&,
+       ::std::auto_ptr< Pressure_Calibration_Level_type >&,
+       ::std::auto_ptr< ECG_HP_Filter_type >&,
+       ::std::auto_ptr< ECG_LP_Filter_type >&,
+       ::std::auto_ptr< RWave_Max_Change_Period_type >&,
+       const Pressure_Time_Out_type&,
+       ::std::auto_ptr< Pressure_Calibration_type >&,
+       ::std::auto_ptr< RWave_Blank_Time_type >&);
 
   ECG (const ::xercesc::DOMElement& e,
        ::xml_schema::flags f = 0,
@@ -6645,7 +7190,7 @@ class RfModeSoft: public ::xml_schema::type
 
   // Magnitude-Origin
   //
-  typedef ::xml_schema::string Magnitude_Origin_type;
+  typedef ::Magnitude_Origin Magnitude_Origin_type;
   typedef ::xsd::cxx::tree::traits< Magnitude_Origin_type, char > Magnitude_Origin_traits;
 
   const Magnitude_Origin_type&
@@ -6662,7 +7207,7 @@ class RfModeSoft: public ::xml_schema::type
 
   // Frequency-Origin
   //
-  typedef ::xml_schema::string Frequency_Origin_type;
+  typedef ::Frequency_Origin Frequency_Origin_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Origin_type, char > Frequency_Origin_traits;
 
   const Frequency_Origin_type&
@@ -6798,7 +7343,7 @@ class RfModeSoft: public ::xml_schema::type
 
   // Length-Origin
   //
-  typedef ::xml_schema::string Length_Origin_type;
+  typedef ::Length_Origin Length_Origin_type;
   typedef ::xsd::cxx::tree::traits< Length_Origin_type, char > Length_Origin_traits;
 
   const Length_Origin_type&
@@ -6866,7 +7411,7 @@ class RfModeSoft: public ::xml_schema::type
 
   // Vertical-Scale
   //
-  typedef ::xml_schema::string Vertical_Scale_type;
+  typedef ::Vertical_Scale Vertical_Scale_type;
   typedef ::xsd::cxx::tree::traits< Vertical_Scale_type, char > Vertical_Scale_traits;
 
   const Vertical_Scale_type&
@@ -6900,7 +7445,7 @@ class RfModeSoft: public ::xml_schema::type
 
   // SamplesPerSec
   //
-  typedef ::xml_schema::string SamplesPerSec_type;
+  typedef ::SamplesPerSec SamplesPerSec_type;
   typedef ::xsd::cxx::tree::traits< SamplesPerSec_type, char > SamplesPerSec_traits;
 
   const SamplesPerSec_type&
@@ -6951,7 +7496,7 @@ class RfModeSoft: public ::xml_schema::type
 
   // Magnitude-Height
   //
-  typedef ::xml_schema::string Magnitude_Height_type;
+  typedef ::Magnitude_Height Magnitude_Height_type;
   typedef ::xsd::cxx::tree::traits< Magnitude_Height_type, char > Magnitude_Height_traits;
 
   const Magnitude_Height_type&
@@ -6985,7 +7530,7 @@ class RfModeSoft: public ::xml_schema::type
 
   // Length-Length
   //
-  typedef ::xml_schema::string Length_Length_type;
+  typedef ::Length_Length Length_Length_type;
   typedef ::xsd::cxx::tree::traits< Length_Length_type, char > Length_Length_traits;
 
   const Length_Length_type&
@@ -7002,7 +7547,7 @@ class RfModeSoft: public ::xml_schema::type
 
   // Frequency-Length
   //
-  typedef ::xml_schema::string Frequency_Length_type;
+  typedef ::Frequency_Length Frequency_Length_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Length_type, char > Frequency_Length_traits;
 
   const Frequency_Length_type&
@@ -7036,7 +7581,7 @@ class RfModeSoft: public ::xml_schema::type
 
   // SV-Center
   //
-  typedef ::xml_schema::string SV_Center_type;
+  typedef ::SV_Center SV_Center_type;
   typedef ::xsd::cxx::tree::traits< SV_Center_type, char > SV_Center_traits;
 
   const SV_Center_type&
@@ -7155,7 +7700,7 @@ class RfModeSoft: public ::xml_schema::type
 
   // RF-Path-15Mhz-Time-Correction
   //
-  typedef ::xml_schema::string RF_Path_15Mhz_Time_Correction_type;
+  typedef ::RF_Path_15Mhz_Time_Correction RF_Path_15Mhz_Time_Correction_type;
   typedef ::xsd::cxx::tree::traits< RF_Path_15Mhz_Time_Correction_type, char > RF_Path_15Mhz_Time_Correction_traits;
 
   const RF_Path_15Mhz_Time_Correction_type&
@@ -7172,7 +7717,7 @@ class RfModeSoft: public ::xml_schema::type
 
   // RF-Path-23Mhz-Time-Correction
   //
-  typedef ::xml_schema::string RF_Path_23Mhz_Time_Correction_type;
+  typedef ::RF_Path_23Mhz_Time_Correction RF_Path_23Mhz_Time_Correction_type;
   typedef ::xsd::cxx::tree::traits< RF_Path_23Mhz_Time_Correction_type, char > RF_Path_23Mhz_Time_Correction_traits;
 
   const RF_Path_23Mhz_Time_Correction_type&
@@ -7189,7 +7734,7 @@ class RfModeSoft: public ::xml_schema::type
 
   // SV-Length-Limits
   //
-  typedef ::xml_schema::string SV_Length_Limits_type;
+  typedef ::SV_Length_Limits SV_Length_Limits_type;
   typedef ::xsd::cxx::tree::traits< SV_Length_Limits_type, char > SV_Length_Limits_traits;
 
   const SV_Length_Limits_type&
@@ -7240,6 +7785,41 @@ class RfModeSoft: public ::xml_schema::type
               const RF_Path_15Mhz_Time_Correction_type&,
               const RF_Path_23Mhz_Time_Correction_type&,
               const SV_Length_Limits_type&);
+
+  RfModeSoft (const Amplitude_Height_type&,
+              ::std::auto_ptr< Magnitude_Origin_type >&,
+              ::std::auto_ptr< Frequency_Origin_type >&,
+              const Samples_type&,
+              const Saturation_Threshold_type&,
+              const Amplitude_Origin_type&,
+              const Frame_Selected_type&,
+              const AcqPerLine_type&,
+              const Lines_type&,
+              const Windowing_Mode_type&,
+              ::std::auto_ptr< Length_Origin_type >&,
+              const Line_Selected_type&,
+              const V_Lines_Pos_type&,
+              const Bounce_Test_AscanData_type&,
+              ::std::auto_ptr< Vertical_Scale_type >&,
+              const Bounce_Test_RFData_type&,
+              ::std::auto_ptr< SamplesPerSec_type >&,
+              const Frames_type&,
+              const Digitizer_type&,
+              ::std::auto_ptr< Magnitude_Height_type >&,
+              const Saturation_type&,
+              ::std::auto_ptr< Length_Length_type >&,
+              ::std::auto_ptr< Frequency_Length_type >&,
+              const State_type&,
+              ::std::auto_ptr< SV_Center_type >&,
+              const Continuous_RF_FrameRate_type&,
+              const Quantify_Bounce_Test_type&,
+              const X_3D_Volume_type&,
+              const Shift_RF_Data_type&,
+              const V_Lines_type&,
+              const Graph_Mode_type&,
+              ::std::auto_ptr< RF_Path_15Mhz_Time_Correction_type >&,
+              ::std::auto_ptr< RF_Path_23Mhz_Time_Correction_type >&,
+              ::std::auto_ptr< SV_Length_Limits_type >&);
 
   RfModeSoft (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f = 0,
@@ -7322,7 +7902,7 @@ class TX: public ::xml_schema::type
 
   // V-Transmit-Length
   //
-  typedef ::xml_schema::string V_Transmit_Length_type;
+  typedef ::V_Transmit_Length V_Transmit_Length_type;
   typedef ::xsd::cxx::tree::traits< V_Transmit_Length_type, char > V_Transmit_Length_traits;
 
   const V_Transmit_Length_type&
@@ -7424,7 +8004,7 @@ class TX: public ::xml_schema::type
 
   // V-Pulse-Rep-Freq
   //
-  typedef ::xml_schema::string V_Pulse_Rep_Freq_type;
+  typedef ::V_Pulse_Rep_Freq V_Pulse_Rep_Freq_type;
   typedef ::xsd::cxx::tree::traits< V_Pulse_Rep_Freq_type, char > V_Pulse_Rep_Freq_traits;
 
   const V_Pulse_Rep_Freq_type&
@@ -7458,7 +8038,7 @@ class TX: public ::xml_schema::type
 
   // Frequency
   //
-  typedef ::xml_schema::string Frequency_type;
+  typedef ::Frequency2 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
   const Frequency_type&
@@ -7475,7 +8055,7 @@ class TX: public ::xml_schema::type
 
   // V-Unblank-Time
   //
-  typedef ::xml_schema::string V_Unblank_Time_type;
+  typedef ::V_Unblank_Time V_Unblank_Time_type;
   typedef ::xsd::cxx::tree::traits< V_Unblank_Time_type, char > V_Unblank_Time_traits;
 
   const V_Unblank_Time_type&
@@ -7492,7 +8072,7 @@ class TX: public ::xml_schema::type
 
   // V-Frequency
   //
-  typedef ::xml_schema::string V_Frequency_type;
+  typedef ::V_Frequency V_Frequency_type;
   typedef ::xsd::cxx::tree::traits< V_Frequency_type, char > V_Frequency_traits;
 
   const V_Frequency_type&
@@ -7509,7 +8089,7 @@ class TX: public ::xml_schema::type
 
   // Pulse-Rep-Frequency
   //
-  typedef ::xml_schema::string Pulse_Rep_Frequency_type;
+  typedef ::Pulse_Rep_Frequency Pulse_Rep_Frequency_type;
   typedef ::xsd::cxx::tree::traits< Pulse_Rep_Frequency_type, char > Pulse_Rep_Frequency_traits;
 
   const Pulse_Rep_Frequency_type&
@@ -7543,7 +8123,7 @@ class TX: public ::xml_schema::type
 
   // Trig-Tbl-Trigs
   //
-  typedef ::xml_schema::string Trig_Tbl_Trigs_type;
+  typedef ::Trig_Tbl_Trigs Trig_Tbl_Trigs_type;
   typedef ::xsd::cxx::tree::traits< Trig_Tbl_Trigs_type, char > Trig_Tbl_Trigs_traits;
 
   const Trig_Tbl_Trigs_type&
@@ -7577,7 +8157,7 @@ class TX: public ::xml_schema::type
 
   // Unblank-Cycles
   //
-  typedef ::xml_schema::string Unblank_Cycles_type;
+  typedef ::Unblank_Cycles Unblank_Cycles_type;
   typedef ::xsd::cxx::tree::traits< Unblank_Cycles_type, char > Unblank_Cycles_traits;
 
   const Unblank_Cycles_type&
@@ -7611,7 +8191,7 @@ class TX: public ::xml_schema::type
 
   // Unblank-Time
   //
-  typedef ::xml_schema::string Unblank_Time_type;
+  typedef ::Unblank_Time Unblank_Time_type;
   typedef ::xsd::cxx::tree::traits< Unblank_Time_type, char > Unblank_Time_traits;
 
   const Unblank_Time_type&
@@ -7628,7 +8208,7 @@ class TX: public ::xml_schema::type
 
   // Attenuation
   //
-  typedef ::xml_schema::string Attenuation_type;
+  typedef ::Attenuation Attenuation_type;
   typedef ::xsd::cxx::tree::traits< Attenuation_type, char > Attenuation_traits;
 
   const Attenuation_type&
@@ -7645,7 +8225,7 @@ class TX: public ::xml_schema::type
 
   // V-Power
   //
-  typedef ::xml_schema::string V_Power_type;
+  typedef ::V_Power V_Power_type;
   typedef ::xsd::cxx::tree::traits< V_Power_type, char > V_Power_traits;
 
   const V_Power_type&
@@ -7700,6 +8280,29 @@ class TX: public ::xml_schema::type
       const Unblank_Time_type&,
       const Attenuation_type&,
       const V_Power_type&,
+      const Computer_Trigger_type&);
+
+  TX (const V_Position_Table_type&,
+      ::std::auto_ptr< V_Transmit_Length_type >&,
+      const Trigger_Counter_Clear_type&,
+      const Trigger_Counter_type&,
+      const Multi_Trigger_Freq_type&,
+      const RF_Amp_type&,
+      const Trigger_Control_type&,
+      ::std::auto_ptr< V_Pulse_Rep_Freq_type >&,
+      const Phase_type&,
+      ::std::auto_ptr< Frequency_type >&,
+      ::std::auto_ptr< V_Unblank_Time_type >&,
+      ::std::auto_ptr< V_Frequency_type >&,
+      ::std::auto_ptr< Pulse_Rep_Frequency_type >&,
+      const Multi_Trigger_type&,
+      ::std::auto_ptr< Trig_Tbl_Trigs_type >&,
+      const Width_type&,
+      ::std::auto_ptr< Unblank_Cycles_type >&,
+      const V_Width_type&,
+      ::std::auto_ptr< Unblank_Time_type >&,
+      ::std::auto_ptr< Attenuation_type >&,
+      ::std::auto_ptr< V_Power_type >&,
       const Computer_Trigger_type&);
 
   TX (const ::xercesc::DOMElement& e,
@@ -7805,7 +8408,7 @@ class X_3D: public ::xml_schema::type
 
   // Scan-Distance
   //
-  typedef ::xml_schema::string Scan_Distance_type;
+  typedef ::Scan_Distance Scan_Distance_type;
   typedef ::xsd::cxx::tree::traits< Scan_Distance_type, char > Scan_Distance_traits;
 
   const Scan_Distance_type&
@@ -7941,7 +8544,7 @@ class X_3D: public ::xml_schema::type
 
   // Step-Size
   //
-  typedef ::xml_schema::string Step_Size_type;
+  typedef ::Step_Size Step_Size_type;
   typedef ::xsd::cxx::tree::traits< Step_Size_type, char > Step_Size_traits;
 
   const Step_Size_type&
@@ -7970,6 +8573,19 @@ class X_3D: public ::xml_schema::type
         const Clear_Error_type&,
         const Direction_type&,
         const Step_Size_type&);
+
+  X_3D (const Speed_type&,
+        const Status_type&,
+        const Motor_Enable_type&,
+        ::std::auto_ptr< Scan_Distance_type >&,
+        const Error_type&,
+        const Steps_type&,
+        const Max_Scan_Steps_type&,
+        const Position_type&,
+        const Action_type&,
+        const Clear_Error_type&,
+        const Direction_type&,
+        ::std::auto_ptr< Step_Size_type >&);
 
   X_3D (const ::xercesc::DOMElement& e,
         ::xml_schema::flags f = 0,
@@ -8047,7 +8663,7 @@ class RfAnalysis: public ::xml_schema::type
 
   // Ref-Probe-Focal-Length
   //
-  typedef ::xml_schema::string Ref_Probe_Focal_Length_type;
+  typedef ::Ref_Probe_Focal_Length Ref_Probe_Focal_Length_type;
   typedef ::xsd::cxx::tree::traits< Ref_Probe_Focal_Length_type, char > Ref_Probe_Focal_Length_traits;
 
   const Ref_Probe_Focal_Length_type&
@@ -8064,7 +8680,7 @@ class RfAnalysis: public ::xml_schema::type
 
   // Ref-Tx-Frequency
   //
-  typedef ::xml_schema::string Ref_Tx_Frequency_type;
+  typedef ::Ref_Tx_Frequency Ref_Tx_Frequency_type;
   typedef ::xsd::cxx::tree::traits< Ref_Tx_Frequency_type, char > Ref_Tx_Frequency_traits;
 
   const Ref_Tx_Frequency_type&
@@ -8132,7 +8748,7 @@ class RfAnalysis: public ::xml_schema::type
 
   // Normalized-Height
   //
-  typedef ::xml_schema::string Normalized_Height_type;
+  typedef ::Normalized_Height Normalized_Height_type;
   typedef ::xsd::cxx::tree::traits< Normalized_Height_type, char > Normalized_Height_traits;
 
   const Normalized_Height_type&
@@ -8166,7 +8782,7 @@ class RfAnalysis: public ::xml_schema::type
 
   // Normalized-Origin
   //
-  typedef ::xml_schema::string Normalized_Origin_type;
+  typedef ::Normalized_Origin Normalized_Origin_type;
   typedef ::xsd::cxx::tree::traits< Normalized_Origin_type, char > Normalized_Origin_traits;
 
   const Normalized_Origin_type&
@@ -8217,7 +8833,7 @@ class RfAnalysis: public ::xml_schema::type
 
   // Ref-Tx-Power
   //
-  typedef ::xml_schema::string Ref_Tx_Power_type;
+  typedef ::Ref_Tx_Power Ref_Tx_Power_type;
   typedef ::xsd::cxx::tree::traits< Ref_Tx_Power_type, char > Ref_Tx_Power_traits;
 
   const Ref_Tx_Power_type&
@@ -8234,7 +8850,7 @@ class RfAnalysis: public ::xml_schema::type
 
   // Freq-Range-Max
   //
-  typedef ::xml_schema::string Freq_Range_Max_type;
+  typedef ::Freq_Range_Max Freq_Range_Max_type;
   typedef ::xsd::cxx::tree::traits< Freq_Range_Max_type, char > Freq_Range_Max_traits;
 
   const Freq_Range_Max_type&
@@ -8251,7 +8867,7 @@ class RfAnalysis: public ::xml_schema::type
 
   // Freq-Range-Min
   //
-  typedef ::xml_schema::string Freq_Range_Min_type;
+  typedef ::Freq_Range_Min Freq_Range_Min_type;
   typedef ::xsd::cxx::tree::traits< Freq_Range_Min_type, char > Freq_Range_Min_traits;
 
   const Freq_Range_Min_type&
@@ -8300,6 +8916,23 @@ class RfAnalysis: public ::xml_schema::type
               const Ref_Tx_Power_type&,
               const Freq_Range_Max_type&,
               const Freq_Range_Min_type&,
+              const Ref_Offset_type&);
+
+  RfAnalysis (const Reference_type&,
+              const Ref_Probe_F_Number_type&,
+              ::std::auto_ptr< Ref_Probe_Focal_Length_type >&,
+              ::std::auto_ptr< Ref_Tx_Frequency_type >&,
+              const Freq_Range_type&,
+              const Ref_Probe_Name_type&,
+              const Graph_Mode_type&,
+              ::std::auto_ptr< Normalized_Height_type >&,
+              const Ref_Tx_Width_type&,
+              ::std::auto_ptr< Normalized_Origin_type >&,
+              const Freq_Range_f_type&,
+              const FFT_Offset_type&,
+              ::std::auto_ptr< Ref_Tx_Power_type >&,
+              ::std::auto_ptr< Freq_Range_Max_type >&,
+              ::std::auto_ptr< Freq_Range_Min_type >&,
               const Ref_Offset_type&);
 
   RfAnalysis (const ::xercesc::DOMElement& e,
@@ -8365,7 +8998,7 @@ class RX: public ::xml_schema::type
 
   // Sector-Width-Target
   //
-  typedef ::xml_schema::string Sector_Width_Target_type;
+  typedef ::Sector_Width_Target Sector_Width_Target_type;
   typedef ::xsd::cxx::tree::traits< Sector_Width_Target_type, char > Sector_Width_Target_traits;
 
   const Sector_Width_Target_type&
@@ -8382,7 +9015,7 @@ class RX: public ::xml_schema::type
 
   // RF-Gain
   //
-  typedef ::xml_schema::string RF_Gain_type;
+  typedef ::RF_Gain RF_Gain_type;
   typedef ::xsd::cxx::tree::traits< RF_Gain_type, char > RF_Gain_traits;
 
   const RF_Gain_type&
@@ -8416,7 +9049,7 @@ class RX: public ::xml_schema::type
 
   // V-Digi-Depth-Imaging
   //
-  typedef ::xml_schema::string V_Digi_Depth_Imaging_type;
+  typedef ::V_Digi_Depth_Imaging V_Digi_Depth_Imaging_type;
   typedef ::xsd::cxx::tree::traits< V_Digi_Depth_Imaging_type, char > V_Digi_Depth_Imaging_traits;
 
   const V_Digi_Depth_Imaging_type&
@@ -8450,7 +9083,7 @@ class RX: public ::xml_schema::type
 
   // Test-Freq
   //
-  typedef ::xml_schema::string Test_Freq_type;
+  typedef ::Test_Freq Test_Freq_type;
   typedef ::xsd::cxx::tree::traits< Test_Freq_type, char > Test_Freq_traits;
 
   const Test_Freq_type&
@@ -8501,7 +9134,7 @@ class RX: public ::xml_schema::type
 
   // IF-Filter
   //
-  typedef ::xml_schema::string IF_Filter_type;
+  typedef ::IF_Filter IF_Filter_type;
   typedef ::xsd::cxx::tree::traits< IF_Filter_type, char > IF_Filter_traits;
 
   const IF_Filter_type&
@@ -8518,7 +9151,7 @@ class RX: public ::xml_schema::type
 
   // Track-Width
   //
-  typedef ::xml_schema::string Track_Width_type;
+  typedef ::Track_Width Track_Width_type;
   typedef ::xsd::cxx::tree::traits< Track_Width_type, char > Track_Width_traits;
 
   const Track_Width_type&
@@ -8569,7 +9202,7 @@ class RX: public ::xml_schema::type
 
   // V-IF-Filter
   //
-  typedef ::xml_schema::string V_IF_Filter_type;
+  typedef ::V_IF_Filter V_IF_Filter_type;
   typedef ::xsd::cxx::tree::traits< V_IF_Filter_type, char > V_IF_Filter_traits;
 
   const V_IF_Filter_type&
@@ -8603,7 +9236,7 @@ class RX: public ::xml_schema::type
 
   // HP-Clutter
   //
-  typedef ::xml_schema::string HP_Clutter_type;
+  typedef ::HP_Clutter HP_Clutter_type;
   typedef ::xsd::cxx::tree::traits< HP_Clutter_type, char > HP_Clutter_traits;
 
   const HP_Clutter_type&
@@ -8671,7 +9304,7 @@ class RX: public ::xml_schema::type
 
   // RF-Filter
   //
-  typedef ::xml_schema::string RF_Filter_type;
+  typedef ::RF_Filter RF_Filter_type;
   typedef ::xsd::cxx::tree::traits< RF_Filter_type, char > RF_Filter_traits;
 
   const RF_Filter_type&
@@ -8756,7 +9389,7 @@ class RX: public ::xml_schema::type
 
   // V-RF-Filter
   //
-  typedef ::xml_schema::string V_RF_Filter_type;
+  typedef ::V_RF_Filter V_RF_Filter_type;
   typedef ::xsd::cxx::tree::traits< V_RF_Filter_type, char > V_RF_Filter_traits;
 
   const V_RF_Filter_type&
@@ -8790,7 +9423,7 @@ class RX: public ::xml_schema::type
 
   // Delay
   //
-  typedef ::xml_schema::string Delay_type;
+  typedef ::Delay Delay_type;
   typedef ::xsd::cxx::tree::traits< Delay_type, char > Delay_traits;
 
   const Delay_type&
@@ -8807,7 +9440,7 @@ class RX: public ::xml_schema::type
 
   // AD-Gate-Width
   //
-  typedef ::xml_schema::string AD_Gate_Width_type;
+  typedef ::AD_Gate_Width AD_Gate_Width_type;
   typedef ::xsd::cxx::tree::traits< AD_Gate_Width_type, char > AD_Gate_Width_traits;
 
   const AD_Gate_Width_type&
@@ -8824,7 +9457,7 @@ class RX: public ::xml_schema::type
 
   // Frequency
   //
-  typedef ::xml_schema::string Frequency_type;
+  typedef ::Frequency3 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
   const Frequency_type&
@@ -8841,7 +9474,7 @@ class RX: public ::xml_schema::type
 
   // V-Frequency
   //
-  typedef ::xml_schema::string V_Frequency_type;
+  typedef ::V_Frequency1 V_Frequency_type;
   typedef ::xsd::cxx::tree::traits< V_Frequency_type, char > V_Frequency_traits;
 
   const V_Frequency_type&
@@ -8858,7 +9491,7 @@ class RX: public ::xml_schema::type
 
   // V-Field-Of-View
   //
-  typedef ::xml_schema::string V_Field_Of_View_type;
+  typedef ::V_Field_Of_View V_Field_Of_View_type;
   typedef ::xsd::cxx::tree::traits< V_Field_Of_View_type, char > V_Field_Of_View_traits;
 
   const V_Field_Of_View_type&
@@ -8892,7 +9525,7 @@ class RX: public ::xml_schema::type
 
   // Sector-Height-Target
   //
-  typedef ::xml_schema::string Sector_Height_Target_type;
+  typedef ::Sector_Height_Target Sector_Height_Target_type;
   typedef ::xsd::cxx::tree::traits< Sector_Height_Target_type, char > Sector_Height_Target_traits;
 
   const Sector_Height_Target_type&
@@ -8926,7 +9559,7 @@ class RX: public ::xml_schema::type
 
   // AD-TestIn
   //
-  typedef ::xml_schema::string AD_TestIn_type;
+  typedef ::AD_TestIn AD_TestIn_type;
   typedef ::xsd::cxx::tree::traits< AD_TestIn_type, char > AD_TestIn_traits;
 
   const AD_TestIn_type&
@@ -9028,7 +9661,7 @@ class RX: public ::xml_schema::type
 
   // V-Delay-Length
   //
-  typedef ::xml_schema::string V_Delay_Length_type;
+  typedef ::V_Delay_Length V_Delay_Length_type;
   typedef ::xsd::cxx::tree::traits< V_Delay_Length_type, char > V_Delay_Length_traits;
 
   const V_Delay_Length_type&
@@ -9103,6 +9736,49 @@ class RX: public ::xml_schema::type
       const DTB_Tfr_Enable_type&,
       const DTB_Test_Enable_type&,
       const V_Delay_Length_type&,
+      const Current_Mode_type&);
+
+  RX (const AD_IF_type&,
+      ::std::auto_ptr< Sector_Width_Target_type >&,
+      ::std::auto_ptr< RF_Gain_type >&,
+      const TGC_Enable_type&,
+      ::std::auto_ptr< V_Digi_Depth_Imaging_type >&,
+      const RF_Bandwidth_type&,
+      ::std::auto_ptr< Test_Freq_type >&,
+      const Line_Number_type&,
+      const V_TGC_type&,
+      ::std::auto_ptr< IF_Filter_type >&,
+      ::std::auto_ptr< Track_Width_type >&,
+      const DTB_Error_Clr_type&,
+      const Current_Channel_type&,
+      ::std::auto_ptr< V_IF_Filter_type >&,
+      const IQ_Select_type&,
+      ::std::auto_ptr< HP_Clutter_type >&,
+      const AD_In_type&,
+      const V_TGC_Copy_type&,
+      const Image_FIFO_Status_type&,
+      ::std::auto_ptr< RF_Filter_type >&,
+      const DDRS_type&,
+      const ADCA_Out_type&,
+      const AD_Clock_Div_type&,
+      const Imaging_Mode_type&,
+      ::std::auto_ptr< V_RF_Filter_type >&,
+      const ADCB_Out_type&,
+      ::std::auto_ptr< Delay_type >&,
+      ::std::auto_ptr< AD_Gate_Width_type >&,
+      ::std::auto_ptr< Frequency_type >&,
+      ::std::auto_ptr< V_Frequency_type >&,
+      ::std::auto_ptr< V_Field_Of_View_type >&,
+      const Packet_Format_type&,
+      ::std::auto_ptr< Sector_Height_Target_type >&,
+      const Low_Speed_FIFO_Status_type&,
+      ::std::auto_ptr< AD_TestIn_type >&,
+      const Error_type&,
+      const Test_On_type&,
+      const AD_DCS_type&,
+      const DTB_Tfr_Enable_type&,
+      const DTB_Test_Enable_type&,
+      ::std::auto_ptr< V_Delay_Length_type >&,
       const Current_Mode_type&);
 
   RX (const ::xercesc::DOMElement& e,
@@ -9279,7 +9955,7 @@ class Display: public ::xml_schema::type
 
   // Window-Time
   //
-  typedef ::xml_schema::string Window_Time_type;
+  typedef ::Window_Time Window_Time_type;
   typedef ::xsd::cxx::tree::traits< Window_Time_type, char > Window_Time_traits;
 
   const Window_Time_type&
@@ -9303,6 +9979,14 @@ class Display: public ::xml_schema::type
            const Gain_type&,
            const Dynamic_Range_type&,
            const Window_Time_type&);
+
+  Display (const Direction_type&,
+           const X_3D_Gain_type&,
+           const X_3D_Dynamic_Range_type&,
+           const V_Selection_type&,
+           const Gain_type&,
+           const Dynamic_Range_type&,
+           ::std::auto_ptr< Window_Time_type >&);
 
   Display (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f = 0,
@@ -9560,7 +10244,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Sample-Time
   //
-  typedef ::xml_schema::string Sample_Time_type;
+  typedef ::Sample_Time1 Sample_Time_type;
   typedef ::xsd::cxx::tree::traits< Sample_Time_type, char > Sample_Time_traits;
 
   const Sample_Time_type&
@@ -9577,7 +10261,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Focal-Length
   //
-  typedef ::xml_schema::string Focal_Length_type;
+  typedef ::Focal_Length1 Focal_Length_type;
   typedef ::xsd::cxx::tree::traits< Focal_Length_type, char > Focal_Length_traits;
 
   const Focal_Length_type&
@@ -9645,7 +10329,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Default-Scan-Speed
   //
-  typedef ::xml_schema::string Default_Scan_Speed_type;
+  typedef ::Default_Scan_Speed1 Default_Scan_Speed_type;
   typedef ::xsd::cxx::tree::traits< Default_Scan_Speed_type, char > Default_Scan_Speed_traits;
 
   const Default_Scan_Speed_type&
@@ -9679,7 +10363,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Cutoff-Scan-Speed
   //
-  typedef ::xml_schema::string Cutoff_Scan_Speed_type;
+  typedef ::Cutoff_Scan_Speed1 Cutoff_Scan_Speed_type;
   typedef ::xsd::cxx::tree::traits< Cutoff_Scan_Speed_type, char > Cutoff_Scan_Speed_traits;
 
   const Cutoff_Scan_Speed_type&
@@ -9696,7 +10380,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Frequency-Low
   //
-  typedef ::xml_schema::string Frequency_Low_type;
+  typedef ::Frequency_Low1 Frequency_Low_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Low_type, char > Frequency_Low_traits;
 
   const Frequency_Low_type&
@@ -9713,7 +10397,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Default-FOV
   //
-  typedef ::xml_schema::string Default_FOV_type;
+  typedef ::Default_FOV1 Default_FOV_type;
   typedef ::xsd::cxx::tree::traits< Default_FOV_type, char > Default_FOV_traits;
 
   const Default_FOV_type&
@@ -9730,7 +10414,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Frequency-Doppler-Default
   //
-  typedef ::xml_schema::string Frequency_Doppler_Default_type;
+  typedef ::Frequency_Doppler_Default1 Frequency_Doppler_Default_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Doppler_Default_type, char > Frequency_Doppler_Default_traits;
 
   const Frequency_Doppler_Default_type&
@@ -9815,7 +10499,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Axial-Res
   //
-  typedef ::xml_schema::string Axial_Res_type;
+  typedef ::Axial_Res1 Axial_Res_type;
   typedef ::xsd::cxx::tree::traits< Axial_Res_type, char > Axial_Res_traits;
 
   const Axial_Res_type&
@@ -9849,7 +10533,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Pivot-Encoder-Dist
   //
-  typedef ::xml_schema::string Pivot_Encoder_Dist_type;
+  typedef ::Pivot_Encoder_Dist1 Pivot_Encoder_Dist_type;
   typedef ::xsd::cxx::tree::traits< Pivot_Encoder_Dist_type, char > Pivot_Encoder_Dist_traits;
 
   const Pivot_Encoder_Dist_type&
@@ -9866,7 +10550,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Encoder-Range-Max
   //
-  typedef ::xml_schema::string Encoder_Range_Max_type;
+  typedef ::Encoder_Range_Max1 Encoder_Range_Max_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Range_Max_type, char > Encoder_Range_Max_traits;
 
   const Encoder_Range_Max_type&
@@ -9883,7 +10567,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Encoder-Range-Min
   //
-  typedef ::xml_schema::string Encoder_Range_Min_type;
+  typedef ::Encoder_Range_Min1 Encoder_Range_Min_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Range_Min_type, char > Encoder_Range_Min_traits;
 
   const Encoder_Range_Min_type&
@@ -9900,7 +10584,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Lateral-Res
   //
-  typedef ::xml_schema::string Lateral_Res_type;
+  typedef ::Lateral_Res1 Lateral_Res_type;
   typedef ::xsd::cxx::tree::traits< Lateral_Res_type, char > Lateral_Res_traits;
 
   const Lateral_Res_type&
@@ -9917,7 +10601,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Max-Scan-Distance
   //
-  typedef ::xml_schema::string Max_Scan_Distance_type;
+  typedef ::Max_Scan_Distance1 Max_Scan_Distance_type;
   typedef ::xsd::cxx::tree::traits< Max_Scan_Distance_type, char > Max_Scan_Distance_traits;
 
   const Max_Scan_Distance_type&
@@ -9934,7 +10618,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Default-Rx-Gain
   //
-  typedef ::xml_schema::string Default_Rx_Gain_type;
+  typedef ::Default_Rx_Gain1 Default_Rx_Gain_type;
   typedef ::xsd::cxx::tree::traits< Default_Rx_Gain_type, char > Default_Rx_Gain_traits;
 
   const Default_Rx_Gain_type&
@@ -10002,7 +10686,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Frequency-High
   //
-  typedef ::xml_schema::string Frequency_High_type;
+  typedef ::Frequency_High1 Frequency_High_type;
   typedef ::xsd::cxx::tree::traits< Frequency_High_type, char > Frequency_High_traits;
 
   const Frequency_High_type&
@@ -10036,7 +10720,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Scan-Speeds
   //
-  typedef ::xml_schema::string Scan_Speeds_type;
+  typedef ::Scan_Speeds1 Scan_Speeds_type;
   typedef ::xsd::cxx::tree::traits< Scan_Speeds_type, char > Scan_Speeds_traits;
 
   const Scan_Speeds_type&
@@ -10053,7 +10737,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Filter-Doppler-Cutoff
   //
-  typedef ::xml_schema::string Filter_Doppler_Cutoff_type;
+  typedef ::Filter_Doppler_Cutoff1 Filter_Doppler_Cutoff_type;
   typedef ::xsd::cxx::tree::traits< Filter_Doppler_Cutoff_type, char > Filter_Doppler_Cutoff_traits;
 
   const Filter_Doppler_Cutoff_type&
@@ -10155,7 +10839,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Frequency-Doppler-Low
   //
-  typedef ::xml_schema::string Frequency_Doppler_Low_type;
+  typedef ::Frequency_Doppler_Low1 Frequency_Doppler_Low_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Doppler_Low_type, char > Frequency_Doppler_Low_traits;
 
   const Frequency_Doppler_Low_type&
@@ -10172,7 +10856,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Pivot-Transducer-Face-Dist
   //
-  typedef ::xml_schema::string Pivot_Transducer_Face_Dist_type;
+  typedef ::Pivot_Transducer_Face_Dist1 Pivot_Transducer_Face_Dist_type;
   typedef ::xsd::cxx::tree::traits< Pivot_Transducer_Face_Dist_type, char > Pivot_Transducer_Face_Dist_traits;
 
   const Pivot_Transducer_Face_Dist_type&
@@ -10189,7 +10873,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Filter-Doppler
   //
-  typedef ::xml_schema::string Filter_Doppler_type;
+  typedef ::Filter_Doppler1 Filter_Doppler_type;
   typedef ::xsd::cxx::tree::traits< Filter_Doppler_type, char > Filter_Doppler_traits;
 
   const Filter_Doppler_type&
@@ -10206,7 +10890,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Frequency
   //
-  typedef ::xml_schema::string Frequency_type;
+  typedef ::Frequency4 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
   const Frequency_type&
@@ -10240,7 +10924,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Encoder-Separation
   //
-  typedef ::xml_schema::string Encoder_Separation_type;
+  typedef ::Encoder_Separation1 Encoder_Separation_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Separation_type, char > Encoder_Separation_traits;
 
   const Encoder_Separation_type&
@@ -10257,7 +10941,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Overshoot
   //
-  typedef ::xml_schema::string Overshoot_type;
+  typedef ::Overshoot1 Overshoot_type;
   typedef ::xsd::cxx::tree::traits< Overshoot_type, char > Overshoot_traits;
 
   const Overshoot_type&
@@ -10291,7 +10975,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Filter
   //
-  typedef ::xml_schema::string Filter_type;
+  typedef ::Filter1 Filter_type;
   typedef ::xsd::cxx::tree::traits< Filter_type, char > Filter_traits;
 
   const Filter_type&
@@ -10308,7 +10992,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Default-Rx-Gain-Doppler
   //
-  typedef ::xml_schema::string Default_Rx_Gain_Doppler_type;
+  typedef ::Default_Rx_Gain_Doppler1 Default_Rx_Gain_Doppler_type;
   typedef ::xsd::cxx::tree::traits< Default_Rx_Gain_Doppler_type, char > Default_Rx_Gain_Doppler_traits;
 
   const Default_Rx_Gain_Doppler_type&
@@ -10376,7 +11060,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Filter-Doppler-Low
   //
-  typedef ::xml_schema::string Filter_Doppler_Low_type;
+  typedef ::Filter_Doppler_Low1 Filter_Doppler_Low_type;
   typedef ::xsd::cxx::tree::traits< Filter_Doppler_Low_type, char > Filter_Doppler_Low_traits;
 
   const Filter_Doppler_Low_type&
@@ -10393,7 +11077,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Frequency-Doppler
   //
-  typedef ::xml_schema::string Frequency_Doppler_type;
+  typedef ::Frequency_Doppler1 Frequency_Doppler_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Doppler_type, char > Frequency_Doppler_traits;
 
   const Frequency_Doppler_type&
@@ -10444,7 +11128,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Filter-High
   //
-  typedef ::xml_schema::string Filter_High_type;
+  typedef ::Filter_High1 Filter_High_type;
   typedef ::xsd::cxx::tree::traits< Filter_High_type, char > Filter_High_traits;
 
   const Filter_High_type&
@@ -10461,7 +11145,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Motor-Overhead
   //
-  typedef ::xml_schema::string Motor_Overhead_type;
+  typedef ::Motor_Overhead1 Motor_Overhead_type;
   typedef ::xsd::cxx::tree::traits< Motor_Overhead_type, char > Motor_Overhead_traits;
 
   const Motor_Overhead_type&
@@ -10495,7 +11179,7 @@ class ActiveProbe1: public ::xml_schema::type
 
   // Filter-Low
   //
-  typedef ::xml_schema::string Filter_Low_type;
+  typedef ::Filter_Low1 Filter_Low_type;
   typedef ::xsd::cxx::tree::traits< Filter_Low_type, char > Filter_Low_traits;
 
   const Filter_Low_type&
@@ -10569,6 +11253,64 @@ class ActiveProbe1: public ::xml_schema::type
                 const Motor_Overhead_type&,
                 const Version_type&,
                 const Filter_Low_type&);
+
+  ActiveProbe1 (const Notes_type&,
+                ::std::auto_ptr< Sample_Time_type >&,
+                ::std::auto_ptr< Focal_Length_type >&,
+                const Acceleration_Limit_Slope_type&,
+                const Type_type&,
+                const Detect_Id_type&,
+                ::std::auto_ptr< Default_Scan_Speed_type >&,
+                const K1_Power_type&,
+                ::std::auto_ptr< Cutoff_Scan_Speed_type >&,
+                ::std::auto_ptr< Frequency_Low_type >&,
+                ::std::auto_ptr< Default_FOV_type >&,
+                ::std::auto_ptr< Frequency_Doppler_Default_type >&,
+                const Default_SvSize_MMode_type&,
+                const Axial_Res_Factor_Target_type&,
+                const F_Number_type&,
+                const Acc_Time_Factor_type&,
+                ::std::auto_ptr< Axial_Res_type >&,
+                const Lateral_Res_Factor_Target_type&,
+                ::std::auto_ptr< Pivot_Encoder_Dist_type >&,
+                ::std::auto_ptr< Encoder_Range_Max_type >&,
+                ::std::auto_ptr< Encoder_Range_Min_type >&,
+                ::std::auto_ptr< Lateral_Res_type >&,
+                ::std::auto_ptr< Max_Scan_Distance_type >&,
+                ::std::auto_ptr< Default_Rx_Gain_type >&,
+                const PID_KD_High_type&,
+                const PID_KI_High_type&,
+                const PID_KP_High_type&,
+                ::std::auto_ptr< Frequency_High_type >&,
+                const Lateral_Res_Factor_Max_type&,
+                ::std::auto_ptr< Scan_Speeds_type >&,
+                ::std::auto_ptr< Filter_Doppler_Cutoff_type >&,
+                const Name_type&,
+                const PID_KD_Low_type&,
+                const PID_KI_Low_type&,
+                const PID_KP_Low_type&,
+                const Peak_Bandwidth_Correction_type&,
+                ::std::auto_ptr< Frequency_Doppler_Low_type >&,
+                ::std::auto_ptr< Pivot_Transducer_Face_Dist_type >&,
+                ::std::auto_ptr< Filter_Doppler_type >&,
+                ::std::auto_ptr< Frequency_type >&,
+                const Integration_Limit_type&,
+                ::std::auto_ptr< Encoder_Separation_type >&,
+                ::std::auto_ptr< Overshoot_type >&,
+                const Attenuation_Shift_type&,
+                ::std::auto_ptr< Filter_type >&,
+                ::std::auto_ptr< Default_Rx_Gain_Doppler_type >&,
+                const Peak_Vel_Correction_type&,
+                const Detect_Ratio_Max_type&,
+                const Acceleration_Limit_Constant_type&,
+                ::std::auto_ptr< Filter_Doppler_Low_type >&,
+                ::std::auto_ptr< Frequency_Doppler_type >&,
+                const Detect_Ratio_Min_type&,
+                const Derivative_Time_type&,
+                ::std::auto_ptr< Filter_High_type >&,
+                ::std::auto_ptr< Motor_Overhead_type >&,
+                const Version_type&,
+                ::std::auto_ptr< Filter_Low_type >&);
 
   ActiveProbe1 (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f = 0,
@@ -10708,7 +11450,7 @@ class BModeSoft1: public ::xml_schema::type
 
   // Buffer-Size
   //
-  typedef ::xml_schema::string Buffer_Size_type;
+  typedef ::Buffer_Size1 Buffer_Size_type;
   typedef ::xsd::cxx::tree::traits< Buffer_Size_type, char > Buffer_Size_traits;
 
   const Buffer_Size_type&
@@ -10793,7 +11535,7 @@ class BModeSoft1: public ::xml_schema::type
 
   // BMode-Size-Default
   //
-  typedef ::xml_schema::string BMode_Size_Default_type;
+  typedef ::BMode_Size_Default1 BMode_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< BMode_Size_Default_type, char > BMode_Size_Default_traits;
 
   const BMode_Size_Default_type&
@@ -10827,7 +11569,7 @@ class BModeSoft1: public ::xml_schema::type
 
   // Overlay-Mode
   //
-  typedef ::xml_schema::string Overlay_Mode_type;
+  typedef ::Overlay_Mode Overlay_Mode_type;
   typedef ::xsd::cxx::tree::traits< Overlay_Mode_type, char > Overlay_Mode_traits;
 
   const Overlay_Mode_type&
@@ -10844,7 +11586,7 @@ class BModeSoft1: public ::xml_schema::type
 
   // Refresh-Rate
   //
-  typedef ::xml_schema::string Refresh_Rate_type;
+  typedef ::Refresh_Rate1 Refresh_Rate_type;
   typedef ::xsd::cxx::tree::traits< Refresh_Rate_type, char > Refresh_Rate_traits;
 
   const Refresh_Rate_type&
@@ -10861,7 +11603,7 @@ class BModeSoft1: public ::xml_schema::type
 
   // Acquisition-Mode
   //
-  typedef ::xml_schema::string Acquisition_Mode_type;
+  typedef ::Acquisition_Mode Acquisition_Mode_type;
   typedef ::xsd::cxx::tree::traits< Acquisition_Mode_type, char > Acquisition_Mode_traits;
 
   const Acquisition_Mode_type&
@@ -10895,7 +11637,7 @@ class BModeSoft1: public ::xml_schema::type
 
   // Actual-Scan-Rate
   //
-  typedef ::xml_schema::string Actual_Scan_Rate_type;
+  typedef ::Actual_Scan_Rate Actual_Scan_Rate_type;
   typedef ::xsd::cxx::tree::traits< Actual_Scan_Rate_type, char > Actual_Scan_Rate_traits;
 
   const Actual_Scan_Rate_type&
@@ -10929,7 +11671,7 @@ class BModeSoft1: public ::xml_schema::type
 
   // Sector-X-Res
   //
-  typedef ::xml_schema::string Sector_X_Res_type;
+  typedef ::Sector_X_Res Sector_X_Res_type;
   typedef ::xsd::cxx::tree::traits< Sector_X_Res_type, char > Sector_X_Res_traits;
 
   const Sector_X_Res_type&
@@ -10946,7 +11688,7 @@ class BModeSoft1: public ::xml_schema::type
 
   // Sector-Y-Res
   //
-  typedef ::xml_schema::string Sector_Y_Res_type;
+  typedef ::Sector_Y_Res Sector_Y_Res_type;
   typedef ::xsd::cxx::tree::traits< Sector_Y_Res_type, char > Sector_Y_Res_traits;
 
   const Sector_Y_Res_type&
@@ -10963,7 +11705,7 @@ class BModeSoft1: public ::xml_schema::type
 
   // Power-Size-Default
   //
-  typedef ::xml_schema::string Power_Size_Default_type;
+  typedef ::Power_Size_Default1 Power_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Power_Size_Default_type, char > Power_Size_Default_traits;
 
   const Power_Size_Default_type&
@@ -10980,7 +11722,7 @@ class BModeSoft1: public ::xml_schema::type
 
   // Sector-X-Start
   //
-  typedef ::xml_schema::string Sector_X_Start_type;
+  typedef ::Sector_X_Start Sector_X_Start_type;
   typedef ::xsd::cxx::tree::traits< Sector_X_Start_type, char > Sector_X_Start_traits;
 
   const Sector_X_Start_type&
@@ -10997,7 +11739,7 @@ class BModeSoft1: public ::xml_schema::type
 
   // Sector-Y-Start
   //
-  typedef ::xml_schema::string Sector_Y_Start_type;
+  typedef ::Sector_Y_Start Sector_Y_Start_type;
   typedef ::xsd::cxx::tree::traits< Sector_Y_Start_type, char > Sector_Y_Start_traits;
 
   const Sector_Y_Start_type&
@@ -11031,7 +11773,7 @@ class BModeSoft1: public ::xml_schema::type
 
   // Target-Field-Of-View
   //
-  typedef ::xml_schema::string Target_Field_Of_View_type;
+  typedef ::Target_Field_Of_View1 Target_Field_Of_View_type;
   typedef ::xsd::cxx::tree::traits< Target_Field_Of_View_type, char > Target_Field_Of_View_traits;
 
   const Target_Field_Of_View_type&
@@ -11088,6 +11830,31 @@ class BModeSoft1: public ::xml_schema::type
               const Sector_Y_Start_type&,
               const Max_BMode_Size_Default_type&,
               const Target_Field_Of_View_type&,
+              const Processing_Command_type&);
+
+  BModeSoft1 (const Anti_Aliasing_type&,
+              const V_Relative_Frame_Rate_type&,
+              const Max_Power_Size_Default_type&,
+              ::std::auto_ptr< Buffer_Size_type >&,
+              const Sector_Convert_type&,
+              const AVR_Factor_type&,
+              const Flip_Image_type&,
+              const AVR_Startup_Frames_type&,
+              ::std::auto_ptr< BMode_Size_Default_type >&,
+              const Relative_Frame_Rate_type&,
+              ::std::auto_ptr< Overlay_Mode_type >&,
+              ::std::auto_ptr< Refresh_Rate_type >&,
+              ::std::auto_ptr< Acquisition_Mode_type >&,
+              const Acquire_Both_Directions_type&,
+              ::std::auto_ptr< Actual_Scan_Rate_type >&,
+              const Acquire_Persist_AVR_type&,
+              ::std::auto_ptr< Sector_X_Res_type >&,
+              ::std::auto_ptr< Sector_Y_Res_type >&,
+              ::std::auto_ptr< Power_Size_Default_type >&,
+              ::std::auto_ptr< Sector_X_Start_type >&,
+              ::std::auto_ptr< Sector_Y_Start_type >&,
+              const Max_BMode_Size_Default_type&,
+              ::std::auto_ptr< Target_Field_Of_View_type >&,
               const Processing_Command_type&);
 
   BModeSoft1 (const ::xercesc::DOMElement& e,
@@ -11161,7 +11928,7 @@ class Sys1: public ::xml_schema::type
 
   // Sound-Speed
   //
-  typedef ::xml_schema::string Sound_Speed_type;
+  typedef ::Sound_Speed1 Sound_Speed_type;
   typedef ::xsd::cxx::tree::traits< Sound_Speed_type, char > Sound_Speed_traits;
 
   const Sound_Speed_type&
@@ -11433,7 +12200,7 @@ class Sys1: public ::xml_schema::type
 
   // Pipeline-Delay
   //
-  typedef ::xml_schema::string Pipeline_Delay_type;
+  typedef ::Pipeline_Delay1 Pipeline_Delay_type;
   typedef ::xsd::cxx::tree::traits< Pipeline_Delay_type, char > Pipeline_Delay_traits;
 
   const Pipeline_Delay_type&
@@ -11523,6 +12290,28 @@ class Sys1: public ::xml_schema::type
         const Mode_type&,
         const Review_Setup_Dialog_type&);
 
+  Sys1 (const Query_Discard_Loop_On_Save_Frame_type&,
+        ::std::auto_ptr< Sound_Speed_type >&,
+        const SubMode_type&,
+        const Interrupt_Mask_type&,
+        const Calculation_Instances_type&,
+        const Start_Licence_Date_type&,
+        const End_Licence_Date_type&,
+        const Auto_Save_PreTrig_Loop_type&,
+        const Feature_type&,
+        const Acq_Setup_Dialog_type&,
+        const Interrupt_Clear_type&,
+        const Interrupt_Status_type&,
+        const Auto_Save_Load_3D_type&,
+        const DICOM_Root_ID_type&,
+        const Company_Name_type&,
+        const Image_To_Auto_Save_On_Label_type&,
+        const DICOM_Encode_Regions_type&,
+        ::std::auto_ptr< Pipeline_Delay_type >&,
+        const DDS_Control_type&,
+        const Mode_type&,
+        const Review_Setup_Dialog_type&);
+
   Sys1 (const ::xercesc::DOMElement& e,
         ::xml_schema::flags f = 0,
         ::xml_schema::container* c = 0);
@@ -11608,7 +12397,7 @@ class Contrast: public ::xml_schema::type
 
   // Reference-3D-Step-Size
   //
-  typedef ::xml_schema::string Reference_3D_Step_Size_type;
+  typedef ::Reference_3D_Step_Size Reference_3D_Step_Size_type;
   typedef ::xsd::cxx::tree::traits< Reference_3D_Step_Size_type, char > Reference_3D_Step_Size_traits;
 
   const Reference_3D_Step_Size_type&
@@ -11710,7 +12499,7 @@ class Contrast: public ::xml_schema::type
 
   // Contrast-Size-Default
   //
-  typedef ::xml_schema::string Contrast_Size_Default_type;
+  typedef ::Contrast_Size_Default Contrast_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Contrast_Size_Default_type, char > Contrast_Size_Default_traits;
 
   const Contrast_Size_Default_type&
@@ -11846,7 +12635,7 @@ class Contrast: public ::xml_schema::type
 
   // Reference-3D-Scan-Distance
   //
-  typedef ::xml_schema::string Reference_3D_Scan_Distance_type;
+  typedef ::Reference_3D_Scan_Distance Reference_3D_Scan_Distance_type;
   typedef ::xsd::cxx::tree::traits< Reference_3D_Scan_Distance_type, char > Reference_3D_Scan_Distance_traits;
 
   const Reference_3D_Scan_Distance_type&
@@ -12259,6 +13048,45 @@ class Contrast: public ::xml_schema::type
             const Contast_3D_Brightness_type&,
             const Reference_3D_Steps_type&);
 
+  Contrast (const Acquisition_3D_Volume_type&,
+            const Contrast_Linear_Scale_type&,
+            ::std::auto_ptr< Reference_3D_Step_Size_type >&,
+            const Remap_Color_type&,
+            const Display_Mode_type&,
+            const Contrast_Linear_Offset_type&,
+            const Contrast_Linear_Slope_type&,
+            const Median_Size_Perfusion_type&,
+            ::std::auto_ptr< Contrast_Size_Default_type >&,
+            const Median_Size_Default_type&,
+            const Use_ECG_Gate_type&,
+            const ECG_Gate_Range_type&,
+            const Filter_Size_Perfusion_type&,
+            const Max_Contrast_Size_Default_type&,
+            const Filter_Size_Default_type&,
+            const Cardiac_Divisions_type&,
+            ::std::auto_ptr< Reference_3D_Scan_Distance_type >&,
+            const Median_Size_MIP_type&,
+            const Acquire_Both_Directions_type&,
+            const Data_Display_Scale_Shift_type&,
+            const Reference_Label_type&,
+            const X_3D_Display_Mode_type&,
+            const Filter_Size_MIP_type&,
+            const Contrast_Linear_Lock_Gain_type&,
+            const Persistence_Process_Frames_type&,
+            const Reference_Range_Start_type&,
+            const Blur_MIP_BoxSize_type&,
+            const Threshold_type&,
+            const Process_Direction_type&,
+            const Reference_Range_Stop_type&,
+            const Blur_MIP_type&,
+            const Persistence_Mode_type&,
+            const Reference_3D_Volume_type&,
+            const Gain_type&,
+            const Acquire_Persist_MIP_type&,
+            const Dynamic_Range2_type&,
+            const Contast_3D_Brightness_type&,
+            const Reference_3D_Steps_type&);
+
   Contrast (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0);
@@ -12527,7 +13355,7 @@ class Scan1: public ::xml_schema::type
 
   // Center
   //
-  typedef ::xml_schema::string Center_type;
+  typedef ::Center1 Center_type;
   typedef ::xsd::cxx::tree::traits< Center_type, char > Center_traits;
 
   const Center_type&
@@ -12595,7 +13423,7 @@ class Scan1: public ::xml_schema::type
 
   // V-Scan-Speed
   //
-  typedef ::xml_schema::string V_Scan_Speed_type;
+  typedef ::V_Scan_Speed1 V_Scan_Speed_type;
   typedef ::xsd::cxx::tree::traits< V_Scan_Speed_type, char > V_Scan_Speed_traits;
 
   const V_Scan_Speed_type&
@@ -12714,7 +13542,7 @@ class Scan1: public ::xml_schema::type
 
   // V-Scan-Rate
   //
-  typedef ::xml_schema::string V_Scan_Rate_type;
+  typedef ::V_Scan_Rate1 V_Scan_Rate_type;
   typedef ::xsd::cxx::tree::traits< V_Scan_Rate_type, char > V_Scan_Rate_traits;
 
   const V_Scan_Rate_type&
@@ -12748,7 +13576,7 @@ class Scan1: public ::xml_schema::type
 
   // Scan-Width
   //
-  typedef ::xml_schema::string Scan_Width_type;
+  typedef ::Scan_Width1 Scan_Width_type;
   typedef ::xsd::cxx::tree::traits< Scan_Width_type, char > Scan_Width_traits;
 
   const Scan_Width_type&
@@ -12797,6 +13625,23 @@ class Scan1: public ::xml_schema::type
          const V_Scan_Rate_type&,
          const Position_Counter_Lock_type&,
          const Scan_Width_type&,
+         const Position_Counter_Reset_type&);
+
+  Scan1 (const Encoder_Position_type&,
+         ::std::auto_ptr< Center_type >&,
+         const Control_type&,
+         const Probe_ID1_type&,
+         const Probe_ID2_type&,
+         ::std::auto_ptr< V_Scan_Speed_type >&,
+         const Probe_ID1_Reread_type&,
+         const Probe_ID1_Valid_type&,
+         const Probe_ID1_Voltage_type&,
+         const Probe_ID2_Reread_type&,
+         const Probe_ID2_Valid_type&,
+         const Probe_ID2_Voltage_type&,
+         ::std::auto_ptr< V_Scan_Rate_type >&,
+         const Position_Counter_Lock_type&,
+         ::std::auto_ptr< Scan_Width_type >&,
          const Position_Counter_Reset_type&);
 
   Scan1 (const ::xercesc::DOMElement& e,
@@ -12862,7 +13707,7 @@ class Motor1: public ::xml_schema::type
 
   // Position
   //
-  typedef ::xml_schema::string Position_type;
+  typedef ::Position1 Position_type;
   typedef ::xsd::cxx::tree::traits< Position_type, char > Position_traits;
 
   const Position_type&
@@ -12879,7 +13724,7 @@ class Motor1: public ::xml_schema::type
 
   // R-Scan-Move-No-Wait
   //
-  typedef ::xml_schema::string R_Scan_Move_No_Wait_type;
+  typedef ::R_Scan_Move_No_Wait1 R_Scan_Move_No_Wait_type;
   typedef ::xsd::cxx::tree::traits< R_Scan_Move_No_Wait_type, char > R_Scan_Move_No_Wait_traits;
 
   const R_Scan_Move_No_Wait_type&
@@ -12913,7 +13758,7 @@ class Motor1: public ::xml_schema::type
 
   // Acceleration
   //
-  typedef ::xml_schema::string Acceleration_type;
+  typedef ::Acceleration1 Acceleration_type;
   typedef ::xsd::cxx::tree::traits< Acceleration_type, char > Acceleration_traits;
 
   const Acceleration_type&
@@ -13049,7 +13894,7 @@ class Motor1: public ::xml_schema::type
 
   // Velocity-Stationary
   //
-  typedef ::xml_schema::string Velocity_Stationary_type;
+  typedef ::Velocity_Stationary1 Velocity_Stationary_type;
   typedef ::xsd::cxx::tree::traits< Velocity_Stationary_type, char > Velocity_Stationary_traits;
 
   const Velocity_Stationary_type&
@@ -13117,7 +13962,7 @@ class Motor1: public ::xml_schema::type
 
   // R-Scan-Move2
   //
-  typedef ::xml_schema::string R_Scan_Move2_type;
+  typedef ::R_Scan_Move21 R_Scan_Move2_type;
   typedef ::xsd::cxx::tree::traits< R_Scan_Move2_type, char > R_Scan_Move2_traits;
 
   const R_Scan_Move2_type&
@@ -13134,7 +13979,7 @@ class Motor1: public ::xml_schema::type
 
   // Position-Reverse
   //
-  typedef ::xml_schema::string Position_Reverse_type;
+  typedef ::Position_Reverse1 Position_Reverse_type;
   typedef ::xsd::cxx::tree::traits< Position_Reverse_type, char > Position_Reverse_traits;
 
   const Position_Reverse_type&
@@ -13219,7 +14064,7 @@ class Motor1: public ::xml_schema::type
 
   // Position2
   //
-  typedef ::xml_schema::string Position2_type;
+  typedef ::Position21 Position2_type;
   typedef ::xsd::cxx::tree::traits< Position2_type, char > Position2_traits;
 
   const Position2_type&
@@ -13389,7 +14234,7 @@ class Motor1: public ::xml_schema::type
 
   // Velocity
   //
-  typedef ::xml_schema::string Velocity_type;
+  typedef ::Velocity1 Velocity_type;
   typedef ::xsd::cxx::tree::traits< Velocity_type, char > Velocity_traits;
 
   const Velocity_type&
@@ -13457,7 +14302,7 @@ class Motor1: public ::xml_schema::type
 
   // R-Scan-Move
   //
-  typedef ::xml_schema::string R_Scan_Move_type;
+  typedef ::R_Scan_Move1 R_Scan_Move_type;
   typedef ::xsd::cxx::tree::traits< R_Scan_Move_type, char > R_Scan_Move_traits;
 
   const R_Scan_Move_type&
@@ -13474,7 +14319,7 @@ class Motor1: public ::xml_schema::type
 
   // Position-Forward
   //
-  typedef ::xml_schema::string Position_Forward_type;
+  typedef ::Position_Forward1 Position_Forward_type;
   typedef ::xsd::cxx::tree::traits< Position_Forward_type, char > Position_Forward_traits;
 
   const Position_Forward_type&
@@ -13848,7 +14693,7 @@ class Motor1: public ::xml_schema::type
 
   // Acceleration-Stationary
   //
-  typedef ::xml_schema::string Acceleration_Stationary_type;
+  typedef ::Acceleration_Stationary1 Acceleration_Stationary_type;
   typedef ::xsd::cxx::tree::traits< Acceleration_Stationary_type, char > Acceleration_Stationary_traits;
 
   const Acceleration_Stationary_type&
@@ -13976,6 +14821,70 @@ class Motor1: public ::xml_schema::type
           const R_Wait_Finish_Scan_Move_type&,
           const Settle_Time_type&,
           const Acceleration_Stationary_type&,
+          const Trace_Mode_type&,
+          const Trace_Period_type&,
+          const Trace_Start_type&);
+
+  Motor1 (const Settle_Time_3d_type&,
+          ::std::auto_ptr< Position_type >&,
+          ::std::auto_ptr< R_Scan_Move_No_Wait_type >&,
+          const Motor_Mode_type&,
+          ::std::auto_ptr< Acceleration_type >&,
+          const Serial_Port_Mode_type&,
+          const Limit_Switch_Mode_type&,
+          const Breakpoint_type&,
+          const Update_type&,
+          const Breakpoint_Value_type&,
+          const V_Switch_Limit_type&,
+          const R_Retrieve_Trace_type&,
+          ::std::auto_ptr< Velocity_Stationary_type >&,
+          const Reset_Event_Status_type&,
+          const Actual_Position_type&,
+          const Buffer_Length_type&,
+          ::std::auto_ptr< R_Scan_Move2_type >&,
+          ::std::auto_ptr< Position_Reverse_type >&,
+          const Reset_type&,
+          const Trace_Count_type&,
+          const R_Initialize_type&,
+          const Output_Mode_type&,
+          ::std::auto_ptr< Position2_type >&,
+          const Integration_Limit_type&,
+          const R_Home_type&,
+          const Error_type&,
+          const R_Reset_Limit_Switch_type&,
+          const Settle_Window_3d_type&,
+          const Interrupt_Mask_type&,
+          const Scan_Move_Control_type&,
+          const Axis_Out_Source_type&,
+          const Trace_Stop_type&,
+          ::std::auto_ptr< Velocity_type >&,
+          const R_Setup_type&,
+          const Buffer_Start_type&,
+          const Signal_Sense_type&,
+          ::std::auto_ptr< R_Scan_Move_type >&,
+          ::std::auto_ptr< Position_Forward_type >&,
+          const Derivative_Time_type&,
+          const Settle_Window_type&,
+          const Trace_Variable1_type&,
+          const Trace_Variable2_type&,
+          const Buffer_Read_Index_type&,
+          const Signal_Status_type&,
+          const Alarm_Clear_type&,
+          const Motion_Complete_Mode_type&,
+          const R_Setup_Abort_type&,
+          const Read_Buffer_type&,
+          const Kd_type&,
+          const Clear_Interrupt_type&,
+          const Profile_Mode_type&,
+          const R_Setup_Trace_type&,
+          const No_Operation_type&,
+          const Ki_type&,
+          const Sample_Time_type&,
+          const Event_Status_type&,
+          const Kp_type&,
+          const R_Wait_Finish_Scan_Move_type&,
+          const Settle_Time_type&,
+          ::std::auto_ptr< Acceleration_Stationary_type >&,
           const Trace_Mode_type&,
           const Trace_Period_type&,
           const Trace_Start_type&);
@@ -14425,7 +15334,7 @@ class Diag1: public ::xml_schema::type
 
   // Monitor-3point3V
   //
-  typedef ::xml_schema::string Monitor_3point3V_type;
+  typedef ::Monitor_3point3V1 Monitor_3point3V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_3point3V_type, char > Monitor_3point3V_traits;
 
   const Monitor_3point3V_type&
@@ -14578,7 +15487,7 @@ class Diag1: public ::xml_schema::type
 
   // Monitor-5V
   //
-  typedef ::xml_schema::string Monitor_5V_type;
+  typedef ::Monitor_5V1 Monitor_5V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_5V_type, char > Monitor_5V_traits;
 
   const Monitor_5V_type&
@@ -14680,7 +15589,7 @@ class Diag1: public ::xml_schema::type
 
   // Monitor-Neg15V
   //
-  typedef ::xml_schema::string Monitor_Neg15V_type;
+  typedef ::Monitor_Neg15V1 Monitor_Neg15V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_Neg15V_type, char > Monitor_Neg15V_traits;
 
   const Monitor_Neg15V_type&
@@ -14697,7 +15606,7 @@ class Diag1: public ::xml_schema::type
 
   // Monitor-Neg5V
   //
-  typedef ::xml_schema::string Monitor_Neg5V_type;
+  typedef ::Monitor_Neg5V1 Monitor_Neg5V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_Neg5V_type, char > Monitor_Neg5V_traits;
 
   const Monitor_Neg5V_type&
@@ -14816,7 +15725,7 @@ class Diag1: public ::xml_schema::type
 
   // Monitor-15V
   //
-  typedef ::xml_schema::string Monitor_15V_type;
+  typedef ::Monitor_15V1 Monitor_15V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_15V_type, char > Monitor_15V_traits;
 
   const Monitor_15V_type&
@@ -14931,6 +15840,36 @@ class Diag1: public ::xml_schema::type
          const Mem_WorkingSet_type&,
          const Switch_PCB_ID_type&);
 
+  Diag1 (const Mem_Pagefile_type&,
+         ::std::auto_ptr< Monitor_3point3V_type >&,
+         const USER_Objects_type&,
+         const Motor_FPGA_Revision_type&,
+         const Product_Name_type&,
+         const Build_Version_type&,
+         const ICB_PCB_ID_type&,
+         const Software_Version_type&,
+         const Receive_PCB_ID_type&,
+         const Mem_Private_type&,
+         ::std::auto_ptr< Monitor_5V_type >&,
+         const Motor_PCB_Revision_type&,
+         const NE1619_type&,
+         const Motor_PCB_ID_type&,
+         const Transmit_PCB_Revision_type&,
+         const MAX1137_type&,
+         ::std::auto_ptr< Monitor_Neg15V_type >&,
+         ::std::auto_ptr< Monitor_Neg5V_type >&,
+         const Switch_PCB_Revision_type&,
+         const Receive_PCB_Revision_type&,
+         const ICB_PCB_Revision_type&,
+         const Transmit_PCB_ID_type&,
+         const Monitor_Temperature_type&,
+         const Receive_FPGA_Revision_type&,
+         ::std::auto_ptr< Monitor_15V_type >&,
+         const ICB_FPGA_Revision_type&,
+         const GDI_Objects_type&,
+         const Mem_WorkingSet_type&,
+         const Switch_PCB_ID_type&);
+
   Diag1 (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f = 0,
          ::xml_schema::container* c = 0);
@@ -14990,7 +15929,7 @@ class ECG1: public ::xml_schema::type
   public:
   // Respiration-Threshold-Change
   //
-  typedef ::xml_schema::string Respiration_Threshold_Change_type;
+  typedef ::Respiration_Threshold_Change1 Respiration_Threshold_Change_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Threshold_Change_type, char > Respiration_Threshold_Change_traits;
 
   const Respiration_Threshold_Change_type&
@@ -15024,7 +15963,7 @@ class ECG1: public ::xml_schema::type
 
   // Pressure-Range
   //
-  typedef ::xml_schema::string Pressure_Range_type;
+  typedef ::Pressure_Range1 Pressure_Range_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Range_type, char > Pressure_Range_traits;
 
   const Pressure_Range_type&
@@ -15041,7 +15980,7 @@ class ECG1: public ::xml_schema::type
 
   // Respiration-Gate-Delay
   //
-  typedef ::xml_schema::string Respiration_Gate_Delay_type;
+  typedef ::Respiration_Gate_Delay1 Respiration_Gate_Delay_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Gate_Delay_type, char > Respiration_Gate_Delay_traits;
 
   const Respiration_Gate_Delay_type&
@@ -15058,7 +15997,7 @@ class ECG1: public ::xml_schema::type
 
   // Respiration-Timeout
   //
-  typedef ::xml_schema::string Respiration_Timeout_type;
+  typedef ::Respiration_Timeout1 Respiration_Timeout_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Timeout_type, char > Respiration_Timeout_traits;
 
   const Respiration_Timeout_type&
@@ -15075,7 +16014,7 @@ class ECG1: public ::xml_schema::type
 
   // RWave-Max-Change-Factor-Percent
   //
-  typedef ::xml_schema::string RWave_Max_Change_Factor_Percent_type;
+  typedef ::RWave_Max_Change_Factor_Percent1 RWave_Max_Change_Factor_Percent_type;
   typedef ::xsd::cxx::tree::traits< RWave_Max_Change_Factor_Percent_type, char > RWave_Max_Change_Factor_Percent_traits;
 
   const RWave_Max_Change_Factor_Percent_type&
@@ -15092,7 +16031,7 @@ class ECG1: public ::xml_schema::type
 
   // Respiration-Period
   //
-  typedef ::xml_schema::string Respiration_Period_type;
+  typedef ::Respiration_Period1 Respiration_Period_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Period_type, char > Respiration_Period_traits;
 
   const Respiration_Period_type&
@@ -15109,7 +16048,7 @@ class ECG1: public ::xml_schema::type
 
   // Respiration-Subsample-Rate
   //
-  typedef ::xml_schema::string Respiration_Subsample_Rate_type;
+  typedef ::Respiration_Subsample_Rate1 Respiration_Subsample_Rate_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Subsample_Rate_type, char > Respiration_Subsample_Rate_traits;
 
   const Respiration_Subsample_Rate_type&
@@ -15160,7 +16099,7 @@ class ECG1: public ::xml_schema::type
 
   // Respiration-Window
   //
-  typedef ::xml_schema::string Respiration_Window_type;
+  typedef ::Respiration_Window1 Respiration_Window_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Window_type, char > Respiration_Window_traits;
 
   const Respiration_Window_type&
@@ -15194,7 +16133,7 @@ class ECG1: public ::xml_schema::type
 
   // Pressure-Systolic
   //
-  typedef ::xml_schema::string Pressure_Systolic_type;
+  typedef ::Pressure_Systolic1 Pressure_Systolic_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Systolic_type, char > Pressure_Systolic_traits;
 
   const Pressure_Systolic_type&
@@ -15228,7 +16167,7 @@ class ECG1: public ::xml_schema::type
 
   // Frequency
   //
-  typedef ::xml_schema::string Frequency_type;
+  typedef ::Frequency5 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
   const Frequency_type&
@@ -15245,7 +16184,7 @@ class ECG1: public ::xml_schema::type
 
   // Respiration-Blank-Period
   //
-  typedef ::xml_schema::string Respiration_Blank_Period_type;
+  typedef ::Respiration_Blank_Period1 Respiration_Blank_Period_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Blank_Period_type, char > Respiration_Blank_Period_traits;
 
   const Respiration_Blank_Period_type&
@@ -15262,7 +16201,7 @@ class ECG1: public ::xml_schema::type
 
   // Respiration-Range
   //
-  typedef ::xml_schema::string Respiration_Range_type;
+  typedef ::Respiration_Range1 Respiration_Range_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Range_type, char > Respiration_Range_traits;
 
   const Respiration_Range_type&
@@ -15279,7 +16218,7 @@ class ECG1: public ::xml_schema::type
 
   // Pressure-Zero
   //
-  typedef ::xml_schema::string Pressure_Zero_type;
+  typedef ::Pressure_Zero1 Pressure_Zero_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Zero_type, char > Pressure_Zero_traits;
 
   const Pressure_Zero_type&
@@ -15313,7 +16252,7 @@ class ECG1: public ::xml_schema::type
 
   // P-Wave-Start
   //
-  typedef ::xml_schema::string P_Wave_Start_type;
+  typedef ::P_Wave_Start1 P_Wave_Start_type;
   typedef ::xsd::cxx::tree::traits< P_Wave_Start_type, char > P_Wave_Start_traits;
 
   const P_Wave_Start_type&
@@ -15347,7 +16286,7 @@ class ECG1: public ::xml_schema::type
 
   // Respiration-Percent-Peak
   //
-  typedef ::xml_schema::string Respiration_Percent_Peak_type;
+  typedef ::Respiration_Percent_Peak1 Respiration_Percent_Peak_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Percent_Peak_type, char > Respiration_Percent_Peak_traits;
 
   const Respiration_Percent_Peak_type&
@@ -15364,7 +16303,7 @@ class ECG1: public ::xml_schema::type
 
   // T-Wave-Start
   //
-  typedef ::xml_schema::string T_Wave_Start_type;
+  typedef ::T_Wave_Start1 T_Wave_Start_type;
   typedef ::xsd::cxx::tree::traits< T_Wave_Start_type, char > T_Wave_Start_traits;
 
   const T_Wave_Start_type&
@@ -15381,7 +16320,7 @@ class ECG1: public ::xml_schema::type
 
   // Strain-Rate-RR-Diff-Ratio
   //
-  typedef ::xml_schema::string Strain_Rate_RR_Diff_Ratio_type;
+  typedef ::Strain_Rate_RR_Diff_Ratio1 Strain_Rate_RR_Diff_Ratio_type;
   typedef ::xsd::cxx::tree::traits< Strain_Rate_RR_Diff_Ratio_type, char > Strain_Rate_RR_Diff_Ratio_traits;
 
   const Strain_Rate_RR_Diff_Ratio_type&
@@ -15449,7 +16388,7 @@ class ECG1: public ::xml_schema::type
 
   // Pressure-Diastolic
   //
-  typedef ::xml_schema::string Pressure_Diastolic_type;
+  typedef ::Pressure_Diastolic1 Pressure_Diastolic_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Diastolic_type, char > Pressure_Diastolic_traits;
 
   const Pressure_Diastolic_type&
@@ -15466,7 +16405,7 @@ class ECG1: public ::xml_schema::type
 
   // Temperature-Calibration
   //
-  typedef ::xml_schema::string Temperature_Calibration_type;
+  typedef ::Temperature_Calibration1 Temperature_Calibration_type;
   typedef ::xsd::cxx::tree::traits< Temperature_Calibration_type, char > Temperature_Calibration_traits;
 
   const Temperature_Calibration_type&
@@ -15483,7 +16422,7 @@ class ECG1: public ::xml_schema::type
 
   // Temperature
   //
-  typedef ::xml_schema::string Temperature_type;
+  typedef ::Temperature1 Temperature_type;
   typedef ::xsd::cxx::tree::traits< Temperature_type, char > Temperature_traits;
 
   const Temperature_type&
@@ -15500,7 +16439,7 @@ class ECG1: public ::xml_schema::type
 
   // Respiration-Beats-To-Average
   //
-  typedef ::xml_schema::string Respiration_Beats_To_Average_type;
+  typedef ::Respiration_Beats_To_Average1 Respiration_Beats_To_Average_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Beats_To_Average_type, char > Respiration_Beats_To_Average_traits;
 
   const Respiration_Beats_To_Average_type&
@@ -15517,7 +16456,7 @@ class ECG1: public ::xml_schema::type
 
   // RWave-Thresh-Trigger-Percent
   //
-  typedef ::xml_schema::string RWave_Thresh_Trigger_Percent_type;
+  typedef ::RWave_Thresh_Trigger_Percent1 RWave_Thresh_Trigger_Percent_type;
   typedef ::xsd::cxx::tree::traits< RWave_Thresh_Trigger_Percent_type, char > RWave_Thresh_Trigger_Percent_traits;
 
   const RWave_Thresh_Trigger_Percent_type&
@@ -15534,7 +16473,7 @@ class ECG1: public ::xml_schema::type
 
   // Respiration-Time-To-Average
   //
-  typedef ::xml_schema::string Respiration_Time_To_Average_type;
+  typedef ::Respiration_Time_To_Average1 Respiration_Time_To_Average_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Time_To_Average_type, char > Respiration_Time_To_Average_traits;
 
   const Respiration_Time_To_Average_type&
@@ -15568,7 +16507,7 @@ class ECG1: public ::xml_schema::type
 
   // Heart-Period
   //
-  typedef ::xml_schema::string Heart_Period_type;
+  typedef ::Heart_Period1 Heart_Period_type;
   typedef ::xsd::cxx::tree::traits< Heart_Period_type, char > Heart_Period_traits;
 
   const Heart_Period_type&
@@ -15636,7 +16575,7 @@ class ECG1: public ::xml_schema::type
 
   // ECG-Range
   //
-  typedef ::xml_schema::string ECG_Range_type;
+  typedef ::ECG_Range1 ECG_Range_type;
   typedef ::xsd::cxx::tree::traits< ECG_Range_type, char > ECG_Range_traits;
 
   const ECG_Range_type&
@@ -15653,7 +16592,7 @@ class ECG1: public ::xml_schema::type
 
   // RWave-Maxima-Block-Time
   //
-  typedef ::xml_schema::string RWave_Maxima_Block_Time_type;
+  typedef ::RWave_Maxima_Block_Time1 RWave_Maxima_Block_Time_type;
   typedef ::xsd::cxx::tree::traits< RWave_Maxima_Block_Time_type, char > RWave_Maxima_Block_Time_traits;
 
   const RWave_Maxima_Block_Time_type&
@@ -15687,7 +16626,7 @@ class ECG1: public ::xml_schema::type
 
   // Pressure-Calibration-Level
   //
-  typedef ::xml_schema::string Pressure_Calibration_Level_type;
+  typedef ::Pressure_Calibration_Level1 Pressure_Calibration_Level_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Calibration_Level_type, char > Pressure_Calibration_Level_traits;
 
   const Pressure_Calibration_Level_type&
@@ -15704,7 +16643,7 @@ class ECG1: public ::xml_schema::type
 
   // ECG-HP-Filter
   //
-  typedef ::xml_schema::string ECG_HP_Filter_type;
+  typedef ::ECG_HP_Filter1 ECG_HP_Filter_type;
   typedef ::xsd::cxx::tree::traits< ECG_HP_Filter_type, char > ECG_HP_Filter_traits;
 
   const ECG_HP_Filter_type&
@@ -15721,7 +16660,7 @@ class ECG1: public ::xml_schema::type
 
   // ECG-LP-Filter
   //
-  typedef ::xml_schema::string ECG_LP_Filter_type;
+  typedef ::ECG_LP_Filter1 ECG_LP_Filter_type;
   typedef ::xsd::cxx::tree::traits< ECG_LP_Filter_type, char > ECG_LP_Filter_traits;
 
   const ECG_LP_Filter_type&
@@ -15738,7 +16677,7 @@ class ECG1: public ::xml_schema::type
 
   // RWave-Max-Change-Period
   //
-  typedef ::xml_schema::string RWave_Max_Change_Period_type;
+  typedef ::RWave_Max_Change_Period1 RWave_Max_Change_Period_type;
   typedef ::xsd::cxx::tree::traits< RWave_Max_Change_Period_type, char > RWave_Max_Change_Period_traits;
 
   const RWave_Max_Change_Period_type&
@@ -15772,7 +16711,7 @@ class ECG1: public ::xml_schema::type
 
   // Pressure-Calibration
   //
-  typedef ::xml_schema::string Pressure_Calibration_type;
+  typedef ::Pressure_Calibration1 Pressure_Calibration_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Calibration_type, char > Pressure_Calibration_traits;
 
   const Pressure_Calibration_type&
@@ -15789,7 +16728,7 @@ class ECG1: public ::xml_schema::type
 
   // RWave-Blank-Time
   //
-  typedef ::xml_schema::string RWave_Blank_Time_type;
+  typedef ::RWave_Blank_Time1 RWave_Blank_Time_type;
   typedef ::xsd::cxx::tree::traits< RWave_Blank_Time_type, char > RWave_Blank_Time_traits;
 
   const RWave_Blank_Time_type&
@@ -15806,7 +16745,7 @@ class ECG1: public ::xml_schema::type
 
   // RWave-Future-Search-Time
   //
-  typedef ::xml_schema::string RWave_Future_Search_Time_type;
+  typedef ::RWave_Future_Search_Time1 RWave_Future_Search_Time_type;
   typedef ::xsd::cxx::tree::traits< RWave_Future_Search_Time_type, char > RWave_Future_Search_Time_traits;
 
   const RWave_Future_Search_Time_type&
@@ -15889,6 +16828,57 @@ class ECG1: public ::xml_schema::type
         const Pressure_Calibration_type&,
         const RWave_Blank_Time_type&,
         const RWave_Future_Search_Time_type&,
+        const Pressure_Calibrated_type&);
+
+  ECG1 (::std::auto_ptr< Respiration_Threshold_Change_type >&,
+        const Respiration_Threshold_type&,
+        ::std::auto_ptr< Pressure_Range_type >&,
+        ::std::auto_ptr< Respiration_Gate_Delay_type >&,
+        ::std::auto_ptr< Respiration_Timeout_type >&,
+        ::std::auto_ptr< RWave_Max_Change_Factor_Percent_type >&,
+        ::std::auto_ptr< Respiration_Period_type >&,
+        ::std::auto_ptr< Respiration_Subsample_Rate_type >&,
+        const Show_RWaves_type&,
+        const Respiration_Minimal_Peak_2_Peak_type&,
+        ::std::auto_ptr< Respiration_Window_type >&,
+        const Pressure_Zeroed_type&,
+        ::std::auto_ptr< Pressure_Systolic_type >&,
+        const Respiration_Show_Window_type&,
+        ::std::auto_ptr< Frequency_type >&,
+        ::std::auto_ptr< Respiration_Blank_Period_type >&,
+        ::std::auto_ptr< Respiration_Range_type >&,
+        ::std::auto_ptr< Pressure_Zero_type >&,
+        const Temperature_Amplification_type&,
+        ::std::auto_ptr< P_Wave_Start_type >&,
+        const ECG_Filter_Taps_type&,
+        ::std::auto_ptr< Respiration_Percent_Peak_type >&,
+        ::std::auto_ptr< T_Wave_Start_type >&,
+        ::std::auto_ptr< Strain_Rate_RR_Diff_Ratio_type >&,
+        const Pressure_Calibration_Min_Level_type&,
+        const DPDT_Range_type&,
+        const Respiration_Show_Event_type&,
+        ::std::auto_ptr< Pressure_Diastolic_type >&,
+        ::std::auto_ptr< Temperature_Calibration_type >&,
+        ::std::auto_ptr< Temperature_type >&,
+        ::std::auto_ptr< Respiration_Beats_To_Average_type >&,
+        ::std::auto_ptr< RWave_Thresh_Trigger_Percent_type >&,
+        ::std::auto_ptr< Respiration_Time_To_Average_type >&,
+        const Pressure_Amplification_type&,
+        ::std::auto_ptr< Heart_Period_type >&,
+        const Pressure_Show_Event_type&,
+        const RWave_Default_Threshold_type&,
+        const Show_Filtered_Data_type&,
+        ::std::auto_ptr< ECG_Range_type >&,
+        ::std::auto_ptr< RWave_Maxima_Block_Time_type >&,
+        const RWave_Noise_Threshold_type&,
+        ::std::auto_ptr< Pressure_Calibration_Level_type >&,
+        ::std::auto_ptr< ECG_HP_Filter_type >&,
+        ::std::auto_ptr< ECG_LP_Filter_type >&,
+        ::std::auto_ptr< RWave_Max_Change_Period_type >&,
+        const Pressure_Time_Out_type&,
+        ::std::auto_ptr< Pressure_Calibration_type >&,
+        ::std::auto_ptr< RWave_Blank_Time_type >&,
+        ::std::auto_ptr< RWave_Future_Search_Time_type >&,
         const Pressure_Calibrated_type&);
 
   ECG1 (const ::xercesc::DOMElement& e,
@@ -15988,7 +16978,7 @@ class TX1: public ::xml_schema::type
 
   // V-Transmit-Length
   //
-  typedef ::xml_schema::string V_Transmit_Length_type;
+  typedef ::V_Transmit_Length1 V_Transmit_Length_type;
   typedef ::xsd::cxx::tree::traits< V_Transmit_Length_type, char > V_Transmit_Length_traits;
 
   const V_Transmit_Length_type&
@@ -16073,7 +17063,7 @@ class TX1: public ::xml_schema::type
 
   // V-Pulse-Rep-Freq
   //
-  typedef ::xml_schema::string V_Pulse_Rep_Freq_type;
+  typedef ::V_Pulse_Rep_Freq1 V_Pulse_Rep_Freq_type;
   typedef ::xsd::cxx::tree::traits< V_Pulse_Rep_Freq_type, char > V_Pulse_Rep_Freq_traits;
 
   const V_Pulse_Rep_Freq_type&
@@ -16107,7 +17097,7 @@ class TX1: public ::xml_schema::type
 
   // Frequency
   //
-  typedef ::xml_schema::string Frequency_type;
+  typedef ::Frequency6 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
   const Frequency_type&
@@ -16124,7 +17114,7 @@ class TX1: public ::xml_schema::type
 
   // V-Unblank-Time
   //
-  typedef ::xml_schema::string V_Unblank_Time_type;
+  typedef ::V_Unblank_Time1 V_Unblank_Time_type;
   typedef ::xsd::cxx::tree::traits< V_Unblank_Time_type, char > V_Unblank_Time_traits;
 
   const V_Unblank_Time_type&
@@ -16141,7 +17131,7 @@ class TX1: public ::xml_schema::type
 
   // V-Frequency
   //
-  typedef ::xml_schema::string V_Frequency_type;
+  typedef ::V_Frequency2 V_Frequency_type;
   typedef ::xsd::cxx::tree::traits< V_Frequency_type, char > V_Frequency_traits;
 
   const V_Frequency_type&
@@ -16158,7 +17148,7 @@ class TX1: public ::xml_schema::type
 
   // Pulse-Rep-Frequency
   //
-  typedef ::xml_schema::string Pulse_Rep_Frequency_type;
+  typedef ::Pulse_Rep_Frequency1 Pulse_Rep_Frequency_type;
   typedef ::xsd::cxx::tree::traits< Pulse_Rep_Frequency_type, char > Pulse_Rep_Frequency_traits;
 
   const Pulse_Rep_Frequency_type&
@@ -16192,7 +17182,7 @@ class TX1: public ::xml_schema::type
 
   // Trig-Tbl-Trigs
   //
-  typedef ::xml_schema::string Trig_Tbl_Trigs_type;
+  typedef ::Trig_Tbl_Trigs1 Trig_Tbl_Trigs_type;
   typedef ::xsd::cxx::tree::traits< Trig_Tbl_Trigs_type, char > Trig_Tbl_Trigs_traits;
 
   const Trig_Tbl_Trigs_type&
@@ -16226,7 +17216,7 @@ class TX1: public ::xml_schema::type
 
   // Unblank-Cycles
   //
-  typedef ::xml_schema::string Unblank_Cycles_type;
+  typedef ::Unblank_Cycles1 Unblank_Cycles_type;
   typedef ::xsd::cxx::tree::traits< Unblank_Cycles_type, char > Unblank_Cycles_traits;
 
   const Unblank_Cycles_type&
@@ -16260,7 +17250,7 @@ class TX1: public ::xml_schema::type
 
   // Unblank-Time
   //
-  typedef ::xml_schema::string Unblank_Time_type;
+  typedef ::Unblank_Time1 Unblank_Time_type;
   typedef ::xsd::cxx::tree::traits< Unblank_Time_type, char > Unblank_Time_traits;
 
   const Unblank_Time_type&
@@ -16277,7 +17267,7 @@ class TX1: public ::xml_schema::type
 
   // Attenuation
   //
-  typedef ::xml_schema::string Attenuation_type;
+  typedef ::Attenuation1 Attenuation_type;
   typedef ::xsd::cxx::tree::traits< Attenuation_type, char > Attenuation_traits;
 
   const Attenuation_type&
@@ -16294,7 +17284,7 @@ class TX1: public ::xml_schema::type
 
   // V-Power
   //
-  typedef ::xml_schema::string V_Power_type;
+  typedef ::V_Power1 V_Power_type;
   typedef ::xsd::cxx::tree::traits< V_Power_type, char > V_Power_traits;
 
   const V_Power_type&
@@ -16365,6 +17355,29 @@ class TX1: public ::xml_schema::type
        const Unblank_Time_type&,
        const Attenuation_type&,
        const V_Power_type&,
+       const Computer_Trigger_type&,
+       const Multi_Trigger_Freq_type&);
+
+  TX1 (const V_Position_Table_type&,
+       ::std::auto_ptr< V_Transmit_Length_type >&,
+       const Trigger_Counter_Clear_type&,
+       const Trigger_Counter_type&,
+       const RF_Amp_type&,
+       const Trigger_Control_type&,
+       ::std::auto_ptr< V_Pulse_Rep_Freq_type >&,
+       const Phase_type&,
+       ::std::auto_ptr< Frequency_type >&,
+       ::std::auto_ptr< V_Unblank_Time_type >&,
+       ::std::auto_ptr< V_Frequency_type >&,
+       ::std::auto_ptr< Pulse_Rep_Frequency_type >&,
+       const Multi_Trigger_type&,
+       ::std::auto_ptr< Trig_Tbl_Trigs_type >&,
+       const Width_type&,
+       ::std::auto_ptr< Unblank_Cycles_type >&,
+       const V_Width_type&,
+       ::std::auto_ptr< Unblank_Time_type >&,
+       ::std::auto_ptr< Attenuation_type >&,
+       ::std::auto_ptr< V_Power_type >&,
        const Computer_Trigger_type&,
        const Multi_Trigger_Freq_type&);
 
@@ -16454,7 +17467,7 @@ class ContrastDestroy: public ::xml_schema::type
 
   // Frames
   //
-  typedef ::xml_schema::string Frames_type;
+  typedef ::Frames Frames_type;
   typedef ::xsd::cxx::tree::traits< Frames_type, char > Frames_traits;
 
   const Frames_type&
@@ -16471,7 +17484,7 @@ class ContrastDestroy: public ::xml_schema::type
 
   // Frame-Rate
   //
-  typedef ::xml_schema::string Frame_Rate_type;
+  typedef ::Frame_Rate Frame_Rate_type;
   typedef ::xsd::cxx::tree::traits< Frame_Rate_type, char > Frame_Rate_traits;
 
   const Frame_Rate_type&
@@ -16488,7 +17501,7 @@ class ContrastDestroy: public ::xml_schema::type
 
   // Tx-PRF
   //
-  typedef ::xml_schema::string Tx_PRF_type;
+  typedef ::Tx_PRF Tx_PRF_type;
   typedef ::xsd::cxx::tree::traits< Tx_PRF_type, char > Tx_PRF_traits;
 
   const Tx_PRF_type&
@@ -16505,7 +17518,7 @@ class ContrastDestroy: public ::xml_schema::type
 
   // Tx-Power
   //
-  typedef ::xml_schema::string Tx_Power_type;
+  typedef ::Tx_Power Tx_Power_type;
   typedef ::xsd::cxx::tree::traits< Tx_Power_type, char > Tx_Power_traits;
 
   const Tx_Power_type&
@@ -16522,7 +17535,7 @@ class ContrastDestroy: public ::xml_schema::type
 
   // Duration
   //
-  typedef ::xml_schema::string Duration_type;
+  typedef ::Duration Duration_type;
   typedef ::xsd::cxx::tree::traits< Duration_type, char > Duration_traits;
 
   const Duration_type&
@@ -16556,7 +17569,7 @@ class ContrastDestroy: public ::xml_schema::type
 
   // Tx-Frequency
   //
-  typedef ::xml_schema::string Tx_Frequency_type;
+  typedef ::Tx_Frequency Tx_Frequency_type;
   typedef ::xsd::cxx::tree::traits< Tx_Frequency_type, char > Tx_Frequency_traits;
 
   const Tx_Frequency_type&
@@ -16590,7 +17603,7 @@ class ContrastDestroy: public ::xml_schema::type
 
   // Destroy-Sequence-Position
   //
-  typedef ::xml_schema::string Destroy_Sequence_Position_type;
+  typedef ::Destroy_Sequence_Position Destroy_Sequence_Position_type;
   typedef ::xsd::cxx::tree::traits< Destroy_Sequence_Position_type, char > Destroy_Sequence_Position_traits;
 
   const Destroy_Sequence_Position_type&
@@ -16618,6 +17631,18 @@ class ContrastDestroy: public ::xml_schema::type
                    const Tx_Frequency_type&,
                    const Destroy_Sequence_Active_type&,
                    const Destroy_Sequence_Position_type&);
+
+  ContrastDestroy (const Tx_Width_type&,
+                   const Destroy_External_type&,
+                   ::std::auto_ptr< Frames_type >&,
+                   ::std::auto_ptr< Frame_Rate_type >&,
+                   ::std::auto_ptr< Tx_PRF_type >&,
+                   ::std::auto_ptr< Tx_Power_type >&,
+                   ::std::auto_ptr< Duration_type >&,
+                   const Control_type&,
+                   ::std::auto_ptr< Tx_Frequency_type >&,
+                   const Destroy_Sequence_Active_type&,
+                   ::std::auto_ptr< Destroy_Sequence_Position_type >&);
 
   ContrastDestroy (const ::xercesc::DOMElement& e,
                    ::xml_schema::flags f = 0,
@@ -16711,7 +17736,7 @@ class X_3D1: public ::xml_schema::type
 
   // Scan-Distance
   //
-  typedef ::xml_schema::string Scan_Distance_type;
+  typedef ::Scan_Distance1 Scan_Distance_type;
   typedef ::xsd::cxx::tree::traits< Scan_Distance_type, char > Scan_Distance_traits;
 
   const Scan_Distance_type&
@@ -16813,7 +17838,7 @@ class X_3D1: public ::xml_schema::type
 
   // Step-Size
   //
-  typedef ::xml_schema::string Step_Size_type;
+  typedef ::Step_Size1 Step_Size_type;
   typedef ::xsd::cxx::tree::traits< Step_Size_type, char > Step_Size_traits;
 
   const Step_Size_type&
@@ -16874,6 +17899,19 @@ class X_3D1: public ::xml_schema::type
          const Clear_Error_type&,
          const Direction_type&,
          const Step_Size_type&,
+         const Max_Scan_Steps_type&,
+         const Position_type&);
+
+  X_3D1 (const Speed_type&,
+         const Status_type&,
+         const Motor_Enable_type&,
+         ::std::auto_ptr< Scan_Distance_type >&,
+         const Error_type&,
+         const Steps_type&,
+         const Action_type&,
+         const Clear_Error_type&,
+         const Direction_type&,
+         ::std::auto_ptr< Step_Size_type >&,
          const Max_Scan_Steps_type&,
          const Position_type&);
 
@@ -17208,7 +18246,7 @@ class X_3DSoft: public ::xml_schema::type
 
   // Parallel-Step-Size
   //
-  typedef ::xml_schema::string Parallel_Step_Size_type;
+  typedef ::Parallel_Step_Size Parallel_Step_Size_type;
   typedef ::xsd::cxx::tree::traits< Parallel_Step_Size_type, char > Parallel_Step_Size_traits;
 
   const Parallel_Step_Size_type&
@@ -17243,6 +18281,25 @@ class X_3DSoft: public ::xml_schema::type
             const Rotational_Step_Size_type&,
             const Internal_Force_type&,
             const Parallel_Step_Size_type&);
+
+  X_3DSoft (const Acquire_Persist_3DMIP_type&,
+            const Acquire_Persist_3D_Frames_type&,
+            const Acquire_Persist_3DAVR_type&,
+            const Rotational_Direction_type&,
+            const Sigma_type&,
+            const Dilation_Iteration_type&,
+            const Parallel_Direction_type&,
+            const Class_type&,
+            const Orientation_Length_type&,
+            const External_Force_type&,
+            const Interpolation_Resolution_type&,
+            const Steps_type&,
+            const Parallel_Recon_Resolution_type&,
+            const Iteration_type&,
+            const Type_type&,
+            const Rotational_Step_Size_type&,
+            const Internal_Force_type&,
+            ::std::auto_ptr< Parallel_Step_Size_type >&);
 
   X_3DSoft (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f = 0,
@@ -17309,7 +18366,7 @@ class RX1: public ::xml_schema::type
 
   // Sector-Width-Target
   //
-  typedef ::xml_schema::string Sector_Width_Target_type;
+  typedef ::Sector_Width_Target1 Sector_Width_Target_type;
   typedef ::xsd::cxx::tree::traits< Sector_Width_Target_type, char > Sector_Width_Target_traits;
 
   const Sector_Width_Target_type&
@@ -17326,7 +18383,7 @@ class RX1: public ::xml_schema::type
 
   // RF-Gain
   //
-  typedef ::xml_schema::string RF_Gain_type;
+  typedef ::RF_Gain1 RF_Gain_type;
   typedef ::xsd::cxx::tree::traits< RF_Gain_type, char > RF_Gain_traits;
 
   const RF_Gain_type&
@@ -17360,7 +18417,7 @@ class RX1: public ::xml_schema::type
 
   // V-Digi-Depth-Imaging
   //
-  typedef ::xml_schema::string V_Digi_Depth_Imaging_type;
+  typedef ::V_Digi_Depth_Imaging1 V_Digi_Depth_Imaging_type;
   typedef ::xsd::cxx::tree::traits< V_Digi_Depth_Imaging_type, char > V_Digi_Depth_Imaging_traits;
 
   const V_Digi_Depth_Imaging_type&
@@ -17394,7 +18451,7 @@ class RX1: public ::xml_schema::type
 
   // Test-Freq
   //
-  typedef ::xml_schema::string Test_Freq_type;
+  typedef ::Test_Freq1 Test_Freq_type;
   typedef ::xsd::cxx::tree::traits< Test_Freq_type, char > Test_Freq_traits;
 
   const Test_Freq_type&
@@ -17479,7 +18536,7 @@ class RX1: public ::xml_schema::type
 
   // RF-Filter
   //
-  typedef ::xml_schema::string RF_Filter_type;
+  typedef ::RF_Filter1 RF_Filter_type;
   typedef ::xsd::cxx::tree::traits< RF_Filter_type, char > RF_Filter_traits;
 
   const RF_Filter_type&
@@ -17564,7 +18621,7 @@ class RX1: public ::xml_schema::type
 
   // V-RF-Filter
   //
-  typedef ::xml_schema::string V_RF_Filter_type;
+  typedef ::V_RF_Filter1 V_RF_Filter_type;
   typedef ::xsd::cxx::tree::traits< V_RF_Filter_type, char > V_RF_Filter_traits;
 
   const V_RF_Filter_type&
@@ -17598,7 +18655,7 @@ class RX1: public ::xml_schema::type
 
   // Delay
   //
-  typedef ::xml_schema::string Delay_type;
+  typedef ::Delay1 Delay_type;
   typedef ::xsd::cxx::tree::traits< Delay_type, char > Delay_traits;
 
   const Delay_type&
@@ -17615,7 +18672,7 @@ class RX1: public ::xml_schema::type
 
   // AD-Gate-Width
   //
-  typedef ::xml_schema::string AD_Gate_Width_type;
+  typedef ::AD_Gate_Width1 AD_Gate_Width_type;
   typedef ::xsd::cxx::tree::traits< AD_Gate_Width_type, char > AD_Gate_Width_traits;
 
   const AD_Gate_Width_type&
@@ -17632,7 +18689,7 @@ class RX1: public ::xml_schema::type
 
   // Frequency
   //
-  typedef ::xml_schema::string Frequency_type;
+  typedef ::Frequency7 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
   const Frequency_type&
@@ -17649,7 +18706,7 @@ class RX1: public ::xml_schema::type
 
   // V-Frequency
   //
-  typedef ::xml_schema::string V_Frequency_type;
+  typedef ::V_Frequency3 V_Frequency_type;
   typedef ::xsd::cxx::tree::traits< V_Frequency_type, char > V_Frequency_traits;
 
   const V_Frequency_type&
@@ -17666,7 +18723,7 @@ class RX1: public ::xml_schema::type
 
   // V-Field-Of-View
   //
-  typedef ::xml_schema::string V_Field_Of_View_type;
+  typedef ::V_Field_Of_View1 V_Field_Of_View_type;
   typedef ::xsd::cxx::tree::traits< V_Field_Of_View_type, char > V_Field_Of_View_traits;
 
   const V_Field_Of_View_type&
@@ -17700,7 +18757,7 @@ class RX1: public ::xml_schema::type
 
   // Sector-Height-Target
   //
-  typedef ::xml_schema::string Sector_Height_Target_type;
+  typedef ::Sector_Height_Target1 Sector_Height_Target_type;
   typedef ::xsd::cxx::tree::traits< Sector_Height_Target_type, char > Sector_Height_Target_traits;
 
   const Sector_Height_Target_type&
@@ -17734,7 +18791,7 @@ class RX1: public ::xml_schema::type
 
   // AD-TestIn
   //
-  typedef ::xml_schema::string AD_TestIn_type;
+  typedef ::AD_TestIn1 AD_TestIn_type;
   typedef ::xsd::cxx::tree::traits< AD_TestIn_type, char > AD_TestIn_traits;
 
   const AD_TestIn_type&
@@ -17836,7 +18893,7 @@ class RX1: public ::xml_schema::type
 
   // V-Delay-Length
   //
-  typedef ::xml_schema::string V_Delay_Length_type;
+  typedef ::V_Delay_Length1 V_Delay_Length_type;
   typedef ::xsd::cxx::tree::traits< V_Delay_Length_type, char > V_Delay_Length_traits;
 
   const V_Delay_Length_type&
@@ -17887,7 +18944,7 @@ class RX1: public ::xml_schema::type
 
   // IF-Filter
   //
-  typedef ::xml_schema::string IF_Filter_type;
+  typedef ::IF_Filter1 IF_Filter_type;
   typedef ::xsd::cxx::tree::traits< IF_Filter_type, char > IF_Filter_traits;
 
   const IF_Filter_type&
@@ -17904,7 +18961,7 @@ class RX1: public ::xml_schema::type
 
   // Track-Width
   //
-  typedef ::xml_schema::string Track_Width_type;
+  typedef ::Track_Width1 Track_Width_type;
   typedef ::xsd::cxx::tree::traits< Track_Width_type, char > Track_Width_traits;
 
   const Track_Width_type&
@@ -17938,7 +18995,7 @@ class RX1: public ::xml_schema::type
 
   // V-IF-Filter
   //
-  typedef ::xml_schema::string V_IF_Filter_type;
+  typedef ::V_IF_Filter1 V_IF_Filter_type;
   typedef ::xsd::cxx::tree::traits< V_IF_Filter_type, char > V_IF_Filter_traits;
 
   const V_IF_Filter_type&
@@ -17972,7 +19029,7 @@ class RX1: public ::xml_schema::type
 
   // HP-Clutter
   //
-  typedef ::xml_schema::string HP_Clutter_type;
+  typedef ::HP_Clutter1 HP_Clutter_type;
   typedef ::xsd::cxx::tree::traits< HP_Clutter_type, char > HP_Clutter_traits;
 
   const HP_Clutter_type&
@@ -18047,6 +19104,49 @@ class RX1: public ::xml_schema::type
        const V_IF_Filter_type&,
        const IQ_Select_type&,
        const HP_Clutter_type&,
+       const V_TGC_Copy_type&);
+
+  RX1 (const AD_IF_type&,
+       ::std::auto_ptr< Sector_Width_Target_type >&,
+       ::std::auto_ptr< RF_Gain_type >&,
+       const TGC_Enable_type&,
+       ::std::auto_ptr< V_Digi_Depth_Imaging_type >&,
+       const RF_Bandwidth_type&,
+       ::std::auto_ptr< Test_Freq_type >&,
+       const V_TGC_type&,
+       const Current_Channel_type&,
+       const AD_In_type&,
+       const Image_FIFO_Status_type&,
+       ::std::auto_ptr< RF_Filter_type >&,
+       const DDRS_type&,
+       const ADCA_Out_type&,
+       const AD_Clock_Div_type&,
+       const Imaging_Mode_type&,
+       ::std::auto_ptr< V_RF_Filter_type >&,
+       const ADCB_Out_type&,
+       ::std::auto_ptr< Delay_type >&,
+       ::std::auto_ptr< AD_Gate_Width_type >&,
+       ::std::auto_ptr< Frequency_type >&,
+       ::std::auto_ptr< V_Frequency_type >&,
+       ::std::auto_ptr< V_Field_Of_View_type >&,
+       const Packet_Format_type&,
+       ::std::auto_ptr< Sector_Height_Target_type >&,
+       const Low_Speed_FIFO_Status_type&,
+       ::std::auto_ptr< AD_TestIn_type >&,
+       const Error_type&,
+       const Test_On_type&,
+       const AD_DCS_type&,
+       const DTB_Tfr_Enable_type&,
+       const DTB_Test_Enable_type&,
+       ::std::auto_ptr< V_Delay_Length_type >&,
+       const Current_Mode_type&,
+       const Line_Number_type&,
+       ::std::auto_ptr< IF_Filter_type >&,
+       ::std::auto_ptr< Track_Width_type >&,
+       const DTB_Error_Clr_type&,
+       ::std::auto_ptr< V_IF_Filter_type >&,
+       const IQ_Select_type&,
+       ::std::auto_ptr< HP_Clutter_type >&,
        const V_TGC_Copy_type&);
 
   RX1 (const ::xercesc::DOMElement& e,
@@ -18274,7 +19374,7 @@ class Display1: public ::xml_schema::type
 
   // Window-Time
   //
-  typedef ::xml_schema::string Window_Time_type;
+  typedef ::Window_Time1 Window_Time_type;
   typedef ::xsd::cxx::tree::traits< Window_Time_type, char > Window_Time_traits;
 
   const Window_Time_type&
@@ -18356,6 +19456,20 @@ class Display1: public ::xml_schema::type
             const V_SV_NeedleGuide_type&,
             const V_SV_ColorMode_type&);
 
+  Display1 (const Direction_type&,
+            const V_SV_TissueMode_type&,
+            const V_SV_MMode_type&,
+            const X_3D_Gain_type&,
+            const X_3D_Dynamic_Range_type&,
+            const Gain_type&,
+            const V_SV_RfMode_type&,
+            const V_SV_EkvMode_type&,
+            const Dynamic_Range_type&,
+            ::std::auto_ptr< Window_Time_type >&,
+            const V_SV_DopplerMode_type&,
+            const V_SV_NeedleGuide_type&,
+            const V_SV_ColorMode_type&);
+
   Display1 (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f = 0,
             ::xml_schema::container* c = 0);
@@ -18416,7 +19530,7 @@ class EKVModeSoft: public ::xml_schema::type
 
   // EKV-Start
   //
-  typedef ::xml_schema::string EKV_Start_type;
+  typedef ::EKV_Start EKV_Start_type;
   typedef ::xsd::cxx::tree::traits< EKV_Start_type, char > EKV_Start_traits;
 
   const EKV_Start_type&
@@ -18433,7 +19547,7 @@ class EKVModeSoft: public ::xml_schema::type
 
   // EKV-Stop
   //
-  typedef ::xml_schema::string EKV_Stop_type;
+  typedef ::EKV_Stop EKV_Stop_type;
   typedef ::xsd::cxx::tree::traits< EKV_Stop_type, char > EKV_Stop_traits;
 
   const EKV_Stop_type&
@@ -18450,7 +19564,7 @@ class EKVModeSoft: public ::xml_schema::type
 
   // EKV-Quality-Times
   //
-  typedef ::xml_schema::string EKV_Quality_Times_type;
+  typedef ::EKV_Quality_Times EKV_Quality_Times_type;
   typedef ::xsd::cxx::tree::traits< EKV_Quality_Times_type, char > EKV_Quality_Times_traits;
 
   const EKV_Quality_Times_type&
@@ -18467,7 +19581,7 @@ class EKVModeSoft: public ::xml_schema::type
 
   // EKV-Quality
   //
-  typedef ::xml_schema::string EKV_Quality_type;
+  typedef ::EKV_Quality EKV_Quality_type;
   typedef ::xsd::cxx::tree::traits< EKV_Quality_type, char > EKV_Quality_traits;
 
   const EKV_Quality_type&
@@ -18484,7 +19598,7 @@ class EKVModeSoft: public ::xml_schema::type
 
   // EKV-Quality-Resolution
   //
-  typedef ::xml_schema::string EKV_Quality_Resolution_type;
+  typedef ::EKV_Quality_Resolution EKV_Quality_Resolution_type;
   typedef ::xsd::cxx::tree::traits< EKV_Quality_Resolution_type, char > EKV_Quality_Resolution_traits;
 
   const EKV_Quality_Resolution_type&
@@ -18535,7 +19649,7 @@ class EKVModeSoft: public ::xml_schema::type
 
   // EKV-Variance
   //
-  typedef ::xml_schema::string EKV_Variance_type;
+  typedef ::EKV_Variance EKV_Variance_type;
   typedef ::xsd::cxx::tree::traits< EKV_Variance_type, char > EKV_Variance_traits;
 
   const EKV_Variance_type&
@@ -18552,7 +19666,7 @@ class EKVModeSoft: public ::xml_schema::type
 
   // EKV-Triggers
   //
-  typedef ::xml_schema::string EKV_Triggers_type;
+  typedef ::EKV_Triggers EKV_Triggers_type;
   typedef ::xsd::cxx::tree::traits< EKV_Triggers_type, char > EKV_Triggers_traits;
 
   const EKV_Triggers_type&
@@ -18579,6 +19693,17 @@ class EKVModeSoft: public ::xml_schema::type
                const EKV_Advanced_type&,
                const EKV_Variance_type&,
                const EKV_Triggers_type&);
+
+  EKVModeSoft (const RWave_Time_Tollerance_type&,
+               ::std::auto_ptr< EKV_Start_type >&,
+               ::std::auto_ptr< EKV_Stop_type >&,
+               ::std::auto_ptr< EKV_Quality_Times_type >&,
+               ::std::auto_ptr< EKV_Quality_type >&,
+               ::std::auto_ptr< EKV_Quality_Resolution_type >&,
+               const Difference_Percent_Periods_Keep_type&,
+               const EKV_Advanced_type&,
+               ::std::auto_ptr< EKV_Variance_type >&,
+               ::std::auto_ptr< EKV_Triggers_type >&);
 
   EKVModeSoft (const ::xercesc::DOMElement& e,
                ::xml_schema::flags f = 0,
@@ -18798,6 +19923,16998 @@ class BModeLVAnalysis: public ::xml_schema::type
   ::xsd::cxx::tree::one< Cardinal_Tension_type > Cardinal_Tension_;
 };
 
+class Sample_Time: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Sample_Time (const units_type&);
+
+  Sample_Time (const char*,
+               const units_type&);
+
+  Sample_Time (const ::std::string&,
+               const units_type&);
+
+  Sample_Time (const ::xml_schema::string&,
+               const units_type&);
+
+  Sample_Time (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Sample_Time (const Sample_Time& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Sample_Time*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sample_Time ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Focal_Length: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Focal_Length (const units_type&);
+
+  Focal_Length (const char*,
+                const units_type&);
+
+  Focal_Length (const ::std::string&,
+                const units_type&);
+
+  Focal_Length (const ::xml_schema::string&,
+                const units_type&);
+
+  Focal_Length (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Focal_Length (const Focal_Length& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Focal_Length*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Focal_Length ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Default_Scan_Speed: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Default_Scan_Speed (const units_type&);
+
+  Default_Scan_Speed (const char*,
+                      const units_type&);
+
+  Default_Scan_Speed (const ::std::string&,
+                      const units_type&);
+
+  Default_Scan_Speed (const ::xml_schema::string&,
+                      const units_type&);
+
+  Default_Scan_Speed (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Default_Scan_Speed (const Default_Scan_Speed& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Default_Scan_Speed*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Default_Scan_Speed ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Cutoff_Scan_Speed: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Cutoff_Scan_Speed (const units_type&);
+
+  Cutoff_Scan_Speed (const char*,
+                     const units_type&);
+
+  Cutoff_Scan_Speed (const ::std::string&,
+                     const units_type&);
+
+  Cutoff_Scan_Speed (const ::xml_schema::string&,
+                     const units_type&);
+
+  Cutoff_Scan_Speed (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  Cutoff_Scan_Speed (const Cutoff_Scan_Speed& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual Cutoff_Scan_Speed*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Cutoff_Scan_Speed ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency_Low: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency_Low (const units_type&);
+
+  Frequency_Low (const char*,
+                 const units_type&);
+
+  Frequency_Low (const ::std::string&,
+                 const units_type&);
+
+  Frequency_Low (const ::xml_schema::string&,
+                 const units_type&);
+
+  Frequency_Low (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  Frequency_Low (const Frequency_Low& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual Frequency_Low*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency_Low ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Default_FOV: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Default_FOV (const units_type&);
+
+  Default_FOV (const char*,
+               const units_type&);
+
+  Default_FOV (const ::std::string&,
+               const units_type&);
+
+  Default_FOV (const ::xml_schema::string&,
+               const units_type&);
+
+  Default_FOV (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Default_FOV (const Default_FOV& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Default_FOV*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Default_FOV ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency_Doppler_Default: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency_Doppler_Default (const units_type&);
+
+  Frequency_Doppler_Default (const char*,
+                             const units_type&);
+
+  Frequency_Doppler_Default (const ::std::string&,
+                             const units_type&);
+
+  Frequency_Doppler_Default (const ::xml_schema::string&,
+                             const units_type&);
+
+  Frequency_Doppler_Default (const ::xercesc::DOMElement& e,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+  Frequency_Doppler_Default (const Frequency_Doppler_Default& x,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+  virtual Frequency_Doppler_Default*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency_Doppler_Default ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency_Doppler: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency_Doppler (const units_type&);
+
+  Frequency_Doppler (const char*,
+                     const units_type&);
+
+  Frequency_Doppler (const ::std::string&,
+                     const units_type&);
+
+  Frequency_Doppler (const ::xml_schema::string&,
+                     const units_type&);
+
+  Frequency_Doppler (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  Frequency_Doppler (const Frequency_Doppler& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual Frequency_Doppler*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency_Doppler ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Axial_Res: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Axial_Res (const units_type&);
+
+  Axial_Res (const char*,
+             const units_type&);
+
+  Axial_Res (const ::std::string&,
+             const units_type&);
+
+  Axial_Res (const ::xml_schema::string&,
+             const units_type&);
+
+  Axial_Res (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  Axial_Res (const Axial_Res& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual Axial_Res*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Axial_Res ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Filter_High: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Filter_High (const units_type&);
+
+  Filter_High (const char*,
+               const units_type&);
+
+  Filter_High (const ::std::string&,
+               const units_type&);
+
+  Filter_High (const ::xml_schema::string&,
+               const units_type&);
+
+  Filter_High (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Filter_High (const Filter_High& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Filter_High*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Filter_High ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pivot_Encoder_Dist: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pivot_Encoder_Dist (const units_type&);
+
+  Pivot_Encoder_Dist (const char*,
+                      const units_type&);
+
+  Pivot_Encoder_Dist (const ::std::string&,
+                      const units_type&);
+
+  Pivot_Encoder_Dist (const ::xml_schema::string&,
+                      const units_type&);
+
+  Pivot_Encoder_Dist (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Pivot_Encoder_Dist (const Pivot_Encoder_Dist& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Pivot_Encoder_Dist*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pivot_Encoder_Dist ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Encoder_Range_Max: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Encoder_Range_Max (const units_type&);
+
+  Encoder_Range_Max (const char*,
+                     const units_type&);
+
+  Encoder_Range_Max (const ::std::string&,
+                     const units_type&);
+
+  Encoder_Range_Max (const ::xml_schema::string&,
+                     const units_type&);
+
+  Encoder_Range_Max (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  Encoder_Range_Max (const Encoder_Range_Max& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual Encoder_Range_Max*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Encoder_Range_Max ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Encoder_Range_Min: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Encoder_Range_Min (const units_type&);
+
+  Encoder_Range_Min (const char*,
+                     const units_type&);
+
+  Encoder_Range_Min (const ::std::string&,
+                     const units_type&);
+
+  Encoder_Range_Min (const ::xml_schema::string&,
+                     const units_type&);
+
+  Encoder_Range_Min (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  Encoder_Range_Min (const Encoder_Range_Min& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual Encoder_Range_Min*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Encoder_Range_Min ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Lateral_Res: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Lateral_Res (const units_type&);
+
+  Lateral_Res (const char*,
+               const units_type&);
+
+  Lateral_Res (const ::std::string&,
+               const units_type&);
+
+  Lateral_Res (const ::xml_schema::string&,
+               const units_type&);
+
+  Lateral_Res (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Lateral_Res (const Lateral_Res& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Lateral_Res*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Lateral_Res ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Motor_Overhead: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Motor_Overhead (const units_type&);
+
+  Motor_Overhead (const char*,
+                  const units_type&);
+
+  Motor_Overhead (const ::std::string&,
+                  const units_type&);
+
+  Motor_Overhead (const ::xml_schema::string&,
+                  const units_type&);
+
+  Motor_Overhead (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Motor_Overhead (const Motor_Overhead& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Motor_Overhead*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Motor_Overhead ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Max_Scan_Distance: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Max_Scan_Distance (const units_type&);
+
+  Max_Scan_Distance (const char*,
+                     const units_type&);
+
+  Max_Scan_Distance (const ::std::string&,
+                     const units_type&);
+
+  Max_Scan_Distance (const ::xml_schema::string&,
+                     const units_type&);
+
+  Max_Scan_Distance (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  Max_Scan_Distance (const Max_Scan_Distance& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual Max_Scan_Distance*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Max_Scan_Distance ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Default_Rx_Gain: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Default_Rx_Gain (const units_type&);
+
+  Default_Rx_Gain (const char*,
+                   const units_type&);
+
+  Default_Rx_Gain (const ::std::string&,
+                   const units_type&);
+
+  Default_Rx_Gain (const ::xml_schema::string&,
+                   const units_type&);
+
+  Default_Rx_Gain (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  Default_Rx_Gain (const Default_Rx_Gain& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual Default_Rx_Gain*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Default_Rx_Gain ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Filter_Low: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Filter_Low (const units_type&);
+
+  Filter_Low (const char*,
+              const units_type&);
+
+  Filter_Low (const ::std::string&,
+              const units_type&);
+
+  Filter_Low (const ::xml_schema::string&,
+              const units_type&);
+
+  Filter_Low (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Filter_Low (const Filter_Low& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Filter_Low*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Filter_Low ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency_High: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency_High (const units_type&);
+
+  Frequency_High (const char*,
+                  const units_type&);
+
+  Frequency_High (const ::std::string&,
+                  const units_type&);
+
+  Frequency_High (const ::xml_schema::string&,
+                  const units_type&);
+
+  Frequency_High (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Frequency_High (const Frequency_High& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Frequency_High*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency_High ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Scan_Speeds: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Scan_Speeds (const units_type&);
+
+  Scan_Speeds (const char*,
+               const units_type&);
+
+  Scan_Speeds (const ::std::string&,
+               const units_type&);
+
+  Scan_Speeds (const ::xml_schema::string&,
+               const units_type&);
+
+  Scan_Speeds (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Scan_Speeds (const Scan_Speeds& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Scan_Speeds*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Scan_Speeds ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Filter_Doppler_Cutoff: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Filter_Doppler_Cutoff (const units_type&);
+
+  Filter_Doppler_Cutoff (const char*,
+                         const units_type&);
+
+  Filter_Doppler_Cutoff (const ::std::string&,
+                         const units_type&);
+
+  Filter_Doppler_Cutoff (const ::xml_schema::string&,
+                         const units_type&);
+
+  Filter_Doppler_Cutoff (const ::xercesc::DOMElement& e,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  Filter_Doppler_Cutoff (const Filter_Doppler_Cutoff& x,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  virtual Filter_Doppler_Cutoff*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Filter_Doppler_Cutoff ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency_Doppler_Low: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency_Doppler_Low (const units_type&);
+
+  Frequency_Doppler_Low (const char*,
+                         const units_type&);
+
+  Frequency_Doppler_Low (const ::std::string&,
+                         const units_type&);
+
+  Frequency_Doppler_Low (const ::xml_schema::string&,
+                         const units_type&);
+
+  Frequency_Doppler_Low (const ::xercesc::DOMElement& e,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  Frequency_Doppler_Low (const Frequency_Doppler_Low& x,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  virtual Frequency_Doppler_Low*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency_Doppler_Low ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pivot_Transducer_Face_Dist: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pivot_Transducer_Face_Dist (const units_type&);
+
+  Pivot_Transducer_Face_Dist (const char*,
+                              const units_type&);
+
+  Pivot_Transducer_Face_Dist (const ::std::string&,
+                              const units_type&);
+
+  Pivot_Transducer_Face_Dist (const ::xml_schema::string&,
+                              const units_type&);
+
+  Pivot_Transducer_Face_Dist (const ::xercesc::DOMElement& e,
+                              ::xml_schema::flags f = 0,
+                              ::xml_schema::container* c = 0);
+
+  Pivot_Transducer_Face_Dist (const Pivot_Transducer_Face_Dist& x,
+                              ::xml_schema::flags f = 0,
+                              ::xml_schema::container* c = 0);
+
+  virtual Pivot_Transducer_Face_Dist*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pivot_Transducer_Face_Dist ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Filter_Doppler: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Filter_Doppler (const units_type&);
+
+  Filter_Doppler (const char*,
+                  const units_type&);
+
+  Filter_Doppler (const ::std::string&,
+                  const units_type&);
+
+  Filter_Doppler (const ::xml_schema::string&,
+                  const units_type&);
+
+  Filter_Doppler (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Filter_Doppler (const Filter_Doppler& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Filter_Doppler*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Filter_Doppler ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency (const units_type&);
+
+  Frequency (const char*,
+             const units_type&);
+
+  Frequency (const ::std::string&,
+             const units_type&);
+
+  Frequency (const ::xml_schema::string&,
+             const units_type&);
+
+  Frequency (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  Frequency (const Frequency& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual Frequency*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Encoder_Separation: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Encoder_Separation (const units_type&);
+
+  Encoder_Separation (const char*,
+                      const units_type&);
+
+  Encoder_Separation (const ::std::string&,
+                      const units_type&);
+
+  Encoder_Separation (const ::xml_schema::string&,
+                      const units_type&);
+
+  Encoder_Separation (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Encoder_Separation (const Encoder_Separation& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Encoder_Separation*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Encoder_Separation ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Overshoot: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Overshoot (const units_type&);
+
+  Overshoot (const char*,
+             const units_type&);
+
+  Overshoot (const ::std::string&,
+             const units_type&);
+
+  Overshoot (const ::xml_schema::string&,
+             const units_type&);
+
+  Overshoot (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  Overshoot (const Overshoot& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual Overshoot*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Overshoot ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Filter: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Filter (const units_type&);
+
+  Filter (const char*,
+          const units_type&);
+
+  Filter (const ::std::string&,
+          const units_type&);
+
+  Filter (const ::xml_schema::string&,
+          const units_type&);
+
+  Filter (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  Filter (const Filter& x,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  virtual Filter*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Filter ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Default_Rx_Gain_Doppler: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Default_Rx_Gain_Doppler (const units_type&);
+
+  Default_Rx_Gain_Doppler (const char*,
+                           const units_type&);
+
+  Default_Rx_Gain_Doppler (const ::std::string&,
+                           const units_type&);
+
+  Default_Rx_Gain_Doppler (const ::xml_schema::string&,
+                           const units_type&);
+
+  Default_Rx_Gain_Doppler (const ::xercesc::DOMElement& e,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+  Default_Rx_Gain_Doppler (const Default_Rx_Gain_Doppler& x,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+  virtual Default_Rx_Gain_Doppler*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Default_Rx_Gain_Doppler ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Filter_Doppler_Low: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Filter_Doppler_Low (const units_type&);
+
+  Filter_Doppler_Low (const char*,
+                      const units_type&);
+
+  Filter_Doppler_Low (const ::std::string&,
+                      const units_type&);
+
+  Filter_Doppler_Low (const ::xml_schema::string&,
+                      const units_type&);
+
+  Filter_Doppler_Low (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Filter_Doppler_Low (const Filter_Doppler_Low& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Filter_Doppler_Low*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Filter_Doppler_Low ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Buffer_Size: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Buffer_Size (const units_type&);
+
+  Buffer_Size (const char*,
+               const units_type&);
+
+  Buffer_Size (const ::std::string&,
+               const units_type&);
+
+  Buffer_Size (const ::xml_schema::string&,
+               const units_type&);
+
+  Buffer_Size (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Buffer_Size (const Buffer_Size& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Buffer_Size*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Buffer_Size ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class BMode_Size_Default: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  BMode_Size_Default (const units_type&);
+
+  BMode_Size_Default (const char*,
+                      const units_type&);
+
+  BMode_Size_Default (const ::std::string&,
+                      const units_type&);
+
+  BMode_Size_Default (const ::xml_schema::string&,
+                      const units_type&);
+
+  BMode_Size_Default (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  BMode_Size_Default (const BMode_Size_Default& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual BMode_Size_Default*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~BMode_Size_Default ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Refresh_Rate: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Refresh_Rate (const units_type&);
+
+  Refresh_Rate (const char*,
+                const units_type&);
+
+  Refresh_Rate (const ::std::string&,
+                const units_type&);
+
+  Refresh_Rate (const ::xml_schema::string&,
+                const units_type&);
+
+  Refresh_Rate (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Refresh_Rate (const Refresh_Rate& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Refresh_Rate*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Refresh_Rate ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Power_Size_Default: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Power_Size_Default (const units_type&);
+
+  Power_Size_Default (const char*,
+                      const units_type&);
+
+  Power_Size_Default (const ::std::string&,
+                      const units_type&);
+
+  Power_Size_Default (const ::xml_schema::string&,
+                      const units_type&);
+
+  Power_Size_Default (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Power_Size_Default (const Power_Size_Default& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Power_Size_Default*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Power_Size_Default ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Target_Field_Of_View: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Target_Field_Of_View (const units_type&);
+
+  Target_Field_Of_View (const char*,
+                        const units_type&);
+
+  Target_Field_Of_View (const ::std::string&,
+                        const units_type&);
+
+  Target_Field_Of_View (const ::xml_schema::string&,
+                        const units_type&);
+
+  Target_Field_Of_View (const ::xercesc::DOMElement& e,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  Target_Field_Of_View (const Target_Field_Of_View& x,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  virtual Target_Field_Of_View*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Target_Field_Of_View ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Sound_Speed: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Sound_Speed (const units_type&);
+
+  Sound_Speed (const char*,
+               const units_type&);
+
+  Sound_Speed (const ::std::string&,
+               const units_type&);
+
+  Sound_Speed (const ::xml_schema::string&,
+               const units_type&);
+
+  Sound_Speed (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Sound_Speed (const Sound_Speed& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Sound_Speed*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sound_Speed ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pipeline_Delay: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pipeline_Delay (const units_type&);
+
+  Pipeline_Delay (const char*,
+                  const units_type&);
+
+  Pipeline_Delay (const ::std::string&,
+                  const units_type&);
+
+  Pipeline_Delay (const ::xml_schema::string&,
+                  const units_type&);
+
+  Pipeline_Delay (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Pipeline_Delay (const Pipeline_Delay& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Pipeline_Delay*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pipeline_Delay ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Center: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Center (const units_type&);
+
+  Center (const char*,
+          const units_type&);
+
+  Center (const ::std::string&,
+          const units_type&);
+
+  Center (const ::xml_schema::string&,
+          const units_type&);
+
+  Center (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  Center (const Center& x,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  virtual Center*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Center ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Scan_Speed: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Scan_Speed (const units_type&);
+
+  V_Scan_Speed (const char*,
+                const units_type&);
+
+  V_Scan_Speed (const ::std::string&,
+                const units_type&);
+
+  V_Scan_Speed (const ::xml_schema::string&,
+                const units_type&);
+
+  V_Scan_Speed (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  V_Scan_Speed (const V_Scan_Speed& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual V_Scan_Speed*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Scan_Speed ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Scan_Rate: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Scan_Rate (const units_type&);
+
+  V_Scan_Rate (const char*,
+               const units_type&);
+
+  V_Scan_Rate (const ::std::string&,
+               const units_type&);
+
+  V_Scan_Rate (const ::xml_schema::string&,
+               const units_type&);
+
+  V_Scan_Rate (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  V_Scan_Rate (const V_Scan_Rate& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual V_Scan_Rate*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Scan_Rate ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Scan_Width: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Scan_Width (const units_type&);
+
+  Scan_Width (const char*,
+              const units_type&);
+
+  Scan_Width (const ::std::string&,
+              const units_type&);
+
+  Scan_Width (const ::xml_schema::string&,
+              const units_type&);
+
+  Scan_Width (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Scan_Width (const Scan_Width& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Scan_Width*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Scan_Width ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Position: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Position (const units_type&);
+
+  Position (const char*,
+            const units_type&);
+
+  Position (const ::std::string&,
+            const units_type&);
+
+  Position (const ::xml_schema::string&,
+            const units_type&);
+
+  Position (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  Position (const Position& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  virtual Position*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Position ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class R_Scan_Move_No_Wait: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  R_Scan_Move_No_Wait (const units_type&);
+
+  R_Scan_Move_No_Wait (const char*,
+                       const units_type&);
+
+  R_Scan_Move_No_Wait (const ::std::string&,
+                       const units_type&);
+
+  R_Scan_Move_No_Wait (const ::xml_schema::string&,
+                       const units_type&);
+
+  R_Scan_Move_No_Wait (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  R_Scan_Move_No_Wait (const R_Scan_Move_No_Wait& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual R_Scan_Move_No_Wait*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~R_Scan_Move_No_Wait ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Acceleration: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Acceleration (const units_type&);
+
+  Acceleration (const char*,
+                const units_type&);
+
+  Acceleration (const ::std::string&,
+                const units_type&);
+
+  Acceleration (const ::xml_schema::string&,
+                const units_type&);
+
+  Acceleration (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Acceleration (const Acceleration& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Acceleration*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Acceleration ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Velocity_Stationary: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Velocity_Stationary (const units_type&);
+
+  Velocity_Stationary (const char*,
+                       const units_type&);
+
+  Velocity_Stationary (const ::std::string&,
+                       const units_type&);
+
+  Velocity_Stationary (const ::xml_schema::string&,
+                       const units_type&);
+
+  Velocity_Stationary (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  Velocity_Stationary (const Velocity_Stationary& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual Velocity_Stationary*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Velocity_Stationary ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class R_Scan_Move2: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  R_Scan_Move2 (const units_type&);
+
+  R_Scan_Move2 (const char*,
+                const units_type&);
+
+  R_Scan_Move2 (const ::std::string&,
+                const units_type&);
+
+  R_Scan_Move2 (const ::xml_schema::string&,
+                const units_type&);
+
+  R_Scan_Move2 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  R_Scan_Move2 (const R_Scan_Move2& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual R_Scan_Move2*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~R_Scan_Move2 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Acceleration_Stationary: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Acceleration_Stationary (const units_type&);
+
+  Acceleration_Stationary (const char*,
+                           const units_type&);
+
+  Acceleration_Stationary (const ::std::string&,
+                           const units_type&);
+
+  Acceleration_Stationary (const ::xml_schema::string&,
+                           const units_type&);
+
+  Acceleration_Stationary (const ::xercesc::DOMElement& e,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+  Acceleration_Stationary (const Acceleration_Stationary& x,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+  virtual Acceleration_Stationary*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Acceleration_Stationary ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Position_Reverse: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Position_Reverse (const units_type&);
+
+  Position_Reverse (const char*,
+                    const units_type&);
+
+  Position_Reverse (const ::std::string&,
+                    const units_type&);
+
+  Position_Reverse (const ::xml_schema::string&,
+                    const units_type&);
+
+  Position_Reverse (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  Position_Reverse (const Position_Reverse& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual Position_Reverse*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Position_Reverse ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Position2: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Position2 (const units_type&);
+
+  Position2 (const char*,
+             const units_type&);
+
+  Position2 (const ::std::string&,
+             const units_type&);
+
+  Position2 (const ::xml_schema::string&,
+             const units_type&);
+
+  Position2 (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  Position2 (const Position2& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual Position2*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Position2 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Velocity: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Velocity (const units_type&);
+
+  Velocity (const char*,
+            const units_type&);
+
+  Velocity (const ::std::string&,
+            const units_type&);
+
+  Velocity (const ::xml_schema::string&,
+            const units_type&);
+
+  Velocity (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  Velocity (const Velocity& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  virtual Velocity*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Velocity ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class R_Scan_Move: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  R_Scan_Move (const units_type&);
+
+  R_Scan_Move (const char*,
+               const units_type&);
+
+  R_Scan_Move (const ::std::string&,
+               const units_type&);
+
+  R_Scan_Move (const ::xml_schema::string&,
+               const units_type&);
+
+  R_Scan_Move (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  R_Scan_Move (const R_Scan_Move& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual R_Scan_Move*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~R_Scan_Move ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Position_Forward: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Position_Forward (const units_type&);
+
+  Position_Forward (const char*,
+                    const units_type&);
+
+  Position_Forward (const ::std::string&,
+                    const units_type&);
+
+  Position_Forward (const ::xml_schema::string&,
+                    const units_type&);
+
+  Position_Forward (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  Position_Forward (const Position_Forward& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual Position_Forward*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Position_Forward ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Monitor_3point3V: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Monitor_3point3V (const units_type&);
+
+  Monitor_3point3V (const char*,
+                    const units_type&);
+
+  Monitor_3point3V (const ::std::string&,
+                    const units_type&);
+
+  Monitor_3point3V (const ::xml_schema::string&,
+                    const units_type&);
+
+  Monitor_3point3V (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  Monitor_3point3V (const Monitor_3point3V& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual Monitor_3point3V*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Monitor_3point3V ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Monitor_15V: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Monitor_15V (const units_type&);
+
+  Monitor_15V (const char*,
+               const units_type&);
+
+  Monitor_15V (const ::std::string&,
+               const units_type&);
+
+  Monitor_15V (const ::xml_schema::string&,
+               const units_type&);
+
+  Monitor_15V (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Monitor_15V (const Monitor_15V& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Monitor_15V*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Monitor_15V ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Monitor_5V: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Monitor_5V (const units_type&);
+
+  Monitor_5V (const char*,
+              const units_type&);
+
+  Monitor_5V (const ::std::string&,
+              const units_type&);
+
+  Monitor_5V (const ::xml_schema::string&,
+              const units_type&);
+
+  Monitor_5V (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Monitor_5V (const Monitor_5V& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Monitor_5V*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Monitor_5V ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Monitor_Neg15V: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Monitor_Neg15V (const units_type&);
+
+  Monitor_Neg15V (const char*,
+                  const units_type&);
+
+  Monitor_Neg15V (const ::std::string&,
+                  const units_type&);
+
+  Monitor_Neg15V (const ::xml_schema::string&,
+                  const units_type&);
+
+  Monitor_Neg15V (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Monitor_Neg15V (const Monitor_Neg15V& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Monitor_Neg15V*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Monitor_Neg15V ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Monitor_Neg5V: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Monitor_Neg5V (const units_type&);
+
+  Monitor_Neg5V (const char*,
+                 const units_type&);
+
+  Monitor_Neg5V (const ::std::string&,
+                 const units_type&);
+
+  Monitor_Neg5V (const ::xml_schema::string&,
+                 const units_type&);
+
+  Monitor_Neg5V (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  Monitor_Neg5V (const Monitor_Neg5V& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual Monitor_Neg5V*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Monitor_Neg5V ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Threshold_Change: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Threshold_Change (const units_type&);
+
+  Respiration_Threshold_Change (const char*,
+                                const units_type&);
+
+  Respiration_Threshold_Change (const ::std::string&,
+                                const units_type&);
+
+  Respiration_Threshold_Change (const ::xml_schema::string&,
+                                const units_type&);
+
+  Respiration_Threshold_Change (const ::xercesc::DOMElement& e,
+                                ::xml_schema::flags f = 0,
+                                ::xml_schema::container* c = 0);
+
+  Respiration_Threshold_Change (const Respiration_Threshold_Change& x,
+                                ::xml_schema::flags f = 0,
+                                ::xml_schema::container* c = 0);
+
+  virtual Respiration_Threshold_Change*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Threshold_Change ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pressure_Range: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pressure_Range (const units_type&);
+
+  Pressure_Range (const char*,
+                  const units_type&);
+
+  Pressure_Range (const ::std::string&,
+                  const units_type&);
+
+  Pressure_Range (const ::xml_schema::string&,
+                  const units_type&);
+
+  Pressure_Range (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Pressure_Range (const Pressure_Range& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Pressure_Range*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pressure_Range ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Gate_Delay: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Gate_Delay (const units_type&);
+
+  Respiration_Gate_Delay (const char*,
+                          const units_type&);
+
+  Respiration_Gate_Delay (const ::std::string&,
+                          const units_type&);
+
+  Respiration_Gate_Delay (const ::xml_schema::string&,
+                          const units_type&);
+
+  Respiration_Gate_Delay (const ::xercesc::DOMElement& e,
+                          ::xml_schema::flags f = 0,
+                          ::xml_schema::container* c = 0);
+
+  Respiration_Gate_Delay (const Respiration_Gate_Delay& x,
+                          ::xml_schema::flags f = 0,
+                          ::xml_schema::container* c = 0);
+
+  virtual Respiration_Gate_Delay*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Gate_Delay ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Timeout: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Timeout (const units_type&);
+
+  Respiration_Timeout (const char*,
+                       const units_type&);
+
+  Respiration_Timeout (const ::std::string&,
+                       const units_type&);
+
+  Respiration_Timeout (const ::xml_schema::string&,
+                       const units_type&);
+
+  Respiration_Timeout (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  Respiration_Timeout (const Respiration_Timeout& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual Respiration_Timeout*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Timeout ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RWave_Max_Change_Factor_Percent: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RWave_Max_Change_Factor_Percent (const units_type&);
+
+  RWave_Max_Change_Factor_Percent (const char*,
+                                   const units_type&);
+
+  RWave_Max_Change_Factor_Percent (const ::std::string&,
+                                   const units_type&);
+
+  RWave_Max_Change_Factor_Percent (const ::xml_schema::string&,
+                                   const units_type&);
+
+  RWave_Max_Change_Factor_Percent (const ::xercesc::DOMElement& e,
+                                   ::xml_schema::flags f = 0,
+                                   ::xml_schema::container* c = 0);
+
+  RWave_Max_Change_Factor_Percent (const RWave_Max_Change_Factor_Percent& x,
+                                   ::xml_schema::flags f = 0,
+                                   ::xml_schema::container* c = 0);
+
+  virtual RWave_Max_Change_Factor_Percent*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RWave_Max_Change_Factor_Percent ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Period: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Period (const units_type&);
+
+  Respiration_Period (const char*,
+                      const units_type&);
+
+  Respiration_Period (const ::std::string&,
+                      const units_type&);
+
+  Respiration_Period (const ::xml_schema::string&,
+                      const units_type&);
+
+  Respiration_Period (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Respiration_Period (const Respiration_Period& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Respiration_Period*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Period ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Subsample_Rate: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Subsample_Rate (const units_type&);
+
+  Respiration_Subsample_Rate (const char*,
+                              const units_type&);
+
+  Respiration_Subsample_Rate (const ::std::string&,
+                              const units_type&);
+
+  Respiration_Subsample_Rate (const ::xml_schema::string&,
+                              const units_type&);
+
+  Respiration_Subsample_Rate (const ::xercesc::DOMElement& e,
+                              ::xml_schema::flags f = 0,
+                              ::xml_schema::container* c = 0);
+
+  Respiration_Subsample_Rate (const Respiration_Subsample_Rate& x,
+                              ::xml_schema::flags f = 0,
+                              ::xml_schema::container* c = 0);
+
+  virtual Respiration_Subsample_Rate*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Subsample_Rate ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Window: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Window (const units_type&);
+
+  Respiration_Window (const char*,
+                      const units_type&);
+
+  Respiration_Window (const ::std::string&,
+                      const units_type&);
+
+  Respiration_Window (const ::xml_schema::string&,
+                      const units_type&);
+
+  Respiration_Window (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Respiration_Window (const Respiration_Window& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Respiration_Window*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Window ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pressure_Systolic: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pressure_Systolic (const units_type&);
+
+  Pressure_Systolic (const char*,
+                     const units_type&);
+
+  Pressure_Systolic (const ::std::string&,
+                     const units_type&);
+
+  Pressure_Systolic (const ::xml_schema::string&,
+                     const units_type&);
+
+  Pressure_Systolic (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  Pressure_Systolic (const Pressure_Systolic& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual Pressure_Systolic*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pressure_Systolic ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency1 (const units_type&);
+
+  Frequency1 (const char*,
+              const units_type&);
+
+  Frequency1 (const ::std::string&,
+              const units_type&);
+
+  Frequency1 (const ::xml_schema::string&,
+              const units_type&);
+
+  Frequency1 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Frequency1 (const Frequency1& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Frequency1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Blank_Period: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Blank_Period (const units_type&);
+
+  Respiration_Blank_Period (const char*,
+                            const units_type&);
+
+  Respiration_Blank_Period (const ::std::string&,
+                            const units_type&);
+
+  Respiration_Blank_Period (const ::xml_schema::string&,
+                            const units_type&);
+
+  Respiration_Blank_Period (const ::xercesc::DOMElement& e,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  Respiration_Blank_Period (const Respiration_Blank_Period& x,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  virtual Respiration_Blank_Period*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Blank_Period ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Range: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Range (const units_type&);
+
+  Respiration_Range (const char*,
+                     const units_type&);
+
+  Respiration_Range (const ::std::string&,
+                     const units_type&);
+
+  Respiration_Range (const ::xml_schema::string&,
+                     const units_type&);
+
+  Respiration_Range (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  Respiration_Range (const Respiration_Range& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual Respiration_Range*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Range ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pressure_Zero: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pressure_Zero (const units_type&);
+
+  Pressure_Zero (const char*,
+                 const units_type&);
+
+  Pressure_Zero (const ::std::string&,
+                 const units_type&);
+
+  Pressure_Zero (const ::xml_schema::string&,
+                 const units_type&);
+
+  Pressure_Zero (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  Pressure_Zero (const Pressure_Zero& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual Pressure_Zero*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pressure_Zero ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class P_Wave_Start: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  P_Wave_Start (const units_type&);
+
+  P_Wave_Start (const char*,
+                const units_type&);
+
+  P_Wave_Start (const ::std::string&,
+                const units_type&);
+
+  P_Wave_Start (const ::xml_schema::string&,
+                const units_type&);
+
+  P_Wave_Start (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  P_Wave_Start (const P_Wave_Start& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual P_Wave_Start*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~P_Wave_Start ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RWave_Future_Search_Time: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RWave_Future_Search_Time (const units_type&);
+
+  RWave_Future_Search_Time (const char*,
+                            const units_type&);
+
+  RWave_Future_Search_Time (const ::std::string&,
+                            const units_type&);
+
+  RWave_Future_Search_Time (const ::xml_schema::string&,
+                            const units_type&);
+
+  RWave_Future_Search_Time (const ::xercesc::DOMElement& e,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  RWave_Future_Search_Time (const RWave_Future_Search_Time& x,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  virtual RWave_Future_Search_Time*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RWave_Future_Search_Time ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Percent_Peak: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Percent_Peak (const units_type&);
+
+  Respiration_Percent_Peak (const char*,
+                            const units_type&);
+
+  Respiration_Percent_Peak (const ::std::string&,
+                            const units_type&);
+
+  Respiration_Percent_Peak (const ::xml_schema::string&,
+                            const units_type&);
+
+  Respiration_Percent_Peak (const ::xercesc::DOMElement& e,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  Respiration_Percent_Peak (const Respiration_Percent_Peak& x,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  virtual Respiration_Percent_Peak*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Percent_Peak ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class T_Wave_Start: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  T_Wave_Start (const units_type&);
+
+  T_Wave_Start (const char*,
+                const units_type&);
+
+  T_Wave_Start (const ::std::string&,
+                const units_type&);
+
+  T_Wave_Start (const ::xml_schema::string&,
+                const units_type&);
+
+  T_Wave_Start (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  T_Wave_Start (const T_Wave_Start& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual T_Wave_Start*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~T_Wave_Start ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Strain_Rate_RR_Diff_Ratio: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Strain_Rate_RR_Diff_Ratio (const units_type&);
+
+  Strain_Rate_RR_Diff_Ratio (const char*,
+                             const units_type&);
+
+  Strain_Rate_RR_Diff_Ratio (const ::std::string&,
+                             const units_type&);
+
+  Strain_Rate_RR_Diff_Ratio (const ::xml_schema::string&,
+                             const units_type&);
+
+  Strain_Rate_RR_Diff_Ratio (const ::xercesc::DOMElement& e,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+  Strain_Rate_RR_Diff_Ratio (const Strain_Rate_RR_Diff_Ratio& x,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+  virtual Strain_Rate_RR_Diff_Ratio*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Strain_Rate_RR_Diff_Ratio ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pressure_Diastolic: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pressure_Diastolic (const units_type&);
+
+  Pressure_Diastolic (const char*,
+                      const units_type&);
+
+  Pressure_Diastolic (const ::std::string&,
+                      const units_type&);
+
+  Pressure_Diastolic (const ::xml_schema::string&,
+                      const units_type&);
+
+  Pressure_Diastolic (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Pressure_Diastolic (const Pressure_Diastolic& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Pressure_Diastolic*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pressure_Diastolic ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Temperature_Calibration: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Temperature_Calibration (const units_type&);
+
+  Temperature_Calibration (const char*,
+                           const units_type&);
+
+  Temperature_Calibration (const ::std::string&,
+                           const units_type&);
+
+  Temperature_Calibration (const ::xml_schema::string&,
+                           const units_type&);
+
+  Temperature_Calibration (const ::xercesc::DOMElement& e,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+  Temperature_Calibration (const Temperature_Calibration& x,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+  virtual Temperature_Calibration*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Temperature_Calibration ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Temperature: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Temperature (const units_type&);
+
+  Temperature (const char*,
+               const units_type&);
+
+  Temperature (const ::std::string&,
+               const units_type&);
+
+  Temperature (const ::xml_schema::string&,
+               const units_type&);
+
+  Temperature (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Temperature (const Temperature& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Temperature*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Temperature ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Beats_To_Average: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Beats_To_Average (const units_type&);
+
+  Respiration_Beats_To_Average (const char*,
+                                const units_type&);
+
+  Respiration_Beats_To_Average (const ::std::string&,
+                                const units_type&);
+
+  Respiration_Beats_To_Average (const ::xml_schema::string&,
+                                const units_type&);
+
+  Respiration_Beats_To_Average (const ::xercesc::DOMElement& e,
+                                ::xml_schema::flags f = 0,
+                                ::xml_schema::container* c = 0);
+
+  Respiration_Beats_To_Average (const Respiration_Beats_To_Average& x,
+                                ::xml_schema::flags f = 0,
+                                ::xml_schema::container* c = 0);
+
+  virtual Respiration_Beats_To_Average*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Beats_To_Average ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RWave_Thresh_Trigger_Percent: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RWave_Thresh_Trigger_Percent (const units_type&);
+
+  RWave_Thresh_Trigger_Percent (const char*,
+                                const units_type&);
+
+  RWave_Thresh_Trigger_Percent (const ::std::string&,
+                                const units_type&);
+
+  RWave_Thresh_Trigger_Percent (const ::xml_schema::string&,
+                                const units_type&);
+
+  RWave_Thresh_Trigger_Percent (const ::xercesc::DOMElement& e,
+                                ::xml_schema::flags f = 0,
+                                ::xml_schema::container* c = 0);
+
+  RWave_Thresh_Trigger_Percent (const RWave_Thresh_Trigger_Percent& x,
+                                ::xml_schema::flags f = 0,
+                                ::xml_schema::container* c = 0);
+
+  virtual RWave_Thresh_Trigger_Percent*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RWave_Thresh_Trigger_Percent ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Time_To_Average: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Time_To_Average (const units_type&);
+
+  Respiration_Time_To_Average (const char*,
+                               const units_type&);
+
+  Respiration_Time_To_Average (const ::std::string&,
+                               const units_type&);
+
+  Respiration_Time_To_Average (const ::xml_schema::string&,
+                               const units_type&);
+
+  Respiration_Time_To_Average (const ::xercesc::DOMElement& e,
+                               ::xml_schema::flags f = 0,
+                               ::xml_schema::container* c = 0);
+
+  Respiration_Time_To_Average (const Respiration_Time_To_Average& x,
+                               ::xml_schema::flags f = 0,
+                               ::xml_schema::container* c = 0);
+
+  virtual Respiration_Time_To_Average*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Time_To_Average ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Heart_Period: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Heart_Period (const units_type&);
+
+  Heart_Period (const char*,
+                const units_type&);
+
+  Heart_Period (const ::std::string&,
+                const units_type&);
+
+  Heart_Period (const ::xml_schema::string&,
+                const units_type&);
+
+  Heart_Period (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Heart_Period (const Heart_Period& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Heart_Period*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Heart_Period ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class ECG_Range: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  ECG_Range (const units_type&);
+
+  ECG_Range (const char*,
+             const units_type&);
+
+  ECG_Range (const ::std::string&,
+             const units_type&);
+
+  ECG_Range (const ::xml_schema::string&,
+             const units_type&);
+
+  ECG_Range (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  ECG_Range (const ECG_Range& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual ECG_Range*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~ECG_Range ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RWave_Maxima_Block_Time: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RWave_Maxima_Block_Time (const units_type&);
+
+  RWave_Maxima_Block_Time (const char*,
+                           const units_type&);
+
+  RWave_Maxima_Block_Time (const ::std::string&,
+                           const units_type&);
+
+  RWave_Maxima_Block_Time (const ::xml_schema::string&,
+                           const units_type&);
+
+  RWave_Maxima_Block_Time (const ::xercesc::DOMElement& e,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+  RWave_Maxima_Block_Time (const RWave_Maxima_Block_Time& x,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+  virtual RWave_Maxima_Block_Time*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RWave_Maxima_Block_Time ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pressure_Calibration_Level: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pressure_Calibration_Level (const units_type&);
+
+  Pressure_Calibration_Level (const char*,
+                              const units_type&);
+
+  Pressure_Calibration_Level (const ::std::string&,
+                              const units_type&);
+
+  Pressure_Calibration_Level (const ::xml_schema::string&,
+                              const units_type&);
+
+  Pressure_Calibration_Level (const ::xercesc::DOMElement& e,
+                              ::xml_schema::flags f = 0,
+                              ::xml_schema::container* c = 0);
+
+  Pressure_Calibration_Level (const Pressure_Calibration_Level& x,
+                              ::xml_schema::flags f = 0,
+                              ::xml_schema::container* c = 0);
+
+  virtual Pressure_Calibration_Level*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pressure_Calibration_Level ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class ECG_HP_Filter: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  ECG_HP_Filter (const units_type&);
+
+  ECG_HP_Filter (const char*,
+                 const units_type&);
+
+  ECG_HP_Filter (const ::std::string&,
+                 const units_type&);
+
+  ECG_HP_Filter (const ::xml_schema::string&,
+                 const units_type&);
+
+  ECG_HP_Filter (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  ECG_HP_Filter (const ECG_HP_Filter& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual ECG_HP_Filter*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~ECG_HP_Filter ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class ECG_LP_Filter: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  ECG_LP_Filter (const units_type&);
+
+  ECG_LP_Filter (const char*,
+                 const units_type&);
+
+  ECG_LP_Filter (const ::std::string&,
+                 const units_type&);
+
+  ECG_LP_Filter (const ::xml_schema::string&,
+                 const units_type&);
+
+  ECG_LP_Filter (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  ECG_LP_Filter (const ECG_LP_Filter& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual ECG_LP_Filter*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~ECG_LP_Filter ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RWave_Max_Change_Period: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RWave_Max_Change_Period (const units_type&);
+
+  RWave_Max_Change_Period (const char*,
+                           const units_type&);
+
+  RWave_Max_Change_Period (const ::std::string&,
+                           const units_type&);
+
+  RWave_Max_Change_Period (const ::xml_schema::string&,
+                           const units_type&);
+
+  RWave_Max_Change_Period (const ::xercesc::DOMElement& e,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+  RWave_Max_Change_Period (const RWave_Max_Change_Period& x,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+  virtual RWave_Max_Change_Period*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RWave_Max_Change_Period ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pressure_Calibration: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pressure_Calibration (const units_type&);
+
+  Pressure_Calibration (const char*,
+                        const units_type&);
+
+  Pressure_Calibration (const ::std::string&,
+                        const units_type&);
+
+  Pressure_Calibration (const ::xml_schema::string&,
+                        const units_type&);
+
+  Pressure_Calibration (const ::xercesc::DOMElement& e,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  Pressure_Calibration (const Pressure_Calibration& x,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  virtual Pressure_Calibration*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pressure_Calibration ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RWave_Blank_Time: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RWave_Blank_Time (const units_type&);
+
+  RWave_Blank_Time (const char*,
+                    const units_type&);
+
+  RWave_Blank_Time (const ::std::string&,
+                    const units_type&);
+
+  RWave_Blank_Time (const ::xml_schema::string&,
+                    const units_type&);
+
+  RWave_Blank_Time (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  RWave_Blank_Time (const RWave_Blank_Time& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual RWave_Blank_Time*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RWave_Blank_Time ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Magnitude_Origin: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Magnitude_Origin (const units_type&);
+
+  Magnitude_Origin (const char*,
+                    const units_type&);
+
+  Magnitude_Origin (const ::std::string&,
+                    const units_type&);
+
+  Magnitude_Origin (const ::xml_schema::string&,
+                    const units_type&);
+
+  Magnitude_Origin (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  Magnitude_Origin (const Magnitude_Origin& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual Magnitude_Origin*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Magnitude_Origin ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency_Origin: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency_Origin (const units_type&);
+
+  Frequency_Origin (const char*,
+                    const units_type&);
+
+  Frequency_Origin (const ::std::string&,
+                    const units_type&);
+
+  Frequency_Origin (const ::xml_schema::string&,
+                    const units_type&);
+
+  Frequency_Origin (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  Frequency_Origin (const Frequency_Origin& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual Frequency_Origin*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency_Origin ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Length_Origin: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Length_Origin (const units_type&);
+
+  Length_Origin (const char*,
+                 const units_type&);
+
+  Length_Origin (const ::std::string&,
+                 const units_type&);
+
+  Length_Origin (const ::xml_schema::string&,
+                 const units_type&);
+
+  Length_Origin (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  Length_Origin (const Length_Origin& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual Length_Origin*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Length_Origin ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Vertical_Scale: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Vertical_Scale (const units_type&);
+
+  Vertical_Scale (const char*,
+                  const units_type&);
+
+  Vertical_Scale (const ::std::string&,
+                  const units_type&);
+
+  Vertical_Scale (const ::xml_schema::string&,
+                  const units_type&);
+
+  Vertical_Scale (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Vertical_Scale (const Vertical_Scale& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Vertical_Scale*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Vertical_Scale ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class SamplesPerSec: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  SamplesPerSec (const units_type&);
+
+  SamplesPerSec (const char*,
+                 const units_type&);
+
+  SamplesPerSec (const ::std::string&,
+                 const units_type&);
+
+  SamplesPerSec (const ::xml_schema::string&,
+                 const units_type&);
+
+  SamplesPerSec (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  SamplesPerSec (const SamplesPerSec& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual SamplesPerSec*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~SamplesPerSec ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Magnitude_Height: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Magnitude_Height (const units_type&);
+
+  Magnitude_Height (const char*,
+                    const units_type&);
+
+  Magnitude_Height (const ::std::string&,
+                    const units_type&);
+
+  Magnitude_Height (const ::xml_schema::string&,
+                    const units_type&);
+
+  Magnitude_Height (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  Magnitude_Height (const Magnitude_Height& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual Magnitude_Height*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Magnitude_Height ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Length_Length: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Length_Length (const units_type&);
+
+  Length_Length (const char*,
+                 const units_type&);
+
+  Length_Length (const ::std::string&,
+                 const units_type&);
+
+  Length_Length (const ::xml_schema::string&,
+                 const units_type&);
+
+  Length_Length (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  Length_Length (const Length_Length& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual Length_Length*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Length_Length ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency_Length: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency_Length (const units_type&);
+
+  Frequency_Length (const char*,
+                    const units_type&);
+
+  Frequency_Length (const ::std::string&,
+                    const units_type&);
+
+  Frequency_Length (const ::xml_schema::string&,
+                    const units_type&);
+
+  Frequency_Length (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  Frequency_Length (const Frequency_Length& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual Frequency_Length*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency_Length ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class SV_Center: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  SV_Center (const units_type&);
+
+  SV_Center (const char*,
+             const units_type&);
+
+  SV_Center (const ::std::string&,
+             const units_type&);
+
+  SV_Center (const ::xml_schema::string&,
+             const units_type&);
+
+  SV_Center (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  SV_Center (const SV_Center& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual SV_Center*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~SV_Center ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RF_Path_15Mhz_Time_Correction: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RF_Path_15Mhz_Time_Correction (const units_type&);
+
+  RF_Path_15Mhz_Time_Correction (const char*,
+                                 const units_type&);
+
+  RF_Path_15Mhz_Time_Correction (const ::std::string&,
+                                 const units_type&);
+
+  RF_Path_15Mhz_Time_Correction (const ::xml_schema::string&,
+                                 const units_type&);
+
+  RF_Path_15Mhz_Time_Correction (const ::xercesc::DOMElement& e,
+                                 ::xml_schema::flags f = 0,
+                                 ::xml_schema::container* c = 0);
+
+  RF_Path_15Mhz_Time_Correction (const RF_Path_15Mhz_Time_Correction& x,
+                                 ::xml_schema::flags f = 0,
+                                 ::xml_schema::container* c = 0);
+
+  virtual RF_Path_15Mhz_Time_Correction*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RF_Path_15Mhz_Time_Correction ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RF_Path_23Mhz_Time_Correction: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RF_Path_23Mhz_Time_Correction (const units_type&);
+
+  RF_Path_23Mhz_Time_Correction (const char*,
+                                 const units_type&);
+
+  RF_Path_23Mhz_Time_Correction (const ::std::string&,
+                                 const units_type&);
+
+  RF_Path_23Mhz_Time_Correction (const ::xml_schema::string&,
+                                 const units_type&);
+
+  RF_Path_23Mhz_Time_Correction (const ::xercesc::DOMElement& e,
+                                 ::xml_schema::flags f = 0,
+                                 ::xml_schema::container* c = 0);
+
+  RF_Path_23Mhz_Time_Correction (const RF_Path_23Mhz_Time_Correction& x,
+                                 ::xml_schema::flags f = 0,
+                                 ::xml_schema::container* c = 0);
+
+  virtual RF_Path_23Mhz_Time_Correction*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RF_Path_23Mhz_Time_Correction ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class SV_Length_Limits: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  SV_Length_Limits (const units_type&);
+
+  SV_Length_Limits (const char*,
+                    const units_type&);
+
+  SV_Length_Limits (const ::std::string&,
+                    const units_type&);
+
+  SV_Length_Limits (const ::xml_schema::string&,
+                    const units_type&);
+
+  SV_Length_Limits (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  SV_Length_Limits (const SV_Length_Limits& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual SV_Length_Limits*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~SV_Length_Limits ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Transmit_Length: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Transmit_Length (const units_type&);
+
+  V_Transmit_Length (const char*,
+                     const units_type&);
+
+  V_Transmit_Length (const ::std::string&,
+                     const units_type&);
+
+  V_Transmit_Length (const ::xml_schema::string&,
+                     const units_type&);
+
+  V_Transmit_Length (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  V_Transmit_Length (const V_Transmit_Length& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual V_Transmit_Length*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Transmit_Length ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Pulse_Rep_Freq: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Pulse_Rep_Freq (const units_type&);
+
+  V_Pulse_Rep_Freq (const char*,
+                    const units_type&);
+
+  V_Pulse_Rep_Freq (const ::std::string&,
+                    const units_type&);
+
+  V_Pulse_Rep_Freq (const ::xml_schema::string&,
+                    const units_type&);
+
+  V_Pulse_Rep_Freq (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  V_Pulse_Rep_Freq (const V_Pulse_Rep_Freq& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual V_Pulse_Rep_Freq*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Pulse_Rep_Freq ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency2: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency2 (const units_type&);
+
+  Frequency2 (const char*,
+              const units_type&);
+
+  Frequency2 (const ::std::string&,
+              const units_type&);
+
+  Frequency2 (const ::xml_schema::string&,
+              const units_type&);
+
+  Frequency2 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Frequency2 (const Frequency2& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Frequency2*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency2 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Unblank_Time: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Unblank_Time (const units_type&);
+
+  V_Unblank_Time (const char*,
+                  const units_type&);
+
+  V_Unblank_Time (const ::std::string&,
+                  const units_type&);
+
+  V_Unblank_Time (const ::xml_schema::string&,
+                  const units_type&);
+
+  V_Unblank_Time (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  V_Unblank_Time (const V_Unblank_Time& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual V_Unblank_Time*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Unblank_Time ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Frequency: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Frequency (const units_type&);
+
+  V_Frequency (const char*,
+               const units_type&);
+
+  V_Frequency (const ::std::string&,
+               const units_type&);
+
+  V_Frequency (const ::xml_schema::string&,
+               const units_type&);
+
+  V_Frequency (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  V_Frequency (const V_Frequency& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual V_Frequency*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Frequency ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pulse_Rep_Frequency: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pulse_Rep_Frequency (const units_type&);
+
+  Pulse_Rep_Frequency (const char*,
+                       const units_type&);
+
+  Pulse_Rep_Frequency (const ::std::string&,
+                       const units_type&);
+
+  Pulse_Rep_Frequency (const ::xml_schema::string&,
+                       const units_type&);
+
+  Pulse_Rep_Frequency (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  Pulse_Rep_Frequency (const Pulse_Rep_Frequency& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual Pulse_Rep_Frequency*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pulse_Rep_Frequency ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Trig_Tbl_Trigs: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Trig_Tbl_Trigs (const units_type&);
+
+  Trig_Tbl_Trigs (const char*,
+                  const units_type&);
+
+  Trig_Tbl_Trigs (const ::std::string&,
+                  const units_type&);
+
+  Trig_Tbl_Trigs (const ::xml_schema::string&,
+                  const units_type&);
+
+  Trig_Tbl_Trigs (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Trig_Tbl_Trigs (const Trig_Tbl_Trigs& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Trig_Tbl_Trigs*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Trig_Tbl_Trigs ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Unblank_Cycles: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Unblank_Cycles (const units_type&);
+
+  Unblank_Cycles (const char*,
+                  const units_type&);
+
+  Unblank_Cycles (const ::std::string&,
+                  const units_type&);
+
+  Unblank_Cycles (const ::xml_schema::string&,
+                  const units_type&);
+
+  Unblank_Cycles (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Unblank_Cycles (const Unblank_Cycles& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Unblank_Cycles*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Unblank_Cycles ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Unblank_Time: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Unblank_Time (const units_type&);
+
+  Unblank_Time (const char*,
+                const units_type&);
+
+  Unblank_Time (const ::std::string&,
+                const units_type&);
+
+  Unblank_Time (const ::xml_schema::string&,
+                const units_type&);
+
+  Unblank_Time (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Unblank_Time (const Unblank_Time& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Unblank_Time*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Unblank_Time ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Attenuation: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Attenuation (const units_type&);
+
+  Attenuation (const char*,
+               const units_type&);
+
+  Attenuation (const ::std::string&,
+               const units_type&);
+
+  Attenuation (const ::xml_schema::string&,
+               const units_type&);
+
+  Attenuation (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Attenuation (const Attenuation& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Attenuation*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Attenuation ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Power: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Power (const units_type&);
+
+  V_Power (const char*,
+           const units_type&);
+
+  V_Power (const ::std::string&,
+           const units_type&);
+
+  V_Power (const ::xml_schema::string&,
+           const units_type&);
+
+  V_Power (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  V_Power (const V_Power& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  virtual V_Power*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Power ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Scan_Distance: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Scan_Distance (const units_type&);
+
+  Scan_Distance (const char*,
+                 const units_type&);
+
+  Scan_Distance (const ::std::string&,
+                 const units_type&);
+
+  Scan_Distance (const ::xml_schema::string&,
+                 const units_type&);
+
+  Scan_Distance (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  Scan_Distance (const Scan_Distance& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual Scan_Distance*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Scan_Distance ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Step_Size: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Step_Size (const units_type&);
+
+  Step_Size (const char*,
+             const units_type&);
+
+  Step_Size (const ::std::string&,
+             const units_type&);
+
+  Step_Size (const ::xml_schema::string&,
+             const units_type&);
+
+  Step_Size (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  Step_Size (const Step_Size& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual Step_Size*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Step_Size ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Ref_Probe_Focal_Length: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Ref_Probe_Focal_Length (const units_type&);
+
+  Ref_Probe_Focal_Length (const char*,
+                          const units_type&);
+
+  Ref_Probe_Focal_Length (const ::std::string&,
+                          const units_type&);
+
+  Ref_Probe_Focal_Length (const ::xml_schema::string&,
+                          const units_type&);
+
+  Ref_Probe_Focal_Length (const ::xercesc::DOMElement& e,
+                          ::xml_schema::flags f = 0,
+                          ::xml_schema::container* c = 0);
+
+  Ref_Probe_Focal_Length (const Ref_Probe_Focal_Length& x,
+                          ::xml_schema::flags f = 0,
+                          ::xml_schema::container* c = 0);
+
+  virtual Ref_Probe_Focal_Length*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Ref_Probe_Focal_Length ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Ref_Tx_Frequency: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Ref_Tx_Frequency (const units_type&);
+
+  Ref_Tx_Frequency (const char*,
+                    const units_type&);
+
+  Ref_Tx_Frequency (const ::std::string&,
+                    const units_type&);
+
+  Ref_Tx_Frequency (const ::xml_schema::string&,
+                    const units_type&);
+
+  Ref_Tx_Frequency (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  Ref_Tx_Frequency (const Ref_Tx_Frequency& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual Ref_Tx_Frequency*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Ref_Tx_Frequency ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Normalized_Height: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Normalized_Height (const units_type&);
+
+  Normalized_Height (const char*,
+                     const units_type&);
+
+  Normalized_Height (const ::std::string&,
+                     const units_type&);
+
+  Normalized_Height (const ::xml_schema::string&,
+                     const units_type&);
+
+  Normalized_Height (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  Normalized_Height (const Normalized_Height& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual Normalized_Height*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Normalized_Height ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Normalized_Origin: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Normalized_Origin (const units_type&);
+
+  Normalized_Origin (const char*,
+                     const units_type&);
+
+  Normalized_Origin (const ::std::string&,
+                     const units_type&);
+
+  Normalized_Origin (const ::xml_schema::string&,
+                     const units_type&);
+
+  Normalized_Origin (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  Normalized_Origin (const Normalized_Origin& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual Normalized_Origin*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Normalized_Origin ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Ref_Tx_Power: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Ref_Tx_Power (const units_type&);
+
+  Ref_Tx_Power (const char*,
+                const units_type&);
+
+  Ref_Tx_Power (const ::std::string&,
+                const units_type&);
+
+  Ref_Tx_Power (const ::xml_schema::string&,
+                const units_type&);
+
+  Ref_Tx_Power (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Ref_Tx_Power (const Ref_Tx_Power& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Ref_Tx_Power*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Ref_Tx_Power ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Freq_Range_Max: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Freq_Range_Max (const units_type&);
+
+  Freq_Range_Max (const char*,
+                  const units_type&);
+
+  Freq_Range_Max (const ::std::string&,
+                  const units_type&);
+
+  Freq_Range_Max (const ::xml_schema::string&,
+                  const units_type&);
+
+  Freq_Range_Max (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Freq_Range_Max (const Freq_Range_Max& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Freq_Range_Max*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Freq_Range_Max ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Freq_Range_Min: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Freq_Range_Min (const units_type&);
+
+  Freq_Range_Min (const char*,
+                  const units_type&);
+
+  Freq_Range_Min (const ::std::string&,
+                  const units_type&);
+
+  Freq_Range_Min (const ::xml_schema::string&,
+                  const units_type&);
+
+  Freq_Range_Min (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Freq_Range_Min (const Freq_Range_Min& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Freq_Range_Min*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Freq_Range_Min ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Sector_Width_Target: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Sector_Width_Target (const units_type&);
+
+  Sector_Width_Target (const char*,
+                       const units_type&);
+
+  Sector_Width_Target (const ::std::string&,
+                       const units_type&);
+
+  Sector_Width_Target (const ::xml_schema::string&,
+                       const units_type&);
+
+  Sector_Width_Target (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  Sector_Width_Target (const Sector_Width_Target& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual Sector_Width_Target*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sector_Width_Target ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RF_Gain: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RF_Gain (const units_type&);
+
+  RF_Gain (const char*,
+           const units_type&);
+
+  RF_Gain (const ::std::string&,
+           const units_type&);
+
+  RF_Gain (const ::xml_schema::string&,
+           const units_type&);
+
+  RF_Gain (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  RF_Gain (const RF_Gain& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  virtual RF_Gain*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RF_Gain ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Digi_Depth_Imaging: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Digi_Depth_Imaging (const units_type&);
+
+  V_Digi_Depth_Imaging (const char*,
+                        const units_type&);
+
+  V_Digi_Depth_Imaging (const ::std::string&,
+                        const units_type&);
+
+  V_Digi_Depth_Imaging (const ::xml_schema::string&,
+                        const units_type&);
+
+  V_Digi_Depth_Imaging (const ::xercesc::DOMElement& e,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  V_Digi_Depth_Imaging (const V_Digi_Depth_Imaging& x,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  virtual V_Digi_Depth_Imaging*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Digi_Depth_Imaging ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Test_Freq: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Test_Freq (const units_type&);
+
+  Test_Freq (const char*,
+             const units_type&);
+
+  Test_Freq (const ::std::string&,
+             const units_type&);
+
+  Test_Freq (const ::xml_schema::string&,
+             const units_type&);
+
+  Test_Freq (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  Test_Freq (const Test_Freq& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual Test_Freq*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Test_Freq ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class IF_Filter: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  IF_Filter (const units_type&);
+
+  IF_Filter (const char*,
+             const units_type&);
+
+  IF_Filter (const ::std::string&,
+             const units_type&);
+
+  IF_Filter (const ::xml_schema::string&,
+             const units_type&);
+
+  IF_Filter (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  IF_Filter (const IF_Filter& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual IF_Filter*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~IF_Filter ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Track_Width: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Track_Width (const units_type&);
+
+  Track_Width (const char*,
+               const units_type&);
+
+  Track_Width (const ::std::string&,
+               const units_type&);
+
+  Track_Width (const ::xml_schema::string&,
+               const units_type&);
+
+  Track_Width (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Track_Width (const Track_Width& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Track_Width*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Track_Width ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_IF_Filter: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_IF_Filter (const units_type&);
+
+  V_IF_Filter (const char*,
+               const units_type&);
+
+  V_IF_Filter (const ::std::string&,
+               const units_type&);
+
+  V_IF_Filter (const ::xml_schema::string&,
+               const units_type&);
+
+  V_IF_Filter (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  V_IF_Filter (const V_IF_Filter& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual V_IF_Filter*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_IF_Filter ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class HP_Clutter: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  HP_Clutter (const units_type&);
+
+  HP_Clutter (const char*,
+              const units_type&);
+
+  HP_Clutter (const ::std::string&,
+              const units_type&);
+
+  HP_Clutter (const ::xml_schema::string&,
+              const units_type&);
+
+  HP_Clutter (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  HP_Clutter (const HP_Clutter& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual HP_Clutter*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~HP_Clutter ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RF_Filter: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RF_Filter (const units_type&);
+
+  RF_Filter (const char*,
+             const units_type&);
+
+  RF_Filter (const ::std::string&,
+             const units_type&);
+
+  RF_Filter (const ::xml_schema::string&,
+             const units_type&);
+
+  RF_Filter (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  RF_Filter (const RF_Filter& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual RF_Filter*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RF_Filter ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_RF_Filter: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_RF_Filter (const units_type&);
+
+  V_RF_Filter (const char*,
+               const units_type&);
+
+  V_RF_Filter (const ::std::string&,
+               const units_type&);
+
+  V_RF_Filter (const ::xml_schema::string&,
+               const units_type&);
+
+  V_RF_Filter (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  V_RF_Filter (const V_RF_Filter& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual V_RF_Filter*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_RF_Filter ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Delay: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Delay (const units_type&);
+
+  Delay (const char*,
+         const units_type&);
+
+  Delay (const ::std::string&,
+         const units_type&);
+
+  Delay (const ::xml_schema::string&,
+         const units_type&);
+
+  Delay (const ::xercesc::DOMElement& e,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  Delay (const Delay& x,
+         ::xml_schema::flags f = 0,
+         ::xml_schema::container* c = 0);
+
+  virtual Delay*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Delay ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class AD_Gate_Width: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  AD_Gate_Width (const units_type&);
+
+  AD_Gate_Width (const char*,
+                 const units_type&);
+
+  AD_Gate_Width (const ::std::string&,
+                 const units_type&);
+
+  AD_Gate_Width (const ::xml_schema::string&,
+                 const units_type&);
+
+  AD_Gate_Width (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  AD_Gate_Width (const AD_Gate_Width& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual AD_Gate_Width*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~AD_Gate_Width ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency3: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency3 (const units_type&);
+
+  Frequency3 (const char*,
+              const units_type&);
+
+  Frequency3 (const ::std::string&,
+              const units_type&);
+
+  Frequency3 (const ::xml_schema::string&,
+              const units_type&);
+
+  Frequency3 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Frequency3 (const Frequency3& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Frequency3*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency3 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Frequency1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Frequency1 (const units_type&);
+
+  V_Frequency1 (const char*,
+                const units_type&);
+
+  V_Frequency1 (const ::std::string&,
+                const units_type&);
+
+  V_Frequency1 (const ::xml_schema::string&,
+                const units_type&);
+
+  V_Frequency1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  V_Frequency1 (const V_Frequency1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual V_Frequency1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Frequency1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Field_Of_View: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Field_Of_View (const units_type&);
+
+  V_Field_Of_View (const char*,
+                   const units_type&);
+
+  V_Field_Of_View (const ::std::string&,
+                   const units_type&);
+
+  V_Field_Of_View (const ::xml_schema::string&,
+                   const units_type&);
+
+  V_Field_Of_View (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  V_Field_Of_View (const V_Field_Of_View& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual V_Field_Of_View*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Field_Of_View ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Sector_Height_Target: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Sector_Height_Target (const units_type&);
+
+  Sector_Height_Target (const char*,
+                        const units_type&);
+
+  Sector_Height_Target (const ::std::string&,
+                        const units_type&);
+
+  Sector_Height_Target (const ::xml_schema::string&,
+                        const units_type&);
+
+  Sector_Height_Target (const ::xercesc::DOMElement& e,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  Sector_Height_Target (const Sector_Height_Target& x,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  virtual Sector_Height_Target*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sector_Height_Target ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class AD_TestIn: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  AD_TestIn (const units_type&);
+
+  AD_TestIn (const char*,
+             const units_type&);
+
+  AD_TestIn (const ::std::string&,
+             const units_type&);
+
+  AD_TestIn (const ::xml_schema::string&,
+             const units_type&);
+
+  AD_TestIn (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  AD_TestIn (const AD_TestIn& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual AD_TestIn*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~AD_TestIn ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Delay_Length: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Delay_Length (const units_type&);
+
+  V_Delay_Length (const char*,
+                  const units_type&);
+
+  V_Delay_Length (const ::std::string&,
+                  const units_type&);
+
+  V_Delay_Length (const ::xml_schema::string&,
+                  const units_type&);
+
+  V_Delay_Length (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  V_Delay_Length (const V_Delay_Length& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual V_Delay_Length*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Delay_Length ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Window_Time: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Window_Time (const units_type&);
+
+  Window_Time (const char*,
+               const units_type&);
+
+  Window_Time (const ::std::string&,
+               const units_type&);
+
+  Window_Time (const ::xml_schema::string&,
+               const units_type&);
+
+  Window_Time (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Window_Time (const Window_Time& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Window_Time*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Window_Time ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Sample_Time1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Sample_Time1 (const units_type&);
+
+  Sample_Time1 (const char*,
+                const units_type&);
+
+  Sample_Time1 (const ::std::string&,
+                const units_type&);
+
+  Sample_Time1 (const ::xml_schema::string&,
+                const units_type&);
+
+  Sample_Time1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Sample_Time1 (const Sample_Time1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Sample_Time1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sample_Time1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Focal_Length1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Focal_Length1 (const units_type&);
+
+  Focal_Length1 (const char*,
+                 const units_type&);
+
+  Focal_Length1 (const ::std::string&,
+                 const units_type&);
+
+  Focal_Length1 (const ::xml_schema::string&,
+                 const units_type&);
+
+  Focal_Length1 (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  Focal_Length1 (const Focal_Length1& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual Focal_Length1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Focal_Length1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Default_Scan_Speed1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Default_Scan_Speed1 (const units_type&);
+
+  Default_Scan_Speed1 (const char*,
+                       const units_type&);
+
+  Default_Scan_Speed1 (const ::std::string&,
+                       const units_type&);
+
+  Default_Scan_Speed1 (const ::xml_schema::string&,
+                       const units_type&);
+
+  Default_Scan_Speed1 (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  Default_Scan_Speed1 (const Default_Scan_Speed1& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual Default_Scan_Speed1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Default_Scan_Speed1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Cutoff_Scan_Speed1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Cutoff_Scan_Speed1 (const units_type&);
+
+  Cutoff_Scan_Speed1 (const char*,
+                      const units_type&);
+
+  Cutoff_Scan_Speed1 (const ::std::string&,
+                      const units_type&);
+
+  Cutoff_Scan_Speed1 (const ::xml_schema::string&,
+                      const units_type&);
+
+  Cutoff_Scan_Speed1 (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Cutoff_Scan_Speed1 (const Cutoff_Scan_Speed1& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Cutoff_Scan_Speed1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Cutoff_Scan_Speed1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency_Low1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency_Low1 (const units_type&);
+
+  Frequency_Low1 (const char*,
+                  const units_type&);
+
+  Frequency_Low1 (const ::std::string&,
+                  const units_type&);
+
+  Frequency_Low1 (const ::xml_schema::string&,
+                  const units_type&);
+
+  Frequency_Low1 (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Frequency_Low1 (const Frequency_Low1& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Frequency_Low1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency_Low1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Default_FOV1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Default_FOV1 (const units_type&);
+
+  Default_FOV1 (const char*,
+                const units_type&);
+
+  Default_FOV1 (const ::std::string&,
+                const units_type&);
+
+  Default_FOV1 (const ::xml_schema::string&,
+                const units_type&);
+
+  Default_FOV1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Default_FOV1 (const Default_FOV1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Default_FOV1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Default_FOV1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency_Doppler_Default1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency_Doppler_Default1 (const units_type&);
+
+  Frequency_Doppler_Default1 (const char*,
+                              const units_type&);
+
+  Frequency_Doppler_Default1 (const ::std::string&,
+                              const units_type&);
+
+  Frequency_Doppler_Default1 (const ::xml_schema::string&,
+                              const units_type&);
+
+  Frequency_Doppler_Default1 (const ::xercesc::DOMElement& e,
+                              ::xml_schema::flags f = 0,
+                              ::xml_schema::container* c = 0);
+
+  Frequency_Doppler_Default1 (const Frequency_Doppler_Default1& x,
+                              ::xml_schema::flags f = 0,
+                              ::xml_schema::container* c = 0);
+
+  virtual Frequency_Doppler_Default1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency_Doppler_Default1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Axial_Res1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Axial_Res1 (const units_type&);
+
+  Axial_Res1 (const char*,
+              const units_type&);
+
+  Axial_Res1 (const ::std::string&,
+              const units_type&);
+
+  Axial_Res1 (const ::xml_schema::string&,
+              const units_type&);
+
+  Axial_Res1 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Axial_Res1 (const Axial_Res1& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Axial_Res1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Axial_Res1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pivot_Encoder_Dist1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pivot_Encoder_Dist1 (const units_type&);
+
+  Pivot_Encoder_Dist1 (const char*,
+                       const units_type&);
+
+  Pivot_Encoder_Dist1 (const ::std::string&,
+                       const units_type&);
+
+  Pivot_Encoder_Dist1 (const ::xml_schema::string&,
+                       const units_type&);
+
+  Pivot_Encoder_Dist1 (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  Pivot_Encoder_Dist1 (const Pivot_Encoder_Dist1& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual Pivot_Encoder_Dist1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pivot_Encoder_Dist1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Encoder_Range_Max1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Encoder_Range_Max1 (const units_type&);
+
+  Encoder_Range_Max1 (const char*,
+                      const units_type&);
+
+  Encoder_Range_Max1 (const ::std::string&,
+                      const units_type&);
+
+  Encoder_Range_Max1 (const ::xml_schema::string&,
+                      const units_type&);
+
+  Encoder_Range_Max1 (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Encoder_Range_Max1 (const Encoder_Range_Max1& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Encoder_Range_Max1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Encoder_Range_Max1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Encoder_Range_Min1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Encoder_Range_Min1 (const units_type&);
+
+  Encoder_Range_Min1 (const char*,
+                      const units_type&);
+
+  Encoder_Range_Min1 (const ::std::string&,
+                      const units_type&);
+
+  Encoder_Range_Min1 (const ::xml_schema::string&,
+                      const units_type&);
+
+  Encoder_Range_Min1 (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Encoder_Range_Min1 (const Encoder_Range_Min1& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Encoder_Range_Min1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Encoder_Range_Min1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Lateral_Res1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Lateral_Res1 (const units_type&);
+
+  Lateral_Res1 (const char*,
+                const units_type&);
+
+  Lateral_Res1 (const ::std::string&,
+                const units_type&);
+
+  Lateral_Res1 (const ::xml_schema::string&,
+                const units_type&);
+
+  Lateral_Res1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Lateral_Res1 (const Lateral_Res1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Lateral_Res1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Lateral_Res1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Max_Scan_Distance1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Max_Scan_Distance1 (const units_type&);
+
+  Max_Scan_Distance1 (const char*,
+                      const units_type&);
+
+  Max_Scan_Distance1 (const ::std::string&,
+                      const units_type&);
+
+  Max_Scan_Distance1 (const ::xml_schema::string&,
+                      const units_type&);
+
+  Max_Scan_Distance1 (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Max_Scan_Distance1 (const Max_Scan_Distance1& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Max_Scan_Distance1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Max_Scan_Distance1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Default_Rx_Gain1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Default_Rx_Gain1 (const units_type&);
+
+  Default_Rx_Gain1 (const char*,
+                    const units_type&);
+
+  Default_Rx_Gain1 (const ::std::string&,
+                    const units_type&);
+
+  Default_Rx_Gain1 (const ::xml_schema::string&,
+                    const units_type&);
+
+  Default_Rx_Gain1 (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  Default_Rx_Gain1 (const Default_Rx_Gain1& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual Default_Rx_Gain1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Default_Rx_Gain1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency_High1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency_High1 (const units_type&);
+
+  Frequency_High1 (const char*,
+                   const units_type&);
+
+  Frequency_High1 (const ::std::string&,
+                   const units_type&);
+
+  Frequency_High1 (const ::xml_schema::string&,
+                   const units_type&);
+
+  Frequency_High1 (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  Frequency_High1 (const Frequency_High1& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual Frequency_High1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency_High1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Scan_Speeds1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Scan_Speeds1 (const units_type&);
+
+  Scan_Speeds1 (const char*,
+                const units_type&);
+
+  Scan_Speeds1 (const ::std::string&,
+                const units_type&);
+
+  Scan_Speeds1 (const ::xml_schema::string&,
+                const units_type&);
+
+  Scan_Speeds1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Scan_Speeds1 (const Scan_Speeds1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Scan_Speeds1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Scan_Speeds1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Filter_Doppler_Cutoff1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Filter_Doppler_Cutoff1 (const units_type&);
+
+  Filter_Doppler_Cutoff1 (const char*,
+                          const units_type&);
+
+  Filter_Doppler_Cutoff1 (const ::std::string&,
+                          const units_type&);
+
+  Filter_Doppler_Cutoff1 (const ::xml_schema::string&,
+                          const units_type&);
+
+  Filter_Doppler_Cutoff1 (const ::xercesc::DOMElement& e,
+                          ::xml_schema::flags f = 0,
+                          ::xml_schema::container* c = 0);
+
+  Filter_Doppler_Cutoff1 (const Filter_Doppler_Cutoff1& x,
+                          ::xml_schema::flags f = 0,
+                          ::xml_schema::container* c = 0);
+
+  virtual Filter_Doppler_Cutoff1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Filter_Doppler_Cutoff1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency_Doppler_Low1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency_Doppler_Low1 (const units_type&);
+
+  Frequency_Doppler_Low1 (const char*,
+                          const units_type&);
+
+  Frequency_Doppler_Low1 (const ::std::string&,
+                          const units_type&);
+
+  Frequency_Doppler_Low1 (const ::xml_schema::string&,
+                          const units_type&);
+
+  Frequency_Doppler_Low1 (const ::xercesc::DOMElement& e,
+                          ::xml_schema::flags f = 0,
+                          ::xml_schema::container* c = 0);
+
+  Frequency_Doppler_Low1 (const Frequency_Doppler_Low1& x,
+                          ::xml_schema::flags f = 0,
+                          ::xml_schema::container* c = 0);
+
+  virtual Frequency_Doppler_Low1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency_Doppler_Low1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pivot_Transducer_Face_Dist1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pivot_Transducer_Face_Dist1 (const units_type&);
+
+  Pivot_Transducer_Face_Dist1 (const char*,
+                               const units_type&);
+
+  Pivot_Transducer_Face_Dist1 (const ::std::string&,
+                               const units_type&);
+
+  Pivot_Transducer_Face_Dist1 (const ::xml_schema::string&,
+                               const units_type&);
+
+  Pivot_Transducer_Face_Dist1 (const ::xercesc::DOMElement& e,
+                               ::xml_schema::flags f = 0,
+                               ::xml_schema::container* c = 0);
+
+  Pivot_Transducer_Face_Dist1 (const Pivot_Transducer_Face_Dist1& x,
+                               ::xml_schema::flags f = 0,
+                               ::xml_schema::container* c = 0);
+
+  virtual Pivot_Transducer_Face_Dist1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pivot_Transducer_Face_Dist1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Filter_Doppler1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Filter_Doppler1 (const units_type&);
+
+  Filter_Doppler1 (const char*,
+                   const units_type&);
+
+  Filter_Doppler1 (const ::std::string&,
+                   const units_type&);
+
+  Filter_Doppler1 (const ::xml_schema::string&,
+                   const units_type&);
+
+  Filter_Doppler1 (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  Filter_Doppler1 (const Filter_Doppler1& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual Filter_Doppler1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Filter_Doppler1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency4: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency4 (const units_type&);
+
+  Frequency4 (const char*,
+              const units_type&);
+
+  Frequency4 (const ::std::string&,
+              const units_type&);
+
+  Frequency4 (const ::xml_schema::string&,
+              const units_type&);
+
+  Frequency4 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Frequency4 (const Frequency4& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Frequency4*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency4 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Encoder_Separation1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Encoder_Separation1 (const units_type&);
+
+  Encoder_Separation1 (const char*,
+                       const units_type&);
+
+  Encoder_Separation1 (const ::std::string&,
+                       const units_type&);
+
+  Encoder_Separation1 (const ::xml_schema::string&,
+                       const units_type&);
+
+  Encoder_Separation1 (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  Encoder_Separation1 (const Encoder_Separation1& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual Encoder_Separation1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Encoder_Separation1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Overshoot1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Overshoot1 (const units_type&);
+
+  Overshoot1 (const char*,
+              const units_type&);
+
+  Overshoot1 (const ::std::string&,
+              const units_type&);
+
+  Overshoot1 (const ::xml_schema::string&,
+              const units_type&);
+
+  Overshoot1 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Overshoot1 (const Overshoot1& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Overshoot1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Overshoot1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Filter1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Filter1 (const units_type&);
+
+  Filter1 (const char*,
+           const units_type&);
+
+  Filter1 (const ::std::string&,
+           const units_type&);
+
+  Filter1 (const ::xml_schema::string&,
+           const units_type&);
+
+  Filter1 (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  Filter1 (const Filter1& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  virtual Filter1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Filter1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Default_Rx_Gain_Doppler1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Default_Rx_Gain_Doppler1 (const units_type&);
+
+  Default_Rx_Gain_Doppler1 (const char*,
+                            const units_type&);
+
+  Default_Rx_Gain_Doppler1 (const ::std::string&,
+                            const units_type&);
+
+  Default_Rx_Gain_Doppler1 (const ::xml_schema::string&,
+                            const units_type&);
+
+  Default_Rx_Gain_Doppler1 (const ::xercesc::DOMElement& e,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  Default_Rx_Gain_Doppler1 (const Default_Rx_Gain_Doppler1& x,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  virtual Default_Rx_Gain_Doppler1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Default_Rx_Gain_Doppler1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Filter_Doppler_Low1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Filter_Doppler_Low1 (const units_type&);
+
+  Filter_Doppler_Low1 (const char*,
+                       const units_type&);
+
+  Filter_Doppler_Low1 (const ::std::string&,
+                       const units_type&);
+
+  Filter_Doppler_Low1 (const ::xml_schema::string&,
+                       const units_type&);
+
+  Filter_Doppler_Low1 (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  Filter_Doppler_Low1 (const Filter_Doppler_Low1& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual Filter_Doppler_Low1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Filter_Doppler_Low1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency_Doppler1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency_Doppler1 (const units_type&);
+
+  Frequency_Doppler1 (const char*,
+                      const units_type&);
+
+  Frequency_Doppler1 (const ::std::string&,
+                      const units_type&);
+
+  Frequency_Doppler1 (const ::xml_schema::string&,
+                      const units_type&);
+
+  Frequency_Doppler1 (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Frequency_Doppler1 (const Frequency_Doppler1& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Frequency_Doppler1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency_Doppler1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Filter_High1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Filter_High1 (const units_type&);
+
+  Filter_High1 (const char*,
+                const units_type&);
+
+  Filter_High1 (const ::std::string&,
+                const units_type&);
+
+  Filter_High1 (const ::xml_schema::string&,
+                const units_type&);
+
+  Filter_High1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Filter_High1 (const Filter_High1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Filter_High1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Filter_High1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Motor_Overhead1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Motor_Overhead1 (const units_type&);
+
+  Motor_Overhead1 (const char*,
+                   const units_type&);
+
+  Motor_Overhead1 (const ::std::string&,
+                   const units_type&);
+
+  Motor_Overhead1 (const ::xml_schema::string&,
+                   const units_type&);
+
+  Motor_Overhead1 (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  Motor_Overhead1 (const Motor_Overhead1& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual Motor_Overhead1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Motor_Overhead1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Filter_Low1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Filter_Low1 (const units_type&);
+
+  Filter_Low1 (const char*,
+               const units_type&);
+
+  Filter_Low1 (const ::std::string&,
+               const units_type&);
+
+  Filter_Low1 (const ::xml_schema::string&,
+               const units_type&);
+
+  Filter_Low1 (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Filter_Low1 (const Filter_Low1& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Filter_Low1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Filter_Low1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Buffer_Size1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Buffer_Size1 (const units_type&);
+
+  Buffer_Size1 (const char*,
+                const units_type&);
+
+  Buffer_Size1 (const ::std::string&,
+                const units_type&);
+
+  Buffer_Size1 (const ::xml_schema::string&,
+                const units_type&);
+
+  Buffer_Size1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Buffer_Size1 (const Buffer_Size1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Buffer_Size1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Buffer_Size1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class BMode_Size_Default1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  BMode_Size_Default1 (const units_type&);
+
+  BMode_Size_Default1 (const char*,
+                       const units_type&);
+
+  BMode_Size_Default1 (const ::std::string&,
+                       const units_type&);
+
+  BMode_Size_Default1 (const ::xml_schema::string&,
+                       const units_type&);
+
+  BMode_Size_Default1 (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  BMode_Size_Default1 (const BMode_Size_Default1& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual BMode_Size_Default1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~BMode_Size_Default1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Overlay_Mode: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Overlay_Mode (const units_type&);
+
+  Overlay_Mode (const char*,
+                const units_type&);
+
+  Overlay_Mode (const ::std::string&,
+                const units_type&);
+
+  Overlay_Mode (const ::xml_schema::string&,
+                const units_type&);
+
+  Overlay_Mode (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Overlay_Mode (const Overlay_Mode& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Overlay_Mode*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Overlay_Mode ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Refresh_Rate1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Refresh_Rate1 (const units_type&);
+
+  Refresh_Rate1 (const char*,
+                 const units_type&);
+
+  Refresh_Rate1 (const ::std::string&,
+                 const units_type&);
+
+  Refresh_Rate1 (const ::xml_schema::string&,
+                 const units_type&);
+
+  Refresh_Rate1 (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  Refresh_Rate1 (const Refresh_Rate1& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual Refresh_Rate1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Refresh_Rate1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Acquisition_Mode: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Acquisition_Mode (const units_type&);
+
+  Acquisition_Mode (const char*,
+                    const units_type&);
+
+  Acquisition_Mode (const ::std::string&,
+                    const units_type&);
+
+  Acquisition_Mode (const ::xml_schema::string&,
+                    const units_type&);
+
+  Acquisition_Mode (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  Acquisition_Mode (const Acquisition_Mode& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual Acquisition_Mode*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Acquisition_Mode ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Actual_Scan_Rate: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Actual_Scan_Rate (const units_type&);
+
+  Actual_Scan_Rate (const char*,
+                    const units_type&);
+
+  Actual_Scan_Rate (const ::std::string&,
+                    const units_type&);
+
+  Actual_Scan_Rate (const ::xml_schema::string&,
+                    const units_type&);
+
+  Actual_Scan_Rate (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  Actual_Scan_Rate (const Actual_Scan_Rate& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual Actual_Scan_Rate*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Actual_Scan_Rate ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Sector_X_Res: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Sector_X_Res (const units_type&);
+
+  Sector_X_Res (const char*,
+                const units_type&);
+
+  Sector_X_Res (const ::std::string&,
+                const units_type&);
+
+  Sector_X_Res (const ::xml_schema::string&,
+                const units_type&);
+
+  Sector_X_Res (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Sector_X_Res (const Sector_X_Res& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Sector_X_Res*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sector_X_Res ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Sector_Y_Res: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Sector_Y_Res (const units_type&);
+
+  Sector_Y_Res (const char*,
+                const units_type&);
+
+  Sector_Y_Res (const ::std::string&,
+                const units_type&);
+
+  Sector_Y_Res (const ::xml_schema::string&,
+                const units_type&);
+
+  Sector_Y_Res (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Sector_Y_Res (const Sector_Y_Res& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Sector_Y_Res*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sector_Y_Res ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Power_Size_Default1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Power_Size_Default1 (const units_type&);
+
+  Power_Size_Default1 (const char*,
+                       const units_type&);
+
+  Power_Size_Default1 (const ::std::string&,
+                       const units_type&);
+
+  Power_Size_Default1 (const ::xml_schema::string&,
+                       const units_type&);
+
+  Power_Size_Default1 (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  Power_Size_Default1 (const Power_Size_Default1& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual Power_Size_Default1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Power_Size_Default1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Sector_X_Start: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Sector_X_Start (const units_type&);
+
+  Sector_X_Start (const char*,
+                  const units_type&);
+
+  Sector_X_Start (const ::std::string&,
+                  const units_type&);
+
+  Sector_X_Start (const ::xml_schema::string&,
+                  const units_type&);
+
+  Sector_X_Start (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Sector_X_Start (const Sector_X_Start& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Sector_X_Start*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sector_X_Start ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Sector_Y_Start: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Sector_Y_Start (const units_type&);
+
+  Sector_Y_Start (const char*,
+                  const units_type&);
+
+  Sector_Y_Start (const ::std::string&,
+                  const units_type&);
+
+  Sector_Y_Start (const ::xml_schema::string&,
+                  const units_type&);
+
+  Sector_Y_Start (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Sector_Y_Start (const Sector_Y_Start& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Sector_Y_Start*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sector_Y_Start ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Target_Field_Of_View1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Target_Field_Of_View1 (const units_type&);
+
+  Target_Field_Of_View1 (const char*,
+                         const units_type&);
+
+  Target_Field_Of_View1 (const ::std::string&,
+                         const units_type&);
+
+  Target_Field_Of_View1 (const ::xml_schema::string&,
+                         const units_type&);
+
+  Target_Field_Of_View1 (const ::xercesc::DOMElement& e,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  Target_Field_Of_View1 (const Target_Field_Of_View1& x,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  virtual Target_Field_Of_View1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Target_Field_Of_View1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Sound_Speed1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Sound_Speed1 (const units_type&);
+
+  Sound_Speed1 (const char*,
+                const units_type&);
+
+  Sound_Speed1 (const ::std::string&,
+                const units_type&);
+
+  Sound_Speed1 (const ::xml_schema::string&,
+                const units_type&);
+
+  Sound_Speed1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Sound_Speed1 (const Sound_Speed1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Sound_Speed1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sound_Speed1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pipeline_Delay1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pipeline_Delay1 (const units_type&);
+
+  Pipeline_Delay1 (const char*,
+                   const units_type&);
+
+  Pipeline_Delay1 (const ::std::string&,
+                   const units_type&);
+
+  Pipeline_Delay1 (const ::xml_schema::string&,
+                   const units_type&);
+
+  Pipeline_Delay1 (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  Pipeline_Delay1 (const Pipeline_Delay1& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual Pipeline_Delay1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pipeline_Delay1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Reference_3D_Step_Size: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Reference_3D_Step_Size (const units_type&);
+
+  Reference_3D_Step_Size (const char*,
+                          const units_type&);
+
+  Reference_3D_Step_Size (const ::std::string&,
+                          const units_type&);
+
+  Reference_3D_Step_Size (const ::xml_schema::string&,
+                          const units_type&);
+
+  Reference_3D_Step_Size (const ::xercesc::DOMElement& e,
+                          ::xml_schema::flags f = 0,
+                          ::xml_schema::container* c = 0);
+
+  Reference_3D_Step_Size (const Reference_3D_Step_Size& x,
+                          ::xml_schema::flags f = 0,
+                          ::xml_schema::container* c = 0);
+
+  virtual Reference_3D_Step_Size*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Reference_3D_Step_Size ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Contrast_Size_Default: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Contrast_Size_Default (const units_type&);
+
+  Contrast_Size_Default (const char*,
+                         const units_type&);
+
+  Contrast_Size_Default (const ::std::string&,
+                         const units_type&);
+
+  Contrast_Size_Default (const ::xml_schema::string&,
+                         const units_type&);
+
+  Contrast_Size_Default (const ::xercesc::DOMElement& e,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  Contrast_Size_Default (const Contrast_Size_Default& x,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  virtual Contrast_Size_Default*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Contrast_Size_Default ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Reference_3D_Scan_Distance: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Reference_3D_Scan_Distance (const units_type&);
+
+  Reference_3D_Scan_Distance (const char*,
+                              const units_type&);
+
+  Reference_3D_Scan_Distance (const ::std::string&,
+                              const units_type&);
+
+  Reference_3D_Scan_Distance (const ::xml_schema::string&,
+                              const units_type&);
+
+  Reference_3D_Scan_Distance (const ::xercesc::DOMElement& e,
+                              ::xml_schema::flags f = 0,
+                              ::xml_schema::container* c = 0);
+
+  Reference_3D_Scan_Distance (const Reference_3D_Scan_Distance& x,
+                              ::xml_schema::flags f = 0,
+                              ::xml_schema::container* c = 0);
+
+  virtual Reference_3D_Scan_Distance*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Reference_3D_Scan_Distance ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Center1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Center1 (const units_type&);
+
+  Center1 (const char*,
+           const units_type&);
+
+  Center1 (const ::std::string&,
+           const units_type&);
+
+  Center1 (const ::xml_schema::string&,
+           const units_type&);
+
+  Center1 (const ::xercesc::DOMElement& e,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  Center1 (const Center1& x,
+           ::xml_schema::flags f = 0,
+           ::xml_schema::container* c = 0);
+
+  virtual Center1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Center1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Scan_Speed1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Scan_Speed1 (const units_type&);
+
+  V_Scan_Speed1 (const char*,
+                 const units_type&);
+
+  V_Scan_Speed1 (const ::std::string&,
+                 const units_type&);
+
+  V_Scan_Speed1 (const ::xml_schema::string&,
+                 const units_type&);
+
+  V_Scan_Speed1 (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  V_Scan_Speed1 (const V_Scan_Speed1& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual V_Scan_Speed1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Scan_Speed1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Scan_Rate1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Scan_Rate1 (const units_type&);
+
+  V_Scan_Rate1 (const char*,
+                const units_type&);
+
+  V_Scan_Rate1 (const ::std::string&,
+                const units_type&);
+
+  V_Scan_Rate1 (const ::xml_schema::string&,
+                const units_type&);
+
+  V_Scan_Rate1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  V_Scan_Rate1 (const V_Scan_Rate1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual V_Scan_Rate1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Scan_Rate1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Scan_Width1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Scan_Width1 (const units_type&);
+
+  Scan_Width1 (const char*,
+               const units_type&);
+
+  Scan_Width1 (const ::std::string&,
+               const units_type&);
+
+  Scan_Width1 (const ::xml_schema::string&,
+               const units_type&);
+
+  Scan_Width1 (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Scan_Width1 (const Scan_Width1& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Scan_Width1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Scan_Width1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Position1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Position1 (const units_type&);
+
+  Position1 (const char*,
+             const units_type&);
+
+  Position1 (const ::std::string&,
+             const units_type&);
+
+  Position1 (const ::xml_schema::string&,
+             const units_type&);
+
+  Position1 (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  Position1 (const Position1& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual Position1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Position1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class R_Scan_Move_No_Wait1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  R_Scan_Move_No_Wait1 (const units_type&);
+
+  R_Scan_Move_No_Wait1 (const char*,
+                        const units_type&);
+
+  R_Scan_Move_No_Wait1 (const ::std::string&,
+                        const units_type&);
+
+  R_Scan_Move_No_Wait1 (const ::xml_schema::string&,
+                        const units_type&);
+
+  R_Scan_Move_No_Wait1 (const ::xercesc::DOMElement& e,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  R_Scan_Move_No_Wait1 (const R_Scan_Move_No_Wait1& x,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  virtual R_Scan_Move_No_Wait1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~R_Scan_Move_No_Wait1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Acceleration1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Acceleration1 (const units_type&);
+
+  Acceleration1 (const char*,
+                 const units_type&);
+
+  Acceleration1 (const ::std::string&,
+                 const units_type&);
+
+  Acceleration1 (const ::xml_schema::string&,
+                 const units_type&);
+
+  Acceleration1 (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  Acceleration1 (const Acceleration1& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual Acceleration1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Acceleration1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Velocity_Stationary1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Velocity_Stationary1 (const units_type&);
+
+  Velocity_Stationary1 (const char*,
+                        const units_type&);
+
+  Velocity_Stationary1 (const ::std::string&,
+                        const units_type&);
+
+  Velocity_Stationary1 (const ::xml_schema::string&,
+                        const units_type&);
+
+  Velocity_Stationary1 (const ::xercesc::DOMElement& e,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  Velocity_Stationary1 (const Velocity_Stationary1& x,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  virtual Velocity_Stationary1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Velocity_Stationary1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class R_Scan_Move21: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  R_Scan_Move21 (const units_type&);
+
+  R_Scan_Move21 (const char*,
+                 const units_type&);
+
+  R_Scan_Move21 (const ::std::string&,
+                 const units_type&);
+
+  R_Scan_Move21 (const ::xml_schema::string&,
+                 const units_type&);
+
+  R_Scan_Move21 (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  R_Scan_Move21 (const R_Scan_Move21& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual R_Scan_Move21*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~R_Scan_Move21 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Position_Reverse1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Position_Reverse1 (const units_type&);
+
+  Position_Reverse1 (const char*,
+                     const units_type&);
+
+  Position_Reverse1 (const ::std::string&,
+                     const units_type&);
+
+  Position_Reverse1 (const ::xml_schema::string&,
+                     const units_type&);
+
+  Position_Reverse1 (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  Position_Reverse1 (const Position_Reverse1& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual Position_Reverse1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Position_Reverse1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Position21: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Position21 (const units_type&);
+
+  Position21 (const char*,
+              const units_type&);
+
+  Position21 (const ::std::string&,
+              const units_type&);
+
+  Position21 (const ::xml_schema::string&,
+              const units_type&);
+
+  Position21 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Position21 (const Position21& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Position21*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Position21 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Velocity1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Velocity1 (const units_type&);
+
+  Velocity1 (const char*,
+             const units_type&);
+
+  Velocity1 (const ::std::string&,
+             const units_type&);
+
+  Velocity1 (const ::xml_schema::string&,
+             const units_type&);
+
+  Velocity1 (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  Velocity1 (const Velocity1& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual Velocity1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Velocity1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class R_Scan_Move1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  R_Scan_Move1 (const units_type&);
+
+  R_Scan_Move1 (const char*,
+                const units_type&);
+
+  R_Scan_Move1 (const ::std::string&,
+                const units_type&);
+
+  R_Scan_Move1 (const ::xml_schema::string&,
+                const units_type&);
+
+  R_Scan_Move1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  R_Scan_Move1 (const R_Scan_Move1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual R_Scan_Move1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~R_Scan_Move1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Position_Forward1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Position_Forward1 (const units_type&);
+
+  Position_Forward1 (const char*,
+                     const units_type&);
+
+  Position_Forward1 (const ::std::string&,
+                     const units_type&);
+
+  Position_Forward1 (const ::xml_schema::string&,
+                     const units_type&);
+
+  Position_Forward1 (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  Position_Forward1 (const Position_Forward1& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual Position_Forward1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Position_Forward1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Acceleration_Stationary1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Acceleration_Stationary1 (const units_type&);
+
+  Acceleration_Stationary1 (const char*,
+                            const units_type&);
+
+  Acceleration_Stationary1 (const ::std::string&,
+                            const units_type&);
+
+  Acceleration_Stationary1 (const ::xml_schema::string&,
+                            const units_type&);
+
+  Acceleration_Stationary1 (const ::xercesc::DOMElement& e,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  Acceleration_Stationary1 (const Acceleration_Stationary1& x,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  virtual Acceleration_Stationary1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Acceleration_Stationary1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Monitor_3point3V1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Monitor_3point3V1 (const units_type&);
+
+  Monitor_3point3V1 (const char*,
+                     const units_type&);
+
+  Monitor_3point3V1 (const ::std::string&,
+                     const units_type&);
+
+  Monitor_3point3V1 (const ::xml_schema::string&,
+                     const units_type&);
+
+  Monitor_3point3V1 (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  Monitor_3point3V1 (const Monitor_3point3V1& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual Monitor_3point3V1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Monitor_3point3V1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Monitor_5V1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Monitor_5V1 (const units_type&);
+
+  Monitor_5V1 (const char*,
+               const units_type&);
+
+  Monitor_5V1 (const ::std::string&,
+               const units_type&);
+
+  Monitor_5V1 (const ::xml_schema::string&,
+               const units_type&);
+
+  Monitor_5V1 (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  Monitor_5V1 (const Monitor_5V1& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual Monitor_5V1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Monitor_5V1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Monitor_Neg15V1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Monitor_Neg15V1 (const units_type&);
+
+  Monitor_Neg15V1 (const char*,
+                   const units_type&);
+
+  Monitor_Neg15V1 (const ::std::string&,
+                   const units_type&);
+
+  Monitor_Neg15V1 (const ::xml_schema::string&,
+                   const units_type&);
+
+  Monitor_Neg15V1 (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  Monitor_Neg15V1 (const Monitor_Neg15V1& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual Monitor_Neg15V1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Monitor_Neg15V1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Monitor_Neg5V1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Monitor_Neg5V1 (const units_type&);
+
+  Monitor_Neg5V1 (const char*,
+                  const units_type&);
+
+  Monitor_Neg5V1 (const ::std::string&,
+                  const units_type&);
+
+  Monitor_Neg5V1 (const ::xml_schema::string&,
+                  const units_type&);
+
+  Monitor_Neg5V1 (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Monitor_Neg5V1 (const Monitor_Neg5V1& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Monitor_Neg5V1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Monitor_Neg5V1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Monitor_15V1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Monitor_15V1 (const units_type&);
+
+  Monitor_15V1 (const char*,
+                const units_type&);
+
+  Monitor_15V1 (const ::std::string&,
+                const units_type&);
+
+  Monitor_15V1 (const ::xml_schema::string&,
+                const units_type&);
+
+  Monitor_15V1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Monitor_15V1 (const Monitor_15V1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Monitor_15V1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Monitor_15V1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Threshold_Change1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Threshold_Change1 (const units_type&);
+
+  Respiration_Threshold_Change1 (const char*,
+                                 const units_type&);
+
+  Respiration_Threshold_Change1 (const ::std::string&,
+                                 const units_type&);
+
+  Respiration_Threshold_Change1 (const ::xml_schema::string&,
+                                 const units_type&);
+
+  Respiration_Threshold_Change1 (const ::xercesc::DOMElement& e,
+                                 ::xml_schema::flags f = 0,
+                                 ::xml_schema::container* c = 0);
+
+  Respiration_Threshold_Change1 (const Respiration_Threshold_Change1& x,
+                                 ::xml_schema::flags f = 0,
+                                 ::xml_schema::container* c = 0);
+
+  virtual Respiration_Threshold_Change1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Threshold_Change1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pressure_Range1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pressure_Range1 (const units_type&);
+
+  Pressure_Range1 (const char*,
+                   const units_type&);
+
+  Pressure_Range1 (const ::std::string&,
+                   const units_type&);
+
+  Pressure_Range1 (const ::xml_schema::string&,
+                   const units_type&);
+
+  Pressure_Range1 (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  Pressure_Range1 (const Pressure_Range1& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual Pressure_Range1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pressure_Range1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Gate_Delay1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Gate_Delay1 (const units_type&);
+
+  Respiration_Gate_Delay1 (const char*,
+                           const units_type&);
+
+  Respiration_Gate_Delay1 (const ::std::string&,
+                           const units_type&);
+
+  Respiration_Gate_Delay1 (const ::xml_schema::string&,
+                           const units_type&);
+
+  Respiration_Gate_Delay1 (const ::xercesc::DOMElement& e,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+  Respiration_Gate_Delay1 (const Respiration_Gate_Delay1& x,
+                           ::xml_schema::flags f = 0,
+                           ::xml_schema::container* c = 0);
+
+  virtual Respiration_Gate_Delay1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Gate_Delay1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Timeout1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Timeout1 (const units_type&);
+
+  Respiration_Timeout1 (const char*,
+                        const units_type&);
+
+  Respiration_Timeout1 (const ::std::string&,
+                        const units_type&);
+
+  Respiration_Timeout1 (const ::xml_schema::string&,
+                        const units_type&);
+
+  Respiration_Timeout1 (const ::xercesc::DOMElement& e,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  Respiration_Timeout1 (const Respiration_Timeout1& x,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  virtual Respiration_Timeout1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Timeout1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RWave_Max_Change_Factor_Percent1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RWave_Max_Change_Factor_Percent1 (const units_type&);
+
+  RWave_Max_Change_Factor_Percent1 (const char*,
+                                    const units_type&);
+
+  RWave_Max_Change_Factor_Percent1 (const ::std::string&,
+                                    const units_type&);
+
+  RWave_Max_Change_Factor_Percent1 (const ::xml_schema::string&,
+                                    const units_type&);
+
+  RWave_Max_Change_Factor_Percent1 (const ::xercesc::DOMElement& e,
+                                    ::xml_schema::flags f = 0,
+                                    ::xml_schema::container* c = 0);
+
+  RWave_Max_Change_Factor_Percent1 (const RWave_Max_Change_Factor_Percent1& x,
+                                    ::xml_schema::flags f = 0,
+                                    ::xml_schema::container* c = 0);
+
+  virtual RWave_Max_Change_Factor_Percent1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RWave_Max_Change_Factor_Percent1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Period1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Period1 (const units_type&);
+
+  Respiration_Period1 (const char*,
+                       const units_type&);
+
+  Respiration_Period1 (const ::std::string&,
+                       const units_type&);
+
+  Respiration_Period1 (const ::xml_schema::string&,
+                       const units_type&);
+
+  Respiration_Period1 (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  Respiration_Period1 (const Respiration_Period1& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual Respiration_Period1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Period1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Subsample_Rate1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Subsample_Rate1 (const units_type&);
+
+  Respiration_Subsample_Rate1 (const char*,
+                               const units_type&);
+
+  Respiration_Subsample_Rate1 (const ::std::string&,
+                               const units_type&);
+
+  Respiration_Subsample_Rate1 (const ::xml_schema::string&,
+                               const units_type&);
+
+  Respiration_Subsample_Rate1 (const ::xercesc::DOMElement& e,
+                               ::xml_schema::flags f = 0,
+                               ::xml_schema::container* c = 0);
+
+  Respiration_Subsample_Rate1 (const Respiration_Subsample_Rate1& x,
+                               ::xml_schema::flags f = 0,
+                               ::xml_schema::container* c = 0);
+
+  virtual Respiration_Subsample_Rate1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Subsample_Rate1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Window1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Window1 (const units_type&);
+
+  Respiration_Window1 (const char*,
+                       const units_type&);
+
+  Respiration_Window1 (const ::std::string&,
+                       const units_type&);
+
+  Respiration_Window1 (const ::xml_schema::string&,
+                       const units_type&);
+
+  Respiration_Window1 (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  Respiration_Window1 (const Respiration_Window1& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual Respiration_Window1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Window1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pressure_Systolic1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pressure_Systolic1 (const units_type&);
+
+  Pressure_Systolic1 (const char*,
+                      const units_type&);
+
+  Pressure_Systolic1 (const ::std::string&,
+                      const units_type&);
+
+  Pressure_Systolic1 (const ::xml_schema::string&,
+                      const units_type&);
+
+  Pressure_Systolic1 (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Pressure_Systolic1 (const Pressure_Systolic1& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Pressure_Systolic1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pressure_Systolic1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency5: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency5 (const units_type&);
+
+  Frequency5 (const char*,
+              const units_type&);
+
+  Frequency5 (const ::std::string&,
+              const units_type&);
+
+  Frequency5 (const ::xml_schema::string&,
+              const units_type&);
+
+  Frequency5 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Frequency5 (const Frequency5& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Frequency5*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency5 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Blank_Period1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Blank_Period1 (const units_type&);
+
+  Respiration_Blank_Period1 (const char*,
+                             const units_type&);
+
+  Respiration_Blank_Period1 (const ::std::string&,
+                             const units_type&);
+
+  Respiration_Blank_Period1 (const ::xml_schema::string&,
+                             const units_type&);
+
+  Respiration_Blank_Period1 (const ::xercesc::DOMElement& e,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+  Respiration_Blank_Period1 (const Respiration_Blank_Period1& x,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+  virtual Respiration_Blank_Period1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Blank_Period1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Range1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Range1 (const units_type&);
+
+  Respiration_Range1 (const char*,
+                      const units_type&);
+
+  Respiration_Range1 (const ::std::string&,
+                      const units_type&);
+
+  Respiration_Range1 (const ::xml_schema::string&,
+                      const units_type&);
+
+  Respiration_Range1 (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Respiration_Range1 (const Respiration_Range1& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Respiration_Range1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Range1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pressure_Zero1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pressure_Zero1 (const units_type&);
+
+  Pressure_Zero1 (const char*,
+                  const units_type&);
+
+  Pressure_Zero1 (const ::std::string&,
+                  const units_type&);
+
+  Pressure_Zero1 (const ::xml_schema::string&,
+                  const units_type&);
+
+  Pressure_Zero1 (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Pressure_Zero1 (const Pressure_Zero1& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Pressure_Zero1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pressure_Zero1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class P_Wave_Start1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  P_Wave_Start1 (const units_type&);
+
+  P_Wave_Start1 (const char*,
+                 const units_type&);
+
+  P_Wave_Start1 (const ::std::string&,
+                 const units_type&);
+
+  P_Wave_Start1 (const ::xml_schema::string&,
+                 const units_type&);
+
+  P_Wave_Start1 (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  P_Wave_Start1 (const P_Wave_Start1& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual P_Wave_Start1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~P_Wave_Start1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Percent_Peak1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Percent_Peak1 (const units_type&);
+
+  Respiration_Percent_Peak1 (const char*,
+                             const units_type&);
+
+  Respiration_Percent_Peak1 (const ::std::string&,
+                             const units_type&);
+
+  Respiration_Percent_Peak1 (const ::xml_schema::string&,
+                             const units_type&);
+
+  Respiration_Percent_Peak1 (const ::xercesc::DOMElement& e,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+  Respiration_Percent_Peak1 (const Respiration_Percent_Peak1& x,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+  virtual Respiration_Percent_Peak1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Percent_Peak1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class T_Wave_Start1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  T_Wave_Start1 (const units_type&);
+
+  T_Wave_Start1 (const char*,
+                 const units_type&);
+
+  T_Wave_Start1 (const ::std::string&,
+                 const units_type&);
+
+  T_Wave_Start1 (const ::xml_schema::string&,
+                 const units_type&);
+
+  T_Wave_Start1 (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  T_Wave_Start1 (const T_Wave_Start1& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual T_Wave_Start1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~T_Wave_Start1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Strain_Rate_RR_Diff_Ratio1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Strain_Rate_RR_Diff_Ratio1 (const units_type&);
+
+  Strain_Rate_RR_Diff_Ratio1 (const char*,
+                              const units_type&);
+
+  Strain_Rate_RR_Diff_Ratio1 (const ::std::string&,
+                              const units_type&);
+
+  Strain_Rate_RR_Diff_Ratio1 (const ::xml_schema::string&,
+                              const units_type&);
+
+  Strain_Rate_RR_Diff_Ratio1 (const ::xercesc::DOMElement& e,
+                              ::xml_schema::flags f = 0,
+                              ::xml_schema::container* c = 0);
+
+  Strain_Rate_RR_Diff_Ratio1 (const Strain_Rate_RR_Diff_Ratio1& x,
+                              ::xml_schema::flags f = 0,
+                              ::xml_schema::container* c = 0);
+
+  virtual Strain_Rate_RR_Diff_Ratio1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Strain_Rate_RR_Diff_Ratio1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pressure_Diastolic1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pressure_Diastolic1 (const units_type&);
+
+  Pressure_Diastolic1 (const char*,
+                       const units_type&);
+
+  Pressure_Diastolic1 (const ::std::string&,
+                       const units_type&);
+
+  Pressure_Diastolic1 (const ::xml_schema::string&,
+                       const units_type&);
+
+  Pressure_Diastolic1 (const ::xercesc::DOMElement& e,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  Pressure_Diastolic1 (const Pressure_Diastolic1& x,
+                       ::xml_schema::flags f = 0,
+                       ::xml_schema::container* c = 0);
+
+  virtual Pressure_Diastolic1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pressure_Diastolic1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Temperature_Calibration1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Temperature_Calibration1 (const units_type&);
+
+  Temperature_Calibration1 (const char*,
+                            const units_type&);
+
+  Temperature_Calibration1 (const ::std::string&,
+                            const units_type&);
+
+  Temperature_Calibration1 (const ::xml_schema::string&,
+                            const units_type&);
+
+  Temperature_Calibration1 (const ::xercesc::DOMElement& e,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  Temperature_Calibration1 (const Temperature_Calibration1& x,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  virtual Temperature_Calibration1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Temperature_Calibration1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Temperature1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Temperature1 (const units_type&);
+
+  Temperature1 (const char*,
+                const units_type&);
+
+  Temperature1 (const ::std::string&,
+                const units_type&);
+
+  Temperature1 (const ::xml_schema::string&,
+                const units_type&);
+
+  Temperature1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Temperature1 (const Temperature1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Temperature1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Temperature1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Beats_To_Average1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Beats_To_Average1 (const units_type&);
+
+  Respiration_Beats_To_Average1 (const char*,
+                                 const units_type&);
+
+  Respiration_Beats_To_Average1 (const ::std::string&,
+                                 const units_type&);
+
+  Respiration_Beats_To_Average1 (const ::xml_schema::string&,
+                                 const units_type&);
+
+  Respiration_Beats_To_Average1 (const ::xercesc::DOMElement& e,
+                                 ::xml_schema::flags f = 0,
+                                 ::xml_schema::container* c = 0);
+
+  Respiration_Beats_To_Average1 (const Respiration_Beats_To_Average1& x,
+                                 ::xml_schema::flags f = 0,
+                                 ::xml_schema::container* c = 0);
+
+  virtual Respiration_Beats_To_Average1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Beats_To_Average1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RWave_Thresh_Trigger_Percent1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RWave_Thresh_Trigger_Percent1 (const units_type&);
+
+  RWave_Thresh_Trigger_Percent1 (const char*,
+                                 const units_type&);
+
+  RWave_Thresh_Trigger_Percent1 (const ::std::string&,
+                                 const units_type&);
+
+  RWave_Thresh_Trigger_Percent1 (const ::xml_schema::string&,
+                                 const units_type&);
+
+  RWave_Thresh_Trigger_Percent1 (const ::xercesc::DOMElement& e,
+                                 ::xml_schema::flags f = 0,
+                                 ::xml_schema::container* c = 0);
+
+  RWave_Thresh_Trigger_Percent1 (const RWave_Thresh_Trigger_Percent1& x,
+                                 ::xml_schema::flags f = 0,
+                                 ::xml_schema::container* c = 0);
+
+  virtual RWave_Thresh_Trigger_Percent1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RWave_Thresh_Trigger_Percent1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Respiration_Time_To_Average1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Respiration_Time_To_Average1 (const units_type&);
+
+  Respiration_Time_To_Average1 (const char*,
+                                const units_type&);
+
+  Respiration_Time_To_Average1 (const ::std::string&,
+                                const units_type&);
+
+  Respiration_Time_To_Average1 (const ::xml_schema::string&,
+                                const units_type&);
+
+  Respiration_Time_To_Average1 (const ::xercesc::DOMElement& e,
+                                ::xml_schema::flags f = 0,
+                                ::xml_schema::container* c = 0);
+
+  Respiration_Time_To_Average1 (const Respiration_Time_To_Average1& x,
+                                ::xml_schema::flags f = 0,
+                                ::xml_schema::container* c = 0);
+
+  virtual Respiration_Time_To_Average1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Respiration_Time_To_Average1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Heart_Period1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Heart_Period1 (const units_type&);
+
+  Heart_Period1 (const char*,
+                 const units_type&);
+
+  Heart_Period1 (const ::std::string&,
+                 const units_type&);
+
+  Heart_Period1 (const ::xml_schema::string&,
+                 const units_type&);
+
+  Heart_Period1 (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  Heart_Period1 (const Heart_Period1& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual Heart_Period1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Heart_Period1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class ECG_Range1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  ECG_Range1 (const units_type&);
+
+  ECG_Range1 (const char*,
+              const units_type&);
+
+  ECG_Range1 (const ::std::string&,
+              const units_type&);
+
+  ECG_Range1 (const ::xml_schema::string&,
+              const units_type&);
+
+  ECG_Range1 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  ECG_Range1 (const ECG_Range1& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual ECG_Range1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~ECG_Range1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RWave_Maxima_Block_Time1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RWave_Maxima_Block_Time1 (const units_type&);
+
+  RWave_Maxima_Block_Time1 (const char*,
+                            const units_type&);
+
+  RWave_Maxima_Block_Time1 (const ::std::string&,
+                            const units_type&);
+
+  RWave_Maxima_Block_Time1 (const ::xml_schema::string&,
+                            const units_type&);
+
+  RWave_Maxima_Block_Time1 (const ::xercesc::DOMElement& e,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  RWave_Maxima_Block_Time1 (const RWave_Maxima_Block_Time1& x,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  virtual RWave_Maxima_Block_Time1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RWave_Maxima_Block_Time1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pressure_Calibration_Level1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pressure_Calibration_Level1 (const units_type&);
+
+  Pressure_Calibration_Level1 (const char*,
+                               const units_type&);
+
+  Pressure_Calibration_Level1 (const ::std::string&,
+                               const units_type&);
+
+  Pressure_Calibration_Level1 (const ::xml_schema::string&,
+                               const units_type&);
+
+  Pressure_Calibration_Level1 (const ::xercesc::DOMElement& e,
+                               ::xml_schema::flags f = 0,
+                               ::xml_schema::container* c = 0);
+
+  Pressure_Calibration_Level1 (const Pressure_Calibration_Level1& x,
+                               ::xml_schema::flags f = 0,
+                               ::xml_schema::container* c = 0);
+
+  virtual Pressure_Calibration_Level1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pressure_Calibration_Level1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class ECG_HP_Filter1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  ECG_HP_Filter1 (const units_type&);
+
+  ECG_HP_Filter1 (const char*,
+                  const units_type&);
+
+  ECG_HP_Filter1 (const ::std::string&,
+                  const units_type&);
+
+  ECG_HP_Filter1 (const ::xml_schema::string&,
+                  const units_type&);
+
+  ECG_HP_Filter1 (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  ECG_HP_Filter1 (const ECG_HP_Filter1& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual ECG_HP_Filter1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~ECG_HP_Filter1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class ECG_LP_Filter1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  ECG_LP_Filter1 (const units_type&);
+
+  ECG_LP_Filter1 (const char*,
+                  const units_type&);
+
+  ECG_LP_Filter1 (const ::std::string&,
+                  const units_type&);
+
+  ECG_LP_Filter1 (const ::xml_schema::string&,
+                  const units_type&);
+
+  ECG_LP_Filter1 (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  ECG_LP_Filter1 (const ECG_LP_Filter1& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual ECG_LP_Filter1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~ECG_LP_Filter1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RWave_Max_Change_Period1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RWave_Max_Change_Period1 (const units_type&);
+
+  RWave_Max_Change_Period1 (const char*,
+                            const units_type&);
+
+  RWave_Max_Change_Period1 (const ::std::string&,
+                            const units_type&);
+
+  RWave_Max_Change_Period1 (const ::xml_schema::string&,
+                            const units_type&);
+
+  RWave_Max_Change_Period1 (const ::xercesc::DOMElement& e,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  RWave_Max_Change_Period1 (const RWave_Max_Change_Period1& x,
+                            ::xml_schema::flags f = 0,
+                            ::xml_schema::container* c = 0);
+
+  virtual RWave_Max_Change_Period1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RWave_Max_Change_Period1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pressure_Calibration1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pressure_Calibration1 (const units_type&);
+
+  Pressure_Calibration1 (const char*,
+                         const units_type&);
+
+  Pressure_Calibration1 (const ::std::string&,
+                         const units_type&);
+
+  Pressure_Calibration1 (const ::xml_schema::string&,
+                         const units_type&);
+
+  Pressure_Calibration1 (const ::xercesc::DOMElement& e,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  Pressure_Calibration1 (const Pressure_Calibration1& x,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  virtual Pressure_Calibration1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pressure_Calibration1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RWave_Blank_Time1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RWave_Blank_Time1 (const units_type&);
+
+  RWave_Blank_Time1 (const char*,
+                     const units_type&);
+
+  RWave_Blank_Time1 (const ::std::string&,
+                     const units_type&);
+
+  RWave_Blank_Time1 (const ::xml_schema::string&,
+                     const units_type&);
+
+  RWave_Blank_Time1 (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  RWave_Blank_Time1 (const RWave_Blank_Time1& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual RWave_Blank_Time1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RWave_Blank_Time1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RWave_Future_Search_Time1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RWave_Future_Search_Time1 (const units_type&);
+
+  RWave_Future_Search_Time1 (const char*,
+                             const units_type&);
+
+  RWave_Future_Search_Time1 (const ::std::string&,
+                             const units_type&);
+
+  RWave_Future_Search_Time1 (const ::xml_schema::string&,
+                             const units_type&);
+
+  RWave_Future_Search_Time1 (const ::xercesc::DOMElement& e,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+  RWave_Future_Search_Time1 (const RWave_Future_Search_Time1& x,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+  virtual RWave_Future_Search_Time1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RWave_Future_Search_Time1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Transmit_Length1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Transmit_Length1 (const units_type&);
+
+  V_Transmit_Length1 (const char*,
+                      const units_type&);
+
+  V_Transmit_Length1 (const ::std::string&,
+                      const units_type&);
+
+  V_Transmit_Length1 (const ::xml_schema::string&,
+                      const units_type&);
+
+  V_Transmit_Length1 (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  V_Transmit_Length1 (const V_Transmit_Length1& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual V_Transmit_Length1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Transmit_Length1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Pulse_Rep_Freq1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Pulse_Rep_Freq1 (const units_type&);
+
+  V_Pulse_Rep_Freq1 (const char*,
+                     const units_type&);
+
+  V_Pulse_Rep_Freq1 (const ::std::string&,
+                     const units_type&);
+
+  V_Pulse_Rep_Freq1 (const ::xml_schema::string&,
+                     const units_type&);
+
+  V_Pulse_Rep_Freq1 (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  V_Pulse_Rep_Freq1 (const V_Pulse_Rep_Freq1& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual V_Pulse_Rep_Freq1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Pulse_Rep_Freq1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency6: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency6 (const units_type&);
+
+  Frequency6 (const char*,
+              const units_type&);
+
+  Frequency6 (const ::std::string&,
+              const units_type&);
+
+  Frequency6 (const ::xml_schema::string&,
+              const units_type&);
+
+  Frequency6 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Frequency6 (const Frequency6& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Frequency6*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency6 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Unblank_Time1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Unblank_Time1 (const units_type&);
+
+  V_Unblank_Time1 (const char*,
+                   const units_type&);
+
+  V_Unblank_Time1 (const ::std::string&,
+                   const units_type&);
+
+  V_Unblank_Time1 (const ::xml_schema::string&,
+                   const units_type&);
+
+  V_Unblank_Time1 (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  V_Unblank_Time1 (const V_Unblank_Time1& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual V_Unblank_Time1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Unblank_Time1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Frequency2: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Frequency2 (const units_type&);
+
+  V_Frequency2 (const char*,
+                const units_type&);
+
+  V_Frequency2 (const ::std::string&,
+                const units_type&);
+
+  V_Frequency2 (const ::xml_schema::string&,
+                const units_type&);
+
+  V_Frequency2 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  V_Frequency2 (const V_Frequency2& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual V_Frequency2*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Frequency2 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Pulse_Rep_Frequency1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Pulse_Rep_Frequency1 (const units_type&);
+
+  Pulse_Rep_Frequency1 (const char*,
+                        const units_type&);
+
+  Pulse_Rep_Frequency1 (const ::std::string&,
+                        const units_type&);
+
+  Pulse_Rep_Frequency1 (const ::xml_schema::string&,
+                        const units_type&);
+
+  Pulse_Rep_Frequency1 (const ::xercesc::DOMElement& e,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  Pulse_Rep_Frequency1 (const Pulse_Rep_Frequency1& x,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  virtual Pulse_Rep_Frequency1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Pulse_Rep_Frequency1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Trig_Tbl_Trigs1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Trig_Tbl_Trigs1 (const units_type&);
+
+  Trig_Tbl_Trigs1 (const char*,
+                   const units_type&);
+
+  Trig_Tbl_Trigs1 (const ::std::string&,
+                   const units_type&);
+
+  Trig_Tbl_Trigs1 (const ::xml_schema::string&,
+                   const units_type&);
+
+  Trig_Tbl_Trigs1 (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  Trig_Tbl_Trigs1 (const Trig_Tbl_Trigs1& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual Trig_Tbl_Trigs1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Trig_Tbl_Trigs1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Unblank_Cycles1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Unblank_Cycles1 (const units_type&);
+
+  Unblank_Cycles1 (const char*,
+                   const units_type&);
+
+  Unblank_Cycles1 (const ::std::string&,
+                   const units_type&);
+
+  Unblank_Cycles1 (const ::xml_schema::string&,
+                   const units_type&);
+
+  Unblank_Cycles1 (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  Unblank_Cycles1 (const Unblank_Cycles1& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual Unblank_Cycles1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Unblank_Cycles1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Unblank_Time1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Unblank_Time1 (const units_type&);
+
+  Unblank_Time1 (const char*,
+                 const units_type&);
+
+  Unblank_Time1 (const ::std::string&,
+                 const units_type&);
+
+  Unblank_Time1 (const ::xml_schema::string&,
+                 const units_type&);
+
+  Unblank_Time1 (const ::xercesc::DOMElement& e,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  Unblank_Time1 (const Unblank_Time1& x,
+                 ::xml_schema::flags f = 0,
+                 ::xml_schema::container* c = 0);
+
+  virtual Unblank_Time1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Unblank_Time1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Attenuation1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Attenuation1 (const units_type&);
+
+  Attenuation1 (const char*,
+                const units_type&);
+
+  Attenuation1 (const ::std::string&,
+                const units_type&);
+
+  Attenuation1 (const ::xml_schema::string&,
+                const units_type&);
+
+  Attenuation1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Attenuation1 (const Attenuation1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Attenuation1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Attenuation1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Power1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Power1 (const units_type&);
+
+  V_Power1 (const char*,
+            const units_type&);
+
+  V_Power1 (const ::std::string&,
+            const units_type&);
+
+  V_Power1 (const ::xml_schema::string&,
+            const units_type&);
+
+  V_Power1 (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  V_Power1 (const V_Power1& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  virtual V_Power1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Power1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frames: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frames (const units_type&);
+
+  Frames (const char*,
+          const units_type&);
+
+  Frames (const ::std::string&,
+          const units_type&);
+
+  Frames (const ::xml_schema::string&,
+          const units_type&);
+
+  Frames (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  Frames (const Frames& x,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  virtual Frames*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frames ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frame_Rate: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frame_Rate (const units_type&);
+
+  Frame_Rate (const char*,
+              const units_type&);
+
+  Frame_Rate (const ::std::string&,
+              const units_type&);
+
+  Frame_Rate (const ::xml_schema::string&,
+              const units_type&);
+
+  Frame_Rate (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Frame_Rate (const Frame_Rate& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Frame_Rate*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frame_Rate ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Tx_PRF: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Tx_PRF (const units_type&);
+
+  Tx_PRF (const char*,
+          const units_type&);
+
+  Tx_PRF (const ::std::string&,
+          const units_type&);
+
+  Tx_PRF (const ::xml_schema::string&,
+          const units_type&);
+
+  Tx_PRF (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  Tx_PRF (const Tx_PRF& x,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  virtual Tx_PRF*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Tx_PRF ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Tx_Power: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Tx_Power (const units_type&);
+
+  Tx_Power (const char*,
+            const units_type&);
+
+  Tx_Power (const ::std::string&,
+            const units_type&);
+
+  Tx_Power (const ::xml_schema::string&,
+            const units_type&);
+
+  Tx_Power (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  Tx_Power (const Tx_Power& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  virtual Tx_Power*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Tx_Power ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Duration: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Duration (const units_type&);
+
+  Duration (const char*,
+            const units_type&);
+
+  Duration (const ::std::string&,
+            const units_type&);
+
+  Duration (const ::xml_schema::string&,
+            const units_type&);
+
+  Duration (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  Duration (const Duration& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  virtual Duration*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Duration ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Tx_Frequency: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Tx_Frequency (const units_type&);
+
+  Tx_Frequency (const char*,
+                const units_type&);
+
+  Tx_Frequency (const ::std::string&,
+                const units_type&);
+
+  Tx_Frequency (const ::xml_schema::string&,
+                const units_type&);
+
+  Tx_Frequency (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Tx_Frequency (const Tx_Frequency& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Tx_Frequency*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Tx_Frequency ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Destroy_Sequence_Position: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Destroy_Sequence_Position (const units_type&);
+
+  Destroy_Sequence_Position (const char*,
+                             const units_type&);
+
+  Destroy_Sequence_Position (const ::std::string&,
+                             const units_type&);
+
+  Destroy_Sequence_Position (const ::xml_schema::string&,
+                             const units_type&);
+
+  Destroy_Sequence_Position (const ::xercesc::DOMElement& e,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+  Destroy_Sequence_Position (const Destroy_Sequence_Position& x,
+                             ::xml_schema::flags f = 0,
+                             ::xml_schema::container* c = 0);
+
+  virtual Destroy_Sequence_Position*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Destroy_Sequence_Position ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Scan_Distance1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Scan_Distance1 (const units_type&);
+
+  Scan_Distance1 (const char*,
+                  const units_type&);
+
+  Scan_Distance1 (const ::std::string&,
+                  const units_type&);
+
+  Scan_Distance1 (const ::xml_schema::string&,
+                  const units_type&);
+
+  Scan_Distance1 (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  Scan_Distance1 (const Scan_Distance1& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual Scan_Distance1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Scan_Distance1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Step_Size1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Step_Size1 (const units_type&);
+
+  Step_Size1 (const char*,
+              const units_type&);
+
+  Step_Size1 (const ::std::string&,
+              const units_type&);
+
+  Step_Size1 (const ::xml_schema::string&,
+              const units_type&);
+
+  Step_Size1 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Step_Size1 (const Step_Size1& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Step_Size1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Step_Size1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Parallel_Step_Size: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Parallel_Step_Size (const units_type&);
+
+  Parallel_Step_Size (const char*,
+                      const units_type&);
+
+  Parallel_Step_Size (const ::std::string&,
+                      const units_type&);
+
+  Parallel_Step_Size (const ::xml_schema::string&,
+                      const units_type&);
+
+  Parallel_Step_Size (const ::xercesc::DOMElement& e,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  Parallel_Step_Size (const Parallel_Step_Size& x,
+                      ::xml_schema::flags f = 0,
+                      ::xml_schema::container* c = 0);
+
+  virtual Parallel_Step_Size*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Parallel_Step_Size ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Sector_Width_Target1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Sector_Width_Target1 (const units_type&);
+
+  Sector_Width_Target1 (const char*,
+                        const units_type&);
+
+  Sector_Width_Target1 (const ::std::string&,
+                        const units_type&);
+
+  Sector_Width_Target1 (const ::xml_schema::string&,
+                        const units_type&);
+
+  Sector_Width_Target1 (const ::xercesc::DOMElement& e,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  Sector_Width_Target1 (const Sector_Width_Target1& x,
+                        ::xml_schema::flags f = 0,
+                        ::xml_schema::container* c = 0);
+
+  virtual Sector_Width_Target1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sector_Width_Target1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RF_Gain1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RF_Gain1 (const units_type&);
+
+  RF_Gain1 (const char*,
+            const units_type&);
+
+  RF_Gain1 (const ::std::string&,
+            const units_type&);
+
+  RF_Gain1 (const ::xml_schema::string&,
+            const units_type&);
+
+  RF_Gain1 (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  RF_Gain1 (const RF_Gain1& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  virtual RF_Gain1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RF_Gain1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Digi_Depth_Imaging1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Digi_Depth_Imaging1 (const units_type&);
+
+  V_Digi_Depth_Imaging1 (const char*,
+                         const units_type&);
+
+  V_Digi_Depth_Imaging1 (const ::std::string&,
+                         const units_type&);
+
+  V_Digi_Depth_Imaging1 (const ::xml_schema::string&,
+                         const units_type&);
+
+  V_Digi_Depth_Imaging1 (const ::xercesc::DOMElement& e,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  V_Digi_Depth_Imaging1 (const V_Digi_Depth_Imaging1& x,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  virtual V_Digi_Depth_Imaging1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Digi_Depth_Imaging1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Test_Freq1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Test_Freq1 (const units_type&);
+
+  Test_Freq1 (const char*,
+              const units_type&);
+
+  Test_Freq1 (const ::std::string&,
+              const units_type&);
+
+  Test_Freq1 (const ::xml_schema::string&,
+              const units_type&);
+
+  Test_Freq1 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Test_Freq1 (const Test_Freq1& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Test_Freq1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Test_Freq1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class RF_Filter1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  RF_Filter1 (const units_type&);
+
+  RF_Filter1 (const char*,
+              const units_type&);
+
+  RF_Filter1 (const ::std::string&,
+              const units_type&);
+
+  RF_Filter1 (const ::xml_schema::string&,
+              const units_type&);
+
+  RF_Filter1 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  RF_Filter1 (const RF_Filter1& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual RF_Filter1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~RF_Filter1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_RF_Filter1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_RF_Filter1 (const units_type&);
+
+  V_RF_Filter1 (const char*,
+                const units_type&);
+
+  V_RF_Filter1 (const ::std::string&,
+                const units_type&);
+
+  V_RF_Filter1 (const ::xml_schema::string&,
+                const units_type&);
+
+  V_RF_Filter1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  V_RF_Filter1 (const V_RF_Filter1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual V_RF_Filter1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_RF_Filter1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Delay1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Delay1 (const units_type&);
+
+  Delay1 (const char*,
+          const units_type&);
+
+  Delay1 (const ::std::string&,
+          const units_type&);
+
+  Delay1 (const ::xml_schema::string&,
+          const units_type&);
+
+  Delay1 (const ::xercesc::DOMElement& e,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  Delay1 (const Delay1& x,
+          ::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0);
+
+  virtual Delay1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Delay1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class AD_Gate_Width1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  AD_Gate_Width1 (const units_type&);
+
+  AD_Gate_Width1 (const char*,
+                  const units_type&);
+
+  AD_Gate_Width1 (const ::std::string&,
+                  const units_type&);
+
+  AD_Gate_Width1 (const ::xml_schema::string&,
+                  const units_type&);
+
+  AD_Gate_Width1 (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  AD_Gate_Width1 (const AD_Gate_Width1& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+  virtual AD_Gate_Width1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~AD_Gate_Width1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Frequency7: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Frequency7 (const units_type&);
+
+  Frequency7 (const char*,
+              const units_type&);
+
+  Frequency7 (const ::std::string&,
+              const units_type&);
+
+  Frequency7 (const ::xml_schema::string&,
+              const units_type&);
+
+  Frequency7 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  Frequency7 (const Frequency7& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual Frequency7*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Frequency7 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Frequency3: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Frequency3 (const units_type&);
+
+  V_Frequency3 (const char*,
+                const units_type&);
+
+  V_Frequency3 (const ::std::string&,
+                const units_type&);
+
+  V_Frequency3 (const ::xml_schema::string&,
+                const units_type&);
+
+  V_Frequency3 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  V_Frequency3 (const V_Frequency3& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual V_Frequency3*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Frequency3 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Field_Of_View1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Field_Of_View1 (const units_type&);
+
+  V_Field_Of_View1 (const char*,
+                    const units_type&);
+
+  V_Field_Of_View1 (const ::std::string&,
+                    const units_type&);
+
+  V_Field_Of_View1 (const ::xml_schema::string&,
+                    const units_type&);
+
+  V_Field_Of_View1 (const ::xercesc::DOMElement& e,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  V_Field_Of_View1 (const V_Field_Of_View1& x,
+                    ::xml_schema::flags f = 0,
+                    ::xml_schema::container* c = 0);
+
+  virtual V_Field_Of_View1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Field_Of_View1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Sector_Height_Target1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Sector_Height_Target1 (const units_type&);
+
+  Sector_Height_Target1 (const char*,
+                         const units_type&);
+
+  Sector_Height_Target1 (const ::std::string&,
+                         const units_type&);
+
+  Sector_Height_Target1 (const ::xml_schema::string&,
+                         const units_type&);
+
+  Sector_Height_Target1 (const ::xercesc::DOMElement& e,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  Sector_Height_Target1 (const Sector_Height_Target1& x,
+                         ::xml_schema::flags f = 0,
+                         ::xml_schema::container* c = 0);
+
+  virtual Sector_Height_Target1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Sector_Height_Target1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class AD_TestIn1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  AD_TestIn1 (const units_type&);
+
+  AD_TestIn1 (const char*,
+              const units_type&);
+
+  AD_TestIn1 (const ::std::string&,
+              const units_type&);
+
+  AD_TestIn1 (const ::xml_schema::string&,
+              const units_type&);
+
+  AD_TestIn1 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  AD_TestIn1 (const AD_TestIn1& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual AD_TestIn1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~AD_TestIn1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_Delay_Length1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_Delay_Length1 (const units_type&);
+
+  V_Delay_Length1 (const char*,
+                   const units_type&);
+
+  V_Delay_Length1 (const ::std::string&,
+                   const units_type&);
+
+  V_Delay_Length1 (const ::xml_schema::string&,
+                   const units_type&);
+
+  V_Delay_Length1 (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  V_Delay_Length1 (const V_Delay_Length1& x,
+                   ::xml_schema::flags f = 0,
+                   ::xml_schema::container* c = 0);
+
+  virtual V_Delay_Length1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_Delay_Length1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class IF_Filter1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  IF_Filter1 (const units_type&);
+
+  IF_Filter1 (const char*,
+              const units_type&);
+
+  IF_Filter1 (const ::std::string&,
+              const units_type&);
+
+  IF_Filter1 (const ::xml_schema::string&,
+              const units_type&);
+
+  IF_Filter1 (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  IF_Filter1 (const IF_Filter1& x,
+              ::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0);
+
+  virtual IF_Filter1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~IF_Filter1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Track_Width1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Track_Width1 (const units_type&);
+
+  Track_Width1 (const char*,
+                const units_type&);
+
+  Track_Width1 (const ::std::string&,
+                const units_type&);
+
+  Track_Width1 (const ::xml_schema::string&,
+                const units_type&);
+
+  Track_Width1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Track_Width1 (const Track_Width1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Track_Width1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Track_Width1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class V_IF_Filter1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  V_IF_Filter1 (const units_type&);
+
+  V_IF_Filter1 (const char*,
+                const units_type&);
+
+  V_IF_Filter1 (const ::std::string&,
+                const units_type&);
+
+  V_IF_Filter1 (const ::xml_schema::string&,
+                const units_type&);
+
+  V_IF_Filter1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  V_IF_Filter1 (const V_IF_Filter1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual V_IF_Filter1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~V_IF_Filter1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class HP_Clutter1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  HP_Clutter1 (const units_type&);
+
+  HP_Clutter1 (const char*,
+               const units_type&);
+
+  HP_Clutter1 (const ::std::string&,
+               const units_type&);
+
+  HP_Clutter1 (const ::xml_schema::string&,
+               const units_type&);
+
+  HP_Clutter1 (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  HP_Clutter1 (const HP_Clutter1& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual HP_Clutter1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~HP_Clutter1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class Window_Time1: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  Window_Time1 (const units_type&);
+
+  Window_Time1 (const char*,
+                const units_type&);
+
+  Window_Time1 (const ::std::string&,
+                const units_type&);
+
+  Window_Time1 (const ::xml_schema::string&,
+                const units_type&);
+
+  Window_Time1 (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  Window_Time1 (const Window_Time1& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual Window_Time1*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~Window_Time1 ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class EKV_Start: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  EKV_Start (const units_type&);
+
+  EKV_Start (const char*,
+             const units_type&);
+
+  EKV_Start (const ::std::string&,
+             const units_type&);
+
+  EKV_Start (const ::xml_schema::string&,
+             const units_type&);
+
+  EKV_Start (const ::xercesc::DOMElement& e,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  EKV_Start (const EKV_Start& x,
+             ::xml_schema::flags f = 0,
+             ::xml_schema::container* c = 0);
+
+  virtual EKV_Start*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~EKV_Start ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class EKV_Stop: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  EKV_Stop (const units_type&);
+
+  EKV_Stop (const char*,
+            const units_type&);
+
+  EKV_Stop (const ::std::string&,
+            const units_type&);
+
+  EKV_Stop (const ::xml_schema::string&,
+            const units_type&);
+
+  EKV_Stop (const ::xercesc::DOMElement& e,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  EKV_Stop (const EKV_Stop& x,
+            ::xml_schema::flags f = 0,
+            ::xml_schema::container* c = 0);
+
+  virtual EKV_Stop*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~EKV_Stop ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class EKV_Quality_Times: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  EKV_Quality_Times (const units_type&);
+
+  EKV_Quality_Times (const char*,
+                     const units_type&);
+
+  EKV_Quality_Times (const ::std::string&,
+                     const units_type&);
+
+  EKV_Quality_Times (const ::xml_schema::string&,
+                     const units_type&);
+
+  EKV_Quality_Times (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  EKV_Quality_Times (const EKV_Quality_Times& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+  virtual EKV_Quality_Times*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~EKV_Quality_Times ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class EKV_Quality: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  EKV_Quality (const units_type&);
+
+  EKV_Quality (const char*,
+               const units_type&);
+
+  EKV_Quality (const ::std::string&,
+               const units_type&);
+
+  EKV_Quality (const ::xml_schema::string&,
+               const units_type&);
+
+  EKV_Quality (const ::xercesc::DOMElement& e,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  EKV_Quality (const EKV_Quality& x,
+               ::xml_schema::flags f = 0,
+               ::xml_schema::container* c = 0);
+
+  virtual EKV_Quality*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~EKV_Quality ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class EKV_Quality_Resolution: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  EKV_Quality_Resolution (const units_type&);
+
+  EKV_Quality_Resolution (const char*,
+                          const units_type&);
+
+  EKV_Quality_Resolution (const ::std::string&,
+                          const units_type&);
+
+  EKV_Quality_Resolution (const ::xml_schema::string&,
+                          const units_type&);
+
+  EKV_Quality_Resolution (const ::xercesc::DOMElement& e,
+                          ::xml_schema::flags f = 0,
+                          ::xml_schema::container* c = 0);
+
+  EKV_Quality_Resolution (const EKV_Quality_Resolution& x,
+                          ::xml_schema::flags f = 0,
+                          ::xml_schema::container* c = 0);
+
+  virtual EKV_Quality_Resolution*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~EKV_Quality_Resolution ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class EKV_Variance: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  EKV_Variance (const units_type&);
+
+  EKV_Variance (const char*,
+                const units_type&);
+
+  EKV_Variance (const ::std::string&,
+                const units_type&);
+
+  EKV_Variance (const ::xml_schema::string&,
+                const units_type&);
+
+  EKV_Variance (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  EKV_Variance (const EKV_Variance& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual EKV_Variance*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~EKV_Variance ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
+class EKV_Triggers: public ::xml_schema::string
+{
+  public:
+  // units
+  //
+  typedef ::xml_schema::string units_type;
+  typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
+
+  const units_type&
+  units () const;
+
+  units_type&
+  units ();
+
+  void
+  units (const units_type& x);
+
+  void
+  units (::std::auto_ptr< units_type > p);
+
+  // Constructors.
+  //
+  EKV_Triggers (const units_type&);
+
+  EKV_Triggers (const char*,
+                const units_type&);
+
+  EKV_Triggers (const ::std::string&,
+                const units_type&);
+
+  EKV_Triggers (const ::xml_schema::string&,
+                const units_type&);
+
+  EKV_Triggers (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  EKV_Triggers (const EKV_Triggers& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+  virtual EKV_Triggers*
+  _clone (::xml_schema::flags f = 0,
+          ::xml_schema::container* c = 0) const;
+
+  virtual
+  ~EKV_Triggers ();
+
+  // Implementation.
+  //
+  protected:
+  void
+  parse (::xsd::cxx::xml::dom::parser< char >&,
+         ::xml_schema::flags);
+
+  protected:
+  ::xsd::cxx::tree::one< units_type > units_;
+};
+
 #include <iosfwd>
 
 ::std::ostream&
@@ -18916,6 +37033,870 @@ operator<< (::std::ostream&, const EKVModeSoft&);
 
 ::std::ostream&
 operator<< (::std::ostream&, const BModeLVAnalysis&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sample_Time&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Focal_Length&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Default_Scan_Speed&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Cutoff_Scan_Speed&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency_Low&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Default_FOV&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency_Doppler_Default&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency_Doppler&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Axial_Res&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Filter_High&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pivot_Encoder_Dist&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Encoder_Range_Max&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Encoder_Range_Min&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Lateral_Res&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Motor_Overhead&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Max_Scan_Distance&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Default_Rx_Gain&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Filter_Low&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency_High&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Scan_Speeds&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Filter_Doppler_Cutoff&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency_Doppler_Low&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pivot_Transducer_Face_Dist&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Filter_Doppler&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Encoder_Separation&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Overshoot&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Filter&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Default_Rx_Gain_Doppler&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Filter_Doppler_Low&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Buffer_Size&);
+
+::std::ostream&
+operator<< (::std::ostream&, const BMode_Size_Default&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Refresh_Rate&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Power_Size_Default&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Target_Field_Of_View&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sound_Speed&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pipeline_Delay&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Center&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Scan_Speed&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Scan_Rate&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Scan_Width&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Position&);
+
+::std::ostream&
+operator<< (::std::ostream&, const R_Scan_Move_No_Wait&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Acceleration&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Velocity_Stationary&);
+
+::std::ostream&
+operator<< (::std::ostream&, const R_Scan_Move2&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Acceleration_Stationary&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Position_Reverse&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Position2&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Velocity&);
+
+::std::ostream&
+operator<< (::std::ostream&, const R_Scan_Move&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Position_Forward&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Monitor_3point3V&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Monitor_15V&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Monitor_5V&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Monitor_Neg15V&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Monitor_Neg5V&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Threshold_Change&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pressure_Range&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Gate_Delay&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Timeout&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RWave_Max_Change_Factor_Percent&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Period&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Subsample_Rate&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Window&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pressure_Systolic&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Blank_Period&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Range&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pressure_Zero&);
+
+::std::ostream&
+operator<< (::std::ostream&, const P_Wave_Start&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RWave_Future_Search_Time&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Percent_Peak&);
+
+::std::ostream&
+operator<< (::std::ostream&, const T_Wave_Start&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Strain_Rate_RR_Diff_Ratio&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pressure_Diastolic&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Temperature_Calibration&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Temperature&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Beats_To_Average&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RWave_Thresh_Trigger_Percent&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Time_To_Average&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Heart_Period&);
+
+::std::ostream&
+operator<< (::std::ostream&, const ECG_Range&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RWave_Maxima_Block_Time&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pressure_Calibration_Level&);
+
+::std::ostream&
+operator<< (::std::ostream&, const ECG_HP_Filter&);
+
+::std::ostream&
+operator<< (::std::ostream&, const ECG_LP_Filter&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RWave_Max_Change_Period&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pressure_Calibration&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RWave_Blank_Time&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Magnitude_Origin&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency_Origin&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Length_Origin&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Vertical_Scale&);
+
+::std::ostream&
+operator<< (::std::ostream&, const SamplesPerSec&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Magnitude_Height&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Length_Length&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency_Length&);
+
+::std::ostream&
+operator<< (::std::ostream&, const SV_Center&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RF_Path_15Mhz_Time_Correction&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RF_Path_23Mhz_Time_Correction&);
+
+::std::ostream&
+operator<< (::std::ostream&, const SV_Length_Limits&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Transmit_Length&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Pulse_Rep_Freq&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency2&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Unblank_Time&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Frequency&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pulse_Rep_Frequency&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Trig_Tbl_Trigs&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Unblank_Cycles&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Unblank_Time&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Attenuation&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Power&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Scan_Distance&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Step_Size&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Ref_Probe_Focal_Length&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Ref_Tx_Frequency&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Normalized_Height&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Normalized_Origin&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Ref_Tx_Power&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Freq_Range_Max&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Freq_Range_Min&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sector_Width_Target&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RF_Gain&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Digi_Depth_Imaging&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Test_Freq&);
+
+::std::ostream&
+operator<< (::std::ostream&, const IF_Filter&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Track_Width&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_IF_Filter&);
+
+::std::ostream&
+operator<< (::std::ostream&, const HP_Clutter&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RF_Filter&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_RF_Filter&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Delay&);
+
+::std::ostream&
+operator<< (::std::ostream&, const AD_Gate_Width&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency3&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Frequency1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Field_Of_View&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sector_Height_Target&);
+
+::std::ostream&
+operator<< (::std::ostream&, const AD_TestIn&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Delay_Length&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Window_Time&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sample_Time1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Focal_Length1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Default_Scan_Speed1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Cutoff_Scan_Speed1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency_Low1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Default_FOV1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency_Doppler_Default1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Axial_Res1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pivot_Encoder_Dist1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Encoder_Range_Max1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Encoder_Range_Min1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Lateral_Res1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Max_Scan_Distance1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Default_Rx_Gain1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency_High1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Scan_Speeds1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Filter_Doppler_Cutoff1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency_Doppler_Low1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pivot_Transducer_Face_Dist1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Filter_Doppler1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency4&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Encoder_Separation1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Overshoot1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Filter1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Default_Rx_Gain_Doppler1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Filter_Doppler_Low1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency_Doppler1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Filter_High1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Motor_Overhead1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Filter_Low1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Buffer_Size1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const BMode_Size_Default1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Overlay_Mode&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Refresh_Rate1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Acquisition_Mode&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Actual_Scan_Rate&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sector_X_Res&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sector_Y_Res&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Power_Size_Default1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sector_X_Start&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sector_Y_Start&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Target_Field_Of_View1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sound_Speed1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pipeline_Delay1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Reference_3D_Step_Size&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Contrast_Size_Default&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Reference_3D_Scan_Distance&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Center1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Scan_Speed1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Scan_Rate1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Scan_Width1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Position1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const R_Scan_Move_No_Wait1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Acceleration1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Velocity_Stationary1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const R_Scan_Move21&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Position_Reverse1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Position21&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Velocity1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const R_Scan_Move1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Position_Forward1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Acceleration_Stationary1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Monitor_3point3V1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Monitor_5V1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Monitor_Neg15V1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Monitor_Neg5V1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Monitor_15V1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Threshold_Change1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pressure_Range1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Gate_Delay1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Timeout1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RWave_Max_Change_Factor_Percent1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Period1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Subsample_Rate1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Window1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pressure_Systolic1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency5&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Blank_Period1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Range1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pressure_Zero1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const P_Wave_Start1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Percent_Peak1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const T_Wave_Start1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Strain_Rate_RR_Diff_Ratio1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pressure_Diastolic1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Temperature_Calibration1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Temperature1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Beats_To_Average1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RWave_Thresh_Trigger_Percent1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Respiration_Time_To_Average1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Heart_Period1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const ECG_Range1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RWave_Maxima_Block_Time1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pressure_Calibration_Level1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const ECG_HP_Filter1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const ECG_LP_Filter1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RWave_Max_Change_Period1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pressure_Calibration1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RWave_Blank_Time1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RWave_Future_Search_Time1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Transmit_Length1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Pulse_Rep_Freq1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency6&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Unblank_Time1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Frequency2&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Pulse_Rep_Frequency1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Trig_Tbl_Trigs1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Unblank_Cycles1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Unblank_Time1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Attenuation1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Power1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frames&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frame_Rate&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Tx_PRF&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Tx_Power&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Duration&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Tx_Frequency&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Destroy_Sequence_Position&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Scan_Distance1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Step_Size1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Parallel_Step_Size&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sector_Width_Target1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RF_Gain1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Digi_Depth_Imaging1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Test_Freq1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const RF_Filter1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_RF_Filter1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Delay1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const AD_Gate_Width1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Frequency7&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Frequency3&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Field_Of_View1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Sector_Height_Target1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const AD_TestIn1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_Delay_Length1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const IF_Filter1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Track_Width1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const V_IF_Filter1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const HP_Clutter1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const Window_Time1&);
+
+::std::ostream&
+operator<< (::std::ostream&, const EKV_Start&);
+
+::std::ostream&
+operator<< (::std::ostream&, const EKV_Stop&);
+
+::std::ostream&
+operator<< (::std::ostream&, const EKV_Quality_Times&);
+
+::std::ostream&
+operator<< (::std::ostream&, const EKV_Quality&);
+
+::std::ostream&
+operator<< (::std::ostream&, const EKV_Quality_Resolution&);
+
+::std::ostream&
+operator<< (::std::ostream&, const EKV_Variance&);
+
+::std::ostream&
+operator<< (::std::ostream&, const EKV_Triggers&);
 
 #include <iosfwd>
 
@@ -19215,6 +38196,870 @@ operator<< (::xercesc::DOMElement&, const EKVModeSoft&);
 
 void
 operator<< (::xercesc::DOMElement&, const BModeLVAnalysis&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sample_Time&);
+
+void
+operator<< (::xercesc::DOMElement&, const Focal_Length&);
+
+void
+operator<< (::xercesc::DOMElement&, const Default_Scan_Speed&);
+
+void
+operator<< (::xercesc::DOMElement&, const Cutoff_Scan_Speed&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency_Low&);
+
+void
+operator<< (::xercesc::DOMElement&, const Default_FOV&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency_Doppler_Default&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency_Doppler&);
+
+void
+operator<< (::xercesc::DOMElement&, const Axial_Res&);
+
+void
+operator<< (::xercesc::DOMElement&, const Filter_High&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pivot_Encoder_Dist&);
+
+void
+operator<< (::xercesc::DOMElement&, const Encoder_Range_Max&);
+
+void
+operator<< (::xercesc::DOMElement&, const Encoder_Range_Min&);
+
+void
+operator<< (::xercesc::DOMElement&, const Lateral_Res&);
+
+void
+operator<< (::xercesc::DOMElement&, const Motor_Overhead&);
+
+void
+operator<< (::xercesc::DOMElement&, const Max_Scan_Distance&);
+
+void
+operator<< (::xercesc::DOMElement&, const Default_Rx_Gain&);
+
+void
+operator<< (::xercesc::DOMElement&, const Filter_Low&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency_High&);
+
+void
+operator<< (::xercesc::DOMElement&, const Scan_Speeds&);
+
+void
+operator<< (::xercesc::DOMElement&, const Filter_Doppler_Cutoff&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency_Doppler_Low&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pivot_Transducer_Face_Dist&);
+
+void
+operator<< (::xercesc::DOMElement&, const Filter_Doppler&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency&);
+
+void
+operator<< (::xercesc::DOMElement&, const Encoder_Separation&);
+
+void
+operator<< (::xercesc::DOMElement&, const Overshoot&);
+
+void
+operator<< (::xercesc::DOMElement&, const Filter&);
+
+void
+operator<< (::xercesc::DOMElement&, const Default_Rx_Gain_Doppler&);
+
+void
+operator<< (::xercesc::DOMElement&, const Filter_Doppler_Low&);
+
+void
+operator<< (::xercesc::DOMElement&, const Buffer_Size&);
+
+void
+operator<< (::xercesc::DOMElement&, const BMode_Size_Default&);
+
+void
+operator<< (::xercesc::DOMElement&, const Refresh_Rate&);
+
+void
+operator<< (::xercesc::DOMElement&, const Power_Size_Default&);
+
+void
+operator<< (::xercesc::DOMElement&, const Target_Field_Of_View&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sound_Speed&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pipeline_Delay&);
+
+void
+operator<< (::xercesc::DOMElement&, const Center&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Scan_Speed&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Scan_Rate&);
+
+void
+operator<< (::xercesc::DOMElement&, const Scan_Width&);
+
+void
+operator<< (::xercesc::DOMElement&, const Position&);
+
+void
+operator<< (::xercesc::DOMElement&, const R_Scan_Move_No_Wait&);
+
+void
+operator<< (::xercesc::DOMElement&, const Acceleration&);
+
+void
+operator<< (::xercesc::DOMElement&, const Velocity_Stationary&);
+
+void
+operator<< (::xercesc::DOMElement&, const R_Scan_Move2&);
+
+void
+operator<< (::xercesc::DOMElement&, const Acceleration_Stationary&);
+
+void
+operator<< (::xercesc::DOMElement&, const Position_Reverse&);
+
+void
+operator<< (::xercesc::DOMElement&, const Position2&);
+
+void
+operator<< (::xercesc::DOMElement&, const Velocity&);
+
+void
+operator<< (::xercesc::DOMElement&, const R_Scan_Move&);
+
+void
+operator<< (::xercesc::DOMElement&, const Position_Forward&);
+
+void
+operator<< (::xercesc::DOMElement&, const Monitor_3point3V&);
+
+void
+operator<< (::xercesc::DOMElement&, const Monitor_15V&);
+
+void
+operator<< (::xercesc::DOMElement&, const Monitor_5V&);
+
+void
+operator<< (::xercesc::DOMElement&, const Monitor_Neg15V&);
+
+void
+operator<< (::xercesc::DOMElement&, const Monitor_Neg5V&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Threshold_Change&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pressure_Range&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Gate_Delay&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Timeout&);
+
+void
+operator<< (::xercesc::DOMElement&, const RWave_Max_Change_Factor_Percent&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Period&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Subsample_Rate&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Window&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pressure_Systolic&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Blank_Period&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Range&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pressure_Zero&);
+
+void
+operator<< (::xercesc::DOMElement&, const P_Wave_Start&);
+
+void
+operator<< (::xercesc::DOMElement&, const RWave_Future_Search_Time&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Percent_Peak&);
+
+void
+operator<< (::xercesc::DOMElement&, const T_Wave_Start&);
+
+void
+operator<< (::xercesc::DOMElement&, const Strain_Rate_RR_Diff_Ratio&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pressure_Diastolic&);
+
+void
+operator<< (::xercesc::DOMElement&, const Temperature_Calibration&);
+
+void
+operator<< (::xercesc::DOMElement&, const Temperature&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Beats_To_Average&);
+
+void
+operator<< (::xercesc::DOMElement&, const RWave_Thresh_Trigger_Percent&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Time_To_Average&);
+
+void
+operator<< (::xercesc::DOMElement&, const Heart_Period&);
+
+void
+operator<< (::xercesc::DOMElement&, const ECG_Range&);
+
+void
+operator<< (::xercesc::DOMElement&, const RWave_Maxima_Block_Time&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pressure_Calibration_Level&);
+
+void
+operator<< (::xercesc::DOMElement&, const ECG_HP_Filter&);
+
+void
+operator<< (::xercesc::DOMElement&, const ECG_LP_Filter&);
+
+void
+operator<< (::xercesc::DOMElement&, const RWave_Max_Change_Period&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pressure_Calibration&);
+
+void
+operator<< (::xercesc::DOMElement&, const RWave_Blank_Time&);
+
+void
+operator<< (::xercesc::DOMElement&, const Magnitude_Origin&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency_Origin&);
+
+void
+operator<< (::xercesc::DOMElement&, const Length_Origin&);
+
+void
+operator<< (::xercesc::DOMElement&, const Vertical_Scale&);
+
+void
+operator<< (::xercesc::DOMElement&, const SamplesPerSec&);
+
+void
+operator<< (::xercesc::DOMElement&, const Magnitude_Height&);
+
+void
+operator<< (::xercesc::DOMElement&, const Length_Length&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency_Length&);
+
+void
+operator<< (::xercesc::DOMElement&, const SV_Center&);
+
+void
+operator<< (::xercesc::DOMElement&, const RF_Path_15Mhz_Time_Correction&);
+
+void
+operator<< (::xercesc::DOMElement&, const RF_Path_23Mhz_Time_Correction&);
+
+void
+operator<< (::xercesc::DOMElement&, const SV_Length_Limits&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Transmit_Length&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Pulse_Rep_Freq&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency2&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Unblank_Time&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Frequency&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pulse_Rep_Frequency&);
+
+void
+operator<< (::xercesc::DOMElement&, const Trig_Tbl_Trigs&);
+
+void
+operator<< (::xercesc::DOMElement&, const Unblank_Cycles&);
+
+void
+operator<< (::xercesc::DOMElement&, const Unblank_Time&);
+
+void
+operator<< (::xercesc::DOMElement&, const Attenuation&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Power&);
+
+void
+operator<< (::xercesc::DOMElement&, const Scan_Distance&);
+
+void
+operator<< (::xercesc::DOMElement&, const Step_Size&);
+
+void
+operator<< (::xercesc::DOMElement&, const Ref_Probe_Focal_Length&);
+
+void
+operator<< (::xercesc::DOMElement&, const Ref_Tx_Frequency&);
+
+void
+operator<< (::xercesc::DOMElement&, const Normalized_Height&);
+
+void
+operator<< (::xercesc::DOMElement&, const Normalized_Origin&);
+
+void
+operator<< (::xercesc::DOMElement&, const Ref_Tx_Power&);
+
+void
+operator<< (::xercesc::DOMElement&, const Freq_Range_Max&);
+
+void
+operator<< (::xercesc::DOMElement&, const Freq_Range_Min&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sector_Width_Target&);
+
+void
+operator<< (::xercesc::DOMElement&, const RF_Gain&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Digi_Depth_Imaging&);
+
+void
+operator<< (::xercesc::DOMElement&, const Test_Freq&);
+
+void
+operator<< (::xercesc::DOMElement&, const IF_Filter&);
+
+void
+operator<< (::xercesc::DOMElement&, const Track_Width&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_IF_Filter&);
+
+void
+operator<< (::xercesc::DOMElement&, const HP_Clutter&);
+
+void
+operator<< (::xercesc::DOMElement&, const RF_Filter&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_RF_Filter&);
+
+void
+operator<< (::xercesc::DOMElement&, const Delay&);
+
+void
+operator<< (::xercesc::DOMElement&, const AD_Gate_Width&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency3&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Frequency1&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Field_Of_View&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sector_Height_Target&);
+
+void
+operator<< (::xercesc::DOMElement&, const AD_TestIn&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Delay_Length&);
+
+void
+operator<< (::xercesc::DOMElement&, const Window_Time&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sample_Time1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Focal_Length1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Default_Scan_Speed1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Cutoff_Scan_Speed1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency_Low1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Default_FOV1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency_Doppler_Default1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Axial_Res1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pivot_Encoder_Dist1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Encoder_Range_Max1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Encoder_Range_Min1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Lateral_Res1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Max_Scan_Distance1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Default_Rx_Gain1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency_High1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Scan_Speeds1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Filter_Doppler_Cutoff1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency_Doppler_Low1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pivot_Transducer_Face_Dist1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Filter_Doppler1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency4&);
+
+void
+operator<< (::xercesc::DOMElement&, const Encoder_Separation1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Overshoot1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Filter1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Default_Rx_Gain_Doppler1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Filter_Doppler_Low1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency_Doppler1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Filter_High1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Motor_Overhead1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Filter_Low1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Buffer_Size1&);
+
+void
+operator<< (::xercesc::DOMElement&, const BMode_Size_Default1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Overlay_Mode&);
+
+void
+operator<< (::xercesc::DOMElement&, const Refresh_Rate1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Acquisition_Mode&);
+
+void
+operator<< (::xercesc::DOMElement&, const Actual_Scan_Rate&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sector_X_Res&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sector_Y_Res&);
+
+void
+operator<< (::xercesc::DOMElement&, const Power_Size_Default1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sector_X_Start&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sector_Y_Start&);
+
+void
+operator<< (::xercesc::DOMElement&, const Target_Field_Of_View1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sound_Speed1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pipeline_Delay1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Reference_3D_Step_Size&);
+
+void
+operator<< (::xercesc::DOMElement&, const Contrast_Size_Default&);
+
+void
+operator<< (::xercesc::DOMElement&, const Reference_3D_Scan_Distance&);
+
+void
+operator<< (::xercesc::DOMElement&, const Center1&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Scan_Speed1&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Scan_Rate1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Scan_Width1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Position1&);
+
+void
+operator<< (::xercesc::DOMElement&, const R_Scan_Move_No_Wait1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Acceleration1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Velocity_Stationary1&);
+
+void
+operator<< (::xercesc::DOMElement&, const R_Scan_Move21&);
+
+void
+operator<< (::xercesc::DOMElement&, const Position_Reverse1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Position21&);
+
+void
+operator<< (::xercesc::DOMElement&, const Velocity1&);
+
+void
+operator<< (::xercesc::DOMElement&, const R_Scan_Move1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Position_Forward1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Acceleration_Stationary1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Monitor_3point3V1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Monitor_5V1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Monitor_Neg15V1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Monitor_Neg5V1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Monitor_15V1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Threshold_Change1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pressure_Range1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Gate_Delay1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Timeout1&);
+
+void
+operator<< (::xercesc::DOMElement&, const RWave_Max_Change_Factor_Percent1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Period1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Subsample_Rate1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Window1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pressure_Systolic1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency5&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Blank_Period1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Range1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pressure_Zero1&);
+
+void
+operator<< (::xercesc::DOMElement&, const P_Wave_Start1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Percent_Peak1&);
+
+void
+operator<< (::xercesc::DOMElement&, const T_Wave_Start1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Strain_Rate_RR_Diff_Ratio1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pressure_Diastolic1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Temperature_Calibration1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Temperature1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Beats_To_Average1&);
+
+void
+operator<< (::xercesc::DOMElement&, const RWave_Thresh_Trigger_Percent1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Respiration_Time_To_Average1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Heart_Period1&);
+
+void
+operator<< (::xercesc::DOMElement&, const ECG_Range1&);
+
+void
+operator<< (::xercesc::DOMElement&, const RWave_Maxima_Block_Time1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pressure_Calibration_Level1&);
+
+void
+operator<< (::xercesc::DOMElement&, const ECG_HP_Filter1&);
+
+void
+operator<< (::xercesc::DOMElement&, const ECG_LP_Filter1&);
+
+void
+operator<< (::xercesc::DOMElement&, const RWave_Max_Change_Period1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pressure_Calibration1&);
+
+void
+operator<< (::xercesc::DOMElement&, const RWave_Blank_Time1&);
+
+void
+operator<< (::xercesc::DOMElement&, const RWave_Future_Search_Time1&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Transmit_Length1&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Pulse_Rep_Freq1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency6&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Unblank_Time1&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Frequency2&);
+
+void
+operator<< (::xercesc::DOMElement&, const Pulse_Rep_Frequency1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Trig_Tbl_Trigs1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Unblank_Cycles1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Unblank_Time1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Attenuation1&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Power1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frames&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frame_Rate&);
+
+void
+operator<< (::xercesc::DOMElement&, const Tx_PRF&);
+
+void
+operator<< (::xercesc::DOMElement&, const Tx_Power&);
+
+void
+operator<< (::xercesc::DOMElement&, const Duration&);
+
+void
+operator<< (::xercesc::DOMElement&, const Tx_Frequency&);
+
+void
+operator<< (::xercesc::DOMElement&, const Destroy_Sequence_Position&);
+
+void
+operator<< (::xercesc::DOMElement&, const Scan_Distance1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Step_Size1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Parallel_Step_Size&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sector_Width_Target1&);
+
+void
+operator<< (::xercesc::DOMElement&, const RF_Gain1&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Digi_Depth_Imaging1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Test_Freq1&);
+
+void
+operator<< (::xercesc::DOMElement&, const RF_Filter1&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_RF_Filter1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Delay1&);
+
+void
+operator<< (::xercesc::DOMElement&, const AD_Gate_Width1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Frequency7&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Frequency3&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Field_Of_View1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Sector_Height_Target1&);
+
+void
+operator<< (::xercesc::DOMElement&, const AD_TestIn1&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_Delay_Length1&);
+
+void
+operator<< (::xercesc::DOMElement&, const IF_Filter1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Track_Width1&);
+
+void
+operator<< (::xercesc::DOMElement&, const V_IF_Filter1&);
+
+void
+operator<< (::xercesc::DOMElement&, const HP_Clutter1&);
+
+void
+operator<< (::xercesc::DOMElement&, const Window_Time1&);
+
+void
+operator<< (::xercesc::DOMElement&, const EKV_Start&);
+
+void
+operator<< (::xercesc::DOMElement&, const EKV_Stop&);
+
+void
+operator<< (::xercesc::DOMElement&, const EKV_Quality_Times&);
+
+void
+operator<< (::xercesc::DOMElement&, const EKV_Quality&);
+
+void
+operator<< (::xercesc::DOMElement&, const EKV_Quality_Resolution&);
+
+void
+operator<< (::xercesc::DOMElement&, const EKV_Variance&);
+
+void
+operator<< (::xercesc::DOMElement&, const EKV_Triggers&);
 
 #include <xsd/cxx/post.hxx>
 

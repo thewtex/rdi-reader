@@ -47,6 +47,7 @@ int main(int argc, char* argv[])
     // debug
     cout << "Acquisition Mode: " << rdi_i->image_info().Acquisition_Mode() << endl;
     cout << "Image Frames: "  << rdi_i->image_info().Image_Frames() << endl;
+    cout << "RF-Mode/ActiveProbe/Sample-Time/units: " << rdi_i->image_parameters().RF_Mode().ActiveProbe().Sample_Time().units() << endl;
     // end debug
 
     if(argc == 2)

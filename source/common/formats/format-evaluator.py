@@ -27,11 +27,7 @@ sys.path.insert(0, module_path)
 from format_evaluator.namespace_vars import *
 from format_evaluator import element_types
 
-class UnexpectedContent(Exception):
-    def __init__(self, message="Unexpected content for a .rdi file."):
-        self.message = message
-    def __str__(self):
-        return repr(self.message)
+from format_evaluator.unexpected_content_exception import UnexpectedContent
 
 ##
 # @brief parse a .rdi file line by line and generate a python list of the

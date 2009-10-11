@@ -24,8 +24,8 @@ from lxml import etree
 # for working from within the source
 module_path = os.path.dirname(sys.modules[__name__].__file__)
 sys.path.insert(0, module_path)
-from namespace_vars import *
-import element_types
+from format_evaluator.namespace_vars import *
+from format_evaluator import element_types
 
 class UnexpectedContent(Exception):
     def __init__(self, message="Unexpected content for a .rdi file."):

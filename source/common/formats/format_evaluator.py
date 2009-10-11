@@ -11,9 +11,13 @@
 
 import re
 import sys
+from optparse import OptionParser
 import os
 
-#import xml.etree.ElementTree as ET
+import logging
+logging.basicConfig(level = logging.CRITICAL)
+fe_logger = logging.getLogger('format_evaluator')
+
 from lxml import etree
 
 
@@ -64,7 +68,7 @@ class RDILineParser:
 # @return
     def get_raw_line(self):
         raw_line = self.rdi_file.readline()
-        print("Processing: ", raw_line, end='')
+        fe_logger.debug("Processing: " + raw_line)
         return raw_line
 
 ##
@@ -97,7 +101,6 @@ def main(rdi_filepath):
 # create the XML Schema
         rdi_schema = etree.Element(XS + 'schema', \
                 nsmap={XS_NS[:-1]: XS_NAMESPACE})
-
 
 
         etyper = element_types.ElementTyper()
@@ -205,8 +208,14 @@ def main(rdi_filepath):
 
 usage = "Usage: " + sys.argv[0] + " <sample-file.rdi>"
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print(usage)
-        sys.exit(1)
+    parser = OptionParser(usage=usage)
+    parser.add_option("-v", "--verbose", action="store_true", dest="verbose",
+            default=False,
+            help = "Print DEBUG message to stdout, default=%default")
+    (options, args) = parser.parse_args()
+    if options.verbose:
+        fe_logger.setLevel(logging.DEBUG)
+    if len(args) != 1:
+        parser.error("Please specify sample rdi file.")
     else:
-        main(sys.argv[1])
+        main(args[0])

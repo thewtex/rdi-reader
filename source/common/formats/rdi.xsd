@@ -29,7 +29,7 @@
                   <xs:element name="Sample-Time">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1524,7 +1524,7 @@
                   <xs:element name="Delay">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1653,7 +1653,7 @@
                   <xs:element name="Sample-Time">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3155,7 +3155,7 @@
                   <xs:element name="Delay">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>

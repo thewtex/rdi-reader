@@ -19923,7 +19923,7 @@ class BModeLVAnalysis: public ::xml_schema::type
   ::xsd::cxx::tree::one< Cardinal_Tension_type > Cardinal_Tension_;
 };
 
-class Sample_Time: public ::xml_schema::string
+class Sample_Time: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -19945,15 +19945,7 @@ class Sample_Time: public ::xml_schema::string
 
   // Constructors.
   //
-  Sample_Time (const units_type&);
-
-  Sample_Time (const char*,
-               const units_type&);
-
-  Sample_Time (const ::std::string&,
-               const units_type&);
-
-  Sample_Time (const ::xml_schema::string&,
+  Sample_Time (const ::xml_schema::float_&,
                const units_type&);
 
   Sample_Time (const ::xercesc::DOMElement& e,
@@ -27711,7 +27703,7 @@ class V_RF_Filter: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Delay: public ::xml_schema::string
+class Delay: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27733,15 +27725,7 @@ class Delay: public ::xml_schema::string
 
   // Constructors.
   //
-  Delay (const units_type&);
-
-  Delay (const char*,
-         const units_type&);
-
-  Delay (const ::std::string&,
-         const units_type&);
-
-  Delay (const ::xml_schema::string&,
+  Delay (const ::xml_schema::float_&,
          const units_type&);
 
   Delay (const ::xercesc::DOMElement& e,
@@ -28242,7 +28226,7 @@ class Window_Time: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Sample_Time1: public ::xml_schema::string
+class Sample_Time1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28264,15 +28248,7 @@ class Sample_Time1: public ::xml_schema::string
 
   // Constructors.
   //
-  Sample_Time1 (const units_type&);
-
-  Sample_Time1 (const char*,
-                const units_type&);
-
-  Sample_Time1 (const ::std::string&,
-                const units_type&);
-
-  Sample_Time1 (const ::xml_schema::string&,
+  Sample_Time1 (const ::xml_schema::float_&,
                 const units_type&);
 
   Sample_Time1 (const ::xercesc::DOMElement& e,
@@ -35735,7 +35711,7 @@ class V_RF_Filter1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Delay1: public ::xml_schema::string
+class Delay1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -35757,15 +35733,7 @@ class Delay1: public ::xml_schema::string
 
   // Constructors.
   //
-  Delay1 (const units_type&);
-
-  Delay1 (const char*,
-          const units_type&);
-
-  Delay1 (const ::std::string&,
-          const units_type&);
-
-  Delay1 (const ::xml_schema::string&,
+  Delay1 (const ::xml_schema::float_&,
           const units_type&);
 
   Delay1 (const ::xercesc::DOMElement& e,

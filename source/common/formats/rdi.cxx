@@ -56747,32 +56747,9 @@ BModeLVAnalysis::
 //
 
 Sample_Time::
-Sample_Time (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sample_Time::
-Sample_Time (const char* _xsd_string_base,
+Sample_Time (const ::xml_schema::float_& _xsd_float__base,
              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sample_Time::
-Sample_Time (const ::std::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sample_Time::
-Sample_Time (const ::xml_schema::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -56781,7 +56758,7 @@ Sample_Time::
 Sample_Time (const Sample_Time& x,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -56790,7 +56767,7 @@ Sample_Time::
 Sample_Time (const ::xercesc::DOMElement& e,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -69551,32 +69528,9 @@ V_RF_Filter::
 //
 
 Delay::
-Delay (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Delay::
-Delay (const char* _xsd_string_base,
+Delay (const ::xml_schema::float_& _xsd_float__base,
        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Delay::
-Delay (const ::std::string& _xsd_string_base,
-       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Delay::
-Delay (const ::xml_schema::string& _xsd_string_base,
-       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -69585,7 +69539,7 @@ Delay::
 Delay (const Delay& x,
        ::xml_schema::flags f,
        ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -69594,7 +69548,7 @@ Delay::
 Delay (const ::xercesc::DOMElement& e,
        ::xml_schema::flags f,
        ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -70424,32 +70378,9 @@ Window_Time::
 //
 
 Sample_Time1::
-Sample_Time1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sample_Time1::
-Sample_Time1 (const char* _xsd_string_base,
+Sample_Time1 (const ::xml_schema::float_& _xsd_float__base,
               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sample_Time1::
-Sample_Time1 (const ::std::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sample_Time1::
-Sample_Time1 (const ::xml_schema::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -70458,7 +70389,7 @@ Sample_Time1::
 Sample_Time1 (const Sample_Time1& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -70467,7 +70398,7 @@ Sample_Time1::
 Sample_Time1 (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -82743,32 +82674,9 @@ V_RF_Filter1::
 //
 
 Delay1::
-Delay1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Delay1::
-Delay1 (const char* _xsd_string_base,
+Delay1 (const ::xml_schema::float_& _xsd_float__base,
         const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Delay1::
-Delay1 (const ::std::string& _xsd_string_base,
-        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Delay1::
-Delay1 (const ::xml_schema::string& _xsd_string_base,
-        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -82777,7 +82685,7 @@ Delay1::
 Delay1 (const Delay1& x,
         ::xml_schema::flags f,
         ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -82786,7 +82694,7 @@ Delay1::
 Delay1 (const ::xercesc::DOMElement& e,
         ::xml_schema::flags f,
         ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -85826,7 +85734,7 @@ operator<< (::std::ostream& o, const BModeLVAnalysis& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Sample_Time& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87014,7 +86922,7 @@ operator<< (::std::ostream& o, const V_RF_Filter& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Delay& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87095,7 +87003,7 @@ operator<< (::std::ostream& o, const Window_Time& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Sample_Time1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88238,7 +88146,7 @@ operator<< (::std::ostream& o, const V_RF_Filter1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Delay1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -99081,7 +98989,7 @@ operator<< (::xercesc::DOMElement& e, const BModeLVAnalysis& i)
 void
 operator<< (::xercesc::DOMElement& e, const Sample_Time& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101325,7 +101233,7 @@ operator<< (::xercesc::DOMElement& e, const V_RF_Filter& i)
 void
 operator<< (::xercesc::DOMElement& e, const Delay& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101478,7 +101386,7 @@ operator<< (::xercesc::DOMElement& e, const Window_Time& i)
 void
 operator<< (::xercesc::DOMElement& e, const Sample_Time1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103637,7 +103545,7 @@ operator<< (::xercesc::DOMElement& e, const V_RF_Filter1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Delay1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //

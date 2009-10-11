@@ -13,7 +13,8 @@ class ElementTyper():
             }
 
     _units_dict = {
-            'bytes':'positiveInteger'
+            'bytes':'positiveInteger',
+            'µs':'float'
             }
 
     def get_type(self, line):

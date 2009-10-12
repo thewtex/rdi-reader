@@ -21,21 +21,6 @@ using namespace xercesc;
 //#include "common/XStr.h"
 //#define X(str) XStr(str).unicodeForm()
 
-/// for debugging
-#include <ostream>
-
-#include <xercesc/dom/DOM.hpp>
-#include <xercesc/util/XMLUniDefs.hpp>
-
-#include <xsd/cxx/xml/string.hxx>
-#include <xsd/cxx/xml/dom/auto-ptr.hxx>
-#include <xsd/cxx/xml/dom/serialization-source.hxx>
-#include <xsd/cxx/xml/dom/bits/error-handler-proxy.hxx>
-
-#include <xsd/cxx/tree/exceptions.hxx>
-#include <xsd/cxx/tree/error-handler.hxx>
-
-/// end for debugging
 
 /**
  * @brief maximum number of chars that will need to be transcoded
@@ -147,41 +132,6 @@ auto_ptr<rdi_t> rdiReader::parse()
     if(!infile.eof())
       throw e;
     }
-
-  //// for debugging
-      namespace xml = xsd::cxx::xml;
-    namespace tree = xsd::cxx::tree;
-
-      tree::error_handler<char> eh;
-        xml::dom::bits::error_handler_proxy<char> ehp (eh);
-
-	ofstream os("current.xml");
-	string encoding("UTF-8");
-	  xml::dom::ostream_format_target oft (os);
-
-	   // Create a DOMSerializer.
-  //
-  xml::dom::auto_ptr<DOMLSSerializer> writer (
-    impl->createLSSerializer ());
-
-  DOMConfiguration* conf (writer->getDomConfig ());
-
-  // Set error handler.
-  //
-  conf->setParameter (XMLUni::fgDOMErrorHandler, &ehp);
-
-  // Set some generally nice features.
-  //
-  conf->setParameter (XMLUni::fgDOMWRTDiscardDefaultContent, true);
-  conf->setParameter (XMLUni::fgDOMWRTFormatPrettyPrint, true);
-
-  xml::dom::auto_ptr<DOMLSOutput> out (impl->createLSOutput ());
-  out->setEncoding (xml::string (encoding).c_str ());
-  out->setByteStream (&oft);
-
-writer->write(root_elem, out.get() );
-eh.throw_if_failed<tree::serialization<char> > ();
-  ///// end for debugging
 
   ::std::auto_ptr< ::rdi_t> rdi_i (
     rdi(domdoc,

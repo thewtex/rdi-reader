@@ -17,19 +17,26 @@ class FormatEvaluator():
         self.rdi_line_parser = RDILineParser(rdi_file)
         self.script_path = script_path
 
+        self.etyper = element_types.ElementTyper()
+
     def run(self):
-# create the XML Schema
-        rdi_schema = etree.Element(XS + 'schema', \
+        self._create_rdi_XML_Schema()
+        self._parse_IMAGE_INFO_section()
+        self._parse_IMAGE_DATA_section()
+        self._parse_IMAGE_PARAMETERS_section()
+        self._create_root_and_main_IMAGE_subelements()
+        self._write_tree()
+        self._validate_tree()
+
+    def _create_rdi_XML_Schema(self):
+        self.rdi_schema = etree.Element(XS + 'schema', \
                 nsmap={XS_NS[:-1]: XS_NAMESPACE})
 
-
-        etyper = element_types.ElementTyper()
-
-# parse IMAGE INFO section
+    def _parse_IMAGE_INFO_section(self):
         first_line = self.rdi_line_parser.get_line()
         if(first_line[0][0] != "===_IMAGE_INFO_==="):
             raise UnexpectedContent
-        image_info_t = etree.SubElement(rdi_schema, XS + 'complexType', \
+        image_info_t = etree.SubElement(self.rdi_schema, XS + 'complexType', \
                 name='image_info_t')
         image_info_seq = etree.SubElement(image_info_t, XS + 'sequence')
 
@@ -38,19 +45,18 @@ class FormatEvaluator():
             element_name = next_line[0][0].replace(' ', '_')
             etree.SubElement(image_info_seq, XS + 'element',
                     name = element_name,
-                    type = etyper.get_type(next_line))
+                    type = self.etyper.get_type(next_line))
             next_line = self.rdi_line_parser.get_line()
 
-
-# parse IMAGE DATA section
-        image_data_t = etree.SubElement(rdi_schema, XS + 'complexType', \
+    def _parse_IMAGE_DATA_section(self):
+        image_data_t = etree.SubElement(self.rdi_schema, XS + 'complexType', \
                 name='image_data_t')
         next_line = self.rdi_line_parser.get_raw_line()
         while(next_line != '"=== IMAGE PARAMETERS ==="\n'):
             next_line = self.rdi_line_parser.get_raw_line()
 
-# parse IMAGE PARAMETERS
-        image_parameters_t = etree.SubElement(rdi_schema, XS + 'complexType', \
+    def _parse_IMAGE_PARAMETERS_section(self):
+        image_parameters_t = etree.SubElement(self.rdi_schema, XS + 'complexType', \
                 name='image_parameters_t')
         image_parameters_seq = etree.SubElement(image_parameters_t, XS + \
                 'sequence')
@@ -80,7 +86,7 @@ class FormatEvaluator():
             if len(next_line) < 3: # no units attribute
                 element = etree.Element(XS + 'element',
                         name = element_name,
-                        type = etyper.get_type(next_line))
+                        type = self.etyper.get_type(next_line))
                 node_e.append(element)
             else: # units attribute,
                 # http://www.w3.org/TR/xmlschema-0/ 2.5.1
@@ -89,7 +95,7 @@ class FormatEvaluator():
                 element_ct = etree.Element(XS + 'complexType')
                 element_sc = etree.Element(XS + 'simpleContent')
                 element_ex = etree.Element(XS + 'extension',
-                        base = etyper.get_type(next_line) )
+                        base = self.etyper.get_type(next_line) )
                 element_attr = etree.Element(XS + 'attribute',
                         name = 'units',
                         type = XS_NS + 'string',
@@ -101,8 +107,8 @@ class FormatEvaluator():
                 node_e.append(element)
             next_line = self.rdi_line_parser.get_line()
 
-# create rdi root element and main IMAGE* sub elements
-        rdi_t = etree.SubElement(rdi_schema, XS + 'complexType', \
+    def _create_root_and_main_IMAGE_subelements(self):
+        rdi_t = etree.SubElement(self.rdi_schema, XS + 'complexType', \
                 name = 'rdi_t')
         rdi_seq = etree.SubElement(rdi_t, XS + 'sequence')
         etree.SubElement(rdi_seq, XS + 'element',
@@ -114,13 +120,14 @@ class FormatEvaluator():
         etree.SubElement(rdi_seq, XS + 'element',
                 name = 'image_parameters',
                 type = 'image_parameters_t')
-        rdi = etree.SubElement(rdi_schema, XS + 'element',
+        rdi = etree.SubElement(self.rdi_schema, XS + 'element',
                 name = 'rdi',
                 type = 'rdi_t')
 
-
-        schemaschema = etree.XMLSchema(file=os.path.join(self.script_path, 'XMLSchema.xsd'))
-
-        tree = etree.ElementTree(rdi_schema)
+    def _write_tree(self):
+        tree = etree.ElementTree(self.rdi_schema)
         tree.write(os.path.join(self.script_path, "rdi.xsd"), pretty_print=True, xml_declaration=True, encoding="UTF-8")
-        schemaschema.assertValid(rdi_schema)
+
+    def _validate_tree(self):
+        schemaschema = etree.XMLSchema(file=os.path.join(self.script_path, 'XMLSchema.xsd'))
+        schemaschema.assertValid(self.rdi_schema)

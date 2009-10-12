@@ -21,11 +21,8 @@ using namespace xercesc;
 //#include "common/XStr.h"
 //#define X(str) XStr(str).unicodeForm()
 
-
-/**
- * @brief maximum number of chars that will need to be transcoded
- */
-const static unsigned int transcode_max_chars = 512;
+const static XMLCh LS[] = {chLatin_L, chLatin_S, chNull};
+const static XMLCh UNITS[] = {chLatin_u, chLatin_n, chLatin_i, chLatin_t, chLatin_s, chNull};
 
 rdiReader::rdiReader(const char* filepath):
   m_filepath(filepath)
@@ -44,29 +41,40 @@ rdiReader::~rdiReader()
 
 auto_ptr<rdi_t> rdiReader::parse()
 {
-  const XMLCh ls[] = {chLatin_L, chLatin_S, chNull};
-  DOMImplementation* impl = DOMImplementationRegistry::getDOMImplementation(ls);
+  DOMImplementation* impl = DOMImplementationRegistry::getDOMImplementation(LS);
   ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc (impl->createDocument(
       0,
       X("rdi"),
       0));
 
-  DOMElement* root_elem = domdoc->getDocumentElement();
-  const XMLCh units[] = {chLatin_u, chLatin_n, chLatin_i, chLatin_t, chLatin_s, chNull};
-
   std::ifstream infile(m_filepath.c_str());
   infile.exceptions(ifstream::eofbit|ifstream::failbit|ifstream::badbit);
 
-  std::string line;
+  domdoc = parse_IMAGE_INFO_section(infile, domdoc);
+  domdoc = parse_IMAGE_DATA_section(infile, domdoc);
+  domdoc = parse_IMAGE_PARAMETERS_section(infile, domdoc);
 
-  // @todo split these sections of code up into functions
-  // parse IMAGE INFO SECTION
+  ::std::auto_ptr< ::rdi_t> rdi_i (
+    rdi(domdoc,
+      xml_schema::flags::keep_dom | xml_schema::flags::own_dom)
+  );
+
+  return rdi_i;
+}
+
+
+::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument>
+rdiReader::parse_IMAGE_INFO_section(std::ifstream& infile,
+  ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc)
+{
+  std::string line;
   getline(infile, line);
   if(line == "=== IMAGE INFO ===")
     throw(xml_schema::expected_element("image_info", ""));
 
   DOMElement* image_info = domdoc->createElement(X("image_info"));
-  root_elem->appendChild(image_info);
+  //root_elem->appendChild(image_info);
+  domdoc->getDocumentElement()->appendChild(image_info);
 
   DOMElement* child;
   DOMText* text;
@@ -79,20 +87,36 @@ auto_ptr<rdi_t> rdiReader::parse()
     text = domdoc->createTextNode(X(m_line_parser.content.c_str()));
     child->appendChild(text);
     if(m_line_parser.units.size() > 0)
-      child->setAttribute(units, X(m_line_parser.units.c_str()));
+      child->setAttribute(UNITS, X(m_line_parser.units.c_str()));
     }
 
-  // parse IMAGE DATA SECTION
+  return domdoc;
+}
+
+
+::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument>
+rdiReader::parse_IMAGE_DATA_section(std::ifstream& infile,
+  ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc)
+{
+  string line;
   getline(infile, line);
   while(!(line == "\"=== IMAGE PARAMETERS ===\"\r"))
     getline(infile, line);
 
   DOMElement* image_data = domdoc->createElement(X("image_data"));
-  root_elem->appendChild(image_data);
+  domdoc->getDocumentElement()->appendChild(image_data);
+  return domdoc;
+}
 
-  // parse IMAGE PARAMETERS SECTION
+
+::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument>
+rdiReader::parse_IMAGE_PARAMETERS_section(std::ifstream& infile,
+  ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc)
+{
+  std::string line;
+  DOMText* text;
   DOMElement* image_parameters = domdoc->createElement(X("image_parameters"));
-  root_elem->appendChild(image_parameters);
+  domdoc->getDocumentElement()->appendChild(image_parameters);
   try
     {
     //skip first "
@@ -124,7 +148,7 @@ auto_ptr<rdi_t> rdiReader::parse()
       text = domdoc->createTextNode(X(m_line_parser.content.c_str()));
       new_child->appendChild(text);
       if(m_line_parser.units.size() > 0)
-	new_child->setAttribute(units, X(m_line_parser.units.c_str()));
+	new_child->setAttribute(UNITS, X(m_line_parser.units.c_str()));
       } // end parsing and handling a line
     }
   catch(const ifstream::failure& e)
@@ -132,13 +156,7 @@ auto_ptr<rdi_t> rdiReader::parse()
     if(!infile.eof())
       throw e;
     }
-
-  ::std::auto_ptr< ::rdi_t> rdi_i (
-    rdi(domdoc,
-      xml_schema::flags::keep_dom | xml_schema::flags::own_dom)
-  );
-
-  return rdi_i;
+  return domdoc;
 }
 
 

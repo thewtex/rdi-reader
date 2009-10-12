@@ -33,6 +33,16 @@ protected:
    */
   ToXMLCh* m_transcoder;
 
+  ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument>
+  parse_IMAGE_INFO_section(std::ifstream& infile,
+    ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc);
+  ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument>
+  parse_IMAGE_DATA_section(std::ifstream& infile,
+    ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc);
+  ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument>
+  parse_IMAGE_PARAMETERS_section(std::ifstream& infile,
+    ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc);
+
   class LineParser
     {
   public:

@@ -54,34 +54,6 @@ int main(int argc, char* argv[])
     map[""].schema = "rdi.xsd";
     rdi(ofs, *rdi_i, map);
   }
-  // @todo move some of the exception handling up into rdiReader excecution,
-  // throw a general more general exception with informative e.what() after
-  // caught
-  catch (const ifstream::failure& e)
-    {
-    cerr << "Error: failure opening/reading file." << endl;
-    return 1;
-    }
-  // xerces-C++
-  catch (const xercesc::XMLException& e)
-    {
-    char* msg = xercesc::XMLString::transcode(e.getMessage());
-    cerr << "Error: In Xerces-C++ xml processing: " << msg << endl;
-    xercesc::XMLString::release(&msg);
-    return 1;
-    }
-  catch (const xercesc::DOMException& e)
-    {
-
-    cerr << "Error: In Xerces-C++ DOM processing, code: " << e.code << endl;
-    cerr << "See http://xerces.apache.org/xerces-c/apiDocs-3/classDOMException.html for an explanation." << endl;
-    return 1;
-    }
-  catch (const xsd::cxx::tree::expected_element<char>& e)
-    {
-    cerr << "Error: " << e.what() << ": '" << e.name() << "' in namespace: " << e.namespace_() << endl;
-    return 1;
-    }
   catch (const std::exception& e)
     {
     cerr << "Error: "  << e.what() << endl;

@@ -41,25 +41,59 @@ rdiReader::~rdiReader()
 
 auto_ptr<rdi_t> rdiReader::parse()
 {
-  DOMImplementation* impl = DOMImplementationRegistry::getDOMImplementation(LS);
-  ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc (impl->createDocument(
-      0,
-      X("rdi"),
-      0));
+  try
+    {
+    DOMImplementation* impl = DOMImplementationRegistry::getDOMImplementation(LS);
+    ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc (impl->createDocument(
+	0,
+	X("rdi"),
+	0));
 
-  std::ifstream infile(m_filepath.c_str());
-  infile.exceptions(ifstream::eofbit|ifstream::failbit|ifstream::badbit);
+    std::ifstream infile(m_filepath.c_str());
+    infile.exceptions(ifstream::eofbit|ifstream::failbit|ifstream::badbit);
 
-  domdoc = parse_IMAGE_INFO_section(infile, domdoc);
-  domdoc = parse_IMAGE_DATA_section(infile, domdoc);
-  domdoc = parse_IMAGE_PARAMETERS_section(infile, domdoc);
+    domdoc = parse_IMAGE_INFO_section(infile, domdoc);
+    domdoc = parse_IMAGE_DATA_section(infile, domdoc);
+    domdoc = parse_IMAGE_PARAMETERS_section(infile, domdoc);
 
-  ::std::auto_ptr< ::rdi_t> rdi_i (
-    rdi(domdoc,
-      xml_schema::flags::keep_dom | xml_schema::flags::own_dom)
-  );
+    ::std::auto_ptr< ::rdi_t> rdi_i (
+      rdi(domdoc,
+	xml_schema::flags::keep_dom | xml_schema::flags::own_dom)
+    );
 
-  return rdi_i;
+    return rdi_i;
+    }
+  catch (const ifstream::failure& e)
+    {
+    throw std::runtime_error("failure opening/reading file.");
+    }
+  // xerces-C++
+  catch (const xercesc::XMLException& e)
+    {
+    char* msg = xercesc::XMLString::transcode(e.getMessage());
+    std::string msg_str = std::string(msg);
+    xercesc::XMLString::release(&msg);
+    throw std::logic_error(string("In Xerces-C++ xml processing: ") + msg_str);
+    }
+  catch (const xercesc::DOMException& e)
+    {
+
+    std::ostringstream code_strm;
+    code_strm << e.code;
+    throw std::runtime_error(
+      std::string("In Xerces-C++ DOM processing, code: ") + code_strm.str() +
+      std::string("\nSee http://xerces.apache.org/xerces-c/apiDocs-3/classDOMException.html for an explanation.")
+      );
+    }
+  catch (const xsd::cxx::tree::expected_element<char>& e)
+    {
+    throw std::logic_error(
+      e.what() +
+      string(": '") + e.name() +
+      string("' in namespace: ") + e.namespace_()
+      );
+    }
+
 }
 
 

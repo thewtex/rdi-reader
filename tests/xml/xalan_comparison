@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# compare files generated with the program that uses the xalan-c library verses
+# using the Xalan command line executable that comes with xalan-c
+
+RDI_FILEPATH="$1"
+XSL_FILEPATH="$2"
+RDI2XML_PATH="$3"
+RDI2HTML_PATH="$4"
+
+die() {
+  echo -e $*
+  exit 1
+}
+
+"${RDI2XML_PATH}" "$1" xalan_comparison.xml || \
+  die "rdi2xml failed during xalan comparison"
+
+Xalan xalan_comparison.xml "$XSL_FILEPATH" > xalan_command_out.html || \
+  die "Xalan executable failed"
+
+"$RDI2HTML_PATH" "$RDI_FILEPATH" rdi2html_out.html || \
+  die "rdi2html failed"
+
+differences=$(diff -u xalan_command_out.html rdi2html_out.html)
+
+[[ "$differences" != "$x" ]] && die "differences in xalan output:\n${differences}"

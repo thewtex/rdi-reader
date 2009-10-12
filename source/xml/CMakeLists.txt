@@ -14,4 +14,12 @@ target_link_libraries(rdi2xml ${XERCESC_LIBRARIES})
 if(BUILD_RDI2HTML)
   find_package(XalanC REQUIRED)
 
+  add_executable(rdi2html
+    rdi2html_main.cpp
+    rdi2html.cpp
+    )
+
+  target_link_libraries(rdi2html
+    ${XALANC_LIBRARIES})
+
 endif(BUILD_RDI2HTML)

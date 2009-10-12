@@ -39,7 +39,7 @@ rdiReader::~rdiReader()
   xercesc::XMLPlatformUtils::Terminate();
 }
 
-auto_ptr<rdi_t> rdiReader::parse()
+::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> rdiReader::parse_to_DOMDocument()
 {
   try
     {
@@ -56,12 +56,7 @@ auto_ptr<rdi_t> rdiReader::parse()
     domdoc = parse_IMAGE_DATA_section(infile, domdoc);
     domdoc = parse_IMAGE_PARAMETERS_section(infile, domdoc);
 
-    ::std::auto_ptr< ::rdi_t> rdi_i (
-      rdi(domdoc,
-	xml_schema::flags::keep_dom | xml_schema::flags::own_dom)
-    );
-
-    return rdi_i;
+    return domdoc;
     }
   catch (const ifstream::failure& e)
     {
@@ -94,6 +89,17 @@ auto_ptr<rdi_t> rdiReader::parse()
       );
     }
 
+}
+
+
+auto_ptr<rdi_t> rdiReader::parse_to_rdi_t()
+{
+    ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc = this->parse_to_DOMDocument();
+    std::auto_ptr< ::rdi_t> rdi_i (
+      rdi(domdoc,
+	xml_schema::flags::keep_dom | xml_schema::flags::own_dom)
+    );
+    return rdi_i;
 }
 
 

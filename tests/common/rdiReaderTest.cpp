@@ -22,7 +22,7 @@ protected:
 
 TEST_F(rdiReaderTest, ImageInfoSection)
 {
-  auto_ptr<rdi_t> rdi_i = rdi_reader.parse();
+  auto_ptr<rdi_t> rdi_i = rdi_reader.parse_to_rdi_t();
   EXPECT_EQ(string("plaque_pat_143_right"), rdi_i->image_info().Study_Name()) << "Invalid Study Name";
   EXPECT_EQ(246, rdi_i->image_info().Image_Frames()) << "Invalid Image Frames";
   EXPECT_EQ(250, rdi_i->image_info().Image_Lines()) << "Invalid Image Lines";
@@ -31,7 +31,7 @@ TEST_F(rdiReaderTest, ImageInfoSection)
 
 TEST_F(rdiReaderTest, ImageParametersSection)
 {
-  auto_ptr<rdi_t> rdi_i = rdi_reader.parse();
+  auto_ptr<rdi_t> rdi_i = rdi_reader.parse_to_rdi_t();
   EXPECT_EQ(string("Rat Cardiology"), rdi_i->image_parameters().RF_Mode().ActiveProbe().Notes()) << "Invalid Active Probe Notes";
   EXPECT_EQ(string("µs"), rdi_i->image_parameters().RF_Mode().ActiveProbe().Sample_Time().units()) << "Invalid Sample Time units";
   EXPECT_FLOAT_EQ(154.0, rdi_i->image_parameters().RF_Mode().ActiveProbe().Sample_Time()) << "Invalid Sample Time";

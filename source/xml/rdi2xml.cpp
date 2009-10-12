@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
   {
     rdiReader rdi_reader(argv[1]);
 
-    auto_ptr<rdi_t> rdi_i = rdi_reader.parse();
+    auto_ptr<rdi_t> rdi_i = rdi_reader.parse_to_rdi_t();
 
     if(argc == 2)
       out_file = out_file.substr(0, out_file.length()-4) + ".xml";

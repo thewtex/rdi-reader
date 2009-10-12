@@ -23,7 +23,8 @@ public:
   rdiReader(const char* filepath);
   ~rdiReader();
 
-  std::auto_ptr<rdi_t> parse();
+  ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> parse_to_DOMDocument();
+  std::auto_ptr<rdi_t> parse_to_rdi_t();
 
 protected:
   const std::string m_filepath;

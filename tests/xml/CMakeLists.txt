@@ -19,13 +19,15 @@ set_tests_properties(
   )
 
 
+if(BUILD_RDI2HTML)
 # rdi2html tests
-add_test(
-  xalan_comparison
+  add_test(
+    xalan_comparison
 
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/xml/xalan_comparison
-  ${RDI_TESTING_FILEPATH}
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/xml/rdi2html.xsl
-  ${read_visualsonics_digital_rf_BINARY_DIR}/bin/rdi2xml
-  ${read_visualsonics_digital_rf_BINARY_DIR}/bin/rdi2html
-  )
+    ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/xml/xalan_comparison
+    ${RDI_TESTING_FILEPATH}
+    ${read_visualsonics_digital_rf_SOURCE_DIR}/source/xml/rdi2html.xsl
+    ${read_visualsonics_digital_rf_BINARY_DIR}/bin/rdi2xml
+    ${read_visualsonics_digital_rf_BINARY_DIR}/bin/rdi2html
+    )
+endif()

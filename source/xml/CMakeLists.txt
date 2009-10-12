@@ -10,3 +10,8 @@ add_executable(rdi2xml
   ../common/ToXMLCh.cpp
   )
 target_link_libraries(rdi2xml ${XERCESC_LIBRARIES})
+
+if(BUILD_RDI2HTML)
+  find_package(XalanC REQUIRED)
+
+endif(BUILD_RDI2HTML)

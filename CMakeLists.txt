@@ -6,6 +6,8 @@ endif(COMMAND cmake_policy)
 
 project(read_visualsonics_digital_rf)
 
+set(BUILD_RDI2HTML ON CACHE BOOL
+  "Build program that converts rdi files to a human readable html file.")
 
 include(CTest)
 if(BUILD_TESTING)

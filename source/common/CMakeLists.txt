@@ -1,10 +1,6 @@
 #set(spirit_parse_source_dir ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/spirit_parse)
 
 
-include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source
-  #${spirit_parse_source_dir}
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common
-  )
 
 
 #set(parse_vs_rdi_lib_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
@@ -21,13 +17,6 @@ include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source
 
 
 #add_library( parse_vs_rdi SHARED ${parse_vs_rdi_lib_srcs} )
-add_executable(rdi2xml
-  rdi2xml.cpp
-  rdiReader.cpp
-  formats/rdi.cxx
-  ToXMLCh.cpp
-  )
-target_link_libraries(rdi2xml ${XERCESC_LIBRARIES})
 
 set(ANALYZE_RDI_FORMAT OFF CACHE BOOL
   "Analyze rdi format from example sources to generate parsing code.")

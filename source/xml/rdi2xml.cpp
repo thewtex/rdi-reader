@@ -1,14 +1,7 @@
-
 #include <fstream>
 #include <iostream>
 #include <string>
 using namespace std;
-
-#include <xercesc/dom/DOMException.hpp>
-#include <xercesc/util/PlatformUtils.hpp>
-#include <xercesc/util/XMLString.hpp>
-
-#include <xsd/cxx/tree/exceptions.hxx>
 
 #include "rdiReader.h"
 

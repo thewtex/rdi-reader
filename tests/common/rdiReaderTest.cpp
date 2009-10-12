@@ -6,7 +6,7 @@
 
 using namespace std;
 
-static const string filepath = "@RDIREADER_TEST_FILEPATH@";
+static const string filepath = "@RDI_TESTING_FILEPATH@";
 
 class rdiReaderTest: public ::testing::Test
 {

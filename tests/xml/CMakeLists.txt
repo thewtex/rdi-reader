@@ -1,15 +1,31 @@
 # rdi2xml tests
 add_test(
-  rdi2xml ${read_visualsonics_digital_rf_BINARY_DIR}/bin/rdi2xml
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/data_for_tests/machine/visualsonics/vevo770/rmv710b/pat143_seg2.rdi
-  test.xml
+  rdi2xml
+
+  ${read_visualsonics_digital_rf_BINARY_DIR}/bin/rdi2xml
+  ${RDI_TESTING_FILEPATH}
+  rdi2xml_test_output.xml
   )
 
 add_test(
-  rdi2xml_invalid_file ${read_visualsonics_digital_rf_BINARY_DIR}/bin/rdi2xml
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/data_for_tests/machine/visualsonics/vevo770/rmv710b/pat143_seg22.rdi
+  rdi2xml_invalid_file
+
+  ${read_visualsonics_digital_rf_BINARY_DIR}/bin/rdi2xml
+  filepath_that_does_not_exist.rdi
   )
 set_tests_properties(
   rdi2xml_invalid_file
   PROPERTIES WILL_FAIL TRUE
+  )
+
+
+# rdi2html tests
+add_test(
+  xalan_comparison
+
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/xml/xalan_comparison
+  ${RDI_TESTING_FILEPATH}
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/xml/rdi2html.xsl
+  ${read_visualsonics_digital_rf_BINARY_DIR}/bin/rdi2xml
+  ${read_visualsonics_digital_rf_BINARY_DIR}/bin/rdi2html
   )

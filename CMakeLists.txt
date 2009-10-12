@@ -78,7 +78,5 @@ Toolkit www.vtk.org" )
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY
   ${read_visualsonics_digital_rf_BINARY_DIR}/bin )
 
-########### set up addition CMakeLists.txt locations #########
-#ADD_SUBDIRECTORY(matlab)
 add_subdirectory(source)
 

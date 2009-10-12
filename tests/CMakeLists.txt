@@ -1,9 +1,16 @@
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
-add_test(format_evaluator
+set(
+  RDI_TESTING_FILEPATH
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/data_for_tests/machine/visualsonics/vevo770/rmv710b/pat143_seg2.rdi
+  )
+
+add_test(
+  format-evaluator
   ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/python_unittests.py
-  FormatEvaluatorSuite)
+  FormatEvaluatorSuite
+  )
 
 set(spirit_parse_source_dir ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/spirit_parse)
 
@@ -52,3 +59,4 @@ link_directories( ${VTK_LIBRARY_DIRS} )
 endif(USE_VTK)
 
 add_subdirectory(common)
+add_subdirectory(xml)

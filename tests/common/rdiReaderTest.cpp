@@ -27,5 +27,14 @@ TEST_F(rdiReaderTest, ImageInfoSection)
   EXPECT_EQ(246, rdi_i->image_info().Image_Frames()) << "Invalid Image Frames";
   EXPECT_EQ(250, rdi_i->image_info().Image_Lines()) << "Invalid Image Lines";
   EXPECT_EQ(4256, rdi_i->image_info().Image_Acquisition_Size()) << "Invalid Image Acquisition Size";
+}
 
+TEST_F(rdiReaderTest, ImageParametersSection)
+{
+  auto_ptr<rdi_t> rdi_i = rdi_reader.parse();
+  EXPECT_EQ(string("Rat Cardiology"), rdi_i->image_parameters().RF_Mode().ActiveProbe().Notes()) << "Invalid Active Probe Notes";
+  EXPECT_EQ(string("µs"), rdi_i->image_parameters().RF_Mode().ActiveProbe().Sample_Time().units()) << "Invalid Sample Time units";
+  EXPECT_FLOAT_EQ(154.0, rdi_i->image_parameters().RF_Mode().ActiveProbe().Sample_Time()) << "Invalid Sample Time";
+  EXPECT_EQ(string("mm"), rdi_i->image_parameters().RF_Mode().ActiveProbe().Encoder_Range_Max().units()) << "Invalid Encoder Range Max units";
+  EXPECT_FLOAT_EQ(13.75, rdi_i->image_parameters().RF_Mode().ActiveProbe().Encoder_Range_Max()) << "Invalid Encoder Range Max";
 }

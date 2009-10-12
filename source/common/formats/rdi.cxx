@@ -56794,32 +56794,9 @@ Sample_Time::
 //
 
 Focal_Length::
-Focal_Length (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Focal_Length::
-Focal_Length (const char* _xsd_string_base,
+Focal_Length (const ::xml_schema::float_& _xsd_float__base,
               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Focal_Length::
-Focal_Length (const ::std::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Focal_Length::
-Focal_Length (const ::xml_schema::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -56828,7 +56805,7 @@ Focal_Length::
 Focal_Length (const Focal_Length& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -56837,7 +56814,7 @@ Focal_Length::
 Focal_Length (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -56891,32 +56868,9 @@ Focal_Length::
 //
 
 Default_Scan_Speed::
-Default_Scan_Speed (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Default_Scan_Speed::
-Default_Scan_Speed (const char* _xsd_string_base,
+Default_Scan_Speed (const ::xml_schema::float_& _xsd_float__base,
                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Default_Scan_Speed::
-Default_Scan_Speed (const ::std::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Default_Scan_Speed::
-Default_Scan_Speed (const ::xml_schema::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -56925,7 +56879,7 @@ Default_Scan_Speed::
 Default_Scan_Speed (const Default_Scan_Speed& x,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -56934,7 +56888,7 @@ Default_Scan_Speed::
 Default_Scan_Speed (const ::xercesc::DOMElement& e,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -56988,32 +56942,9 @@ Default_Scan_Speed::
 //
 
 Cutoff_Scan_Speed::
-Cutoff_Scan_Speed (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Cutoff_Scan_Speed::
-Cutoff_Scan_Speed (const char* _xsd_string_base,
+Cutoff_Scan_Speed (const ::xml_schema::float_& _xsd_float__base,
                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Cutoff_Scan_Speed::
-Cutoff_Scan_Speed (const ::std::string& _xsd_string_base,
-                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Cutoff_Scan_Speed::
-Cutoff_Scan_Speed (const ::xml_schema::string& _xsd_string_base,
-                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -57022,7 +56953,7 @@ Cutoff_Scan_Speed::
 Cutoff_Scan_Speed (const Cutoff_Scan_Speed& x,
                    ::xml_schema::flags f,
                    ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -57031,7 +56962,7 @@ Cutoff_Scan_Speed::
 Cutoff_Scan_Speed (const ::xercesc::DOMElement& e,
                    ::xml_schema::flags f,
                    ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -57085,32 +57016,9 @@ Cutoff_Scan_Speed::
 //
 
 Frequency_Low::
-Frequency_Low (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Low::
-Frequency_Low (const char* _xsd_string_base,
+Frequency_Low (const ::xml_schema::float_& _xsd_float__base,
                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Low::
-Frequency_Low (const ::std::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Low::
-Frequency_Low (const ::xml_schema::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -57119,7 +57027,7 @@ Frequency_Low::
 Frequency_Low (const Frequency_Low& x,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -57128,7 +57036,7 @@ Frequency_Low::
 Frequency_Low (const ::xercesc::DOMElement& e,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -57182,32 +57090,9 @@ Frequency_Low::
 //
 
 Default_FOV::
-Default_FOV (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Default_FOV::
-Default_FOV (const char* _xsd_string_base,
+Default_FOV (const ::xml_schema::float_& _xsd_float__base,
              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Default_FOV::
-Default_FOV (const ::std::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Default_FOV::
-Default_FOV (const ::xml_schema::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -57216,7 +57101,7 @@ Default_FOV::
 Default_FOV (const Default_FOV& x,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -57225,7 +57110,7 @@ Default_FOV::
 Default_FOV (const ::xercesc::DOMElement& e,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -57279,32 +57164,9 @@ Default_FOV::
 //
 
 Frequency_Doppler_Default::
-Frequency_Doppler_Default (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler_Default::
-Frequency_Doppler_Default (const char* _xsd_string_base,
+Frequency_Doppler_Default (const ::xml_schema::float_& _xsd_float__base,
                            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler_Default::
-Frequency_Doppler_Default (const ::std::string& _xsd_string_base,
-                           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler_Default::
-Frequency_Doppler_Default (const ::xml_schema::string& _xsd_string_base,
-                           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -57313,7 +57175,7 @@ Frequency_Doppler_Default::
 Frequency_Doppler_Default (const Frequency_Doppler_Default& x,
                            ::xml_schema::flags f,
                            ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -57322,7 +57184,7 @@ Frequency_Doppler_Default::
 Frequency_Doppler_Default (const ::xercesc::DOMElement& e,
                            ::xml_schema::flags f,
                            ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -57376,32 +57238,9 @@ Frequency_Doppler_Default::
 //
 
 Frequency_Doppler::
-Frequency_Doppler (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler::
-Frequency_Doppler (const char* _xsd_string_base,
+Frequency_Doppler (const ::xml_schema::float_& _xsd_float__base,
                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler::
-Frequency_Doppler (const ::std::string& _xsd_string_base,
-                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler::
-Frequency_Doppler (const ::xml_schema::string& _xsd_string_base,
-                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -57410,7 +57249,7 @@ Frequency_Doppler::
 Frequency_Doppler (const Frequency_Doppler& x,
                    ::xml_schema::flags f,
                    ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -57419,7 +57258,7 @@ Frequency_Doppler::
 Frequency_Doppler (const ::xercesc::DOMElement& e,
                    ::xml_schema::flags f,
                    ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -57570,32 +57409,9 @@ Axial_Res::
 //
 
 Filter_High::
-Filter_High (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_High::
-Filter_High (const char* _xsd_string_base,
+Filter_High (const ::xml_schema::float_& _xsd_float__base,
              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_High::
-Filter_High (const ::std::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_High::
-Filter_High (const ::xml_schema::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -57604,7 +57420,7 @@ Filter_High::
 Filter_High (const Filter_High& x,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -57613,7 +57429,7 @@ Filter_High::
 Filter_High (const ::xercesc::DOMElement& e,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -57667,32 +57483,9 @@ Filter_High::
 //
 
 Pivot_Encoder_Dist::
-Pivot_Encoder_Dist (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Pivot_Encoder_Dist::
-Pivot_Encoder_Dist (const char* _xsd_string_base,
+Pivot_Encoder_Dist (const ::xml_schema::float_& _xsd_float__base,
                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Pivot_Encoder_Dist::
-Pivot_Encoder_Dist (const ::std::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Pivot_Encoder_Dist::
-Pivot_Encoder_Dist (const ::xml_schema::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -57701,7 +57494,7 @@ Pivot_Encoder_Dist::
 Pivot_Encoder_Dist (const Pivot_Encoder_Dist& x,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -57710,7 +57503,7 @@ Pivot_Encoder_Dist::
 Pivot_Encoder_Dist (const ::xercesc::DOMElement& e,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -57764,32 +57557,9 @@ Pivot_Encoder_Dist::
 //
 
 Encoder_Range_Max::
-Encoder_Range_Max (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Range_Max::
-Encoder_Range_Max (const char* _xsd_string_base,
+Encoder_Range_Max (const ::xml_schema::float_& _xsd_float__base,
                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Range_Max::
-Encoder_Range_Max (const ::std::string& _xsd_string_base,
-                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Range_Max::
-Encoder_Range_Max (const ::xml_schema::string& _xsd_string_base,
-                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -57798,7 +57568,7 @@ Encoder_Range_Max::
 Encoder_Range_Max (const Encoder_Range_Max& x,
                    ::xml_schema::flags f,
                    ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -57807,7 +57577,7 @@ Encoder_Range_Max::
 Encoder_Range_Max (const ::xercesc::DOMElement& e,
                    ::xml_schema::flags f,
                    ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -57861,32 +57631,9 @@ Encoder_Range_Max::
 //
 
 Encoder_Range_Min::
-Encoder_Range_Min (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Range_Min::
-Encoder_Range_Min (const char* _xsd_string_base,
+Encoder_Range_Min (const ::xml_schema::float_& _xsd_float__base,
                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Range_Min::
-Encoder_Range_Min (const ::std::string& _xsd_string_base,
-                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Range_Min::
-Encoder_Range_Min (const ::xml_schema::string& _xsd_string_base,
-                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -57895,7 +57642,7 @@ Encoder_Range_Min::
 Encoder_Range_Min (const Encoder_Range_Min& x,
                    ::xml_schema::flags f,
                    ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -57904,7 +57651,7 @@ Encoder_Range_Min::
 Encoder_Range_Min (const ::xercesc::DOMElement& e,
                    ::xml_schema::flags f,
                    ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -58152,32 +57899,9 @@ Motor_Overhead::
 //
 
 Max_Scan_Distance::
-Max_Scan_Distance (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Max_Scan_Distance::
-Max_Scan_Distance (const char* _xsd_string_base,
+Max_Scan_Distance (const ::xml_schema::float_& _xsd_float__base,
                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Max_Scan_Distance::
-Max_Scan_Distance (const ::std::string& _xsd_string_base,
-                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Max_Scan_Distance::
-Max_Scan_Distance (const ::xml_schema::string& _xsd_string_base,
-                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -58186,7 +57910,7 @@ Max_Scan_Distance::
 Max_Scan_Distance (const Max_Scan_Distance& x,
                    ::xml_schema::flags f,
                    ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -58195,7 +57919,7 @@ Max_Scan_Distance::
 Max_Scan_Distance (const ::xercesc::DOMElement& e,
                    ::xml_schema::flags f,
                    ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -58346,32 +58070,9 @@ Default_Rx_Gain::
 //
 
 Filter_Low::
-Filter_Low (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Low::
-Filter_Low (const char* _xsd_string_base,
+Filter_Low (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Low::
-Filter_Low (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Low::
-Filter_Low (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -58380,7 +58081,7 @@ Filter_Low::
 Filter_Low (const Filter_Low& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -58389,7 +58090,7 @@ Filter_Low::
 Filter_Low (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -58443,32 +58144,9 @@ Filter_Low::
 //
 
 Frequency_High::
-Frequency_High (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_High::
-Frequency_High (const char* _xsd_string_base,
+Frequency_High (const ::xml_schema::float_& _xsd_float__base,
                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_High::
-Frequency_High (const ::std::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_High::
-Frequency_High (const ::xml_schema::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -58477,7 +58155,7 @@ Frequency_High::
 Frequency_High (const Frequency_High& x,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -58486,7 +58164,7 @@ Frequency_High::
 Frequency_High (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -58540,32 +58218,9 @@ Frequency_High::
 //
 
 Scan_Speeds::
-Scan_Speeds (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Speeds::
-Scan_Speeds (const char* _xsd_string_base,
+Scan_Speeds (const ::xml_schema::float_& _xsd_float__base,
              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Speeds::
-Scan_Speeds (const ::std::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Speeds::
-Scan_Speeds (const ::xml_schema::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -58574,7 +58229,7 @@ Scan_Speeds::
 Scan_Speeds (const Scan_Speeds& x,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -58583,7 +58238,7 @@ Scan_Speeds::
 Scan_Speeds (const ::xercesc::DOMElement& e,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -58734,32 +58389,9 @@ Filter_Doppler_Cutoff::
 //
 
 Frequency_Doppler_Low::
-Frequency_Doppler_Low (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler_Low::
-Frequency_Doppler_Low (const char* _xsd_string_base,
+Frequency_Doppler_Low (const ::xml_schema::float_& _xsd_float__base,
                        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler_Low::
-Frequency_Doppler_Low (const ::std::string& _xsd_string_base,
-                       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler_Low::
-Frequency_Doppler_Low (const ::xml_schema::string& _xsd_string_base,
-                       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -58768,7 +58400,7 @@ Frequency_Doppler_Low::
 Frequency_Doppler_Low (const Frequency_Doppler_Low& x,
                        ::xml_schema::flags f,
                        ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -58777,7 +58409,7 @@ Frequency_Doppler_Low::
 Frequency_Doppler_Low (const ::xercesc::DOMElement& e,
                        ::xml_schema::flags f,
                        ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -58831,32 +58463,9 @@ Frequency_Doppler_Low::
 //
 
 Pivot_Transducer_Face_Dist::
-Pivot_Transducer_Face_Dist (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Pivot_Transducer_Face_Dist::
-Pivot_Transducer_Face_Dist (const char* _xsd_string_base,
+Pivot_Transducer_Face_Dist (const ::xml_schema::float_& _xsd_float__base,
                             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Pivot_Transducer_Face_Dist::
-Pivot_Transducer_Face_Dist (const ::std::string& _xsd_string_base,
-                            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Pivot_Transducer_Face_Dist::
-Pivot_Transducer_Face_Dist (const ::xml_schema::string& _xsd_string_base,
-                            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -58865,7 +58474,7 @@ Pivot_Transducer_Face_Dist::
 Pivot_Transducer_Face_Dist (const Pivot_Transducer_Face_Dist& x,
                             ::xml_schema::flags f,
                             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -58874,7 +58483,7 @@ Pivot_Transducer_Face_Dist::
 Pivot_Transducer_Face_Dist (const ::xercesc::DOMElement& e,
                             ::xml_schema::flags f,
                             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -58928,32 +58537,9 @@ Pivot_Transducer_Face_Dist::
 //
 
 Filter_Doppler::
-Filter_Doppler (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Doppler::
-Filter_Doppler (const char* _xsd_string_base,
+Filter_Doppler (const ::xml_schema::float_& _xsd_float__base,
                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Doppler::
-Filter_Doppler (const ::std::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Doppler::
-Filter_Doppler (const ::xml_schema::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -58962,7 +58548,7 @@ Filter_Doppler::
 Filter_Doppler (const Filter_Doppler& x,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -58971,7 +58557,7 @@ Filter_Doppler::
 Filter_Doppler (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -59025,32 +58611,9 @@ Filter_Doppler::
 //
 
 Frequency::
-Frequency (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency::
-Frequency (const char* _xsd_string_base,
+Frequency (const ::xml_schema::float_& _xsd_float__base,
            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency::
-Frequency (const ::std::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency::
-Frequency (const ::xml_schema::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -59059,7 +58622,7 @@ Frequency::
 Frequency (const Frequency& x,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -59068,7 +58631,7 @@ Frequency::
 Frequency (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -59122,32 +58685,9 @@ Frequency::
 //
 
 Encoder_Separation::
-Encoder_Separation (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Separation::
-Encoder_Separation (const char* _xsd_string_base,
+Encoder_Separation (const ::xml_schema::float_& _xsd_float__base,
                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Separation::
-Encoder_Separation (const ::std::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Separation::
-Encoder_Separation (const ::xml_schema::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -59156,7 +58696,7 @@ Encoder_Separation::
 Encoder_Separation (const Encoder_Separation& x,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -59165,7 +58705,7 @@ Encoder_Separation::
 Encoder_Separation (const ::xercesc::DOMElement& e,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -59219,32 +58759,9 @@ Encoder_Separation::
 //
 
 Overshoot::
-Overshoot (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Overshoot::
-Overshoot (const char* _xsd_string_base,
+Overshoot (const ::xml_schema::float_& _xsd_float__base,
            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Overshoot::
-Overshoot (const ::std::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Overshoot::
-Overshoot (const ::xml_schema::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -59253,7 +58770,7 @@ Overshoot::
 Overshoot (const Overshoot& x,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -59262,7 +58779,7 @@ Overshoot::
 Overshoot (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -59316,32 +58833,9 @@ Overshoot::
 //
 
 Filter::
-Filter (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter::
-Filter (const char* _xsd_string_base,
+Filter (const ::xml_schema::float_& _xsd_float__base,
         const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter::
-Filter (const ::std::string& _xsd_string_base,
-        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter::
-Filter (const ::xml_schema::string& _xsd_string_base,
-        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -59350,7 +58844,7 @@ Filter::
 Filter (const Filter& x,
         ::xml_schema::flags f,
         ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -59359,7 +58853,7 @@ Filter::
 Filter (const ::xercesc::DOMElement& e,
         ::xml_schema::flags f,
         ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -59510,32 +59004,9 @@ Default_Rx_Gain_Doppler::
 //
 
 Filter_Doppler_Low::
-Filter_Doppler_Low (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Doppler_Low::
-Filter_Doppler_Low (const char* _xsd_string_base,
+Filter_Doppler_Low (const ::xml_schema::float_& _xsd_float__base,
                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Doppler_Low::
-Filter_Doppler_Low (const ::std::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Doppler_Low::
-Filter_Doppler_Low (const ::xml_schema::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -59544,7 +59015,7 @@ Filter_Doppler_Low::
 Filter_Doppler_Low (const Filter_Doppler_Low& x,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -59553,7 +59024,7 @@ Filter_Doppler_Low::
 Filter_Doppler_Low (const ::xercesc::DOMElement& e,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -59995,32 +59466,9 @@ Power_Size_Default::
 //
 
 Target_Field_Of_View::
-Target_Field_Of_View (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Target_Field_Of_View::
-Target_Field_Of_View (const char* _xsd_string_base,
+Target_Field_Of_View (const ::xml_schema::float_& _xsd_float__base,
                       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Target_Field_Of_View::
-Target_Field_Of_View (const ::std::string& _xsd_string_base,
-                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Target_Field_Of_View::
-Target_Field_Of_View (const ::xml_schema::string& _xsd_string_base,
-                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -60029,7 +59477,7 @@ Target_Field_Of_View::
 Target_Field_Of_View (const Target_Field_Of_View& x,
                       ::xml_schema::flags f,
                       ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -60038,7 +59486,7 @@ Target_Field_Of_View::
 Target_Field_Of_View (const ::xercesc::DOMElement& e,
                       ::xml_schema::flags f,
                       ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -60286,32 +59734,9 @@ Pipeline_Delay::
 //
 
 Center::
-Center (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Center::
-Center (const char* _xsd_string_base,
+Center (const ::xml_schema::float_& _xsd_float__base,
         const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Center::
-Center (const ::std::string& _xsd_string_base,
-        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Center::
-Center (const ::xml_schema::string& _xsd_string_base,
-        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -60320,7 +59745,7 @@ Center::
 Center (const Center& x,
         ::xml_schema::flags f,
         ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -60329,7 +59754,7 @@ Center::
 Center (const ::xercesc::DOMElement& e,
         ::xml_schema::flags f,
         ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -60480,32 +59905,9 @@ V_Scan_Speed::
 //
 
 V_Scan_Rate::
-V_Scan_Rate (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Scan_Rate::
-V_Scan_Rate (const char* _xsd_string_base,
+V_Scan_Rate (const ::xml_schema::float_& _xsd_float__base,
              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Scan_Rate::
-V_Scan_Rate (const ::std::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Scan_Rate::
-V_Scan_Rate (const ::xml_schema::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -60514,7 +59916,7 @@ V_Scan_Rate::
 V_Scan_Rate (const V_Scan_Rate& x,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -60523,7 +59925,7 @@ V_Scan_Rate::
 V_Scan_Rate (const ::xercesc::DOMElement& e,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -60577,32 +59979,9 @@ V_Scan_Rate::
 //
 
 Scan_Width::
-Scan_Width (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Width::
-Scan_Width (const char* _xsd_string_base,
+Scan_Width (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Width::
-Scan_Width (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Width::
-Scan_Width (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -60611,7 +59990,7 @@ Scan_Width::
 Scan_Width (const Scan_Width& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -60620,7 +59999,7 @@ Scan_Width::
 Scan_Width (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -63099,32 +62478,9 @@ Pressure_Systolic::
 //
 
 Frequency1::
-Frequency1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency1::
-Frequency1 (const char* _xsd_string_base,
+Frequency1 (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency1::
-Frequency1 (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency1::
-Frequency1 (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -63133,7 +62489,7 @@ Frequency1::
 Frequency1 (const Frequency1& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -63142,7 +62498,7 @@ Frequency1::
 Frequency1 (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -64942,32 +64298,9 @@ Pressure_Calibration_Level::
 //
 
 ECG_HP_Filter::
-ECG_HP_Filter (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-ECG_HP_Filter::
-ECG_HP_Filter (const char* _xsd_string_base,
+ECG_HP_Filter (const ::xml_schema::float_& _xsd_float__base,
                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-ECG_HP_Filter::
-ECG_HP_Filter (const ::std::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-ECG_HP_Filter::
-ECG_HP_Filter (const ::xml_schema::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -64976,7 +64309,7 @@ ECG_HP_Filter::
 ECG_HP_Filter (const ECG_HP_Filter& x,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -64985,7 +64318,7 @@ ECG_HP_Filter::
 ECG_HP_Filter (const ::xercesc::DOMElement& e,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -65039,32 +64372,9 @@ ECG_HP_Filter::
 //
 
 ECG_LP_Filter::
-ECG_LP_Filter (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-ECG_LP_Filter::
-ECG_LP_Filter (const char* _xsd_string_base,
+ECG_LP_Filter (const ::xml_schema::float_& _xsd_float__base,
                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-ECG_LP_Filter::
-ECG_LP_Filter (const ::std::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-ECG_LP_Filter::
-ECG_LP_Filter (const ::xml_schema::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -65073,7 +64383,7 @@ ECG_LP_Filter::
 ECG_LP_Filter (const ECG_LP_Filter& x,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -65082,7 +64392,7 @@ ECG_LP_Filter::
 ECG_LP_Filter (const ::xercesc::DOMElement& e,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -65524,32 +64834,9 @@ Magnitude_Origin::
 //
 
 Frequency_Origin::
-Frequency_Origin (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Origin::
-Frequency_Origin (const char* _xsd_string_base,
+Frequency_Origin (const ::xml_schema::float_& _xsd_float__base,
                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Origin::
-Frequency_Origin (const ::std::string& _xsd_string_base,
-                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Origin::
-Frequency_Origin (const ::xml_schema::string& _xsd_string_base,
-                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -65558,7 +64845,7 @@ Frequency_Origin::
 Frequency_Origin (const Frequency_Origin& x,
                   ::xml_schema::flags f,
                   ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -65567,7 +64854,7 @@ Frequency_Origin::
 Frequency_Origin (const ::xercesc::DOMElement& e,
                   ::xml_schema::flags f,
                   ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -65621,32 +64908,9 @@ Frequency_Origin::
 //
 
 Length_Origin::
-Length_Origin (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Length_Origin::
-Length_Origin (const char* _xsd_string_base,
+Length_Origin (const ::xml_schema::float_& _xsd_float__base,
                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Length_Origin::
-Length_Origin (const ::std::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Length_Origin::
-Length_Origin (const ::xml_schema::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -65655,7 +64919,7 @@ Length_Origin::
 Length_Origin (const Length_Origin& x,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -65664,7 +64928,7 @@ Length_Origin::
 Length_Origin (const ::xercesc::DOMElement& e,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -65815,32 +65079,9 @@ Vertical_Scale::
 //
 
 SamplesPerSec::
-SamplesPerSec (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-SamplesPerSec::
-SamplesPerSec (const char* _xsd_string_base,
+SamplesPerSec (const ::xml_schema::float_& _xsd_float__base,
                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-SamplesPerSec::
-SamplesPerSec (const ::std::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-SamplesPerSec::
-SamplesPerSec (const ::xml_schema::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -65849,7 +65090,7 @@ SamplesPerSec::
 SamplesPerSec (const SamplesPerSec& x,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -65858,7 +65099,7 @@ SamplesPerSec::
 SamplesPerSec (const ::xercesc::DOMElement& e,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -66009,32 +65250,9 @@ Magnitude_Height::
 //
 
 Length_Length::
-Length_Length (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Length_Length::
-Length_Length (const char* _xsd_string_base,
+Length_Length (const ::xml_schema::float_& _xsd_float__base,
                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Length_Length::
-Length_Length (const ::std::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Length_Length::
-Length_Length (const ::xml_schema::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -66043,7 +65261,7 @@ Length_Length::
 Length_Length (const Length_Length& x,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -66052,7 +65270,7 @@ Length_Length::
 Length_Length (const ::xercesc::DOMElement& e,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -66106,32 +65324,9 @@ Length_Length::
 //
 
 Frequency_Length::
-Frequency_Length (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Length::
-Frequency_Length (const char* _xsd_string_base,
+Frequency_Length (const ::xml_schema::float_& _xsd_float__base,
                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Length::
-Frequency_Length (const ::std::string& _xsd_string_base,
-                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Length::
-Frequency_Length (const ::xml_schema::string& _xsd_string_base,
-                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -66140,7 +65335,7 @@ Frequency_Length::
 Frequency_Length (const Frequency_Length& x,
                   ::xml_schema::flags f,
                   ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -66149,7 +65344,7 @@ Frequency_Length::
 Frequency_Length (const ::xercesc::DOMElement& e,
                   ::xml_schema::flags f,
                   ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -66203,32 +65398,9 @@ Frequency_Length::
 //
 
 SV_Center::
-SV_Center (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-SV_Center::
-SV_Center (const char* _xsd_string_base,
+SV_Center (const ::xml_schema::float_& _xsd_float__base,
            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-SV_Center::
-SV_Center (const ::std::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-SV_Center::
-SV_Center (const ::xml_schema::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -66237,7 +65409,7 @@ SV_Center::
 SV_Center (const SV_Center& x,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -66246,7 +65418,7 @@ SV_Center::
 SV_Center (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -66494,32 +65666,9 @@ RF_Path_23Mhz_Time_Correction::
 //
 
 SV_Length_Limits::
-SV_Length_Limits (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-SV_Length_Limits::
-SV_Length_Limits (const char* _xsd_string_base,
+SV_Length_Limits (const ::xml_schema::float_& _xsd_float__base,
                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-SV_Length_Limits::
-SV_Length_Limits (const ::std::string& _xsd_string_base,
-                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-SV_Length_Limits::
-SV_Length_Limits (const ::xml_schema::string& _xsd_string_base,
-                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -66528,7 +65677,7 @@ SV_Length_Limits::
 SV_Length_Limits (const SV_Length_Limits& x,
                   ::xml_schema::flags f,
                   ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -66537,7 +65686,7 @@ SV_Length_Limits::
 SV_Length_Limits (const ::xercesc::DOMElement& e,
                   ::xml_schema::flags f,
                   ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -66591,32 +65740,9 @@ SV_Length_Limits::
 //
 
 V_Transmit_Length::
-V_Transmit_Length (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Transmit_Length::
-V_Transmit_Length (const char* _xsd_string_base,
+V_Transmit_Length (const ::xml_schema::float_& _xsd_float__base,
                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Transmit_Length::
-V_Transmit_Length (const ::std::string& _xsd_string_base,
-                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Transmit_Length::
-V_Transmit_Length (const ::xml_schema::string& _xsd_string_base,
-                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -66625,7 +65751,7 @@ V_Transmit_Length::
 V_Transmit_Length (const V_Transmit_Length& x,
                    ::xml_schema::flags f,
                    ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -66634,7 +65760,7 @@ V_Transmit_Length::
 V_Transmit_Length (const ::xercesc::DOMElement& e,
                    ::xml_schema::flags f,
                    ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -66785,32 +65911,9 @@ V_Pulse_Rep_Freq::
 //
 
 Frequency2::
-Frequency2 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency2::
-Frequency2 (const char* _xsd_string_base,
+Frequency2 (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency2::
-Frequency2 (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency2::
-Frequency2 (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -66819,7 +65922,7 @@ Frequency2::
 Frequency2 (const Frequency2& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -66828,7 +65931,7 @@ Frequency2::
 Frequency2 (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -66979,32 +66082,9 @@ V_Unblank_Time::
 //
 
 V_Frequency::
-V_Frequency (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Frequency::
-V_Frequency (const char* _xsd_string_base,
+V_Frequency (const ::xml_schema::float_& _xsd_float__base,
              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Frequency::
-V_Frequency (const ::std::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Frequency::
-V_Frequency (const ::xml_schema::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -67013,7 +66093,7 @@ V_Frequency::
 V_Frequency (const V_Frequency& x,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -67022,7 +66102,7 @@ V_Frequency::
 V_Frequency (const ::xercesc::DOMElement& e,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -67658,32 +66738,9 @@ V_Power::
 //
 
 Scan_Distance::
-Scan_Distance (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Distance::
-Scan_Distance (const char* _xsd_string_base,
+Scan_Distance (const ::xml_schema::float_& _xsd_float__base,
                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Distance::
-Scan_Distance (const ::std::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Distance::
-Scan_Distance (const ::xml_schema::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -67692,7 +66749,7 @@ Scan_Distance::
 Scan_Distance (const Scan_Distance& x,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -67701,7 +66758,7 @@ Scan_Distance::
 Scan_Distance (const ::xercesc::DOMElement& e,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -67755,32 +66812,9 @@ Scan_Distance::
 //
 
 Step_Size::
-Step_Size (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Step_Size::
-Step_Size (const char* _xsd_string_base,
+Step_Size (const ::xml_schema::float_& _xsd_float__base,
            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Step_Size::
-Step_Size (const ::std::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Step_Size::
-Step_Size (const ::xml_schema::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -67789,7 +66823,7 @@ Step_Size::
 Step_Size (const Step_Size& x,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -67798,7 +66832,7 @@ Step_Size::
 Step_Size (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -67852,32 +66886,9 @@ Step_Size::
 //
 
 Ref_Probe_Focal_Length::
-Ref_Probe_Focal_Length (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Ref_Probe_Focal_Length::
-Ref_Probe_Focal_Length (const char* _xsd_string_base,
+Ref_Probe_Focal_Length (const ::xml_schema::float_& _xsd_float__base,
                         const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Ref_Probe_Focal_Length::
-Ref_Probe_Focal_Length (const ::std::string& _xsd_string_base,
-                        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Ref_Probe_Focal_Length::
-Ref_Probe_Focal_Length (const ::xml_schema::string& _xsd_string_base,
-                        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -67886,7 +66897,7 @@ Ref_Probe_Focal_Length::
 Ref_Probe_Focal_Length (const Ref_Probe_Focal_Length& x,
                         ::xml_schema::flags f,
                         ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -67895,7 +66906,7 @@ Ref_Probe_Focal_Length::
 Ref_Probe_Focal_Length (const ::xercesc::DOMElement& e,
                         ::xml_schema::flags f,
                         ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -67949,32 +66960,9 @@ Ref_Probe_Focal_Length::
 //
 
 Ref_Tx_Frequency::
-Ref_Tx_Frequency (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Ref_Tx_Frequency::
-Ref_Tx_Frequency (const char* _xsd_string_base,
+Ref_Tx_Frequency (const ::xml_schema::float_& _xsd_float__base,
                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Ref_Tx_Frequency::
-Ref_Tx_Frequency (const ::std::string& _xsd_string_base,
-                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Ref_Tx_Frequency::
-Ref_Tx_Frequency (const ::xml_schema::string& _xsd_string_base,
-                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -67983,7 +66971,7 @@ Ref_Tx_Frequency::
 Ref_Tx_Frequency (const Ref_Tx_Frequency& x,
                   ::xml_schema::flags f,
                   ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -67992,7 +66980,7 @@ Ref_Tx_Frequency::
 Ref_Tx_Frequency (const ::xercesc::DOMElement& e,
                   ::xml_schema::flags f,
                   ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -68337,32 +67325,9 @@ Ref_Tx_Power::
 //
 
 Freq_Range_Max::
-Freq_Range_Max (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Freq_Range_Max::
-Freq_Range_Max (const char* _xsd_string_base,
+Freq_Range_Max (const ::xml_schema::float_& _xsd_float__base,
                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Freq_Range_Max::
-Freq_Range_Max (const ::std::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Freq_Range_Max::
-Freq_Range_Max (const ::xml_schema::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -68371,7 +67336,7 @@ Freq_Range_Max::
 Freq_Range_Max (const Freq_Range_Max& x,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -68380,7 +67345,7 @@ Freq_Range_Max::
 Freq_Range_Max (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -68434,32 +67399,9 @@ Freq_Range_Max::
 //
 
 Freq_Range_Min::
-Freq_Range_Min (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Freq_Range_Min::
-Freq_Range_Min (const char* _xsd_string_base,
+Freq_Range_Min (const ::xml_schema::float_& _xsd_float__base,
                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Freq_Range_Min::
-Freq_Range_Min (const ::std::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Freq_Range_Min::
-Freq_Range_Min (const ::xml_schema::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -68468,7 +67410,7 @@ Freq_Range_Min::
 Freq_Range_Min (const Freq_Range_Min& x,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -68477,7 +67419,7 @@ Freq_Range_Min::
 Freq_Range_Min (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -68531,32 +67473,9 @@ Freq_Range_Min::
 //
 
 Sector_Width_Target::
-Sector_Width_Target (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sector_Width_Target::
-Sector_Width_Target (const char* _xsd_string_base,
+Sector_Width_Target (const ::xml_schema::float_& _xsd_float__base,
                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sector_Width_Target::
-Sector_Width_Target (const ::std::string& _xsd_string_base,
-                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sector_Width_Target::
-Sector_Width_Target (const ::xml_schema::string& _xsd_string_base,
-                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -68565,7 +67484,7 @@ Sector_Width_Target::
 Sector_Width_Target (const Sector_Width_Target& x,
                      ::xml_schema::flags f,
                      ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -68574,7 +67493,7 @@ Sector_Width_Target::
 Sector_Width_Target (const ::xercesc::DOMElement& e,
                      ::xml_schema::flags f,
                      ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -68725,32 +67644,9 @@ RF_Gain::
 //
 
 V_Digi_Depth_Imaging::
-V_Digi_Depth_Imaging (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Digi_Depth_Imaging::
-V_Digi_Depth_Imaging (const char* _xsd_string_base,
+V_Digi_Depth_Imaging (const ::xml_schema::float_& _xsd_float__base,
                       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Digi_Depth_Imaging::
-V_Digi_Depth_Imaging (const ::std::string& _xsd_string_base,
-                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Digi_Depth_Imaging::
-V_Digi_Depth_Imaging (const ::xml_schema::string& _xsd_string_base,
-                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -68759,7 +67655,7 @@ V_Digi_Depth_Imaging::
 V_Digi_Depth_Imaging (const V_Digi_Depth_Imaging& x,
                       ::xml_schema::flags f,
                       ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -68768,7 +67664,7 @@ V_Digi_Depth_Imaging::
 V_Digi_Depth_Imaging (const ::xercesc::DOMElement& e,
                       ::xml_schema::flags f,
                       ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -68919,32 +67815,9 @@ Test_Freq::
 //
 
 IF_Filter::
-IF_Filter (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-IF_Filter::
-IF_Filter (const char* _xsd_string_base,
+IF_Filter (const ::xml_schema::float_& _xsd_float__base,
            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-IF_Filter::
-IF_Filter (const ::std::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-IF_Filter::
-IF_Filter (const ::xml_schema::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -68953,7 +67826,7 @@ IF_Filter::
 IF_Filter (const IF_Filter& x,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -68962,7 +67835,7 @@ IF_Filter::
 IF_Filter (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -69113,32 +67986,9 @@ Track_Width::
 //
 
 V_IF_Filter::
-V_IF_Filter (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_IF_Filter::
-V_IF_Filter (const char* _xsd_string_base,
+V_IF_Filter (const ::xml_schema::float_& _xsd_float__base,
              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_IF_Filter::
-V_IF_Filter (const ::std::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_IF_Filter::
-V_IF_Filter (const ::xml_schema::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -69147,7 +67997,7 @@ V_IF_Filter::
 V_IF_Filter (const V_IF_Filter& x,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -69156,7 +68006,7 @@ V_IF_Filter::
 V_IF_Filter (const ::xercesc::DOMElement& e,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -69210,32 +68060,9 @@ V_IF_Filter::
 //
 
 HP_Clutter::
-HP_Clutter (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-HP_Clutter::
-HP_Clutter (const char* _xsd_string_base,
+HP_Clutter (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-HP_Clutter::
-HP_Clutter (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-HP_Clutter::
-HP_Clutter (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -69244,7 +68071,7 @@ HP_Clutter::
 HP_Clutter (const HP_Clutter& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -69253,7 +68080,7 @@ HP_Clutter::
 HP_Clutter (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -69307,32 +68134,9 @@ HP_Clutter::
 //
 
 RF_Filter::
-RF_Filter (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-RF_Filter::
-RF_Filter (const char* _xsd_string_base,
+RF_Filter (const ::xml_schema::float_& _xsd_float__base,
            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-RF_Filter::
-RF_Filter (const ::std::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-RF_Filter::
-RF_Filter (const ::xml_schema::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -69341,7 +68145,7 @@ RF_Filter::
 RF_Filter (const RF_Filter& x,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -69350,7 +68154,7 @@ RF_Filter::
 RF_Filter (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -69404,32 +68208,9 @@ RF_Filter::
 //
 
 V_RF_Filter::
-V_RF_Filter (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_RF_Filter::
-V_RF_Filter (const char* _xsd_string_base,
+V_RF_Filter (const ::xml_schema::float_& _xsd_float__base,
              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_RF_Filter::
-V_RF_Filter (const ::std::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_RF_Filter::
-V_RF_Filter (const ::xml_schema::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -69438,7 +68219,7 @@ V_RF_Filter::
 V_RF_Filter (const V_RF_Filter& x,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -69447,7 +68228,7 @@ V_RF_Filter::
 V_RF_Filter (const ::xercesc::DOMElement& e,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -69672,32 +68453,9 @@ AD_Gate_Width::
 //
 
 Frequency3::
-Frequency3 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency3::
-Frequency3 (const char* _xsd_string_base,
+Frequency3 (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency3::
-Frequency3 (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency3::
-Frequency3 (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -69706,7 +68464,7 @@ Frequency3::
 Frequency3 (const Frequency3& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -69715,7 +68473,7 @@ Frequency3::
 Frequency3 (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -69769,32 +68527,9 @@ Frequency3::
 //
 
 V_Frequency1::
-V_Frequency1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Frequency1::
-V_Frequency1 (const char* _xsd_string_base,
+V_Frequency1 (const ::xml_schema::float_& _xsd_float__base,
               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Frequency1::
-V_Frequency1 (const ::std::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Frequency1::
-V_Frequency1 (const ::xml_schema::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -69803,7 +68538,7 @@ V_Frequency1::
 V_Frequency1 (const V_Frequency1& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -69812,7 +68547,7 @@ V_Frequency1::
 V_Frequency1 (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -69866,32 +68601,9 @@ V_Frequency1::
 //
 
 V_Field_Of_View::
-V_Field_Of_View (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Field_Of_View::
-V_Field_Of_View (const char* _xsd_string_base,
+V_Field_Of_View (const ::xml_schema::float_& _xsd_float__base,
                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Field_Of_View::
-V_Field_Of_View (const ::std::string& _xsd_string_base,
-                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Field_Of_View::
-V_Field_Of_View (const ::xml_schema::string& _xsd_string_base,
-                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -69900,7 +68612,7 @@ V_Field_Of_View::
 V_Field_Of_View (const V_Field_Of_View& x,
                  ::xml_schema::flags f,
                  ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -69909,7 +68621,7 @@ V_Field_Of_View::
 V_Field_Of_View (const ::xercesc::DOMElement& e,
                  ::xml_schema::flags f,
                  ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -69963,32 +68675,9 @@ V_Field_Of_View::
 //
 
 Sector_Height_Target::
-Sector_Height_Target (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sector_Height_Target::
-Sector_Height_Target (const char* _xsd_string_base,
+Sector_Height_Target (const ::xml_schema::float_& _xsd_float__base,
                       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sector_Height_Target::
-Sector_Height_Target (const ::std::string& _xsd_string_base,
-                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sector_Height_Target::
-Sector_Height_Target (const ::xml_schema::string& _xsd_string_base,
-                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -69997,7 +68686,7 @@ Sector_Height_Target::
 Sector_Height_Target (const Sector_Height_Target& x,
                       ::xml_schema::flags f,
                       ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -70006,7 +68695,7 @@ Sector_Height_Target::
 Sector_Height_Target (const ::xercesc::DOMElement& e,
                       ::xml_schema::flags f,
                       ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -70157,32 +68846,9 @@ AD_TestIn::
 //
 
 V_Delay_Length::
-V_Delay_Length (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Delay_Length::
-V_Delay_Length (const char* _xsd_string_base,
+V_Delay_Length (const ::xml_schema::float_& _xsd_float__base,
                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Delay_Length::
-V_Delay_Length (const ::std::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Delay_Length::
-V_Delay_Length (const ::xml_schema::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -70191,7 +68857,7 @@ V_Delay_Length::
 V_Delay_Length (const V_Delay_Length& x,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -70200,7 +68866,7 @@ V_Delay_Length::
 V_Delay_Length (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -70425,32 +69091,9 @@ Sample_Time1::
 //
 
 Focal_Length1::
-Focal_Length1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Focal_Length1::
-Focal_Length1 (const char* _xsd_string_base,
+Focal_Length1 (const ::xml_schema::float_& _xsd_float__base,
                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Focal_Length1::
-Focal_Length1 (const ::std::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Focal_Length1::
-Focal_Length1 (const ::xml_schema::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -70459,7 +69102,7 @@ Focal_Length1::
 Focal_Length1 (const Focal_Length1& x,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -70468,7 +69111,7 @@ Focal_Length1::
 Focal_Length1 (const ::xercesc::DOMElement& e,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -70522,32 +69165,9 @@ Focal_Length1::
 //
 
 Default_Scan_Speed1::
-Default_Scan_Speed1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Default_Scan_Speed1::
-Default_Scan_Speed1 (const char* _xsd_string_base,
+Default_Scan_Speed1 (const ::xml_schema::float_& _xsd_float__base,
                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Default_Scan_Speed1::
-Default_Scan_Speed1 (const ::std::string& _xsd_string_base,
-                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Default_Scan_Speed1::
-Default_Scan_Speed1 (const ::xml_schema::string& _xsd_string_base,
-                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -70556,7 +69176,7 @@ Default_Scan_Speed1::
 Default_Scan_Speed1 (const Default_Scan_Speed1& x,
                      ::xml_schema::flags f,
                      ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -70565,7 +69185,7 @@ Default_Scan_Speed1::
 Default_Scan_Speed1 (const ::xercesc::DOMElement& e,
                      ::xml_schema::flags f,
                      ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -70619,32 +69239,9 @@ Default_Scan_Speed1::
 //
 
 Cutoff_Scan_Speed1::
-Cutoff_Scan_Speed1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Cutoff_Scan_Speed1::
-Cutoff_Scan_Speed1 (const char* _xsd_string_base,
+Cutoff_Scan_Speed1 (const ::xml_schema::float_& _xsd_float__base,
                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Cutoff_Scan_Speed1::
-Cutoff_Scan_Speed1 (const ::std::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Cutoff_Scan_Speed1::
-Cutoff_Scan_Speed1 (const ::xml_schema::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -70653,7 +69250,7 @@ Cutoff_Scan_Speed1::
 Cutoff_Scan_Speed1 (const Cutoff_Scan_Speed1& x,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -70662,7 +69259,7 @@ Cutoff_Scan_Speed1::
 Cutoff_Scan_Speed1 (const ::xercesc::DOMElement& e,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -70716,32 +69313,9 @@ Cutoff_Scan_Speed1::
 //
 
 Frequency_Low1::
-Frequency_Low1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Low1::
-Frequency_Low1 (const char* _xsd_string_base,
+Frequency_Low1 (const ::xml_schema::float_& _xsd_float__base,
                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Low1::
-Frequency_Low1 (const ::std::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Low1::
-Frequency_Low1 (const ::xml_schema::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -70750,7 +69324,7 @@ Frequency_Low1::
 Frequency_Low1 (const Frequency_Low1& x,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -70759,7 +69333,7 @@ Frequency_Low1::
 Frequency_Low1 (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -70813,32 +69387,9 @@ Frequency_Low1::
 //
 
 Default_FOV1::
-Default_FOV1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Default_FOV1::
-Default_FOV1 (const char* _xsd_string_base,
+Default_FOV1 (const ::xml_schema::float_& _xsd_float__base,
               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Default_FOV1::
-Default_FOV1 (const ::std::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Default_FOV1::
-Default_FOV1 (const ::xml_schema::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -70847,7 +69398,7 @@ Default_FOV1::
 Default_FOV1 (const Default_FOV1& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -70856,7 +69407,7 @@ Default_FOV1::
 Default_FOV1 (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -70910,32 +69461,9 @@ Default_FOV1::
 //
 
 Frequency_Doppler_Default1::
-Frequency_Doppler_Default1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler_Default1::
-Frequency_Doppler_Default1 (const char* _xsd_string_base,
+Frequency_Doppler_Default1 (const ::xml_schema::float_& _xsd_float__base,
                             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler_Default1::
-Frequency_Doppler_Default1 (const ::std::string& _xsd_string_base,
-                            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler_Default1::
-Frequency_Doppler_Default1 (const ::xml_schema::string& _xsd_string_base,
-                            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -70944,7 +69472,7 @@ Frequency_Doppler_Default1::
 Frequency_Doppler_Default1 (const Frequency_Doppler_Default1& x,
                             ::xml_schema::flags f,
                             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -70953,7 +69481,7 @@ Frequency_Doppler_Default1::
 Frequency_Doppler_Default1 (const ::xercesc::DOMElement& e,
                             ::xml_schema::flags f,
                             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -71104,32 +69632,9 @@ Axial_Res1::
 //
 
 Pivot_Encoder_Dist1::
-Pivot_Encoder_Dist1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Pivot_Encoder_Dist1::
-Pivot_Encoder_Dist1 (const char* _xsd_string_base,
+Pivot_Encoder_Dist1 (const ::xml_schema::float_& _xsd_float__base,
                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Pivot_Encoder_Dist1::
-Pivot_Encoder_Dist1 (const ::std::string& _xsd_string_base,
-                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Pivot_Encoder_Dist1::
-Pivot_Encoder_Dist1 (const ::xml_schema::string& _xsd_string_base,
-                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -71138,7 +69643,7 @@ Pivot_Encoder_Dist1::
 Pivot_Encoder_Dist1 (const Pivot_Encoder_Dist1& x,
                      ::xml_schema::flags f,
                      ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -71147,7 +69652,7 @@ Pivot_Encoder_Dist1::
 Pivot_Encoder_Dist1 (const ::xercesc::DOMElement& e,
                      ::xml_schema::flags f,
                      ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -71201,32 +69706,9 @@ Pivot_Encoder_Dist1::
 //
 
 Encoder_Range_Max1::
-Encoder_Range_Max1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Range_Max1::
-Encoder_Range_Max1 (const char* _xsd_string_base,
+Encoder_Range_Max1 (const ::xml_schema::float_& _xsd_float__base,
                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Range_Max1::
-Encoder_Range_Max1 (const ::std::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Range_Max1::
-Encoder_Range_Max1 (const ::xml_schema::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -71235,7 +69717,7 @@ Encoder_Range_Max1::
 Encoder_Range_Max1 (const Encoder_Range_Max1& x,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -71244,7 +69726,7 @@ Encoder_Range_Max1::
 Encoder_Range_Max1 (const ::xercesc::DOMElement& e,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -71298,32 +69780,9 @@ Encoder_Range_Max1::
 //
 
 Encoder_Range_Min1::
-Encoder_Range_Min1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Range_Min1::
-Encoder_Range_Min1 (const char* _xsd_string_base,
+Encoder_Range_Min1 (const ::xml_schema::float_& _xsd_float__base,
                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Range_Min1::
-Encoder_Range_Min1 (const ::std::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Range_Min1::
-Encoder_Range_Min1 (const ::xml_schema::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -71332,7 +69791,7 @@ Encoder_Range_Min1::
 Encoder_Range_Min1 (const Encoder_Range_Min1& x,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -71341,7 +69800,7 @@ Encoder_Range_Min1::
 Encoder_Range_Min1 (const ::xercesc::DOMElement& e,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -71492,32 +69951,9 @@ Lateral_Res1::
 //
 
 Max_Scan_Distance1::
-Max_Scan_Distance1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Max_Scan_Distance1::
-Max_Scan_Distance1 (const char* _xsd_string_base,
+Max_Scan_Distance1 (const ::xml_schema::float_& _xsd_float__base,
                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Max_Scan_Distance1::
-Max_Scan_Distance1 (const ::std::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Max_Scan_Distance1::
-Max_Scan_Distance1 (const ::xml_schema::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -71526,7 +69962,7 @@ Max_Scan_Distance1::
 Max_Scan_Distance1 (const Max_Scan_Distance1& x,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -71535,7 +69971,7 @@ Max_Scan_Distance1::
 Max_Scan_Distance1 (const ::xercesc::DOMElement& e,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -71686,32 +70122,9 @@ Default_Rx_Gain1::
 //
 
 Frequency_High1::
-Frequency_High1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_High1::
-Frequency_High1 (const char* _xsd_string_base,
+Frequency_High1 (const ::xml_schema::float_& _xsd_float__base,
                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_High1::
-Frequency_High1 (const ::std::string& _xsd_string_base,
-                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_High1::
-Frequency_High1 (const ::xml_schema::string& _xsd_string_base,
-                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -71720,7 +70133,7 @@ Frequency_High1::
 Frequency_High1 (const Frequency_High1& x,
                  ::xml_schema::flags f,
                  ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -71729,7 +70142,7 @@ Frequency_High1::
 Frequency_High1 (const ::xercesc::DOMElement& e,
                  ::xml_schema::flags f,
                  ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -71783,32 +70196,9 @@ Frequency_High1::
 //
 
 Scan_Speeds1::
-Scan_Speeds1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Speeds1::
-Scan_Speeds1 (const char* _xsd_string_base,
+Scan_Speeds1 (const ::xml_schema::float_& _xsd_float__base,
               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Speeds1::
-Scan_Speeds1 (const ::std::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Speeds1::
-Scan_Speeds1 (const ::xml_schema::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -71817,7 +70207,7 @@ Scan_Speeds1::
 Scan_Speeds1 (const Scan_Speeds1& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -71826,7 +70216,7 @@ Scan_Speeds1::
 Scan_Speeds1 (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -71977,32 +70367,9 @@ Filter_Doppler_Cutoff1::
 //
 
 Frequency_Doppler_Low1::
-Frequency_Doppler_Low1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler_Low1::
-Frequency_Doppler_Low1 (const char* _xsd_string_base,
+Frequency_Doppler_Low1 (const ::xml_schema::float_& _xsd_float__base,
                         const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler_Low1::
-Frequency_Doppler_Low1 (const ::std::string& _xsd_string_base,
-                        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler_Low1::
-Frequency_Doppler_Low1 (const ::xml_schema::string& _xsd_string_base,
-                        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -72011,7 +70378,7 @@ Frequency_Doppler_Low1::
 Frequency_Doppler_Low1 (const Frequency_Doppler_Low1& x,
                         ::xml_schema::flags f,
                         ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -72020,7 +70387,7 @@ Frequency_Doppler_Low1::
 Frequency_Doppler_Low1 (const ::xercesc::DOMElement& e,
                         ::xml_schema::flags f,
                         ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -72074,32 +70441,9 @@ Frequency_Doppler_Low1::
 //
 
 Pivot_Transducer_Face_Dist1::
-Pivot_Transducer_Face_Dist1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Pivot_Transducer_Face_Dist1::
-Pivot_Transducer_Face_Dist1 (const char* _xsd_string_base,
+Pivot_Transducer_Face_Dist1 (const ::xml_schema::float_& _xsd_float__base,
                              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Pivot_Transducer_Face_Dist1::
-Pivot_Transducer_Face_Dist1 (const ::std::string& _xsd_string_base,
-                             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Pivot_Transducer_Face_Dist1::
-Pivot_Transducer_Face_Dist1 (const ::xml_schema::string& _xsd_string_base,
-                             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -72108,7 +70452,7 @@ Pivot_Transducer_Face_Dist1::
 Pivot_Transducer_Face_Dist1 (const Pivot_Transducer_Face_Dist1& x,
                              ::xml_schema::flags f,
                              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -72117,7 +70461,7 @@ Pivot_Transducer_Face_Dist1::
 Pivot_Transducer_Face_Dist1 (const ::xercesc::DOMElement& e,
                              ::xml_schema::flags f,
                              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -72171,32 +70515,9 @@ Pivot_Transducer_Face_Dist1::
 //
 
 Filter_Doppler1::
-Filter_Doppler1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Doppler1::
-Filter_Doppler1 (const char* _xsd_string_base,
+Filter_Doppler1 (const ::xml_schema::float_& _xsd_float__base,
                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Doppler1::
-Filter_Doppler1 (const ::std::string& _xsd_string_base,
-                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Doppler1::
-Filter_Doppler1 (const ::xml_schema::string& _xsd_string_base,
-                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -72205,7 +70526,7 @@ Filter_Doppler1::
 Filter_Doppler1 (const Filter_Doppler1& x,
                  ::xml_schema::flags f,
                  ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -72214,7 +70535,7 @@ Filter_Doppler1::
 Filter_Doppler1 (const ::xercesc::DOMElement& e,
                  ::xml_schema::flags f,
                  ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -72268,32 +70589,9 @@ Filter_Doppler1::
 //
 
 Frequency4::
-Frequency4 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency4::
-Frequency4 (const char* _xsd_string_base,
+Frequency4 (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency4::
-Frequency4 (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency4::
-Frequency4 (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -72302,7 +70600,7 @@ Frequency4::
 Frequency4 (const Frequency4& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -72311,7 +70609,7 @@ Frequency4::
 Frequency4 (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -72365,32 +70663,9 @@ Frequency4::
 //
 
 Encoder_Separation1::
-Encoder_Separation1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Separation1::
-Encoder_Separation1 (const char* _xsd_string_base,
+Encoder_Separation1 (const ::xml_schema::float_& _xsd_float__base,
                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Separation1::
-Encoder_Separation1 (const ::std::string& _xsd_string_base,
-                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Encoder_Separation1::
-Encoder_Separation1 (const ::xml_schema::string& _xsd_string_base,
-                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -72399,7 +70674,7 @@ Encoder_Separation1::
 Encoder_Separation1 (const Encoder_Separation1& x,
                      ::xml_schema::flags f,
                      ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -72408,7 +70683,7 @@ Encoder_Separation1::
 Encoder_Separation1 (const ::xercesc::DOMElement& e,
                      ::xml_schema::flags f,
                      ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -72462,32 +70737,9 @@ Encoder_Separation1::
 //
 
 Overshoot1::
-Overshoot1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Overshoot1::
-Overshoot1 (const char* _xsd_string_base,
+Overshoot1 (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Overshoot1::
-Overshoot1 (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Overshoot1::
-Overshoot1 (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -72496,7 +70748,7 @@ Overshoot1::
 Overshoot1 (const Overshoot1& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -72505,7 +70757,7 @@ Overshoot1::
 Overshoot1 (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -72559,32 +70811,9 @@ Overshoot1::
 //
 
 Filter1::
-Filter1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter1::
-Filter1 (const char* _xsd_string_base,
+Filter1 (const ::xml_schema::float_& _xsd_float__base,
          const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter1::
-Filter1 (const ::std::string& _xsd_string_base,
-         const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter1::
-Filter1 (const ::xml_schema::string& _xsd_string_base,
-         const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -72593,7 +70822,7 @@ Filter1::
 Filter1 (const Filter1& x,
          ::xml_schema::flags f,
          ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -72602,7 +70831,7 @@ Filter1::
 Filter1 (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f,
          ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -72753,32 +70982,9 @@ Default_Rx_Gain_Doppler1::
 //
 
 Filter_Doppler_Low1::
-Filter_Doppler_Low1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Doppler_Low1::
-Filter_Doppler_Low1 (const char* _xsd_string_base,
+Filter_Doppler_Low1 (const ::xml_schema::float_& _xsd_float__base,
                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Doppler_Low1::
-Filter_Doppler_Low1 (const ::std::string& _xsd_string_base,
-                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Doppler_Low1::
-Filter_Doppler_Low1 (const ::xml_schema::string& _xsd_string_base,
-                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -72787,7 +70993,7 @@ Filter_Doppler_Low1::
 Filter_Doppler_Low1 (const Filter_Doppler_Low1& x,
                      ::xml_schema::flags f,
                      ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -72796,7 +71002,7 @@ Filter_Doppler_Low1::
 Filter_Doppler_Low1 (const ::xercesc::DOMElement& e,
                      ::xml_schema::flags f,
                      ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -72850,32 +71056,9 @@ Filter_Doppler_Low1::
 //
 
 Frequency_Doppler1::
-Frequency_Doppler1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler1::
-Frequency_Doppler1 (const char* _xsd_string_base,
+Frequency_Doppler1 (const ::xml_schema::float_& _xsd_float__base,
                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler1::
-Frequency_Doppler1 (const ::std::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency_Doppler1::
-Frequency_Doppler1 (const ::xml_schema::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -72884,7 +71067,7 @@ Frequency_Doppler1::
 Frequency_Doppler1 (const Frequency_Doppler1& x,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -72893,7 +71076,7 @@ Frequency_Doppler1::
 Frequency_Doppler1 (const ::xercesc::DOMElement& e,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -72947,32 +71130,9 @@ Frequency_Doppler1::
 //
 
 Filter_High1::
-Filter_High1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_High1::
-Filter_High1 (const char* _xsd_string_base,
+Filter_High1 (const ::xml_schema::float_& _xsd_float__base,
               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_High1::
-Filter_High1 (const ::std::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_High1::
-Filter_High1 (const ::xml_schema::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -72981,7 +71141,7 @@ Filter_High1::
 Filter_High1 (const Filter_High1& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -72990,7 +71150,7 @@ Filter_High1::
 Filter_High1 (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -73141,32 +71301,9 @@ Motor_Overhead1::
 //
 
 Filter_Low1::
-Filter_Low1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Low1::
-Filter_Low1 (const char* _xsd_string_base,
+Filter_Low1 (const ::xml_schema::float_& _xsd_float__base,
              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Low1::
-Filter_Low1 (const ::std::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Filter_Low1::
-Filter_Low1 (const ::xml_schema::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -73175,7 +71312,7 @@ Filter_Low1::
 Filter_Low1 (const Filter_Low1& x,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -73184,7 +71321,7 @@ Filter_Low1::
 Filter_Low1 (const ::xercesc::DOMElement& e,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -73723,32 +71860,9 @@ Acquisition_Mode::
 //
 
 Actual_Scan_Rate::
-Actual_Scan_Rate (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Actual_Scan_Rate::
-Actual_Scan_Rate (const char* _xsd_string_base,
+Actual_Scan_Rate (const ::xml_schema::float_& _xsd_float__base,
                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Actual_Scan_Rate::
-Actual_Scan_Rate (const ::std::string& _xsd_string_base,
-                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Actual_Scan_Rate::
-Actual_Scan_Rate (const ::xml_schema::string& _xsd_string_base,
-                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -73757,7 +71871,7 @@ Actual_Scan_Rate::
 Actual_Scan_Rate (const Actual_Scan_Rate& x,
                   ::xml_schema::flags f,
                   ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -73766,7 +71880,7 @@ Actual_Scan_Rate::
 Actual_Scan_Rate (const ::xercesc::DOMElement& e,
                   ::xml_schema::flags f,
                   ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -74305,32 +72419,9 @@ Sector_Y_Start::
 //
 
 Target_Field_Of_View1::
-Target_Field_Of_View1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Target_Field_Of_View1::
-Target_Field_Of_View1 (const char* _xsd_string_base,
+Target_Field_Of_View1 (const ::xml_schema::float_& _xsd_float__base,
                        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Target_Field_Of_View1::
-Target_Field_Of_View1 (const ::std::string& _xsd_string_base,
-                       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Target_Field_Of_View1::
-Target_Field_Of_View1 (const ::xml_schema::string& _xsd_string_base,
-                       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -74339,7 +72430,7 @@ Target_Field_Of_View1::
 Target_Field_Of_View1 (const Target_Field_Of_View1& x,
                        ::xml_schema::flags f,
                        ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -74348,7 +72439,7 @@ Target_Field_Of_View1::
 Target_Field_Of_View1 (const ::xercesc::DOMElement& e,
                        ::xml_schema::flags f,
                        ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -74596,32 +72687,9 @@ Pipeline_Delay1::
 //
 
 Reference_3D_Step_Size::
-Reference_3D_Step_Size (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Reference_3D_Step_Size::
-Reference_3D_Step_Size (const char* _xsd_string_base,
+Reference_3D_Step_Size (const ::xml_schema::float_& _xsd_float__base,
                         const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Reference_3D_Step_Size::
-Reference_3D_Step_Size (const ::std::string& _xsd_string_base,
-                        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Reference_3D_Step_Size::
-Reference_3D_Step_Size (const ::xml_schema::string& _xsd_string_base,
-                        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -74630,7 +72698,7 @@ Reference_3D_Step_Size::
 Reference_3D_Step_Size (const Reference_3D_Step_Size& x,
                         ::xml_schema::flags f,
                         ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -74639,7 +72707,7 @@ Reference_3D_Step_Size::
 Reference_3D_Step_Size (const ::xercesc::DOMElement& e,
                         ::xml_schema::flags f,
                         ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -74790,32 +72858,9 @@ Contrast_Size_Default::
 //
 
 Reference_3D_Scan_Distance::
-Reference_3D_Scan_Distance (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Reference_3D_Scan_Distance::
-Reference_3D_Scan_Distance (const char* _xsd_string_base,
+Reference_3D_Scan_Distance (const ::xml_schema::float_& _xsd_float__base,
                             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Reference_3D_Scan_Distance::
-Reference_3D_Scan_Distance (const ::std::string& _xsd_string_base,
-                            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Reference_3D_Scan_Distance::
-Reference_3D_Scan_Distance (const ::xml_schema::string& _xsd_string_base,
-                            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -74824,7 +72869,7 @@ Reference_3D_Scan_Distance::
 Reference_3D_Scan_Distance (const Reference_3D_Scan_Distance& x,
                             ::xml_schema::flags f,
                             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -74833,7 +72878,7 @@ Reference_3D_Scan_Distance::
 Reference_3D_Scan_Distance (const ::xercesc::DOMElement& e,
                             ::xml_schema::flags f,
                             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -74887,32 +72932,9 @@ Reference_3D_Scan_Distance::
 //
 
 Center1::
-Center1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Center1::
-Center1 (const char* _xsd_string_base,
+Center1 (const ::xml_schema::float_& _xsd_float__base,
          const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Center1::
-Center1 (const ::std::string& _xsd_string_base,
-         const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Center1::
-Center1 (const ::xml_schema::string& _xsd_string_base,
-         const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -74921,7 +72943,7 @@ Center1::
 Center1 (const Center1& x,
          ::xml_schema::flags f,
          ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -74930,7 +72952,7 @@ Center1::
 Center1 (const ::xercesc::DOMElement& e,
          ::xml_schema::flags f,
          ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -75081,32 +73103,9 @@ V_Scan_Speed1::
 //
 
 V_Scan_Rate1::
-V_Scan_Rate1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Scan_Rate1::
-V_Scan_Rate1 (const char* _xsd_string_base,
+V_Scan_Rate1 (const ::xml_schema::float_& _xsd_float__base,
               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Scan_Rate1::
-V_Scan_Rate1 (const ::std::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Scan_Rate1::
-V_Scan_Rate1 (const ::xml_schema::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -75115,7 +73114,7 @@ V_Scan_Rate1::
 V_Scan_Rate1 (const V_Scan_Rate1& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -75124,7 +73123,7 @@ V_Scan_Rate1::
 V_Scan_Rate1 (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -75178,32 +73177,9 @@ V_Scan_Rate1::
 //
 
 Scan_Width1::
-Scan_Width1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Width1::
-Scan_Width1 (const char* _xsd_string_base,
+Scan_Width1 (const ::xml_schema::float_& _xsd_float__base,
              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Width1::
-Scan_Width1 (const ::std::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Width1::
-Scan_Width1 (const ::xml_schema::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -75212,7 +73188,7 @@ Scan_Width1::
 Scan_Width1 (const Scan_Width1& x,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -75221,7 +73197,7 @@ Scan_Width1::
 Scan_Width1 (const ::xercesc::DOMElement& e,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -77700,32 +75676,9 @@ Pressure_Systolic1::
 //
 
 Frequency5::
-Frequency5 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency5::
-Frequency5 (const char* _xsd_string_base,
+Frequency5 (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency5::
-Frequency5 (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency5::
-Frequency5 (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -77734,7 +75687,7 @@ Frequency5::
 Frequency5 (const Frequency5& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -77743,7 +75696,7 @@ Frequency5::
 Frequency5 (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -79446,32 +77399,9 @@ Pressure_Calibration_Level1::
 //
 
 ECG_HP_Filter1::
-ECG_HP_Filter1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-ECG_HP_Filter1::
-ECG_HP_Filter1 (const char* _xsd_string_base,
+ECG_HP_Filter1 (const ::xml_schema::float_& _xsd_float__base,
                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-ECG_HP_Filter1::
-ECG_HP_Filter1 (const ::std::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-ECG_HP_Filter1::
-ECG_HP_Filter1 (const ::xml_schema::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -79480,7 +77410,7 @@ ECG_HP_Filter1::
 ECG_HP_Filter1 (const ECG_HP_Filter1& x,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -79489,7 +77419,7 @@ ECG_HP_Filter1::
 ECG_HP_Filter1 (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -79543,32 +77473,9 @@ ECG_HP_Filter1::
 //
 
 ECG_LP_Filter1::
-ECG_LP_Filter1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-ECG_LP_Filter1::
-ECG_LP_Filter1 (const char* _xsd_string_base,
+ECG_LP_Filter1 (const ::xml_schema::float_& _xsd_float__base,
                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-ECG_LP_Filter1::
-ECG_LP_Filter1 (const ::std::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-ECG_LP_Filter1::
-ECG_LP_Filter1 (const ::xml_schema::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -79577,7 +77484,7 @@ ECG_LP_Filter1::
 ECG_LP_Filter1 (const ECG_LP_Filter1& x,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -79586,7 +77493,7 @@ ECG_LP_Filter1::
 ECG_LP_Filter1 (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -80028,32 +77935,9 @@ RWave_Future_Search_Time1::
 //
 
 V_Transmit_Length1::
-V_Transmit_Length1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Transmit_Length1::
-V_Transmit_Length1 (const char* _xsd_string_base,
+V_Transmit_Length1 (const ::xml_schema::float_& _xsd_float__base,
                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Transmit_Length1::
-V_Transmit_Length1 (const ::std::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Transmit_Length1::
-V_Transmit_Length1 (const ::xml_schema::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -80062,7 +77946,7 @@ V_Transmit_Length1::
 V_Transmit_Length1 (const V_Transmit_Length1& x,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -80071,7 +77955,7 @@ V_Transmit_Length1::
 V_Transmit_Length1 (const ::xercesc::DOMElement& e,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -80222,32 +78106,9 @@ V_Pulse_Rep_Freq1::
 //
 
 Frequency6::
-Frequency6 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency6::
-Frequency6 (const char* _xsd_string_base,
+Frequency6 (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency6::
-Frequency6 (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency6::
-Frequency6 (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -80256,7 +78117,7 @@ Frequency6::
 Frequency6 (const Frequency6& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -80265,7 +78126,7 @@ Frequency6::
 Frequency6 (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -80416,32 +78277,9 @@ V_Unblank_Time1::
 //
 
 V_Frequency2::
-V_Frequency2 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Frequency2::
-V_Frequency2 (const char* _xsd_string_base,
+V_Frequency2 (const ::xml_schema::float_& _xsd_float__base,
               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Frequency2::
-V_Frequency2 (const ::std::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Frequency2::
-V_Frequency2 (const ::xml_schema::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -80450,7 +78288,7 @@ V_Frequency2::
 V_Frequency2 (const V_Frequency2& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -80459,7 +78297,7 @@ V_Frequency2::
 V_Frequency2 (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -81580,32 +79418,9 @@ Duration::
 //
 
 Tx_Frequency::
-Tx_Frequency (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Tx_Frequency::
-Tx_Frequency (const char* _xsd_string_base,
+Tx_Frequency (const ::xml_schema::float_& _xsd_float__base,
               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Tx_Frequency::
-Tx_Frequency (const ::std::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Tx_Frequency::
-Tx_Frequency (const ::xml_schema::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -81614,7 +79429,7 @@ Tx_Frequency::
 Tx_Frequency (const Tx_Frequency& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -81623,7 +79438,7 @@ Tx_Frequency::
 Tx_Frequency (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -81774,32 +79589,9 @@ Destroy_Sequence_Position::
 //
 
 Scan_Distance1::
-Scan_Distance1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Distance1::
-Scan_Distance1 (const char* _xsd_string_base,
+Scan_Distance1 (const ::xml_schema::float_& _xsd_float__base,
                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Distance1::
-Scan_Distance1 (const ::std::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Scan_Distance1::
-Scan_Distance1 (const ::xml_schema::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -81808,7 +79600,7 @@ Scan_Distance1::
 Scan_Distance1 (const Scan_Distance1& x,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -81817,7 +79609,7 @@ Scan_Distance1::
 Scan_Distance1 (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -81871,32 +79663,9 @@ Scan_Distance1::
 //
 
 Step_Size1::
-Step_Size1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Step_Size1::
-Step_Size1 (const char* _xsd_string_base,
+Step_Size1 (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Step_Size1::
-Step_Size1 (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Step_Size1::
-Step_Size1 (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -81905,7 +79674,7 @@ Step_Size1::
 Step_Size1 (const Step_Size1& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -81914,7 +79683,7 @@ Step_Size1::
 Step_Size1 (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -81968,32 +79737,9 @@ Step_Size1::
 //
 
 Parallel_Step_Size::
-Parallel_Step_Size (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Parallel_Step_Size::
-Parallel_Step_Size (const char* _xsd_string_base,
+Parallel_Step_Size (const ::xml_schema::float_& _xsd_float__base,
                     const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Parallel_Step_Size::
-Parallel_Step_Size (const ::std::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Parallel_Step_Size::
-Parallel_Step_Size (const ::xml_schema::string& _xsd_string_base,
-                    const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -82002,7 +79748,7 @@ Parallel_Step_Size::
 Parallel_Step_Size (const Parallel_Step_Size& x,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -82011,7 +79757,7 @@ Parallel_Step_Size::
 Parallel_Step_Size (const ::xercesc::DOMElement& e,
                     ::xml_schema::flags f,
                     ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -82065,32 +79811,9 @@ Parallel_Step_Size::
 //
 
 Sector_Width_Target1::
-Sector_Width_Target1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sector_Width_Target1::
-Sector_Width_Target1 (const char* _xsd_string_base,
+Sector_Width_Target1 (const ::xml_schema::float_& _xsd_float__base,
                       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sector_Width_Target1::
-Sector_Width_Target1 (const ::std::string& _xsd_string_base,
-                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sector_Width_Target1::
-Sector_Width_Target1 (const ::xml_schema::string& _xsd_string_base,
-                      const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -82099,7 +79822,7 @@ Sector_Width_Target1::
 Sector_Width_Target1 (const Sector_Width_Target1& x,
                       ::xml_schema::flags f,
                       ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -82108,7 +79831,7 @@ Sector_Width_Target1::
 Sector_Width_Target1 (const ::xercesc::DOMElement& e,
                       ::xml_schema::flags f,
                       ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -82259,32 +79982,9 @@ RF_Gain1::
 //
 
 V_Digi_Depth_Imaging1::
-V_Digi_Depth_Imaging1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Digi_Depth_Imaging1::
-V_Digi_Depth_Imaging1 (const char* _xsd_string_base,
+V_Digi_Depth_Imaging1 (const ::xml_schema::float_& _xsd_float__base,
                        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Digi_Depth_Imaging1::
-V_Digi_Depth_Imaging1 (const ::std::string& _xsd_string_base,
-                       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Digi_Depth_Imaging1::
-V_Digi_Depth_Imaging1 (const ::xml_schema::string& _xsd_string_base,
-                       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -82293,7 +79993,7 @@ V_Digi_Depth_Imaging1::
 V_Digi_Depth_Imaging1 (const V_Digi_Depth_Imaging1& x,
                        ::xml_schema::flags f,
                        ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -82302,7 +80002,7 @@ V_Digi_Depth_Imaging1::
 V_Digi_Depth_Imaging1 (const ::xercesc::DOMElement& e,
                        ::xml_schema::flags f,
                        ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -82453,32 +80153,9 @@ Test_Freq1::
 //
 
 RF_Filter1::
-RF_Filter1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-RF_Filter1::
-RF_Filter1 (const char* _xsd_string_base,
+RF_Filter1 (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-RF_Filter1::
-RF_Filter1 (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-RF_Filter1::
-RF_Filter1 (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -82487,7 +80164,7 @@ RF_Filter1::
 RF_Filter1 (const RF_Filter1& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -82496,7 +80173,7 @@ RF_Filter1::
 RF_Filter1 (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -82550,32 +80227,9 @@ RF_Filter1::
 //
 
 V_RF_Filter1::
-V_RF_Filter1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_RF_Filter1::
-V_RF_Filter1 (const char* _xsd_string_base,
+V_RF_Filter1 (const ::xml_schema::float_& _xsd_float__base,
               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_RF_Filter1::
-V_RF_Filter1 (const ::std::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_RF_Filter1::
-V_RF_Filter1 (const ::xml_schema::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -82584,7 +80238,7 @@ V_RF_Filter1::
 V_RF_Filter1 (const V_RF_Filter1& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -82593,7 +80247,7 @@ V_RF_Filter1::
 V_RF_Filter1 (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -82818,32 +80472,9 @@ AD_Gate_Width1::
 //
 
 Frequency7::
-Frequency7 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency7::
-Frequency7 (const char* _xsd_string_base,
+Frequency7 (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency7::
-Frequency7 (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Frequency7::
-Frequency7 (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -82852,7 +80483,7 @@ Frequency7::
 Frequency7 (const Frequency7& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -82861,7 +80492,7 @@ Frequency7::
 Frequency7 (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -82915,32 +80546,9 @@ Frequency7::
 //
 
 V_Frequency3::
-V_Frequency3 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Frequency3::
-V_Frequency3 (const char* _xsd_string_base,
+V_Frequency3 (const ::xml_schema::float_& _xsd_float__base,
               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Frequency3::
-V_Frequency3 (const ::std::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Frequency3::
-V_Frequency3 (const ::xml_schema::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -82949,7 +80557,7 @@ V_Frequency3::
 V_Frequency3 (const V_Frequency3& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -82958,7 +80566,7 @@ V_Frequency3::
 V_Frequency3 (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -83012,32 +80620,9 @@ V_Frequency3::
 //
 
 V_Field_Of_View1::
-V_Field_Of_View1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Field_Of_View1::
-V_Field_Of_View1 (const char* _xsd_string_base,
+V_Field_Of_View1 (const ::xml_schema::float_& _xsd_float__base,
                   const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Field_Of_View1::
-V_Field_Of_View1 (const ::std::string& _xsd_string_base,
-                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Field_Of_View1::
-V_Field_Of_View1 (const ::xml_schema::string& _xsd_string_base,
-                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -83046,7 +80631,7 @@ V_Field_Of_View1::
 V_Field_Of_View1 (const V_Field_Of_View1& x,
                   ::xml_schema::flags f,
                   ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -83055,7 +80640,7 @@ V_Field_Of_View1::
 V_Field_Of_View1 (const ::xercesc::DOMElement& e,
                   ::xml_schema::flags f,
                   ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -83109,32 +80694,9 @@ V_Field_Of_View1::
 //
 
 Sector_Height_Target1::
-Sector_Height_Target1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sector_Height_Target1::
-Sector_Height_Target1 (const char* _xsd_string_base,
+Sector_Height_Target1 (const ::xml_schema::float_& _xsd_float__base,
                        const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sector_Height_Target1::
-Sector_Height_Target1 (const ::std::string& _xsd_string_base,
-                       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Sector_Height_Target1::
-Sector_Height_Target1 (const ::xml_schema::string& _xsd_string_base,
-                       const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -83143,7 +80705,7 @@ Sector_Height_Target1::
 Sector_Height_Target1 (const Sector_Height_Target1& x,
                        ::xml_schema::flags f,
                        ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -83152,7 +80714,7 @@ Sector_Height_Target1::
 Sector_Height_Target1 (const ::xercesc::DOMElement& e,
                        ::xml_schema::flags f,
                        ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -83303,32 +80865,9 @@ AD_TestIn1::
 //
 
 V_Delay_Length1::
-V_Delay_Length1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Delay_Length1::
-V_Delay_Length1 (const char* _xsd_string_base,
+V_Delay_Length1 (const ::xml_schema::float_& _xsd_float__base,
                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Delay_Length1::
-V_Delay_Length1 (const ::std::string& _xsd_string_base,
-                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_Delay_Length1::
-V_Delay_Length1 (const ::xml_schema::string& _xsd_string_base,
-                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -83337,7 +80876,7 @@ V_Delay_Length1::
 V_Delay_Length1 (const V_Delay_Length1& x,
                  ::xml_schema::flags f,
                  ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -83346,7 +80885,7 @@ V_Delay_Length1::
 V_Delay_Length1 (const ::xercesc::DOMElement& e,
                  ::xml_schema::flags f,
                  ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -83400,32 +80939,9 @@ V_Delay_Length1::
 //
 
 IF_Filter1::
-IF_Filter1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-IF_Filter1::
-IF_Filter1 (const char* _xsd_string_base,
+IF_Filter1 (const ::xml_schema::float_& _xsd_float__base,
             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-IF_Filter1::
-IF_Filter1 (const ::std::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-IF_Filter1::
-IF_Filter1 (const ::xml_schema::string& _xsd_string_base,
-            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -83434,7 +80950,7 @@ IF_Filter1::
 IF_Filter1 (const IF_Filter1& x,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -83443,7 +80959,7 @@ IF_Filter1::
 IF_Filter1 (const ::xercesc::DOMElement& e,
             ::xml_schema::flags f,
             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -83594,32 +81110,9 @@ Track_Width1::
 //
 
 V_IF_Filter1::
-V_IF_Filter1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_IF_Filter1::
-V_IF_Filter1 (const char* _xsd_string_base,
+V_IF_Filter1 (const ::xml_schema::float_& _xsd_float__base,
               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_IF_Filter1::
-V_IF_Filter1 (const ::std::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-V_IF_Filter1::
-V_IF_Filter1 (const ::xml_schema::string& _xsd_string_base,
-              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -83628,7 +81121,7 @@ V_IF_Filter1::
 V_IF_Filter1 (const V_IF_Filter1& x,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -83637,7 +81130,7 @@ V_IF_Filter1::
 V_IF_Filter1 (const ::xercesc::DOMElement& e,
               ::xml_schema::flags f,
               ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -83691,32 +81184,9 @@ V_IF_Filter1::
 //
 
 HP_Clutter1::
-HP_Clutter1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-HP_Clutter1::
-HP_Clutter1 (const char* _xsd_string_base,
+HP_Clutter1 (const ::xml_schema::float_& _xsd_float__base,
              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-HP_Clutter1::
-HP_Clutter1 (const ::std::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-HP_Clutter1::
-HP_Clutter1 (const ::xml_schema::string& _xsd_string_base,
-             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -83725,7 +81195,7 @@ HP_Clutter1::
 HP_Clutter1 (const HP_Clutter1& x,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -83734,7 +81204,7 @@ HP_Clutter1::
 HP_Clutter1 (const ::xercesc::DOMElement& e,
              ::xml_schema::flags f,
              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -83885,32 +81355,9 @@ Window_Time1::
 //
 
 EKV_Start::
-EKV_Start (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-EKV_Start::
-EKV_Start (const char* _xsd_string_base,
+EKV_Start (const ::xml_schema::float_& _xsd_float__base,
            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-EKV_Start::
-EKV_Start (const ::std::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-EKV_Start::
-EKV_Start (const ::xml_schema::string& _xsd_string_base,
-           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -83919,7 +81366,7 @@ EKV_Start::
 EKV_Start (const EKV_Start& x,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -83928,7 +81375,7 @@ EKV_Start::
 EKV_Start (const ::xercesc::DOMElement& e,
            ::xml_schema::flags f,
            ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -83982,32 +81429,9 @@ EKV_Start::
 //
 
 EKV_Stop::
-EKV_Stop (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-EKV_Stop::
-EKV_Stop (const char* _xsd_string_base,
+EKV_Stop (const ::xml_schema::float_& _xsd_float__base,
           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-EKV_Stop::
-EKV_Stop (const ::std::string& _xsd_string_base,
-          const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-EKV_Stop::
-EKV_Stop (const ::xml_schema::string& _xsd_string_base,
-          const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (_xsd_float__base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -84016,7 +81440,7 @@ EKV_Stop::
 EKV_Stop (const EKV_Stop& x,
           ::xml_schema::flags f,
           ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -84025,7 +81449,7 @@ EKV_Stop::
 EKV_Stop (const ::xercesc::DOMElement& e,
           ::xml_schema::flags f,
           ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -85716,7 +83140,7 @@ operator<< (::std::ostream& o, const Sample_Time& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Focal_Length& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85725,7 +83149,7 @@ operator<< (::std::ostream& o, const Focal_Length& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Default_Scan_Speed& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85734,7 +83158,7 @@ operator<< (::std::ostream& o, const Default_Scan_Speed& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Cutoff_Scan_Speed& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85743,7 +83167,7 @@ operator<< (::std::ostream& o, const Cutoff_Scan_Speed& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency_Low& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85752,7 +83176,7 @@ operator<< (::std::ostream& o, const Frequency_Low& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Default_FOV& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85761,7 +83185,7 @@ operator<< (::std::ostream& o, const Default_FOV& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency_Doppler_Default& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85770,7 +83194,7 @@ operator<< (::std::ostream& o, const Frequency_Doppler_Default& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency_Doppler& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85788,7 +83212,7 @@ operator<< (::std::ostream& o, const Axial_Res& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Filter_High& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85797,7 +83221,7 @@ operator<< (::std::ostream& o, const Filter_High& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Pivot_Encoder_Dist& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85806,7 +83230,7 @@ operator<< (::std::ostream& o, const Pivot_Encoder_Dist& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Encoder_Range_Max& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85815,7 +83239,7 @@ operator<< (::std::ostream& o, const Encoder_Range_Max& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Encoder_Range_Min& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85842,7 +83266,7 @@ operator<< (::std::ostream& o, const Motor_Overhead& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Max_Scan_Distance& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85860,7 +83284,7 @@ operator<< (::std::ostream& o, const Default_Rx_Gain& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Filter_Low& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85869,7 +83293,7 @@ operator<< (::std::ostream& o, const Filter_Low& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency_High& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85878,7 +83302,7 @@ operator<< (::std::ostream& o, const Frequency_High& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Scan_Speeds& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85896,7 +83320,7 @@ operator<< (::std::ostream& o, const Filter_Doppler_Cutoff& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency_Doppler_Low& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85905,7 +83329,7 @@ operator<< (::std::ostream& o, const Frequency_Doppler_Low& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Pivot_Transducer_Face_Dist& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85914,7 +83338,7 @@ operator<< (::std::ostream& o, const Pivot_Transducer_Face_Dist& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Filter_Doppler& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85923,7 +83347,7 @@ operator<< (::std::ostream& o, const Filter_Doppler& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85932,7 +83356,7 @@ operator<< (::std::ostream& o, const Frequency& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Encoder_Separation& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85941,7 +83365,7 @@ operator<< (::std::ostream& o, const Encoder_Separation& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Overshoot& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85950,7 +83374,7 @@ operator<< (::std::ostream& o, const Overshoot& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Filter& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85968,7 +83392,7 @@ operator<< (::std::ostream& o, const Default_Rx_Gain_Doppler& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Filter_Doppler_Low& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86013,7 +83437,7 @@ operator<< (::std::ostream& o, const Power_Size_Default& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Target_Field_Of_View& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86040,7 +83464,7 @@ operator<< (::std::ostream& o, const Pipeline_Delay& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Center& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86058,7 +83482,7 @@ operator<< (::std::ostream& o, const V_Scan_Speed& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Scan_Rate& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86067,7 +83491,7 @@ operator<< (::std::ostream& o, const V_Scan_Rate& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Scan_Width& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86301,7 +83725,7 @@ operator<< (::std::ostream& o, const Pressure_Systolic& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86472,7 +83896,7 @@ operator<< (::std::ostream& o, const Pressure_Calibration_Level& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const ECG_HP_Filter& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86481,7 +83905,7 @@ operator<< (::std::ostream& o, const ECG_HP_Filter& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const ECG_LP_Filter& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86526,7 +83950,7 @@ operator<< (::std::ostream& o, const Magnitude_Origin& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency_Origin& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86535,7 +83959,7 @@ operator<< (::std::ostream& o, const Frequency_Origin& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Length_Origin& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86553,7 +83977,7 @@ operator<< (::std::ostream& o, const Vertical_Scale& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const SamplesPerSec& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86571,7 +83995,7 @@ operator<< (::std::ostream& o, const Magnitude_Height& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Length_Length& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86580,7 +84004,7 @@ operator<< (::std::ostream& o, const Length_Length& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency_Length& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86589,7 +84013,7 @@ operator<< (::std::ostream& o, const Frequency_Length& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const SV_Center& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86616,7 +84040,7 @@ operator<< (::std::ostream& o, const RF_Path_23Mhz_Time_Correction& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const SV_Length_Limits& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86625,7 +84049,7 @@ operator<< (::std::ostream& o, const SV_Length_Limits& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Transmit_Length& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86643,7 +84067,7 @@ operator<< (::std::ostream& o, const V_Pulse_Rep_Freq& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency2& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86661,7 +84085,7 @@ operator<< (::std::ostream& o, const V_Unblank_Time& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Frequency& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86724,7 +84148,7 @@ operator<< (::std::ostream& o, const V_Power& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Scan_Distance& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86733,7 +84157,7 @@ operator<< (::std::ostream& o, const Scan_Distance& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Step_Size& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86742,7 +84166,7 @@ operator<< (::std::ostream& o, const Step_Size& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Ref_Probe_Focal_Length& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86751,7 +84175,7 @@ operator<< (::std::ostream& o, const Ref_Probe_Focal_Length& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Ref_Tx_Frequency& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86787,7 +84211,7 @@ operator<< (::std::ostream& o, const Ref_Tx_Power& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Freq_Range_Max& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86796,7 +84220,7 @@ operator<< (::std::ostream& o, const Freq_Range_Max& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Freq_Range_Min& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86805,7 +84229,7 @@ operator<< (::std::ostream& o, const Freq_Range_Min& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Sector_Width_Target& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86823,7 +84247,7 @@ operator<< (::std::ostream& o, const RF_Gain& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Digi_Depth_Imaging& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86841,7 +84265,7 @@ operator<< (::std::ostream& o, const Test_Freq& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const IF_Filter& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86859,7 +84283,7 @@ operator<< (::std::ostream& o, const Track_Width& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_IF_Filter& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86868,7 +84292,7 @@ operator<< (::std::ostream& o, const V_IF_Filter& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const HP_Clutter& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86877,7 +84301,7 @@ operator<< (::std::ostream& o, const HP_Clutter& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const RF_Filter& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86886,7 +84310,7 @@ operator<< (::std::ostream& o, const RF_Filter& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_RF_Filter& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86913,7 +84337,7 @@ operator<< (::std::ostream& o, const AD_Gate_Width& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency3& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86922,7 +84346,7 @@ operator<< (::std::ostream& o, const Frequency3& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Frequency1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86931,7 +84355,7 @@ operator<< (::std::ostream& o, const V_Frequency1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Field_Of_View& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86940,7 +84364,7 @@ operator<< (::std::ostream& o, const V_Field_Of_View& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Sector_Height_Target& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86958,7 +84382,7 @@ operator<< (::std::ostream& o, const AD_TestIn& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Delay_Length& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86985,7 +84409,7 @@ operator<< (::std::ostream& o, const Sample_Time1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Focal_Length1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -86994,7 +84418,7 @@ operator<< (::std::ostream& o, const Focal_Length1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Default_Scan_Speed1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87003,7 +84427,7 @@ operator<< (::std::ostream& o, const Default_Scan_Speed1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Cutoff_Scan_Speed1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87012,7 +84436,7 @@ operator<< (::std::ostream& o, const Cutoff_Scan_Speed1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency_Low1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87021,7 +84445,7 @@ operator<< (::std::ostream& o, const Frequency_Low1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Default_FOV1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87030,7 +84454,7 @@ operator<< (::std::ostream& o, const Default_FOV1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency_Doppler_Default1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87048,7 +84472,7 @@ operator<< (::std::ostream& o, const Axial_Res1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Pivot_Encoder_Dist1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87057,7 +84481,7 @@ operator<< (::std::ostream& o, const Pivot_Encoder_Dist1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Encoder_Range_Max1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87066,7 +84490,7 @@ operator<< (::std::ostream& o, const Encoder_Range_Max1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Encoder_Range_Min1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87084,7 +84508,7 @@ operator<< (::std::ostream& o, const Lateral_Res1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Max_Scan_Distance1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87102,7 +84526,7 @@ operator<< (::std::ostream& o, const Default_Rx_Gain1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency_High1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87111,7 +84535,7 @@ operator<< (::std::ostream& o, const Frequency_High1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Scan_Speeds1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87129,7 +84553,7 @@ operator<< (::std::ostream& o, const Filter_Doppler_Cutoff1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency_Doppler_Low1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87138,7 +84562,7 @@ operator<< (::std::ostream& o, const Frequency_Doppler_Low1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Pivot_Transducer_Face_Dist1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87147,7 +84571,7 @@ operator<< (::std::ostream& o, const Pivot_Transducer_Face_Dist1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Filter_Doppler1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87156,7 +84580,7 @@ operator<< (::std::ostream& o, const Filter_Doppler1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency4& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87165,7 +84589,7 @@ operator<< (::std::ostream& o, const Frequency4& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Encoder_Separation1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87174,7 +84598,7 @@ operator<< (::std::ostream& o, const Encoder_Separation1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Overshoot1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87183,7 +84607,7 @@ operator<< (::std::ostream& o, const Overshoot1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Filter1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87201,7 +84625,7 @@ operator<< (::std::ostream& o, const Default_Rx_Gain_Doppler1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Filter_Doppler_Low1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87210,7 +84634,7 @@ operator<< (::std::ostream& o, const Filter_Doppler_Low1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency_Doppler1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87219,7 +84643,7 @@ operator<< (::std::ostream& o, const Frequency_Doppler1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Filter_High1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87237,7 +84661,7 @@ operator<< (::std::ostream& o, const Motor_Overhead1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Filter_Low1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87291,7 +84715,7 @@ operator<< (::std::ostream& o, const Acquisition_Mode& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Actual_Scan_Rate& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87345,7 +84769,7 @@ operator<< (::std::ostream& o, const Sector_Y_Start& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Target_Field_Of_View1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87372,7 +84796,7 @@ operator<< (::std::ostream& o, const Pipeline_Delay1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Reference_3D_Step_Size& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87390,7 +84814,7 @@ operator<< (::std::ostream& o, const Contrast_Size_Default& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Reference_3D_Scan_Distance& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87399,7 +84823,7 @@ operator<< (::std::ostream& o, const Reference_3D_Scan_Distance& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Center1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87417,7 +84841,7 @@ operator<< (::std::ostream& o, const V_Scan_Speed1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Scan_Rate1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87426,7 +84850,7 @@ operator<< (::std::ostream& o, const V_Scan_Rate1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Scan_Width1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87660,7 +85084,7 @@ operator<< (::std::ostream& o, const Pressure_Systolic1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency5& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87822,7 +85246,7 @@ operator<< (::std::ostream& o, const Pressure_Calibration_Level1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const ECG_HP_Filter1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87831,7 +85255,7 @@ operator<< (::std::ostream& o, const ECG_HP_Filter1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const ECG_LP_Filter1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87876,7 +85300,7 @@ operator<< (::std::ostream& o, const RWave_Future_Search_Time1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Transmit_Length1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87894,7 +85318,7 @@ operator<< (::std::ostream& o, const V_Pulse_Rep_Freq1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency6& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -87912,7 +85336,7 @@ operator<< (::std::ostream& o, const V_Unblank_Time1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Frequency2& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88020,7 +85444,7 @@ operator<< (::std::ostream& o, const Duration& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Tx_Frequency& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88038,7 +85462,7 @@ operator<< (::std::ostream& o, const Destroy_Sequence_Position& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Scan_Distance1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88047,7 +85471,7 @@ operator<< (::std::ostream& o, const Scan_Distance1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Step_Size1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88056,7 +85480,7 @@ operator<< (::std::ostream& o, const Step_Size1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Parallel_Step_Size& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88065,7 +85489,7 @@ operator<< (::std::ostream& o, const Parallel_Step_Size& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Sector_Width_Target1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88083,7 +85507,7 @@ operator<< (::std::ostream& o, const RF_Gain1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Digi_Depth_Imaging1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88101,7 +85525,7 @@ operator<< (::std::ostream& o, const Test_Freq1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const RF_Filter1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88110,7 +85534,7 @@ operator<< (::std::ostream& o, const RF_Filter1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_RF_Filter1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88137,7 +85561,7 @@ operator<< (::std::ostream& o, const AD_Gate_Width1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Frequency7& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88146,7 +85570,7 @@ operator<< (::std::ostream& o, const Frequency7& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Frequency3& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88155,7 +85579,7 @@ operator<< (::std::ostream& o, const V_Frequency3& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Field_Of_View1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88164,7 +85588,7 @@ operator<< (::std::ostream& o, const V_Field_Of_View1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Sector_Height_Target1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88182,7 +85606,7 @@ operator<< (::std::ostream& o, const AD_TestIn1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_Delay_Length1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88191,7 +85615,7 @@ operator<< (::std::ostream& o, const V_Delay_Length1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const IF_Filter1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88209,7 +85633,7 @@ operator<< (::std::ostream& o, const Track_Width1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const V_IF_Filter1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88218,7 +85642,7 @@ operator<< (::std::ostream& o, const V_IF_Filter1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const HP_Clutter1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88236,7 +85660,7 @@ operator<< (::std::ostream& o, const Window_Time1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const EKV_Start& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -88245,7 +85669,7 @@ operator<< (::std::ostream& o, const EKV_Start& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const EKV_Stop& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -98979,7 +96403,7 @@ operator<< (::xercesc::DOMElement& e, const Sample_Time& i)
 void
 operator<< (::xercesc::DOMElement& e, const Focal_Length& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -98996,7 +96420,7 @@ operator<< (::xercesc::DOMElement& e, const Focal_Length& i)
 void
 operator<< (::xercesc::DOMElement& e, const Default_Scan_Speed& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99013,7 +96437,7 @@ operator<< (::xercesc::DOMElement& e, const Default_Scan_Speed& i)
 void
 operator<< (::xercesc::DOMElement& e, const Cutoff_Scan_Speed& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99030,7 +96454,7 @@ operator<< (::xercesc::DOMElement& e, const Cutoff_Scan_Speed& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency_Low& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99047,7 +96471,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency_Low& i)
 void
 operator<< (::xercesc::DOMElement& e, const Default_FOV& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99064,7 +96488,7 @@ operator<< (::xercesc::DOMElement& e, const Default_FOV& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency_Doppler_Default& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99081,7 +96505,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency_Doppler_Default& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency_Doppler& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99115,7 +96539,7 @@ operator<< (::xercesc::DOMElement& e, const Axial_Res& i)
 void
 operator<< (::xercesc::DOMElement& e, const Filter_High& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99132,7 +96556,7 @@ operator<< (::xercesc::DOMElement& e, const Filter_High& i)
 void
 operator<< (::xercesc::DOMElement& e, const Pivot_Encoder_Dist& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99149,7 +96573,7 @@ operator<< (::xercesc::DOMElement& e, const Pivot_Encoder_Dist& i)
 void
 operator<< (::xercesc::DOMElement& e, const Encoder_Range_Max& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99166,7 +96590,7 @@ operator<< (::xercesc::DOMElement& e, const Encoder_Range_Max& i)
 void
 operator<< (::xercesc::DOMElement& e, const Encoder_Range_Min& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99217,7 +96641,7 @@ operator<< (::xercesc::DOMElement& e, const Motor_Overhead& i)
 void
 operator<< (::xercesc::DOMElement& e, const Max_Scan_Distance& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99251,7 +96675,7 @@ operator<< (::xercesc::DOMElement& e, const Default_Rx_Gain& i)
 void
 operator<< (::xercesc::DOMElement& e, const Filter_Low& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99268,7 +96692,7 @@ operator<< (::xercesc::DOMElement& e, const Filter_Low& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency_High& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99285,7 +96709,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency_High& i)
 void
 operator<< (::xercesc::DOMElement& e, const Scan_Speeds& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99319,7 +96743,7 @@ operator<< (::xercesc::DOMElement& e, const Filter_Doppler_Cutoff& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency_Doppler_Low& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99336,7 +96760,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency_Doppler_Low& i)
 void
 operator<< (::xercesc::DOMElement& e, const Pivot_Transducer_Face_Dist& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99353,7 +96777,7 @@ operator<< (::xercesc::DOMElement& e, const Pivot_Transducer_Face_Dist& i)
 void
 operator<< (::xercesc::DOMElement& e, const Filter_Doppler& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99370,7 +96794,7 @@ operator<< (::xercesc::DOMElement& e, const Filter_Doppler& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99387,7 +96811,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency& i)
 void
 operator<< (::xercesc::DOMElement& e, const Encoder_Separation& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99404,7 +96828,7 @@ operator<< (::xercesc::DOMElement& e, const Encoder_Separation& i)
 void
 operator<< (::xercesc::DOMElement& e, const Overshoot& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99421,7 +96845,7 @@ operator<< (::xercesc::DOMElement& e, const Overshoot& i)
 void
 operator<< (::xercesc::DOMElement& e, const Filter& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99455,7 +96879,7 @@ operator<< (::xercesc::DOMElement& e, const Default_Rx_Gain_Doppler& i)
 void
 operator<< (::xercesc::DOMElement& e, const Filter_Doppler_Low& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99540,7 +96964,7 @@ operator<< (::xercesc::DOMElement& e, const Power_Size_Default& i)
 void
 operator<< (::xercesc::DOMElement& e, const Target_Field_Of_View& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99591,7 +97015,7 @@ operator<< (::xercesc::DOMElement& e, const Pipeline_Delay& i)
 void
 operator<< (::xercesc::DOMElement& e, const Center& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99625,7 +97049,7 @@ operator<< (::xercesc::DOMElement& e, const V_Scan_Speed& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Scan_Rate& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -99642,7 +97066,7 @@ operator<< (::xercesc::DOMElement& e, const V_Scan_Rate& i)
 void
 operator<< (::xercesc::DOMElement& e, const Scan_Width& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100084,7 +97508,7 @@ operator<< (::xercesc::DOMElement& e, const Pressure_Systolic& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100407,7 +97831,7 @@ operator<< (::xercesc::DOMElement& e, const Pressure_Calibration_Level& i)
 void
 operator<< (::xercesc::DOMElement& e, const ECG_HP_Filter& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100424,7 +97848,7 @@ operator<< (::xercesc::DOMElement& e, const ECG_HP_Filter& i)
 void
 operator<< (::xercesc::DOMElement& e, const ECG_LP_Filter& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100509,7 +97933,7 @@ operator<< (::xercesc::DOMElement& e, const Magnitude_Origin& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency_Origin& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100526,7 +97950,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency_Origin& i)
 void
 operator<< (::xercesc::DOMElement& e, const Length_Origin& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100560,7 +97984,7 @@ operator<< (::xercesc::DOMElement& e, const Vertical_Scale& i)
 void
 operator<< (::xercesc::DOMElement& e, const SamplesPerSec& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100594,7 +98018,7 @@ operator<< (::xercesc::DOMElement& e, const Magnitude_Height& i)
 void
 operator<< (::xercesc::DOMElement& e, const Length_Length& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100611,7 +98035,7 @@ operator<< (::xercesc::DOMElement& e, const Length_Length& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency_Length& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100628,7 +98052,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency_Length& i)
 void
 operator<< (::xercesc::DOMElement& e, const SV_Center& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100679,7 +98103,7 @@ operator<< (::xercesc::DOMElement& e, const RF_Path_23Mhz_Time_Correction& i)
 void
 operator<< (::xercesc::DOMElement& e, const SV_Length_Limits& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100696,7 +98120,7 @@ operator<< (::xercesc::DOMElement& e, const SV_Length_Limits& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Transmit_Length& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100730,7 +98154,7 @@ operator<< (::xercesc::DOMElement& e, const V_Pulse_Rep_Freq& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency2& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100764,7 +98188,7 @@ operator<< (::xercesc::DOMElement& e, const V_Unblank_Time& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Frequency& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100883,7 +98307,7 @@ operator<< (::xercesc::DOMElement& e, const V_Power& i)
 void
 operator<< (::xercesc::DOMElement& e, const Scan_Distance& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100900,7 +98324,7 @@ operator<< (::xercesc::DOMElement& e, const Scan_Distance& i)
 void
 operator<< (::xercesc::DOMElement& e, const Step_Size& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100917,7 +98341,7 @@ operator<< (::xercesc::DOMElement& e, const Step_Size& i)
 void
 operator<< (::xercesc::DOMElement& e, const Ref_Probe_Focal_Length& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100934,7 +98358,7 @@ operator<< (::xercesc::DOMElement& e, const Ref_Probe_Focal_Length& i)
 void
 operator<< (::xercesc::DOMElement& e, const Ref_Tx_Frequency& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101002,7 +98426,7 @@ operator<< (::xercesc::DOMElement& e, const Ref_Tx_Power& i)
 void
 operator<< (::xercesc::DOMElement& e, const Freq_Range_Max& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101019,7 +98443,7 @@ operator<< (::xercesc::DOMElement& e, const Freq_Range_Max& i)
 void
 operator<< (::xercesc::DOMElement& e, const Freq_Range_Min& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101036,7 +98460,7 @@ operator<< (::xercesc::DOMElement& e, const Freq_Range_Min& i)
 void
 operator<< (::xercesc::DOMElement& e, const Sector_Width_Target& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101070,7 +98494,7 @@ operator<< (::xercesc::DOMElement& e, const RF_Gain& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Digi_Depth_Imaging& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101104,7 +98528,7 @@ operator<< (::xercesc::DOMElement& e, const Test_Freq& i)
 void
 operator<< (::xercesc::DOMElement& e, const IF_Filter& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101138,7 +98562,7 @@ operator<< (::xercesc::DOMElement& e, const Track_Width& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_IF_Filter& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101155,7 +98579,7 @@ operator<< (::xercesc::DOMElement& e, const V_IF_Filter& i)
 void
 operator<< (::xercesc::DOMElement& e, const HP_Clutter& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101172,7 +98596,7 @@ operator<< (::xercesc::DOMElement& e, const HP_Clutter& i)
 void
 operator<< (::xercesc::DOMElement& e, const RF_Filter& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101189,7 +98613,7 @@ operator<< (::xercesc::DOMElement& e, const RF_Filter& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_RF_Filter& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101240,7 +98664,7 @@ operator<< (::xercesc::DOMElement& e, const AD_Gate_Width& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency3& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101257,7 +98681,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency3& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Frequency1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101274,7 +98698,7 @@ operator<< (::xercesc::DOMElement& e, const V_Frequency1& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Field_Of_View& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101291,7 +98715,7 @@ operator<< (::xercesc::DOMElement& e, const V_Field_Of_View& i)
 void
 operator<< (::xercesc::DOMElement& e, const Sector_Height_Target& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101325,7 +98749,7 @@ operator<< (::xercesc::DOMElement& e, const AD_TestIn& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Delay_Length& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101376,7 +98800,7 @@ operator<< (::xercesc::DOMElement& e, const Sample_Time1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Focal_Length1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101393,7 +98817,7 @@ operator<< (::xercesc::DOMElement& e, const Focal_Length1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Default_Scan_Speed1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101410,7 +98834,7 @@ operator<< (::xercesc::DOMElement& e, const Default_Scan_Speed1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Cutoff_Scan_Speed1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101427,7 +98851,7 @@ operator<< (::xercesc::DOMElement& e, const Cutoff_Scan_Speed1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency_Low1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101444,7 +98868,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency_Low1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Default_FOV1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101461,7 +98885,7 @@ operator<< (::xercesc::DOMElement& e, const Default_FOV1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency_Doppler_Default1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101495,7 +98919,7 @@ operator<< (::xercesc::DOMElement& e, const Axial_Res1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Pivot_Encoder_Dist1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101512,7 +98936,7 @@ operator<< (::xercesc::DOMElement& e, const Pivot_Encoder_Dist1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Encoder_Range_Max1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101529,7 +98953,7 @@ operator<< (::xercesc::DOMElement& e, const Encoder_Range_Max1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Encoder_Range_Min1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101563,7 +98987,7 @@ operator<< (::xercesc::DOMElement& e, const Lateral_Res1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Max_Scan_Distance1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101597,7 +99021,7 @@ operator<< (::xercesc::DOMElement& e, const Default_Rx_Gain1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency_High1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101614,7 +99038,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency_High1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Scan_Speeds1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101648,7 +99072,7 @@ operator<< (::xercesc::DOMElement& e, const Filter_Doppler_Cutoff1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency_Doppler_Low1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101665,7 +99089,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency_Doppler_Low1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Pivot_Transducer_Face_Dist1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101682,7 +99106,7 @@ operator<< (::xercesc::DOMElement& e, const Pivot_Transducer_Face_Dist1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Filter_Doppler1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101699,7 +99123,7 @@ operator<< (::xercesc::DOMElement& e, const Filter_Doppler1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency4& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101716,7 +99140,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency4& i)
 void
 operator<< (::xercesc::DOMElement& e, const Encoder_Separation1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101733,7 +99157,7 @@ operator<< (::xercesc::DOMElement& e, const Encoder_Separation1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Overshoot1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101750,7 +99174,7 @@ operator<< (::xercesc::DOMElement& e, const Overshoot1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Filter1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101784,7 +99208,7 @@ operator<< (::xercesc::DOMElement& e, const Default_Rx_Gain_Doppler1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Filter_Doppler_Low1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101801,7 +99225,7 @@ operator<< (::xercesc::DOMElement& e, const Filter_Doppler_Low1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency_Doppler1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101818,7 +99242,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency_Doppler1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Filter_High1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101852,7 +99276,7 @@ operator<< (::xercesc::DOMElement& e, const Motor_Overhead1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Filter_Low1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -101954,7 +99378,7 @@ operator<< (::xercesc::DOMElement& e, const Acquisition_Mode& i)
 void
 operator<< (::xercesc::DOMElement& e, const Actual_Scan_Rate& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -102056,7 +99480,7 @@ operator<< (::xercesc::DOMElement& e, const Sector_Y_Start& i)
 void
 operator<< (::xercesc::DOMElement& e, const Target_Field_Of_View1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -102107,7 +99531,7 @@ operator<< (::xercesc::DOMElement& e, const Pipeline_Delay1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Reference_3D_Step_Size& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -102141,7 +99565,7 @@ operator<< (::xercesc::DOMElement& e, const Contrast_Size_Default& i)
 void
 operator<< (::xercesc::DOMElement& e, const Reference_3D_Scan_Distance& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -102158,7 +99582,7 @@ operator<< (::xercesc::DOMElement& e, const Reference_3D_Scan_Distance& i)
 void
 operator<< (::xercesc::DOMElement& e, const Center1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -102192,7 +99616,7 @@ operator<< (::xercesc::DOMElement& e, const V_Scan_Speed1& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Scan_Rate1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -102209,7 +99633,7 @@ operator<< (::xercesc::DOMElement& e, const V_Scan_Rate1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Scan_Width1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -102651,7 +100075,7 @@ operator<< (::xercesc::DOMElement& e, const Pressure_Systolic1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency5& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -102957,7 +100381,7 @@ operator<< (::xercesc::DOMElement& e, const Pressure_Calibration_Level1& i)
 void
 operator<< (::xercesc::DOMElement& e, const ECG_HP_Filter1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -102974,7 +100398,7 @@ operator<< (::xercesc::DOMElement& e, const ECG_HP_Filter1& i)
 void
 operator<< (::xercesc::DOMElement& e, const ECG_LP_Filter1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103059,7 +100483,7 @@ operator<< (::xercesc::DOMElement& e, const RWave_Future_Search_Time1& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Transmit_Length1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103093,7 +100517,7 @@ operator<< (::xercesc::DOMElement& e, const V_Pulse_Rep_Freq1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency6& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103127,7 +100551,7 @@ operator<< (::xercesc::DOMElement& e, const V_Unblank_Time1& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Frequency2& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103331,7 +100755,7 @@ operator<< (::xercesc::DOMElement& e, const Duration& i)
 void
 operator<< (::xercesc::DOMElement& e, const Tx_Frequency& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103365,7 +100789,7 @@ operator<< (::xercesc::DOMElement& e, const Destroy_Sequence_Position& i)
 void
 operator<< (::xercesc::DOMElement& e, const Scan_Distance1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103382,7 +100806,7 @@ operator<< (::xercesc::DOMElement& e, const Scan_Distance1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Step_Size1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103399,7 +100823,7 @@ operator<< (::xercesc::DOMElement& e, const Step_Size1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Parallel_Step_Size& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103416,7 +100840,7 @@ operator<< (::xercesc::DOMElement& e, const Parallel_Step_Size& i)
 void
 operator<< (::xercesc::DOMElement& e, const Sector_Width_Target1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103450,7 +100874,7 @@ operator<< (::xercesc::DOMElement& e, const RF_Gain1& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Digi_Depth_Imaging1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103484,7 +100908,7 @@ operator<< (::xercesc::DOMElement& e, const Test_Freq1& i)
 void
 operator<< (::xercesc::DOMElement& e, const RF_Filter1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103501,7 +100925,7 @@ operator<< (::xercesc::DOMElement& e, const RF_Filter1& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_RF_Filter1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103552,7 +100976,7 @@ operator<< (::xercesc::DOMElement& e, const AD_Gate_Width1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Frequency7& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103569,7 +100993,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency7& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Frequency3& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103586,7 +101010,7 @@ operator<< (::xercesc::DOMElement& e, const V_Frequency3& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Field_Of_View1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103603,7 +101027,7 @@ operator<< (::xercesc::DOMElement& e, const V_Field_Of_View1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Sector_Height_Target1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103637,7 +101061,7 @@ operator<< (::xercesc::DOMElement& e, const AD_TestIn1& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_Delay_Length1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103654,7 +101078,7 @@ operator<< (::xercesc::DOMElement& e, const V_Delay_Length1& i)
 void
 operator<< (::xercesc::DOMElement& e, const IF_Filter1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103688,7 +101112,7 @@ operator<< (::xercesc::DOMElement& e, const Track_Width1& i)
 void
 operator<< (::xercesc::DOMElement& e, const V_IF_Filter1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103705,7 +101129,7 @@ operator<< (::xercesc::DOMElement& e, const V_IF_Filter1& i)
 void
 operator<< (::xercesc::DOMElement& e, const HP_Clutter1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103739,7 +101163,7 @@ operator<< (::xercesc::DOMElement& e, const Window_Time1& i)
 void
 operator<< (::xercesc::DOMElement& e, const EKV_Start& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -103756,7 +101180,7 @@ operator<< (::xercesc::DOMElement& e, const EKV_Start& i)
 void
 operator<< (::xercesc::DOMElement& e, const EKV_Stop& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //

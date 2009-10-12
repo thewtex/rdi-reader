@@ -19965,7 +19965,7 @@ class Sample_Time: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Focal_Length: public ::xml_schema::string
+class Focal_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -19987,15 +19987,7 @@ class Focal_Length: public ::xml_schema::string
 
   // Constructors.
   //
-  Focal_Length (const units_type&);
-
-  Focal_Length (const char*,
-                const units_type&);
-
-  Focal_Length (const ::std::string&,
-                const units_type&);
-
-  Focal_Length (const ::xml_schema::string&,
+  Focal_Length (const ::xml_schema::float_&,
                 const units_type&);
 
   Focal_Length (const ::xercesc::DOMElement& e,
@@ -20024,7 +20016,7 @@ class Focal_Length: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Default_Scan_Speed: public ::xml_schema::string
+class Default_Scan_Speed: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20046,15 +20038,7 @@ class Default_Scan_Speed: public ::xml_schema::string
 
   // Constructors.
   //
-  Default_Scan_Speed (const units_type&);
-
-  Default_Scan_Speed (const char*,
-                      const units_type&);
-
-  Default_Scan_Speed (const ::std::string&,
-                      const units_type&);
-
-  Default_Scan_Speed (const ::xml_schema::string&,
+  Default_Scan_Speed (const ::xml_schema::float_&,
                       const units_type&);
 
   Default_Scan_Speed (const ::xercesc::DOMElement& e,
@@ -20083,7 +20067,7 @@ class Default_Scan_Speed: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Cutoff_Scan_Speed: public ::xml_schema::string
+class Cutoff_Scan_Speed: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20105,15 +20089,7 @@ class Cutoff_Scan_Speed: public ::xml_schema::string
 
   // Constructors.
   //
-  Cutoff_Scan_Speed (const units_type&);
-
-  Cutoff_Scan_Speed (const char*,
-                     const units_type&);
-
-  Cutoff_Scan_Speed (const ::std::string&,
-                     const units_type&);
-
-  Cutoff_Scan_Speed (const ::xml_schema::string&,
+  Cutoff_Scan_Speed (const ::xml_schema::float_&,
                      const units_type&);
 
   Cutoff_Scan_Speed (const ::xercesc::DOMElement& e,
@@ -20142,7 +20118,7 @@ class Cutoff_Scan_Speed: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency_Low: public ::xml_schema::string
+class Frequency_Low: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20164,15 +20140,7 @@ class Frequency_Low: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency_Low (const units_type&);
-
-  Frequency_Low (const char*,
-                 const units_type&);
-
-  Frequency_Low (const ::std::string&,
-                 const units_type&);
-
-  Frequency_Low (const ::xml_schema::string&,
+  Frequency_Low (const ::xml_schema::float_&,
                  const units_type&);
 
   Frequency_Low (const ::xercesc::DOMElement& e,
@@ -20201,7 +20169,7 @@ class Frequency_Low: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Default_FOV: public ::xml_schema::string
+class Default_FOV: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20223,15 +20191,7 @@ class Default_FOV: public ::xml_schema::string
 
   // Constructors.
   //
-  Default_FOV (const units_type&);
-
-  Default_FOV (const char*,
-               const units_type&);
-
-  Default_FOV (const ::std::string&,
-               const units_type&);
-
-  Default_FOV (const ::xml_schema::string&,
+  Default_FOV (const ::xml_schema::float_&,
                const units_type&);
 
   Default_FOV (const ::xercesc::DOMElement& e,
@@ -20260,7 +20220,7 @@ class Default_FOV: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency_Doppler_Default: public ::xml_schema::string
+class Frequency_Doppler_Default: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20282,15 +20242,7 @@ class Frequency_Doppler_Default: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency_Doppler_Default (const units_type&);
-
-  Frequency_Doppler_Default (const char*,
-                             const units_type&);
-
-  Frequency_Doppler_Default (const ::std::string&,
-                             const units_type&);
-
-  Frequency_Doppler_Default (const ::xml_schema::string&,
+  Frequency_Doppler_Default (const ::xml_schema::float_&,
                              const units_type&);
 
   Frequency_Doppler_Default (const ::xercesc::DOMElement& e,
@@ -20319,7 +20271,7 @@ class Frequency_Doppler_Default: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency_Doppler: public ::xml_schema::string
+class Frequency_Doppler: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20341,15 +20293,7 @@ class Frequency_Doppler: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency_Doppler (const units_type&);
-
-  Frequency_Doppler (const char*,
-                     const units_type&);
-
-  Frequency_Doppler (const ::std::string&,
-                     const units_type&);
-
-  Frequency_Doppler (const ::xml_schema::string&,
+  Frequency_Doppler (const ::xml_schema::float_&,
                      const units_type&);
 
   Frequency_Doppler (const ::xercesc::DOMElement& e,
@@ -20437,7 +20381,7 @@ class Axial_Res: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Filter_High: public ::xml_schema::string
+class Filter_High: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20459,15 +20403,7 @@ class Filter_High: public ::xml_schema::string
 
   // Constructors.
   //
-  Filter_High (const units_type&);
-
-  Filter_High (const char*,
-               const units_type&);
-
-  Filter_High (const ::std::string&,
-               const units_type&);
-
-  Filter_High (const ::xml_schema::string&,
+  Filter_High (const ::xml_schema::float_&,
                const units_type&);
 
   Filter_High (const ::xercesc::DOMElement& e,
@@ -20496,7 +20432,7 @@ class Filter_High: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Pivot_Encoder_Dist: public ::xml_schema::string
+class Pivot_Encoder_Dist: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20518,15 +20454,7 @@ class Pivot_Encoder_Dist: public ::xml_schema::string
 
   // Constructors.
   //
-  Pivot_Encoder_Dist (const units_type&);
-
-  Pivot_Encoder_Dist (const char*,
-                      const units_type&);
-
-  Pivot_Encoder_Dist (const ::std::string&,
-                      const units_type&);
-
-  Pivot_Encoder_Dist (const ::xml_schema::string&,
+  Pivot_Encoder_Dist (const ::xml_schema::float_&,
                       const units_type&);
 
   Pivot_Encoder_Dist (const ::xercesc::DOMElement& e,
@@ -20555,7 +20483,7 @@ class Pivot_Encoder_Dist: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Encoder_Range_Max: public ::xml_schema::string
+class Encoder_Range_Max: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20577,15 +20505,7 @@ class Encoder_Range_Max: public ::xml_schema::string
 
   // Constructors.
   //
-  Encoder_Range_Max (const units_type&);
-
-  Encoder_Range_Max (const char*,
-                     const units_type&);
-
-  Encoder_Range_Max (const ::std::string&,
-                     const units_type&);
-
-  Encoder_Range_Max (const ::xml_schema::string&,
+  Encoder_Range_Max (const ::xml_schema::float_&,
                      const units_type&);
 
   Encoder_Range_Max (const ::xercesc::DOMElement& e,
@@ -20614,7 +20534,7 @@ class Encoder_Range_Max: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Encoder_Range_Min: public ::xml_schema::string
+class Encoder_Range_Min: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20636,15 +20556,7 @@ class Encoder_Range_Min: public ::xml_schema::string
 
   // Constructors.
   //
-  Encoder_Range_Min (const units_type&);
-
-  Encoder_Range_Min (const char*,
-                     const units_type&);
-
-  Encoder_Range_Min (const ::std::string&,
-                     const units_type&);
-
-  Encoder_Range_Min (const ::xml_schema::string&,
+  Encoder_Range_Min (const ::xml_schema::float_&,
                      const units_type&);
 
   Encoder_Range_Min (const ::xercesc::DOMElement& e,
@@ -20791,7 +20703,7 @@ class Motor_Overhead: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Max_Scan_Distance: public ::xml_schema::string
+class Max_Scan_Distance: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20813,15 +20725,7 @@ class Max_Scan_Distance: public ::xml_schema::string
 
   // Constructors.
   //
-  Max_Scan_Distance (const units_type&);
-
-  Max_Scan_Distance (const char*,
-                     const units_type&);
-
-  Max_Scan_Distance (const ::std::string&,
-                     const units_type&);
-
-  Max_Scan_Distance (const ::xml_schema::string&,
+  Max_Scan_Distance (const ::xml_schema::float_&,
                      const units_type&);
 
   Max_Scan_Distance (const ::xercesc::DOMElement& e,
@@ -20909,7 +20813,7 @@ class Default_Rx_Gain: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Filter_Low: public ::xml_schema::string
+class Filter_Low: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20931,15 +20835,7 @@ class Filter_Low: public ::xml_schema::string
 
   // Constructors.
   //
-  Filter_Low (const units_type&);
-
-  Filter_Low (const char*,
-              const units_type&);
-
-  Filter_Low (const ::std::string&,
-              const units_type&);
-
-  Filter_Low (const ::xml_schema::string&,
+  Filter_Low (const ::xml_schema::float_&,
               const units_type&);
 
   Filter_Low (const ::xercesc::DOMElement& e,
@@ -20968,7 +20864,7 @@ class Filter_Low: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency_High: public ::xml_schema::string
+class Frequency_High: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -20990,15 +20886,7 @@ class Frequency_High: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency_High (const units_type&);
-
-  Frequency_High (const char*,
-                  const units_type&);
-
-  Frequency_High (const ::std::string&,
-                  const units_type&);
-
-  Frequency_High (const ::xml_schema::string&,
+  Frequency_High (const ::xml_schema::float_&,
                   const units_type&);
 
   Frequency_High (const ::xercesc::DOMElement& e,
@@ -21027,7 +20915,7 @@ class Frequency_High: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Scan_Speeds: public ::xml_schema::string
+class Scan_Speeds: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -21049,15 +20937,7 @@ class Scan_Speeds: public ::xml_schema::string
 
   // Constructors.
   //
-  Scan_Speeds (const units_type&);
-
-  Scan_Speeds (const char*,
-               const units_type&);
-
-  Scan_Speeds (const ::std::string&,
-               const units_type&);
-
-  Scan_Speeds (const ::xml_schema::string&,
+  Scan_Speeds (const ::xml_schema::float_&,
                const units_type&);
 
   Scan_Speeds (const ::xercesc::DOMElement& e,
@@ -21145,7 +21025,7 @@ class Filter_Doppler_Cutoff: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency_Doppler_Low: public ::xml_schema::string
+class Frequency_Doppler_Low: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -21167,15 +21047,7 @@ class Frequency_Doppler_Low: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency_Doppler_Low (const units_type&);
-
-  Frequency_Doppler_Low (const char*,
-                         const units_type&);
-
-  Frequency_Doppler_Low (const ::std::string&,
-                         const units_type&);
-
-  Frequency_Doppler_Low (const ::xml_schema::string&,
+  Frequency_Doppler_Low (const ::xml_schema::float_&,
                          const units_type&);
 
   Frequency_Doppler_Low (const ::xercesc::DOMElement& e,
@@ -21204,7 +21076,7 @@ class Frequency_Doppler_Low: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Pivot_Transducer_Face_Dist: public ::xml_schema::string
+class Pivot_Transducer_Face_Dist: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -21226,15 +21098,7 @@ class Pivot_Transducer_Face_Dist: public ::xml_schema::string
 
   // Constructors.
   //
-  Pivot_Transducer_Face_Dist (const units_type&);
-
-  Pivot_Transducer_Face_Dist (const char*,
-                              const units_type&);
-
-  Pivot_Transducer_Face_Dist (const ::std::string&,
-                              const units_type&);
-
-  Pivot_Transducer_Face_Dist (const ::xml_schema::string&,
+  Pivot_Transducer_Face_Dist (const ::xml_schema::float_&,
                               const units_type&);
 
   Pivot_Transducer_Face_Dist (const ::xercesc::DOMElement& e,
@@ -21263,7 +21127,7 @@ class Pivot_Transducer_Face_Dist: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Filter_Doppler: public ::xml_schema::string
+class Filter_Doppler: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -21285,15 +21149,7 @@ class Filter_Doppler: public ::xml_schema::string
 
   // Constructors.
   //
-  Filter_Doppler (const units_type&);
-
-  Filter_Doppler (const char*,
-                  const units_type&);
-
-  Filter_Doppler (const ::std::string&,
-                  const units_type&);
-
-  Filter_Doppler (const ::xml_schema::string&,
+  Filter_Doppler (const ::xml_schema::float_&,
                   const units_type&);
 
   Filter_Doppler (const ::xercesc::DOMElement& e,
@@ -21322,7 +21178,7 @@ class Filter_Doppler: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency: public ::xml_schema::string
+class Frequency: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -21344,15 +21200,7 @@ class Frequency: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency (const units_type&);
-
-  Frequency (const char*,
-             const units_type&);
-
-  Frequency (const ::std::string&,
-             const units_type&);
-
-  Frequency (const ::xml_schema::string&,
+  Frequency (const ::xml_schema::float_&,
              const units_type&);
 
   Frequency (const ::xercesc::DOMElement& e,
@@ -21381,7 +21229,7 @@ class Frequency: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Encoder_Separation: public ::xml_schema::string
+class Encoder_Separation: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -21403,15 +21251,7 @@ class Encoder_Separation: public ::xml_schema::string
 
   // Constructors.
   //
-  Encoder_Separation (const units_type&);
-
-  Encoder_Separation (const char*,
-                      const units_type&);
-
-  Encoder_Separation (const ::std::string&,
-                      const units_type&);
-
-  Encoder_Separation (const ::xml_schema::string&,
+  Encoder_Separation (const ::xml_schema::float_&,
                       const units_type&);
 
   Encoder_Separation (const ::xercesc::DOMElement& e,
@@ -21440,7 +21280,7 @@ class Encoder_Separation: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Overshoot: public ::xml_schema::string
+class Overshoot: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -21462,15 +21302,7 @@ class Overshoot: public ::xml_schema::string
 
   // Constructors.
   //
-  Overshoot (const units_type&);
-
-  Overshoot (const char*,
-             const units_type&);
-
-  Overshoot (const ::std::string&,
-             const units_type&);
-
-  Overshoot (const ::xml_schema::string&,
+  Overshoot (const ::xml_schema::float_&,
              const units_type&);
 
   Overshoot (const ::xercesc::DOMElement& e,
@@ -21499,7 +21331,7 @@ class Overshoot: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Filter: public ::xml_schema::string
+class Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -21521,15 +21353,7 @@ class Filter: public ::xml_schema::string
 
   // Constructors.
   //
-  Filter (const units_type&);
-
-  Filter (const char*,
-          const units_type&);
-
-  Filter (const ::std::string&,
-          const units_type&);
-
-  Filter (const ::xml_schema::string&,
+  Filter (const ::xml_schema::float_&,
           const units_type&);
 
   Filter (const ::xercesc::DOMElement& e,
@@ -21617,7 +21441,7 @@ class Default_Rx_Gain_Doppler: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Filter_Doppler_Low: public ::xml_schema::string
+class Filter_Doppler_Low: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -21639,15 +21463,7 @@ class Filter_Doppler_Low: public ::xml_schema::string
 
   // Constructors.
   //
-  Filter_Doppler_Low (const units_type&);
-
-  Filter_Doppler_Low (const char*,
-                      const units_type&);
-
-  Filter_Doppler_Low (const ::std::string&,
-                      const units_type&);
-
-  Filter_Doppler_Low (const ::xml_schema::string&,
+  Filter_Doppler_Low (const ::xml_schema::float_&,
                       const units_type&);
 
   Filter_Doppler_Low (const ::xercesc::DOMElement& e,
@@ -21912,7 +21728,7 @@ class Power_Size_Default: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Target_Field_Of_View: public ::xml_schema::string
+class Target_Field_Of_View: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -21934,15 +21750,7 @@ class Target_Field_Of_View: public ::xml_schema::string
 
   // Constructors.
   //
-  Target_Field_Of_View (const units_type&);
-
-  Target_Field_Of_View (const char*,
-                        const units_type&);
-
-  Target_Field_Of_View (const ::std::string&,
-                        const units_type&);
-
-  Target_Field_Of_View (const ::xml_schema::string&,
+  Target_Field_Of_View (const ::xml_schema::float_&,
                         const units_type&);
 
   Target_Field_Of_View (const ::xercesc::DOMElement& e,
@@ -22089,7 +21897,7 @@ class Pipeline_Delay: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Center: public ::xml_schema::string
+class Center: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -22111,15 +21919,7 @@ class Center: public ::xml_schema::string
 
   // Constructors.
   //
-  Center (const units_type&);
-
-  Center (const char*,
-          const units_type&);
-
-  Center (const ::std::string&,
-          const units_type&);
-
-  Center (const ::xml_schema::string&,
+  Center (const ::xml_schema::float_&,
           const units_type&);
 
   Center (const ::xercesc::DOMElement& e,
@@ -22207,7 +22007,7 @@ class V_Scan_Speed: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Scan_Rate: public ::xml_schema::string
+class V_Scan_Rate: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -22229,15 +22029,7 @@ class V_Scan_Rate: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Scan_Rate (const units_type&);
-
-  V_Scan_Rate (const char*,
-               const units_type&);
-
-  V_Scan_Rate (const ::std::string&,
-               const units_type&);
-
-  V_Scan_Rate (const ::xml_schema::string&,
+  V_Scan_Rate (const ::xml_schema::float_&,
                const units_type&);
 
   V_Scan_Rate (const ::xercesc::DOMElement& e,
@@ -22266,7 +22058,7 @@ class V_Scan_Rate: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Scan_Width: public ::xml_schema::string
+class Scan_Width: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -22288,15 +22080,7 @@ class Scan_Width: public ::xml_schema::string
 
   // Constructors.
   //
-  Scan_Width (const units_type&);
-
-  Scan_Width (const char*,
-              const units_type&);
-
-  Scan_Width (const ::std::string&,
-              const units_type&);
-
-  Scan_Width (const ::xml_schema::string&,
+  Scan_Width (const ::xml_schema::float_&,
               const units_type&);
 
   Scan_Width (const ::xercesc::DOMElement& e,
@@ -23800,7 +23584,7 @@ class Pressure_Systolic: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency1: public ::xml_schema::string
+class Frequency1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -23822,15 +23606,7 @@ class Frequency1: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency1 (const units_type&);
-
-  Frequency1 (const char*,
-              const units_type&);
-
-  Frequency1 (const ::std::string&,
-              const units_type&);
-
-  Frequency1 (const ::xml_schema::string&,
+  Frequency1 (const ::xml_schema::float_&,
               const units_type&);
 
   Frequency1 (const ::xercesc::DOMElement& e,
@@ -24921,7 +24697,7 @@ class Pressure_Calibration_Level: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class ECG_HP_Filter: public ::xml_schema::string
+class ECG_HP_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -24943,15 +24719,7 @@ class ECG_HP_Filter: public ::xml_schema::string
 
   // Constructors.
   //
-  ECG_HP_Filter (const units_type&);
-
-  ECG_HP_Filter (const char*,
-                 const units_type&);
-
-  ECG_HP_Filter (const ::std::string&,
-                 const units_type&);
-
-  ECG_HP_Filter (const ::xml_schema::string&,
+  ECG_HP_Filter (const ::xml_schema::float_&,
                  const units_type&);
 
   ECG_HP_Filter (const ::xercesc::DOMElement& e,
@@ -24980,7 +24748,7 @@ class ECG_HP_Filter: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class ECG_LP_Filter: public ::xml_schema::string
+class ECG_LP_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -25002,15 +24770,7 @@ class ECG_LP_Filter: public ::xml_schema::string
 
   // Constructors.
   //
-  ECG_LP_Filter (const units_type&);
-
-  ECG_LP_Filter (const char*,
-                 const units_type&);
-
-  ECG_LP_Filter (const ::std::string&,
-                 const units_type&);
-
-  ECG_LP_Filter (const ::xml_schema::string&,
+  ECG_LP_Filter (const ::xml_schema::float_&,
                  const units_type&);
 
   ECG_LP_Filter (const ::xercesc::DOMElement& e,
@@ -25275,7 +25035,7 @@ class Magnitude_Origin: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency_Origin: public ::xml_schema::string
+class Frequency_Origin: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -25297,15 +25057,7 @@ class Frequency_Origin: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency_Origin (const units_type&);
-
-  Frequency_Origin (const char*,
-                    const units_type&);
-
-  Frequency_Origin (const ::std::string&,
-                    const units_type&);
-
-  Frequency_Origin (const ::xml_schema::string&,
+  Frequency_Origin (const ::xml_schema::float_&,
                     const units_type&);
 
   Frequency_Origin (const ::xercesc::DOMElement& e,
@@ -25334,7 +25086,7 @@ class Frequency_Origin: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Length_Origin: public ::xml_schema::string
+class Length_Origin: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -25356,15 +25108,7 @@ class Length_Origin: public ::xml_schema::string
 
   // Constructors.
   //
-  Length_Origin (const units_type&);
-
-  Length_Origin (const char*,
-                 const units_type&);
-
-  Length_Origin (const ::std::string&,
-                 const units_type&);
-
-  Length_Origin (const ::xml_schema::string&,
+  Length_Origin (const ::xml_schema::float_&,
                  const units_type&);
 
   Length_Origin (const ::xercesc::DOMElement& e,
@@ -25452,7 +25196,7 @@ class Vertical_Scale: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class SamplesPerSec: public ::xml_schema::string
+class SamplesPerSec: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -25474,15 +25218,7 @@ class SamplesPerSec: public ::xml_schema::string
 
   // Constructors.
   //
-  SamplesPerSec (const units_type&);
-
-  SamplesPerSec (const char*,
-                 const units_type&);
-
-  SamplesPerSec (const ::std::string&,
-                 const units_type&);
-
-  SamplesPerSec (const ::xml_schema::string&,
+  SamplesPerSec (const ::xml_schema::float_&,
                  const units_type&);
 
   SamplesPerSec (const ::xercesc::DOMElement& e,
@@ -25570,7 +25306,7 @@ class Magnitude_Height: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Length_Length: public ::xml_schema::string
+class Length_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -25592,15 +25328,7 @@ class Length_Length: public ::xml_schema::string
 
   // Constructors.
   //
-  Length_Length (const units_type&);
-
-  Length_Length (const char*,
-                 const units_type&);
-
-  Length_Length (const ::std::string&,
-                 const units_type&);
-
-  Length_Length (const ::xml_schema::string&,
+  Length_Length (const ::xml_schema::float_&,
                  const units_type&);
 
   Length_Length (const ::xercesc::DOMElement& e,
@@ -25629,7 +25357,7 @@ class Length_Length: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency_Length: public ::xml_schema::string
+class Frequency_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -25651,15 +25379,7 @@ class Frequency_Length: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency_Length (const units_type&);
-
-  Frequency_Length (const char*,
-                    const units_type&);
-
-  Frequency_Length (const ::std::string&,
-                    const units_type&);
-
-  Frequency_Length (const ::xml_schema::string&,
+  Frequency_Length (const ::xml_schema::float_&,
                     const units_type&);
 
   Frequency_Length (const ::xercesc::DOMElement& e,
@@ -25688,7 +25408,7 @@ class Frequency_Length: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class SV_Center: public ::xml_schema::string
+class SV_Center: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -25710,15 +25430,7 @@ class SV_Center: public ::xml_schema::string
 
   // Constructors.
   //
-  SV_Center (const units_type&);
-
-  SV_Center (const char*,
-             const units_type&);
-
-  SV_Center (const ::std::string&,
-             const units_type&);
-
-  SV_Center (const ::xml_schema::string&,
+  SV_Center (const ::xml_schema::float_&,
              const units_type&);
 
   SV_Center (const ::xercesc::DOMElement& e,
@@ -25865,7 +25577,7 @@ class RF_Path_23Mhz_Time_Correction: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class SV_Length_Limits: public ::xml_schema::string
+class SV_Length_Limits: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -25887,15 +25599,7 @@ class SV_Length_Limits: public ::xml_schema::string
 
   // Constructors.
   //
-  SV_Length_Limits (const units_type&);
-
-  SV_Length_Limits (const char*,
-                    const units_type&);
-
-  SV_Length_Limits (const ::std::string&,
-                    const units_type&);
-
-  SV_Length_Limits (const ::xml_schema::string&,
+  SV_Length_Limits (const ::xml_schema::float_&,
                     const units_type&);
 
   SV_Length_Limits (const ::xercesc::DOMElement& e,
@@ -25924,7 +25628,7 @@ class SV_Length_Limits: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Transmit_Length: public ::xml_schema::string
+class V_Transmit_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -25946,15 +25650,7 @@ class V_Transmit_Length: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Transmit_Length (const units_type&);
-
-  V_Transmit_Length (const char*,
-                     const units_type&);
-
-  V_Transmit_Length (const ::std::string&,
-                     const units_type&);
-
-  V_Transmit_Length (const ::xml_schema::string&,
+  V_Transmit_Length (const ::xml_schema::float_&,
                      const units_type&);
 
   V_Transmit_Length (const ::xercesc::DOMElement& e,
@@ -26042,7 +25738,7 @@ class V_Pulse_Rep_Freq: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency2: public ::xml_schema::string
+class Frequency2: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -26064,15 +25760,7 @@ class Frequency2: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency2 (const units_type&);
-
-  Frequency2 (const char*,
-              const units_type&);
-
-  Frequency2 (const ::std::string&,
-              const units_type&);
-
-  Frequency2 (const ::xml_schema::string&,
+  Frequency2 (const ::xml_schema::float_&,
               const units_type&);
 
   Frequency2 (const ::xercesc::DOMElement& e,
@@ -26160,7 +25848,7 @@ class V_Unblank_Time: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Frequency: public ::xml_schema::string
+class V_Frequency: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -26182,15 +25870,7 @@ class V_Frequency: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Frequency (const units_type&);
-
-  V_Frequency (const char*,
-               const units_type&);
-
-  V_Frequency (const ::std::string&,
-               const units_type&);
-
-  V_Frequency (const ::xml_schema::string&,
+  V_Frequency (const ::xml_schema::float_&,
                const units_type&);
 
   V_Frequency (const ::xercesc::DOMElement& e,
@@ -26573,7 +26253,7 @@ class V_Power: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Scan_Distance: public ::xml_schema::string
+class Scan_Distance: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -26595,15 +26275,7 @@ class Scan_Distance: public ::xml_schema::string
 
   // Constructors.
   //
-  Scan_Distance (const units_type&);
-
-  Scan_Distance (const char*,
-                 const units_type&);
-
-  Scan_Distance (const ::std::string&,
-                 const units_type&);
-
-  Scan_Distance (const ::xml_schema::string&,
+  Scan_Distance (const ::xml_schema::float_&,
                  const units_type&);
 
   Scan_Distance (const ::xercesc::DOMElement& e,
@@ -26632,7 +26304,7 @@ class Scan_Distance: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Step_Size: public ::xml_schema::string
+class Step_Size: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -26654,15 +26326,7 @@ class Step_Size: public ::xml_schema::string
 
   // Constructors.
   //
-  Step_Size (const units_type&);
-
-  Step_Size (const char*,
-             const units_type&);
-
-  Step_Size (const ::std::string&,
-             const units_type&);
-
-  Step_Size (const ::xml_schema::string&,
+  Step_Size (const ::xml_schema::float_&,
              const units_type&);
 
   Step_Size (const ::xercesc::DOMElement& e,
@@ -26691,7 +26355,7 @@ class Step_Size: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Ref_Probe_Focal_Length: public ::xml_schema::string
+class Ref_Probe_Focal_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -26713,15 +26377,7 @@ class Ref_Probe_Focal_Length: public ::xml_schema::string
 
   // Constructors.
   //
-  Ref_Probe_Focal_Length (const units_type&);
-
-  Ref_Probe_Focal_Length (const char*,
-                          const units_type&);
-
-  Ref_Probe_Focal_Length (const ::std::string&,
-                          const units_type&);
-
-  Ref_Probe_Focal_Length (const ::xml_schema::string&,
+  Ref_Probe_Focal_Length (const ::xml_schema::float_&,
                           const units_type&);
 
   Ref_Probe_Focal_Length (const ::xercesc::DOMElement& e,
@@ -26750,7 +26406,7 @@ class Ref_Probe_Focal_Length: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Ref_Tx_Frequency: public ::xml_schema::string
+class Ref_Tx_Frequency: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -26772,15 +26428,7 @@ class Ref_Tx_Frequency: public ::xml_schema::string
 
   // Constructors.
   //
-  Ref_Tx_Frequency (const units_type&);
-
-  Ref_Tx_Frequency (const char*,
-                    const units_type&);
-
-  Ref_Tx_Frequency (const ::std::string&,
-                    const units_type&);
-
-  Ref_Tx_Frequency (const ::xml_schema::string&,
+  Ref_Tx_Frequency (const ::xml_schema::float_&,
                     const units_type&);
 
   Ref_Tx_Frequency (const ::xercesc::DOMElement& e,
@@ -26986,7 +26634,7 @@ class Ref_Tx_Power: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Freq_Range_Max: public ::xml_schema::string
+class Freq_Range_Max: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27008,15 +26656,7 @@ class Freq_Range_Max: public ::xml_schema::string
 
   // Constructors.
   //
-  Freq_Range_Max (const units_type&);
-
-  Freq_Range_Max (const char*,
-                  const units_type&);
-
-  Freq_Range_Max (const ::std::string&,
-                  const units_type&);
-
-  Freq_Range_Max (const ::xml_schema::string&,
+  Freq_Range_Max (const ::xml_schema::float_&,
                   const units_type&);
 
   Freq_Range_Max (const ::xercesc::DOMElement& e,
@@ -27045,7 +26685,7 @@ class Freq_Range_Max: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Freq_Range_Min: public ::xml_schema::string
+class Freq_Range_Min: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27067,15 +26707,7 @@ class Freq_Range_Min: public ::xml_schema::string
 
   // Constructors.
   //
-  Freq_Range_Min (const units_type&);
-
-  Freq_Range_Min (const char*,
-                  const units_type&);
-
-  Freq_Range_Min (const ::std::string&,
-                  const units_type&);
-
-  Freq_Range_Min (const ::xml_schema::string&,
+  Freq_Range_Min (const ::xml_schema::float_&,
                   const units_type&);
 
   Freq_Range_Min (const ::xercesc::DOMElement& e,
@@ -27104,7 +26736,7 @@ class Freq_Range_Min: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Sector_Width_Target: public ::xml_schema::string
+class Sector_Width_Target: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27126,15 +26758,7 @@ class Sector_Width_Target: public ::xml_schema::string
 
   // Constructors.
   //
-  Sector_Width_Target (const units_type&);
-
-  Sector_Width_Target (const char*,
-                       const units_type&);
-
-  Sector_Width_Target (const ::std::string&,
-                       const units_type&);
-
-  Sector_Width_Target (const ::xml_schema::string&,
+  Sector_Width_Target (const ::xml_schema::float_&,
                        const units_type&);
 
   Sector_Width_Target (const ::xercesc::DOMElement& e,
@@ -27222,7 +26846,7 @@ class RF_Gain: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Digi_Depth_Imaging: public ::xml_schema::string
+class V_Digi_Depth_Imaging: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27244,15 +26868,7 @@ class V_Digi_Depth_Imaging: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Digi_Depth_Imaging (const units_type&);
-
-  V_Digi_Depth_Imaging (const char*,
-                        const units_type&);
-
-  V_Digi_Depth_Imaging (const ::std::string&,
-                        const units_type&);
-
-  V_Digi_Depth_Imaging (const ::xml_schema::string&,
+  V_Digi_Depth_Imaging (const ::xml_schema::float_&,
                         const units_type&);
 
   V_Digi_Depth_Imaging (const ::xercesc::DOMElement& e,
@@ -27340,7 +26956,7 @@ class Test_Freq: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class IF_Filter: public ::xml_schema::string
+class IF_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27362,15 +26978,7 @@ class IF_Filter: public ::xml_schema::string
 
   // Constructors.
   //
-  IF_Filter (const units_type&);
-
-  IF_Filter (const char*,
-             const units_type&);
-
-  IF_Filter (const ::std::string&,
-             const units_type&);
-
-  IF_Filter (const ::xml_schema::string&,
+  IF_Filter (const ::xml_schema::float_&,
              const units_type&);
 
   IF_Filter (const ::xercesc::DOMElement& e,
@@ -27458,7 +27066,7 @@ class Track_Width: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_IF_Filter: public ::xml_schema::string
+class V_IF_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27480,15 +27088,7 @@ class V_IF_Filter: public ::xml_schema::string
 
   // Constructors.
   //
-  V_IF_Filter (const units_type&);
-
-  V_IF_Filter (const char*,
-               const units_type&);
-
-  V_IF_Filter (const ::std::string&,
-               const units_type&);
-
-  V_IF_Filter (const ::xml_schema::string&,
+  V_IF_Filter (const ::xml_schema::float_&,
                const units_type&);
 
   V_IF_Filter (const ::xercesc::DOMElement& e,
@@ -27517,7 +27117,7 @@ class V_IF_Filter: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class HP_Clutter: public ::xml_schema::string
+class HP_Clutter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27539,15 +27139,7 @@ class HP_Clutter: public ::xml_schema::string
 
   // Constructors.
   //
-  HP_Clutter (const units_type&);
-
-  HP_Clutter (const char*,
-              const units_type&);
-
-  HP_Clutter (const ::std::string&,
-              const units_type&);
-
-  HP_Clutter (const ::xml_schema::string&,
+  HP_Clutter (const ::xml_schema::float_&,
               const units_type&);
 
   HP_Clutter (const ::xercesc::DOMElement& e,
@@ -27576,7 +27168,7 @@ class HP_Clutter: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class RF_Filter: public ::xml_schema::string
+class RF_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27598,15 +27190,7 @@ class RF_Filter: public ::xml_schema::string
 
   // Constructors.
   //
-  RF_Filter (const units_type&);
-
-  RF_Filter (const char*,
-             const units_type&);
-
-  RF_Filter (const ::std::string&,
-             const units_type&);
-
-  RF_Filter (const ::xml_schema::string&,
+  RF_Filter (const ::xml_schema::float_&,
              const units_type&);
 
   RF_Filter (const ::xercesc::DOMElement& e,
@@ -27635,7 +27219,7 @@ class RF_Filter: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_RF_Filter: public ::xml_schema::string
+class V_RF_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27657,15 +27241,7 @@ class V_RF_Filter: public ::xml_schema::string
 
   // Constructors.
   //
-  V_RF_Filter (const units_type&);
-
-  V_RF_Filter (const char*,
-               const units_type&);
-
-  V_RF_Filter (const ::std::string&,
-               const units_type&);
-
-  V_RF_Filter (const ::xml_schema::string&,
+  V_RF_Filter (const ::xml_schema::float_&,
                const units_type&);
 
   V_RF_Filter (const ::xercesc::DOMElement& e,
@@ -27804,7 +27380,7 @@ class AD_Gate_Width: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency3: public ::xml_schema::string
+class Frequency3: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27826,15 +27402,7 @@ class Frequency3: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency3 (const units_type&);
-
-  Frequency3 (const char*,
-              const units_type&);
-
-  Frequency3 (const ::std::string&,
-              const units_type&);
-
-  Frequency3 (const ::xml_schema::string&,
+  Frequency3 (const ::xml_schema::float_&,
               const units_type&);
 
   Frequency3 (const ::xercesc::DOMElement& e,
@@ -27863,7 +27431,7 @@ class Frequency3: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Frequency1: public ::xml_schema::string
+class V_Frequency1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27885,15 +27453,7 @@ class V_Frequency1: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Frequency1 (const units_type&);
-
-  V_Frequency1 (const char*,
-                const units_type&);
-
-  V_Frequency1 (const ::std::string&,
-                const units_type&);
-
-  V_Frequency1 (const ::xml_schema::string&,
+  V_Frequency1 (const ::xml_schema::float_&,
                 const units_type&);
 
   V_Frequency1 (const ::xercesc::DOMElement& e,
@@ -27922,7 +27482,7 @@ class V_Frequency1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Field_Of_View: public ::xml_schema::string
+class V_Field_Of_View: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27944,15 +27504,7 @@ class V_Field_Of_View: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Field_Of_View (const units_type&);
-
-  V_Field_Of_View (const char*,
-                   const units_type&);
-
-  V_Field_Of_View (const ::std::string&,
-                   const units_type&);
-
-  V_Field_Of_View (const ::xml_schema::string&,
+  V_Field_Of_View (const ::xml_schema::float_&,
                    const units_type&);
 
   V_Field_Of_View (const ::xercesc::DOMElement& e,
@@ -27981,7 +27533,7 @@ class V_Field_Of_View: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Sector_Height_Target: public ::xml_schema::string
+class Sector_Height_Target: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28003,15 +27555,7 @@ class Sector_Height_Target: public ::xml_schema::string
 
   // Constructors.
   //
-  Sector_Height_Target (const units_type&);
-
-  Sector_Height_Target (const char*,
-                        const units_type&);
-
-  Sector_Height_Target (const ::std::string&,
-                        const units_type&);
-
-  Sector_Height_Target (const ::xml_schema::string&,
+  Sector_Height_Target (const ::xml_schema::float_&,
                         const units_type&);
 
   Sector_Height_Target (const ::xercesc::DOMElement& e,
@@ -28099,7 +27643,7 @@ class AD_TestIn: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Delay_Length: public ::xml_schema::string
+class V_Delay_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28121,15 +27665,7 @@ class V_Delay_Length: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Delay_Length (const units_type&);
-
-  V_Delay_Length (const char*,
-                  const units_type&);
-
-  V_Delay_Length (const ::std::string&,
-                  const units_type&);
-
-  V_Delay_Length (const ::xml_schema::string&,
+  V_Delay_Length (const ::xml_schema::float_&,
                   const units_type&);
 
   V_Delay_Length (const ::xercesc::DOMElement& e,
@@ -28268,7 +27804,7 @@ class Sample_Time1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Focal_Length1: public ::xml_schema::string
+class Focal_Length1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28290,15 +27826,7 @@ class Focal_Length1: public ::xml_schema::string
 
   // Constructors.
   //
-  Focal_Length1 (const units_type&);
-
-  Focal_Length1 (const char*,
-                 const units_type&);
-
-  Focal_Length1 (const ::std::string&,
-                 const units_type&);
-
-  Focal_Length1 (const ::xml_schema::string&,
+  Focal_Length1 (const ::xml_schema::float_&,
                  const units_type&);
 
   Focal_Length1 (const ::xercesc::DOMElement& e,
@@ -28327,7 +27855,7 @@ class Focal_Length1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Default_Scan_Speed1: public ::xml_schema::string
+class Default_Scan_Speed1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28349,15 +27877,7 @@ class Default_Scan_Speed1: public ::xml_schema::string
 
   // Constructors.
   //
-  Default_Scan_Speed1 (const units_type&);
-
-  Default_Scan_Speed1 (const char*,
-                       const units_type&);
-
-  Default_Scan_Speed1 (const ::std::string&,
-                       const units_type&);
-
-  Default_Scan_Speed1 (const ::xml_schema::string&,
+  Default_Scan_Speed1 (const ::xml_schema::float_&,
                        const units_type&);
 
   Default_Scan_Speed1 (const ::xercesc::DOMElement& e,
@@ -28386,7 +27906,7 @@ class Default_Scan_Speed1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Cutoff_Scan_Speed1: public ::xml_schema::string
+class Cutoff_Scan_Speed1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28408,15 +27928,7 @@ class Cutoff_Scan_Speed1: public ::xml_schema::string
 
   // Constructors.
   //
-  Cutoff_Scan_Speed1 (const units_type&);
-
-  Cutoff_Scan_Speed1 (const char*,
-                      const units_type&);
-
-  Cutoff_Scan_Speed1 (const ::std::string&,
-                      const units_type&);
-
-  Cutoff_Scan_Speed1 (const ::xml_schema::string&,
+  Cutoff_Scan_Speed1 (const ::xml_schema::float_&,
                       const units_type&);
 
   Cutoff_Scan_Speed1 (const ::xercesc::DOMElement& e,
@@ -28445,7 +27957,7 @@ class Cutoff_Scan_Speed1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency_Low1: public ::xml_schema::string
+class Frequency_Low1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28467,15 +27979,7 @@ class Frequency_Low1: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency_Low1 (const units_type&);
-
-  Frequency_Low1 (const char*,
-                  const units_type&);
-
-  Frequency_Low1 (const ::std::string&,
-                  const units_type&);
-
-  Frequency_Low1 (const ::xml_schema::string&,
+  Frequency_Low1 (const ::xml_schema::float_&,
                   const units_type&);
 
   Frequency_Low1 (const ::xercesc::DOMElement& e,
@@ -28504,7 +28008,7 @@ class Frequency_Low1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Default_FOV1: public ::xml_schema::string
+class Default_FOV1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28526,15 +28030,7 @@ class Default_FOV1: public ::xml_schema::string
 
   // Constructors.
   //
-  Default_FOV1 (const units_type&);
-
-  Default_FOV1 (const char*,
-                const units_type&);
-
-  Default_FOV1 (const ::std::string&,
-                const units_type&);
-
-  Default_FOV1 (const ::xml_schema::string&,
+  Default_FOV1 (const ::xml_schema::float_&,
                 const units_type&);
 
   Default_FOV1 (const ::xercesc::DOMElement& e,
@@ -28563,7 +28059,7 @@ class Default_FOV1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency_Doppler_Default1: public ::xml_schema::string
+class Frequency_Doppler_Default1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28585,15 +28081,7 @@ class Frequency_Doppler_Default1: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency_Doppler_Default1 (const units_type&);
-
-  Frequency_Doppler_Default1 (const char*,
-                              const units_type&);
-
-  Frequency_Doppler_Default1 (const ::std::string&,
-                              const units_type&);
-
-  Frequency_Doppler_Default1 (const ::xml_schema::string&,
+  Frequency_Doppler_Default1 (const ::xml_schema::float_&,
                               const units_type&);
 
   Frequency_Doppler_Default1 (const ::xercesc::DOMElement& e,
@@ -28681,7 +28169,7 @@ class Axial_Res1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Pivot_Encoder_Dist1: public ::xml_schema::string
+class Pivot_Encoder_Dist1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28703,15 +28191,7 @@ class Pivot_Encoder_Dist1: public ::xml_schema::string
 
   // Constructors.
   //
-  Pivot_Encoder_Dist1 (const units_type&);
-
-  Pivot_Encoder_Dist1 (const char*,
-                       const units_type&);
-
-  Pivot_Encoder_Dist1 (const ::std::string&,
-                       const units_type&);
-
-  Pivot_Encoder_Dist1 (const ::xml_schema::string&,
+  Pivot_Encoder_Dist1 (const ::xml_schema::float_&,
                        const units_type&);
 
   Pivot_Encoder_Dist1 (const ::xercesc::DOMElement& e,
@@ -28740,7 +28220,7 @@ class Pivot_Encoder_Dist1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Encoder_Range_Max1: public ::xml_schema::string
+class Encoder_Range_Max1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28762,15 +28242,7 @@ class Encoder_Range_Max1: public ::xml_schema::string
 
   // Constructors.
   //
-  Encoder_Range_Max1 (const units_type&);
-
-  Encoder_Range_Max1 (const char*,
-                      const units_type&);
-
-  Encoder_Range_Max1 (const ::std::string&,
-                      const units_type&);
-
-  Encoder_Range_Max1 (const ::xml_schema::string&,
+  Encoder_Range_Max1 (const ::xml_schema::float_&,
                       const units_type&);
 
   Encoder_Range_Max1 (const ::xercesc::DOMElement& e,
@@ -28799,7 +28271,7 @@ class Encoder_Range_Max1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Encoder_Range_Min1: public ::xml_schema::string
+class Encoder_Range_Min1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28821,15 +28293,7 @@ class Encoder_Range_Min1: public ::xml_schema::string
 
   // Constructors.
   //
-  Encoder_Range_Min1 (const units_type&);
-
-  Encoder_Range_Min1 (const char*,
-                      const units_type&);
-
-  Encoder_Range_Min1 (const ::std::string&,
-                      const units_type&);
-
-  Encoder_Range_Min1 (const ::xml_schema::string&,
+  Encoder_Range_Min1 (const ::xml_schema::float_&,
                       const units_type&);
 
   Encoder_Range_Min1 (const ::xercesc::DOMElement& e,
@@ -28917,7 +28381,7 @@ class Lateral_Res1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Max_Scan_Distance1: public ::xml_schema::string
+class Max_Scan_Distance1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -28939,15 +28403,7 @@ class Max_Scan_Distance1: public ::xml_schema::string
 
   // Constructors.
   //
-  Max_Scan_Distance1 (const units_type&);
-
-  Max_Scan_Distance1 (const char*,
-                      const units_type&);
-
-  Max_Scan_Distance1 (const ::std::string&,
-                      const units_type&);
-
-  Max_Scan_Distance1 (const ::xml_schema::string&,
+  Max_Scan_Distance1 (const ::xml_schema::float_&,
                       const units_type&);
 
   Max_Scan_Distance1 (const ::xercesc::DOMElement& e,
@@ -29035,7 +28491,7 @@ class Default_Rx_Gain1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency_High1: public ::xml_schema::string
+class Frequency_High1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29057,15 +28513,7 @@ class Frequency_High1: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency_High1 (const units_type&);
-
-  Frequency_High1 (const char*,
-                   const units_type&);
-
-  Frequency_High1 (const ::std::string&,
-                   const units_type&);
-
-  Frequency_High1 (const ::xml_schema::string&,
+  Frequency_High1 (const ::xml_schema::float_&,
                    const units_type&);
 
   Frequency_High1 (const ::xercesc::DOMElement& e,
@@ -29094,7 +28542,7 @@ class Frequency_High1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Scan_Speeds1: public ::xml_schema::string
+class Scan_Speeds1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29116,15 +28564,7 @@ class Scan_Speeds1: public ::xml_schema::string
 
   // Constructors.
   //
-  Scan_Speeds1 (const units_type&);
-
-  Scan_Speeds1 (const char*,
-                const units_type&);
-
-  Scan_Speeds1 (const ::std::string&,
-                const units_type&);
-
-  Scan_Speeds1 (const ::xml_schema::string&,
+  Scan_Speeds1 (const ::xml_schema::float_&,
                 const units_type&);
 
   Scan_Speeds1 (const ::xercesc::DOMElement& e,
@@ -29212,7 +28652,7 @@ class Filter_Doppler_Cutoff1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency_Doppler_Low1: public ::xml_schema::string
+class Frequency_Doppler_Low1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29234,15 +28674,7 @@ class Frequency_Doppler_Low1: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency_Doppler_Low1 (const units_type&);
-
-  Frequency_Doppler_Low1 (const char*,
-                          const units_type&);
-
-  Frequency_Doppler_Low1 (const ::std::string&,
-                          const units_type&);
-
-  Frequency_Doppler_Low1 (const ::xml_schema::string&,
+  Frequency_Doppler_Low1 (const ::xml_schema::float_&,
                           const units_type&);
 
   Frequency_Doppler_Low1 (const ::xercesc::DOMElement& e,
@@ -29271,7 +28703,7 @@ class Frequency_Doppler_Low1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Pivot_Transducer_Face_Dist1: public ::xml_schema::string
+class Pivot_Transducer_Face_Dist1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29293,15 +28725,7 @@ class Pivot_Transducer_Face_Dist1: public ::xml_schema::string
 
   // Constructors.
   //
-  Pivot_Transducer_Face_Dist1 (const units_type&);
-
-  Pivot_Transducer_Face_Dist1 (const char*,
-                               const units_type&);
-
-  Pivot_Transducer_Face_Dist1 (const ::std::string&,
-                               const units_type&);
-
-  Pivot_Transducer_Face_Dist1 (const ::xml_schema::string&,
+  Pivot_Transducer_Face_Dist1 (const ::xml_schema::float_&,
                                const units_type&);
 
   Pivot_Transducer_Face_Dist1 (const ::xercesc::DOMElement& e,
@@ -29330,7 +28754,7 @@ class Pivot_Transducer_Face_Dist1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Filter_Doppler1: public ::xml_schema::string
+class Filter_Doppler1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29352,15 +28776,7 @@ class Filter_Doppler1: public ::xml_schema::string
 
   // Constructors.
   //
-  Filter_Doppler1 (const units_type&);
-
-  Filter_Doppler1 (const char*,
-                   const units_type&);
-
-  Filter_Doppler1 (const ::std::string&,
-                   const units_type&);
-
-  Filter_Doppler1 (const ::xml_schema::string&,
+  Filter_Doppler1 (const ::xml_schema::float_&,
                    const units_type&);
 
   Filter_Doppler1 (const ::xercesc::DOMElement& e,
@@ -29389,7 +28805,7 @@ class Filter_Doppler1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency4: public ::xml_schema::string
+class Frequency4: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29411,15 +28827,7 @@ class Frequency4: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency4 (const units_type&);
-
-  Frequency4 (const char*,
-              const units_type&);
-
-  Frequency4 (const ::std::string&,
-              const units_type&);
-
-  Frequency4 (const ::xml_schema::string&,
+  Frequency4 (const ::xml_schema::float_&,
               const units_type&);
 
   Frequency4 (const ::xercesc::DOMElement& e,
@@ -29448,7 +28856,7 @@ class Frequency4: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Encoder_Separation1: public ::xml_schema::string
+class Encoder_Separation1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29470,15 +28878,7 @@ class Encoder_Separation1: public ::xml_schema::string
 
   // Constructors.
   //
-  Encoder_Separation1 (const units_type&);
-
-  Encoder_Separation1 (const char*,
-                       const units_type&);
-
-  Encoder_Separation1 (const ::std::string&,
-                       const units_type&);
-
-  Encoder_Separation1 (const ::xml_schema::string&,
+  Encoder_Separation1 (const ::xml_schema::float_&,
                        const units_type&);
 
   Encoder_Separation1 (const ::xercesc::DOMElement& e,
@@ -29507,7 +28907,7 @@ class Encoder_Separation1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Overshoot1: public ::xml_schema::string
+class Overshoot1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29529,15 +28929,7 @@ class Overshoot1: public ::xml_schema::string
 
   // Constructors.
   //
-  Overshoot1 (const units_type&);
-
-  Overshoot1 (const char*,
-              const units_type&);
-
-  Overshoot1 (const ::std::string&,
-              const units_type&);
-
-  Overshoot1 (const ::xml_schema::string&,
+  Overshoot1 (const ::xml_schema::float_&,
               const units_type&);
 
   Overshoot1 (const ::xercesc::DOMElement& e,
@@ -29566,7 +28958,7 @@ class Overshoot1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Filter1: public ::xml_schema::string
+class Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29588,15 +28980,7 @@ class Filter1: public ::xml_schema::string
 
   // Constructors.
   //
-  Filter1 (const units_type&);
-
-  Filter1 (const char*,
-           const units_type&);
-
-  Filter1 (const ::std::string&,
-           const units_type&);
-
-  Filter1 (const ::xml_schema::string&,
+  Filter1 (const ::xml_schema::float_&,
            const units_type&);
 
   Filter1 (const ::xercesc::DOMElement& e,
@@ -29684,7 +29068,7 @@ class Default_Rx_Gain_Doppler1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Filter_Doppler_Low1: public ::xml_schema::string
+class Filter_Doppler_Low1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29706,15 +29090,7 @@ class Filter_Doppler_Low1: public ::xml_schema::string
 
   // Constructors.
   //
-  Filter_Doppler_Low1 (const units_type&);
-
-  Filter_Doppler_Low1 (const char*,
-                       const units_type&);
-
-  Filter_Doppler_Low1 (const ::std::string&,
-                       const units_type&);
-
-  Filter_Doppler_Low1 (const ::xml_schema::string&,
+  Filter_Doppler_Low1 (const ::xml_schema::float_&,
                        const units_type&);
 
   Filter_Doppler_Low1 (const ::xercesc::DOMElement& e,
@@ -29743,7 +29119,7 @@ class Filter_Doppler_Low1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency_Doppler1: public ::xml_schema::string
+class Frequency_Doppler1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29765,15 +29141,7 @@ class Frequency_Doppler1: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency_Doppler1 (const units_type&);
-
-  Frequency_Doppler1 (const char*,
-                      const units_type&);
-
-  Frequency_Doppler1 (const ::std::string&,
-                      const units_type&);
-
-  Frequency_Doppler1 (const ::xml_schema::string&,
+  Frequency_Doppler1 (const ::xml_schema::float_&,
                       const units_type&);
 
   Frequency_Doppler1 (const ::xercesc::DOMElement& e,
@@ -29802,7 +29170,7 @@ class Frequency_Doppler1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Filter_High1: public ::xml_schema::string
+class Filter_High1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29824,15 +29192,7 @@ class Filter_High1: public ::xml_schema::string
 
   // Constructors.
   //
-  Filter_High1 (const units_type&);
-
-  Filter_High1 (const char*,
-                const units_type&);
-
-  Filter_High1 (const ::std::string&,
-                const units_type&);
-
-  Filter_High1 (const ::xml_schema::string&,
+  Filter_High1 (const ::xml_schema::float_&,
                 const units_type&);
 
   Filter_High1 (const ::xercesc::DOMElement& e,
@@ -29920,7 +29280,7 @@ class Motor_Overhead1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Filter_Low1: public ::xml_schema::string
+class Filter_Low1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -29942,15 +29302,7 @@ class Filter_Low1: public ::xml_schema::string
 
   // Constructors.
   //
-  Filter_Low1 (const units_type&);
-
-  Filter_Low1 (const char*,
-               const units_type&);
-
-  Filter_Low1 (const ::std::string&,
-               const units_type&);
-
-  Filter_Low1 (const ::xml_schema::string&,
+  Filter_Low1 (const ::xml_schema::float_&,
                const units_type&);
 
   Filter_Low1 (const ::xercesc::DOMElement& e,
@@ -30274,7 +29626,7 @@ class Acquisition_Mode: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Actual_Scan_Rate: public ::xml_schema::string
+class Actual_Scan_Rate: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -30296,15 +29648,7 @@ class Actual_Scan_Rate: public ::xml_schema::string
 
   // Constructors.
   //
-  Actual_Scan_Rate (const units_type&);
-
-  Actual_Scan_Rate (const char*,
-                    const units_type&);
-
-  Actual_Scan_Rate (const ::std::string&,
-                    const units_type&);
-
-  Actual_Scan_Rate (const ::xml_schema::string&,
+  Actual_Scan_Rate (const ::xml_schema::float_&,
                     const units_type&);
 
   Actual_Scan_Rate (const ::xercesc::DOMElement& e,
@@ -30628,7 +29972,7 @@ class Sector_Y_Start: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Target_Field_Of_View1: public ::xml_schema::string
+class Target_Field_Of_View1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -30650,15 +29994,7 @@ class Target_Field_Of_View1: public ::xml_schema::string
 
   // Constructors.
   //
-  Target_Field_Of_View1 (const units_type&);
-
-  Target_Field_Of_View1 (const char*,
-                         const units_type&);
-
-  Target_Field_Of_View1 (const ::std::string&,
-                         const units_type&);
-
-  Target_Field_Of_View1 (const ::xml_schema::string&,
+  Target_Field_Of_View1 (const ::xml_schema::float_&,
                          const units_type&);
 
   Target_Field_Of_View1 (const ::xercesc::DOMElement& e,
@@ -30805,7 +30141,7 @@ class Pipeline_Delay1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Reference_3D_Step_Size: public ::xml_schema::string
+class Reference_3D_Step_Size: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -30827,15 +30163,7 @@ class Reference_3D_Step_Size: public ::xml_schema::string
 
   // Constructors.
   //
-  Reference_3D_Step_Size (const units_type&);
-
-  Reference_3D_Step_Size (const char*,
-                          const units_type&);
-
-  Reference_3D_Step_Size (const ::std::string&,
-                          const units_type&);
-
-  Reference_3D_Step_Size (const ::xml_schema::string&,
+  Reference_3D_Step_Size (const ::xml_schema::float_&,
                           const units_type&);
 
   Reference_3D_Step_Size (const ::xercesc::DOMElement& e,
@@ -30923,7 +30251,7 @@ class Contrast_Size_Default: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Reference_3D_Scan_Distance: public ::xml_schema::string
+class Reference_3D_Scan_Distance: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -30945,15 +30273,7 @@ class Reference_3D_Scan_Distance: public ::xml_schema::string
 
   // Constructors.
   //
-  Reference_3D_Scan_Distance (const units_type&);
-
-  Reference_3D_Scan_Distance (const char*,
-                              const units_type&);
-
-  Reference_3D_Scan_Distance (const ::std::string&,
-                              const units_type&);
-
-  Reference_3D_Scan_Distance (const ::xml_schema::string&,
+  Reference_3D_Scan_Distance (const ::xml_schema::float_&,
                               const units_type&);
 
   Reference_3D_Scan_Distance (const ::xercesc::DOMElement& e,
@@ -30982,7 +30302,7 @@ class Reference_3D_Scan_Distance: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Center1: public ::xml_schema::string
+class Center1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -31004,15 +30324,7 @@ class Center1: public ::xml_schema::string
 
   // Constructors.
   //
-  Center1 (const units_type&);
-
-  Center1 (const char*,
-           const units_type&);
-
-  Center1 (const ::std::string&,
-           const units_type&);
-
-  Center1 (const ::xml_schema::string&,
+  Center1 (const ::xml_schema::float_&,
            const units_type&);
 
   Center1 (const ::xercesc::DOMElement& e,
@@ -31100,7 +30412,7 @@ class V_Scan_Speed1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Scan_Rate1: public ::xml_schema::string
+class V_Scan_Rate1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -31122,15 +30434,7 @@ class V_Scan_Rate1: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Scan_Rate1 (const units_type&);
-
-  V_Scan_Rate1 (const char*,
-                const units_type&);
-
-  V_Scan_Rate1 (const ::std::string&,
-                const units_type&);
-
-  V_Scan_Rate1 (const ::xml_schema::string&,
+  V_Scan_Rate1 (const ::xml_schema::float_&,
                 const units_type&);
 
   V_Scan_Rate1 (const ::xercesc::DOMElement& e,
@@ -31159,7 +30463,7 @@ class V_Scan_Rate1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Scan_Width1: public ::xml_schema::string
+class Scan_Width1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -31181,15 +30485,7 @@ class Scan_Width1: public ::xml_schema::string
 
   // Constructors.
   //
-  Scan_Width1 (const units_type&);
-
-  Scan_Width1 (const char*,
-               const units_type&);
-
-  Scan_Width1 (const ::std::string&,
-               const units_type&);
-
-  Scan_Width1 (const ::xml_schema::string&,
+  Scan_Width1 (const ::xml_schema::float_&,
                const units_type&);
 
   Scan_Width1 (const ::xercesc::DOMElement& e,
@@ -32693,7 +31989,7 @@ class Pressure_Systolic1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency5: public ::xml_schema::string
+class Frequency5: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -32715,15 +32011,7 @@ class Frequency5: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency5 (const units_type&);
-
-  Frequency5 (const char*,
-              const units_type&);
-
-  Frequency5 (const ::std::string&,
-              const units_type&);
-
-  Frequency5 (const ::xml_schema::string&,
+  Frequency5 (const ::xml_schema::float_&,
               const units_type&);
 
   Frequency5 (const ::xercesc::DOMElement& e,
@@ -33755,7 +33043,7 @@ class Pressure_Calibration_Level1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class ECG_HP_Filter1: public ::xml_schema::string
+class ECG_HP_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -33777,15 +33065,7 @@ class ECG_HP_Filter1: public ::xml_schema::string
 
   // Constructors.
   //
-  ECG_HP_Filter1 (const units_type&);
-
-  ECG_HP_Filter1 (const char*,
-                  const units_type&);
-
-  ECG_HP_Filter1 (const ::std::string&,
-                  const units_type&);
-
-  ECG_HP_Filter1 (const ::xml_schema::string&,
+  ECG_HP_Filter1 (const ::xml_schema::float_&,
                   const units_type&);
 
   ECG_HP_Filter1 (const ::xercesc::DOMElement& e,
@@ -33814,7 +33094,7 @@ class ECG_HP_Filter1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class ECG_LP_Filter1: public ::xml_schema::string
+class ECG_LP_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -33836,15 +33116,7 @@ class ECG_LP_Filter1: public ::xml_schema::string
 
   // Constructors.
   //
-  ECG_LP_Filter1 (const units_type&);
-
-  ECG_LP_Filter1 (const char*,
-                  const units_type&);
-
-  ECG_LP_Filter1 (const ::std::string&,
-                  const units_type&);
-
-  ECG_LP_Filter1 (const ::xml_schema::string&,
+  ECG_LP_Filter1 (const ::xml_schema::float_&,
                   const units_type&);
 
   ECG_LP_Filter1 (const ::xercesc::DOMElement& e,
@@ -34109,7 +33381,7 @@ class RWave_Future_Search_Time1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Transmit_Length1: public ::xml_schema::string
+class V_Transmit_Length1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -34131,15 +33403,7 @@ class V_Transmit_Length1: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Transmit_Length1 (const units_type&);
-
-  V_Transmit_Length1 (const char*,
-                      const units_type&);
-
-  V_Transmit_Length1 (const ::std::string&,
-                      const units_type&);
-
-  V_Transmit_Length1 (const ::xml_schema::string&,
+  V_Transmit_Length1 (const ::xml_schema::float_&,
                       const units_type&);
 
   V_Transmit_Length1 (const ::xercesc::DOMElement& e,
@@ -34227,7 +33491,7 @@ class V_Pulse_Rep_Freq1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency6: public ::xml_schema::string
+class Frequency6: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -34249,15 +33513,7 @@ class Frequency6: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency6 (const units_type&);
-
-  Frequency6 (const char*,
-              const units_type&);
-
-  Frequency6 (const ::std::string&,
-              const units_type&);
-
-  Frequency6 (const ::xml_schema::string&,
+  Frequency6 (const ::xml_schema::float_&,
               const units_type&);
 
   Frequency6 (const ::xercesc::DOMElement& e,
@@ -34345,7 +33601,7 @@ class V_Unblank_Time1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Frequency2: public ::xml_schema::string
+class V_Frequency2: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -34367,15 +33623,7 @@ class V_Frequency2: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Frequency2 (const units_type&);
-
-  V_Frequency2 (const char*,
-                const units_type&);
-
-  V_Frequency2 (const ::std::string&,
-                const units_type&);
-
-  V_Frequency2 (const ::xml_schema::string&,
+  V_Frequency2 (const ::xml_schema::float_&,
                 const units_type&);
 
   V_Frequency2 (const ::xercesc::DOMElement& e,
@@ -35053,7 +34301,7 @@ class Duration: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Tx_Frequency: public ::xml_schema::string
+class Tx_Frequency: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -35075,15 +34323,7 @@ class Tx_Frequency: public ::xml_schema::string
 
   // Constructors.
   //
-  Tx_Frequency (const units_type&);
-
-  Tx_Frequency (const char*,
-                const units_type&);
-
-  Tx_Frequency (const ::std::string&,
-                const units_type&);
-
-  Tx_Frequency (const ::xml_schema::string&,
+  Tx_Frequency (const ::xml_schema::float_&,
                 const units_type&);
 
   Tx_Frequency (const ::xercesc::DOMElement& e,
@@ -35171,7 +34411,7 @@ class Destroy_Sequence_Position: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Scan_Distance1: public ::xml_schema::string
+class Scan_Distance1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -35193,15 +34433,7 @@ class Scan_Distance1: public ::xml_schema::string
 
   // Constructors.
   //
-  Scan_Distance1 (const units_type&);
-
-  Scan_Distance1 (const char*,
-                  const units_type&);
-
-  Scan_Distance1 (const ::std::string&,
-                  const units_type&);
-
-  Scan_Distance1 (const ::xml_schema::string&,
+  Scan_Distance1 (const ::xml_schema::float_&,
                   const units_type&);
 
   Scan_Distance1 (const ::xercesc::DOMElement& e,
@@ -35230,7 +34462,7 @@ class Scan_Distance1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Step_Size1: public ::xml_schema::string
+class Step_Size1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -35252,15 +34484,7 @@ class Step_Size1: public ::xml_schema::string
 
   // Constructors.
   //
-  Step_Size1 (const units_type&);
-
-  Step_Size1 (const char*,
-              const units_type&);
-
-  Step_Size1 (const ::std::string&,
-              const units_type&);
-
-  Step_Size1 (const ::xml_schema::string&,
+  Step_Size1 (const ::xml_schema::float_&,
               const units_type&);
 
   Step_Size1 (const ::xercesc::DOMElement& e,
@@ -35289,7 +34513,7 @@ class Step_Size1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Parallel_Step_Size: public ::xml_schema::string
+class Parallel_Step_Size: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -35311,15 +34535,7 @@ class Parallel_Step_Size: public ::xml_schema::string
 
   // Constructors.
   //
-  Parallel_Step_Size (const units_type&);
-
-  Parallel_Step_Size (const char*,
-                      const units_type&);
-
-  Parallel_Step_Size (const ::std::string&,
-                      const units_type&);
-
-  Parallel_Step_Size (const ::xml_schema::string&,
+  Parallel_Step_Size (const ::xml_schema::float_&,
                       const units_type&);
 
   Parallel_Step_Size (const ::xercesc::DOMElement& e,
@@ -35348,7 +34564,7 @@ class Parallel_Step_Size: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Sector_Width_Target1: public ::xml_schema::string
+class Sector_Width_Target1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -35370,15 +34586,7 @@ class Sector_Width_Target1: public ::xml_schema::string
 
   // Constructors.
   //
-  Sector_Width_Target1 (const units_type&);
-
-  Sector_Width_Target1 (const char*,
-                        const units_type&);
-
-  Sector_Width_Target1 (const ::std::string&,
-                        const units_type&);
-
-  Sector_Width_Target1 (const ::xml_schema::string&,
+  Sector_Width_Target1 (const ::xml_schema::float_&,
                         const units_type&);
 
   Sector_Width_Target1 (const ::xercesc::DOMElement& e,
@@ -35466,7 +34674,7 @@ class RF_Gain1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Digi_Depth_Imaging1: public ::xml_schema::string
+class V_Digi_Depth_Imaging1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -35488,15 +34696,7 @@ class V_Digi_Depth_Imaging1: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Digi_Depth_Imaging1 (const units_type&);
-
-  V_Digi_Depth_Imaging1 (const char*,
-                         const units_type&);
-
-  V_Digi_Depth_Imaging1 (const ::std::string&,
-                         const units_type&);
-
-  V_Digi_Depth_Imaging1 (const ::xml_schema::string&,
+  V_Digi_Depth_Imaging1 (const ::xml_schema::float_&,
                          const units_type&);
 
   V_Digi_Depth_Imaging1 (const ::xercesc::DOMElement& e,
@@ -35584,7 +34784,7 @@ class Test_Freq1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class RF_Filter1: public ::xml_schema::string
+class RF_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -35606,15 +34806,7 @@ class RF_Filter1: public ::xml_schema::string
 
   // Constructors.
   //
-  RF_Filter1 (const units_type&);
-
-  RF_Filter1 (const char*,
-              const units_type&);
-
-  RF_Filter1 (const ::std::string&,
-              const units_type&);
-
-  RF_Filter1 (const ::xml_schema::string&,
+  RF_Filter1 (const ::xml_schema::float_&,
               const units_type&);
 
   RF_Filter1 (const ::xercesc::DOMElement& e,
@@ -35643,7 +34835,7 @@ class RF_Filter1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_RF_Filter1: public ::xml_schema::string
+class V_RF_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -35665,15 +34857,7 @@ class V_RF_Filter1: public ::xml_schema::string
 
   // Constructors.
   //
-  V_RF_Filter1 (const units_type&);
-
-  V_RF_Filter1 (const char*,
-                const units_type&);
-
-  V_RF_Filter1 (const ::std::string&,
-                const units_type&);
-
-  V_RF_Filter1 (const ::xml_schema::string&,
+  V_RF_Filter1 (const ::xml_schema::float_&,
                 const units_type&);
 
   V_RF_Filter1 (const ::xercesc::DOMElement& e,
@@ -35812,7 +34996,7 @@ class AD_Gate_Width1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Frequency7: public ::xml_schema::string
+class Frequency7: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -35834,15 +35018,7 @@ class Frequency7: public ::xml_schema::string
 
   // Constructors.
   //
-  Frequency7 (const units_type&);
-
-  Frequency7 (const char*,
-              const units_type&);
-
-  Frequency7 (const ::std::string&,
-              const units_type&);
-
-  Frequency7 (const ::xml_schema::string&,
+  Frequency7 (const ::xml_schema::float_&,
               const units_type&);
 
   Frequency7 (const ::xercesc::DOMElement& e,
@@ -35871,7 +35047,7 @@ class Frequency7: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Frequency3: public ::xml_schema::string
+class V_Frequency3: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -35893,15 +35069,7 @@ class V_Frequency3: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Frequency3 (const units_type&);
-
-  V_Frequency3 (const char*,
-                const units_type&);
-
-  V_Frequency3 (const ::std::string&,
-                const units_type&);
-
-  V_Frequency3 (const ::xml_schema::string&,
+  V_Frequency3 (const ::xml_schema::float_&,
                 const units_type&);
 
   V_Frequency3 (const ::xercesc::DOMElement& e,
@@ -35930,7 +35098,7 @@ class V_Frequency3: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Field_Of_View1: public ::xml_schema::string
+class V_Field_Of_View1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -35952,15 +35120,7 @@ class V_Field_Of_View1: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Field_Of_View1 (const units_type&);
-
-  V_Field_Of_View1 (const char*,
-                    const units_type&);
-
-  V_Field_Of_View1 (const ::std::string&,
-                    const units_type&);
-
-  V_Field_Of_View1 (const ::xml_schema::string&,
+  V_Field_Of_View1 (const ::xml_schema::float_&,
                     const units_type&);
 
   V_Field_Of_View1 (const ::xercesc::DOMElement& e,
@@ -35989,7 +35149,7 @@ class V_Field_Of_View1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Sector_Height_Target1: public ::xml_schema::string
+class Sector_Height_Target1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -36011,15 +35171,7 @@ class Sector_Height_Target1: public ::xml_schema::string
 
   // Constructors.
   //
-  Sector_Height_Target1 (const units_type&);
-
-  Sector_Height_Target1 (const char*,
-                         const units_type&);
-
-  Sector_Height_Target1 (const ::std::string&,
-                         const units_type&);
-
-  Sector_Height_Target1 (const ::xml_schema::string&,
+  Sector_Height_Target1 (const ::xml_schema::float_&,
                          const units_type&);
 
   Sector_Height_Target1 (const ::xercesc::DOMElement& e,
@@ -36107,7 +35259,7 @@ class AD_TestIn1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_Delay_Length1: public ::xml_schema::string
+class V_Delay_Length1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -36129,15 +35281,7 @@ class V_Delay_Length1: public ::xml_schema::string
 
   // Constructors.
   //
-  V_Delay_Length1 (const units_type&);
-
-  V_Delay_Length1 (const char*,
-                   const units_type&);
-
-  V_Delay_Length1 (const ::std::string&,
-                   const units_type&);
-
-  V_Delay_Length1 (const ::xml_schema::string&,
+  V_Delay_Length1 (const ::xml_schema::float_&,
                    const units_type&);
 
   V_Delay_Length1 (const ::xercesc::DOMElement& e,
@@ -36166,7 +35310,7 @@ class V_Delay_Length1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class IF_Filter1: public ::xml_schema::string
+class IF_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -36188,15 +35332,7 @@ class IF_Filter1: public ::xml_schema::string
 
   // Constructors.
   //
-  IF_Filter1 (const units_type&);
-
-  IF_Filter1 (const char*,
-              const units_type&);
-
-  IF_Filter1 (const ::std::string&,
-              const units_type&);
-
-  IF_Filter1 (const ::xml_schema::string&,
+  IF_Filter1 (const ::xml_schema::float_&,
               const units_type&);
 
   IF_Filter1 (const ::xercesc::DOMElement& e,
@@ -36284,7 +35420,7 @@ class Track_Width1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class V_IF_Filter1: public ::xml_schema::string
+class V_IF_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -36306,15 +35442,7 @@ class V_IF_Filter1: public ::xml_schema::string
 
   // Constructors.
   //
-  V_IF_Filter1 (const units_type&);
-
-  V_IF_Filter1 (const char*,
-                const units_type&);
-
-  V_IF_Filter1 (const ::std::string&,
-                const units_type&);
-
-  V_IF_Filter1 (const ::xml_schema::string&,
+  V_IF_Filter1 (const ::xml_schema::float_&,
                 const units_type&);
 
   V_IF_Filter1 (const ::xercesc::DOMElement& e,
@@ -36343,7 +35471,7 @@ class V_IF_Filter1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class HP_Clutter1: public ::xml_schema::string
+class HP_Clutter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -36365,15 +35493,7 @@ class HP_Clutter1: public ::xml_schema::string
 
   // Constructors.
   //
-  HP_Clutter1 (const units_type&);
-
-  HP_Clutter1 (const char*,
-               const units_type&);
-
-  HP_Clutter1 (const ::std::string&,
-               const units_type&);
-
-  HP_Clutter1 (const ::xml_schema::string&,
+  HP_Clutter1 (const ::xml_schema::float_&,
                const units_type&);
 
   HP_Clutter1 (const ::xercesc::DOMElement& e,
@@ -36461,7 +35581,7 @@ class Window_Time1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class EKV_Start: public ::xml_schema::string
+class EKV_Start: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -36483,15 +35603,7 @@ class EKV_Start: public ::xml_schema::string
 
   // Constructors.
   //
-  EKV_Start (const units_type&);
-
-  EKV_Start (const char*,
-             const units_type&);
-
-  EKV_Start (const ::std::string&,
-             const units_type&);
-
-  EKV_Start (const ::xml_schema::string&,
+  EKV_Start (const ::xml_schema::float_&,
              const units_type&);
 
   EKV_Start (const ::xercesc::DOMElement& e,
@@ -36520,7 +35632,7 @@ class EKV_Start: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class EKV_Stop: public ::xml_schema::string
+class EKV_Stop: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -36542,15 +35654,7 @@ class EKV_Stop: public ::xml_schema::string
 
   // Constructors.
   //
-  EKV_Stop (const units_type&);
-
-  EKV_Stop (const char*,
-            const units_type&);
-
-  EKV_Stop (const ::std::string&,
-            const units_type&);
-
-  EKV_Stop (const ::xml_schema::string&,
+  EKV_Stop (const ::xml_schema::float_&,
             const units_type&);
 
   EKV_Stop (const ::xercesc::DOMElement& e,

@@ -44,12 +44,6 @@ int main(int argc, char* argv[])
 
     auto_ptr<rdi_t> rdi_i = rdi_reader.parse();
 
-    // debug
-    cout << "Acquisition Mode: " << rdi_i->image_info().Acquisition_Mode() << endl;
-    cout << "Image Frames: "  << rdi_i->image_info().Image_Frames() << endl;
-    cout << "RF-Mode/ActiveProbe/Sample-Time/units: " << rdi_i->image_parameters().RF_Mode().ActiveProbe().Sample_Time().units() << endl;
-    // end debug
-
     if(argc == 2)
       out_file = out_file.substr(0, out_file.length()-4) + ".xml";
     else

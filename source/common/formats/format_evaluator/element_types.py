@@ -17,6 +17,10 @@ class ElementTyper():
 
     _units_dict = {
             'bytes':'positiveInteger',
+            'fps': 'float',
+            'Hz': 'float',
+            'MHz': 'float',
+            'mm': 'float',
             'µs':'float'
             }
 

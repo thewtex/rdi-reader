@@ -38,7 +38,7 @@
                   <xs:element name="Focal-Length">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -50,7 +50,7 @@
                   <xs:element name="Default-Scan-Speed">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -60,7 +60,7 @@
                   <xs:element name="Cutoff-Scan-Speed">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -69,7 +69,7 @@
                   <xs:element name="Frequency-Low">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -78,7 +78,7 @@
                   <xs:element name="Default-FOV">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -87,7 +87,7 @@
                   <xs:element name="Frequency-Doppler-Default">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -100,7 +100,7 @@
                   <xs:element name="Frequency-Doppler">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -121,7 +121,7 @@
                   <xs:element name="Filter-High">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -130,7 +130,7 @@
                   <xs:element name="Pivot-Encoder-Dist">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -139,7 +139,7 @@
                   <xs:element name="Encoder-Range-Max">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -148,7 +148,7 @@
                   <xs:element name="Encoder-Range-Min">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -175,7 +175,7 @@
                   <xs:element name="Max-Scan-Distance">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -194,7 +194,7 @@
                   <xs:element name="Filter-Low">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -206,7 +206,7 @@
                   <xs:element name="Frequency-High">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -216,7 +216,7 @@
                   <xs:element name="Scan-Speeds">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -239,7 +239,7 @@
                   <xs:element name="Frequency-Doppler-Low">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -248,7 +248,7 @@
                   <xs:element name="Pivot-Transducer-Face-Dist">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -257,7 +257,7 @@
                   <xs:element name="Filter-Doppler">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -266,7 +266,7 @@
                   <xs:element name="Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -276,7 +276,7 @@
                   <xs:element name="Encoder-Separation">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -285,7 +285,7 @@
                   <xs:element name="Overshoot">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -295,7 +295,7 @@
                   <xs:element name="Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -316,7 +316,7 @@
                   <xs:element name="Filter-Doppler-Low">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -375,7 +375,7 @@
                   <xs:element name="Target-Field-Of-View">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -449,7 +449,7 @@
                   <xs:element name="Center">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -476,7 +476,7 @@
                   <xs:element name="V-Scan-Rate">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -486,7 +486,7 @@
                   <xs:element name="Scan-Width">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -820,7 +820,7 @@
                   <xs:element name="Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1002,7 +1002,7 @@
                   <xs:element name="ECG-HP-Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1011,7 +1011,7 @@
                   <xs:element name="ECG-LP-Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1064,7 +1064,7 @@
                   <xs:element name="Frequency-Origin">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1080,7 +1080,7 @@
                   <xs:element name="Length-Origin">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1102,7 +1102,7 @@
                   <xs:element name="SamplesPerSec">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1123,7 +1123,7 @@
                   <xs:element name="Length-Length">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1132,7 +1132,7 @@
                   <xs:element name="Frequency-Length">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1142,7 +1142,7 @@
                   <xs:element name="SV-Center">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1175,7 +1175,7 @@
                   <xs:element name="SV-Length-Limits">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1191,7 +1191,7 @@
                   <xs:element name="V-Transmit-Length">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1215,7 +1215,7 @@
                   <xs:element name="Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1233,7 +1233,7 @@
                   <xs:element name="V-Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1309,7 +1309,7 @@
                   <xs:element name="Scan-Distance">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1325,7 +1325,7 @@
                   <xs:element name="Step-Size">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1342,7 +1342,7 @@
                   <xs:element name="Ref-Probe-Focal-Length">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1351,7 +1351,7 @@
                   <xs:element name="Ref-Tx-Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1393,7 +1393,7 @@
                   <xs:element name="Freq-Range-Max">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1402,7 +1402,7 @@
                   <xs:element name="Freq-Range-Min">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1419,7 +1419,7 @@
                   <xs:element name="Sector-Width-Target">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1438,7 +1438,7 @@
                   <xs:element name="V-Digi-Depth-Imaging">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1459,7 +1459,7 @@
                   <xs:element name="IF-Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1479,7 +1479,7 @@
                   <xs:element name="V-IF-Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1489,7 +1489,7 @@
                   <xs:element name="HP-Clutter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1501,7 +1501,7 @@
                   <xs:element name="RF-Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1514,7 +1514,7 @@
                   <xs:element name="V-RF-Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1542,7 +1542,7 @@
                   <xs:element name="Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1551,7 +1551,7 @@
                   <xs:element name="V-Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1560,7 +1560,7 @@
                   <xs:element name="V-Field-Of-View">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1570,7 +1570,7 @@
                   <xs:element name="Sector-Height-Target">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1594,7 +1594,7 @@
                   <xs:element name="V-Delay-Length">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1662,7 +1662,7 @@
                   <xs:element name="Focal-Length">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1674,7 +1674,7 @@
                   <xs:element name="Default-Scan-Speed">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1684,7 +1684,7 @@
                   <xs:element name="Cutoff-Scan-Speed">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1693,7 +1693,7 @@
                   <xs:element name="Frequency-Low">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1702,7 +1702,7 @@
                   <xs:element name="Default-FOV">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1711,7 +1711,7 @@
                   <xs:element name="Frequency-Doppler-Default">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1734,7 +1734,7 @@
                   <xs:element name="Pivot-Encoder-Dist">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1743,7 +1743,7 @@
                   <xs:element name="Encoder-Range-Max">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1752,7 +1752,7 @@
                   <xs:element name="Encoder-Range-Min">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1770,7 +1770,7 @@
                   <xs:element name="Max-Scan-Distance">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1791,7 +1791,7 @@
                   <xs:element name="Frequency-High">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1801,7 +1801,7 @@
                   <xs:element name="Scan-Speeds">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1824,7 +1824,7 @@
                   <xs:element name="Frequency-Doppler-Low">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1833,7 +1833,7 @@
                   <xs:element name="Pivot-Transducer-Face-Dist">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1842,7 +1842,7 @@
                   <xs:element name="Filter-Doppler">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1851,7 +1851,7 @@
                   <xs:element name="Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1861,7 +1861,7 @@
                   <xs:element name="Encoder-Separation">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1870,7 +1870,7 @@
                   <xs:element name="Overshoot">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1880,7 +1880,7 @@
                   <xs:element name="Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1901,7 +1901,7 @@
                   <xs:element name="Filter-Doppler-Low">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1910,7 +1910,7 @@
                   <xs:element name="Frequency-Doppler">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1921,7 +1921,7 @@
                   <xs:element name="Filter-High">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1940,7 +1940,7 @@
                   <xs:element name="Filter-Low">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2009,7 +2009,7 @@
                   <xs:element name="Actual-Scan-Rate">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2065,7 +2065,7 @@
                   <xs:element name="Target-Field-Of-View">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2126,7 +2126,7 @@
                   <xs:element name="Reference-3D-Step-Size">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2156,7 +2156,7 @@
                   <xs:element name="Reference-3D-Scan-Distance">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2207,7 +2207,7 @@
                   <xs:element name="Center">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2234,7 +2234,7 @@
                   <xs:element name="V-Scan-Rate">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2244,7 +2244,7 @@
                   <xs:element name="Scan-Width">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2600,7 +2600,7 @@
                   <xs:element name="Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2772,7 +2772,7 @@
                   <xs:element name="ECG-HP-Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2781,7 +2781,7 @@
                   <xs:element name="ECG-LP-Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2835,7 +2835,7 @@
                   <xs:element name="V-Transmit-Length">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2858,7 +2858,7 @@
                   <xs:element name="Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2876,7 +2876,7 @@
                   <xs:element name="V-Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2998,7 +2998,7 @@
                   <xs:element name="Tx-Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3026,7 +3026,7 @@
                   <xs:element name="Scan-Distance">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3040,7 +3040,7 @@
                   <xs:element name="Step-Size">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3074,7 +3074,7 @@
                   <xs:element name="Parallel-Step-Size">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3090,7 +3090,7 @@
                   <xs:element name="Sector-Width-Target">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3109,7 +3109,7 @@
                   <xs:element name="V-Digi-Depth-Imaging">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3132,7 +3132,7 @@
                   <xs:element name="RF-Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3145,7 +3145,7 @@
                   <xs:element name="V-RF-Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3173,7 +3173,7 @@
                   <xs:element name="Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3182,7 +3182,7 @@
                   <xs:element name="V-Frequency">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3191,7 +3191,7 @@
                   <xs:element name="V-Field-Of-View">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3201,7 +3201,7 @@
                   <xs:element name="Sector-Height-Target">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3225,7 +3225,7 @@
                   <xs:element name="V-Delay-Length">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3236,7 +3236,7 @@
                   <xs:element name="IF-Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3255,7 +3255,7 @@
                   <xs:element name="V-IF-Filter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3265,7 +3265,7 @@
                   <xs:element name="HP-Clutter">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3309,7 +3309,7 @@
                   <xs:element name="EKV-Start">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3318,7 +3318,7 @@
                   <xs:element name="EKV-Stop">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:float">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>

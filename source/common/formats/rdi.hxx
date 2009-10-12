@@ -641,7 +641,7 @@ class image_info_t: public ::xml_schema::type
 
   // Image_Frames
   //
-  typedef ::xml_schema::string Image_Frames_type;
+  typedef ::xml_schema::positive_integer Image_Frames_type;
   typedef ::xsd::cxx::tree::traits< Image_Frames_type, char > Image_Frames_traits;
 
   const Image_Frames_type&
@@ -653,12 +653,9 @@ class image_info_t: public ::xml_schema::type
   void
   Image_Frames (const Image_Frames_type& x);
 
-  void
-  Image_Frames (::std::auto_ptr< Image_Frames_type > p);
-
   // Image_Lines
   //
-  typedef ::xml_schema::string Image_Lines_type;
+  typedef ::xml_schema::positive_integer Image_Lines_type;
   typedef ::xsd::cxx::tree::traits< Image_Lines_type, char > Image_Lines_traits;
 
   const Image_Lines_type&
@@ -670,12 +667,9 @@ class image_info_t: public ::xml_schema::type
   void
   Image_Lines (const Image_Lines_type& x);
 
-  void
-  Image_Lines (::std::auto_ptr< Image_Lines_type > p);
-
   // Image_Acquisition_Per_Line
   //
-  typedef ::xml_schema::string Image_Acquisition_Per_Line_type;
+  typedef ::xml_schema::positive_integer Image_Acquisition_Per_Line_type;
   typedef ::xsd::cxx::tree::traits< Image_Acquisition_Per_Line_type, char > Image_Acquisition_Per_Line_traits;
 
   const Image_Acquisition_Per_Line_type&
@@ -686,9 +680,6 @@ class image_info_t: public ::xml_schema::type
 
   void
   Image_Acquisition_Per_Line (const Image_Acquisition_Per_Line_type& x);
-
-  void
-  Image_Acquisition_Per_Line (::std::auto_ptr< Image_Acquisition_Per_Line_type > p);
 
   // Image_Acquisition_Size
   //

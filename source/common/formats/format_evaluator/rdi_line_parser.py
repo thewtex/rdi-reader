@@ -38,7 +38,7 @@ class RDILineParser:
 # @return
     def get_raw_line(self):
         raw_line = self.rdi_file.readline()
-        fe_logger.debug("Processing: " + raw_line)
+        fe_logger.debug("Processing: " + raw_line[:-1])
         return raw_line
 
 ##

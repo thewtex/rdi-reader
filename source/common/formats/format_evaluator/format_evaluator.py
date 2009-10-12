@@ -7,6 +7,10 @@ from format_evaluator.namespace_vars import *
 from format_evaluator.rdi_line_parser import RDILineParser
 from format_evaluator.unexpected_content_exception import UnexpectedContent
 
+import logging
+fe_logger = logging.getLogger('format_evaluator')
+
+
 class FormatEvaluator():
     def __init__(self, rdi_file, script_path):
         """ args:
@@ -51,9 +55,12 @@ class FormatEvaluator():
     def _parse_IMAGE_DATA_section(self):
         image_data_t = etree.SubElement(self.rdi_schema, XS + 'complexType', \
                 name='image_data_t')
+        previous_level = fe_logger.getEffectiveLevel()
+        fe_logger.setLevel(logging.ERROR)
         next_line = self.rdi_line_parser.get_raw_line()
         while(next_line != '"=== IMAGE PARAMETERS ==="\n'):
             next_line = self.rdi_line_parser.get_raw_line()
+        fe_logger.setLevel(previous_level)
 
     def _parse_IMAGE_PARAMETERS_section(self):
         image_parameters_t = etree.SubElement(self.rdi_schema, XS + 'complexType', \

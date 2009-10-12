@@ -10,9 +10,9 @@ class ElementTyper():
         self.line = []
 
     _element_name_dict = {
-            'Image Frames':'positiveInteger',
-            'Image Lines':'positiveInteger',
-            'Image Acquisition Per Line':'positiveInteger'
+            'Image_Frames':'positiveInteger',
+            'Image_Lines':'positiveInteger',
+            'Image_Acquisition_Per_Line':'positiveInteger'
             }
 
     _units_dict = {

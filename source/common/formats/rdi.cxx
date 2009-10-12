@@ -133,12 +133,6 @@ Image_Frames (const Image_Frames_type& x)
   this->Image_Frames_.set (x);
 }
 
-void image_info_t::
-Image_Frames (::std::auto_ptr< Image_Frames_type > x)
-{
-  this->Image_Frames_.set (x);
-}
-
 const image_info_t::Image_Lines_type& image_info_t::
 Image_Lines () const
 {
@@ -157,12 +151,6 @@ Image_Lines (const Image_Lines_type& x)
   this->Image_Lines_.set (x);
 }
 
-void image_info_t::
-Image_Lines (::std::auto_ptr< Image_Lines_type > x)
-{
-  this->Image_Lines_.set (x);
-}
-
 const image_info_t::Image_Acquisition_Per_Line_type& image_info_t::
 Image_Acquisition_Per_Line () const
 {
@@ -177,12 +165,6 @@ Image_Acquisition_Per_Line ()
 
 void image_info_t::
 Image_Acquisition_Per_Line (const Image_Acquisition_Per_Line_type& x)
-{
-  this->Image_Acquisition_Per_Line_.set (x);
-}
-
-void image_info_t::
-Image_Acquisition_Per_Line (::std::auto_ptr< Image_Acquisition_Per_Line_type > x)
 {
   this->Image_Acquisition_Per_Line_.set (x);
 }
@@ -30181,12 +30163,9 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
     //
     if (n.name () == "Image_Frames" && n.namespace_ ().empty ())
     {
-      ::std::auto_ptr< Image_Frames_type > r (
-        Image_Frames_traits::create (i, f, this));
-
       if (!Image_Frames_.present ())
       {
-        this->Image_Frames_.set (r);
+        this->Image_Frames_.set (Image_Frames_traits::create (i, f, this));
         continue;
       }
     }
@@ -30195,12 +30174,9 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
     //
     if (n.name () == "Image_Lines" && n.namespace_ ().empty ())
     {
-      ::std::auto_ptr< Image_Lines_type > r (
-        Image_Lines_traits::create (i, f, this));
-
       if (!Image_Lines_.present ())
       {
-        this->Image_Lines_.set (r);
+        this->Image_Lines_.set (Image_Lines_traits::create (i, f, this));
         continue;
       }
     }
@@ -30209,12 +30185,9 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
     //
     if (n.name () == "Image_Acquisition_Per_Line" && n.namespace_ ().empty ())
     {
-      ::std::auto_ptr< Image_Acquisition_Per_Line_type > r (
-        Image_Acquisition_Per_Line_traits::create (i, f, this));
-
       if (!Image_Acquisition_Per_Line_.present ())
       {
-        this->Image_Acquisition_Per_Line_.set (r);
+        this->Image_Acquisition_Per_Line_.set (Image_Acquisition_Per_Line_traits::create (i, f, this));
         continue;
       }
     }

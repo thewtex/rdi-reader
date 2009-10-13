@@ -12,6 +12,31 @@ set(ANALYZE_RDI_FORMAT OFF CACHE BOOL
 set(BUILD_RDI2HTML ON CACHE BOOL
   "Build program that converts rdi files to a human readable html file.")
 
+set(USE_VTK ON CACHE BOOL
+  "Build capabilities related to the Visualization Toolkit www.vtk.org")
+
+
+if(CMAKE_COMPILER_IS_GNUCXX)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+  set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wall")
+
+  set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb3")
+  set(CMAKE_C_FLAGS_DEBUG   "${CMAKE_C_FLAGS_DEBUG}   -ggdb3")
+
+  set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -DNDEBUG -ffast-math -fvisibility=hidden")
+  set(CMAKE_C_FLAGS_RELEASE   "${CMAKE_C_FLAGS_RELEASE}   -O2 -DNDEBUG -ffast-math -fvisibility=hidden")
+
+  set(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS_DEBUG} -g")
+  set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} -O")
+endif(CMAKE_COMPILER_IS_GNUCXX)
+
+# where all the executables go
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
+  ${RDI_READER_BINARY_DIR}/bin)
+
+
+add_subdirectory(source)
+
 include(CTest)
 if(BUILD_TESTING)
   if(NOT EXISTS ${RDI_READER_SOURCE_DIR}/data_for_tests/.git)
@@ -22,60 +47,3 @@ if(BUILD_TESTING)
   enable_testing()
   add_subdirectory(tests)
 endif(BUILD_TESTING)
-
-
-#INCLUDE(CMakePrintSystemInformation)
-IF(WIN32)
-SET(CMAKE_C_OUTPUT_EXTENSION ".obj")
-SET(CMAKE_CXX_OUTPUT_EXTENSION ".obj")
-SET(CMAKE_CXX_COMPILE_OBJECT
-		"mkdir -p <OBJECT_DIR>; <CMAKE_CXX_COMPILER>  -outdir <OBJECT_DIR> <FLAGS> -c <SOURCE> "
-		)
-SET(CMAKE_C_COMPILE_OBJECT
-		"mkdir -p <OBJECT_DIR>; <CMAKE_C_COMPILER> -outdir <OBJECT_DIR> <FLAGS> -c <SOURCE> "
-		)
-SET(CMAKE_CXX_CREATE_SHARED_MODULE
-	"<CMAKE_CXX_COMPILER> <LANGUAGE_COMPILE_FLAGS> <LINK_FLAGS> -output <TARGET> <OBJECTS> <LINK_LIBRARIES>"
-	)
-SET(CMAKE_C_CREATE_SHARED_MODULE
-	"<CMAKE_C_COMPILER> <LANGUAGE_COMPILE_FLAGS> <LINK_FLAGS> -output <TARGET> <OBJECTS> <LINK_LIBRARIES>"
-	)
-
-INCLUDE(CMakePrintSystemInformation)
-ENDIF(WIN32)
-
-############## Compiling flags ##########
-
-IF(CMAKE_COMPILER_IS_GNUCXX)
-
-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall" )
-  SET(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wall" )
-
-  SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb3" )
-  SET(CMAKE_C_FLAGS_DEBUG   "${CMAKE_C_FLAGS_DEBUG}   -ggdb3" )
-
-  SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O2 -DNDEBUG -ffast-math -fvisibility=hidden")
-  SET(CMAKE_C_FLAGS_RELEASE   "${CMAKE_C_FLAGS_RELEASE}   -O2 -DNDEBUG -ffast-math -fvisibility=hidden" )
-
-
-  SET(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS_DEBUG} -g" )
-  SET(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} -O")
-
-ENDIF(CMAKE_COMPILER_IS_GNUCXX)
-
-
-
-SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "*.mex*")
-SET_DIRECTORY_PROPERTIES(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES "*.obj")
-
-#MARK_AS_ADVANCED()
-
-########### options #########################################
-set( USE_VTK ON CACHE BOOL "Build capabilities related to the Visualization
-Toolkit www.vtk.org" )
-# where all the executables go
-set( CMAKE_RUNTIME_OUTPUT_DIRECTORY
-  ${RDI_READER_BINARY_DIR}/bin )
-
-add_subdirectory(source)
-

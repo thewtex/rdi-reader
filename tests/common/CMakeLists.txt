@@ -23,5 +23,5 @@ target_link_libraries(rdiReaderTest
   ${XERCESC_LIBRARIES}
   ${GTEST_BOTH_LIBRARIES}
   )
-GTEST_ADD_TESTS(${CMAKE_CURRENT_BINARY_DIR}/rdiReaderTest " " rdiReaderTest.cpp)
+GTEST_ADD_TESTS(${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/rdiReaderTest " " rdiReaderTest.cpp)
 

@@ -7,11 +7,16 @@ using namespace std;
 
 #include <xalanc/Include/PlatformDefinitions.hpp>
 #include <xalanc/XalanTransformer/XalanTransformer.hpp>
+#include <xalanc/XalanTransformer/XercesDOMWrapperParsedSource.hpp>
+#include <xalanc/XercesParserLiaison/XercesParserLiaison.hpp>
+#include <xalanc/XercesParserLiaison/XercesDOMSupport.hpp>
 
 XALAN_USING_XALAN(XalanCompiledStylesheet)
 XALAN_USING_XALAN(XalanTransformer)
+XALAN_USING_XALAN(XercesDOMSupport)
+XALAN_USING_XALAN(XercesDOMWrapperParsedSource)
+XALAN_USING_XALAN(XercesParserLiaison)
 XALAN_USING_XALAN(XSLTInputSource)
-XALAN_USING_XALAN(XSLTResultTarget)
 
 #include "rdiReader.h"
 
@@ -44,6 +49,25 @@ void rdi2html::transform()
       string(transformer.getLastError())
       );
     }
-  const XSLTResultTarget  theResultTarget(m_out_filepath.c_str());
+
+  xml_schema::dom::auto_ptr< xercesc::DOMDocument> domdoc = m_rdiReader->parse_to_DOMDocument();
+  domdoc->normalize();
+
+  XercesParserLiaison parser_liaison;
+  XercesDOMSupport DOM_support(parser_liaison);
+
+  const XercesDOMWrapperParsedSource parsed_source(
+    domdoc.get(),
+    parser_liaison,
+    DOM_support
+  );
+
+  if(transformer.transform(parsed_source, stylesheet, m_out_filepath.c_str()) != 0)
+    {
+    throw logic_error(
+      string("An error occurred compiling the stylesheet: ") +
+      string(transformer.getLastError())
+      );
+    }
 }
 

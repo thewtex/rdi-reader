@@ -1,7 +1,5 @@
-include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source
-  #${spirit_parse_source_dir}
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common
-  )
+include_directories(${read_visualsonics_digital_rf_SOURCE_DIR}/source
+  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common)
 
 set(RDI_READER_CLASS_SOURCES
   ../common/rdiReader.cpp
@@ -14,7 +12,13 @@ add_executable(rdi2xml
   rdi2xml.cpp
   ${RDI_READER_CLASS_SOURCES}
   )
-target_link_libraries(rdi2xml ${XERCESC_LIBRARIES})
+target_link_libraries(rdi2xml
+  ${XERCESC_LIBRARIES})
+install(TARGETS rdi2xml
+  RUNTIME
+  DESTINATION bin
+  )
+
 
 if(BUILD_RDI2HTML)
   find_package(XalanC REQUIRED)
@@ -40,5 +44,8 @@ if(BUILD_RDI2HTML)
     )
   target_link_libraries(rdi2html
     ${XALANC_LIBRARIES})
-
+  install(TARGETS rdi2html
+    RUNTIME
+    DESTINATION bin
+    )
 endif(BUILD_RDI2HTML)

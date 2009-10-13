@@ -24,12 +24,6 @@ if(BUILD_TESTING)
 endif(BUILD_TESTING)
 
 
-###########  Install Prefix ############
-SET(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/..
-      CACHE PATH "in the private directory of the VisualSonics2mat Matlab class, set in CMakeLists.txt"
-      FORCE
-      )
-
 #INCLUDE(CMakePrintSystemInformation)
 IF(WIN32)
 SET(CMAKE_C_OUTPUT_EXTENSION ".obj")

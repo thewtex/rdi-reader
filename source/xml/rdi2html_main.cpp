@@ -2,6 +2,8 @@
 
 using namespace std;
 
+#include "rdi2html.h"
+
 /**
  * @brief print program usage
  *

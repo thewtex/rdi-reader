@@ -41,7 +41,7 @@ if(BUILD_RDI2HTML)
     )
 
   add_test(
-    xalan_comparison
+    rdi2html_xalan_comparison
 
     ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/xml/xalan_comparison
     ${RDI_TESTING_FILEPATH}

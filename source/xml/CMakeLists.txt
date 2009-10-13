@@ -3,11 +3,16 @@ include_directories( ${read_visualsonics_digital_rf_SOURCE_DIR}/source
   ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common
   )
 
-add_executable(rdi2xml
-  rdi2xml.cpp
+set(RDI_READER_CLASS_SOURCES
   ../common/rdiReader.cpp
   ../common/formats/rdi.cxx
   ../common/ToXMLCh.cpp
+  )
+
+
+add_executable(rdi2xml
+  rdi2xml.cpp
+  ${RDI_READER_CLASS_SOURCES}
   )
 target_link_libraries(rdi2xml ${XERCESC_LIBRARIES})
 
@@ -17,6 +22,7 @@ if(BUILD_RDI2HTML)
   add_executable(rdi2html
     rdi2html_main.cpp
     rdi2html.cpp
+    ${RDI_READER_CLASS_SOURCES}
     )
 
   target_link_libraries(rdi2html

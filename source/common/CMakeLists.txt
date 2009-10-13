@@ -18,8 +18,6 @@
 
 #add_library( parse_vs_rdi SHARED ${parse_vs_rdi_lib_srcs} )
 
-set(ANALYZE_RDI_FORMAT OFF CACHE BOOL
-  "Analyze rdi format from example sources to generate parsing code.")
 if(ANALYZE_RDI_FORMAT)
   add_subdirectory(formats)
 endif(ANALYZE_RDI_FORMAT)

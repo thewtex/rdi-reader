@@ -1,16 +1,17 @@
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
-set(
-  RDI_TESTING_FILEPATH
+set(RDI_TESTING_FILEPATH
   ${read_visualsonics_digital_rf_SOURCE_DIR}/data_for_tests/machine/visualsonics/vevo770/rmv710b/pat143_seg2.rdi
   )
 
-add_test(
-  format-evaluator
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/python_unittests.py
-  FormatEvaluatorSuite
-  )
+if(ANALYZE_RDI_FORMAT)
+  add_test(
+    format-evaluator
+    ${read_visualsonics_digital_rf_SOURCE_DIR}/tests/python_unittests.py
+    FormatEvaluatorSuite
+    )
+endif(ANALYZE_RDI_FORMAT)
 
 set(spirit_parse_source_dir ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/spirit_parse)
 

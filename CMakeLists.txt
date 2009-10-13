@@ -6,6 +6,9 @@ endif(COMMAND cmake_policy)
 
 project(read_visualsonics_digital_rf)
 
+set(ANALYZE_RDI_FORMAT OFF CACHE BOOL
+  "Analyze rdi format from example sources to generate parsing code.")
+
 set(BUILD_RDI2HTML ON CACHE BOOL
   "Build program that converts rdi files to a human readable html file.")
 

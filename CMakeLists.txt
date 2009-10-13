@@ -4,7 +4,7 @@ if(COMMAND cmake_policy)
 endif(COMMAND cmake_policy)
 
 
-project(read_visualsonics_digital_rf)
+project(RDI_READER)
 
 set(ANALYZE_RDI_FORMAT OFF CACHE BOOL
   "Analyze rdi format from example sources to generate parsing code.")
@@ -14,7 +14,7 @@ set(BUILD_RDI2HTML ON CACHE BOOL
 
 include(CTest)
 if(BUILD_TESTING)
-  if(NOT EXISTS ${read_visualsonics_digital_rf_SOURCE_DIR}/data_for_tests/.git)
+  if(NOT EXISTS ${RDI_READER_SOURCE_DIR}/data_for_tests/.git)
     message(SEND_ERROR "In order to run tests, the data_for_tests must be
     downloaded.  Try 'git submodule init && git submodule update' in the source
     directory.  If you do not want to run tests, turn BUILD_TESTING OFF.")
@@ -75,7 +75,7 @@ set( USE_VTK ON CACHE BOOL "Build capabilities related to the Visualization
 Toolkit www.vtk.org" )
 # where all the executables go
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY
-  ${read_visualsonics_digital_rf_BINARY_DIR}/bin )
+  ${RDI_READER_BINARY_DIR}/bin )
 
 add_subdirectory(source)
 

@@ -1,5 +1,5 @@
-include_directories(${read_visualsonics_digital_rf_SOURCE_DIR}/source
-  ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common)
+include_directories(${RDI_READER_SOURCE_DIR}/source
+  ${RDI_READER_SOURCE_DIR}/source/common)
 
 set(RDI_READER_CLASS_SOURCES
   ../common/rdiReader.cpp

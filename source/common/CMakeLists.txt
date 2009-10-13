@@ -1,18 +1,18 @@
-#set(spirit_parse_source_dir ${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/spirit_parse)
+#set(spirit_parse_source_dir ${RDI_READER_SOURCE_DIR}/source/common/spirit_parse)
 
 
 
 
 #set(parse_vs_rdi_lib_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
                                     #${spirit_parse_source_dir}/BoostSpiritInputFile.cpp
-                                    #${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/ImageReader.cpp
-                                    #${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/ImageReaderBase.cpp
-                                    #${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/MetadataReaderBase.cpp
-				    #${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/parse_vs_rdi.cpp
-                                    #${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/VisualSonicsTransform.cpp
-				    #${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/interpolation/Interpolation.cpp
-				    #${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/interpolation/NearestNeighbor.cpp
-				    #${read_visualsonics_digital_rf_SOURCE_DIR}/source/common/interpolation/Bilinear.cpp
+                                    #${RDI_READER_SOURCE_DIR}/source/common/ImageReader.cpp
+                                    #${RDI_READER_SOURCE_DIR}/source/common/ImageReaderBase.cpp
+                                    #${RDI_READER_SOURCE_DIR}/source/common/MetadataReaderBase.cpp
+				    #${RDI_READER_SOURCE_DIR}/source/common/parse_vs_rdi.cpp
+                                    #${RDI_READER_SOURCE_DIR}/source/common/VisualSonicsTransform.cpp
+				    #${RDI_READER_SOURCE_DIR}/source/common/interpolation/Interpolation.cpp
+				    #${RDI_READER_SOURCE_DIR}/source/common/interpolation/NearestNeighbor.cpp
+				    #${RDI_READER_SOURCE_DIR}/source/common/interpolation/Bilinear.cpp
 				    #)
 
 

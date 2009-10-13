@@ -26,7 +26,7 @@ if(BUILD_RDI2HTML)
     MAIN_DEPENDENCY rdi2html.xsl
     DEPENDS file2cstringliteral.py
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    COMMENT "Generating rdi2html C/C++ string literal."
+    COMMENT "Generating rdi2html XSLT C/C++ string literal."
     )
   set_source_files_properties(rdi2html.cpp
     PROPERTIES OBJECT_DEPENDS

@@ -12,12 +12,12 @@ For rdi2html:
 If you want to generate the format from an example file yourself:
 
   - lxml_
-  - >= `python`_-3.0
   - `CodeSynthesis xsd`_
 
 Build time dependencies:
 
   - >= `cmake`_-2.8
+  - >= `python`_-3.0
 
 .. _cmake: http://www.cmake.org/
 .. _lxml: http://codespeak.net/lxml/

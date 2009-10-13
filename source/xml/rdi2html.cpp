@@ -20,6 +20,9 @@ XALAN_USING_XALAN(XSLTInputSource)
 
 #include "rdiReader.h"
 
+const static char* STYLESHEET =
+#include "rdi2html.xsl.cstringliteral"
+
 rdi2html::rdi2html(const char* rdi_filepath, const string& out_filepath):
   m_rdiReader(new rdiReader(rdi_filepath)),
   m_out_filepath(out_filepath)
@@ -40,7 +43,8 @@ void rdi2html::transform()
 {
   XalanTransformer transformer;
 
-  const XSLTInputSource stylesheet_input_source("rdi2html.xsl");
+  istringstream xsl_stream(STYLESHEET);
+  const XSLTInputSource stylesheet_input_source(xsl_stream);
   const XalanCompiledStylesheet* stylesheet = 0;
   if(transformer.compileStylesheet(stylesheet_input_source, stylesheet) != 0)
     {

@@ -3,7 +3,7 @@ find_package(Xsd REQUIRED)
 set(XSD_ARGS "cxx-tree" "--generate-ostream" "--generate-serialization")
 
 set(MODEL_RDI
-  ${RDI_READER_SOURCE_DIR}/data_for_tests/machine/visualsonics/vevo770/rmv710b/pat143_seg2.rdi
+  ${RDI_READER_SOURCE_DIR}/tests/data/machine/visualsonics/vevo770/rmv710b/pat143_seg2.rdi
   CACHE PATH
   "The *rdi that is used as a model to define the rdi format/content.")
 mark_as_advanced(MODEL_RDI)

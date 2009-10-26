@@ -12,8 +12,11 @@ set(ANALYZE_RDI_FORMAT OFF CACHE BOOL
 set(BUILD_RDI2HTML ON CACHE BOOL
   "Build program that converts rdi files to a human readable html file.")
 
-set(USE_VTK ON CACHE BOOL
-  "Build capabilities related to the Visualization Toolkit www.vtk.org")
+set( USE_VTK ON CACHE BOOL
+  "Build capabilities related to the Visualization Toolkit www.vtk.org" )
+
+set( USE_ITK ON CACHE BOOL
+  "Build capabilities related to the Insight Toolkit www.itk.org" )
 
 
 if(CMAKE_COMPILER_IS_GNUCXX)

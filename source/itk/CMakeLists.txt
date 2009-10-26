@@ -19,13 +19,7 @@
 include_directories( ${RDI_READER_SOURCE_DIR}/source )
 include_directories( ${RDI_READER_SOURCE_DIR}/source/itk )
 
-find_package( ITK )
-if( ITK_FOUND )
-  include( ${ITK_USE_FILE} )
-else( ITK_FOUND )
-  message( FATAL_ERROR "ITK not found. Please set ITK_DIR." )
-endif( ITK_FOUND )
-
+include( ${ITK_USE_FILE} )
 
 #add_executable( start
   #start.cpp

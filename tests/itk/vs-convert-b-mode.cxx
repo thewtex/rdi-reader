@@ -26,12 +26,12 @@ int main( int argc, char* argv[] )
   itk::VisualSonicsImageIOFactory::RegisterOneFactory();
 
   typedef signed short InputPixelType;
-  typedef unsigned short InputPixelType;
+  typedef unsigned short OutputPixelType;
   typedef itk::Image< InputPixelType, 3 > InputImageType;
-  typedef itk::Image< OutputPixelType, 3 > InputImageType;
+  typedef itk::Image< OutputPixelType, 3 > OutputImageType;
 
   typedef itk::ImageFileReader< InputImageType > ReaderType;
-  typedef itk::BModeFilterType< InputImageType, OutputImageType > BModeType;
+  typedef itk::BModeImageFilter< InputImageType, OutputImageType > BModeType;
   typedef itk::ImageFileWriter< OutputImageType > WriterType;
 
   ReaderType::Pointer reader = ReaderType::New();
@@ -50,11 +50,6 @@ int main( int argc, char* argv[] )
   catch ( itk::ExceptionObject& e )
     {
     cerr << "Error: " << e << endl;
-    return EXIT_FAILURE;
-    }
-  catch (ifstream::failure& e)
-    {
-    cerr << "Error: failure opening/reading file." << endl;
     return EXIT_FAILURE;
     }
   catch (std::exception& e)

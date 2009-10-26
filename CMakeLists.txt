@@ -17,11 +17,14 @@ set( USE_VTK ON CACHE BOOL
 
 set( USE_ITK ON CACHE BOOL
   "Build capabilities related to the Insight Toolkit www.itk.org" )
+if( USE_ITK )
+  find_package( ITK REQUIRED )
+endif()
 
 
 if(CMAKE_COMPILER_IS_GNUCXX)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
-  set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wall")
+  set(MAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wall")
 
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -ggdb3")
   set(CMAKE_C_FLAGS_DEBUG   "${CMAKE_C_FLAGS_DEBUG}   -ggdb3")

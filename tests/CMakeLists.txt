@@ -13,9 +13,8 @@ if(ANALYZE_RDI_FORMAT)
     )
 endif(ANALYZE_RDI_FORMAT)
 
+
 set(spirit_parse_source_dir ${RDI_READER_SOURCE_DIR}/source/common/spirit_parse)
-
-
 
 set(base_test_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
                                     ${spirit_parse_source_dir}/BoostSpiritInputFile.cpp
@@ -27,16 +26,6 @@ set(base_test_srcs  ${spirit_parse_source_dir}/rdiParser.cpp
                                     ${RDI_READER_SOURCE_DIR}/source/common/MetadataReaderBase.cpp
                                     ${RDI_READER_SOURCE_DIR}/source/common/VisualSonicsTransform.cpp
 				    )
-
-
-
-set( cxx_test_srcs ${base_test_srcs}
-  ${RDI_READER_SOURCE_DIR}/tests/cxx_test.cpp )
-
-#add_executable( cxx_test ${cxx_test_srcs} )
-#target_link_libraries( convert_visualsonics_test parse_vs_rdi )
-
-
 
 if(USE_VTK)
   find_package(VTK REQUIRED)
@@ -59,5 +48,10 @@ link_directories( ${VTK_LIBRARY_DIRS} )
   target_link_libraries( vtk_test vtkRendering vtkVolumeRendering boost_filesystem)
 endif(USE_VTK)
 
-add_subdirectory(common)
-add_subdirectory(xml)
+
+add_subdirectory( common )
+add_subdirectory( xml )
+
+if( USE_ITK )
+  add_subdirectory( itk )
+endif()

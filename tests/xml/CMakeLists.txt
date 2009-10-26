@@ -2,7 +2,7 @@
 add_test(
   rdi2xml
 
-  ${RDI_READER_BINARY_DIR}/bin/rdi2xml
+  ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/rdi2xml
   ${RDI_TESTING_FILEPATH}
   rdi2xml_test_output.xml
   )
@@ -10,7 +10,7 @@ add_test(
 add_test(
   rdi2xml_invalid_file
 
-  ${RDI_READER_BINARY_DIR}/bin/rdi2xml
+  ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/rdi2xml
   filepath_that_does_not_exist.rdi
   )
 set_tests_properties(
@@ -24,7 +24,7 @@ if(BUILD_RDI2HTML)
   add_test(
     rdi2html
 
-    ${RDI_READER_BINARY_DIR}/bin/rdi2html
+    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/rdi2html
     ${RDI_TESTING_FILEPATH}
     rdi2html_test_output.html
     )
@@ -32,7 +32,7 @@ if(BUILD_RDI2HTML)
   add_test(
     rdi2html_invalid_file
 
-    ${RDI_READER_BINARY_DIR}/bin/rdi2html
+    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/rdi2html
     filepath_that_does_not_exist.rdi
     )
   set_tests_properties(
@@ -46,7 +46,7 @@ if(BUILD_RDI2HTML)
     ${RDI_READER_SOURCE_DIR}/tests/xml/xalan_comparison
     ${RDI_TESTING_FILEPATH}
     ${RDI_READER_SOURCE_DIR}/source/xml/rdi2html.xsl
-    ${RDI_READER_BINARY_DIR}/bin/rdi2xml
-    ${RDI_READER_BINARY_DIR}/bin/rdi2html
+    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/rdi2xml
+    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/rdi2html
     )
 endif()

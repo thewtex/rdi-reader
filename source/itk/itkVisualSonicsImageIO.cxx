@@ -106,6 +106,25 @@ VisualSonicsImageIO::
 Read
 ( void* buffer )
 {
+  short* data = reinterpret_cast< short* >( buffer );
+  const unsigned int nDims = this->GetNumberOfDimensions();
+
+  string rdbFilename = m_FileName.substr( 0, m_FileName.length() - 4 ) + ".rdb" ;
+  std::ifstream inputStream( rdbFilename.c_str(), std::ios::in | std::ios::binary );
+  if( !inputStream.is_open() )
+    itkExceptionMacro( << " File: " << rdbFilename << " could not be opened. " );
+
+  // skip the b mode and saturation scout images
+  const unsigned int scoutSamplesPerLine = m_rdi->image_parameters().RF_Mode().RX().AD_Gate_Width();
+  const unsigned int scoutNumLines       = m_rdi->image_parameters().RF_Mode().TX().Trig_Tbl_Trigs();
+  inputStream.seekg( 2 * scoutSamplesPerLine * scoutNumLines * sizeof(unsigned short),
+    std::ios::beg );
+
+  size_t skip_amount = 0;
+  if( m_rdi->image_info().Image_Acquisition_Per_Line() > 1 )
+    skip_amount = m_Dimensions[0] * sizeof( short ) * m_rdi->image_info().Image_Acquisition_Per_Line();
+
+  inputStream.close();
 }
 
 

@@ -31,8 +31,8 @@
 // in the accompanying FLOSSE file.
 //
 
-#ifndef CXX_HOME_MATT_VS_READ_VISUALSONICS_DIGITAL_RF_SOURCE_COMMON_FORMATS_RDI_HXX
-#define CXX_HOME_MATT_VS_READ_VISUALSONICS_DIGITAL_RF_SOURCE_COMMON_FORMATS_RDI_HXX
+#ifndef CXX_HOME_MATT_VS_SOURCE_COMMON_FORMATS_RDI_HXX
+#define CXX_HOME_MATT_VS_SOURCE_COMMON_FORMATS_RDI_HXX
 
 // Begin prologue.
 //
@@ -23407,7 +23407,7 @@ class Respiration_Period: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Respiration_Subsample_Rate: public ::xml_schema::string
+class Respiration_Subsample_Rate: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -23429,15 +23429,7 @@ class Respiration_Subsample_Rate: public ::xml_schema::string
 
   // Constructors.
   //
-  Respiration_Subsample_Rate (const units_type&);
-
-  Respiration_Subsample_Rate (const char*,
-                              const units_type&);
-
-  Respiration_Subsample_Rate (const ::std::string&,
-                              const units_type&);
-
-  Respiration_Subsample_Rate (const ::xml_schema::string&,
+  Respiration_Subsample_Rate (const ::xml_schema::positive_integer&,
                               const units_type&);
 
   Respiration_Subsample_Rate (const ::xercesc::DOMElement& e,
@@ -23635,7 +23627,7 @@ class Frequency1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Respiration_Blank_Period: public ::xml_schema::string
+class Respiration_Blank_Period: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -23657,15 +23649,7 @@ class Respiration_Blank_Period: public ::xml_schema::string
 
   // Constructors.
   //
-  Respiration_Blank_Period (const units_type&);
-
-  Respiration_Blank_Period (const char*,
-                            const units_type&);
-
-  Respiration_Blank_Period (const ::std::string&,
-                            const units_type&);
-
-  Respiration_Blank_Period (const ::xml_schema::string&,
+  Respiration_Blank_Period (const ::xml_schema::positive_integer&,
                             const units_type&);
 
   Respiration_Blank_Period (const ::xercesc::DOMElement& e,
@@ -25958,7 +25942,7 @@ class Pulse_Rep_Frequency: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Trig_Tbl_Trigs: public ::xml_schema::string
+class Trig_Tbl_Trigs: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -25980,15 +25964,7 @@ class Trig_Tbl_Trigs: public ::xml_schema::string
 
   // Constructors.
   //
-  Trig_Tbl_Trigs (const units_type&);
-
-  Trig_Tbl_Trigs (const char*,
-                  const units_type&);
-
-  Trig_Tbl_Trigs (const ::std::string&,
-                  const units_type&);
-
-  Trig_Tbl_Trigs (const ::xml_schema::string&,
+  Trig_Tbl_Trigs (const ::xml_schema::positive_integer&,
                   const units_type&);
 
   Trig_Tbl_Trigs (const ::xercesc::DOMElement& e,
@@ -27321,7 +27297,7 @@ class Delay: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, ch
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class AD_Gate_Width: public ::xml_schema::string
+class AD_Gate_Width: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -27343,15 +27319,7 @@ class AD_Gate_Width: public ::xml_schema::string
 
   // Constructors.
   //
-  AD_Gate_Width (const units_type&);
-
-  AD_Gate_Width (const char*,
-                 const units_type&);
-
-  AD_Gate_Width (const ::std::string&,
-                 const units_type&);
-
-  AD_Gate_Width (const ::xml_schema::string&,
+  AD_Gate_Width (const ::xml_schema::positive_integer&,
                  const units_type&);
 
   AD_Gate_Width (const ::xercesc::DOMElement& e,
@@ -31812,7 +31780,7 @@ class Respiration_Period1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Respiration_Subsample_Rate1: public ::xml_schema::string
+class Respiration_Subsample_Rate1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -31834,15 +31802,7 @@ class Respiration_Subsample_Rate1: public ::xml_schema::string
 
   // Constructors.
   //
-  Respiration_Subsample_Rate1 (const units_type&);
-
-  Respiration_Subsample_Rate1 (const char*,
-                               const units_type&);
-
-  Respiration_Subsample_Rate1 (const ::std::string&,
-                               const units_type&);
-
-  Respiration_Subsample_Rate1 (const ::xml_schema::string&,
+  Respiration_Subsample_Rate1 (const ::xml_schema::positive_integer&,
                                const units_type&);
 
   Respiration_Subsample_Rate1 (const ::xercesc::DOMElement& e,
@@ -32040,7 +32000,7 @@ class Frequency5: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Respiration_Blank_Period1: public ::xml_schema::string
+class Respiration_Blank_Period1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -32062,15 +32022,7 @@ class Respiration_Blank_Period1: public ::xml_schema::string
 
   // Constructors.
   //
-  Respiration_Blank_Period1 (const units_type&);
-
-  Respiration_Blank_Period1 (const char*,
-                             const units_type&);
-
-  Respiration_Blank_Period1 (const ::std::string&,
-                             const units_type&);
-
-  Respiration_Blank_Period1 (const ::xml_schema::string&,
+  Respiration_Blank_Period1 (const ::xml_schema::positive_integer&,
                              const units_type&);
 
   Respiration_Blank_Period1 (const ::xercesc::DOMElement& e,
@@ -33711,7 +33663,7 @@ class Pulse_Rep_Frequency1: public ::xml_schema::string
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class Trig_Tbl_Trigs1: public ::xml_schema::string
+class Trig_Tbl_Trigs1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -33733,15 +33685,7 @@ class Trig_Tbl_Trigs1: public ::xml_schema::string
 
   // Constructors.
   //
-  Trig_Tbl_Trigs1 (const units_type&);
-
-  Trig_Tbl_Trigs1 (const char*,
-                   const units_type&);
-
-  Trig_Tbl_Trigs1 (const ::std::string&,
-                   const units_type&);
-
-  Trig_Tbl_Trigs1 (const ::xml_schema::string&,
+  Trig_Tbl_Trigs1 (const ::xml_schema::positive_integer&,
                    const units_type&);
 
   Trig_Tbl_Trigs1 (const ::xercesc::DOMElement& e,
@@ -34937,7 +34881,7 @@ class Delay1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, c
   ::xsd::cxx::tree::one< units_type > units_;
 };
 
-class AD_Gate_Width1: public ::xml_schema::string
+class AD_Gate_Width1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >
 {
   public:
   // units
@@ -34959,15 +34903,7 @@ class AD_Gate_Width1: public ::xml_schema::string
 
   // Constructors.
   //
-  AD_Gate_Width1 (const units_type&);
-
-  AD_Gate_Width1 (const char*,
-                  const units_type&);
-
-  AD_Gate_Width1 (const ::std::string&,
-                  const units_type&);
-
-  AD_Gate_Width1 (const ::xml_schema::string&,
+  AD_Gate_Width1 (const ::xml_schema::positive_integer&,
                   const units_type&);
 
   AD_Gate_Width1 (const ::xercesc::DOMElement& e,
@@ -38131,4 +38067,4 @@ operator<< (::xercesc::DOMElement&, const EKV_Triggers&);
 //
 // End epilogue.
 
-#endif // CXX_HOME_MATT_VS_READ_VISUALSONICS_DIGITAL_RF_SOURCE_COMMON_FORMATS_RDI_HXX
+#endif // CXX_HOME_MATT_VS_SOURCE_COMMON_FORMATS_RDI_HXX

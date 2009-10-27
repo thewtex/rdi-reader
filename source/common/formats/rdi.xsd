@@ -789,7 +789,7 @@
                   <xs:element name="Respiration-Subsample-Rate">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:positiveInteger">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -829,7 +829,7 @@
                   <xs:element name="Respiration-Blank-Period">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:positiveInteger">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1252,7 +1252,7 @@
                   <xs:element name="Trig-Tbl-Trigs">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:positiveInteger">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -1533,7 +1533,7 @@
                   <xs:element name="AD-Gate-Width">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:positiveInteger">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2569,7 +2569,7 @@
                   <xs:element name="Respiration-Subsample-Rate">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:positiveInteger">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2609,7 +2609,7 @@
                   <xs:element name="Respiration-Blank-Period">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:positiveInteger">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -2895,7 +2895,7 @@
                   <xs:element name="Trig-Tbl-Trigs">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:positiveInteger">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>
@@ -3164,7 +3164,7 @@
                   <xs:element name="AD-Gate-Width">
                     <xs:complexType>
                       <xs:simpleContent>
-                        <xs:extension base="xs:string">
+                        <xs:extension base="xs:positiveInteger">
                           <xs:attribute use="required" type="xs:string" name="units"/>
                         </xs:extension>
                       </xs:simpleContent>

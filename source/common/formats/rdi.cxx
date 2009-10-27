@@ -62187,32 +62187,9 @@ Respiration_Period::
 //
 
 Respiration_Subsample_Rate::
-Respiration_Subsample_Rate (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Respiration_Subsample_Rate::
-Respiration_Subsample_Rate (const char* _xsd_string_base,
+Respiration_Subsample_Rate (const ::xml_schema::positive_integer& _xsd_positive_integer_base,
                             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Respiration_Subsample_Rate::
-Respiration_Subsample_Rate (const ::std::string& _xsd_string_base,
-                            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Respiration_Subsample_Rate::
-Respiration_Subsample_Rate (const ::xml_schema::string& _xsd_string_base,
-                            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (_xsd_positive_integer_base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -62221,7 +62198,7 @@ Respiration_Subsample_Rate::
 Respiration_Subsample_Rate (const Respiration_Subsample_Rate& x,
                             ::xml_schema::flags f,
                             ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -62230,7 +62207,7 @@ Respiration_Subsample_Rate::
 Respiration_Subsample_Rate (const ::xercesc::DOMElement& e,
                             ::xml_schema::flags f,
                             ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -62552,32 +62529,9 @@ Frequency1::
 //
 
 Respiration_Blank_Period::
-Respiration_Blank_Period (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Respiration_Blank_Period::
-Respiration_Blank_Period (const char* _xsd_string_base,
+Respiration_Blank_Period (const ::xml_schema::positive_integer& _xsd_positive_integer_base,
                           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Respiration_Blank_Period::
-Respiration_Blank_Period (const ::std::string& _xsd_string_base,
-                          const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Respiration_Blank_Period::
-Respiration_Blank_Period (const ::xml_schema::string& _xsd_string_base,
-                          const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (_xsd_positive_integer_base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -62586,7 +62540,7 @@ Respiration_Blank_Period::
 Respiration_Blank_Period (const Respiration_Blank_Period& x,
                           ::xml_schema::flags f,
                           ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -62595,7 +62549,7 @@ Respiration_Blank_Period::
 Respiration_Blank_Period (const ::xercesc::DOMElement& e,
                           ::xml_schema::flags f,
                           ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -66253,32 +66207,9 @@ Pulse_Rep_Frequency::
 //
 
 Trig_Tbl_Trigs::
-Trig_Tbl_Trigs (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Trig_Tbl_Trigs::
-Trig_Tbl_Trigs (const char* _xsd_string_base,
+Trig_Tbl_Trigs (const ::xml_schema::positive_integer& _xsd_positive_integer_base,
                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Trig_Tbl_Trigs::
-Trig_Tbl_Trigs (const ::std::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Trig_Tbl_Trigs::
-Trig_Tbl_Trigs (const ::xml_schema::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (_xsd_positive_integer_base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -66287,7 +66218,7 @@ Trig_Tbl_Trigs::
 Trig_Tbl_Trigs (const Trig_Tbl_Trigs& x,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -66296,7 +66227,7 @@ Trig_Tbl_Trigs::
 Trig_Tbl_Trigs (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -68356,32 +68287,9 @@ Delay::
 //
 
 AD_Gate_Width::
-AD_Gate_Width (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-AD_Gate_Width::
-AD_Gate_Width (const char* _xsd_string_base,
+AD_Gate_Width (const ::xml_schema::positive_integer& _xsd_positive_integer_base,
                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-AD_Gate_Width::
-AD_Gate_Width (const ::std::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-AD_Gate_Width::
-AD_Gate_Width (const ::xml_schema::string& _xsd_string_base,
-               const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (_xsd_positive_integer_base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -68390,7 +68298,7 @@ AD_Gate_Width::
 AD_Gate_Width (const AD_Gate_Width& x,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -68399,7 +68307,7 @@ AD_Gate_Width::
 AD_Gate_Width (const ::xercesc::DOMElement& e,
                ::xml_schema::flags f,
                ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -75385,32 +75293,9 @@ Respiration_Period1::
 //
 
 Respiration_Subsample_Rate1::
-Respiration_Subsample_Rate1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Respiration_Subsample_Rate1::
-Respiration_Subsample_Rate1 (const char* _xsd_string_base,
+Respiration_Subsample_Rate1 (const ::xml_schema::positive_integer& _xsd_positive_integer_base,
                              const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Respiration_Subsample_Rate1::
-Respiration_Subsample_Rate1 (const ::std::string& _xsd_string_base,
-                             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Respiration_Subsample_Rate1::
-Respiration_Subsample_Rate1 (const ::xml_schema::string& _xsd_string_base,
-                             const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (_xsd_positive_integer_base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -75419,7 +75304,7 @@ Respiration_Subsample_Rate1::
 Respiration_Subsample_Rate1 (const Respiration_Subsample_Rate1& x,
                              ::xml_schema::flags f,
                              ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -75428,7 +75313,7 @@ Respiration_Subsample_Rate1::
 Respiration_Subsample_Rate1 (const ::xercesc::DOMElement& e,
                              ::xml_schema::flags f,
                              ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -75750,32 +75635,9 @@ Frequency5::
 //
 
 Respiration_Blank_Period1::
-Respiration_Blank_Period1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Respiration_Blank_Period1::
-Respiration_Blank_Period1 (const char* _xsd_string_base,
+Respiration_Blank_Period1 (const ::xml_schema::positive_integer& _xsd_positive_integer_base,
                            const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Respiration_Blank_Period1::
-Respiration_Blank_Period1 (const ::std::string& _xsd_string_base,
-                           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Respiration_Blank_Period1::
-Respiration_Blank_Period1 (const ::xml_schema::string& _xsd_string_base,
-                           const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (_xsd_positive_integer_base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -75784,7 +75646,7 @@ Respiration_Blank_Period1::
 Respiration_Blank_Period1 (const Respiration_Blank_Period1& x,
                            ::xml_schema::flags f,
                            ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -75793,7 +75655,7 @@ Respiration_Blank_Period1::
 Respiration_Blank_Period1 (const ::xercesc::DOMElement& e,
                            ::xml_schema::flags f,
                            ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -78448,32 +78310,9 @@ Pulse_Rep_Frequency1::
 //
 
 Trig_Tbl_Trigs1::
-Trig_Tbl_Trigs1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Trig_Tbl_Trigs1::
-Trig_Tbl_Trigs1 (const char* _xsd_string_base,
+Trig_Tbl_Trigs1 (const ::xml_schema::positive_integer& _xsd_positive_integer_base,
                  const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Trig_Tbl_Trigs1::
-Trig_Tbl_Trigs1 (const ::std::string& _xsd_string_base,
-                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-Trig_Tbl_Trigs1::
-Trig_Tbl_Trigs1 (const ::xml_schema::string& _xsd_string_base,
-                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (_xsd_positive_integer_base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -78482,7 +78321,7 @@ Trig_Tbl_Trigs1::
 Trig_Tbl_Trigs1 (const Trig_Tbl_Trigs1& x,
                  ::xml_schema::flags f,
                  ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -78491,7 +78330,7 @@ Trig_Tbl_Trigs1::
 Trig_Tbl_Trigs1 (const ::xercesc::DOMElement& e,
                  ::xml_schema::flags f,
                  ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -80375,32 +80214,9 @@ Delay1::
 //
 
 AD_Gate_Width1::
-AD_Gate_Width1 (const units_type& units)
-: ::xml_schema::string (),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-AD_Gate_Width1::
-AD_Gate_Width1 (const char* _xsd_string_base,
+AD_Gate_Width1 (const ::xml_schema::positive_integer& _xsd_positive_integer_base,
                 const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-AD_Gate_Width1::
-AD_Gate_Width1 (const ::std::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
-  units_ (units, ::xml_schema::flags (), this)
-{
-}
-
-AD_Gate_Width1::
-AD_Gate_Width1 (const ::xml_schema::string& _xsd_string_base,
-                const units_type& units)
-: ::xml_schema::string (_xsd_string_base),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (_xsd_positive_integer_base),
   units_ (units, ::xml_schema::flags (), this)
 {
 }
@@ -80409,7 +80225,7 @@ AD_Gate_Width1::
 AD_Gate_Width1 (const AD_Gate_Width1& x,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (x, f, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (x, f, c),
   units_ (x.units_, f, this)
 {
 }
@@ -80418,7 +80234,7 @@ AD_Gate_Width1::
 AD_Gate_Width1 (const ::xercesc::DOMElement& e,
                 ::xml_schema::flags f,
                 ::xml_schema::container* c)
-: ::xml_schema::string (e, f | ::xml_schema::flags::base, c),
+: ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type > (e, f | ::xml_schema::flags::base, c),
   units_ (f, this)
 {
   if ((f & ::xml_schema::flags::base) == 0)
@@ -83698,7 +83514,7 @@ operator<< (::std::ostream& o, const Respiration_Period& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Respiration_Subsample_Rate& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -83734,7 +83550,7 @@ operator<< (::std::ostream& o, const Frequency1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Respiration_Blank_Period& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -84103,7 +83919,7 @@ operator<< (::std::ostream& o, const Pulse_Rep_Frequency& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Trig_Tbl_Trigs& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -84328,7 +84144,7 @@ operator<< (::std::ostream& o, const Delay& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const AD_Gate_Width& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85057,7 +84873,7 @@ operator<< (::std::ostream& o, const Respiration_Period1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Respiration_Subsample_Rate1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85093,7 +84909,7 @@ operator<< (::std::ostream& o, const Frequency5& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Respiration_Blank_Period1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85354,7 +85170,7 @@ operator<< (::std::ostream& o, const Pulse_Rep_Frequency1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const Trig_Tbl_Trigs1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -85552,7 +85368,7 @@ operator<< (::std::ostream& o, const Delay1& i)
 ::std::ostream&
 operator<< (::std::ostream& o, const AD_Gate_Width1& i)
 {
-  o << static_cast< const ::xml_schema::string& > (i);
+  o << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   o << ::std::endl << "units: " << i.units ();
   return o;
@@ -97457,7 +97273,7 @@ operator<< (::xercesc::DOMElement& e, const Respiration_Period& i)
 void
 operator<< (::xercesc::DOMElement& e, const Respiration_Subsample_Rate& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -97525,7 +97341,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Respiration_Blank_Period& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -98222,7 +98038,7 @@ operator<< (::xercesc::DOMElement& e, const Pulse_Rep_Frequency& i)
 void
 operator<< (::xercesc::DOMElement& e, const Trig_Tbl_Trigs& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -98647,7 +98463,7 @@ operator<< (::xercesc::DOMElement& e, const Delay& i)
 void
 operator<< (::xercesc::DOMElement& e, const AD_Gate_Width& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100024,7 +99840,7 @@ operator<< (::xercesc::DOMElement& e, const Respiration_Period1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Respiration_Subsample_Rate1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100092,7 +99908,7 @@ operator<< (::xercesc::DOMElement& e, const Frequency5& i)
 void
 operator<< (::xercesc::DOMElement& e, const Respiration_Blank_Period1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100585,7 +100401,7 @@ operator<< (::xercesc::DOMElement& e, const Pulse_Rep_Frequency1& i)
 void
 operator<< (::xercesc::DOMElement& e, const Trig_Tbl_Trigs1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //
@@ -100959,7 +100775,7 @@ operator<< (::xercesc::DOMElement& e, const Delay1& i)
 void
 operator<< (::xercesc::DOMElement& e, const AD_Gate_Width1& i)
 {
-  e << static_cast< const ::xml_schema::string& > (i);
+  e << static_cast< const ::xsd::cxx::tree::fundamental_base< ::xml_schema::positive_integer, char, ::xml_schema::simple_type >& > (i);
 
   // units
   //

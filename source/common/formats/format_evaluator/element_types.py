@@ -21,7 +21,9 @@ class ElementTyper():
             'Hz': 'float',
             'MHz': 'float',
             'mm': 'float',
-            'µs':'float'
+            'µs':'float',
+            'samples':'positiveInteger',
+            'trigs':'positiveInteger'
             }
 
     def get_type(self, line):

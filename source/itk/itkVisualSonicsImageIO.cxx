@@ -73,7 +73,31 @@ ReadImageInformation()
     }
   catch( const std::exception& e )
     {
+    itkExceptionMacro( << e.what() );
     }
+
+  this->SetNumberOfDimensions(3);
+  this->m_Dimensions[0] = m_rdi->image_info().Image_Acquisition_Size() / sizeof( signed short );
+  this->m_Dimensions[1] = m_rdi->image_info().Image_Lines();
+  this->m_Dimensions[2] = m_rdi->image_info().Image_Frames();
+  this->m_ComponentType = SHORT;
+  this->m_PixelType = SCALAR;
+  this->SetSpacing( 0,
+    1540.0 / 2.0 / 10.0e6 /
+    static_cast< double >( m_rdi->image_parameters().RF_Mode().RfModeSoft().SamplesPerSec() )
+  );
+  this->SetSpacing( 1,
+    static_cast< double >(
+      m_rdi->image_parameters().RF_Mode().Scan().Scan_Width() /
+      m_rdi->image_parameters().RF_Mode().ActiveProbe().Pivot_Encoder_Dist() /
+      m_rdi->image_info().Image_Lines() *
+      ( m_rdi->image_parameters().RF_Mode().ActiveProbe().Pivot_Transducer_Face_Dist() + m_rdi->image_parameters().RF_Mode().RX().V_Delay_Length() )
+      * 0.001
+    )
+  );
+  this->SetSpacing( 2,
+    static_cast< double >( m_rdi->image_parameters().RF_Mode().X_3D().Step_Size() ) * 0.001
+  );
 }
 
 

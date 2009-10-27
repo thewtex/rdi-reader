@@ -68,8 +68,8 @@ ReadImageInformation()
 {
   try
     {
-    rdiReader rdi_reader( this->m_FileName.c_str() );
-    m_rdi = rdi_reader.parse_to_rdi_t();
+    m_rdiReader = std::auto_ptr< rdiReader >( new rdiReader( this->m_FileName.c_str() ) );
+    m_rdi = m_rdiReader->parse_to_rdi_t();
     }
   catch( const std::exception& e )
     {
@@ -83,7 +83,7 @@ ReadImageInformation()
   this->m_ComponentType = SHORT;
   this->m_PixelType = SCALAR;
   this->SetSpacing( 0,
-    1540.0 / 2.0 / 10.0e6 /
+    1540.0 / 2.0 / 1.0e6 /
     static_cast< double >( m_rdi->image_parameters().RF_Mode().RfModeSoft().SamplesPerSec() )
   );
   this->SetSpacing( 1,
@@ -106,8 +106,6 @@ VisualSonicsImageIO::
 Read
 ( void* buffer )
 {
-  short* data = reinterpret_cast< short* >( buffer );
-  const unsigned int nDims = this->GetNumberOfDimensions();
 
   string rdbFilename = m_FileName.substr( 0, m_FileName.length() - 4 ) + ".rdb" ;
   std::ifstream inputStream( rdbFilename.c_str(), std::ios::in | std::ios::binary );
@@ -123,6 +121,22 @@ Read
   size_t skip_amount = 0;
   if( m_rdi->image_info().Image_Acquisition_Per_Line() > 1 )
     skip_amount = m_Dimensions[0] * sizeof( short ) * m_rdi->image_info().Image_Acquisition_Per_Line();
+
+  inputStream.seekg( skip_amount, std::ios::cur );
+
+  const size_t bytesPerLine = this->m_Dimensions[0]*sizeof(short);
+  unsigned int line = 0;
+  char*  data_as_char = reinterpret_cast< char* >( buffer );
+
+  for( unsigned int frame = 0; frame < m_Dimensions[2]; frame++ )
+    {
+    for( line = 0; line < m_Dimensions[1]; line++ )
+      {
+      inputStream.read( data_as_char, bytesPerLine );
+      data_as_char += bytesPerLine;
+      inputStream.seekg( skip_amount, std::ios::cur );
+      }
+    }
 
   inputStream.close();
 }

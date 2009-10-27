@@ -14,8 +14,8 @@ using namespace xercesc;
 #include <xsd/cxx/xml/dom/auto-ptr.hxx>
 #include <xsd/cxx/tree/exceptions.hxx>
 
-#include "common/formats/rdi.hxx"
-#include "common/ToXMLCh.h"
+#include "formats/rdi.hxx"
+#include "ToXMLCh.h"
 #define X(str) m_transcoder->transcode(str)
 // alternate, as long as local encoding is correct, as I understand it
 //#include "common/XStr.h"

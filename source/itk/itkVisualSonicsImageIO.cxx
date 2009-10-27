@@ -2,6 +2,8 @@
 
 #include <fstream>
 
+#include "rdiReader.h"
+
 namespace itk
 {
 
@@ -64,6 +66,14 @@ void
 VisualSonicsImageIO::
 ReadImageInformation()
 {
+  try
+    {
+    rdiReader rdi_reader( this->m_FileName.c_str() );
+    m_rdi = rdi_reader.parse_to_rdi_t();
+    }
+  catch( const std::exception& e )
+    {
+    }
 }
 
 

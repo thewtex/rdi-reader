@@ -9,7 +9,11 @@
 #ifndef __itkVisualSonicsImageIO_h
 #define __itkVisualSonicsImageIO_h
 
+#include <memory>
+
 #include "itkImageIOBase.h"
+
+#include "formats/rdi.hxx"
 
 namespace itk
 {
@@ -58,6 +62,12 @@ public:
 private:
   VisualSonicsImageIO(const Self&); //purposely not implemented
   void operator=(const Self&); //purposely not implemented
+
+protected:
+  /**
+   * @brief holds the rdi metadata object
+   */
+  std::auto_ptr< rdi_t > m_rdi;
 };
 } // end namespace itk
 

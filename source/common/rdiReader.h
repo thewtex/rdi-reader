@@ -14,8 +14,8 @@
 #include <vector>
 using namespace std;
 
-#include "common/formats/rdi.hxx"
-#include "common/ToXMLCh.h"
+#include "formats/rdi.hxx"
+#include "ToXMLCh.h"
 
 class rdiReader
 {

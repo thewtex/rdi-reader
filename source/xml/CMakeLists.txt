@@ -1,19 +1,12 @@
 include_directories(${RDI_READER_SOURCE_DIR}/source
   ${RDI_READER_SOURCE_DIR}/source/common)
 
-set(RDI_READER_CLASS_SOURCES
-  ../common/rdiReader.cpp
-  ../common/formats/rdi.cxx
-  ../common/ToXMLCh.cpp
-  )
-
-
 add_executable(rdi2xml
   rdi2xml.cpp
-  ${RDI_READER_CLASS_SOURCES}
   )
 target_link_libraries(rdi2xml
-  ${XERCESC_LIBRARIES})
+  rdiReader
+  )
 install(TARGETS rdi2xml
   RUNTIME
   DESTINATION bin
@@ -40,9 +33,9 @@ if(BUILD_RDI2HTML)
   add_executable(rdi2html
     rdi2html_main.cpp
     rdi2html.cpp
-    ${RDI_READER_CLASS_SOURCES}
     )
   target_link_libraries(rdi2html
+    rdiReader
     ${XALANC_LIBRARIES})
   install(TARGETS rdi2html
     RUNTIME

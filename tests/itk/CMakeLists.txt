@@ -34,3 +34,8 @@ add_test( vs-convert-b-mode
   vs-convert-b-mode_output.mhd
   )
 
+add_test( vs-convert
+  ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/vs-convert
+  ${RDI_TESTING_FILEPATH}
+  -o vs-covert_output.mhd
+  )

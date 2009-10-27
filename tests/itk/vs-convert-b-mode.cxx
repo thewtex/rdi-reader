@@ -38,7 +38,7 @@ int main( int argc, char* argv[] )
   BModeType::Pointer  bmode  = BModeType::New();
   WriterType::Pointer writer = WriterType::New();
 
-  bmode->SetQuantile( 0.999 );
+  bmode->SetQuantile( 0.99999999999999 );
 
   reader->SetFileName( argv[1] );
   writer->SetFileName( argv[2] );

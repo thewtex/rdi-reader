@@ -21,14 +21,9 @@ add_executable( vs-convert-b-mode
   b-mode-instan.cxx
   reader-instan.cxx
   writer-instan.cxx
-  ${RDI_READER_SOURCE_DIR}/source/itk/itkVisualSonicsImageIO.cxx
-  ${RDI_READER_SOURCE_DIR}/source/itk/itkVisualSonicsImageIOFactory.cxx
   )
 target_link_libraries( vs-convert-b-mode
-  rdiReader
-  ITKCommon
-  ITKIO
-  ITKStatistics
+  ITKVisualSonicsImageIO
   )
 
 

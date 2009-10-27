@@ -11,7 +11,12 @@ target_link_libraries( ITKVisualSonicsImageIO
   rdiReader
   ITKCommon
   ITKIO
-  ITKStatistics
+  )
+install( TARGETS ITKVisualSonicsImageIO
+  LIBRARY DESTINATION lib
+  )
+install( FILES itkVisualSonicsImageIO.h itkVisualSonicsImageIOFactory.h
+  DESTINATION include
   )
 
 add_executable( vs-convert

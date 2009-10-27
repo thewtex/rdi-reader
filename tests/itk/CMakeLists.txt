@@ -24,6 +24,7 @@ add_executable( vs-convert-b-mode
   )
 target_link_libraries( vs-convert-b-mode
   ITKVisualSonicsImageIO
+  ITKStatistics
   )
 
 

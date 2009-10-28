@@ -60,19 +60,28 @@ public:
   /** The pixel type of the output image. */
   typedef typename TOutputImage::PixelType OutputImagePixelType;
 
-   //[>* The pixel type of the output image. <]
-  //typedef Superclass::DictionaryType                   DictionaryType;
-  //typedef Superclass::DictionaryRawPointer             DictionaryRawPointer;
-  //typedef Superclass::DictionaryArrayType              DictionaryArrayType;
-  //typedef Superclass::DictionaryArrayRawPointer        DictionaryArrayRawPointer;
+  /** Prepare the allocation of the output image during the first back
+   * propagation of the pipeline. */
+  virtual void GenerateOutputInformation(void);
 
-  //typedef Superclass::FileNamesContainer               FileNamesContainer;
+  /** Give the reader a chance to indicate that it will produce more
+   * output than it was requested to produce. VisualSonicsSeriesReader cannot
+   * currently read a portion of a frame.
+   * so the ImageSeriesReader must
+   * enlarge the RequestedRegion to the size of the image on disk. */
+  virtual void EnlargeOutputRequestedRegion(DataObject *output);
 
 protected:
   VisualSonicsSeriesReader();
   ~VisualSonicsSeriesReader() {};
+  void PrintSelf(std::ostream& os, Indent indent) const;
 
+  /** Does the real work. */
+  virtual void GenerateData();
 
+private:
+  VisualSonicsSeriesReader(const Self&); //purposely not implemented
+  void operator=(const Self&); //purposely not implemented
 };
 
 } // end namespace itk

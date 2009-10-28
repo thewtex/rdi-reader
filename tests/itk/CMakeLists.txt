@@ -38,6 +38,7 @@ set_source_files_properties(
   )
 add_executable( vs-convert-b-mode-series
   vs-convert-b-mode-series.cxx
+  visualsonics-series-reader-instan.cxx
   b-mode-instan.cxx
   reader-instan.cxx
   writer-instan.cxx

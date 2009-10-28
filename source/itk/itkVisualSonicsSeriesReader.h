@@ -35,6 +35,39 @@ namespace itk
 template < class TOutputImage >
 class ITK_EXPORT VisualSonicsSeriesReader : public ImageSeriesReader< TOutputImage >
 {
+public:
+  /** Standard class typedefs. */
+  typedef VisualSonicsSeriesReader	    Self;
+  typedef ImageSeriesReader< TOutputImage > Superclass;
+  typedef SmartPointer< Self >		    Pointer;
+
+  /** Method for creation through the object factory. */
+  itkNewMacro(Self);
+
+  /** Run-time type information (and related methods). */
+  itkTypeMacro(VisualSonicsSeriesReader, ImageSeriesReader);
+
+  /** The size of the output image. */
+  typedef typename TOutputImage::SizeType   SizeType;
+
+  SizeType size;
+  /** The index of the output image. */
+  typedef typename TOutputImage::IndexType  IndexType;
+
+  /** The region of the output image. */
+  typedef typename TOutputImage::RegionType  ImageRegionType;
+
+  /** The pixel type of the output image. */
+  typedef typename TOutputImage::PixelType OutputImagePixelType;
+
+   //[>* The pixel type of the output image. <]
+  //typedef Superclass::DictionaryType                   DictionaryType;
+  //typedef Superclass::DictionaryRawPointer             DictionaryRawPointer;
+  //typedef Superclass::DictionaryArrayType              DictionaryArrayType;
+  //typedef Superclass::DictionaryArrayRawPointer        DictionaryArrayRawPointer;
+
+  //typedef Superclass::FileNamesContainer               FileNamesContainer;
+
 };
 
 } // end namespace itk

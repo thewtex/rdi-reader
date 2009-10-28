@@ -69,12 +69,16 @@ public:
   //typedef Superclass::FileNamesContainer               FileNamesContainer;
 
 protected:
-  VisualSonicsSeriesReader() {};
+  VisualSonicsSeriesReader();
   ~VisualSonicsSeriesReader() {};
 
 
 };
 
 } // end namespace itk
+
+#ifndef ITK_MANUAL_INSTANTIATION
+#include "itkVisualSonicsSeriesReader.txx"
+#endif
 
 #endif // inclusion guard

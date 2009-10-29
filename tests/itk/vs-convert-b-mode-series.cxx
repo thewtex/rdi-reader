@@ -45,6 +45,13 @@ int main( int argc, char* argv[] )
   nameGenerator->SetArchetype( argv[1] );
 
   reader->SetFileNames( nameGenerator->GetFileNames() );
+
+  reader->UpdateOutputInformation();
+  reader->Print(cout);
+
+  // for now
+  return EXIT_SUCCESS;
+
   writer->SetFileName( argv[4] );
 
   bmode->SetInput( reader->GetOutput() );

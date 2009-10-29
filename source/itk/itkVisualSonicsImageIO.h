@@ -64,7 +64,7 @@ private:
   VisualSonicsImageIO(const Self&); //purposely not implemented
   void operator=(const Self&); //purposely not implemented
 
-  //* we need this here because of the memory management in Xerces-C
+  /** we need this here because of the memory management in Xerces-C */
   std::auto_ptr< rdiReader > m_rdiReader;
 
 protected:

@@ -13,6 +13,8 @@
 
 #include <vector>
 
+#include "itkImageFileReader.h"
+
 namespace itk
 {
 
@@ -62,6 +64,9 @@ public:
   /** The pixel type of the output image. */
   typedef typename TOutputImage::PixelType OutputImagePixelType;
 
+  /** The spacing type of the output image */
+  typedef typename TOutputImage::SpacingType SpacingType;
+
   /** Prepare the allocation of the output image during the first back
    * propagation of the pipeline. */
   virtual void GenerateOutputInformation(void);
@@ -89,8 +94,13 @@ protected:
   typedef typename std::vector< ImageRegionType >  SubRegionsVectorType;
   SubRegionsVectorType				   m_SubRegionsVector;
 
-  /** Determine the sub regions to use from the input images */
-  virtual void GenerateSubRegions();
+  /** Determine the sub regions to use from the input images.
+   *
+   * Return spacing from the first sub image as a convenience so we do not have
+   * to reader in the header twice. */
+  virtual SpacingType GenerateSubRegions();
+
+  typedef ImageFileReader<TOutputImage> ReaderType;
 
 private:
   VisualSonicsSeriesReader(const Self&); //purposely not implemented

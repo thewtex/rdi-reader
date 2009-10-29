@@ -109,9 +109,22 @@ VisualSonicsSeriesReader< TOutputImage >
   SizeType first_size  = first_reader->GetOutput()->GetLargestPossibleRegion().GetSize();
   IndexType first_index = first_reader->GetOutput()->GetLargestPossibleRegion().GetIndex();
 
+  DictionaryRawPointer newDictionary = new DictionaryType;
+  *newDictionary = first_reader->GetImageIO()->GetMetaDataDictionary();
+  this->m_MetaDataDictionaryArray.push_back( newDictionary );
+
+  const MetaDataObjectBase* radius_meta_object_base = (*newDictionary)["Radius"];
+  const MetaDataObject< double >* radius_meta_object = dynamic_cast< const MetaDataObject< double >* >( radius_meta_object_base );
+  double previous_radius_plus_extent = radius_meta_object->GetMetaDataObjectValue() + (first_index[0] + first_size[0]) * spacing[0];
+
   SizeType  next_size;
   IndexType next_index;
   ImageRegionType next_region;
+  double next_radius;
+
+  // axial overlap in distance [m]
+  double overlap;
+  unsigned int overlap_size;
 
   for ( int i = 1; i != numberOfFiles; ++i )
     {
@@ -133,8 +146,34 @@ VisualSonicsSeriesReader< TOutputImage >
       {
       itkExceptionMacro( << "Images have inconsistent sizes or indices in the lateral or elevational directions." );
       }
-    }
 
+    newDictionary = new DictionaryType;
+    *newDictionary = reader->GetImageIO()->GetMetaDataDictionary();
+    this->m_MetaDataDictionaryArray.push_back( newDictionary );
+
+    radius_meta_object_base = (*newDictionary)["Radius"];
+    radius_meta_object      = dynamic_cast< const MetaDataObject< double >* >( radius_meta_object_base );
+
+    next_radius = radius_meta_object->GetMetaDataObjectValue();
+
+    overlap = previous_radius_plus_extent - next_radius;
+
+    if( overlap <= 0.0 )
+      {
+      itkExceptionMacro( << "VisualSonics sub images do not overlap." );
+      }
+
+    overlap_size = static_cast< unsigned int >( overlap / spacing[0] );
+    previous_radius_plus_extent = next_radius + (next_index[0] + next_size[0]) * spacing[0];
+
+    next_index[0] = next_index[0] + overlap_size;
+    next_size[0]  = next_size[0]  - overlap_size;
+
+    next_region.SetSize( next_size );
+    next_region.SetIndex( next_index );
+
+    m_SubRegionsVector[i] = next_region;
+    }
 
   return spacing;
 }

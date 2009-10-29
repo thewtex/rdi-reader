@@ -67,6 +67,11 @@ public:
   /** The spacing type of the output image */
   typedef typename TOutputImage::SpacingType SpacingType;
 
+  typedef typename Superclass::DictionaryType                   DictionaryType;
+  typedef typename Superclass::DictionaryRawPointer             DictionaryRawPointer;
+  typedef typename Superclass::DictionaryArrayType		DictionaryArrayType;
+  typedef typename Superclass::DictionaryArrayRawPointer	DictionaryArrayRawPointer;
+
   /** Prepare the allocation of the output image during the first back
    * propagation of the pipeline. */
   virtual void GenerateOutputInformation(void);
@@ -80,7 +85,7 @@ public:
 
 protected:
   VisualSonicsSeriesReader();
-  ~VisualSonicsSeriesReader() {};
+  virtual ~VisualSonicsSeriesReader() {};
   void PrintSelf(std::ostream& os, Indent indent) const;
 
   /** Does the real work. */

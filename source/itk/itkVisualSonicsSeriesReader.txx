@@ -38,6 +38,7 @@ void
 VisualSonicsSeriesReader< TOutputImage >
 ::PrintSelf( std::ostream& os, Indent indent ) const
 {
+  Superclass::PrintSelf( os, indent );
 }
 
 
@@ -48,6 +49,13 @@ VisualSonicsSeriesReader< TOutputImage >
 {
 }
 
+
+template < class TOutputImage >
+void
+VisualSonicsSeriesReader< TOutputImage >
+::GenerateSubRegions()
+{
+}
 
 } // end namespace itk
 

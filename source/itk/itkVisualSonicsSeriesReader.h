@@ -11,6 +11,8 @@
 
 #include "itkImageSeriesReader.h"
 
+#include <vector>
+
 namespace itk
 {
 
@@ -78,6 +80,17 @@ protected:
 
   /** Does the real work. */
   virtual void GenerateData();
+
+  /** Populated with the sub regions of the input file images that will be used
+   * to create the output image.  It is a full region of ImageRegionType instead
+   * of just a region of the first dimension ( the beamline dimension ) because
+   * future inherited classes may further constrain the region if doing more
+   * complex sub-image registration. */
+  typedef typename std::vector< ImageRegionType >  SubRegionsVectorType;
+  SubRegionsVectorType				   m_SubRegionsVector;
+
+  /** Determine the sub regions to use from the input images */
+  virtual void GenerateSubRegions();
 
 private:
   VisualSonicsSeriesReader(const Self&); //purposely not implemented

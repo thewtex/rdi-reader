@@ -18,6 +18,25 @@
 
 namespace itk
 {
+  /**
+   * @brief ITK IO source filter object for a VisualSonics raw (.rdi/.rdb)
+   * Ultrasound image file format.
+   *
+   * Dimensions are populated as follows:
+   *  1 - Beamline samples (axial)
+   *  2 - Beamlines (lateral, angular)
+   *  3 - Frame
+   *
+   *  All units are in meters.
+   *
+   * Populates some itk::MetaDataDictionary objects:
+   *
+   *  "Radius"
+   *	The distance from the center of curvature to the first beamline sample.
+   *  "Theta"
+   *	An array of the angles for every beamline.  In Radians.
+   *
+   */
 class ITK_EXPORT VisualSonicsImageIO : public ImageIOBase
 {
 public:

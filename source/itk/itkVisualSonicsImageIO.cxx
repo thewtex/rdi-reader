@@ -2,6 +2,8 @@
 
 #include <fstream>
 
+#include "itkMetaDataObject.h"
+
 #include "rdiReader.h"
 
 namespace itk
@@ -98,6 +100,18 @@ ReadImageInformation()
   this->SetSpacing( 2,
     static_cast< double >( m_rdi->image_parameters().RF_Mode().X_3D().Step_Size() ) * 0.001
   );
+
+  itk::MetaDataDictionary& thisMetaDict = this->GetMetaDataDictionary();
+
+  itk::EncapsulateMetaData< double >( thisMetaDict, "Radius",
+    static_cast< double >(
+      ( m_rdi->image_parameters().RF_Mode().ActiveProbe().Pivot_Transducer_Face_Dist() +
+      m_rdi->image_parameters().RF_Mode().RX().V_Delay_Length() )
+      * 0.001
+      )
+  );
+
+
 }
 
 

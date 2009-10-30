@@ -79,8 +79,8 @@ VisualSonicsSeriesReader< TOutputImage >
     // we can stream on a frame by frame basis
     ImageRegionType streamableRegion = out->GetRequestedRegion();
     SizeType size = streamableRegion.GetSize();
+    size[0] = largestRegion.GetSize()[0];
     size[1] = largestRegion.GetSize()[1];
-    size[2] = largestRegion.GetSize()[2];
     streamableRegion.SetSize( size );
 
     out->SetRequestedRegion( streamableRegion );
@@ -113,6 +113,66 @@ void
 VisualSonicsSeriesReader< TOutputImage >
 ::GenerateData()
 {
+  TOutputImage * output = this->GetOutput();
+  ImageRegionType requestedRegion = output->GetRequestedRegion();
+
+  // Allocate the output buffer
+  output->SetBufferedRegion( requestedRegion );
+  output->Allocate();
+
+  ProgressReporter progress( this, 0,
+                            requestedRegion.GetNumberOfPixels(),
+                            100 );
+
+  // Clear the eventual previous content of the MetaDictionary array
+  // shouldn't this be done in the generate output info?
+  if( this->m_MetaDataDictionaryArray.size() )
+    {
+    for(unsigned int i=0; i<this->m_MetaDataDictionaryArray.size(); i++)
+      {
+      // each element is a raw pointer, delete them.
+      delete this->m_MetaDataDictionaryArray[i];
+      }
+    }
+  this->m_MetaDataDictionaryArray.clear();
+
+  ImageRegionType subRegionToRequest = output->GetRequestedRegion();
+  SizeType	  subSizeToRequest   = subRegionToRequest.GetSize();
+  IndexType	  subIndexToRequest  = subRegionToRequest.GetIndex();
+  IndexType	  outputFillIndex        = requestedRegion.GetIndex();
+  ImageRegionType outputFillRegion;
+  const int numberOfFiles = static_cast<int>(this->m_FileNames.size());
+  for ( int i = 0; i != numberOfFiles; ++i )
+    {
+    const int iFileName = ( this->m_ReverseOrder ? numberOfFiles - i - 1: i );
+    typename ReaderType::Pointer reader = ReaderType::New();
+    reader->SetFileName( this->m_FileNames[iFileName].c_str() );
+    reader->SetImageIO( this->m_ImageIO );
+    reader->SetUseStreaming( this->m_UseStreaming );
+    subIndexToRequest[0] = m_SubRegionsVector[i].GetIndex()[0];
+    subSizeToRequest[0]  = m_SubRegionsVector[i].GetSize()[0];
+    subRegionToRequest.SetIndex( subIndexToRequest );
+    subRegionToRequest.SetSize( subSizeToRequest );
+    reader->GetOutput()->SetRequestedRegion( subRegionToRequest );
+    reader->Update();
+
+    DictionaryRawPointer newDictionary = new DictionaryType;
+    *newDictionary = reader->GetImageIO()->GetMetaDataDictionary();
+    this->m_MetaDataDictionaryArray.push_back( newDictionary );
+
+    ImageRegionIterator<TOutputImage> it (reader->GetOutput(), subRegionToRequest );
+    outputFillRegion.SetSize( subSizeToRequest );
+    outputFillRegion.SetIndex( outputFillIndex );
+    ImageRegionIterator<TOutputImage> ot (output, outputFillRegion );
+
+    outputFillIndex[0] += subSizeToRequest[0];
+
+    for( it.GoToBegin(), ot.GoToBegin(); !it.IsAtEnd(); ++it, ++ot )
+      {
+      ot.Set(it.Get());
+      progress.CompletedPixel();
+      }
+    }
 }
 
 

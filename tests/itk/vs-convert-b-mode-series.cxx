@@ -49,10 +49,7 @@ int main( int argc, char* argv[] )
   reader->UpdateOutputInformation();
   reader->Print(cout);
 
-  // for now
-  return EXIT_SUCCESS;
-
-  writer->SetFileName( argv[4] );
+  writer->SetFileName( argv[2] );
 
   bmode->SetInput( reader->GetOutput() );
   writer->SetInput( bmode->GetOutput() );

@@ -72,6 +72,23 @@ void
 VisualSonicsSeriesReader< TOutputImage >
 ::EnlargeOutputRequestedRegion( DataObject* output )
 {
+  typename TOutputImage::Pointer out = dynamic_cast<TOutputImage*>(output);
+  ImageRegionType largestRegion = out->GetLargestPossibleRegion();
+  if(this->m_UseStreaming)
+    {
+    // we can stream on a frame by frame basis
+    ImageRegionType streamableRegion = out->GetRequestedRegion();
+    SizeType size = streamableRegion.GetSize();
+    size[1] = largestRegion.GetSize()[1];
+    size[2] = largestRegion.GetSize()[2];
+    streamableRegion.SetSize( size );
+
+    out->SetRequestedRegion( streamableRegion );
+    }
+  else
+    {
+    out->SetRequestedRegion( largestRegion );
+    }
 }
 
 

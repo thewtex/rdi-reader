@@ -50,9 +50,11 @@ int main( int argc, char* argv[] )
   reader->Print(cout);
 
   writer->SetFileName( argv[2] );
+  writer->SetNumberOfStreamDivisions( 20 );
 
   bmode->SetInput( reader->GetOutput() );
   writer->SetInput( bmode->GetOutput() );
+
   try
     {
     writer->Update();

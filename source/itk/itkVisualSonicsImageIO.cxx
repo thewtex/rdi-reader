@@ -142,7 +142,8 @@ Read
   unsigned int line = 0;
   char*  data_as_char = reinterpret_cast< char* >( buffer );
 
-  for( unsigned int frame = 0; frame < m_Dimensions[2]; frame++ )
+  inputStream.seekg( bytesPerLine * m_Dimensions[1] * m_IORegion.GetIndex(2), std::ios::cur );
+  for( unsigned int frame = 0; frame < m_IORegion.GetSize(2); frame++ )
     {
     for( line = 0; line < m_Dimensions[1]; line++ )
       {
@@ -153,6 +154,37 @@ Read
     }
 
   inputStream.close();
+}
+
+
+ImageIORegion
+VisualSonicsImageIO::
+GenerateStreamableReadRegionFromRequestedRegion( const ImageIORegion& requestedRegion ) const
+{
+  //
+  // The default implementations determines that the streamable region is
+  // equal to the largest possible region of the image.
+  //
+  ImageIORegion streamableRegion(this->m_NumberOfDimensions);
+  if(!m_UseStreamedReading)
+    {
+    for( unsigned int i=0; i < this->m_NumberOfDimensions; i++ )
+      {
+      streamableRegion.SetSize( i, this->m_Dimensions[i] );
+      streamableRegion.SetIndex( i, 0 );
+      }
+    }
+  else
+    {
+    // we can stream on a frame by frame basis
+    streamableRegion = requestedRegion;
+    streamableRegion.SetSize( 0, this->m_Dimensions[0] );
+    streamableRegion.SetSize( 1, this->m_Dimensions[1] );
+    streamableRegion.SetIndex( 0, 0 );
+    streamableRegion.SetIndex( 1, 0 );
+    }
+
+  return streamableRegion;
 }
 
 

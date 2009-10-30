@@ -61,6 +61,16 @@ public:
   /** Reads the data from disk into the memory buffer provided. */
   virtual void Read(void* buffer);
 
+  virtual bool CanStreamRead()
+    { return true; };
+
+  /** Method for supporting streaming.  Given a requested region, calculate what
+   * could be the region that we can read from the file. This is called the
+   * streamable region, which will be smaller than the LargestPossibleRegion and
+   * greater or equal to the RequestedRegion */
+  virtual ImageIORegion
+  GenerateStreamableReadRegionFromRequestedRegion( const ImageIORegion & requested ) const;
+
   /*-------- This part of the interfaces deals with writing data. ----- */
 
   /** Determine the file type. Returns true if this ImageIO can write the

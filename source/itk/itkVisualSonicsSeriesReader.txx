@@ -29,6 +29,18 @@ VisualSonicsSeriesReader< TOutputImage >
 
   origin.Fill( 0.0 );
 
+  std::string key("ITK_ImageOrigin");
+  // Clear the eventual previous content of the MetaDictionary array
+  if( this->m_MetaDataDictionaryArray.size() )
+    {
+    for(unsigned int i=0; i<this->m_MetaDataDictionaryArray.size(); i++)
+      {
+      // each element is a raw pointer, delete them.
+      delete this->m_MetaDataDictionaryArray[i];
+      }
+    }
+  this->m_MetaDataDictionaryArray.clear();
+
   if ( this->m_FileNames.size() == 0 )
     {
     itkExceptionMacro(<< "At least one filename is required." );
@@ -39,7 +51,7 @@ VisualSonicsSeriesReader< TOutputImage >
   typename SubRegionsVectorType::const_iterator sub_it = m_SubRegionsVector.begin();
   IndexType index = sub_it->GetIndex();
   SizeType  size  = sub_it->GetSize();
-  for( sub_it = m_SubRegionsVector.begin();
+  for( ++sub_it;
     sub_it != m_SubRegionsVector.end();
     ++sub_it )
     {

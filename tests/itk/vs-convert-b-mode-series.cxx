@@ -11,6 +11,7 @@ using namespace std;
 #include "itkArchetypeSeriesFileNames.h"
 #include "itkImage.h"
 #include "itkImageFileWriter.h"
+#include "itkSimpleFilterWatcher.h"
 
 #include "itkBModeImageFilter.h"
 
@@ -46,14 +47,13 @@ int main( int argc, char* argv[] )
 
   reader->SetFileNames( nameGenerator->GetFileNames() );
 
-  reader->UpdateOutputInformation();
-  reader->Print(cout);
-
   writer->SetFileName( argv[2] );
-  writer->SetNumberOfStreamDivisions( 30 );
+  writer->SetNumberOfStreamDivisions( 20 );
 
   bmode->SetInput( reader->GetOutput() );
   writer->SetInput( bmode->GetOutput() );
+
+  itk::SimpleFilterWatcher watcher(writer, "stream writing");
 
   try
     {

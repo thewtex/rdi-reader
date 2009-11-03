@@ -72,6 +72,12 @@ public:
   typedef typename Superclass::DictionaryArrayType		DictionaryArrayType;
   typedef typename Superclass::DictionaryArrayRawPointer	DictionaryArrayRawPointer;
 
+
+protected:
+  VisualSonicsSeriesReader();
+  virtual ~VisualSonicsSeriesReader() {};
+  void PrintSelf(std::ostream& os, Indent indent) const;
+
   /** Prepare the allocation of the output image during the first back
    * propagation of the pipeline. */
   virtual void GenerateOutputInformation(void);
@@ -82,11 +88,6 @@ public:
    * so the ImageSeriesReader must
    * enlarge the RequestedRegion to the size of the image on disk. */
   virtual void EnlargeOutputRequestedRegion(DataObject *output);
-
-protected:
-  VisualSonicsSeriesReader();
-  virtual ~VisualSonicsSeriesReader() {};
-  void PrintSelf(std::ostream& os, Indent indent) const;
 
   /** Does the real work. */
   virtual void GenerateData();

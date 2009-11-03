@@ -39,6 +39,9 @@ endif(CMAKE_COMPILER_IS_GNUCXX)
 # where all the executables go
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY
   ${RDI_READER_BINARY_DIR}/bin )
+# where all the libraries go
+set( CMAKE_LIBRARY_OUTPUT_DIRECTORY
+  ${RDI_READER_BINARY_DIR}/lib )
 
 
 add_subdirectory(source)

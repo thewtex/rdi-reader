@@ -9,7 +9,7 @@ using namespace std;
 /**
  * @brief buffer length for transcoding
  */
-const static unsigned int MAX_TRANSCODING_LENGTH = 512;
+const static unsigned int MAX_TRANSCODING_LENGTH = 4096;
 
 ToXMLCh::ToXMLCh():
   m_maxChars(MAX_TRANSCODING_LENGTH)

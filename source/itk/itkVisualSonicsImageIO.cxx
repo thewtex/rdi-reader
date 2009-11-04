@@ -2,6 +2,7 @@
 
 #include <fstream>
 
+#include "itkArray.h"
 #include "itkMetaDataObject.h"
 
 #include "rdiReader.h"
@@ -111,8 +112,8 @@ ReadImageInformation()
       )
   );
 
-  typedef std::vector< double > ThetaType;
-  ThetaType theta( this->m_Dimensions[1], 0.0 );
+  typedef itk::Array< double > ThetaType;
+  ThetaType theta( this->m_Dimensions[1] );
   std::string encoderPosStr( m_rdi->image_parameters().RF_Mode().RfModeSoft().V_Lines_Pos());
   std::replace( encoderPosStr.begin(), encoderPosStr.end(), ',', ' ' );
   std::istringstream encoderPosIstrm( encoderPosStr );

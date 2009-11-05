@@ -7,6 +7,9 @@ add_library( rdiReader SHARED ${RDI_READER_CLASS_SOURCES} )
 target_link_libraries( rdiReader
   ${XERCESC_LIBRARIES}
   )
+install( TARGETS rdiReader
+  LIBRARY DESTINATION lib
+  )
 
 if(ANALYZE_RDI_FORMAT)
   add_subdirectory(formats)

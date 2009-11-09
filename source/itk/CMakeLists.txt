@@ -15,7 +15,11 @@ target_link_libraries( ITKVisualSonicsImageIO
 install( TARGETS ITKVisualSonicsImageIO
   LIBRARY DESTINATION lib
   )
-install( FILES itkVisualSonicsImageIO.h itkVisualSonicsImageIOFactory.h
+install( FILES
+  itkVisualSonicsImageIO.h
+  itkVisualSonicsImageIOFactory.h
+  itkVisualSonicsSeriesReader.h
+  itkVisualSonicsSeriesReader.txx
   DESTINATION include
   )
 

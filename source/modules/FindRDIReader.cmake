@@ -10,10 +10,10 @@
 # RDIREADER_ITK_LIBRARIES, the libraries to link against to use the ITK ImageIO
 # RDIREADER_FOUND, If false, don't try to use rdiReader.
 
-FIND_PATH(RDIREADER_INCLUDE_DIR itkVisualSonicsImageIO.h
-  $ENV{RDIREADERROOT}/source
-  /usr/local/include
-  /usr/include
+FIND_PATH(RDIREADER_INCLUDE_DIR rdiReader.h
+  $ENV{RDIREADERROOT}/source/common
+  /usr/local/include/rdiReader
+  /usr/include/rdiReader
 )
 
 FIND_LIBRARY(RDIREADER_LIBRARIES

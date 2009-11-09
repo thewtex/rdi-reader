@@ -20,7 +20,7 @@ install( FILES
   itkVisualSonicsImageIOFactory.h
   itkVisualSonicsSeriesReader.h
   itkVisualSonicsSeriesReader.txx
-  DESTINATION include
+  DESTINATION ${ITK_INSTALL_PREFIX}/InsightToolkit/IO
   )
 
 add_executable( vs-convert

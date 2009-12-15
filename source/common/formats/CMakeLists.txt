@@ -3,7 +3,7 @@ find_package(Xsd REQUIRED)
 set(XSD_ARGS "cxx-tree" "--generate-ostream" "--generate-serialization")
 
 set(MODEL_RDI
-  ${RDI_READER_SOURCE_DIR}/tests/data/machine/visualsonics/vevo770/rmv710b/pat143_seg2.rdi
+  ${CMAKE_CURRENT_SOURCE_DIR}/model_rdi/710B/1090-400_seg1.rdi
   CACHE PATH
   "The *rdi that is used as a model to define the rdi format/content.")
 mark_as_advanced(MODEL_RDI)
@@ -24,3 +24,4 @@ add_custom_command(
   COMMENT "Translating rdi.xsd into rdi.cxx/rdi.hxx."
   )
 
+add_dependencies(rdiReader format-evaluator)

@@ -2,18 +2,18 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="image_info_t">
     <xs:sequence>
-      <xs:element type="xs:string" name="Study_Name"/>
-      <xs:element type="xs:string" name="Image_Id"/>
-      <xs:element type="xs:string" name="Image_Label"/>
-      <xs:element type="xs:positiveInteger" name="Image_Frames"/>
-      <xs:element type="xs:positiveInteger" name="Image_Lines"/>
-      <xs:element type="xs:positiveInteger" name="Image_Acquisition_Per_Line"/>
-      <xs:element type="xs:positiveInteger" name="Image_Acquisition_Size"/>
-      <xs:element type="xs:string" name="Animal_ID"/>
-      <xs:element type="xs:string" name="Acquisition_Mode"/>
-      <xs:element type="xs:string" name="Acquisition_Date"/>
-      <xs:element type="xs:string" name="Acquisition_Time"/>
-      <xs:element type="xs:string" name="Acquisition_Operator"/>
+      <xs:element type="xs:string" name="Study_Name" minOccurs="1"/>
+      <xs:element type="xs:string" name="Image_Id" minOccurs="0"/>
+      <xs:element type="xs:string" name="Image_Label" minOccurs="1"/>
+      <xs:element type="xs:positiveInteger" name="Image_Frames" minOccurs="1"/>
+      <xs:element type="xs:positiveInteger" name="Image_Lines" minOccurs="1"/>
+      <xs:element type="xs:positiveInteger" name="Image_Acquisition_Per_Line" minOccurs="1"/>
+      <xs:element type="xs:positiveInteger" name="Image_Acquisition_Size" minOccurs="1"/>
+      <xs:element type="xs:string" name="Animal_ID" minOccurs="1"/>
+      <xs:element type="xs:string" name="Acquisition_Mode" minOccurs="1"/>
+      <xs:element type="xs:string" name="Acquisition_Date" minOccurs="1"/>
+      <xs:element type="xs:string" name="Acquisition_Time" minOccurs="1"/>
+      <xs:element type="xs:string" name="Acquisition_Operator" minOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="image_data_t"/>

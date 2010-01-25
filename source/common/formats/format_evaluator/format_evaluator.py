@@ -47,9 +47,11 @@ class FormatEvaluator():
         next_line = self.rdi_line_parser.get_line()
         while(next_line[0][0] != "===_IMAGE_DATA_==="):
             element_name = next_line[0][0].replace(' ', '_')
+            required = '0' if element_name == 'Image_Id' else '1'
             etree.SubElement(image_info_seq, XS + 'element',
                     name = element_name,
-                    type = self.etyper.get_type(next_line))
+                    type = self.etyper.get_type(next_line),
+                    minOccurs = required)
             next_line = self.rdi_line_parser.get_line()
 
     def _parse_IMAGE_DATA_section(self):

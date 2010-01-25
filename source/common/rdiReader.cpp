@@ -95,11 +95,22 @@ rdiReader::~rdiReader()
 auto_ptr<rdi_t> rdiReader::parse_to_rdi_t()
 {
     ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument> domdoc = this->parse_to_DOMDocument();
-    std::auto_ptr< ::rdi_t> rdi_i (
-      rdi(domdoc,
-	xml_schema::flags::keep_dom | xml_schema::flags::own_dom)
-    );
-    return rdi_i;
+    try
+      {
+      std::auto_ptr< ::rdi_t> rdi_i (
+	rdi(domdoc,
+	  xml_schema::flags::keep_dom | xml_schema::flags::own_dom) 
+	);
+      return rdi_i;
+      }
+    catch (const xsd::cxx::tree::expected_element<char>& e)
+      {
+      throw std::logic_error(
+	e.what() +
+	string(": '") + e.name() +
+	string("' in namespace: ") + e.namespace_()
+	);
+      }
 }
 
 

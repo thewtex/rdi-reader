@@ -589,7 +589,7 @@ class image_info_t: public ::xml_schema::type
 {
   public:
   // Study_Name
-  //
+  // 
   typedef ::xml_schema::string Study_Name_type;
   typedef ::xsd::cxx::tree::traits< Study_Name_type, char > Study_Name_traits;
 
@@ -606,24 +606,28 @@ class image_info_t: public ::xml_schema::type
   Study_Name (::std::auto_ptr< Study_Name_type > p);
 
   // Image_Id
-  //
+  // 
   typedef ::xml_schema::string Image_Id_type;
+  typedef ::xsd::cxx::tree::optional< Image_Id_type > Image_Id_optional;
   typedef ::xsd::cxx::tree::traits< Image_Id_type, char > Image_Id_traits;
 
-  const Image_Id_type&
+  const Image_Id_optional&
   Image_Id () const;
 
-  Image_Id_type&
+  Image_Id_optional&
   Image_Id ();
 
   void
   Image_Id (const Image_Id_type& x);
 
   void
+  Image_Id (const Image_Id_optional& x);
+
+  void
   Image_Id (::std::auto_ptr< Image_Id_type > p);
 
   // Image_Label
-  //
+  // 
   typedef ::xml_schema::string Image_Label_type;
   typedef ::xsd::cxx::tree::traits< Image_Label_type, char > Image_Label_traits;
 
@@ -640,7 +644,7 @@ class image_info_t: public ::xml_schema::type
   Image_Label (::std::auto_ptr< Image_Label_type > p);
 
   // Image_Frames
-  //
+  // 
   typedef ::xml_schema::positive_integer Image_Frames_type;
   typedef ::xsd::cxx::tree::traits< Image_Frames_type, char > Image_Frames_traits;
 
@@ -654,7 +658,7 @@ class image_info_t: public ::xml_schema::type
   Image_Frames (const Image_Frames_type& x);
 
   // Image_Lines
-  //
+  // 
   typedef ::xml_schema::positive_integer Image_Lines_type;
   typedef ::xsd::cxx::tree::traits< Image_Lines_type, char > Image_Lines_traits;
 
@@ -668,7 +672,7 @@ class image_info_t: public ::xml_schema::type
   Image_Lines (const Image_Lines_type& x);
 
   // Image_Acquisition_Per_Line
-  //
+  // 
   typedef ::xml_schema::positive_integer Image_Acquisition_Per_Line_type;
   typedef ::xsd::cxx::tree::traits< Image_Acquisition_Per_Line_type, char > Image_Acquisition_Per_Line_traits;
 
@@ -682,7 +686,7 @@ class image_info_t: public ::xml_schema::type
   Image_Acquisition_Per_Line (const Image_Acquisition_Per_Line_type& x);
 
   // Image_Acquisition_Size
-  //
+  // 
   typedef ::xml_schema::positive_integer Image_Acquisition_Size_type;
   typedef ::xsd::cxx::tree::traits< Image_Acquisition_Size_type, char > Image_Acquisition_Size_traits;
 
@@ -696,7 +700,7 @@ class image_info_t: public ::xml_schema::type
   Image_Acquisition_Size (const Image_Acquisition_Size_type& x);
 
   // Animal_ID
-  //
+  // 
   typedef ::xml_schema::string Animal_ID_type;
   typedef ::xsd::cxx::tree::traits< Animal_ID_type, char > Animal_ID_traits;
 
@@ -713,7 +717,7 @@ class image_info_t: public ::xml_schema::type
   Animal_ID (::std::auto_ptr< Animal_ID_type > p);
 
   // Acquisition_Mode
-  //
+  // 
   typedef ::xml_schema::string Acquisition_Mode_type;
   typedef ::xsd::cxx::tree::traits< Acquisition_Mode_type, char > Acquisition_Mode_traits;
 
@@ -730,7 +734,7 @@ class image_info_t: public ::xml_schema::type
   Acquisition_Mode (::std::auto_ptr< Acquisition_Mode_type > p);
 
   // Acquisition_Date
-  //
+  // 
   typedef ::xml_schema::string Acquisition_Date_type;
   typedef ::xsd::cxx::tree::traits< Acquisition_Date_type, char > Acquisition_Date_traits;
 
@@ -747,7 +751,7 @@ class image_info_t: public ::xml_schema::type
   Acquisition_Date (::std::auto_ptr< Acquisition_Date_type > p);
 
   // Acquisition_Time
-  //
+  // 
   typedef ::xml_schema::string Acquisition_Time_type;
   typedef ::xsd::cxx::tree::traits< Acquisition_Time_type, char > Acquisition_Time_traits;
 
@@ -764,7 +768,7 @@ class image_info_t: public ::xml_schema::type
   Acquisition_Time (::std::auto_ptr< Acquisition_Time_type > p);
 
   // Acquisition_Operator
-  //
+  // 
   typedef ::xml_schema::string Acquisition_Operator_type;
   typedef ::xsd::cxx::tree::traits< Acquisition_Operator_type, char > Acquisition_Operator_traits;
 
@@ -783,7 +787,6 @@ class image_info_t: public ::xml_schema::type
   // Constructors.
   //
   image_info_t (const Study_Name_type&,
-                const Image_Id_type&,
                 const Image_Label_type&,
                 const Image_Frames_type&,
                 const Image_Lines_type&,
@@ -807,7 +810,7 @@ class image_info_t: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~image_info_t ();
 
   // Implementation.
@@ -819,7 +822,7 @@ class image_info_t: public ::xml_schema::type
 
   protected:
   ::xsd::cxx::tree::one< Study_Name_type > Study_Name_;
-  ::xsd::cxx::tree::one< Image_Id_type > Image_Id_;
+  Image_Id_optional Image_Id_;
   ::xsd::cxx::tree::one< Image_Label_type > Image_Label_;
   ::xsd::cxx::tree::one< Image_Frames_type > Image_Frames_;
   ::xsd::cxx::tree::one< Image_Lines_type > Image_Lines_;
@@ -860,7 +863,7 @@ class image_data_t: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~image_data_t ();
 };
 
@@ -868,7 +871,7 @@ class image_parameters_t: public ::xml_schema::type
 {
   public:
   // RF-Mode
-  //
+  // 
   typedef ::RF_Mode RF_Mode_type;
   typedef ::xsd::cxx::tree::traits< RF_Mode_type, char > RF_Mode_traits;
 
@@ -885,7 +888,7 @@ class image_parameters_t: public ::xml_schema::type
   RF_Mode (::std::auto_ptr< RF_Mode_type > p);
 
   // B-Mode
-  //
+  // 
   typedef ::B_Mode B_Mode_type;
   typedef ::xsd::cxx::tree::traits< B_Mode_type, char > B_Mode_traits;
 
@@ -921,7 +924,7 @@ class image_parameters_t: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~image_parameters_t ();
 
   // Implementation.
@@ -940,7 +943,7 @@ class rdi_t: public ::xml_schema::type
 {
   public:
   // image_info
-  //
+  // 
   typedef ::image_info_t image_info_type;
   typedef ::xsd::cxx::tree::traits< image_info_type, char > image_info_traits;
 
@@ -957,7 +960,7 @@ class rdi_t: public ::xml_schema::type
   image_info (::std::auto_ptr< image_info_type > p);
 
   // image_data
-  //
+  // 
   typedef ::image_data_t image_data_type;
   typedef ::xsd::cxx::tree::traits< image_data_type, char > image_data_traits;
 
@@ -974,7 +977,7 @@ class rdi_t: public ::xml_schema::type
   image_data (::std::auto_ptr< image_data_type > p);
 
   // image_parameters
-  //
+  // 
   typedef ::image_parameters_t image_parameters_type;
   typedef ::xsd::cxx::tree::traits< image_parameters_type, char > image_parameters_traits;
 
@@ -1012,7 +1015,7 @@ class rdi_t: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~rdi_t ();
 
   // Implementation.
@@ -1032,7 +1035,7 @@ class RF_Mode: public ::xml_schema::type
 {
   public:
   // ActiveProbe
-  //
+  // 
   typedef ::ActiveProbe ActiveProbe_type;
   typedef ::xsd::cxx::tree::traits< ActiveProbe_type, char > ActiveProbe_traits;
 
@@ -1049,7 +1052,7 @@ class RF_Mode: public ::xml_schema::type
   ActiveProbe (::std::auto_ptr< ActiveProbe_type > p);
 
   // BModeSoft
-  //
+  // 
   typedef ::BModeSoft BModeSoft_type;
   typedef ::xsd::cxx::tree::traits< BModeSoft_type, char > BModeSoft_traits;
 
@@ -1066,7 +1069,7 @@ class RF_Mode: public ::xml_schema::type
   BModeSoft (::std::auto_ptr< BModeSoft_type > p);
 
   // Sys
-  //
+  // 
   typedef ::Sys Sys_type;
   typedef ::xsd::cxx::tree::traits< Sys_type, char > Sys_traits;
 
@@ -1083,7 +1086,7 @@ class RF_Mode: public ::xml_schema::type
   Sys (::std::auto_ptr< Sys_type > p);
 
   // MIS
-  //
+  // 
   typedef ::MIS MIS_type;
   typedef ::xsd::cxx::tree::traits< MIS_type, char > MIS_traits;
 
@@ -1100,7 +1103,7 @@ class RF_Mode: public ::xml_schema::type
   MIS (::std::auto_ptr< MIS_type > p);
 
   // Scan
-  //
+  // 
   typedef ::Scan Scan_type;
   typedef ::xsd::cxx::tree::traits< Scan_type, char > Scan_traits;
 
@@ -1117,7 +1120,7 @@ class RF_Mode: public ::xml_schema::type
   Scan (::std::auto_ptr< Scan_type > p);
 
   // Motor
-  //
+  // 
   typedef ::Motor Motor_type;
   typedef ::xsd::cxx::tree::traits< Motor_type, char > Motor_traits;
 
@@ -1134,7 +1137,7 @@ class RF_Mode: public ::xml_schema::type
   Motor (::std::auto_ptr< Motor_type > p);
 
   // Diag
-  //
+  // 
   typedef ::Diag Diag_type;
   typedef ::xsd::cxx::tree::traits< Diag_type, char > Diag_traits;
 
@@ -1151,7 +1154,7 @@ class RF_Mode: public ::xml_schema::type
   Diag (::std::auto_ptr< Diag_type > p);
 
   // ECG
-  //
+  // 
   typedef ::ECG ECG_type;
   typedef ::xsd::cxx::tree::traits< ECG_type, char > ECG_traits;
 
@@ -1168,7 +1171,7 @@ class RF_Mode: public ::xml_schema::type
   ECG (::std::auto_ptr< ECG_type > p);
 
   // RfModeSoft
-  //
+  // 
   typedef ::RfModeSoft RfModeSoft_type;
   typedef ::xsd::cxx::tree::traits< RfModeSoft_type, char > RfModeSoft_traits;
 
@@ -1185,7 +1188,7 @@ class RF_Mode: public ::xml_schema::type
   RfModeSoft (::std::auto_ptr< RfModeSoft_type > p);
 
   // TX
-  //
+  // 
   typedef ::TX TX_type;
   typedef ::xsd::cxx::tree::traits< TX_type, char > TX_traits;
 
@@ -1202,7 +1205,7 @@ class RF_Mode: public ::xml_schema::type
   TX (::std::auto_ptr< TX_type > p);
 
   // X_3D
-  //
+  // 
   typedef ::X_3D X_3D_type;
   typedef ::xsd::cxx::tree::traits< X_3D_type, char > X_3D_traits;
 
@@ -1219,7 +1222,7 @@ class RF_Mode: public ::xml_schema::type
   X_3D (::std::auto_ptr< X_3D_type > p);
 
   // RfAnalysis
-  //
+  // 
   typedef ::RfAnalysis RfAnalysis_type;
   typedef ::xsd::cxx::tree::traits< RfAnalysis_type, char > RfAnalysis_traits;
 
@@ -1236,7 +1239,7 @@ class RF_Mode: public ::xml_schema::type
   RfAnalysis (::std::auto_ptr< RfAnalysis_type > p);
 
   // RX
-  //
+  // 
   typedef ::RX RX_type;
   typedef ::xsd::cxx::tree::traits< RX_type, char > RX_traits;
 
@@ -1253,7 +1256,7 @@ class RF_Mode: public ::xml_schema::type
   RX (::std::auto_ptr< RX_type > p);
 
   // Display
-  //
+  // 
   typedef ::Display Display_type;
   typedef ::xsd::cxx::tree::traits< Display_type, char > Display_traits;
 
@@ -1270,7 +1273,7 @@ class RF_Mode: public ::xml_schema::type
   Display (::std::auto_ptr< Display_type > p);
 
   // Acqiris
-  //
+  // 
   typedef ::Acqiris Acqiris_type;
   typedef ::xsd::cxx::tree::traits< Acqiris_type, char > Acqiris_traits;
 
@@ -1332,7 +1335,7 @@ class RF_Mode: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RF_Mode ();
 
   // Implementation.
@@ -1364,7 +1367,7 @@ class B_Mode: public ::xml_schema::type
 {
   public:
   // ActiveProbe
-  //
+  // 
   typedef ::ActiveProbe1 ActiveProbe_type;
   typedef ::xsd::cxx::tree::traits< ActiveProbe_type, char > ActiveProbe_traits;
 
@@ -1381,7 +1384,7 @@ class B_Mode: public ::xml_schema::type
   ActiveProbe (::std::auto_ptr< ActiveProbe_type > p);
 
   // BModeSoft
-  //
+  // 
   typedef ::BModeSoft1 BModeSoft_type;
   typedef ::xsd::cxx::tree::traits< BModeSoft_type, char > BModeSoft_traits;
 
@@ -1398,7 +1401,7 @@ class B_Mode: public ::xml_schema::type
   BModeSoft (::std::auto_ptr< BModeSoft_type > p);
 
   // Sys
-  //
+  // 
   typedef ::Sys1 Sys_type;
   typedef ::xsd::cxx::tree::traits< Sys_type, char > Sys_traits;
 
@@ -1415,7 +1418,7 @@ class B_Mode: public ::xml_schema::type
   Sys (::std::auto_ptr< Sys_type > p);
 
   // Contrast
-  //
+  // 
   typedef ::Contrast Contrast_type;
   typedef ::xsd::cxx::tree::traits< Contrast_type, char > Contrast_traits;
 
@@ -1432,7 +1435,7 @@ class B_Mode: public ::xml_schema::type
   Contrast (::std::auto_ptr< Contrast_type > p);
 
   // MIS
-  //
+  // 
   typedef ::MIS1 MIS_type;
   typedef ::xsd::cxx::tree::traits< MIS_type, char > MIS_traits;
 
@@ -1449,7 +1452,7 @@ class B_Mode: public ::xml_schema::type
   MIS (::std::auto_ptr< MIS_type > p);
 
   // Scan
-  //
+  // 
   typedef ::Scan1 Scan_type;
   typedef ::xsd::cxx::tree::traits< Scan_type, char > Scan_traits;
 
@@ -1466,7 +1469,7 @@ class B_Mode: public ::xml_schema::type
   Scan (::std::auto_ptr< Scan_type > p);
 
   // Motor
-  //
+  // 
   typedef ::Motor1 Motor_type;
   typedef ::xsd::cxx::tree::traits< Motor_type, char > Motor_traits;
 
@@ -1483,7 +1486,7 @@ class B_Mode: public ::xml_schema::type
   Motor (::std::auto_ptr< Motor_type > p);
 
   // ContrastDlg
-  //
+  // 
   typedef ::ContrastDlg ContrastDlg_type;
   typedef ::xsd::cxx::tree::traits< ContrastDlg_type, char > ContrastDlg_traits;
 
@@ -1500,7 +1503,7 @@ class B_Mode: public ::xml_schema::type
   ContrastDlg (::std::auto_ptr< ContrastDlg_type > p);
 
   // Diag
-  //
+  // 
   typedef ::Diag1 Diag_type;
   typedef ::xsd::cxx::tree::traits< Diag_type, char > Diag_traits;
 
@@ -1517,7 +1520,7 @@ class B_Mode: public ::xml_schema::type
   Diag (::std::auto_ptr< Diag_type > p);
 
   // ECG
-  //
+  // 
   typedef ::ECG1 ECG_type;
   typedef ::xsd::cxx::tree::traits< ECG_type, char > ECG_traits;
 
@@ -1534,7 +1537,7 @@ class B_Mode: public ::xml_schema::type
   ECG (::std::auto_ptr< ECG_type > p);
 
   // TX
-  //
+  // 
   typedef ::TX1 TX_type;
   typedef ::xsd::cxx::tree::traits< TX_type, char > TX_traits;
 
@@ -1551,7 +1554,7 @@ class B_Mode: public ::xml_schema::type
   TX (::std::auto_ptr< TX_type > p);
 
   // ContrastDestroy
-  //
+  // 
   typedef ::ContrastDestroy ContrastDestroy_type;
   typedef ::xsd::cxx::tree::traits< ContrastDestroy_type, char > ContrastDestroy_traits;
 
@@ -1568,7 +1571,7 @@ class B_Mode: public ::xml_schema::type
   ContrastDestroy (::std::auto_ptr< ContrastDestroy_type > p);
 
   // X_3D
-  //
+  // 
   typedef ::X_3D1 X_3D_type;
   typedef ::xsd::cxx::tree::traits< X_3D_type, char > X_3D_traits;
 
@@ -1585,7 +1588,7 @@ class B_Mode: public ::xml_schema::type
   X_3D (::std::auto_ptr< X_3D_type > p);
 
   // X_3DSoft
-  //
+  // 
   typedef ::X_3DSoft X_3DSoft_type;
   typedef ::xsd::cxx::tree::traits< X_3DSoft_type, char > X_3DSoft_traits;
 
@@ -1602,7 +1605,7 @@ class B_Mode: public ::xml_schema::type
   X_3DSoft (::std::auto_ptr< X_3DSoft_type > p);
 
   // RX
-  //
+  // 
   typedef ::RX1 RX_type;
   typedef ::xsd::cxx::tree::traits< RX_type, char > RX_traits;
 
@@ -1619,7 +1622,7 @@ class B_Mode: public ::xml_schema::type
   RX (::std::auto_ptr< RX_type > p);
 
   // Display
-  //
+  // 
   typedef ::Display1 Display_type;
   typedef ::xsd::cxx::tree::traits< Display_type, char > Display_traits;
 
@@ -1636,7 +1639,7 @@ class B_Mode: public ::xml_schema::type
   Display (::std::auto_ptr< Display_type > p);
 
   // EKVModeSoft
-  //
+  // 
   typedef ::EKVModeSoft EKVModeSoft_type;
   typedef ::xsd::cxx::tree::traits< EKVModeSoft_type, char > EKVModeSoft_traits;
 
@@ -1653,7 +1656,7 @@ class B_Mode: public ::xml_schema::type
   EKVModeSoft (::std::auto_ptr< EKVModeSoft_type > p);
 
   // BModeLVAnalysis
-  //
+  // 
   typedef ::BModeLVAnalysis BModeLVAnalysis_type;
   typedef ::xsd::cxx::tree::traits< BModeLVAnalysis_type, char > BModeLVAnalysis_traits;
 
@@ -1721,7 +1724,7 @@ class B_Mode: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~B_Mode ();
 
   // Implementation.
@@ -1756,7 +1759,7 @@ class ActiveProbe: public ::xml_schema::type
 {
   public:
   // Notes
-  //
+  // 
   typedef ::xml_schema::string Notes_type;
   typedef ::xsd::cxx::tree::traits< Notes_type, char > Notes_traits;
 
@@ -1773,7 +1776,7 @@ class ActiveProbe: public ::xml_schema::type
   Notes (::std::auto_ptr< Notes_type > p);
 
   // Sample-Time
-  //
+  // 
   typedef ::Sample_Time Sample_Time_type;
   typedef ::xsd::cxx::tree::traits< Sample_Time_type, char > Sample_Time_traits;
 
@@ -1790,7 +1793,7 @@ class ActiveProbe: public ::xml_schema::type
   Sample_Time (::std::auto_ptr< Sample_Time_type > p);
 
   // Focal-Length
-  //
+  // 
   typedef ::Focal_Length Focal_Length_type;
   typedef ::xsd::cxx::tree::traits< Focal_Length_type, char > Focal_Length_traits;
 
@@ -1807,7 +1810,7 @@ class ActiveProbe: public ::xml_schema::type
   Focal_Length (::std::auto_ptr< Focal_Length_type > p);
 
   // Acceleration-Limit-Slope
-  //
+  // 
   typedef ::xml_schema::string Acceleration_Limit_Slope_type;
   typedef ::xsd::cxx::tree::traits< Acceleration_Limit_Slope_type, char > Acceleration_Limit_Slope_traits;
 
@@ -1824,7 +1827,7 @@ class ActiveProbe: public ::xml_schema::type
   Acceleration_Limit_Slope (::std::auto_ptr< Acceleration_Limit_Slope_type > p);
 
   // Type
-  //
+  // 
   typedef ::xml_schema::string Type_type;
   typedef ::xsd::cxx::tree::traits< Type_type, char > Type_traits;
 
@@ -1841,7 +1844,7 @@ class ActiveProbe: public ::xml_schema::type
   Type (::std::auto_ptr< Type_type > p);
 
   // Detect-Id
-  //
+  // 
   typedef ::xml_schema::string Detect_Id_type;
   typedef ::xsd::cxx::tree::traits< Detect_Id_type, char > Detect_Id_traits;
 
@@ -1858,7 +1861,7 @@ class ActiveProbe: public ::xml_schema::type
   Detect_Id (::std::auto_ptr< Detect_Id_type > p);
 
   // Default-Scan-Speed
-  //
+  // 
   typedef ::Default_Scan_Speed Default_Scan_Speed_type;
   typedef ::xsd::cxx::tree::traits< Default_Scan_Speed_type, char > Default_Scan_Speed_traits;
 
@@ -1875,7 +1878,7 @@ class ActiveProbe: public ::xml_schema::type
   Default_Scan_Speed (::std::auto_ptr< Default_Scan_Speed_type > p);
 
   // K1-Power
-  //
+  // 
   typedef ::xml_schema::string K1_Power_type;
   typedef ::xsd::cxx::tree::traits< K1_Power_type, char > K1_Power_traits;
 
@@ -1892,7 +1895,7 @@ class ActiveProbe: public ::xml_schema::type
   K1_Power (::std::auto_ptr< K1_Power_type > p);
 
   // Cutoff-Scan-Speed
-  //
+  // 
   typedef ::Cutoff_Scan_Speed Cutoff_Scan_Speed_type;
   typedef ::xsd::cxx::tree::traits< Cutoff_Scan_Speed_type, char > Cutoff_Scan_Speed_traits;
 
@@ -1909,7 +1912,7 @@ class ActiveProbe: public ::xml_schema::type
   Cutoff_Scan_Speed (::std::auto_ptr< Cutoff_Scan_Speed_type > p);
 
   // Frequency-Low
-  //
+  // 
   typedef ::Frequency_Low Frequency_Low_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Low_type, char > Frequency_Low_traits;
 
@@ -1926,7 +1929,7 @@ class ActiveProbe: public ::xml_schema::type
   Frequency_Low (::std::auto_ptr< Frequency_Low_type > p);
 
   // Default-FOV
-  //
+  // 
   typedef ::Default_FOV Default_FOV_type;
   typedef ::xsd::cxx::tree::traits< Default_FOV_type, char > Default_FOV_traits;
 
@@ -1943,7 +1946,7 @@ class ActiveProbe: public ::xml_schema::type
   Default_FOV (::std::auto_ptr< Default_FOV_type > p);
 
   // Frequency-Doppler-Default
-  //
+  // 
   typedef ::Frequency_Doppler_Default Frequency_Doppler_Default_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Doppler_Default_type, char > Frequency_Doppler_Default_traits;
 
@@ -1960,7 +1963,7 @@ class ActiveProbe: public ::xml_schema::type
   Frequency_Doppler_Default (::std::auto_ptr< Frequency_Doppler_Default_type > p);
 
   // Default-SvSize-MMode
-  //
+  // 
   typedef ::xml_schema::string Default_SvSize_MMode_type;
   typedef ::xsd::cxx::tree::traits< Default_SvSize_MMode_type, char > Default_SvSize_MMode_traits;
 
@@ -1977,7 +1980,7 @@ class ActiveProbe: public ::xml_schema::type
   Default_SvSize_MMode (::std::auto_ptr< Default_SvSize_MMode_type > p);
 
   // Axial-Res-Factor-Target
-  //
+  // 
   typedef ::xml_schema::string Axial_Res_Factor_Target_type;
   typedef ::xsd::cxx::tree::traits< Axial_Res_Factor_Target_type, char > Axial_Res_Factor_Target_traits;
 
@@ -1994,7 +1997,7 @@ class ActiveProbe: public ::xml_schema::type
   Axial_Res_Factor_Target (::std::auto_ptr< Axial_Res_Factor_Target_type > p);
 
   // F-Number
-  //
+  // 
   typedef ::xml_schema::string F_Number_type;
   typedef ::xsd::cxx::tree::traits< F_Number_type, char > F_Number_traits;
 
@@ -2011,7 +2014,7 @@ class ActiveProbe: public ::xml_schema::type
   F_Number (::std::auto_ptr< F_Number_type > p);
 
   // Acc-Time-Factor
-  //
+  // 
   typedef ::xml_schema::string Acc_Time_Factor_type;
   typedef ::xsd::cxx::tree::traits< Acc_Time_Factor_type, char > Acc_Time_Factor_traits;
 
@@ -2028,7 +2031,7 @@ class ActiveProbe: public ::xml_schema::type
   Acc_Time_Factor (::std::auto_ptr< Acc_Time_Factor_type > p);
 
   // Frequency-Doppler
-  //
+  // 
   typedef ::Frequency_Doppler Frequency_Doppler_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Doppler_type, char > Frequency_Doppler_traits;
 
@@ -2045,7 +2048,7 @@ class ActiveProbe: public ::xml_schema::type
   Frequency_Doppler (::std::auto_ptr< Frequency_Doppler_type > p);
 
   // Axial-Res
-  //
+  // 
   typedef ::Axial_Res Axial_Res_type;
   typedef ::xsd::cxx::tree::traits< Axial_Res_type, char > Axial_Res_traits;
 
@@ -2062,7 +2065,7 @@ class ActiveProbe: public ::xml_schema::type
   Axial_Res (::std::auto_ptr< Axial_Res_type > p);
 
   // Detect-Ratio-Min
-  //
+  // 
   typedef ::xml_schema::string Detect_Ratio_Min_type;
   typedef ::xsd::cxx::tree::traits< Detect_Ratio_Min_type, char > Detect_Ratio_Min_traits;
 
@@ -2079,7 +2082,7 @@ class ActiveProbe: public ::xml_schema::type
   Detect_Ratio_Min (::std::auto_ptr< Detect_Ratio_Min_type > p);
 
   // Lateral-Res-Factor-Target
-  //
+  // 
   typedef ::xml_schema::string Lateral_Res_Factor_Target_type;
   typedef ::xsd::cxx::tree::traits< Lateral_Res_Factor_Target_type, char > Lateral_Res_Factor_Target_traits;
 
@@ -2096,7 +2099,7 @@ class ActiveProbe: public ::xml_schema::type
   Lateral_Res_Factor_Target (::std::auto_ptr< Lateral_Res_Factor_Target_type > p);
 
   // Derivative-Time
-  //
+  // 
   typedef ::xml_schema::string Derivative_Time_type;
   typedef ::xsd::cxx::tree::traits< Derivative_Time_type, char > Derivative_Time_traits;
 
@@ -2113,7 +2116,7 @@ class ActiveProbe: public ::xml_schema::type
   Derivative_Time (::std::auto_ptr< Derivative_Time_type > p);
 
   // Filter-High
-  //
+  // 
   typedef ::Filter_High Filter_High_type;
   typedef ::xsd::cxx::tree::traits< Filter_High_type, char > Filter_High_traits;
 
@@ -2130,7 +2133,7 @@ class ActiveProbe: public ::xml_schema::type
   Filter_High (::std::auto_ptr< Filter_High_type > p);
 
   // Pivot-Encoder-Dist
-  //
+  // 
   typedef ::Pivot_Encoder_Dist Pivot_Encoder_Dist_type;
   typedef ::xsd::cxx::tree::traits< Pivot_Encoder_Dist_type, char > Pivot_Encoder_Dist_traits;
 
@@ -2147,7 +2150,7 @@ class ActiveProbe: public ::xml_schema::type
   Pivot_Encoder_Dist (::std::auto_ptr< Pivot_Encoder_Dist_type > p);
 
   // Encoder-Range-Max
-  //
+  // 
   typedef ::Encoder_Range_Max Encoder_Range_Max_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Range_Max_type, char > Encoder_Range_Max_traits;
 
@@ -2164,7 +2167,7 @@ class ActiveProbe: public ::xml_schema::type
   Encoder_Range_Max (::std::auto_ptr< Encoder_Range_Max_type > p);
 
   // Encoder-Range-Min
-  //
+  // 
   typedef ::Encoder_Range_Min Encoder_Range_Min_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Range_Min_type, char > Encoder_Range_Min_traits;
 
@@ -2181,7 +2184,7 @@ class ActiveProbe: public ::xml_schema::type
   Encoder_Range_Min (::std::auto_ptr< Encoder_Range_Min_type > p);
 
   // Lateral-Res
-  //
+  // 
   typedef ::Lateral_Res Lateral_Res_type;
   typedef ::xsd::cxx::tree::traits< Lateral_Res_type, char > Lateral_Res_traits;
 
@@ -2198,7 +2201,7 @@ class ActiveProbe: public ::xml_schema::type
   Lateral_Res (::std::auto_ptr< Lateral_Res_type > p);
 
   // Motor-Overhead
-  //
+  // 
   typedef ::Motor_Overhead Motor_Overhead_type;
   typedef ::xsd::cxx::tree::traits< Motor_Overhead_type, char > Motor_Overhead_traits;
 
@@ -2215,7 +2218,7 @@ class ActiveProbe: public ::xml_schema::type
   Motor_Overhead (::std::auto_ptr< Motor_Overhead_type > p);
 
   // Max-Scan-Distance
-  //
+  // 
   typedef ::Max_Scan_Distance Max_Scan_Distance_type;
   typedef ::xsd::cxx::tree::traits< Max_Scan_Distance_type, char > Max_Scan_Distance_traits;
 
@@ -2232,7 +2235,7 @@ class ActiveProbe: public ::xml_schema::type
   Max_Scan_Distance (::std::auto_ptr< Max_Scan_Distance_type > p);
 
   // Version
-  //
+  // 
   typedef ::xml_schema::string Version_type;
   typedef ::xsd::cxx::tree::traits< Version_type, char > Version_traits;
 
@@ -2249,7 +2252,7 @@ class ActiveProbe: public ::xml_schema::type
   Version (::std::auto_ptr< Version_type > p);
 
   // Default-Rx-Gain
-  //
+  // 
   typedef ::Default_Rx_Gain Default_Rx_Gain_type;
   typedef ::xsd::cxx::tree::traits< Default_Rx_Gain_type, char > Default_Rx_Gain_traits;
 
@@ -2266,7 +2269,7 @@ class ActiveProbe: public ::xml_schema::type
   Default_Rx_Gain (::std::auto_ptr< Default_Rx_Gain_type > p);
 
   // Filter-Low
-  //
+  // 
   typedef ::Filter_Low Filter_Low_type;
   typedef ::xsd::cxx::tree::traits< Filter_Low_type, char > Filter_Low_traits;
 
@@ -2283,7 +2286,7 @@ class ActiveProbe: public ::xml_schema::type
   Filter_Low (::std::auto_ptr< Filter_Low_type > p);
 
   // PID-KD-High
-  //
+  // 
   typedef ::xml_schema::string PID_KD_High_type;
   typedef ::xsd::cxx::tree::traits< PID_KD_High_type, char > PID_KD_High_traits;
 
@@ -2300,7 +2303,7 @@ class ActiveProbe: public ::xml_schema::type
   PID_KD_High (::std::auto_ptr< PID_KD_High_type > p);
 
   // PID-KI-High
-  //
+  // 
   typedef ::xml_schema::string PID_KI_High_type;
   typedef ::xsd::cxx::tree::traits< PID_KI_High_type, char > PID_KI_High_traits;
 
@@ -2317,7 +2320,7 @@ class ActiveProbe: public ::xml_schema::type
   PID_KI_High (::std::auto_ptr< PID_KI_High_type > p);
 
   // PID-KP-High
-  //
+  // 
   typedef ::xml_schema::string PID_KP_High_type;
   typedef ::xsd::cxx::tree::traits< PID_KP_High_type, char > PID_KP_High_traits;
 
@@ -2334,7 +2337,7 @@ class ActiveProbe: public ::xml_schema::type
   PID_KP_High (::std::auto_ptr< PID_KP_High_type > p);
 
   // Frequency-High
-  //
+  // 
   typedef ::Frequency_High Frequency_High_type;
   typedef ::xsd::cxx::tree::traits< Frequency_High_type, char > Frequency_High_traits;
 
@@ -2351,7 +2354,7 @@ class ActiveProbe: public ::xml_schema::type
   Frequency_High (::std::auto_ptr< Frequency_High_type > p);
 
   // Lateral-Res-Factor-Max
-  //
+  // 
   typedef ::xml_schema::string Lateral_Res_Factor_Max_type;
   typedef ::xsd::cxx::tree::traits< Lateral_Res_Factor_Max_type, char > Lateral_Res_Factor_Max_traits;
 
@@ -2368,7 +2371,7 @@ class ActiveProbe: public ::xml_schema::type
   Lateral_Res_Factor_Max (::std::auto_ptr< Lateral_Res_Factor_Max_type > p);
 
   // Scan-Speeds
-  //
+  // 
   typedef ::Scan_Speeds Scan_Speeds_type;
   typedef ::xsd::cxx::tree::traits< Scan_Speeds_type, char > Scan_Speeds_traits;
 
@@ -2385,7 +2388,7 @@ class ActiveProbe: public ::xml_schema::type
   Scan_Speeds (::std::auto_ptr< Scan_Speeds_type > p);
 
   // Filter-Doppler-Cutoff
-  //
+  // 
   typedef ::Filter_Doppler_Cutoff Filter_Doppler_Cutoff_type;
   typedef ::xsd::cxx::tree::traits< Filter_Doppler_Cutoff_type, char > Filter_Doppler_Cutoff_traits;
 
@@ -2402,7 +2405,7 @@ class ActiveProbe: public ::xml_schema::type
   Filter_Doppler_Cutoff (::std::auto_ptr< Filter_Doppler_Cutoff_type > p);
 
   // Name
-  //
+  // 
   typedef ::xml_schema::string Name_type;
   typedef ::xsd::cxx::tree::traits< Name_type, char > Name_traits;
 
@@ -2419,7 +2422,7 @@ class ActiveProbe: public ::xml_schema::type
   Name (::std::auto_ptr< Name_type > p);
 
   // PID-KD-Low
-  //
+  // 
   typedef ::xml_schema::string PID_KD_Low_type;
   typedef ::xsd::cxx::tree::traits< PID_KD_Low_type, char > PID_KD_Low_traits;
 
@@ -2436,7 +2439,7 @@ class ActiveProbe: public ::xml_schema::type
   PID_KD_Low (::std::auto_ptr< PID_KD_Low_type > p);
 
   // PID-KI-Low
-  //
+  // 
   typedef ::xml_schema::string PID_KI_Low_type;
   typedef ::xsd::cxx::tree::traits< PID_KI_Low_type, char > PID_KI_Low_traits;
 
@@ -2453,7 +2456,7 @@ class ActiveProbe: public ::xml_schema::type
   PID_KI_Low (::std::auto_ptr< PID_KI_Low_type > p);
 
   // PID-KP-Low
-  //
+  // 
   typedef ::xml_schema::string PID_KP_Low_type;
   typedef ::xsd::cxx::tree::traits< PID_KP_Low_type, char > PID_KP_Low_traits;
 
@@ -2470,7 +2473,7 @@ class ActiveProbe: public ::xml_schema::type
   PID_KP_Low (::std::auto_ptr< PID_KP_Low_type > p);
 
   // Peak-Bandwidth-Correction
-  //
+  // 
   typedef ::xml_schema::string Peak_Bandwidth_Correction_type;
   typedef ::xsd::cxx::tree::traits< Peak_Bandwidth_Correction_type, char > Peak_Bandwidth_Correction_traits;
 
@@ -2487,7 +2490,7 @@ class ActiveProbe: public ::xml_schema::type
   Peak_Bandwidth_Correction (::std::auto_ptr< Peak_Bandwidth_Correction_type > p);
 
   // Frequency-Doppler-Low
-  //
+  // 
   typedef ::Frequency_Doppler_Low Frequency_Doppler_Low_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Doppler_Low_type, char > Frequency_Doppler_Low_traits;
 
@@ -2504,7 +2507,7 @@ class ActiveProbe: public ::xml_schema::type
   Frequency_Doppler_Low (::std::auto_ptr< Frequency_Doppler_Low_type > p);
 
   // Pivot-Transducer-Face-Dist
-  //
+  // 
   typedef ::Pivot_Transducer_Face_Dist Pivot_Transducer_Face_Dist_type;
   typedef ::xsd::cxx::tree::traits< Pivot_Transducer_Face_Dist_type, char > Pivot_Transducer_Face_Dist_traits;
 
@@ -2521,7 +2524,7 @@ class ActiveProbe: public ::xml_schema::type
   Pivot_Transducer_Face_Dist (::std::auto_ptr< Pivot_Transducer_Face_Dist_type > p);
 
   // Filter-Doppler
-  //
+  // 
   typedef ::Filter_Doppler Filter_Doppler_type;
   typedef ::xsd::cxx::tree::traits< Filter_Doppler_type, char > Filter_Doppler_traits;
 
@@ -2538,7 +2541,7 @@ class ActiveProbe: public ::xml_schema::type
   Filter_Doppler (::std::auto_ptr< Filter_Doppler_type > p);
 
   // Frequency
-  //
+  // 
   typedef ::Frequency Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
@@ -2555,7 +2558,7 @@ class ActiveProbe: public ::xml_schema::type
   Frequency (::std::auto_ptr< Frequency_type > p);
 
   // Integration-Limit
-  //
+  // 
   typedef ::xml_schema::string Integration_Limit_type;
   typedef ::xsd::cxx::tree::traits< Integration_Limit_type, char > Integration_Limit_traits;
 
@@ -2572,7 +2575,7 @@ class ActiveProbe: public ::xml_schema::type
   Integration_Limit (::std::auto_ptr< Integration_Limit_type > p);
 
   // Encoder-Separation
-  //
+  // 
   typedef ::Encoder_Separation Encoder_Separation_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Separation_type, char > Encoder_Separation_traits;
 
@@ -2589,7 +2592,7 @@ class ActiveProbe: public ::xml_schema::type
   Encoder_Separation (::std::auto_ptr< Encoder_Separation_type > p);
 
   // Overshoot
-  //
+  // 
   typedef ::Overshoot Overshoot_type;
   typedef ::xsd::cxx::tree::traits< Overshoot_type, char > Overshoot_traits;
 
@@ -2606,7 +2609,7 @@ class ActiveProbe: public ::xml_schema::type
   Overshoot (::std::auto_ptr< Overshoot_type > p);
 
   // Attenuation-Shift
-  //
+  // 
   typedef ::xml_schema::string Attenuation_Shift_type;
   typedef ::xsd::cxx::tree::traits< Attenuation_Shift_type, char > Attenuation_Shift_traits;
 
@@ -2623,7 +2626,7 @@ class ActiveProbe: public ::xml_schema::type
   Attenuation_Shift (::std::auto_ptr< Attenuation_Shift_type > p);
 
   // Filter
-  //
+  // 
   typedef ::Filter Filter_type;
   typedef ::xsd::cxx::tree::traits< Filter_type, char > Filter_traits;
 
@@ -2640,7 +2643,7 @@ class ActiveProbe: public ::xml_schema::type
   Filter (::std::auto_ptr< Filter_type > p);
 
   // Default-Rx-Gain-Doppler
-  //
+  // 
   typedef ::Default_Rx_Gain_Doppler Default_Rx_Gain_Doppler_type;
   typedef ::xsd::cxx::tree::traits< Default_Rx_Gain_Doppler_type, char > Default_Rx_Gain_Doppler_traits;
 
@@ -2657,7 +2660,7 @@ class ActiveProbe: public ::xml_schema::type
   Default_Rx_Gain_Doppler (::std::auto_ptr< Default_Rx_Gain_Doppler_type > p);
 
   // Peak-Vel-Correction
-  //
+  // 
   typedef ::xml_schema::string Peak_Vel_Correction_type;
   typedef ::xsd::cxx::tree::traits< Peak_Vel_Correction_type, char > Peak_Vel_Correction_traits;
 
@@ -2674,7 +2677,7 @@ class ActiveProbe: public ::xml_schema::type
   Peak_Vel_Correction (::std::auto_ptr< Peak_Vel_Correction_type > p);
 
   // Detect-Ratio-Max
-  //
+  // 
   typedef ::xml_schema::string Detect_Ratio_Max_type;
   typedef ::xsd::cxx::tree::traits< Detect_Ratio_Max_type, char > Detect_Ratio_Max_traits;
 
@@ -2691,7 +2694,7 @@ class ActiveProbe: public ::xml_schema::type
   Detect_Ratio_Max (::std::auto_ptr< Detect_Ratio_Max_type > p);
 
   // Acceleration-Limit-Constant
-  //
+  // 
   typedef ::xml_schema::string Acceleration_Limit_Constant_type;
   typedef ::xsd::cxx::tree::traits< Acceleration_Limit_Constant_type, char > Acceleration_Limit_Constant_traits;
 
@@ -2708,7 +2711,7 @@ class ActiveProbe: public ::xml_schema::type
   Acceleration_Limit_Constant (::std::auto_ptr< Acceleration_Limit_Constant_type > p);
 
   // Filter-Doppler-Low
-  //
+  // 
   typedef ::Filter_Doppler_Low Filter_Doppler_Low_type;
   typedef ::xsd::cxx::tree::traits< Filter_Doppler_Low_type, char > Filter_Doppler_Low_traits;
 
@@ -2854,7 +2857,7 @@ class ActiveProbe: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~ActiveProbe ();
 
   // Implementation.
@@ -2928,7 +2931,7 @@ class BModeSoft: public ::xml_schema::type
 {
   public:
   // V-Relative-Frame-Rate
-  //
+  // 
   typedef ::xml_schema::string V_Relative_Frame_Rate_type;
   typedef ::xsd::cxx::tree::traits< V_Relative_Frame_Rate_type, char > V_Relative_Frame_Rate_traits;
 
@@ -2945,7 +2948,7 @@ class BModeSoft: public ::xml_schema::type
   V_Relative_Frame_Rate (::std::auto_ptr< V_Relative_Frame_Rate_type > p);
 
   // Max-Power-Size-Default
-  //
+  // 
   typedef ::xml_schema::string Max_Power_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Max_Power_Size_Default_type, char > Max_Power_Size_Default_traits;
 
@@ -2962,7 +2965,7 @@ class BModeSoft: public ::xml_schema::type
   Max_Power_Size_Default (::std::auto_ptr< Max_Power_Size_Default_type > p);
 
   // Buffer-Size
-  //
+  // 
   typedef ::Buffer_Size Buffer_Size_type;
   typedef ::xsd::cxx::tree::traits< Buffer_Size_type, char > Buffer_Size_traits;
 
@@ -2979,7 +2982,7 @@ class BModeSoft: public ::xml_schema::type
   Buffer_Size (::std::auto_ptr< Buffer_Size_type > p);
 
   // AVR-Factor
-  //
+  // 
   typedef ::xml_schema::string AVR_Factor_type;
   typedef ::xsd::cxx::tree::traits< AVR_Factor_type, char > AVR_Factor_traits;
 
@@ -2996,7 +2999,7 @@ class BModeSoft: public ::xml_schema::type
   AVR_Factor (::std::auto_ptr< AVR_Factor_type > p);
 
   // AVR-Startup-Frames
-  //
+  // 
   typedef ::xml_schema::string AVR_Startup_Frames_type;
   typedef ::xsd::cxx::tree::traits< AVR_Startup_Frames_type, char > AVR_Startup_Frames_traits;
 
@@ -3013,7 +3016,7 @@ class BModeSoft: public ::xml_schema::type
   AVR_Startup_Frames (::std::auto_ptr< AVR_Startup_Frames_type > p);
 
   // BMode-Size-Default
-  //
+  // 
   typedef ::BMode_Size_Default BMode_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< BMode_Size_Default_type, char > BMode_Size_Default_traits;
 
@@ -3030,7 +3033,7 @@ class BModeSoft: public ::xml_schema::type
   BMode_Size_Default (::std::auto_ptr< BMode_Size_Default_type > p);
 
   // Relative-Frame-Rate
-  //
+  // 
   typedef ::xml_schema::string Relative_Frame_Rate_type;
   typedef ::xsd::cxx::tree::traits< Relative_Frame_Rate_type, char > Relative_Frame_Rate_traits;
 
@@ -3047,7 +3050,7 @@ class BModeSoft: public ::xml_schema::type
   Relative_Frame_Rate (::std::auto_ptr< Relative_Frame_Rate_type > p);
 
   // Refresh-Rate
-  //
+  // 
   typedef ::Refresh_Rate Refresh_Rate_type;
   typedef ::xsd::cxx::tree::traits< Refresh_Rate_type, char > Refresh_Rate_traits;
 
@@ -3064,7 +3067,7 @@ class BModeSoft: public ::xml_schema::type
   Refresh_Rate (::std::auto_ptr< Refresh_Rate_type > p);
 
   // Acquire-Both-Directions
-  //
+  // 
   typedef ::xml_schema::string Acquire_Both_Directions_type;
   typedef ::xsd::cxx::tree::traits< Acquire_Both_Directions_type, char > Acquire_Both_Directions_traits;
 
@@ -3081,7 +3084,7 @@ class BModeSoft: public ::xml_schema::type
   Acquire_Both_Directions (::std::auto_ptr< Acquire_Both_Directions_type > p);
 
   // Acquire-Persist-AVR
-  //
+  // 
   typedef ::xml_schema::string Acquire_Persist_AVR_type;
   typedef ::xsd::cxx::tree::traits< Acquire_Persist_AVR_type, char > Acquire_Persist_AVR_traits;
 
@@ -3098,7 +3101,7 @@ class BModeSoft: public ::xml_schema::type
   Acquire_Persist_AVR (::std::auto_ptr< Acquire_Persist_AVR_type > p);
 
   // Power-Size-Default
-  //
+  // 
   typedef ::Power_Size_Default Power_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Power_Size_Default_type, char > Power_Size_Default_traits;
 
@@ -3115,7 +3118,7 @@ class BModeSoft: public ::xml_schema::type
   Power_Size_Default (::std::auto_ptr< Power_Size_Default_type > p);
 
   // Max-BMode-Size-Default
-  //
+  // 
   typedef ::xml_schema::string Max_BMode_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Max_BMode_Size_Default_type, char > Max_BMode_Size_Default_traits;
 
@@ -3132,7 +3135,7 @@ class BModeSoft: public ::xml_schema::type
   Max_BMode_Size_Default (::std::auto_ptr< Max_BMode_Size_Default_type > p);
 
   // Target-Field-Of-View
-  //
+  // 
   typedef ::Target_Field_Of_View Target_Field_Of_View_type;
   typedef ::xsd::cxx::tree::traits< Target_Field_Of_View_type, char > Target_Field_Of_View_traits;
 
@@ -3149,7 +3152,7 @@ class BModeSoft: public ::xml_schema::type
   Target_Field_Of_View (::std::auto_ptr< Target_Field_Of_View_type > p);
 
   // Processing-Command
-  //
+  // 
   typedef ::xml_schema::string Processing_Command_type;
   typedef ::xsd::cxx::tree::traits< Processing_Command_type, char > Processing_Command_traits;
 
@@ -3209,7 +3212,7 @@ class BModeSoft: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~BModeSoft ();
 
   // Implementation.
@@ -3240,7 +3243,7 @@ class Sys: public ::xml_schema::type
 {
   public:
   // Query-Discard-Loop-On-Save-Frame
-  //
+  // 
   typedef ::xml_schema::string Query_Discard_Loop_On_Save_Frame_type;
   typedef ::xsd::cxx::tree::traits< Query_Discard_Loop_On_Save_Frame_type, char > Query_Discard_Loop_On_Save_Frame_traits;
 
@@ -3257,7 +3260,7 @@ class Sys: public ::xml_schema::type
   Query_Discard_Loop_On_Save_Frame (::std::auto_ptr< Query_Discard_Loop_On_Save_Frame_type > p);
 
   // Sound-Speed
-  //
+  // 
   typedef ::Sound_Speed Sound_Speed_type;
   typedef ::xsd::cxx::tree::traits< Sound_Speed_type, char > Sound_Speed_traits;
 
@@ -3274,7 +3277,7 @@ class Sys: public ::xml_schema::type
   Sound_Speed (::std::auto_ptr< Sound_Speed_type > p);
 
   // SubMode
-  //
+  // 
   typedef ::xml_schema::string SubMode_type;
   typedef ::xsd::cxx::tree::traits< SubMode_type, char > SubMode_traits;
 
@@ -3291,7 +3294,7 @@ class Sys: public ::xml_schema::type
   SubMode (::std::auto_ptr< SubMode_type > p);
 
   // Interrupt-Mask
-  //
+  // 
   typedef ::xml_schema::string Interrupt_Mask_type;
   typedef ::xsd::cxx::tree::traits< Interrupt_Mask_type, char > Interrupt_Mask_traits;
 
@@ -3308,7 +3311,7 @@ class Sys: public ::xml_schema::type
   Interrupt_Mask (::std::auto_ptr< Interrupt_Mask_type > p);
 
   // Calculation-Instances
-  //
+  // 
   typedef ::xml_schema::string Calculation_Instances_type;
   typedef ::xsd::cxx::tree::traits< Calculation_Instances_type, char > Calculation_Instances_traits;
 
@@ -3325,7 +3328,7 @@ class Sys: public ::xml_schema::type
   Calculation_Instances (::std::auto_ptr< Calculation_Instances_type > p);
 
   // Start-Licence-Date
-  //
+  // 
   typedef ::xml_schema::string Start_Licence_Date_type;
   typedef ::xsd::cxx::tree::traits< Start_Licence_Date_type, char > Start_Licence_Date_traits;
 
@@ -3342,7 +3345,7 @@ class Sys: public ::xml_schema::type
   Start_Licence_Date (::std::auto_ptr< Start_Licence_Date_type > p);
 
   // End-Licence-Date
-  //
+  // 
   typedef ::xml_schema::string End_Licence_Date_type;
   typedef ::xsd::cxx::tree::traits< End_Licence_Date_type, char > End_Licence_Date_traits;
 
@@ -3359,7 +3362,7 @@ class Sys: public ::xml_schema::type
   End_Licence_Date (::std::auto_ptr< End_Licence_Date_type > p);
 
   // Auto-Save-PreTrig-Loop
-  //
+  // 
   typedef ::xml_schema::string Auto_Save_PreTrig_Loop_type;
   typedef ::xsd::cxx::tree::traits< Auto_Save_PreTrig_Loop_type, char > Auto_Save_PreTrig_Loop_traits;
 
@@ -3376,7 +3379,7 @@ class Sys: public ::xml_schema::type
   Auto_Save_PreTrig_Loop (::std::auto_ptr< Auto_Save_PreTrig_Loop_type > p);
 
   // Feature
-  //
+  // 
   typedef ::xml_schema::string Feature_type;
   typedef ::xsd::cxx::tree::traits< Feature_type, char > Feature_traits;
 
@@ -3393,7 +3396,7 @@ class Sys: public ::xml_schema::type
   Feature (::std::auto_ptr< Feature_type > p);
 
   // Review-Setup-Dialog
-  //
+  // 
   typedef ::xml_schema::string Review_Setup_Dialog_type;
   typedef ::xsd::cxx::tree::traits< Review_Setup_Dialog_type, char > Review_Setup_Dialog_traits;
 
@@ -3410,7 +3413,7 @@ class Sys: public ::xml_schema::type
   Review_Setup_Dialog (::std::auto_ptr< Review_Setup_Dialog_type > p);
 
   // Acq-Setup-Dialog
-  //
+  // 
   typedef ::xml_schema::string Acq_Setup_Dialog_type;
   typedef ::xsd::cxx::tree::traits< Acq_Setup_Dialog_type, char > Acq_Setup_Dialog_traits;
 
@@ -3427,7 +3430,7 @@ class Sys: public ::xml_schema::type
   Acq_Setup_Dialog (::std::auto_ptr< Acq_Setup_Dialog_type > p);
 
   // Interrupt-Clear
-  //
+  // 
   typedef ::xml_schema::string Interrupt_Clear_type;
   typedef ::xsd::cxx::tree::traits< Interrupt_Clear_type, char > Interrupt_Clear_traits;
 
@@ -3444,7 +3447,7 @@ class Sys: public ::xml_schema::type
   Interrupt_Clear (::std::auto_ptr< Interrupt_Clear_type > p);
 
   // Interrupt-Status
-  //
+  // 
   typedef ::xml_schema::string Interrupt_Status_type;
   typedef ::xsd::cxx::tree::traits< Interrupt_Status_type, char > Interrupt_Status_traits;
 
@@ -3461,7 +3464,7 @@ class Sys: public ::xml_schema::type
   Interrupt_Status (::std::auto_ptr< Interrupt_Status_type > p);
 
   // Auto-Save-Load-3D
-  //
+  // 
   typedef ::xml_schema::string Auto_Save_Load_3D_type;
   typedef ::xsd::cxx::tree::traits< Auto_Save_Load_3D_type, char > Auto_Save_Load_3D_traits;
 
@@ -3478,7 +3481,7 @@ class Sys: public ::xml_schema::type
   Auto_Save_Load_3D (::std::auto_ptr< Auto_Save_Load_3D_type > p);
 
   // DICOM-Root-ID
-  //
+  // 
   typedef ::xml_schema::string DICOM_Root_ID_type;
   typedef ::xsd::cxx::tree::traits< DICOM_Root_ID_type, char > DICOM_Root_ID_traits;
 
@@ -3495,7 +3498,7 @@ class Sys: public ::xml_schema::type
   DICOM_Root_ID (::std::auto_ptr< DICOM_Root_ID_type > p);
 
   // Company-Name
-  //
+  // 
   typedef ::xml_schema::string Company_Name_type;
   typedef ::xsd::cxx::tree::traits< Company_Name_type, char > Company_Name_traits;
 
@@ -3512,7 +3515,7 @@ class Sys: public ::xml_schema::type
   Company_Name (::std::auto_ptr< Company_Name_type > p);
 
   // Image-To-Auto-Save-On-Label
-  //
+  // 
   typedef ::xml_schema::string Image_To_Auto_Save_On_Label_type;
   typedef ::xsd::cxx::tree::traits< Image_To_Auto_Save_On_Label_type, char > Image_To_Auto_Save_On_Label_traits;
 
@@ -3529,7 +3532,7 @@ class Sys: public ::xml_schema::type
   Image_To_Auto_Save_On_Label (::std::auto_ptr< Image_To_Auto_Save_On_Label_type > p);
 
   // DICOM-Encode-Regions
-  //
+  // 
   typedef ::xml_schema::string DICOM_Encode_Regions_type;
   typedef ::xsd::cxx::tree::traits< DICOM_Encode_Regions_type, char > DICOM_Encode_Regions_traits;
 
@@ -3546,7 +3549,7 @@ class Sys: public ::xml_schema::type
   DICOM_Encode_Regions (::std::auto_ptr< DICOM_Encode_Regions_type > p);
 
   // Pipeline-Delay
-  //
+  // 
   typedef ::Pipeline_Delay Pipeline_Delay_type;
   typedef ::xsd::cxx::tree::traits< Pipeline_Delay_type, char > Pipeline_Delay_traits;
 
@@ -3563,7 +3566,7 @@ class Sys: public ::xml_schema::type
   Pipeline_Delay (::std::auto_ptr< Pipeline_Delay_type > p);
 
   // DDS-Control
-  //
+  // 
   typedef ::xml_schema::string DDS_Control_type;
   typedef ::xsd::cxx::tree::traits< DDS_Control_type, char > DDS_Control_traits;
 
@@ -3580,7 +3583,7 @@ class Sys: public ::xml_schema::type
   DDS_Control (::std::auto_ptr< DDS_Control_type > p);
 
   // Mode
-  //
+  // 
   typedef ::xml_schema::string Mode_type;
   typedef ::xsd::cxx::tree::traits< Mode_type, char > Mode_traits;
 
@@ -3654,7 +3657,7 @@ class Sys: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sys ();
 
   // Implementation.
@@ -3692,7 +3695,7 @@ class MIS: public ::xml_schema::type
 {
   public:
   // ECG-Gain
-  //
+  // 
   typedef ::xml_schema::string ECG_Gain_type;
   typedef ::xsd::cxx::tree::traits< ECG_Gain_type, char > ECG_Gain_traits;
 
@@ -3709,7 +3712,7 @@ class MIS: public ::xml_schema::type
   ECG_Gain (::std::auto_ptr< ECG_Gain_type > p);
 
   // ECG-Available
-  //
+  // 
   typedef ::xml_schema::string ECG_Available_type;
   typedef ::xsd::cxx::tree::traits< ECG_Available_type, char > ECG_Available_traits;
 
@@ -3726,7 +3729,7 @@ class MIS: public ::xml_schema::type
   ECG_Available (::std::auto_ptr< ECG_Available_type > p);
 
   // Blood-Pressure-Available
-  //
+  // 
   typedef ::xml_schema::string Blood_Pressure_Available_type;
   typedef ::xsd::cxx::tree::traits< Blood_Pressure_Available_type, char > Blood_Pressure_Available_traits;
 
@@ -3743,7 +3746,7 @@ class MIS: public ::xml_schema::type
   Blood_Pressure_Available (::std::auto_ptr< Blood_Pressure_Available_type > p);
 
   // Respiration-Gating
-  //
+  // 
   typedef ::xml_schema::string Respiration_Gating_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Gating_type, char > Respiration_Gating_traits;
 
@@ -3760,7 +3763,7 @@ class MIS: public ::xml_schema::type
   Respiration_Gating (::std::auto_ptr< Respiration_Gating_type > p);
 
   // Respiration-Available
-  //
+  // 
   typedef ::xml_schema::string Respiration_Available_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Available_type, char > Respiration_Available_traits;
 
@@ -3777,7 +3780,7 @@ class MIS: public ::xml_schema::type
   Respiration_Available (::std::auto_ptr< Respiration_Available_type > p);
 
   // Control
-  //
+  // 
   typedef ::xml_schema::string Control_type;
   typedef ::xsd::cxx::tree::traits< Control_type, char > Control_traits;
 
@@ -3794,7 +3797,7 @@ class MIS: public ::xml_schema::type
   Control (::std::auto_ptr< Control_type > p);
 
   // BP-Gain
-  //
+  // 
   typedef ::xml_schema::string BP_Gain_type;
   typedef ::xsd::cxx::tree::traits< BP_Gain_type, char > BP_Gain_traits;
 
@@ -3811,7 +3814,7 @@ class MIS: public ::xml_schema::type
   BP_Gain (::std::auto_ptr< BP_Gain_type > p);
 
   // Temperature-Available
-  //
+  // 
   typedef ::xml_schema::string Temperature_Available_type;
   typedef ::xsd::cxx::tree::traits< Temperature_Available_type, char > Temperature_Available_traits;
 
@@ -3850,7 +3853,7 @@ class MIS: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~MIS ();
 
   // Implementation.
@@ -3875,7 +3878,7 @@ class Scan: public ::xml_schema::type
 {
   public:
   // Encoder-Position
-  //
+  // 
   typedef ::xml_schema::string Encoder_Position_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Position_type, char > Encoder_Position_traits;
 
@@ -3892,7 +3895,7 @@ class Scan: public ::xml_schema::type
   Encoder_Position (::std::auto_ptr< Encoder_Position_type > p);
 
   // Center
-  //
+  // 
   typedef ::Center Center_type;
   typedef ::xsd::cxx::tree::traits< Center_type, char > Center_traits;
 
@@ -3909,7 +3912,7 @@ class Scan: public ::xml_schema::type
   Center (::std::auto_ptr< Center_type > p);
 
   // Control
-  //
+  // 
   typedef ::xml_schema::string Control_type;
   typedef ::xsd::cxx::tree::traits< Control_type, char > Control_traits;
 
@@ -3926,7 +3929,7 @@ class Scan: public ::xml_schema::type
   Control (::std::auto_ptr< Control_type > p);
 
   // Probe-ID1
-  //
+  // 
   typedef ::xml_schema::string Probe_ID1_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID1_type, char > Probe_ID1_traits;
 
@@ -3943,7 +3946,7 @@ class Scan: public ::xml_schema::type
   Probe_ID1 (::std::auto_ptr< Probe_ID1_type > p);
 
   // Probe-ID2
-  //
+  // 
   typedef ::xml_schema::string Probe_ID2_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID2_type, char > Probe_ID2_traits;
 
@@ -3960,7 +3963,7 @@ class Scan: public ::xml_schema::type
   Probe_ID2 (::std::auto_ptr< Probe_ID2_type > p);
 
   // V-Scan-Speed
-  //
+  // 
   typedef ::V_Scan_Speed V_Scan_Speed_type;
   typedef ::xsd::cxx::tree::traits< V_Scan_Speed_type, char > V_Scan_Speed_traits;
 
@@ -3977,7 +3980,7 @@ class Scan: public ::xml_schema::type
   V_Scan_Speed (::std::auto_ptr< V_Scan_Speed_type > p);
 
   // Probe-ID1-Reread
-  //
+  // 
   typedef ::xml_schema::string Probe_ID1_Reread_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID1_Reread_type, char > Probe_ID1_Reread_traits;
 
@@ -3994,7 +3997,7 @@ class Scan: public ::xml_schema::type
   Probe_ID1_Reread (::std::auto_ptr< Probe_ID1_Reread_type > p);
 
   // Probe-ID1-Valid
-  //
+  // 
   typedef ::xml_schema::string Probe_ID1_Valid_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID1_Valid_type, char > Probe_ID1_Valid_traits;
 
@@ -4011,7 +4014,7 @@ class Scan: public ::xml_schema::type
   Probe_ID1_Valid (::std::auto_ptr< Probe_ID1_Valid_type > p);
 
   // Probe-ID1-Voltage
-  //
+  // 
   typedef ::xml_schema::string Probe_ID1_Voltage_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID1_Voltage_type, char > Probe_ID1_Voltage_traits;
 
@@ -4028,7 +4031,7 @@ class Scan: public ::xml_schema::type
   Probe_ID1_Voltage (::std::auto_ptr< Probe_ID1_Voltage_type > p);
 
   // Probe-ID2-Reread
-  //
+  // 
   typedef ::xml_schema::string Probe_ID2_Reread_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID2_Reread_type, char > Probe_ID2_Reread_traits;
 
@@ -4045,7 +4048,7 @@ class Scan: public ::xml_schema::type
   Probe_ID2_Reread (::std::auto_ptr< Probe_ID2_Reread_type > p);
 
   // Probe-ID2-Valid
-  //
+  // 
   typedef ::xml_schema::string Probe_ID2_Valid_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID2_Valid_type, char > Probe_ID2_Valid_traits;
 
@@ -4062,7 +4065,7 @@ class Scan: public ::xml_schema::type
   Probe_ID2_Valid (::std::auto_ptr< Probe_ID2_Valid_type > p);
 
   // Probe-ID2-Voltage
-  //
+  // 
   typedef ::xml_schema::string Probe_ID2_Voltage_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID2_Voltage_type, char > Probe_ID2_Voltage_traits;
 
@@ -4079,7 +4082,7 @@ class Scan: public ::xml_schema::type
   Probe_ID2_Voltage (::std::auto_ptr< Probe_ID2_Voltage_type > p);
 
   // V-Scan-Rate
-  //
+  // 
   typedef ::V_Scan_Rate V_Scan_Rate_type;
   typedef ::xsd::cxx::tree::traits< V_Scan_Rate_type, char > V_Scan_Rate_traits;
 
@@ -4096,7 +4099,7 @@ class Scan: public ::xml_schema::type
   V_Scan_Rate (::std::auto_ptr< V_Scan_Rate_type > p);
 
   // Position-Counter-Lock
-  //
+  // 
   typedef ::xml_schema::string Position_Counter_Lock_type;
   typedef ::xsd::cxx::tree::traits< Position_Counter_Lock_type, char > Position_Counter_Lock_traits;
 
@@ -4113,7 +4116,7 @@ class Scan: public ::xml_schema::type
   Position_Counter_Lock (::std::auto_ptr< Position_Counter_Lock_type > p);
 
   // Scan-Width
-  //
+  // 
   typedef ::Scan_Width Scan_Width_type;
   typedef ::xsd::cxx::tree::traits< Scan_Width_type, char > Scan_Width_traits;
 
@@ -4130,7 +4133,7 @@ class Scan: public ::xml_schema::type
   Scan_Width (::std::auto_ptr< Scan_Width_type > p);
 
   // Position-Counter-Reset
-  //
+  // 
   typedef ::xml_schema::string Position_Counter_Reset_type;
   typedef ::xsd::cxx::tree::traits< Position_Counter_Reset_type, char > Position_Counter_Reset_traits;
 
@@ -4194,7 +4197,7 @@ class Scan: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Scan ();
 
   // Implementation.
@@ -4227,7 +4230,7 @@ class Motor: public ::xml_schema::type
 {
   public:
   // Settle-Time-3d
-  //
+  // 
   typedef ::xml_schema::string Settle_Time_3d_type;
   typedef ::xsd::cxx::tree::traits< Settle_Time_3d_type, char > Settle_Time_3d_traits;
 
@@ -4244,7 +4247,7 @@ class Motor: public ::xml_schema::type
   Settle_Time_3d (::std::auto_ptr< Settle_Time_3d_type > p);
 
   // Position
-  //
+  // 
   typedef ::Position Position_type;
   typedef ::xsd::cxx::tree::traits< Position_type, char > Position_traits;
 
@@ -4261,7 +4264,7 @@ class Motor: public ::xml_schema::type
   Position (::std::auto_ptr< Position_type > p);
 
   // R-Scan-Move-No-Wait
-  //
+  // 
   typedef ::R_Scan_Move_No_Wait R_Scan_Move_No_Wait_type;
   typedef ::xsd::cxx::tree::traits< R_Scan_Move_No_Wait_type, char > R_Scan_Move_No_Wait_traits;
 
@@ -4278,7 +4281,7 @@ class Motor: public ::xml_schema::type
   R_Scan_Move_No_Wait (::std::auto_ptr< R_Scan_Move_No_Wait_type > p);
 
   // Motor-Mode
-  //
+  // 
   typedef ::xml_schema::string Motor_Mode_type;
   typedef ::xsd::cxx::tree::traits< Motor_Mode_type, char > Motor_Mode_traits;
 
@@ -4295,7 +4298,7 @@ class Motor: public ::xml_schema::type
   Motor_Mode (::std::auto_ptr< Motor_Mode_type > p);
 
   // Acceleration
-  //
+  // 
   typedef ::Acceleration Acceleration_type;
   typedef ::xsd::cxx::tree::traits< Acceleration_type, char > Acceleration_traits;
 
@@ -4312,7 +4315,7 @@ class Motor: public ::xml_schema::type
   Acceleration (::std::auto_ptr< Acceleration_type > p);
 
   // Serial-Port-Mode
-  //
+  // 
   typedef ::xml_schema::string Serial_Port_Mode_type;
   typedef ::xsd::cxx::tree::traits< Serial_Port_Mode_type, char > Serial_Port_Mode_traits;
 
@@ -4329,7 +4332,7 @@ class Motor: public ::xml_schema::type
   Serial_Port_Mode (::std::auto_ptr< Serial_Port_Mode_type > p);
 
   // Limit-Switch-Mode
-  //
+  // 
   typedef ::xml_schema::string Limit_Switch_Mode_type;
   typedef ::xsd::cxx::tree::traits< Limit_Switch_Mode_type, char > Limit_Switch_Mode_traits;
 
@@ -4346,7 +4349,7 @@ class Motor: public ::xml_schema::type
   Limit_Switch_Mode (::std::auto_ptr< Limit_Switch_Mode_type > p);
 
   // Breakpoint
-  //
+  // 
   typedef ::xml_schema::string Breakpoint_type;
   typedef ::xsd::cxx::tree::traits< Breakpoint_type, char > Breakpoint_traits;
 
@@ -4363,7 +4366,7 @@ class Motor: public ::xml_schema::type
   Breakpoint (::std::auto_ptr< Breakpoint_type > p);
 
   // Update
-  //
+  // 
   typedef ::xml_schema::string Update_type;
   typedef ::xsd::cxx::tree::traits< Update_type, char > Update_traits;
 
@@ -4380,7 +4383,7 @@ class Motor: public ::xml_schema::type
   Update (::std::auto_ptr< Update_type > p);
 
   // Breakpoint-Value
-  //
+  // 
   typedef ::xml_schema::string Breakpoint_Value_type;
   typedef ::xsd::cxx::tree::traits< Breakpoint_Value_type, char > Breakpoint_Value_traits;
 
@@ -4397,7 +4400,7 @@ class Motor: public ::xml_schema::type
   Breakpoint_Value (::std::auto_ptr< Breakpoint_Value_type > p);
 
   // V-Switch-Limit
-  //
+  // 
   typedef ::xml_schema::string V_Switch_Limit_type;
   typedef ::xsd::cxx::tree::traits< V_Switch_Limit_type, char > V_Switch_Limit_traits;
 
@@ -4414,7 +4417,7 @@ class Motor: public ::xml_schema::type
   V_Switch_Limit (::std::auto_ptr< V_Switch_Limit_type > p);
 
   // R-Retrieve-Trace
-  //
+  // 
   typedef ::xml_schema::string R_Retrieve_Trace_type;
   typedef ::xsd::cxx::tree::traits< R_Retrieve_Trace_type, char > R_Retrieve_Trace_traits;
 
@@ -4431,7 +4434,7 @@ class Motor: public ::xml_schema::type
   R_Retrieve_Trace (::std::auto_ptr< R_Retrieve_Trace_type > p);
 
   // Velocity-Stationary
-  //
+  // 
   typedef ::Velocity_Stationary Velocity_Stationary_type;
   typedef ::xsd::cxx::tree::traits< Velocity_Stationary_type, char > Velocity_Stationary_traits;
 
@@ -4448,7 +4451,7 @@ class Motor: public ::xml_schema::type
   Velocity_Stationary (::std::auto_ptr< Velocity_Stationary_type > p);
 
   // Reset-Event-Status
-  //
+  // 
   typedef ::xml_schema::string Reset_Event_Status_type;
   typedef ::xsd::cxx::tree::traits< Reset_Event_Status_type, char > Reset_Event_Status_traits;
 
@@ -4465,7 +4468,7 @@ class Motor: public ::xml_schema::type
   Reset_Event_Status (::std::auto_ptr< Reset_Event_Status_type > p);
 
   // Actual-Position
-  //
+  // 
   typedef ::xml_schema::string Actual_Position_type;
   typedef ::xsd::cxx::tree::traits< Actual_Position_type, char > Actual_Position_traits;
 
@@ -4482,7 +4485,7 @@ class Motor: public ::xml_schema::type
   Actual_Position (::std::auto_ptr< Actual_Position_type > p);
 
   // Buffer-Length
-  //
+  // 
   typedef ::xml_schema::string Buffer_Length_type;
   typedef ::xsd::cxx::tree::traits< Buffer_Length_type, char > Buffer_Length_traits;
 
@@ -4499,7 +4502,7 @@ class Motor: public ::xml_schema::type
   Buffer_Length (::std::auto_ptr< Buffer_Length_type > p);
 
   // Event-Status
-  //
+  // 
   typedef ::xml_schema::string Event_Status_type;
   typedef ::xsd::cxx::tree::traits< Event_Status_type, char > Event_Status_traits;
 
@@ -4516,7 +4519,7 @@ class Motor: public ::xml_schema::type
   Event_Status (::std::auto_ptr< Event_Status_type > p);
 
   // R-Scan-Move2
-  //
+  // 
   typedef ::R_Scan_Move2 R_Scan_Move2_type;
   typedef ::xsd::cxx::tree::traits< R_Scan_Move2_type, char > R_Scan_Move2_traits;
 
@@ -4533,7 +4536,7 @@ class Motor: public ::xml_schema::type
   R_Scan_Move2 (::std::auto_ptr< R_Scan_Move2_type > p);
 
   // Kp
-  //
+  // 
   typedef ::xml_schema::string Kp_type;
   typedef ::xsd::cxx::tree::traits< Kp_type, char > Kp_traits;
 
@@ -4550,7 +4553,7 @@ class Motor: public ::xml_schema::type
   Kp (::std::auto_ptr< Kp_type > p);
 
   // R-Wait-Finish-Scan-Move
-  //
+  // 
   typedef ::xml_schema::string R_Wait_Finish_Scan_Move_type;
   typedef ::xsd::cxx::tree::traits< R_Wait_Finish_Scan_Move_type, char > R_Wait_Finish_Scan_Move_traits;
 
@@ -4567,7 +4570,7 @@ class Motor: public ::xml_schema::type
   R_Wait_Finish_Scan_Move (::std::auto_ptr< R_Wait_Finish_Scan_Move_type > p);
 
   // Settle-Time
-  //
+  // 
   typedef ::xml_schema::string Settle_Time_type;
   typedef ::xsd::cxx::tree::traits< Settle_Time_type, char > Settle_Time_traits;
 
@@ -4584,7 +4587,7 @@ class Motor: public ::xml_schema::type
   Settle_Time (::std::auto_ptr< Settle_Time_type > p);
 
   // Acceleration-Stationary
-  //
+  // 
   typedef ::Acceleration_Stationary Acceleration_Stationary_type;
   typedef ::xsd::cxx::tree::traits< Acceleration_Stationary_type, char > Acceleration_Stationary_traits;
 
@@ -4601,7 +4604,7 @@ class Motor: public ::xml_schema::type
   Acceleration_Stationary (::std::auto_ptr< Acceleration_Stationary_type > p);
 
   // Trace-Mode
-  //
+  // 
   typedef ::xml_schema::string Trace_Mode_type;
   typedef ::xsd::cxx::tree::traits< Trace_Mode_type, char > Trace_Mode_traits;
 
@@ -4618,7 +4621,7 @@ class Motor: public ::xml_schema::type
   Trace_Mode (::std::auto_ptr< Trace_Mode_type > p);
 
   // Trace-Period
-  //
+  // 
   typedef ::xml_schema::string Trace_Period_type;
   typedef ::xsd::cxx::tree::traits< Trace_Period_type, char > Trace_Period_traits;
 
@@ -4635,7 +4638,7 @@ class Motor: public ::xml_schema::type
   Trace_Period (::std::auto_ptr< Trace_Period_type > p);
 
   // Trace-Start
-  //
+  // 
   typedef ::xml_schema::string Trace_Start_type;
   typedef ::xsd::cxx::tree::traits< Trace_Start_type, char > Trace_Start_traits;
 
@@ -4652,7 +4655,7 @@ class Motor: public ::xml_schema::type
   Trace_Start (::std::auto_ptr< Trace_Start_type > p);
 
   // Position-Reverse
-  //
+  // 
   typedef ::Position_Reverse Position_Reverse_type;
   typedef ::xsd::cxx::tree::traits< Position_Reverse_type, char > Position_Reverse_traits;
 
@@ -4669,7 +4672,7 @@ class Motor: public ::xml_schema::type
   Position_Reverse (::std::auto_ptr< Position_Reverse_type > p);
 
   // Reset
-  //
+  // 
   typedef ::xml_schema::string Reset_type;
   typedef ::xsd::cxx::tree::traits< Reset_type, char > Reset_traits;
 
@@ -4686,7 +4689,7 @@ class Motor: public ::xml_schema::type
   Reset (::std::auto_ptr< Reset_type > p);
 
   // Trace-Count
-  //
+  // 
   typedef ::xml_schema::string Trace_Count_type;
   typedef ::xsd::cxx::tree::traits< Trace_Count_type, char > Trace_Count_traits;
 
@@ -4703,7 +4706,7 @@ class Motor: public ::xml_schema::type
   Trace_Count (::std::auto_ptr< Trace_Count_type > p);
 
   // R-Initialize
-  //
+  // 
   typedef ::xml_schema::string R_Initialize_type;
   typedef ::xsd::cxx::tree::traits< R_Initialize_type, char > R_Initialize_traits;
 
@@ -4720,7 +4723,7 @@ class Motor: public ::xml_schema::type
   R_Initialize (::std::auto_ptr< R_Initialize_type > p);
 
   // Output-Mode
-  //
+  // 
   typedef ::xml_schema::string Output_Mode_type;
   typedef ::xsd::cxx::tree::traits< Output_Mode_type, char > Output_Mode_traits;
 
@@ -4737,7 +4740,7 @@ class Motor: public ::xml_schema::type
   Output_Mode (::std::auto_ptr< Output_Mode_type > p);
 
   // Position2
-  //
+  // 
   typedef ::Position2 Position2_type;
   typedef ::xsd::cxx::tree::traits< Position2_type, char > Position2_traits;
 
@@ -4754,7 +4757,7 @@ class Motor: public ::xml_schema::type
   Position2 (::std::auto_ptr< Position2_type > p);
 
   // Integration-Limit
-  //
+  // 
   typedef ::xml_schema::string Integration_Limit_type;
   typedef ::xsd::cxx::tree::traits< Integration_Limit_type, char > Integration_Limit_traits;
 
@@ -4771,7 +4774,7 @@ class Motor: public ::xml_schema::type
   Integration_Limit (::std::auto_ptr< Integration_Limit_type > p);
 
   // R-Home
-  //
+  // 
   typedef ::xml_schema::string R_Home_type;
   typedef ::xsd::cxx::tree::traits< R_Home_type, char > R_Home_traits;
 
@@ -4788,7 +4791,7 @@ class Motor: public ::xml_schema::type
   R_Home (::std::auto_ptr< R_Home_type > p);
 
   // Error
-  //
+  // 
   typedef ::xml_schema::string Error_type;
   typedef ::xsd::cxx::tree::traits< Error_type, char > Error_traits;
 
@@ -4805,7 +4808,7 @@ class Motor: public ::xml_schema::type
   Error (::std::auto_ptr< Error_type > p);
 
   // R-Reset-Limit-Switch
-  //
+  // 
   typedef ::xml_schema::string R_Reset_Limit_Switch_type;
   typedef ::xsd::cxx::tree::traits< R_Reset_Limit_Switch_type, char > R_Reset_Limit_Switch_traits;
 
@@ -4822,7 +4825,7 @@ class Motor: public ::xml_schema::type
   R_Reset_Limit_Switch (::std::auto_ptr< R_Reset_Limit_Switch_type > p);
 
   // Settle-Window-3d
-  //
+  // 
   typedef ::xml_schema::string Settle_Window_3d_type;
   typedef ::xsd::cxx::tree::traits< Settle_Window_3d_type, char > Settle_Window_3d_traits;
 
@@ -4839,7 +4842,7 @@ class Motor: public ::xml_schema::type
   Settle_Window_3d (::std::auto_ptr< Settle_Window_3d_type > p);
 
   // Interrupt-Mask
-  //
+  // 
   typedef ::xml_schema::string Interrupt_Mask_type;
   typedef ::xsd::cxx::tree::traits< Interrupt_Mask_type, char > Interrupt_Mask_traits;
 
@@ -4856,7 +4859,7 @@ class Motor: public ::xml_schema::type
   Interrupt_Mask (::std::auto_ptr< Interrupt_Mask_type > p);
 
   // Scan-Move-Control
-  //
+  // 
   typedef ::xml_schema::string Scan_Move_Control_type;
   typedef ::xsd::cxx::tree::traits< Scan_Move_Control_type, char > Scan_Move_Control_traits;
 
@@ -4873,7 +4876,7 @@ class Motor: public ::xml_schema::type
   Scan_Move_Control (::std::auto_ptr< Scan_Move_Control_type > p);
 
   // Axis-Out-Source
-  //
+  // 
   typedef ::xml_schema::string Axis_Out_Source_type;
   typedef ::xsd::cxx::tree::traits< Axis_Out_Source_type, char > Axis_Out_Source_traits;
 
@@ -4890,7 +4893,7 @@ class Motor: public ::xml_schema::type
   Axis_Out_Source (::std::auto_ptr< Axis_Out_Source_type > p);
 
   // Trace-Stop
-  //
+  // 
   typedef ::xml_schema::string Trace_Stop_type;
   typedef ::xsd::cxx::tree::traits< Trace_Stop_type, char > Trace_Stop_traits;
 
@@ -4907,7 +4910,7 @@ class Motor: public ::xml_schema::type
   Trace_Stop (::std::auto_ptr< Trace_Stop_type > p);
 
   // Velocity
-  //
+  // 
   typedef ::Velocity Velocity_type;
   typedef ::xsd::cxx::tree::traits< Velocity_type, char > Velocity_traits;
 
@@ -4924,7 +4927,7 @@ class Motor: public ::xml_schema::type
   Velocity (::std::auto_ptr< Velocity_type > p);
 
   // R-Setup
-  //
+  // 
   typedef ::xml_schema::string R_Setup_type;
   typedef ::xsd::cxx::tree::traits< R_Setup_type, char > R_Setup_traits;
 
@@ -4941,7 +4944,7 @@ class Motor: public ::xml_schema::type
   R_Setup (::std::auto_ptr< R_Setup_type > p);
 
   // Buffer-Start
-  //
+  // 
   typedef ::xml_schema::string Buffer_Start_type;
   typedef ::xsd::cxx::tree::traits< Buffer_Start_type, char > Buffer_Start_traits;
 
@@ -4958,7 +4961,7 @@ class Motor: public ::xml_schema::type
   Buffer_Start (::std::auto_ptr< Buffer_Start_type > p);
 
   // Signal-Sense
-  //
+  // 
   typedef ::xml_schema::string Signal_Sense_type;
   typedef ::xsd::cxx::tree::traits< Signal_Sense_type, char > Signal_Sense_traits;
 
@@ -4975,7 +4978,7 @@ class Motor: public ::xml_schema::type
   Signal_Sense (::std::auto_ptr< Signal_Sense_type > p);
 
   // R-Scan-Move
-  //
+  // 
   typedef ::R_Scan_Move R_Scan_Move_type;
   typedef ::xsd::cxx::tree::traits< R_Scan_Move_type, char > R_Scan_Move_traits;
 
@@ -4992,7 +4995,7 @@ class Motor: public ::xml_schema::type
   R_Scan_Move (::std::auto_ptr< R_Scan_Move_type > p);
 
   // Position-Forward
-  //
+  // 
   typedef ::Position_Forward Position_Forward_type;
   typedef ::xsd::cxx::tree::traits< Position_Forward_type, char > Position_Forward_traits;
 
@@ -5009,7 +5012,7 @@ class Motor: public ::xml_schema::type
   Position_Forward (::std::auto_ptr< Position_Forward_type > p);
 
   // Derivative-Time
-  //
+  // 
   typedef ::xml_schema::string Derivative_Time_type;
   typedef ::xsd::cxx::tree::traits< Derivative_Time_type, char > Derivative_Time_traits;
 
@@ -5026,7 +5029,7 @@ class Motor: public ::xml_schema::type
   Derivative_Time (::std::auto_ptr< Derivative_Time_type > p);
 
   // Settle-Window
-  //
+  // 
   typedef ::xml_schema::string Settle_Window_type;
   typedef ::xsd::cxx::tree::traits< Settle_Window_type, char > Settle_Window_traits;
 
@@ -5043,7 +5046,7 @@ class Motor: public ::xml_schema::type
   Settle_Window (::std::auto_ptr< Settle_Window_type > p);
 
   // Trace-Variable1
-  //
+  // 
   typedef ::xml_schema::string Trace_Variable1_type;
   typedef ::xsd::cxx::tree::traits< Trace_Variable1_type, char > Trace_Variable1_traits;
 
@@ -5060,7 +5063,7 @@ class Motor: public ::xml_schema::type
   Trace_Variable1 (::std::auto_ptr< Trace_Variable1_type > p);
 
   // Trace-Variable2
-  //
+  // 
   typedef ::xml_schema::string Trace_Variable2_type;
   typedef ::xsd::cxx::tree::traits< Trace_Variable2_type, char > Trace_Variable2_traits;
 
@@ -5077,7 +5080,7 @@ class Motor: public ::xml_schema::type
   Trace_Variable2 (::std::auto_ptr< Trace_Variable2_type > p);
 
   // Buffer-Read-Index
-  //
+  // 
   typedef ::xml_schema::string Buffer_Read_Index_type;
   typedef ::xsd::cxx::tree::traits< Buffer_Read_Index_type, char > Buffer_Read_Index_traits;
 
@@ -5094,7 +5097,7 @@ class Motor: public ::xml_schema::type
   Buffer_Read_Index (::std::auto_ptr< Buffer_Read_Index_type > p);
 
   // Signal-Status
-  //
+  // 
   typedef ::xml_schema::string Signal_Status_type;
   typedef ::xsd::cxx::tree::traits< Signal_Status_type, char > Signal_Status_traits;
 
@@ -5111,7 +5114,7 @@ class Motor: public ::xml_schema::type
   Signal_Status (::std::auto_ptr< Signal_Status_type > p);
 
   // Alarm-Clear
-  //
+  // 
   typedef ::xml_schema::string Alarm_Clear_type;
   typedef ::xsd::cxx::tree::traits< Alarm_Clear_type, char > Alarm_Clear_traits;
 
@@ -5128,7 +5131,7 @@ class Motor: public ::xml_schema::type
   Alarm_Clear (::std::auto_ptr< Alarm_Clear_type > p);
 
   // Motion-Complete-Mode
-  //
+  // 
   typedef ::xml_schema::string Motion_Complete_Mode_type;
   typedef ::xsd::cxx::tree::traits< Motion_Complete_Mode_type, char > Motion_Complete_Mode_traits;
 
@@ -5145,7 +5148,7 @@ class Motor: public ::xml_schema::type
   Motion_Complete_Mode (::std::auto_ptr< Motion_Complete_Mode_type > p);
 
   // R-Setup-Abort
-  //
+  // 
   typedef ::xml_schema::string R_Setup_Abort_type;
   typedef ::xsd::cxx::tree::traits< R_Setup_Abort_type, char > R_Setup_Abort_traits;
 
@@ -5162,7 +5165,7 @@ class Motor: public ::xml_schema::type
   R_Setup_Abort (::std::auto_ptr< R_Setup_Abort_type > p);
 
   // Read-Buffer
-  //
+  // 
   typedef ::xml_schema::string Read_Buffer_type;
   typedef ::xsd::cxx::tree::traits< Read_Buffer_type, char > Read_Buffer_traits;
 
@@ -5179,7 +5182,7 @@ class Motor: public ::xml_schema::type
   Read_Buffer (::std::auto_ptr< Read_Buffer_type > p);
 
   // Kd
-  //
+  // 
   typedef ::xml_schema::string Kd_type;
   typedef ::xsd::cxx::tree::traits< Kd_type, char > Kd_traits;
 
@@ -5196,7 +5199,7 @@ class Motor: public ::xml_schema::type
   Kd (::std::auto_ptr< Kd_type > p);
 
   // Clear-Interrupt
-  //
+  // 
   typedef ::xml_schema::string Clear_Interrupt_type;
   typedef ::xsd::cxx::tree::traits< Clear_Interrupt_type, char > Clear_Interrupt_traits;
 
@@ -5213,7 +5216,7 @@ class Motor: public ::xml_schema::type
   Clear_Interrupt (::std::auto_ptr< Clear_Interrupt_type > p);
 
   // Profile-Mode
-  //
+  // 
   typedef ::xml_schema::string Profile_Mode_type;
   typedef ::xsd::cxx::tree::traits< Profile_Mode_type, char > Profile_Mode_traits;
 
@@ -5230,7 +5233,7 @@ class Motor: public ::xml_schema::type
   Profile_Mode (::std::auto_ptr< Profile_Mode_type > p);
 
   // R-Setup-Trace
-  //
+  // 
   typedef ::xml_schema::string R_Setup_Trace_type;
   typedef ::xsd::cxx::tree::traits< R_Setup_Trace_type, char > R_Setup_Trace_traits;
 
@@ -5247,7 +5250,7 @@ class Motor: public ::xml_schema::type
   R_Setup_Trace (::std::auto_ptr< R_Setup_Trace_type > p);
 
   // No-Operation
-  //
+  // 
   typedef ::xml_schema::string No_Operation_type;
   typedef ::xsd::cxx::tree::traits< No_Operation_type, char > No_Operation_traits;
 
@@ -5264,7 +5267,7 @@ class Motor: public ::xml_schema::type
   No_Operation (::std::auto_ptr< No_Operation_type > p);
 
   // Ki
-  //
+  // 
   typedef ::xml_schema::string Ki_type;
   typedef ::xsd::cxx::tree::traits< Ki_type, char > Ki_traits;
 
@@ -5281,7 +5284,7 @@ class Motor: public ::xml_schema::type
   Ki (::std::auto_ptr< Ki_type > p);
 
   // Sample-Time
-  //
+  // 
   typedef ::xml_schema::string Sample_Time_type;
   typedef ::xsd::cxx::tree::traits< Sample_Time_type, char > Sample_Time_traits;
 
@@ -5439,7 +5442,7 @@ class Motor: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Motor ();
 
   // Implementation.
@@ -5519,7 +5522,7 @@ class Diag: public ::xml_schema::type
 {
   public:
   // Mem-Pagefile
-  //
+  // 
   typedef ::xml_schema::string Mem_Pagefile_type;
   typedef ::xsd::cxx::tree::traits< Mem_Pagefile_type, char > Mem_Pagefile_traits;
 
@@ -5536,7 +5539,7 @@ class Diag: public ::xml_schema::type
   Mem_Pagefile (::std::auto_ptr< Mem_Pagefile_type > p);
 
   // Monitor-3point3V
-  //
+  // 
   typedef ::Monitor_3point3V Monitor_3point3V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_3point3V_type, char > Monitor_3point3V_traits;
 
@@ -5553,7 +5556,7 @@ class Diag: public ::xml_schema::type
   Monitor_3point3V (::std::auto_ptr< Monitor_3point3V_type > p);
 
   // USER-Objects
-  //
+  // 
   typedef ::xml_schema::string USER_Objects_type;
   typedef ::xsd::cxx::tree::traits< USER_Objects_type, char > USER_Objects_traits;
 
@@ -5570,7 +5573,7 @@ class Diag: public ::xml_schema::type
   USER_Objects (::std::auto_ptr< USER_Objects_type > p);
 
   // Motor-FPGA-Revision
-  //
+  // 
   typedef ::xml_schema::string Motor_FPGA_Revision_type;
   typedef ::xsd::cxx::tree::traits< Motor_FPGA_Revision_type, char > Motor_FPGA_Revision_traits;
 
@@ -5587,7 +5590,7 @@ class Diag: public ::xml_schema::type
   Motor_FPGA_Revision (::std::auto_ptr< Motor_FPGA_Revision_type > p);
 
   // Product-Name
-  //
+  // 
   typedef ::xml_schema::string Product_Name_type;
   typedef ::xsd::cxx::tree::traits< Product_Name_type, char > Product_Name_traits;
 
@@ -5604,7 +5607,7 @@ class Diag: public ::xml_schema::type
   Product_Name (::std::auto_ptr< Product_Name_type > p);
 
   // Build-Version
-  //
+  // 
   typedef ::xml_schema::string Build_Version_type;
   typedef ::xsd::cxx::tree::traits< Build_Version_type, char > Build_Version_traits;
 
@@ -5621,7 +5624,7 @@ class Diag: public ::xml_schema::type
   Build_Version (::std::auto_ptr< Build_Version_type > p);
 
   // ICB-PCB-ID
-  //
+  // 
   typedef ::xml_schema::string ICB_PCB_ID_type;
   typedef ::xsd::cxx::tree::traits< ICB_PCB_ID_type, char > ICB_PCB_ID_traits;
 
@@ -5638,7 +5641,7 @@ class Diag: public ::xml_schema::type
   ICB_PCB_ID (::std::auto_ptr< ICB_PCB_ID_type > p);
 
   // Software-Version
-  //
+  // 
   typedef ::xml_schema::string Software_Version_type;
   typedef ::xsd::cxx::tree::traits< Software_Version_type, char > Software_Version_traits;
 
@@ -5655,7 +5658,7 @@ class Diag: public ::xml_schema::type
   Software_Version (::std::auto_ptr< Software_Version_type > p);
 
   // Receive-PCB-ID
-  //
+  // 
   typedef ::xml_schema::string Receive_PCB_ID_type;
   typedef ::xsd::cxx::tree::traits< Receive_PCB_ID_type, char > Receive_PCB_ID_traits;
 
@@ -5672,7 +5675,7 @@ class Diag: public ::xml_schema::type
   Receive_PCB_ID (::std::auto_ptr< Receive_PCB_ID_type > p);
 
   // Receive-FPGA-Revision
-  //
+  // 
   typedef ::xml_schema::string Receive_FPGA_Revision_type;
   typedef ::xsd::cxx::tree::traits< Receive_FPGA_Revision_type, char > Receive_FPGA_Revision_traits;
 
@@ -5689,7 +5692,7 @@ class Diag: public ::xml_schema::type
   Receive_FPGA_Revision (::std::auto_ptr< Receive_FPGA_Revision_type > p);
 
   // Monitor-15V
-  //
+  // 
   typedef ::Monitor_15V Monitor_15V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_15V_type, char > Monitor_15V_traits;
 
@@ -5706,7 +5709,7 @@ class Diag: public ::xml_schema::type
   Monitor_15V (::std::auto_ptr< Monitor_15V_type > p);
 
   // ICB-FPGA-Revision
-  //
+  // 
   typedef ::xml_schema::string ICB_FPGA_Revision_type;
   typedef ::xsd::cxx::tree::traits< ICB_FPGA_Revision_type, char > ICB_FPGA_Revision_traits;
 
@@ -5723,7 +5726,7 @@ class Diag: public ::xml_schema::type
   ICB_FPGA_Revision (::std::auto_ptr< ICB_FPGA_Revision_type > p);
 
   // GDI-Objects
-  //
+  // 
   typedef ::xml_schema::string GDI_Objects_type;
   typedef ::xsd::cxx::tree::traits< GDI_Objects_type, char > GDI_Objects_traits;
 
@@ -5740,7 +5743,7 @@ class Diag: public ::xml_schema::type
   GDI_Objects (::std::auto_ptr< GDI_Objects_type > p);
 
   // Mem-WorkingSet
-  //
+  // 
   typedef ::xml_schema::string Mem_WorkingSet_type;
   typedef ::xsd::cxx::tree::traits< Mem_WorkingSet_type, char > Mem_WorkingSet_traits;
 
@@ -5757,7 +5760,7 @@ class Diag: public ::xml_schema::type
   Mem_WorkingSet (::std::auto_ptr< Mem_WorkingSet_type > p);
 
   // Mem-Private
-  //
+  // 
   typedef ::xml_schema::string Mem_Private_type;
   typedef ::xsd::cxx::tree::traits< Mem_Private_type, char > Mem_Private_traits;
 
@@ -5774,7 +5777,7 @@ class Diag: public ::xml_schema::type
   Mem_Private (::std::auto_ptr< Mem_Private_type > p);
 
   // Switch-PCB-ID
-  //
+  // 
   typedef ::xml_schema::string Switch_PCB_ID_type;
   typedef ::xsd::cxx::tree::traits< Switch_PCB_ID_type, char > Switch_PCB_ID_traits;
 
@@ -5791,7 +5794,7 @@ class Diag: public ::xml_schema::type
   Switch_PCB_ID (::std::auto_ptr< Switch_PCB_ID_type > p);
 
   // Monitor-5V
-  //
+  // 
   typedef ::Monitor_5V Monitor_5V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_5V_type, char > Monitor_5V_traits;
 
@@ -5808,7 +5811,7 @@ class Diag: public ::xml_schema::type
   Monitor_5V (::std::auto_ptr< Monitor_5V_type > p);
 
   // Motor-PCB-Revision
-  //
+  // 
   typedef ::xml_schema::string Motor_PCB_Revision_type;
   typedef ::xsd::cxx::tree::traits< Motor_PCB_Revision_type, char > Motor_PCB_Revision_traits;
 
@@ -5825,7 +5828,7 @@ class Diag: public ::xml_schema::type
   Motor_PCB_Revision (::std::auto_ptr< Motor_PCB_Revision_type > p);
 
   // NE1619
-  //
+  // 
   typedef ::xml_schema::string NE1619_type;
   typedef ::xsd::cxx::tree::traits< NE1619_type, char > NE1619_traits;
 
@@ -5842,7 +5845,7 @@ class Diag: public ::xml_schema::type
   NE1619 (::std::auto_ptr< NE1619_type > p);
 
   // Motor-PCB-ID
-  //
+  // 
   typedef ::xml_schema::string Motor_PCB_ID_type;
   typedef ::xsd::cxx::tree::traits< Motor_PCB_ID_type, char > Motor_PCB_ID_traits;
 
@@ -5859,7 +5862,7 @@ class Diag: public ::xml_schema::type
   Motor_PCB_ID (::std::auto_ptr< Motor_PCB_ID_type > p);
 
   // Transmit-PCB-Revision
-  //
+  // 
   typedef ::xml_schema::string Transmit_PCB_Revision_type;
   typedef ::xsd::cxx::tree::traits< Transmit_PCB_Revision_type, char > Transmit_PCB_Revision_traits;
 
@@ -5876,7 +5879,7 @@ class Diag: public ::xml_schema::type
   Transmit_PCB_Revision (::std::auto_ptr< Transmit_PCB_Revision_type > p);
 
   // MAX1137
-  //
+  // 
   typedef ::xml_schema::string MAX1137_type;
   typedef ::xsd::cxx::tree::traits< MAX1137_type, char > MAX1137_traits;
 
@@ -5893,7 +5896,7 @@ class Diag: public ::xml_schema::type
   MAX1137 (::std::auto_ptr< MAX1137_type > p);
 
   // Monitor-Neg15V
-  //
+  // 
   typedef ::Monitor_Neg15V Monitor_Neg15V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_Neg15V_type, char > Monitor_Neg15V_traits;
 
@@ -5910,7 +5913,7 @@ class Diag: public ::xml_schema::type
   Monitor_Neg15V (::std::auto_ptr< Monitor_Neg15V_type > p);
 
   // Monitor-Neg5V
-  //
+  // 
   typedef ::Monitor_Neg5V Monitor_Neg5V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_Neg5V_type, char > Monitor_Neg5V_traits;
 
@@ -5927,7 +5930,7 @@ class Diag: public ::xml_schema::type
   Monitor_Neg5V (::std::auto_ptr< Monitor_Neg5V_type > p);
 
   // Switch-PCB-Revision
-  //
+  // 
   typedef ::xml_schema::string Switch_PCB_Revision_type;
   typedef ::xsd::cxx::tree::traits< Switch_PCB_Revision_type, char > Switch_PCB_Revision_traits;
 
@@ -5944,7 +5947,7 @@ class Diag: public ::xml_schema::type
   Switch_PCB_Revision (::std::auto_ptr< Switch_PCB_Revision_type > p);
 
   // Receive-PCB-Revision
-  //
+  // 
   typedef ::xml_schema::string Receive_PCB_Revision_type;
   typedef ::xsd::cxx::tree::traits< Receive_PCB_Revision_type, char > Receive_PCB_Revision_traits;
 
@@ -5961,7 +5964,7 @@ class Diag: public ::xml_schema::type
   Receive_PCB_Revision (::std::auto_ptr< Receive_PCB_Revision_type > p);
 
   // ICB-PCB-Revision
-  //
+  // 
   typedef ::xml_schema::string ICB_PCB_Revision_type;
   typedef ::xsd::cxx::tree::traits< ICB_PCB_Revision_type, char > ICB_PCB_Revision_traits;
 
@@ -5978,7 +5981,7 @@ class Diag: public ::xml_schema::type
   ICB_PCB_Revision (::std::auto_ptr< ICB_PCB_Revision_type > p);
 
   // Transmit-PCB-ID
-  //
+  // 
   typedef ::xml_schema::string Transmit_PCB_ID_type;
   typedef ::xsd::cxx::tree::traits< Transmit_PCB_ID_type, char > Transmit_PCB_ID_traits;
 
@@ -5995,7 +5998,7 @@ class Diag: public ::xml_schema::type
   Transmit_PCB_ID (::std::auto_ptr< Transmit_PCB_ID_type > p);
 
   // Monitor-Temperature
-  //
+  // 
   typedef ::xml_schema::string Monitor_Temperature_type;
   typedef ::xsd::cxx::tree::traits< Monitor_Temperature_type, char > Monitor_Temperature_traits;
 
@@ -6085,7 +6088,7 @@ class Diag: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Diag ();
 
   // Implementation.
@@ -6131,7 +6134,7 @@ class ECG: public ::xml_schema::type
 {
   public:
   // Respiration-Threshold-Change
-  //
+  // 
   typedef ::Respiration_Threshold_Change Respiration_Threshold_Change_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Threshold_Change_type, char > Respiration_Threshold_Change_traits;
 
@@ -6148,7 +6151,7 @@ class ECG: public ::xml_schema::type
   Respiration_Threshold_Change (::std::auto_ptr< Respiration_Threshold_Change_type > p);
 
   // Respiration-Threshold
-  //
+  // 
   typedef ::xml_schema::string Respiration_Threshold_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Threshold_type, char > Respiration_Threshold_traits;
 
@@ -6165,7 +6168,7 @@ class ECG: public ::xml_schema::type
   Respiration_Threshold (::std::auto_ptr< Respiration_Threshold_type > p);
 
   // Pressure-Range
-  //
+  // 
   typedef ::Pressure_Range Pressure_Range_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Range_type, char > Pressure_Range_traits;
 
@@ -6182,7 +6185,7 @@ class ECG: public ::xml_schema::type
   Pressure_Range (::std::auto_ptr< Pressure_Range_type > p);
 
   // Respiration-Gate-Delay
-  //
+  // 
   typedef ::Respiration_Gate_Delay Respiration_Gate_Delay_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Gate_Delay_type, char > Respiration_Gate_Delay_traits;
 
@@ -6199,7 +6202,7 @@ class ECG: public ::xml_schema::type
   Respiration_Gate_Delay (::std::auto_ptr< Respiration_Gate_Delay_type > p);
 
   // Respiration-Timeout
-  //
+  // 
   typedef ::Respiration_Timeout Respiration_Timeout_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Timeout_type, char > Respiration_Timeout_traits;
 
@@ -6216,7 +6219,7 @@ class ECG: public ::xml_schema::type
   Respiration_Timeout (::std::auto_ptr< Respiration_Timeout_type > p);
 
   // RWave-Max-Change-Factor-Percent
-  //
+  // 
   typedef ::RWave_Max_Change_Factor_Percent RWave_Max_Change_Factor_Percent_type;
   typedef ::xsd::cxx::tree::traits< RWave_Max_Change_Factor_Percent_type, char > RWave_Max_Change_Factor_Percent_traits;
 
@@ -6233,7 +6236,7 @@ class ECG: public ::xml_schema::type
   RWave_Max_Change_Factor_Percent (::std::auto_ptr< RWave_Max_Change_Factor_Percent_type > p);
 
   // Respiration-Period
-  //
+  // 
   typedef ::Respiration_Period Respiration_Period_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Period_type, char > Respiration_Period_traits;
 
@@ -6250,7 +6253,7 @@ class ECG: public ::xml_schema::type
   Respiration_Period (::std::auto_ptr< Respiration_Period_type > p);
 
   // Respiration-Subsample-Rate
-  //
+  // 
   typedef ::Respiration_Subsample_Rate Respiration_Subsample_Rate_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Subsample_Rate_type, char > Respiration_Subsample_Rate_traits;
 
@@ -6267,7 +6270,7 @@ class ECG: public ::xml_schema::type
   Respiration_Subsample_Rate (::std::auto_ptr< Respiration_Subsample_Rate_type > p);
 
   // Show-RWaves
-  //
+  // 
   typedef ::xml_schema::string Show_RWaves_type;
   typedef ::xsd::cxx::tree::traits< Show_RWaves_type, char > Show_RWaves_traits;
 
@@ -6284,7 +6287,7 @@ class ECG: public ::xml_schema::type
   Show_RWaves (::std::auto_ptr< Show_RWaves_type > p);
 
   // Respiration-Minimal-Peak-2-Peak
-  //
+  // 
   typedef ::xml_schema::string Respiration_Minimal_Peak_2_Peak_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Minimal_Peak_2_Peak_type, char > Respiration_Minimal_Peak_2_Peak_traits;
 
@@ -6301,7 +6304,7 @@ class ECG: public ::xml_schema::type
   Respiration_Minimal_Peak_2_Peak (::std::auto_ptr< Respiration_Minimal_Peak_2_Peak_type > p);
 
   // Respiration-Window
-  //
+  // 
   typedef ::Respiration_Window Respiration_Window_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Window_type, char > Respiration_Window_traits;
 
@@ -6318,7 +6321,7 @@ class ECG: public ::xml_schema::type
   Respiration_Window (::std::auto_ptr< Respiration_Window_type > p);
 
   // Pressure-Zeroed
-  //
+  // 
   typedef ::xml_schema::string Pressure_Zeroed_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Zeroed_type, char > Pressure_Zeroed_traits;
 
@@ -6335,7 +6338,7 @@ class ECG: public ::xml_schema::type
   Pressure_Zeroed (::std::auto_ptr< Pressure_Zeroed_type > p);
 
   // Pressure-Systolic
-  //
+  // 
   typedef ::Pressure_Systolic Pressure_Systolic_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Systolic_type, char > Pressure_Systolic_traits;
 
@@ -6352,7 +6355,7 @@ class ECG: public ::xml_schema::type
   Pressure_Systolic (::std::auto_ptr< Pressure_Systolic_type > p);
 
   // Respiration-Show-Window
-  //
+  // 
   typedef ::xml_schema::string Respiration_Show_Window_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Show_Window_type, char > Respiration_Show_Window_traits;
 
@@ -6369,7 +6372,7 @@ class ECG: public ::xml_schema::type
   Respiration_Show_Window (::std::auto_ptr< Respiration_Show_Window_type > p);
 
   // Frequency
-  //
+  // 
   typedef ::Frequency1 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
@@ -6386,7 +6389,7 @@ class ECG: public ::xml_schema::type
   Frequency (::std::auto_ptr< Frequency_type > p);
 
   // Respiration-Blank-Period
-  //
+  // 
   typedef ::Respiration_Blank_Period Respiration_Blank_Period_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Blank_Period_type, char > Respiration_Blank_Period_traits;
 
@@ -6403,7 +6406,7 @@ class ECG: public ::xml_schema::type
   Respiration_Blank_Period (::std::auto_ptr< Respiration_Blank_Period_type > p);
 
   // Respiration-Range
-  //
+  // 
   typedef ::Respiration_Range Respiration_Range_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Range_type, char > Respiration_Range_traits;
 
@@ -6420,7 +6423,7 @@ class ECG: public ::xml_schema::type
   Respiration_Range (::std::auto_ptr< Respiration_Range_type > p);
 
   // Pressure-Zero
-  //
+  // 
   typedef ::Pressure_Zero Pressure_Zero_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Zero_type, char > Pressure_Zero_traits;
 
@@ -6437,7 +6440,7 @@ class ECG: public ::xml_schema::type
   Pressure_Zero (::std::auto_ptr< Pressure_Zero_type > p);
 
   // Temperature-Amplification
-  //
+  // 
   typedef ::xml_schema::string Temperature_Amplification_type;
   typedef ::xsd::cxx::tree::traits< Temperature_Amplification_type, char > Temperature_Amplification_traits;
 
@@ -6454,7 +6457,7 @@ class ECG: public ::xml_schema::type
   Temperature_Amplification (::std::auto_ptr< Temperature_Amplification_type > p);
 
   // P-Wave-Start
-  //
+  // 
   typedef ::P_Wave_Start P_Wave_Start_type;
   typedef ::xsd::cxx::tree::traits< P_Wave_Start_type, char > P_Wave_Start_traits;
 
@@ -6471,7 +6474,7 @@ class ECG: public ::xml_schema::type
   P_Wave_Start (::std::auto_ptr< P_Wave_Start_type > p);
 
   // ECG-Filter-Taps
-  //
+  // 
   typedef ::xml_schema::string ECG_Filter_Taps_type;
   typedef ::xsd::cxx::tree::traits< ECG_Filter_Taps_type, char > ECG_Filter_Taps_traits;
 
@@ -6488,7 +6491,7 @@ class ECG: public ::xml_schema::type
   ECG_Filter_Taps (::std::auto_ptr< ECG_Filter_Taps_type > p);
 
   // RWave-Future-Search-Time
-  //
+  // 
   typedef ::RWave_Future_Search_Time RWave_Future_Search_Time_type;
   typedef ::xsd::cxx::tree::traits< RWave_Future_Search_Time_type, char > RWave_Future_Search_Time_traits;
 
@@ -6505,7 +6508,7 @@ class ECG: public ::xml_schema::type
   RWave_Future_Search_Time (::std::auto_ptr< RWave_Future_Search_Time_type > p);
 
   // Respiration-Percent-Peak
-  //
+  // 
   typedef ::Respiration_Percent_Peak Respiration_Percent_Peak_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Percent_Peak_type, char > Respiration_Percent_Peak_traits;
 
@@ -6522,7 +6525,7 @@ class ECG: public ::xml_schema::type
   Respiration_Percent_Peak (::std::auto_ptr< Respiration_Percent_Peak_type > p);
 
   // T-Wave-Start
-  //
+  // 
   typedef ::T_Wave_Start T_Wave_Start_type;
   typedef ::xsd::cxx::tree::traits< T_Wave_Start_type, char > T_Wave_Start_traits;
 
@@ -6539,7 +6542,7 @@ class ECG: public ::xml_schema::type
   T_Wave_Start (::std::auto_ptr< T_Wave_Start_type > p);
 
   // Strain-Rate-RR-Diff-Ratio
-  //
+  // 
   typedef ::Strain_Rate_RR_Diff_Ratio Strain_Rate_RR_Diff_Ratio_type;
   typedef ::xsd::cxx::tree::traits< Strain_Rate_RR_Diff_Ratio_type, char > Strain_Rate_RR_Diff_Ratio_traits;
 
@@ -6556,7 +6559,7 @@ class ECG: public ::xml_schema::type
   Strain_Rate_RR_Diff_Ratio (::std::auto_ptr< Strain_Rate_RR_Diff_Ratio_type > p);
 
   // Pressure-Calibration-Min-Level
-  //
+  // 
   typedef ::xml_schema::string Pressure_Calibration_Min_Level_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Calibration_Min_Level_type, char > Pressure_Calibration_Min_Level_traits;
 
@@ -6573,7 +6576,7 @@ class ECG: public ::xml_schema::type
   Pressure_Calibration_Min_Level (::std::auto_ptr< Pressure_Calibration_Min_Level_type > p);
 
   // Pressure-Calibrated
-  //
+  // 
   typedef ::xml_schema::string Pressure_Calibrated_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Calibrated_type, char > Pressure_Calibrated_traits;
 
@@ -6590,7 +6593,7 @@ class ECG: public ::xml_schema::type
   Pressure_Calibrated (::std::auto_ptr< Pressure_Calibrated_type > p);
 
   // DPDT-Range
-  //
+  // 
   typedef ::xml_schema::string DPDT_Range_type;
   typedef ::xsd::cxx::tree::traits< DPDT_Range_type, char > DPDT_Range_traits;
 
@@ -6607,7 +6610,7 @@ class ECG: public ::xml_schema::type
   DPDT_Range (::std::auto_ptr< DPDT_Range_type > p);
 
   // Respiration-Show-Event
-  //
+  // 
   typedef ::xml_schema::string Respiration_Show_Event_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Show_Event_type, char > Respiration_Show_Event_traits;
 
@@ -6624,7 +6627,7 @@ class ECG: public ::xml_schema::type
   Respiration_Show_Event (::std::auto_ptr< Respiration_Show_Event_type > p);
 
   // Pressure-Diastolic
-  //
+  // 
   typedef ::Pressure_Diastolic Pressure_Diastolic_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Diastolic_type, char > Pressure_Diastolic_traits;
 
@@ -6641,7 +6644,7 @@ class ECG: public ::xml_schema::type
   Pressure_Diastolic (::std::auto_ptr< Pressure_Diastolic_type > p);
 
   // Temperature-Calibration
-  //
+  // 
   typedef ::Temperature_Calibration Temperature_Calibration_type;
   typedef ::xsd::cxx::tree::traits< Temperature_Calibration_type, char > Temperature_Calibration_traits;
 
@@ -6658,7 +6661,7 @@ class ECG: public ::xml_schema::type
   Temperature_Calibration (::std::auto_ptr< Temperature_Calibration_type > p);
 
   // Temperature
-  //
+  // 
   typedef ::Temperature Temperature_type;
   typedef ::xsd::cxx::tree::traits< Temperature_type, char > Temperature_traits;
 
@@ -6675,7 +6678,7 @@ class ECG: public ::xml_schema::type
   Temperature (::std::auto_ptr< Temperature_type > p);
 
   // Respiration-Beats-To-Average
-  //
+  // 
   typedef ::Respiration_Beats_To_Average Respiration_Beats_To_Average_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Beats_To_Average_type, char > Respiration_Beats_To_Average_traits;
 
@@ -6692,7 +6695,7 @@ class ECG: public ::xml_schema::type
   Respiration_Beats_To_Average (::std::auto_ptr< Respiration_Beats_To_Average_type > p);
 
   // RWave-Thresh-Trigger-Percent
-  //
+  // 
   typedef ::RWave_Thresh_Trigger_Percent RWave_Thresh_Trigger_Percent_type;
   typedef ::xsd::cxx::tree::traits< RWave_Thresh_Trigger_Percent_type, char > RWave_Thresh_Trigger_Percent_traits;
 
@@ -6709,7 +6712,7 @@ class ECG: public ::xml_schema::type
   RWave_Thresh_Trigger_Percent (::std::auto_ptr< RWave_Thresh_Trigger_Percent_type > p);
 
   // Respiration-Time-To-Average
-  //
+  // 
   typedef ::Respiration_Time_To_Average Respiration_Time_To_Average_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Time_To_Average_type, char > Respiration_Time_To_Average_traits;
 
@@ -6726,7 +6729,7 @@ class ECG: public ::xml_schema::type
   Respiration_Time_To_Average (::std::auto_ptr< Respiration_Time_To_Average_type > p);
 
   // Pressure-Amplification
-  //
+  // 
   typedef ::xml_schema::string Pressure_Amplification_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Amplification_type, char > Pressure_Amplification_traits;
 
@@ -6743,7 +6746,7 @@ class ECG: public ::xml_schema::type
   Pressure_Amplification (::std::auto_ptr< Pressure_Amplification_type > p);
 
   // Heart-Period
-  //
+  // 
   typedef ::Heart_Period Heart_Period_type;
   typedef ::xsd::cxx::tree::traits< Heart_Period_type, char > Heart_Period_traits;
 
@@ -6760,7 +6763,7 @@ class ECG: public ::xml_schema::type
   Heart_Period (::std::auto_ptr< Heart_Period_type > p);
 
   // Pressure-Show-Event
-  //
+  // 
   typedef ::xml_schema::string Pressure_Show_Event_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Show_Event_type, char > Pressure_Show_Event_traits;
 
@@ -6777,7 +6780,7 @@ class ECG: public ::xml_schema::type
   Pressure_Show_Event (::std::auto_ptr< Pressure_Show_Event_type > p);
 
   // RWave-Default-Threshold
-  //
+  // 
   typedef ::xml_schema::string RWave_Default_Threshold_type;
   typedef ::xsd::cxx::tree::traits< RWave_Default_Threshold_type, char > RWave_Default_Threshold_traits;
 
@@ -6794,7 +6797,7 @@ class ECG: public ::xml_schema::type
   RWave_Default_Threshold (::std::auto_ptr< RWave_Default_Threshold_type > p);
 
   // Show-Filtered-Data
-  //
+  // 
   typedef ::xml_schema::string Show_Filtered_Data_type;
   typedef ::xsd::cxx::tree::traits< Show_Filtered_Data_type, char > Show_Filtered_Data_traits;
 
@@ -6811,7 +6814,7 @@ class ECG: public ::xml_schema::type
   Show_Filtered_Data (::std::auto_ptr< Show_Filtered_Data_type > p);
 
   // ECG-Range
-  //
+  // 
   typedef ::ECG_Range ECG_Range_type;
   typedef ::xsd::cxx::tree::traits< ECG_Range_type, char > ECG_Range_traits;
 
@@ -6828,7 +6831,7 @@ class ECG: public ::xml_schema::type
   ECG_Range (::std::auto_ptr< ECG_Range_type > p);
 
   // RWave-Maxima-Block-Time
-  //
+  // 
   typedef ::RWave_Maxima_Block_Time RWave_Maxima_Block_Time_type;
   typedef ::xsd::cxx::tree::traits< RWave_Maxima_Block_Time_type, char > RWave_Maxima_Block_Time_traits;
 
@@ -6845,7 +6848,7 @@ class ECG: public ::xml_schema::type
   RWave_Maxima_Block_Time (::std::auto_ptr< RWave_Maxima_Block_Time_type > p);
 
   // RWave-Noise-Threshold
-  //
+  // 
   typedef ::xml_schema::string RWave_Noise_Threshold_type;
   typedef ::xsd::cxx::tree::traits< RWave_Noise_Threshold_type, char > RWave_Noise_Threshold_traits;
 
@@ -6862,7 +6865,7 @@ class ECG: public ::xml_schema::type
   RWave_Noise_Threshold (::std::auto_ptr< RWave_Noise_Threshold_type > p);
 
   // Pressure-Calibration-Level
-  //
+  // 
   typedef ::Pressure_Calibration_Level Pressure_Calibration_Level_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Calibration_Level_type, char > Pressure_Calibration_Level_traits;
 
@@ -6879,7 +6882,7 @@ class ECG: public ::xml_schema::type
   Pressure_Calibration_Level (::std::auto_ptr< Pressure_Calibration_Level_type > p);
 
   // ECG-HP-Filter
-  //
+  // 
   typedef ::ECG_HP_Filter ECG_HP_Filter_type;
   typedef ::xsd::cxx::tree::traits< ECG_HP_Filter_type, char > ECG_HP_Filter_traits;
 
@@ -6896,7 +6899,7 @@ class ECG: public ::xml_schema::type
   ECG_HP_Filter (::std::auto_ptr< ECG_HP_Filter_type > p);
 
   // ECG-LP-Filter
-  //
+  // 
   typedef ::ECG_LP_Filter ECG_LP_Filter_type;
   typedef ::xsd::cxx::tree::traits< ECG_LP_Filter_type, char > ECG_LP_Filter_traits;
 
@@ -6913,7 +6916,7 @@ class ECG: public ::xml_schema::type
   ECG_LP_Filter (::std::auto_ptr< ECG_LP_Filter_type > p);
 
   // RWave-Max-Change-Period
-  //
+  // 
   typedef ::RWave_Max_Change_Period RWave_Max_Change_Period_type;
   typedef ::xsd::cxx::tree::traits< RWave_Max_Change_Period_type, char > RWave_Max_Change_Period_traits;
 
@@ -6930,7 +6933,7 @@ class ECG: public ::xml_schema::type
   RWave_Max_Change_Period (::std::auto_ptr< RWave_Max_Change_Period_type > p);
 
   // Pressure-Time-Out
-  //
+  // 
   typedef ::xml_schema::string Pressure_Time_Out_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Time_Out_type, char > Pressure_Time_Out_traits;
 
@@ -6947,7 +6950,7 @@ class ECG: public ::xml_schema::type
   Pressure_Time_Out (::std::auto_ptr< Pressure_Time_Out_type > p);
 
   // Pressure-Calibration
-  //
+  // 
   typedef ::Pressure_Calibration Pressure_Calibration_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Calibration_type, char > Pressure_Calibration_traits;
 
@@ -6964,7 +6967,7 @@ class ECG: public ::xml_schema::type
   Pressure_Calibration (::std::auto_ptr< Pressure_Calibration_type > p);
 
   // RWave-Blank-Time
-  //
+  // 
   typedef ::RWave_Blank_Time RWave_Blank_Time_type;
   typedef ::xsd::cxx::tree::traits< RWave_Blank_Time_type, char > RWave_Blank_Time_traits;
 
@@ -7096,7 +7099,7 @@ class ECG: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~ECG ();
 
   // Implementation.
@@ -7163,7 +7166,7 @@ class RfModeSoft: public ::xml_schema::type
 {
   public:
   // Amplitude-Height
-  //
+  // 
   typedef ::xml_schema::string Amplitude_Height_type;
   typedef ::xsd::cxx::tree::traits< Amplitude_Height_type, char > Amplitude_Height_traits;
 
@@ -7180,7 +7183,7 @@ class RfModeSoft: public ::xml_schema::type
   Amplitude_Height (::std::auto_ptr< Amplitude_Height_type > p);
 
   // Magnitude-Origin
-  //
+  // 
   typedef ::Magnitude_Origin Magnitude_Origin_type;
   typedef ::xsd::cxx::tree::traits< Magnitude_Origin_type, char > Magnitude_Origin_traits;
 
@@ -7197,7 +7200,7 @@ class RfModeSoft: public ::xml_schema::type
   Magnitude_Origin (::std::auto_ptr< Magnitude_Origin_type > p);
 
   // Frequency-Origin
-  //
+  // 
   typedef ::Frequency_Origin Frequency_Origin_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Origin_type, char > Frequency_Origin_traits;
 
@@ -7214,7 +7217,7 @@ class RfModeSoft: public ::xml_schema::type
   Frequency_Origin (::std::auto_ptr< Frequency_Origin_type > p);
 
   // Samples
-  //
+  // 
   typedef ::xml_schema::string Samples_type;
   typedef ::xsd::cxx::tree::traits< Samples_type, char > Samples_traits;
 
@@ -7231,7 +7234,7 @@ class RfModeSoft: public ::xml_schema::type
   Samples (::std::auto_ptr< Samples_type > p);
 
   // Saturation-Threshold
-  //
+  // 
   typedef ::xml_schema::string Saturation_Threshold_type;
   typedef ::xsd::cxx::tree::traits< Saturation_Threshold_type, char > Saturation_Threshold_traits;
 
@@ -7248,7 +7251,7 @@ class RfModeSoft: public ::xml_schema::type
   Saturation_Threshold (::std::auto_ptr< Saturation_Threshold_type > p);
 
   // Amplitude-Origin
-  //
+  // 
   typedef ::xml_schema::string Amplitude_Origin_type;
   typedef ::xsd::cxx::tree::traits< Amplitude_Origin_type, char > Amplitude_Origin_traits;
 
@@ -7265,7 +7268,7 @@ class RfModeSoft: public ::xml_schema::type
   Amplitude_Origin (::std::auto_ptr< Amplitude_Origin_type > p);
 
   // Frame-Selected
-  //
+  // 
   typedef ::xml_schema::string Frame_Selected_type;
   typedef ::xsd::cxx::tree::traits< Frame_Selected_type, char > Frame_Selected_traits;
 
@@ -7282,7 +7285,7 @@ class RfModeSoft: public ::xml_schema::type
   Frame_Selected (::std::auto_ptr< Frame_Selected_type > p);
 
   // AcqPerLine
-  //
+  // 
   typedef ::xml_schema::string AcqPerLine_type;
   typedef ::xsd::cxx::tree::traits< AcqPerLine_type, char > AcqPerLine_traits;
 
@@ -7299,7 +7302,7 @@ class RfModeSoft: public ::xml_schema::type
   AcqPerLine (::std::auto_ptr< AcqPerLine_type > p);
 
   // Lines
-  //
+  // 
   typedef ::xml_schema::string Lines_type;
   typedef ::xsd::cxx::tree::traits< Lines_type, char > Lines_traits;
 
@@ -7316,7 +7319,7 @@ class RfModeSoft: public ::xml_schema::type
   Lines (::std::auto_ptr< Lines_type > p);
 
   // Windowing-Mode
-  //
+  // 
   typedef ::xml_schema::string Windowing_Mode_type;
   typedef ::xsd::cxx::tree::traits< Windowing_Mode_type, char > Windowing_Mode_traits;
 
@@ -7333,7 +7336,7 @@ class RfModeSoft: public ::xml_schema::type
   Windowing_Mode (::std::auto_ptr< Windowing_Mode_type > p);
 
   // Length-Origin
-  //
+  // 
   typedef ::Length_Origin Length_Origin_type;
   typedef ::xsd::cxx::tree::traits< Length_Origin_type, char > Length_Origin_traits;
 
@@ -7350,7 +7353,7 @@ class RfModeSoft: public ::xml_schema::type
   Length_Origin (::std::auto_ptr< Length_Origin_type > p);
 
   // Line-Selected
-  //
+  // 
   typedef ::xml_schema::string Line_Selected_type;
   typedef ::xsd::cxx::tree::traits< Line_Selected_type, char > Line_Selected_traits;
 
@@ -7367,7 +7370,7 @@ class RfModeSoft: public ::xml_schema::type
   Line_Selected (::std::auto_ptr< Line_Selected_type > p);
 
   // V-Lines-Pos
-  //
+  // 
   typedef ::xml_schema::string V_Lines_Pos_type;
   typedef ::xsd::cxx::tree::traits< V_Lines_Pos_type, char > V_Lines_Pos_traits;
 
@@ -7384,7 +7387,7 @@ class RfModeSoft: public ::xml_schema::type
   V_Lines_Pos (::std::auto_ptr< V_Lines_Pos_type > p);
 
   // Bounce-Test-AscanData
-  //
+  // 
   typedef ::xml_schema::string Bounce_Test_AscanData_type;
   typedef ::xsd::cxx::tree::traits< Bounce_Test_AscanData_type, char > Bounce_Test_AscanData_traits;
 
@@ -7401,7 +7404,7 @@ class RfModeSoft: public ::xml_schema::type
   Bounce_Test_AscanData (::std::auto_ptr< Bounce_Test_AscanData_type > p);
 
   // Vertical-Scale
-  //
+  // 
   typedef ::Vertical_Scale Vertical_Scale_type;
   typedef ::xsd::cxx::tree::traits< Vertical_Scale_type, char > Vertical_Scale_traits;
 
@@ -7418,7 +7421,7 @@ class RfModeSoft: public ::xml_schema::type
   Vertical_Scale (::std::auto_ptr< Vertical_Scale_type > p);
 
   // Bounce-Test-RFData
-  //
+  // 
   typedef ::xml_schema::string Bounce_Test_RFData_type;
   typedef ::xsd::cxx::tree::traits< Bounce_Test_RFData_type, char > Bounce_Test_RFData_traits;
 
@@ -7435,7 +7438,7 @@ class RfModeSoft: public ::xml_schema::type
   Bounce_Test_RFData (::std::auto_ptr< Bounce_Test_RFData_type > p);
 
   // SamplesPerSec
-  //
+  // 
   typedef ::SamplesPerSec SamplesPerSec_type;
   typedef ::xsd::cxx::tree::traits< SamplesPerSec_type, char > SamplesPerSec_traits;
 
@@ -7452,7 +7455,7 @@ class RfModeSoft: public ::xml_schema::type
   SamplesPerSec (::std::auto_ptr< SamplesPerSec_type > p);
 
   // Frames
-  //
+  // 
   typedef ::xml_schema::string Frames_type;
   typedef ::xsd::cxx::tree::traits< Frames_type, char > Frames_traits;
 
@@ -7469,7 +7472,7 @@ class RfModeSoft: public ::xml_schema::type
   Frames (::std::auto_ptr< Frames_type > p);
 
   // Digitizer
-  //
+  // 
   typedef ::xml_schema::string Digitizer_type;
   typedef ::xsd::cxx::tree::traits< Digitizer_type, char > Digitizer_traits;
 
@@ -7486,7 +7489,7 @@ class RfModeSoft: public ::xml_schema::type
   Digitizer (::std::auto_ptr< Digitizer_type > p);
 
   // Magnitude-Height
-  //
+  // 
   typedef ::Magnitude_Height Magnitude_Height_type;
   typedef ::xsd::cxx::tree::traits< Magnitude_Height_type, char > Magnitude_Height_traits;
 
@@ -7503,7 +7506,7 @@ class RfModeSoft: public ::xml_schema::type
   Magnitude_Height (::std::auto_ptr< Magnitude_Height_type > p);
 
   // Saturation
-  //
+  // 
   typedef ::xml_schema::string Saturation_type;
   typedef ::xsd::cxx::tree::traits< Saturation_type, char > Saturation_traits;
 
@@ -7520,7 +7523,7 @@ class RfModeSoft: public ::xml_schema::type
   Saturation (::std::auto_ptr< Saturation_type > p);
 
   // Length-Length
-  //
+  // 
   typedef ::Length_Length Length_Length_type;
   typedef ::xsd::cxx::tree::traits< Length_Length_type, char > Length_Length_traits;
 
@@ -7537,7 +7540,7 @@ class RfModeSoft: public ::xml_schema::type
   Length_Length (::std::auto_ptr< Length_Length_type > p);
 
   // Frequency-Length
-  //
+  // 
   typedef ::Frequency_Length Frequency_Length_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Length_type, char > Frequency_Length_traits;
 
@@ -7554,7 +7557,7 @@ class RfModeSoft: public ::xml_schema::type
   Frequency_Length (::std::auto_ptr< Frequency_Length_type > p);
 
   // State
-  //
+  // 
   typedef ::xml_schema::string State_type;
   typedef ::xsd::cxx::tree::traits< State_type, char > State_traits;
 
@@ -7571,7 +7574,7 @@ class RfModeSoft: public ::xml_schema::type
   State (::std::auto_ptr< State_type > p);
 
   // SV-Center
-  //
+  // 
   typedef ::SV_Center SV_Center_type;
   typedef ::xsd::cxx::tree::traits< SV_Center_type, char > SV_Center_traits;
 
@@ -7588,7 +7591,7 @@ class RfModeSoft: public ::xml_schema::type
   SV_Center (::std::auto_ptr< SV_Center_type > p);
 
   // Continuous-RF-FrameRate
-  //
+  // 
   typedef ::xml_schema::string Continuous_RF_FrameRate_type;
   typedef ::xsd::cxx::tree::traits< Continuous_RF_FrameRate_type, char > Continuous_RF_FrameRate_traits;
 
@@ -7605,7 +7608,7 @@ class RfModeSoft: public ::xml_schema::type
   Continuous_RF_FrameRate (::std::auto_ptr< Continuous_RF_FrameRate_type > p);
 
   // Quantify-Bounce-Test
-  //
+  // 
   typedef ::xml_schema::string Quantify_Bounce_Test_type;
   typedef ::xsd::cxx::tree::traits< Quantify_Bounce_Test_type, char > Quantify_Bounce_Test_traits;
 
@@ -7622,7 +7625,7 @@ class RfModeSoft: public ::xml_schema::type
   Quantify_Bounce_Test (::std::auto_ptr< Quantify_Bounce_Test_type > p);
 
   // X_3D-Volume
-  //
+  // 
   typedef ::xml_schema::string X_3D_Volume_type;
   typedef ::xsd::cxx::tree::traits< X_3D_Volume_type, char > X_3D_Volume_traits;
 
@@ -7639,7 +7642,7 @@ class RfModeSoft: public ::xml_schema::type
   X_3D_Volume (::std::auto_ptr< X_3D_Volume_type > p);
 
   // Shift-RF-Data
-  //
+  // 
   typedef ::xml_schema::string Shift_RF_Data_type;
   typedef ::xsd::cxx::tree::traits< Shift_RF_Data_type, char > Shift_RF_Data_traits;
 
@@ -7656,7 +7659,7 @@ class RfModeSoft: public ::xml_schema::type
   Shift_RF_Data (::std::auto_ptr< Shift_RF_Data_type > p);
 
   // V-Lines
-  //
+  // 
   typedef ::xml_schema::string V_Lines_type;
   typedef ::xsd::cxx::tree::traits< V_Lines_type, char > V_Lines_traits;
 
@@ -7673,7 +7676,7 @@ class RfModeSoft: public ::xml_schema::type
   V_Lines (::std::auto_ptr< V_Lines_type > p);
 
   // Graph-Mode
-  //
+  // 
   typedef ::xml_schema::string Graph_Mode_type;
   typedef ::xsd::cxx::tree::traits< Graph_Mode_type, char > Graph_Mode_traits;
 
@@ -7690,7 +7693,7 @@ class RfModeSoft: public ::xml_schema::type
   Graph_Mode (::std::auto_ptr< Graph_Mode_type > p);
 
   // RF-Path-15Mhz-Time-Correction
-  //
+  // 
   typedef ::RF_Path_15Mhz_Time_Correction RF_Path_15Mhz_Time_Correction_type;
   typedef ::xsd::cxx::tree::traits< RF_Path_15Mhz_Time_Correction_type, char > RF_Path_15Mhz_Time_Correction_traits;
 
@@ -7707,7 +7710,7 @@ class RfModeSoft: public ::xml_schema::type
   RF_Path_15Mhz_Time_Correction (::std::auto_ptr< RF_Path_15Mhz_Time_Correction_type > p);
 
   // RF-Path-23Mhz-Time-Correction
-  //
+  // 
   typedef ::RF_Path_23Mhz_Time_Correction RF_Path_23Mhz_Time_Correction_type;
   typedef ::xsd::cxx::tree::traits< RF_Path_23Mhz_Time_Correction_type, char > RF_Path_23Mhz_Time_Correction_traits;
 
@@ -7724,7 +7727,7 @@ class RfModeSoft: public ::xml_schema::type
   RF_Path_23Mhz_Time_Correction (::std::auto_ptr< RF_Path_23Mhz_Time_Correction_type > p);
 
   // SV-Length-Limits
-  //
+  // 
   typedef ::SV_Length_Limits SV_Length_Limits_type;
   typedef ::xsd::cxx::tree::traits< SV_Length_Limits_type, char > SV_Length_Limits_traits;
 
@@ -7824,7 +7827,7 @@ class RfModeSoft: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RfModeSoft ();
 
   // Implementation.
@@ -7875,7 +7878,7 @@ class TX: public ::xml_schema::type
 {
   public:
   // V-Position-Table
-  //
+  // 
   typedef ::xml_schema::string V_Position_Table_type;
   typedef ::xsd::cxx::tree::traits< V_Position_Table_type, char > V_Position_Table_traits;
 
@@ -7892,7 +7895,7 @@ class TX: public ::xml_schema::type
   V_Position_Table (::std::auto_ptr< V_Position_Table_type > p);
 
   // V-Transmit-Length
-  //
+  // 
   typedef ::V_Transmit_Length V_Transmit_Length_type;
   typedef ::xsd::cxx::tree::traits< V_Transmit_Length_type, char > V_Transmit_Length_traits;
 
@@ -7909,7 +7912,7 @@ class TX: public ::xml_schema::type
   V_Transmit_Length (::std::auto_ptr< V_Transmit_Length_type > p);
 
   // Trigger-Counter-Clear
-  //
+  // 
   typedef ::xml_schema::string Trigger_Counter_Clear_type;
   typedef ::xsd::cxx::tree::traits< Trigger_Counter_Clear_type, char > Trigger_Counter_Clear_traits;
 
@@ -7926,7 +7929,7 @@ class TX: public ::xml_schema::type
   Trigger_Counter_Clear (::std::auto_ptr< Trigger_Counter_Clear_type > p);
 
   // Trigger-Counter
-  //
+  // 
   typedef ::xml_schema::string Trigger_Counter_type;
   typedef ::xsd::cxx::tree::traits< Trigger_Counter_type, char > Trigger_Counter_traits;
 
@@ -7943,7 +7946,7 @@ class TX: public ::xml_schema::type
   Trigger_Counter (::std::auto_ptr< Trigger_Counter_type > p);
 
   // Multi-Trigger-Freq
-  //
+  // 
   typedef ::xml_schema::string Multi_Trigger_Freq_type;
   typedef ::xsd::cxx::tree::traits< Multi_Trigger_Freq_type, char > Multi_Trigger_Freq_traits;
 
@@ -7960,7 +7963,7 @@ class TX: public ::xml_schema::type
   Multi_Trigger_Freq (::std::auto_ptr< Multi_Trigger_Freq_type > p);
 
   // RF-Amp
-  //
+  // 
   typedef ::xml_schema::string RF_Amp_type;
   typedef ::xsd::cxx::tree::traits< RF_Amp_type, char > RF_Amp_traits;
 
@@ -7977,7 +7980,7 @@ class TX: public ::xml_schema::type
   RF_Amp (::std::auto_ptr< RF_Amp_type > p);
 
   // Trigger-Control
-  //
+  // 
   typedef ::xml_schema::string Trigger_Control_type;
   typedef ::xsd::cxx::tree::traits< Trigger_Control_type, char > Trigger_Control_traits;
 
@@ -7994,7 +7997,7 @@ class TX: public ::xml_schema::type
   Trigger_Control (::std::auto_ptr< Trigger_Control_type > p);
 
   // V-Pulse-Rep-Freq
-  //
+  // 
   typedef ::V_Pulse_Rep_Freq V_Pulse_Rep_Freq_type;
   typedef ::xsd::cxx::tree::traits< V_Pulse_Rep_Freq_type, char > V_Pulse_Rep_Freq_traits;
 
@@ -8011,7 +8014,7 @@ class TX: public ::xml_schema::type
   V_Pulse_Rep_Freq (::std::auto_ptr< V_Pulse_Rep_Freq_type > p);
 
   // Phase
-  //
+  // 
   typedef ::xml_schema::string Phase_type;
   typedef ::xsd::cxx::tree::traits< Phase_type, char > Phase_traits;
 
@@ -8028,7 +8031,7 @@ class TX: public ::xml_schema::type
   Phase (::std::auto_ptr< Phase_type > p);
 
   // Frequency
-  //
+  // 
   typedef ::Frequency2 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
@@ -8045,7 +8048,7 @@ class TX: public ::xml_schema::type
   Frequency (::std::auto_ptr< Frequency_type > p);
 
   // V-Unblank-Time
-  //
+  // 
   typedef ::V_Unblank_Time V_Unblank_Time_type;
   typedef ::xsd::cxx::tree::traits< V_Unblank_Time_type, char > V_Unblank_Time_traits;
 
@@ -8062,7 +8065,7 @@ class TX: public ::xml_schema::type
   V_Unblank_Time (::std::auto_ptr< V_Unblank_Time_type > p);
 
   // V-Frequency
-  //
+  // 
   typedef ::V_Frequency V_Frequency_type;
   typedef ::xsd::cxx::tree::traits< V_Frequency_type, char > V_Frequency_traits;
 
@@ -8079,7 +8082,7 @@ class TX: public ::xml_schema::type
   V_Frequency (::std::auto_ptr< V_Frequency_type > p);
 
   // Pulse-Rep-Frequency
-  //
+  // 
   typedef ::Pulse_Rep_Frequency Pulse_Rep_Frequency_type;
   typedef ::xsd::cxx::tree::traits< Pulse_Rep_Frequency_type, char > Pulse_Rep_Frequency_traits;
 
@@ -8096,7 +8099,7 @@ class TX: public ::xml_schema::type
   Pulse_Rep_Frequency (::std::auto_ptr< Pulse_Rep_Frequency_type > p);
 
   // Multi-Trigger
-  //
+  // 
   typedef ::xml_schema::string Multi_Trigger_type;
   typedef ::xsd::cxx::tree::traits< Multi_Trigger_type, char > Multi_Trigger_traits;
 
@@ -8113,7 +8116,7 @@ class TX: public ::xml_schema::type
   Multi_Trigger (::std::auto_ptr< Multi_Trigger_type > p);
 
   // Trig-Tbl-Trigs
-  //
+  // 
   typedef ::Trig_Tbl_Trigs Trig_Tbl_Trigs_type;
   typedef ::xsd::cxx::tree::traits< Trig_Tbl_Trigs_type, char > Trig_Tbl_Trigs_traits;
 
@@ -8130,7 +8133,7 @@ class TX: public ::xml_schema::type
   Trig_Tbl_Trigs (::std::auto_ptr< Trig_Tbl_Trigs_type > p);
 
   // Width
-  //
+  // 
   typedef ::xml_schema::string Width_type;
   typedef ::xsd::cxx::tree::traits< Width_type, char > Width_traits;
 
@@ -8147,7 +8150,7 @@ class TX: public ::xml_schema::type
   Width (::std::auto_ptr< Width_type > p);
 
   // Unblank-Cycles
-  //
+  // 
   typedef ::Unblank_Cycles Unblank_Cycles_type;
   typedef ::xsd::cxx::tree::traits< Unblank_Cycles_type, char > Unblank_Cycles_traits;
 
@@ -8164,7 +8167,7 @@ class TX: public ::xml_schema::type
   Unblank_Cycles (::std::auto_ptr< Unblank_Cycles_type > p);
 
   // V-Width
-  //
+  // 
   typedef ::xml_schema::string V_Width_type;
   typedef ::xsd::cxx::tree::traits< V_Width_type, char > V_Width_traits;
 
@@ -8181,7 +8184,7 @@ class TX: public ::xml_schema::type
   V_Width (::std::auto_ptr< V_Width_type > p);
 
   // Unblank-Time
-  //
+  // 
   typedef ::Unblank_Time Unblank_Time_type;
   typedef ::xsd::cxx::tree::traits< Unblank_Time_type, char > Unblank_Time_traits;
 
@@ -8198,7 +8201,7 @@ class TX: public ::xml_schema::type
   Unblank_Time (::std::auto_ptr< Unblank_Time_type > p);
 
   // Attenuation
-  //
+  // 
   typedef ::Attenuation Attenuation_type;
   typedef ::xsd::cxx::tree::traits< Attenuation_type, char > Attenuation_traits;
 
@@ -8215,7 +8218,7 @@ class TX: public ::xml_schema::type
   Attenuation (::std::auto_ptr< Attenuation_type > p);
 
   // V-Power
-  //
+  // 
   typedef ::V_Power V_Power_type;
   typedef ::xsd::cxx::tree::traits< V_Power_type, char > V_Power_traits;
 
@@ -8232,7 +8235,7 @@ class TX: public ::xml_schema::type
   V_Power (::std::auto_ptr< V_Power_type > p);
 
   // Computer-Trigger
-  //
+  // 
   typedef ::xml_schema::string Computer_Trigger_type;
   typedef ::xsd::cxx::tree::traits< Computer_Trigger_type, char > Computer_Trigger_traits;
 
@@ -8308,7 +8311,7 @@ class TX: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~TX ();
 
   // Implementation.
@@ -8347,7 +8350,7 @@ class X_3D: public ::xml_schema::type
 {
   public:
   // Speed
-  //
+  // 
   typedef ::xml_schema::string Speed_type;
   typedef ::xsd::cxx::tree::traits< Speed_type, char > Speed_traits;
 
@@ -8364,7 +8367,7 @@ class X_3D: public ::xml_schema::type
   Speed (::std::auto_ptr< Speed_type > p);
 
   // Status
-  //
+  // 
   typedef ::xml_schema::string Status_type;
   typedef ::xsd::cxx::tree::traits< Status_type, char > Status_traits;
 
@@ -8381,7 +8384,7 @@ class X_3D: public ::xml_schema::type
   Status (::std::auto_ptr< Status_type > p);
 
   // Motor-Enable
-  //
+  // 
   typedef ::xml_schema::string Motor_Enable_type;
   typedef ::xsd::cxx::tree::traits< Motor_Enable_type, char > Motor_Enable_traits;
 
@@ -8398,7 +8401,7 @@ class X_3D: public ::xml_schema::type
   Motor_Enable (::std::auto_ptr< Motor_Enable_type > p);
 
   // Scan-Distance
-  //
+  // 
   typedef ::Scan_Distance Scan_Distance_type;
   typedef ::xsd::cxx::tree::traits< Scan_Distance_type, char > Scan_Distance_traits;
 
@@ -8415,7 +8418,7 @@ class X_3D: public ::xml_schema::type
   Scan_Distance (::std::auto_ptr< Scan_Distance_type > p);
 
   // Error
-  //
+  // 
   typedef ::xml_schema::string Error_type;
   typedef ::xsd::cxx::tree::traits< Error_type, char > Error_traits;
 
@@ -8432,7 +8435,7 @@ class X_3D: public ::xml_schema::type
   Error (::std::auto_ptr< Error_type > p);
 
   // Steps
-  //
+  // 
   typedef ::xml_schema::string Steps_type;
   typedef ::xsd::cxx::tree::traits< Steps_type, char > Steps_traits;
 
@@ -8449,7 +8452,7 @@ class X_3D: public ::xml_schema::type
   Steps (::std::auto_ptr< Steps_type > p);
 
   // Max-Scan-Steps
-  //
+  // 
   typedef ::xml_schema::string Max_Scan_Steps_type;
   typedef ::xsd::cxx::tree::traits< Max_Scan_Steps_type, char > Max_Scan_Steps_traits;
 
@@ -8466,7 +8469,7 @@ class X_3D: public ::xml_schema::type
   Max_Scan_Steps (::std::auto_ptr< Max_Scan_Steps_type > p);
 
   // Position
-  //
+  // 
   typedef ::xml_schema::string Position_type;
   typedef ::xsd::cxx::tree::traits< Position_type, char > Position_traits;
 
@@ -8483,7 +8486,7 @@ class X_3D: public ::xml_schema::type
   Position (::std::auto_ptr< Position_type > p);
 
   // Action
-  //
+  // 
   typedef ::xml_schema::string Action_type;
   typedef ::xsd::cxx::tree::traits< Action_type, char > Action_traits;
 
@@ -8500,7 +8503,7 @@ class X_3D: public ::xml_schema::type
   Action (::std::auto_ptr< Action_type > p);
 
   // Clear-Error
-  //
+  // 
   typedef ::xml_schema::string Clear_Error_type;
   typedef ::xsd::cxx::tree::traits< Clear_Error_type, char > Clear_Error_traits;
 
@@ -8517,7 +8520,7 @@ class X_3D: public ::xml_schema::type
   Clear_Error (::std::auto_ptr< Clear_Error_type > p);
 
   // Direction
-  //
+  // 
   typedef ::xml_schema::string Direction_type;
   typedef ::xsd::cxx::tree::traits< Direction_type, char > Direction_traits;
 
@@ -8534,7 +8537,7 @@ class X_3D: public ::xml_schema::type
   Direction (::std::auto_ptr< Direction_type > p);
 
   // Step-Size
-  //
+  // 
   typedef ::Step_Size Step_Size_type;
   typedef ::xsd::cxx::tree::traits< Step_Size_type, char > Step_Size_traits;
 
@@ -8590,7 +8593,7 @@ class X_3D: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~X_3D ();
 
   // Implementation.
@@ -8619,7 +8622,7 @@ class RfAnalysis: public ::xml_schema::type
 {
   public:
   // Reference
-  //
+  // 
   typedef ::xml_schema::string Reference_type;
   typedef ::xsd::cxx::tree::traits< Reference_type, char > Reference_traits;
 
@@ -8636,7 +8639,7 @@ class RfAnalysis: public ::xml_schema::type
   Reference (::std::auto_ptr< Reference_type > p);
 
   // Ref-Probe-F-Number
-  //
+  // 
   typedef ::xml_schema::string Ref_Probe_F_Number_type;
   typedef ::xsd::cxx::tree::traits< Ref_Probe_F_Number_type, char > Ref_Probe_F_Number_traits;
 
@@ -8653,7 +8656,7 @@ class RfAnalysis: public ::xml_schema::type
   Ref_Probe_F_Number (::std::auto_ptr< Ref_Probe_F_Number_type > p);
 
   // Ref-Probe-Focal-Length
-  //
+  // 
   typedef ::Ref_Probe_Focal_Length Ref_Probe_Focal_Length_type;
   typedef ::xsd::cxx::tree::traits< Ref_Probe_Focal_Length_type, char > Ref_Probe_Focal_Length_traits;
 
@@ -8670,7 +8673,7 @@ class RfAnalysis: public ::xml_schema::type
   Ref_Probe_Focal_Length (::std::auto_ptr< Ref_Probe_Focal_Length_type > p);
 
   // Ref-Tx-Frequency
-  //
+  // 
   typedef ::Ref_Tx_Frequency Ref_Tx_Frequency_type;
   typedef ::xsd::cxx::tree::traits< Ref_Tx_Frequency_type, char > Ref_Tx_Frequency_traits;
 
@@ -8687,7 +8690,7 @@ class RfAnalysis: public ::xml_schema::type
   Ref_Tx_Frequency (::std::auto_ptr< Ref_Tx_Frequency_type > p);
 
   // Freq-Range
-  //
+  // 
   typedef ::xml_schema::string Freq_Range_type;
   typedef ::xsd::cxx::tree::traits< Freq_Range_type, char > Freq_Range_traits;
 
@@ -8704,7 +8707,7 @@ class RfAnalysis: public ::xml_schema::type
   Freq_Range (::std::auto_ptr< Freq_Range_type > p);
 
   // Ref-Probe-Name
-  //
+  // 
   typedef ::xml_schema::string Ref_Probe_Name_type;
   typedef ::xsd::cxx::tree::traits< Ref_Probe_Name_type, char > Ref_Probe_Name_traits;
 
@@ -8721,7 +8724,7 @@ class RfAnalysis: public ::xml_schema::type
   Ref_Probe_Name (::std::auto_ptr< Ref_Probe_Name_type > p);
 
   // Graph-Mode
-  //
+  // 
   typedef ::xml_schema::string Graph_Mode_type;
   typedef ::xsd::cxx::tree::traits< Graph_Mode_type, char > Graph_Mode_traits;
 
@@ -8738,7 +8741,7 @@ class RfAnalysis: public ::xml_schema::type
   Graph_Mode (::std::auto_ptr< Graph_Mode_type > p);
 
   // Normalized-Height
-  //
+  // 
   typedef ::Normalized_Height Normalized_Height_type;
   typedef ::xsd::cxx::tree::traits< Normalized_Height_type, char > Normalized_Height_traits;
 
@@ -8755,7 +8758,7 @@ class RfAnalysis: public ::xml_schema::type
   Normalized_Height (::std::auto_ptr< Normalized_Height_type > p);
 
   // Ref-Tx-Width
-  //
+  // 
   typedef ::xml_schema::string Ref_Tx_Width_type;
   typedef ::xsd::cxx::tree::traits< Ref_Tx_Width_type, char > Ref_Tx_Width_traits;
 
@@ -8772,7 +8775,7 @@ class RfAnalysis: public ::xml_schema::type
   Ref_Tx_Width (::std::auto_ptr< Ref_Tx_Width_type > p);
 
   // Normalized-Origin
-  //
+  // 
   typedef ::Normalized_Origin Normalized_Origin_type;
   typedef ::xsd::cxx::tree::traits< Normalized_Origin_type, char > Normalized_Origin_traits;
 
@@ -8789,7 +8792,7 @@ class RfAnalysis: public ::xml_schema::type
   Normalized_Origin (::std::auto_ptr< Normalized_Origin_type > p);
 
   // Freq-Range-f
-  //
+  // 
   typedef ::xml_schema::string Freq_Range_f_type;
   typedef ::xsd::cxx::tree::traits< Freq_Range_f_type, char > Freq_Range_f_traits;
 
@@ -8806,7 +8809,7 @@ class RfAnalysis: public ::xml_schema::type
   Freq_Range_f (::std::auto_ptr< Freq_Range_f_type > p);
 
   // FFT-Offset
-  //
+  // 
   typedef ::xml_schema::string FFT_Offset_type;
   typedef ::xsd::cxx::tree::traits< FFT_Offset_type, char > FFT_Offset_traits;
 
@@ -8823,7 +8826,7 @@ class RfAnalysis: public ::xml_schema::type
   FFT_Offset (::std::auto_ptr< FFT_Offset_type > p);
 
   // Ref-Tx-Power
-  //
+  // 
   typedef ::Ref_Tx_Power Ref_Tx_Power_type;
   typedef ::xsd::cxx::tree::traits< Ref_Tx_Power_type, char > Ref_Tx_Power_traits;
 
@@ -8840,7 +8843,7 @@ class RfAnalysis: public ::xml_schema::type
   Ref_Tx_Power (::std::auto_ptr< Ref_Tx_Power_type > p);
 
   // Freq-Range-Max
-  //
+  // 
   typedef ::Freq_Range_Max Freq_Range_Max_type;
   typedef ::xsd::cxx::tree::traits< Freq_Range_Max_type, char > Freq_Range_Max_traits;
 
@@ -8857,7 +8860,7 @@ class RfAnalysis: public ::xml_schema::type
   Freq_Range_Max (::std::auto_ptr< Freq_Range_Max_type > p);
 
   // Freq-Range-Min
-  //
+  // 
   typedef ::Freq_Range_Min Freq_Range_Min_type;
   typedef ::xsd::cxx::tree::traits< Freq_Range_Min_type, char > Freq_Range_Min_traits;
 
@@ -8874,7 +8877,7 @@ class RfAnalysis: public ::xml_schema::type
   Freq_Range_Min (::std::auto_ptr< Freq_Range_Min_type > p);
 
   // Ref-Offset
-  //
+  // 
   typedef ::xml_schema::string Ref_Offset_type;
   typedef ::xsd::cxx::tree::traits< Ref_Offset_type, char > Ref_Offset_traits;
 
@@ -8938,7 +8941,7 @@ class RfAnalysis: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RfAnalysis ();
 
   // Implementation.
@@ -8971,7 +8974,7 @@ class RX: public ::xml_schema::type
 {
   public:
   // AD-IF
-  //
+  // 
   typedef ::xml_schema::string AD_IF_type;
   typedef ::xsd::cxx::tree::traits< AD_IF_type, char > AD_IF_traits;
 
@@ -8988,7 +8991,7 @@ class RX: public ::xml_schema::type
   AD_IF (::std::auto_ptr< AD_IF_type > p);
 
   // Sector-Width-Target
-  //
+  // 
   typedef ::Sector_Width_Target Sector_Width_Target_type;
   typedef ::xsd::cxx::tree::traits< Sector_Width_Target_type, char > Sector_Width_Target_traits;
 
@@ -9005,7 +9008,7 @@ class RX: public ::xml_schema::type
   Sector_Width_Target (::std::auto_ptr< Sector_Width_Target_type > p);
 
   // RF-Gain
-  //
+  // 
   typedef ::RF_Gain RF_Gain_type;
   typedef ::xsd::cxx::tree::traits< RF_Gain_type, char > RF_Gain_traits;
 
@@ -9022,7 +9025,7 @@ class RX: public ::xml_schema::type
   RF_Gain (::std::auto_ptr< RF_Gain_type > p);
 
   // TGC-Enable
-  //
+  // 
   typedef ::xml_schema::string TGC_Enable_type;
   typedef ::xsd::cxx::tree::traits< TGC_Enable_type, char > TGC_Enable_traits;
 
@@ -9039,7 +9042,7 @@ class RX: public ::xml_schema::type
   TGC_Enable (::std::auto_ptr< TGC_Enable_type > p);
 
   // V-Digi-Depth-Imaging
-  //
+  // 
   typedef ::V_Digi_Depth_Imaging V_Digi_Depth_Imaging_type;
   typedef ::xsd::cxx::tree::traits< V_Digi_Depth_Imaging_type, char > V_Digi_Depth_Imaging_traits;
 
@@ -9056,7 +9059,7 @@ class RX: public ::xml_schema::type
   V_Digi_Depth_Imaging (::std::auto_ptr< V_Digi_Depth_Imaging_type > p);
 
   // RF-Bandwidth
-  //
+  // 
   typedef ::xml_schema::string RF_Bandwidth_type;
   typedef ::xsd::cxx::tree::traits< RF_Bandwidth_type, char > RF_Bandwidth_traits;
 
@@ -9073,7 +9076,7 @@ class RX: public ::xml_schema::type
   RF_Bandwidth (::std::auto_ptr< RF_Bandwidth_type > p);
 
   // Test-Freq
-  //
+  // 
   typedef ::Test_Freq Test_Freq_type;
   typedef ::xsd::cxx::tree::traits< Test_Freq_type, char > Test_Freq_traits;
 
@@ -9090,7 +9093,7 @@ class RX: public ::xml_schema::type
   Test_Freq (::std::auto_ptr< Test_Freq_type > p);
 
   // Line-Number
-  //
+  // 
   typedef ::xml_schema::string Line_Number_type;
   typedef ::xsd::cxx::tree::traits< Line_Number_type, char > Line_Number_traits;
 
@@ -9107,7 +9110,7 @@ class RX: public ::xml_schema::type
   Line_Number (::std::auto_ptr< Line_Number_type > p);
 
   // V-TGC
-  //
+  // 
   typedef ::xml_schema::string V_TGC_type;
   typedef ::xsd::cxx::tree::traits< V_TGC_type, char > V_TGC_traits;
 
@@ -9124,7 +9127,7 @@ class RX: public ::xml_schema::type
   V_TGC (::std::auto_ptr< V_TGC_type > p);
 
   // IF-Filter
-  //
+  // 
   typedef ::IF_Filter IF_Filter_type;
   typedef ::xsd::cxx::tree::traits< IF_Filter_type, char > IF_Filter_traits;
 
@@ -9141,7 +9144,7 @@ class RX: public ::xml_schema::type
   IF_Filter (::std::auto_ptr< IF_Filter_type > p);
 
   // Track-Width
-  //
+  // 
   typedef ::Track_Width Track_Width_type;
   typedef ::xsd::cxx::tree::traits< Track_Width_type, char > Track_Width_traits;
 
@@ -9158,7 +9161,7 @@ class RX: public ::xml_schema::type
   Track_Width (::std::auto_ptr< Track_Width_type > p);
 
   // DTB-Error-Clr
-  //
+  // 
   typedef ::xml_schema::string DTB_Error_Clr_type;
   typedef ::xsd::cxx::tree::traits< DTB_Error_Clr_type, char > DTB_Error_Clr_traits;
 
@@ -9175,7 +9178,7 @@ class RX: public ::xml_schema::type
   DTB_Error_Clr (::std::auto_ptr< DTB_Error_Clr_type > p);
 
   // Current-Channel
-  //
+  // 
   typedef ::xml_schema::string Current_Channel_type;
   typedef ::xsd::cxx::tree::traits< Current_Channel_type, char > Current_Channel_traits;
 
@@ -9192,7 +9195,7 @@ class RX: public ::xml_schema::type
   Current_Channel (::std::auto_ptr< Current_Channel_type > p);
 
   // V-IF-Filter
-  //
+  // 
   typedef ::V_IF_Filter V_IF_Filter_type;
   typedef ::xsd::cxx::tree::traits< V_IF_Filter_type, char > V_IF_Filter_traits;
 
@@ -9209,7 +9212,7 @@ class RX: public ::xml_schema::type
   V_IF_Filter (::std::auto_ptr< V_IF_Filter_type > p);
 
   // IQ-Select
-  //
+  // 
   typedef ::xml_schema::string IQ_Select_type;
   typedef ::xsd::cxx::tree::traits< IQ_Select_type, char > IQ_Select_traits;
 
@@ -9226,7 +9229,7 @@ class RX: public ::xml_schema::type
   IQ_Select (::std::auto_ptr< IQ_Select_type > p);
 
   // HP-Clutter
-  //
+  // 
   typedef ::HP_Clutter HP_Clutter_type;
   typedef ::xsd::cxx::tree::traits< HP_Clutter_type, char > HP_Clutter_traits;
 
@@ -9243,7 +9246,7 @@ class RX: public ::xml_schema::type
   HP_Clutter (::std::auto_ptr< HP_Clutter_type > p);
 
   // AD-In
-  //
+  // 
   typedef ::xml_schema::string AD_In_type;
   typedef ::xsd::cxx::tree::traits< AD_In_type, char > AD_In_traits;
 
@@ -9260,7 +9263,7 @@ class RX: public ::xml_schema::type
   AD_In (::std::auto_ptr< AD_In_type > p);
 
   // V-TGC-Copy
-  //
+  // 
   typedef ::xml_schema::string V_TGC_Copy_type;
   typedef ::xsd::cxx::tree::traits< V_TGC_Copy_type, char > V_TGC_Copy_traits;
 
@@ -9277,7 +9280,7 @@ class RX: public ::xml_schema::type
   V_TGC_Copy (::std::auto_ptr< V_TGC_Copy_type > p);
 
   // Image-FIFO-Status
-  //
+  // 
   typedef ::xml_schema::string Image_FIFO_Status_type;
   typedef ::xsd::cxx::tree::traits< Image_FIFO_Status_type, char > Image_FIFO_Status_traits;
 
@@ -9294,7 +9297,7 @@ class RX: public ::xml_schema::type
   Image_FIFO_Status (::std::auto_ptr< Image_FIFO_Status_type > p);
 
   // RF-Filter
-  //
+  // 
   typedef ::RF_Filter RF_Filter_type;
   typedef ::xsd::cxx::tree::traits< RF_Filter_type, char > RF_Filter_traits;
 
@@ -9311,7 +9314,7 @@ class RX: public ::xml_schema::type
   RF_Filter (::std::auto_ptr< RF_Filter_type > p);
 
   // DDRS
-  //
+  // 
   typedef ::xml_schema::string DDRS_type;
   typedef ::xsd::cxx::tree::traits< DDRS_type, char > DDRS_traits;
 
@@ -9328,7 +9331,7 @@ class RX: public ::xml_schema::type
   DDRS (::std::auto_ptr< DDRS_type > p);
 
   // ADCA-Out
-  //
+  // 
   typedef ::xml_schema::string ADCA_Out_type;
   typedef ::xsd::cxx::tree::traits< ADCA_Out_type, char > ADCA_Out_traits;
 
@@ -9345,7 +9348,7 @@ class RX: public ::xml_schema::type
   ADCA_Out (::std::auto_ptr< ADCA_Out_type > p);
 
   // AD-Clock-Div
-  //
+  // 
   typedef ::xml_schema::string AD_Clock_Div_type;
   typedef ::xsd::cxx::tree::traits< AD_Clock_Div_type, char > AD_Clock_Div_traits;
 
@@ -9362,7 +9365,7 @@ class RX: public ::xml_schema::type
   AD_Clock_Div (::std::auto_ptr< AD_Clock_Div_type > p);
 
   // Imaging-Mode
-  //
+  // 
   typedef ::xml_schema::string Imaging_Mode_type;
   typedef ::xsd::cxx::tree::traits< Imaging_Mode_type, char > Imaging_Mode_traits;
 
@@ -9379,7 +9382,7 @@ class RX: public ::xml_schema::type
   Imaging_Mode (::std::auto_ptr< Imaging_Mode_type > p);
 
   // V-RF-Filter
-  //
+  // 
   typedef ::V_RF_Filter V_RF_Filter_type;
   typedef ::xsd::cxx::tree::traits< V_RF_Filter_type, char > V_RF_Filter_traits;
 
@@ -9396,7 +9399,7 @@ class RX: public ::xml_schema::type
   V_RF_Filter (::std::auto_ptr< V_RF_Filter_type > p);
 
   // ADCB-Out
-  //
+  // 
   typedef ::xml_schema::string ADCB_Out_type;
   typedef ::xsd::cxx::tree::traits< ADCB_Out_type, char > ADCB_Out_traits;
 
@@ -9413,7 +9416,7 @@ class RX: public ::xml_schema::type
   ADCB_Out (::std::auto_ptr< ADCB_Out_type > p);
 
   // Delay
-  //
+  // 
   typedef ::Delay Delay_type;
   typedef ::xsd::cxx::tree::traits< Delay_type, char > Delay_traits;
 
@@ -9430,7 +9433,7 @@ class RX: public ::xml_schema::type
   Delay (::std::auto_ptr< Delay_type > p);
 
   // AD-Gate-Width
-  //
+  // 
   typedef ::AD_Gate_Width AD_Gate_Width_type;
   typedef ::xsd::cxx::tree::traits< AD_Gate_Width_type, char > AD_Gate_Width_traits;
 
@@ -9447,7 +9450,7 @@ class RX: public ::xml_schema::type
   AD_Gate_Width (::std::auto_ptr< AD_Gate_Width_type > p);
 
   // Frequency
-  //
+  // 
   typedef ::Frequency3 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
@@ -9464,7 +9467,7 @@ class RX: public ::xml_schema::type
   Frequency (::std::auto_ptr< Frequency_type > p);
 
   // V-Frequency
-  //
+  // 
   typedef ::V_Frequency1 V_Frequency_type;
   typedef ::xsd::cxx::tree::traits< V_Frequency_type, char > V_Frequency_traits;
 
@@ -9481,7 +9484,7 @@ class RX: public ::xml_schema::type
   V_Frequency (::std::auto_ptr< V_Frequency_type > p);
 
   // V-Field-Of-View
-  //
+  // 
   typedef ::V_Field_Of_View V_Field_Of_View_type;
   typedef ::xsd::cxx::tree::traits< V_Field_Of_View_type, char > V_Field_Of_View_traits;
 
@@ -9498,7 +9501,7 @@ class RX: public ::xml_schema::type
   V_Field_Of_View (::std::auto_ptr< V_Field_Of_View_type > p);
 
   // Packet-Format
-  //
+  // 
   typedef ::xml_schema::string Packet_Format_type;
   typedef ::xsd::cxx::tree::traits< Packet_Format_type, char > Packet_Format_traits;
 
@@ -9515,7 +9518,7 @@ class RX: public ::xml_schema::type
   Packet_Format (::std::auto_ptr< Packet_Format_type > p);
 
   // Sector-Height-Target
-  //
+  // 
   typedef ::Sector_Height_Target Sector_Height_Target_type;
   typedef ::xsd::cxx::tree::traits< Sector_Height_Target_type, char > Sector_Height_Target_traits;
 
@@ -9532,7 +9535,7 @@ class RX: public ::xml_schema::type
   Sector_Height_Target (::std::auto_ptr< Sector_Height_Target_type > p);
 
   // Low-Speed-FIFO-Status
-  //
+  // 
   typedef ::xml_schema::string Low_Speed_FIFO_Status_type;
   typedef ::xsd::cxx::tree::traits< Low_Speed_FIFO_Status_type, char > Low_Speed_FIFO_Status_traits;
 
@@ -9549,7 +9552,7 @@ class RX: public ::xml_schema::type
   Low_Speed_FIFO_Status (::std::auto_ptr< Low_Speed_FIFO_Status_type > p);
 
   // AD-TestIn
-  //
+  // 
   typedef ::AD_TestIn AD_TestIn_type;
   typedef ::xsd::cxx::tree::traits< AD_TestIn_type, char > AD_TestIn_traits;
 
@@ -9566,7 +9569,7 @@ class RX: public ::xml_schema::type
   AD_TestIn (::std::auto_ptr< AD_TestIn_type > p);
 
   // Error
-  //
+  // 
   typedef ::xml_schema::string Error_type;
   typedef ::xsd::cxx::tree::traits< Error_type, char > Error_traits;
 
@@ -9583,7 +9586,7 @@ class RX: public ::xml_schema::type
   Error (::std::auto_ptr< Error_type > p);
 
   // Test-On
-  //
+  // 
   typedef ::xml_schema::string Test_On_type;
   typedef ::xsd::cxx::tree::traits< Test_On_type, char > Test_On_traits;
 
@@ -9600,7 +9603,7 @@ class RX: public ::xml_schema::type
   Test_On (::std::auto_ptr< Test_On_type > p);
 
   // AD-DCS
-  //
+  // 
   typedef ::xml_schema::string AD_DCS_type;
   typedef ::xsd::cxx::tree::traits< AD_DCS_type, char > AD_DCS_traits;
 
@@ -9617,7 +9620,7 @@ class RX: public ::xml_schema::type
   AD_DCS (::std::auto_ptr< AD_DCS_type > p);
 
   // DTB-Tfr-Enable
-  //
+  // 
   typedef ::xml_schema::string DTB_Tfr_Enable_type;
   typedef ::xsd::cxx::tree::traits< DTB_Tfr_Enable_type, char > DTB_Tfr_Enable_traits;
 
@@ -9634,7 +9637,7 @@ class RX: public ::xml_schema::type
   DTB_Tfr_Enable (::std::auto_ptr< DTB_Tfr_Enable_type > p);
 
   // DTB-Test-Enable
-  //
+  // 
   typedef ::xml_schema::string DTB_Test_Enable_type;
   typedef ::xsd::cxx::tree::traits< DTB_Test_Enable_type, char > DTB_Test_Enable_traits;
 
@@ -9651,7 +9654,7 @@ class RX: public ::xml_schema::type
   DTB_Test_Enable (::std::auto_ptr< DTB_Test_Enable_type > p);
 
   // V-Delay-Length
-  //
+  // 
   typedef ::V_Delay_Length V_Delay_Length_type;
   typedef ::xsd::cxx::tree::traits< V_Delay_Length_type, char > V_Delay_Length_traits;
 
@@ -9668,7 +9671,7 @@ class RX: public ::xml_schema::type
   V_Delay_Length (::std::auto_ptr< V_Delay_Length_type > p);
 
   // Current-Mode
-  //
+  // 
   typedef ::xml_schema::string Current_Mode_type;
   typedef ::xsd::cxx::tree::traits< Current_Mode_type, char > Current_Mode_traits;
 
@@ -9784,7 +9787,7 @@ class RX: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RX ();
 
   // Implementation.
@@ -9843,7 +9846,7 @@ class Display: public ::xml_schema::type
 {
   public:
   // Direction
-  //
+  // 
   typedef ::xml_schema::string Direction_type;
   typedef ::xsd::cxx::tree::traits< Direction_type, char > Direction_traits;
 
@@ -9860,7 +9863,7 @@ class Display: public ::xml_schema::type
   Direction (::std::auto_ptr< Direction_type > p);
 
   // X_3D-Gain
-  //
+  // 
   typedef ::xml_schema::string X_3D_Gain_type;
   typedef ::xsd::cxx::tree::traits< X_3D_Gain_type, char > X_3D_Gain_traits;
 
@@ -9877,7 +9880,7 @@ class Display: public ::xml_schema::type
   X_3D_Gain (::std::auto_ptr< X_3D_Gain_type > p);
 
   // X_3D-Dynamic-Range
-  //
+  // 
   typedef ::xml_schema::string X_3D_Dynamic_Range_type;
   typedef ::xsd::cxx::tree::traits< X_3D_Dynamic_Range_type, char > X_3D_Dynamic_Range_traits;
 
@@ -9894,7 +9897,7 @@ class Display: public ::xml_schema::type
   X_3D_Dynamic_Range (::std::auto_ptr< X_3D_Dynamic_Range_type > p);
 
   // V-Selection
-  //
+  // 
   typedef ::xml_schema::string V_Selection_type;
   typedef ::xsd::cxx::tree::traits< V_Selection_type, char > V_Selection_traits;
 
@@ -9911,7 +9914,7 @@ class Display: public ::xml_schema::type
   V_Selection (::std::auto_ptr< V_Selection_type > p);
 
   // Gain
-  //
+  // 
   typedef ::xml_schema::string Gain_type;
   typedef ::xsd::cxx::tree::traits< Gain_type, char > Gain_traits;
 
@@ -9928,7 +9931,7 @@ class Display: public ::xml_schema::type
   Gain (::std::auto_ptr< Gain_type > p);
 
   // Dynamic-Range
-  //
+  // 
   typedef ::xml_schema::string Dynamic_Range_type;
   typedef ::xsd::cxx::tree::traits< Dynamic_Range_type, char > Dynamic_Range_traits;
 
@@ -9945,7 +9948,7 @@ class Display: public ::xml_schema::type
   Dynamic_Range (::std::auto_ptr< Dynamic_Range_type > p);
 
   // Window-Time
-  //
+  // 
   typedef ::Window_Time Window_Time_type;
   typedef ::xsd::cxx::tree::traits< Window_Time_type, char > Window_Time_traits;
 
@@ -9991,7 +9994,7 @@ class Display: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Display ();
 
   // Implementation.
@@ -10015,7 +10018,7 @@ class Acqiris: public ::xml_schema::type
 {
   public:
   // SamplesNom
-  //
+  // 
   typedef ::xml_schema::string SamplesNom_type;
   typedef ::xsd::cxx::tree::traits< SamplesNom_type, char > SamplesNom_traits;
 
@@ -10032,7 +10035,7 @@ class Acqiris: public ::xml_schema::type
   SamplesNom (::std::auto_ptr< SamplesNom_type > p);
 
   // V-Read-Data
-  //
+  // 
   typedef ::xml_schema::string V_Read_Data_type;
   typedef ::xsd::cxx::tree::traits< V_Read_Data_type, char > V_Read_Data_traits;
 
@@ -10049,7 +10052,7 @@ class Acqiris: public ::xml_schema::type
   V_Read_Data (::std::auto_ptr< V_Read_Data_type > p);
 
   // Mode
-  //
+  // 
   typedef ::xml_schema::string Mode_type;
   typedef ::xsd::cxx::tree::traits< Mode_type, char > Mode_traits;
 
@@ -10066,7 +10069,7 @@ class Acqiris: public ::xml_schema::type
   Mode (::std::auto_ptr< Mode_type > p);
 
   // Acquire
-  //
+  // 
   typedef ::xml_schema::string Acquire_type;
   typedef ::xsd::cxx::tree::traits< Acquire_type, char > Acquire_traits;
 
@@ -10083,7 +10086,7 @@ class Acqiris: public ::xml_schema::type
   Acquire (::std::auto_ptr< Acquire_type > p);
 
   // Available
-  //
+  // 
   typedef ::xml_schema::string Available_type;
   typedef ::xsd::cxx::tree::traits< Available_type, char > Available_traits;
 
@@ -10100,7 +10103,7 @@ class Acqiris: public ::xml_schema::type
   Available (::std::auto_ptr< Available_type > p);
 
   // Force-Trigger
-  //
+  // 
   typedef ::xml_schema::string Force_Trigger_type;
   typedef ::xsd::cxx::tree::traits< Force_Trigger_type, char > Force_Trigger_traits;
 
@@ -10117,7 +10120,7 @@ class Acqiris: public ::xml_schema::type
   Force_Trigger (::std::auto_ptr< Force_Trigger_type > p);
 
   // Control
-  //
+  // 
   typedef ::xml_schema::string Control_type;
   typedef ::xsd::cxx::tree::traits< Control_type, char > Control_traits;
 
@@ -10134,7 +10137,7 @@ class Acqiris: public ::xml_schema::type
   Control (::std::auto_ptr< Control_type > p);
 
   // TbSegmentPad
-  //
+  // 
   typedef ::xml_schema::string TbSegmentPad_type;
   typedef ::xsd::cxx::tree::traits< TbSegmentPad_type, char > TbSegmentPad_traits;
 
@@ -10151,7 +10154,7 @@ class Acqiris: public ::xml_schema::type
   TbSegmentPad (::std::auto_ptr< TbSegmentPad_type > p);
 
   // Wait-Acq
-  //
+  // 
   typedef ::xml_schema::string Wait_Acq_type;
   typedef ::xsd::cxx::tree::traits< Wait_Acq_type, char > Wait_Acq_traits;
 
@@ -10191,7 +10194,7 @@ class Acqiris: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Acqiris ();
 
   // Implementation.
@@ -10217,7 +10220,7 @@ class ActiveProbe1: public ::xml_schema::type
 {
   public:
   // Notes
-  //
+  // 
   typedef ::xml_schema::string Notes_type;
   typedef ::xsd::cxx::tree::traits< Notes_type, char > Notes_traits;
 
@@ -10234,7 +10237,7 @@ class ActiveProbe1: public ::xml_schema::type
   Notes (::std::auto_ptr< Notes_type > p);
 
   // Sample-Time
-  //
+  // 
   typedef ::Sample_Time1 Sample_Time_type;
   typedef ::xsd::cxx::tree::traits< Sample_Time_type, char > Sample_Time_traits;
 
@@ -10251,7 +10254,7 @@ class ActiveProbe1: public ::xml_schema::type
   Sample_Time (::std::auto_ptr< Sample_Time_type > p);
 
   // Focal-Length
-  //
+  // 
   typedef ::Focal_Length1 Focal_Length_type;
   typedef ::xsd::cxx::tree::traits< Focal_Length_type, char > Focal_Length_traits;
 
@@ -10268,7 +10271,7 @@ class ActiveProbe1: public ::xml_schema::type
   Focal_Length (::std::auto_ptr< Focal_Length_type > p);
 
   // Acceleration-Limit-Slope
-  //
+  // 
   typedef ::xml_schema::string Acceleration_Limit_Slope_type;
   typedef ::xsd::cxx::tree::traits< Acceleration_Limit_Slope_type, char > Acceleration_Limit_Slope_traits;
 
@@ -10285,7 +10288,7 @@ class ActiveProbe1: public ::xml_schema::type
   Acceleration_Limit_Slope (::std::auto_ptr< Acceleration_Limit_Slope_type > p);
 
   // Type
-  //
+  // 
   typedef ::xml_schema::string Type_type;
   typedef ::xsd::cxx::tree::traits< Type_type, char > Type_traits;
 
@@ -10302,7 +10305,7 @@ class ActiveProbe1: public ::xml_schema::type
   Type (::std::auto_ptr< Type_type > p);
 
   // Detect-Id
-  //
+  // 
   typedef ::xml_schema::string Detect_Id_type;
   typedef ::xsd::cxx::tree::traits< Detect_Id_type, char > Detect_Id_traits;
 
@@ -10319,7 +10322,7 @@ class ActiveProbe1: public ::xml_schema::type
   Detect_Id (::std::auto_ptr< Detect_Id_type > p);
 
   // Default-Scan-Speed
-  //
+  // 
   typedef ::Default_Scan_Speed1 Default_Scan_Speed_type;
   typedef ::xsd::cxx::tree::traits< Default_Scan_Speed_type, char > Default_Scan_Speed_traits;
 
@@ -10336,7 +10339,7 @@ class ActiveProbe1: public ::xml_schema::type
   Default_Scan_Speed (::std::auto_ptr< Default_Scan_Speed_type > p);
 
   // K1-Power
-  //
+  // 
   typedef ::xml_schema::string K1_Power_type;
   typedef ::xsd::cxx::tree::traits< K1_Power_type, char > K1_Power_traits;
 
@@ -10353,7 +10356,7 @@ class ActiveProbe1: public ::xml_schema::type
   K1_Power (::std::auto_ptr< K1_Power_type > p);
 
   // Cutoff-Scan-Speed
-  //
+  // 
   typedef ::Cutoff_Scan_Speed1 Cutoff_Scan_Speed_type;
   typedef ::xsd::cxx::tree::traits< Cutoff_Scan_Speed_type, char > Cutoff_Scan_Speed_traits;
 
@@ -10370,7 +10373,7 @@ class ActiveProbe1: public ::xml_schema::type
   Cutoff_Scan_Speed (::std::auto_ptr< Cutoff_Scan_Speed_type > p);
 
   // Frequency-Low
-  //
+  // 
   typedef ::Frequency_Low1 Frequency_Low_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Low_type, char > Frequency_Low_traits;
 
@@ -10387,7 +10390,7 @@ class ActiveProbe1: public ::xml_schema::type
   Frequency_Low (::std::auto_ptr< Frequency_Low_type > p);
 
   // Default-FOV
-  //
+  // 
   typedef ::Default_FOV1 Default_FOV_type;
   typedef ::xsd::cxx::tree::traits< Default_FOV_type, char > Default_FOV_traits;
 
@@ -10404,7 +10407,7 @@ class ActiveProbe1: public ::xml_schema::type
   Default_FOV (::std::auto_ptr< Default_FOV_type > p);
 
   // Frequency-Doppler-Default
-  //
+  // 
   typedef ::Frequency_Doppler_Default1 Frequency_Doppler_Default_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Doppler_Default_type, char > Frequency_Doppler_Default_traits;
 
@@ -10421,7 +10424,7 @@ class ActiveProbe1: public ::xml_schema::type
   Frequency_Doppler_Default (::std::auto_ptr< Frequency_Doppler_Default_type > p);
 
   // Default-SvSize-MMode
-  //
+  // 
   typedef ::xml_schema::string Default_SvSize_MMode_type;
   typedef ::xsd::cxx::tree::traits< Default_SvSize_MMode_type, char > Default_SvSize_MMode_traits;
 
@@ -10438,7 +10441,7 @@ class ActiveProbe1: public ::xml_schema::type
   Default_SvSize_MMode (::std::auto_ptr< Default_SvSize_MMode_type > p);
 
   // Axial-Res-Factor-Target
-  //
+  // 
   typedef ::xml_schema::string Axial_Res_Factor_Target_type;
   typedef ::xsd::cxx::tree::traits< Axial_Res_Factor_Target_type, char > Axial_Res_Factor_Target_traits;
 
@@ -10455,7 +10458,7 @@ class ActiveProbe1: public ::xml_schema::type
   Axial_Res_Factor_Target (::std::auto_ptr< Axial_Res_Factor_Target_type > p);
 
   // F-Number
-  //
+  // 
   typedef ::xml_schema::string F_Number_type;
   typedef ::xsd::cxx::tree::traits< F_Number_type, char > F_Number_traits;
 
@@ -10472,7 +10475,7 @@ class ActiveProbe1: public ::xml_schema::type
   F_Number (::std::auto_ptr< F_Number_type > p);
 
   // Acc-Time-Factor
-  //
+  // 
   typedef ::xml_schema::string Acc_Time_Factor_type;
   typedef ::xsd::cxx::tree::traits< Acc_Time_Factor_type, char > Acc_Time_Factor_traits;
 
@@ -10489,7 +10492,7 @@ class ActiveProbe1: public ::xml_schema::type
   Acc_Time_Factor (::std::auto_ptr< Acc_Time_Factor_type > p);
 
   // Axial-Res
-  //
+  // 
   typedef ::Axial_Res1 Axial_Res_type;
   typedef ::xsd::cxx::tree::traits< Axial_Res_type, char > Axial_Res_traits;
 
@@ -10506,7 +10509,7 @@ class ActiveProbe1: public ::xml_schema::type
   Axial_Res (::std::auto_ptr< Axial_Res_type > p);
 
   // Lateral-Res-Factor-Target
-  //
+  // 
   typedef ::xml_schema::string Lateral_Res_Factor_Target_type;
   typedef ::xsd::cxx::tree::traits< Lateral_Res_Factor_Target_type, char > Lateral_Res_Factor_Target_traits;
 
@@ -10523,7 +10526,7 @@ class ActiveProbe1: public ::xml_schema::type
   Lateral_Res_Factor_Target (::std::auto_ptr< Lateral_Res_Factor_Target_type > p);
 
   // Pivot-Encoder-Dist
-  //
+  // 
   typedef ::Pivot_Encoder_Dist1 Pivot_Encoder_Dist_type;
   typedef ::xsd::cxx::tree::traits< Pivot_Encoder_Dist_type, char > Pivot_Encoder_Dist_traits;
 
@@ -10540,7 +10543,7 @@ class ActiveProbe1: public ::xml_schema::type
   Pivot_Encoder_Dist (::std::auto_ptr< Pivot_Encoder_Dist_type > p);
 
   // Encoder-Range-Max
-  //
+  // 
   typedef ::Encoder_Range_Max1 Encoder_Range_Max_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Range_Max_type, char > Encoder_Range_Max_traits;
 
@@ -10557,7 +10560,7 @@ class ActiveProbe1: public ::xml_schema::type
   Encoder_Range_Max (::std::auto_ptr< Encoder_Range_Max_type > p);
 
   // Encoder-Range-Min
-  //
+  // 
   typedef ::Encoder_Range_Min1 Encoder_Range_Min_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Range_Min_type, char > Encoder_Range_Min_traits;
 
@@ -10574,7 +10577,7 @@ class ActiveProbe1: public ::xml_schema::type
   Encoder_Range_Min (::std::auto_ptr< Encoder_Range_Min_type > p);
 
   // Lateral-Res
-  //
+  // 
   typedef ::Lateral_Res1 Lateral_Res_type;
   typedef ::xsd::cxx::tree::traits< Lateral_Res_type, char > Lateral_Res_traits;
 
@@ -10591,7 +10594,7 @@ class ActiveProbe1: public ::xml_schema::type
   Lateral_Res (::std::auto_ptr< Lateral_Res_type > p);
 
   // Max-Scan-Distance
-  //
+  // 
   typedef ::Max_Scan_Distance1 Max_Scan_Distance_type;
   typedef ::xsd::cxx::tree::traits< Max_Scan_Distance_type, char > Max_Scan_Distance_traits;
 
@@ -10608,7 +10611,7 @@ class ActiveProbe1: public ::xml_schema::type
   Max_Scan_Distance (::std::auto_ptr< Max_Scan_Distance_type > p);
 
   // Default-Rx-Gain
-  //
+  // 
   typedef ::Default_Rx_Gain1 Default_Rx_Gain_type;
   typedef ::xsd::cxx::tree::traits< Default_Rx_Gain_type, char > Default_Rx_Gain_traits;
 
@@ -10625,7 +10628,7 @@ class ActiveProbe1: public ::xml_schema::type
   Default_Rx_Gain (::std::auto_ptr< Default_Rx_Gain_type > p);
 
   // PID-KD-High
-  //
+  // 
   typedef ::xml_schema::string PID_KD_High_type;
   typedef ::xsd::cxx::tree::traits< PID_KD_High_type, char > PID_KD_High_traits;
 
@@ -10642,7 +10645,7 @@ class ActiveProbe1: public ::xml_schema::type
   PID_KD_High (::std::auto_ptr< PID_KD_High_type > p);
 
   // PID-KI-High
-  //
+  // 
   typedef ::xml_schema::string PID_KI_High_type;
   typedef ::xsd::cxx::tree::traits< PID_KI_High_type, char > PID_KI_High_traits;
 
@@ -10659,7 +10662,7 @@ class ActiveProbe1: public ::xml_schema::type
   PID_KI_High (::std::auto_ptr< PID_KI_High_type > p);
 
   // PID-KP-High
-  //
+  // 
   typedef ::xml_schema::string PID_KP_High_type;
   typedef ::xsd::cxx::tree::traits< PID_KP_High_type, char > PID_KP_High_traits;
 
@@ -10676,7 +10679,7 @@ class ActiveProbe1: public ::xml_schema::type
   PID_KP_High (::std::auto_ptr< PID_KP_High_type > p);
 
   // Frequency-High
-  //
+  // 
   typedef ::Frequency_High1 Frequency_High_type;
   typedef ::xsd::cxx::tree::traits< Frequency_High_type, char > Frequency_High_traits;
 
@@ -10693,7 +10696,7 @@ class ActiveProbe1: public ::xml_schema::type
   Frequency_High (::std::auto_ptr< Frequency_High_type > p);
 
   // Lateral-Res-Factor-Max
-  //
+  // 
   typedef ::xml_schema::string Lateral_Res_Factor_Max_type;
   typedef ::xsd::cxx::tree::traits< Lateral_Res_Factor_Max_type, char > Lateral_Res_Factor_Max_traits;
 
@@ -10710,7 +10713,7 @@ class ActiveProbe1: public ::xml_schema::type
   Lateral_Res_Factor_Max (::std::auto_ptr< Lateral_Res_Factor_Max_type > p);
 
   // Scan-Speeds
-  //
+  // 
   typedef ::Scan_Speeds1 Scan_Speeds_type;
   typedef ::xsd::cxx::tree::traits< Scan_Speeds_type, char > Scan_Speeds_traits;
 
@@ -10727,7 +10730,7 @@ class ActiveProbe1: public ::xml_schema::type
   Scan_Speeds (::std::auto_ptr< Scan_Speeds_type > p);
 
   // Filter-Doppler-Cutoff
-  //
+  // 
   typedef ::Filter_Doppler_Cutoff1 Filter_Doppler_Cutoff_type;
   typedef ::xsd::cxx::tree::traits< Filter_Doppler_Cutoff_type, char > Filter_Doppler_Cutoff_traits;
 
@@ -10744,7 +10747,7 @@ class ActiveProbe1: public ::xml_schema::type
   Filter_Doppler_Cutoff (::std::auto_ptr< Filter_Doppler_Cutoff_type > p);
 
   // Name
-  //
+  // 
   typedef ::xml_schema::string Name_type;
   typedef ::xsd::cxx::tree::traits< Name_type, char > Name_traits;
 
@@ -10761,7 +10764,7 @@ class ActiveProbe1: public ::xml_schema::type
   Name (::std::auto_ptr< Name_type > p);
 
   // PID-KD-Low
-  //
+  // 
   typedef ::xml_schema::string PID_KD_Low_type;
   typedef ::xsd::cxx::tree::traits< PID_KD_Low_type, char > PID_KD_Low_traits;
 
@@ -10778,7 +10781,7 @@ class ActiveProbe1: public ::xml_schema::type
   PID_KD_Low (::std::auto_ptr< PID_KD_Low_type > p);
 
   // PID-KI-Low
-  //
+  // 
   typedef ::xml_schema::string PID_KI_Low_type;
   typedef ::xsd::cxx::tree::traits< PID_KI_Low_type, char > PID_KI_Low_traits;
 
@@ -10795,7 +10798,7 @@ class ActiveProbe1: public ::xml_schema::type
   PID_KI_Low (::std::auto_ptr< PID_KI_Low_type > p);
 
   // PID-KP-Low
-  //
+  // 
   typedef ::xml_schema::string PID_KP_Low_type;
   typedef ::xsd::cxx::tree::traits< PID_KP_Low_type, char > PID_KP_Low_traits;
 
@@ -10812,7 +10815,7 @@ class ActiveProbe1: public ::xml_schema::type
   PID_KP_Low (::std::auto_ptr< PID_KP_Low_type > p);
 
   // Peak-Bandwidth-Correction
-  //
+  // 
   typedef ::xml_schema::string Peak_Bandwidth_Correction_type;
   typedef ::xsd::cxx::tree::traits< Peak_Bandwidth_Correction_type, char > Peak_Bandwidth_Correction_traits;
 
@@ -10829,7 +10832,7 @@ class ActiveProbe1: public ::xml_schema::type
   Peak_Bandwidth_Correction (::std::auto_ptr< Peak_Bandwidth_Correction_type > p);
 
   // Frequency-Doppler-Low
-  //
+  // 
   typedef ::Frequency_Doppler_Low1 Frequency_Doppler_Low_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Doppler_Low_type, char > Frequency_Doppler_Low_traits;
 
@@ -10846,7 +10849,7 @@ class ActiveProbe1: public ::xml_schema::type
   Frequency_Doppler_Low (::std::auto_ptr< Frequency_Doppler_Low_type > p);
 
   // Pivot-Transducer-Face-Dist
-  //
+  // 
   typedef ::Pivot_Transducer_Face_Dist1 Pivot_Transducer_Face_Dist_type;
   typedef ::xsd::cxx::tree::traits< Pivot_Transducer_Face_Dist_type, char > Pivot_Transducer_Face_Dist_traits;
 
@@ -10863,7 +10866,7 @@ class ActiveProbe1: public ::xml_schema::type
   Pivot_Transducer_Face_Dist (::std::auto_ptr< Pivot_Transducer_Face_Dist_type > p);
 
   // Filter-Doppler
-  //
+  // 
   typedef ::Filter_Doppler1 Filter_Doppler_type;
   typedef ::xsd::cxx::tree::traits< Filter_Doppler_type, char > Filter_Doppler_traits;
 
@@ -10880,7 +10883,7 @@ class ActiveProbe1: public ::xml_schema::type
   Filter_Doppler (::std::auto_ptr< Filter_Doppler_type > p);
 
   // Frequency
-  //
+  // 
   typedef ::Frequency4 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
@@ -10897,7 +10900,7 @@ class ActiveProbe1: public ::xml_schema::type
   Frequency (::std::auto_ptr< Frequency_type > p);
 
   // Integration-Limit
-  //
+  // 
   typedef ::xml_schema::string Integration_Limit_type;
   typedef ::xsd::cxx::tree::traits< Integration_Limit_type, char > Integration_Limit_traits;
 
@@ -10914,7 +10917,7 @@ class ActiveProbe1: public ::xml_schema::type
   Integration_Limit (::std::auto_ptr< Integration_Limit_type > p);
 
   // Encoder-Separation
-  //
+  // 
   typedef ::Encoder_Separation1 Encoder_Separation_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Separation_type, char > Encoder_Separation_traits;
 
@@ -10931,7 +10934,7 @@ class ActiveProbe1: public ::xml_schema::type
   Encoder_Separation (::std::auto_ptr< Encoder_Separation_type > p);
 
   // Overshoot
-  //
+  // 
   typedef ::Overshoot1 Overshoot_type;
   typedef ::xsd::cxx::tree::traits< Overshoot_type, char > Overshoot_traits;
 
@@ -10948,7 +10951,7 @@ class ActiveProbe1: public ::xml_schema::type
   Overshoot (::std::auto_ptr< Overshoot_type > p);
 
   // Attenuation-Shift
-  //
+  // 
   typedef ::xml_schema::string Attenuation_Shift_type;
   typedef ::xsd::cxx::tree::traits< Attenuation_Shift_type, char > Attenuation_Shift_traits;
 
@@ -10965,7 +10968,7 @@ class ActiveProbe1: public ::xml_schema::type
   Attenuation_Shift (::std::auto_ptr< Attenuation_Shift_type > p);
 
   // Filter
-  //
+  // 
   typedef ::Filter1 Filter_type;
   typedef ::xsd::cxx::tree::traits< Filter_type, char > Filter_traits;
 
@@ -10982,7 +10985,7 @@ class ActiveProbe1: public ::xml_schema::type
   Filter (::std::auto_ptr< Filter_type > p);
 
   // Default-Rx-Gain-Doppler
-  //
+  // 
   typedef ::Default_Rx_Gain_Doppler1 Default_Rx_Gain_Doppler_type;
   typedef ::xsd::cxx::tree::traits< Default_Rx_Gain_Doppler_type, char > Default_Rx_Gain_Doppler_traits;
 
@@ -10999,7 +11002,7 @@ class ActiveProbe1: public ::xml_schema::type
   Default_Rx_Gain_Doppler (::std::auto_ptr< Default_Rx_Gain_Doppler_type > p);
 
   // Peak-Vel-Correction
-  //
+  // 
   typedef ::xml_schema::string Peak_Vel_Correction_type;
   typedef ::xsd::cxx::tree::traits< Peak_Vel_Correction_type, char > Peak_Vel_Correction_traits;
 
@@ -11016,7 +11019,7 @@ class ActiveProbe1: public ::xml_schema::type
   Peak_Vel_Correction (::std::auto_ptr< Peak_Vel_Correction_type > p);
 
   // Detect-Ratio-Max
-  //
+  // 
   typedef ::xml_schema::string Detect_Ratio_Max_type;
   typedef ::xsd::cxx::tree::traits< Detect_Ratio_Max_type, char > Detect_Ratio_Max_traits;
 
@@ -11033,7 +11036,7 @@ class ActiveProbe1: public ::xml_schema::type
   Detect_Ratio_Max (::std::auto_ptr< Detect_Ratio_Max_type > p);
 
   // Acceleration-Limit-Constant
-  //
+  // 
   typedef ::xml_schema::string Acceleration_Limit_Constant_type;
   typedef ::xsd::cxx::tree::traits< Acceleration_Limit_Constant_type, char > Acceleration_Limit_Constant_traits;
 
@@ -11050,7 +11053,7 @@ class ActiveProbe1: public ::xml_schema::type
   Acceleration_Limit_Constant (::std::auto_ptr< Acceleration_Limit_Constant_type > p);
 
   // Filter-Doppler-Low
-  //
+  // 
   typedef ::Filter_Doppler_Low1 Filter_Doppler_Low_type;
   typedef ::xsd::cxx::tree::traits< Filter_Doppler_Low_type, char > Filter_Doppler_Low_traits;
 
@@ -11067,7 +11070,7 @@ class ActiveProbe1: public ::xml_schema::type
   Filter_Doppler_Low (::std::auto_ptr< Filter_Doppler_Low_type > p);
 
   // Frequency-Doppler
-  //
+  // 
   typedef ::Frequency_Doppler1 Frequency_Doppler_type;
   typedef ::xsd::cxx::tree::traits< Frequency_Doppler_type, char > Frequency_Doppler_traits;
 
@@ -11084,7 +11087,7 @@ class ActiveProbe1: public ::xml_schema::type
   Frequency_Doppler (::std::auto_ptr< Frequency_Doppler_type > p);
 
   // Detect-Ratio-Min
-  //
+  // 
   typedef ::xml_schema::string Detect_Ratio_Min_type;
   typedef ::xsd::cxx::tree::traits< Detect_Ratio_Min_type, char > Detect_Ratio_Min_traits;
 
@@ -11101,7 +11104,7 @@ class ActiveProbe1: public ::xml_schema::type
   Detect_Ratio_Min (::std::auto_ptr< Detect_Ratio_Min_type > p);
 
   // Derivative-Time
-  //
+  // 
   typedef ::xml_schema::string Derivative_Time_type;
   typedef ::xsd::cxx::tree::traits< Derivative_Time_type, char > Derivative_Time_traits;
 
@@ -11118,7 +11121,7 @@ class ActiveProbe1: public ::xml_schema::type
   Derivative_Time (::std::auto_ptr< Derivative_Time_type > p);
 
   // Filter-High
-  //
+  // 
   typedef ::Filter_High1 Filter_High_type;
   typedef ::xsd::cxx::tree::traits< Filter_High_type, char > Filter_High_traits;
 
@@ -11135,7 +11138,7 @@ class ActiveProbe1: public ::xml_schema::type
   Filter_High (::std::auto_ptr< Filter_High_type > p);
 
   // Motor-Overhead
-  //
+  // 
   typedef ::Motor_Overhead1 Motor_Overhead_type;
   typedef ::xsd::cxx::tree::traits< Motor_Overhead_type, char > Motor_Overhead_traits;
 
@@ -11152,7 +11155,7 @@ class ActiveProbe1: public ::xml_schema::type
   Motor_Overhead (::std::auto_ptr< Motor_Overhead_type > p);
 
   // Version
-  //
+  // 
   typedef ::xml_schema::string Version_type;
   typedef ::xsd::cxx::tree::traits< Version_type, char > Version_traits;
 
@@ -11169,7 +11172,7 @@ class ActiveProbe1: public ::xml_schema::type
   Version (::std::auto_ptr< Version_type > p);
 
   // Filter-Low
-  //
+  // 
   typedef ::Filter_Low1 Filter_Low_type;
   typedef ::xsd::cxx::tree::traits< Filter_Low_type, char > Filter_Low_traits;
 
@@ -11315,7 +11318,7 @@ class ActiveProbe1: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~ActiveProbe1 ();
 
   // Implementation.
@@ -11389,7 +11392,7 @@ class BModeSoft1: public ::xml_schema::type
 {
   public:
   // Anti-Aliasing
-  //
+  // 
   typedef ::xml_schema::string Anti_Aliasing_type;
   typedef ::xsd::cxx::tree::traits< Anti_Aliasing_type, char > Anti_Aliasing_traits;
 
@@ -11406,7 +11409,7 @@ class BModeSoft1: public ::xml_schema::type
   Anti_Aliasing (::std::auto_ptr< Anti_Aliasing_type > p);
 
   // V-Relative-Frame-Rate
-  //
+  // 
   typedef ::xml_schema::string V_Relative_Frame_Rate_type;
   typedef ::xsd::cxx::tree::traits< V_Relative_Frame_Rate_type, char > V_Relative_Frame_Rate_traits;
 
@@ -11423,7 +11426,7 @@ class BModeSoft1: public ::xml_schema::type
   V_Relative_Frame_Rate (::std::auto_ptr< V_Relative_Frame_Rate_type > p);
 
   // Max-Power-Size-Default
-  //
+  // 
   typedef ::xml_schema::string Max_Power_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Max_Power_Size_Default_type, char > Max_Power_Size_Default_traits;
 
@@ -11440,7 +11443,7 @@ class BModeSoft1: public ::xml_schema::type
   Max_Power_Size_Default (::std::auto_ptr< Max_Power_Size_Default_type > p);
 
   // Buffer-Size
-  //
+  // 
   typedef ::Buffer_Size1 Buffer_Size_type;
   typedef ::xsd::cxx::tree::traits< Buffer_Size_type, char > Buffer_Size_traits;
 
@@ -11457,7 +11460,7 @@ class BModeSoft1: public ::xml_schema::type
   Buffer_Size (::std::auto_ptr< Buffer_Size_type > p);
 
   // Sector-Convert
-  //
+  // 
   typedef ::xml_schema::string Sector_Convert_type;
   typedef ::xsd::cxx::tree::traits< Sector_Convert_type, char > Sector_Convert_traits;
 
@@ -11474,7 +11477,7 @@ class BModeSoft1: public ::xml_schema::type
   Sector_Convert (::std::auto_ptr< Sector_Convert_type > p);
 
   // AVR-Factor
-  //
+  // 
   typedef ::xml_schema::string AVR_Factor_type;
   typedef ::xsd::cxx::tree::traits< AVR_Factor_type, char > AVR_Factor_traits;
 
@@ -11491,7 +11494,7 @@ class BModeSoft1: public ::xml_schema::type
   AVR_Factor (::std::auto_ptr< AVR_Factor_type > p);
 
   // Flip-Image
-  //
+  // 
   typedef ::xml_schema::string Flip_Image_type;
   typedef ::xsd::cxx::tree::traits< Flip_Image_type, char > Flip_Image_traits;
 
@@ -11508,7 +11511,7 @@ class BModeSoft1: public ::xml_schema::type
   Flip_Image (::std::auto_ptr< Flip_Image_type > p);
 
   // AVR-Startup-Frames
-  //
+  // 
   typedef ::xml_schema::string AVR_Startup_Frames_type;
   typedef ::xsd::cxx::tree::traits< AVR_Startup_Frames_type, char > AVR_Startup_Frames_traits;
 
@@ -11525,7 +11528,7 @@ class BModeSoft1: public ::xml_schema::type
   AVR_Startup_Frames (::std::auto_ptr< AVR_Startup_Frames_type > p);
 
   // BMode-Size-Default
-  //
+  // 
   typedef ::BMode_Size_Default1 BMode_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< BMode_Size_Default_type, char > BMode_Size_Default_traits;
 
@@ -11542,7 +11545,7 @@ class BModeSoft1: public ::xml_schema::type
   BMode_Size_Default (::std::auto_ptr< BMode_Size_Default_type > p);
 
   // Relative-Frame-Rate
-  //
+  // 
   typedef ::xml_schema::string Relative_Frame_Rate_type;
   typedef ::xsd::cxx::tree::traits< Relative_Frame_Rate_type, char > Relative_Frame_Rate_traits;
 
@@ -11559,7 +11562,7 @@ class BModeSoft1: public ::xml_schema::type
   Relative_Frame_Rate (::std::auto_ptr< Relative_Frame_Rate_type > p);
 
   // Overlay-Mode
-  //
+  // 
   typedef ::Overlay_Mode Overlay_Mode_type;
   typedef ::xsd::cxx::tree::traits< Overlay_Mode_type, char > Overlay_Mode_traits;
 
@@ -11576,7 +11579,7 @@ class BModeSoft1: public ::xml_schema::type
   Overlay_Mode (::std::auto_ptr< Overlay_Mode_type > p);
 
   // Refresh-Rate
-  //
+  // 
   typedef ::Refresh_Rate1 Refresh_Rate_type;
   typedef ::xsd::cxx::tree::traits< Refresh_Rate_type, char > Refresh_Rate_traits;
 
@@ -11593,7 +11596,7 @@ class BModeSoft1: public ::xml_schema::type
   Refresh_Rate (::std::auto_ptr< Refresh_Rate_type > p);
 
   // Acquisition-Mode
-  //
+  // 
   typedef ::Acquisition_Mode Acquisition_Mode_type;
   typedef ::xsd::cxx::tree::traits< Acquisition_Mode_type, char > Acquisition_Mode_traits;
 
@@ -11610,7 +11613,7 @@ class BModeSoft1: public ::xml_schema::type
   Acquisition_Mode (::std::auto_ptr< Acquisition_Mode_type > p);
 
   // Acquire-Both-Directions
-  //
+  // 
   typedef ::xml_schema::string Acquire_Both_Directions_type;
   typedef ::xsd::cxx::tree::traits< Acquire_Both_Directions_type, char > Acquire_Both_Directions_traits;
 
@@ -11627,7 +11630,7 @@ class BModeSoft1: public ::xml_schema::type
   Acquire_Both_Directions (::std::auto_ptr< Acquire_Both_Directions_type > p);
 
   // Actual-Scan-Rate
-  //
+  // 
   typedef ::Actual_Scan_Rate Actual_Scan_Rate_type;
   typedef ::xsd::cxx::tree::traits< Actual_Scan_Rate_type, char > Actual_Scan_Rate_traits;
 
@@ -11644,7 +11647,7 @@ class BModeSoft1: public ::xml_schema::type
   Actual_Scan_Rate (::std::auto_ptr< Actual_Scan_Rate_type > p);
 
   // Acquire-Persist-AVR
-  //
+  // 
   typedef ::xml_schema::string Acquire_Persist_AVR_type;
   typedef ::xsd::cxx::tree::traits< Acquire_Persist_AVR_type, char > Acquire_Persist_AVR_traits;
 
@@ -11661,7 +11664,7 @@ class BModeSoft1: public ::xml_schema::type
   Acquire_Persist_AVR (::std::auto_ptr< Acquire_Persist_AVR_type > p);
 
   // Sector-X-Res
-  //
+  // 
   typedef ::Sector_X_Res Sector_X_Res_type;
   typedef ::xsd::cxx::tree::traits< Sector_X_Res_type, char > Sector_X_Res_traits;
 
@@ -11678,7 +11681,7 @@ class BModeSoft1: public ::xml_schema::type
   Sector_X_Res (::std::auto_ptr< Sector_X_Res_type > p);
 
   // Sector-Y-Res
-  //
+  // 
   typedef ::Sector_Y_Res Sector_Y_Res_type;
   typedef ::xsd::cxx::tree::traits< Sector_Y_Res_type, char > Sector_Y_Res_traits;
 
@@ -11695,7 +11698,7 @@ class BModeSoft1: public ::xml_schema::type
   Sector_Y_Res (::std::auto_ptr< Sector_Y_Res_type > p);
 
   // Power-Size-Default
-  //
+  // 
   typedef ::Power_Size_Default1 Power_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Power_Size_Default_type, char > Power_Size_Default_traits;
 
@@ -11712,7 +11715,7 @@ class BModeSoft1: public ::xml_schema::type
   Power_Size_Default (::std::auto_ptr< Power_Size_Default_type > p);
 
   // Sector-X-Start
-  //
+  // 
   typedef ::Sector_X_Start Sector_X_Start_type;
   typedef ::xsd::cxx::tree::traits< Sector_X_Start_type, char > Sector_X_Start_traits;
 
@@ -11729,7 +11732,7 @@ class BModeSoft1: public ::xml_schema::type
   Sector_X_Start (::std::auto_ptr< Sector_X_Start_type > p);
 
   // Sector-Y-Start
-  //
+  // 
   typedef ::Sector_Y_Start Sector_Y_Start_type;
   typedef ::xsd::cxx::tree::traits< Sector_Y_Start_type, char > Sector_Y_Start_traits;
 
@@ -11746,7 +11749,7 @@ class BModeSoft1: public ::xml_schema::type
   Sector_Y_Start (::std::auto_ptr< Sector_Y_Start_type > p);
 
   // Max-BMode-Size-Default
-  //
+  // 
   typedef ::xml_schema::string Max_BMode_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Max_BMode_Size_Default_type, char > Max_BMode_Size_Default_traits;
 
@@ -11763,7 +11766,7 @@ class BModeSoft1: public ::xml_schema::type
   Max_BMode_Size_Default (::std::auto_ptr< Max_BMode_Size_Default_type > p);
 
   // Target-Field-Of-View
-  //
+  // 
   typedef ::Target_Field_Of_View1 Target_Field_Of_View_type;
   typedef ::xsd::cxx::tree::traits< Target_Field_Of_View_type, char > Target_Field_Of_View_traits;
 
@@ -11780,7 +11783,7 @@ class BModeSoft1: public ::xml_schema::type
   Target_Field_Of_View (::std::auto_ptr< Target_Field_Of_View_type > p);
 
   // Processing-Command
-  //
+  // 
   typedef ::xml_schema::string Processing_Command_type;
   typedef ::xsd::cxx::tree::traits< Processing_Command_type, char > Processing_Command_traits;
 
@@ -11860,7 +11863,7 @@ class BModeSoft1: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~BModeSoft1 ();
 
   // Implementation.
@@ -11901,7 +11904,7 @@ class Sys1: public ::xml_schema::type
 {
   public:
   // Query-Discard-Loop-On-Save-Frame
-  //
+  // 
   typedef ::xml_schema::string Query_Discard_Loop_On_Save_Frame_type;
   typedef ::xsd::cxx::tree::traits< Query_Discard_Loop_On_Save_Frame_type, char > Query_Discard_Loop_On_Save_Frame_traits;
 
@@ -11918,7 +11921,7 @@ class Sys1: public ::xml_schema::type
   Query_Discard_Loop_On_Save_Frame (::std::auto_ptr< Query_Discard_Loop_On_Save_Frame_type > p);
 
   // Sound-Speed
-  //
+  // 
   typedef ::Sound_Speed1 Sound_Speed_type;
   typedef ::xsd::cxx::tree::traits< Sound_Speed_type, char > Sound_Speed_traits;
 
@@ -11935,7 +11938,7 @@ class Sys1: public ::xml_schema::type
   Sound_Speed (::std::auto_ptr< Sound_Speed_type > p);
 
   // SubMode
-  //
+  // 
   typedef ::xml_schema::string SubMode_type;
   typedef ::xsd::cxx::tree::traits< SubMode_type, char > SubMode_traits;
 
@@ -11952,7 +11955,7 @@ class Sys1: public ::xml_schema::type
   SubMode (::std::auto_ptr< SubMode_type > p);
 
   // Interrupt-Mask
-  //
+  // 
   typedef ::xml_schema::string Interrupt_Mask_type;
   typedef ::xsd::cxx::tree::traits< Interrupt_Mask_type, char > Interrupt_Mask_traits;
 
@@ -11969,7 +11972,7 @@ class Sys1: public ::xml_schema::type
   Interrupt_Mask (::std::auto_ptr< Interrupt_Mask_type > p);
 
   // Calculation-Instances
-  //
+  // 
   typedef ::xml_schema::string Calculation_Instances_type;
   typedef ::xsd::cxx::tree::traits< Calculation_Instances_type, char > Calculation_Instances_traits;
 
@@ -11986,7 +11989,7 @@ class Sys1: public ::xml_schema::type
   Calculation_Instances (::std::auto_ptr< Calculation_Instances_type > p);
 
   // Start-Licence-Date
-  //
+  // 
   typedef ::xml_schema::string Start_Licence_Date_type;
   typedef ::xsd::cxx::tree::traits< Start_Licence_Date_type, char > Start_Licence_Date_traits;
 
@@ -12003,7 +12006,7 @@ class Sys1: public ::xml_schema::type
   Start_Licence_Date (::std::auto_ptr< Start_Licence_Date_type > p);
 
   // End-Licence-Date
-  //
+  // 
   typedef ::xml_schema::string End_Licence_Date_type;
   typedef ::xsd::cxx::tree::traits< End_Licence_Date_type, char > End_Licence_Date_traits;
 
@@ -12020,7 +12023,7 @@ class Sys1: public ::xml_schema::type
   End_Licence_Date (::std::auto_ptr< End_Licence_Date_type > p);
 
   // Auto-Save-PreTrig-Loop
-  //
+  // 
   typedef ::xml_schema::string Auto_Save_PreTrig_Loop_type;
   typedef ::xsd::cxx::tree::traits< Auto_Save_PreTrig_Loop_type, char > Auto_Save_PreTrig_Loop_traits;
 
@@ -12037,7 +12040,7 @@ class Sys1: public ::xml_schema::type
   Auto_Save_PreTrig_Loop (::std::auto_ptr< Auto_Save_PreTrig_Loop_type > p);
 
   // Feature
-  //
+  // 
   typedef ::xml_schema::string Feature_type;
   typedef ::xsd::cxx::tree::traits< Feature_type, char > Feature_traits;
 
@@ -12054,7 +12057,7 @@ class Sys1: public ::xml_schema::type
   Feature (::std::auto_ptr< Feature_type > p);
 
   // Acq-Setup-Dialog
-  //
+  // 
   typedef ::xml_schema::string Acq_Setup_Dialog_type;
   typedef ::xsd::cxx::tree::traits< Acq_Setup_Dialog_type, char > Acq_Setup_Dialog_traits;
 
@@ -12071,7 +12074,7 @@ class Sys1: public ::xml_schema::type
   Acq_Setup_Dialog (::std::auto_ptr< Acq_Setup_Dialog_type > p);
 
   // Interrupt-Clear
-  //
+  // 
   typedef ::xml_schema::string Interrupt_Clear_type;
   typedef ::xsd::cxx::tree::traits< Interrupt_Clear_type, char > Interrupt_Clear_traits;
 
@@ -12088,7 +12091,7 @@ class Sys1: public ::xml_schema::type
   Interrupt_Clear (::std::auto_ptr< Interrupt_Clear_type > p);
 
   // Interrupt-Status
-  //
+  // 
   typedef ::xml_schema::string Interrupt_Status_type;
   typedef ::xsd::cxx::tree::traits< Interrupt_Status_type, char > Interrupt_Status_traits;
 
@@ -12105,7 +12108,7 @@ class Sys1: public ::xml_schema::type
   Interrupt_Status (::std::auto_ptr< Interrupt_Status_type > p);
 
   // Auto-Save-Load-3D
-  //
+  // 
   typedef ::xml_schema::string Auto_Save_Load_3D_type;
   typedef ::xsd::cxx::tree::traits< Auto_Save_Load_3D_type, char > Auto_Save_Load_3D_traits;
 
@@ -12122,7 +12125,7 @@ class Sys1: public ::xml_schema::type
   Auto_Save_Load_3D (::std::auto_ptr< Auto_Save_Load_3D_type > p);
 
   // DICOM-Root-ID
-  //
+  // 
   typedef ::xml_schema::string DICOM_Root_ID_type;
   typedef ::xsd::cxx::tree::traits< DICOM_Root_ID_type, char > DICOM_Root_ID_traits;
 
@@ -12139,7 +12142,7 @@ class Sys1: public ::xml_schema::type
   DICOM_Root_ID (::std::auto_ptr< DICOM_Root_ID_type > p);
 
   // Company-Name
-  //
+  // 
   typedef ::xml_schema::string Company_Name_type;
   typedef ::xsd::cxx::tree::traits< Company_Name_type, char > Company_Name_traits;
 
@@ -12156,7 +12159,7 @@ class Sys1: public ::xml_schema::type
   Company_Name (::std::auto_ptr< Company_Name_type > p);
 
   // Image-To-Auto-Save-On-Label
-  //
+  // 
   typedef ::xml_schema::string Image_To_Auto_Save_On_Label_type;
   typedef ::xsd::cxx::tree::traits< Image_To_Auto_Save_On_Label_type, char > Image_To_Auto_Save_On_Label_traits;
 
@@ -12173,7 +12176,7 @@ class Sys1: public ::xml_schema::type
   Image_To_Auto_Save_On_Label (::std::auto_ptr< Image_To_Auto_Save_On_Label_type > p);
 
   // DICOM-Encode-Regions
-  //
+  // 
   typedef ::xml_schema::string DICOM_Encode_Regions_type;
   typedef ::xsd::cxx::tree::traits< DICOM_Encode_Regions_type, char > DICOM_Encode_Regions_traits;
 
@@ -12190,7 +12193,7 @@ class Sys1: public ::xml_schema::type
   DICOM_Encode_Regions (::std::auto_ptr< DICOM_Encode_Regions_type > p);
 
   // Pipeline-Delay
-  //
+  // 
   typedef ::Pipeline_Delay1 Pipeline_Delay_type;
   typedef ::xsd::cxx::tree::traits< Pipeline_Delay_type, char > Pipeline_Delay_traits;
 
@@ -12207,7 +12210,7 @@ class Sys1: public ::xml_schema::type
   Pipeline_Delay (::std::auto_ptr< Pipeline_Delay_type > p);
 
   // DDS-Control
-  //
+  // 
   typedef ::xml_schema::string DDS_Control_type;
   typedef ::xsd::cxx::tree::traits< DDS_Control_type, char > DDS_Control_traits;
 
@@ -12224,7 +12227,7 @@ class Sys1: public ::xml_schema::type
   DDS_Control (::std::auto_ptr< DDS_Control_type > p);
 
   // Mode
-  //
+  // 
   typedef ::xml_schema::string Mode_type;
   typedef ::xsd::cxx::tree::traits< Mode_type, char > Mode_traits;
 
@@ -12241,7 +12244,7 @@ class Sys1: public ::xml_schema::type
   Mode (::std::auto_ptr< Mode_type > p);
 
   // Review-Setup-Dialog
-  //
+  // 
   typedef ::xml_schema::string Review_Setup_Dialog_type;
   typedef ::xsd::cxx::tree::traits< Review_Setup_Dialog_type, char > Review_Setup_Dialog_traits;
 
@@ -12315,7 +12318,7 @@ class Sys1: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sys1 ();
 
   // Implementation.
@@ -12353,7 +12356,7 @@ class Contrast: public ::xml_schema::type
 {
   public:
   // Acquisition-3D-Volume
-  //
+  // 
   typedef ::xml_schema::string Acquisition_3D_Volume_type;
   typedef ::xsd::cxx::tree::traits< Acquisition_3D_Volume_type, char > Acquisition_3D_Volume_traits;
 
@@ -12370,7 +12373,7 @@ class Contrast: public ::xml_schema::type
   Acquisition_3D_Volume (::std::auto_ptr< Acquisition_3D_Volume_type > p);
 
   // Contrast-Linear-Scale
-  //
+  // 
   typedef ::xml_schema::string Contrast_Linear_Scale_type;
   typedef ::xsd::cxx::tree::traits< Contrast_Linear_Scale_type, char > Contrast_Linear_Scale_traits;
 
@@ -12387,7 +12390,7 @@ class Contrast: public ::xml_schema::type
   Contrast_Linear_Scale (::std::auto_ptr< Contrast_Linear_Scale_type > p);
 
   // Reference-3D-Step-Size
-  //
+  // 
   typedef ::Reference_3D_Step_Size Reference_3D_Step_Size_type;
   typedef ::xsd::cxx::tree::traits< Reference_3D_Step_Size_type, char > Reference_3D_Step_Size_traits;
 
@@ -12404,7 +12407,7 @@ class Contrast: public ::xml_schema::type
   Reference_3D_Step_Size (::std::auto_ptr< Reference_3D_Step_Size_type > p);
 
   // Remap-Color
-  //
+  // 
   typedef ::xml_schema::string Remap_Color_type;
   typedef ::xsd::cxx::tree::traits< Remap_Color_type, char > Remap_Color_traits;
 
@@ -12421,7 +12424,7 @@ class Contrast: public ::xml_schema::type
   Remap_Color (::std::auto_ptr< Remap_Color_type > p);
 
   // Display-Mode
-  //
+  // 
   typedef ::xml_schema::string Display_Mode_type;
   typedef ::xsd::cxx::tree::traits< Display_Mode_type, char > Display_Mode_traits;
 
@@ -12438,7 +12441,7 @@ class Contrast: public ::xml_schema::type
   Display_Mode (::std::auto_ptr< Display_Mode_type > p);
 
   // Contrast-Linear-Offset
-  //
+  // 
   typedef ::xml_schema::string Contrast_Linear_Offset_type;
   typedef ::xsd::cxx::tree::traits< Contrast_Linear_Offset_type, char > Contrast_Linear_Offset_traits;
 
@@ -12455,7 +12458,7 @@ class Contrast: public ::xml_schema::type
   Contrast_Linear_Offset (::std::auto_ptr< Contrast_Linear_Offset_type > p);
 
   // Contrast-Linear-Slope
-  //
+  // 
   typedef ::xml_schema::string Contrast_Linear_Slope_type;
   typedef ::xsd::cxx::tree::traits< Contrast_Linear_Slope_type, char > Contrast_Linear_Slope_traits;
 
@@ -12472,7 +12475,7 @@ class Contrast: public ::xml_schema::type
   Contrast_Linear_Slope (::std::auto_ptr< Contrast_Linear_Slope_type > p);
 
   // Median-Size-Perfusion
-  //
+  // 
   typedef ::xml_schema::string Median_Size_Perfusion_type;
   typedef ::xsd::cxx::tree::traits< Median_Size_Perfusion_type, char > Median_Size_Perfusion_traits;
 
@@ -12489,7 +12492,7 @@ class Contrast: public ::xml_schema::type
   Median_Size_Perfusion (::std::auto_ptr< Median_Size_Perfusion_type > p);
 
   // Contrast-Size-Default
-  //
+  // 
   typedef ::Contrast_Size_Default Contrast_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Contrast_Size_Default_type, char > Contrast_Size_Default_traits;
 
@@ -12506,7 +12509,7 @@ class Contrast: public ::xml_schema::type
   Contrast_Size_Default (::std::auto_ptr< Contrast_Size_Default_type > p);
 
   // Median-Size-Default
-  //
+  // 
   typedef ::xml_schema::string Median_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Median_Size_Default_type, char > Median_Size_Default_traits;
 
@@ -12523,7 +12526,7 @@ class Contrast: public ::xml_schema::type
   Median_Size_Default (::std::auto_ptr< Median_Size_Default_type > p);
 
   // Use-ECG-Gate
-  //
+  // 
   typedef ::xml_schema::string Use_ECG_Gate_type;
   typedef ::xsd::cxx::tree::traits< Use_ECG_Gate_type, char > Use_ECG_Gate_traits;
 
@@ -12540,7 +12543,7 @@ class Contrast: public ::xml_schema::type
   Use_ECG_Gate (::std::auto_ptr< Use_ECG_Gate_type > p);
 
   // ECG-Gate-Range
-  //
+  // 
   typedef ::xml_schema::string ECG_Gate_Range_type;
   typedef ::xsd::cxx::tree::traits< ECG_Gate_Range_type, char > ECG_Gate_Range_traits;
 
@@ -12557,7 +12560,7 @@ class Contrast: public ::xml_schema::type
   ECG_Gate_Range (::std::auto_ptr< ECG_Gate_Range_type > p);
 
   // Filter-Size-Perfusion
-  //
+  // 
   typedef ::xml_schema::string Filter_Size_Perfusion_type;
   typedef ::xsd::cxx::tree::traits< Filter_Size_Perfusion_type, char > Filter_Size_Perfusion_traits;
 
@@ -12574,7 +12577,7 @@ class Contrast: public ::xml_schema::type
   Filter_Size_Perfusion (::std::auto_ptr< Filter_Size_Perfusion_type > p);
 
   // Max-Contrast-Size-Default
-  //
+  // 
   typedef ::xml_schema::string Max_Contrast_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Max_Contrast_Size_Default_type, char > Max_Contrast_Size_Default_traits;
 
@@ -12591,7 +12594,7 @@ class Contrast: public ::xml_schema::type
   Max_Contrast_Size_Default (::std::auto_ptr< Max_Contrast_Size_Default_type > p);
 
   // Filter-Size-Default
-  //
+  // 
   typedef ::xml_schema::string Filter_Size_Default_type;
   typedef ::xsd::cxx::tree::traits< Filter_Size_Default_type, char > Filter_Size_Default_traits;
 
@@ -12608,7 +12611,7 @@ class Contrast: public ::xml_schema::type
   Filter_Size_Default (::std::auto_ptr< Filter_Size_Default_type > p);
 
   // Cardiac-Divisions
-  //
+  // 
   typedef ::xml_schema::string Cardiac_Divisions_type;
   typedef ::xsd::cxx::tree::traits< Cardiac_Divisions_type, char > Cardiac_Divisions_traits;
 
@@ -12625,7 +12628,7 @@ class Contrast: public ::xml_schema::type
   Cardiac_Divisions (::std::auto_ptr< Cardiac_Divisions_type > p);
 
   // Reference-3D-Scan-Distance
-  //
+  // 
   typedef ::Reference_3D_Scan_Distance Reference_3D_Scan_Distance_type;
   typedef ::xsd::cxx::tree::traits< Reference_3D_Scan_Distance_type, char > Reference_3D_Scan_Distance_traits;
 
@@ -12642,7 +12645,7 @@ class Contrast: public ::xml_schema::type
   Reference_3D_Scan_Distance (::std::auto_ptr< Reference_3D_Scan_Distance_type > p);
 
   // Median-Size-MIP
-  //
+  // 
   typedef ::xml_schema::string Median_Size_MIP_type;
   typedef ::xsd::cxx::tree::traits< Median_Size_MIP_type, char > Median_Size_MIP_traits;
 
@@ -12659,7 +12662,7 @@ class Contrast: public ::xml_schema::type
   Median_Size_MIP (::std::auto_ptr< Median_Size_MIP_type > p);
 
   // Acquire-Both-Directions
-  //
+  // 
   typedef ::xml_schema::string Acquire_Both_Directions_type;
   typedef ::xsd::cxx::tree::traits< Acquire_Both_Directions_type, char > Acquire_Both_Directions_traits;
 
@@ -12676,7 +12679,7 @@ class Contrast: public ::xml_schema::type
   Acquire_Both_Directions (::std::auto_ptr< Acquire_Both_Directions_type > p);
 
   // Data-Display-Scale-Shift
-  //
+  // 
   typedef ::xml_schema::string Data_Display_Scale_Shift_type;
   typedef ::xsd::cxx::tree::traits< Data_Display_Scale_Shift_type, char > Data_Display_Scale_Shift_traits;
 
@@ -12693,7 +12696,7 @@ class Contrast: public ::xml_schema::type
   Data_Display_Scale_Shift (::std::auto_ptr< Data_Display_Scale_Shift_type > p);
 
   // Reference-Label
-  //
+  // 
   typedef ::xml_schema::string Reference_Label_type;
   typedef ::xsd::cxx::tree::traits< Reference_Label_type, char > Reference_Label_traits;
 
@@ -12710,7 +12713,7 @@ class Contrast: public ::xml_schema::type
   Reference_Label (::std::auto_ptr< Reference_Label_type > p);
 
   // X_3D-Display-Mode
-  //
+  // 
   typedef ::xml_schema::string X_3D_Display_Mode_type;
   typedef ::xsd::cxx::tree::traits< X_3D_Display_Mode_type, char > X_3D_Display_Mode_traits;
 
@@ -12727,7 +12730,7 @@ class Contrast: public ::xml_schema::type
   X_3D_Display_Mode (::std::auto_ptr< X_3D_Display_Mode_type > p);
 
   // Filter-Size-MIP
-  //
+  // 
   typedef ::xml_schema::string Filter_Size_MIP_type;
   typedef ::xsd::cxx::tree::traits< Filter_Size_MIP_type, char > Filter_Size_MIP_traits;
 
@@ -12744,7 +12747,7 @@ class Contrast: public ::xml_schema::type
   Filter_Size_MIP (::std::auto_ptr< Filter_Size_MIP_type > p);
 
   // Contrast-Linear-Lock-Gain
-  //
+  // 
   typedef ::xml_schema::string Contrast_Linear_Lock_Gain_type;
   typedef ::xsd::cxx::tree::traits< Contrast_Linear_Lock_Gain_type, char > Contrast_Linear_Lock_Gain_traits;
 
@@ -12761,7 +12764,7 @@ class Contrast: public ::xml_schema::type
   Contrast_Linear_Lock_Gain (::std::auto_ptr< Contrast_Linear_Lock_Gain_type > p);
 
   // Persistence-Process-Frames
-  //
+  // 
   typedef ::xml_schema::string Persistence_Process_Frames_type;
   typedef ::xsd::cxx::tree::traits< Persistence_Process_Frames_type, char > Persistence_Process_Frames_traits;
 
@@ -12778,7 +12781,7 @@ class Contrast: public ::xml_schema::type
   Persistence_Process_Frames (::std::auto_ptr< Persistence_Process_Frames_type > p);
 
   // Reference-Range-Start
-  //
+  // 
   typedef ::xml_schema::string Reference_Range_Start_type;
   typedef ::xsd::cxx::tree::traits< Reference_Range_Start_type, char > Reference_Range_Start_traits;
 
@@ -12795,7 +12798,7 @@ class Contrast: public ::xml_schema::type
   Reference_Range_Start (::std::auto_ptr< Reference_Range_Start_type > p);
 
   // Blur-MIP-BoxSize
-  //
+  // 
   typedef ::xml_schema::string Blur_MIP_BoxSize_type;
   typedef ::xsd::cxx::tree::traits< Blur_MIP_BoxSize_type, char > Blur_MIP_BoxSize_traits;
 
@@ -12812,7 +12815,7 @@ class Contrast: public ::xml_schema::type
   Blur_MIP_BoxSize (::std::auto_ptr< Blur_MIP_BoxSize_type > p);
 
   // Threshold
-  //
+  // 
   typedef ::xml_schema::string Threshold_type;
   typedef ::xsd::cxx::tree::traits< Threshold_type, char > Threshold_traits;
 
@@ -12829,7 +12832,7 @@ class Contrast: public ::xml_schema::type
   Threshold (::std::auto_ptr< Threshold_type > p);
 
   // Process-Direction
-  //
+  // 
   typedef ::xml_schema::string Process_Direction_type;
   typedef ::xsd::cxx::tree::traits< Process_Direction_type, char > Process_Direction_traits;
 
@@ -12846,7 +12849,7 @@ class Contrast: public ::xml_schema::type
   Process_Direction (::std::auto_ptr< Process_Direction_type > p);
 
   // Reference-Range-Stop
-  //
+  // 
   typedef ::xml_schema::string Reference_Range_Stop_type;
   typedef ::xsd::cxx::tree::traits< Reference_Range_Stop_type, char > Reference_Range_Stop_traits;
 
@@ -12863,7 +12866,7 @@ class Contrast: public ::xml_schema::type
   Reference_Range_Stop (::std::auto_ptr< Reference_Range_Stop_type > p);
 
   // Blur-MIP
-  //
+  // 
   typedef ::xml_schema::string Blur_MIP_type;
   typedef ::xsd::cxx::tree::traits< Blur_MIP_type, char > Blur_MIP_traits;
 
@@ -12880,7 +12883,7 @@ class Contrast: public ::xml_schema::type
   Blur_MIP (::std::auto_ptr< Blur_MIP_type > p);
 
   // Persistence-Mode
-  //
+  // 
   typedef ::xml_schema::string Persistence_Mode_type;
   typedef ::xsd::cxx::tree::traits< Persistence_Mode_type, char > Persistence_Mode_traits;
 
@@ -12897,7 +12900,7 @@ class Contrast: public ::xml_schema::type
   Persistence_Mode (::std::auto_ptr< Persistence_Mode_type > p);
 
   // Reference-3D-Volume
-  //
+  // 
   typedef ::xml_schema::string Reference_3D_Volume_type;
   typedef ::xsd::cxx::tree::traits< Reference_3D_Volume_type, char > Reference_3D_Volume_traits;
 
@@ -12914,7 +12917,7 @@ class Contrast: public ::xml_schema::type
   Reference_3D_Volume (::std::auto_ptr< Reference_3D_Volume_type > p);
 
   // Gain
-  //
+  // 
   typedef ::xml_schema::string Gain_type;
   typedef ::xsd::cxx::tree::traits< Gain_type, char > Gain_traits;
 
@@ -12931,7 +12934,7 @@ class Contrast: public ::xml_schema::type
   Gain (::std::auto_ptr< Gain_type > p);
 
   // Acquire-Persist-MIP
-  //
+  // 
   typedef ::xml_schema::string Acquire_Persist_MIP_type;
   typedef ::xsd::cxx::tree::traits< Acquire_Persist_MIP_type, char > Acquire_Persist_MIP_traits;
 
@@ -12948,7 +12951,7 @@ class Contrast: public ::xml_schema::type
   Acquire_Persist_MIP (::std::auto_ptr< Acquire_Persist_MIP_type > p);
 
   // Dynamic-Range2
-  //
+  // 
   typedef ::xml_schema::string Dynamic_Range2_type;
   typedef ::xsd::cxx::tree::traits< Dynamic_Range2_type, char > Dynamic_Range2_traits;
 
@@ -12965,7 +12968,7 @@ class Contrast: public ::xml_schema::type
   Dynamic_Range2 (::std::auto_ptr< Dynamic_Range2_type > p);
 
   // Contast-3D-Brightness
-  //
+  // 
   typedef ::xml_schema::string Contast_3D_Brightness_type;
   typedef ::xsd::cxx::tree::traits< Contast_3D_Brightness_type, char > Contast_3D_Brightness_traits;
 
@@ -12982,7 +12985,7 @@ class Contrast: public ::xml_schema::type
   Contast_3D_Brightness (::std::auto_ptr< Contast_3D_Brightness_type > p);
 
   // Reference-3D-Steps
-  //
+  // 
   typedef ::xml_schema::string Reference_3D_Steps_type;
   typedef ::xsd::cxx::tree::traits< Reference_3D_Steps_type, char > Reference_3D_Steps_traits;
 
@@ -13090,7 +13093,7 @@ class Contrast: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Contrast ();
 
   // Implementation.
@@ -13145,7 +13148,7 @@ class MIS1: public ::xml_schema::type
 {
   public:
   // ECG-Gain
-  //
+  // 
   typedef ::xml_schema::string ECG_Gain_type;
   typedef ::xsd::cxx::tree::traits< ECG_Gain_type, char > ECG_Gain_traits;
 
@@ -13162,7 +13165,7 @@ class MIS1: public ::xml_schema::type
   ECG_Gain (::std::auto_ptr< ECG_Gain_type > p);
 
   // ECG-Available
-  //
+  // 
   typedef ::xml_schema::string ECG_Available_type;
   typedef ::xsd::cxx::tree::traits< ECG_Available_type, char > ECG_Available_traits;
 
@@ -13179,7 +13182,7 @@ class MIS1: public ::xml_schema::type
   ECG_Available (::std::auto_ptr< ECG_Available_type > p);
 
   // Blood-Pressure-Available
-  //
+  // 
   typedef ::xml_schema::string Blood_Pressure_Available_type;
   typedef ::xsd::cxx::tree::traits< Blood_Pressure_Available_type, char > Blood_Pressure_Available_traits;
 
@@ -13196,7 +13199,7 @@ class MIS1: public ::xml_schema::type
   Blood_Pressure_Available (::std::auto_ptr< Blood_Pressure_Available_type > p);
 
   // Respiration-Gating
-  //
+  // 
   typedef ::xml_schema::string Respiration_Gating_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Gating_type, char > Respiration_Gating_traits;
 
@@ -13213,7 +13216,7 @@ class MIS1: public ::xml_schema::type
   Respiration_Gating (::std::auto_ptr< Respiration_Gating_type > p);
 
   // BP-Gain
-  //
+  // 
   typedef ::xml_schema::string BP_Gain_type;
   typedef ::xsd::cxx::tree::traits< BP_Gain_type, char > BP_Gain_traits;
 
@@ -13230,7 +13233,7 @@ class MIS1: public ::xml_schema::type
   BP_Gain (::std::auto_ptr< BP_Gain_type > p);
 
   // Temperature-Available
-  //
+  // 
   typedef ::xml_schema::string Temperature_Available_type;
   typedef ::xsd::cxx::tree::traits< Temperature_Available_type, char > Temperature_Available_traits;
 
@@ -13247,7 +13250,7 @@ class MIS1: public ::xml_schema::type
   Temperature_Available (::std::auto_ptr< Temperature_Available_type > p);
 
   // Respiration-Available
-  //
+  // 
   typedef ::xml_schema::string Respiration_Available_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Available_type, char > Respiration_Available_traits;
 
@@ -13264,7 +13267,7 @@ class MIS1: public ::xml_schema::type
   Respiration_Available (::std::auto_ptr< Respiration_Available_type > p);
 
   // Control
-  //
+  // 
   typedef ::xml_schema::string Control_type;
   typedef ::xsd::cxx::tree::traits< Control_type, char > Control_traits;
 
@@ -13303,7 +13306,7 @@ class MIS1: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~MIS1 ();
 
   // Implementation.
@@ -13328,7 +13331,7 @@ class Scan1: public ::xml_schema::type
 {
   public:
   // Encoder-Position
-  //
+  // 
   typedef ::xml_schema::string Encoder_Position_type;
   typedef ::xsd::cxx::tree::traits< Encoder_Position_type, char > Encoder_Position_traits;
 
@@ -13345,7 +13348,7 @@ class Scan1: public ::xml_schema::type
   Encoder_Position (::std::auto_ptr< Encoder_Position_type > p);
 
   // Center
-  //
+  // 
   typedef ::Center1 Center_type;
   typedef ::xsd::cxx::tree::traits< Center_type, char > Center_traits;
 
@@ -13362,7 +13365,7 @@ class Scan1: public ::xml_schema::type
   Center (::std::auto_ptr< Center_type > p);
 
   // Control
-  //
+  // 
   typedef ::xml_schema::string Control_type;
   typedef ::xsd::cxx::tree::traits< Control_type, char > Control_traits;
 
@@ -13379,7 +13382,7 @@ class Scan1: public ::xml_schema::type
   Control (::std::auto_ptr< Control_type > p);
 
   // Probe-ID1
-  //
+  // 
   typedef ::xml_schema::string Probe_ID1_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID1_type, char > Probe_ID1_traits;
 
@@ -13396,7 +13399,7 @@ class Scan1: public ::xml_schema::type
   Probe_ID1 (::std::auto_ptr< Probe_ID1_type > p);
 
   // Probe-ID2
-  //
+  // 
   typedef ::xml_schema::string Probe_ID2_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID2_type, char > Probe_ID2_traits;
 
@@ -13413,7 +13416,7 @@ class Scan1: public ::xml_schema::type
   Probe_ID2 (::std::auto_ptr< Probe_ID2_type > p);
 
   // V-Scan-Speed
-  //
+  // 
   typedef ::V_Scan_Speed1 V_Scan_Speed_type;
   typedef ::xsd::cxx::tree::traits< V_Scan_Speed_type, char > V_Scan_Speed_traits;
 
@@ -13430,7 +13433,7 @@ class Scan1: public ::xml_schema::type
   V_Scan_Speed (::std::auto_ptr< V_Scan_Speed_type > p);
 
   // Probe-ID1-Reread
-  //
+  // 
   typedef ::xml_schema::string Probe_ID1_Reread_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID1_Reread_type, char > Probe_ID1_Reread_traits;
 
@@ -13447,7 +13450,7 @@ class Scan1: public ::xml_schema::type
   Probe_ID1_Reread (::std::auto_ptr< Probe_ID1_Reread_type > p);
 
   // Probe-ID1-Valid
-  //
+  // 
   typedef ::xml_schema::string Probe_ID1_Valid_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID1_Valid_type, char > Probe_ID1_Valid_traits;
 
@@ -13464,7 +13467,7 @@ class Scan1: public ::xml_schema::type
   Probe_ID1_Valid (::std::auto_ptr< Probe_ID1_Valid_type > p);
 
   // Probe-ID1-Voltage
-  //
+  // 
   typedef ::xml_schema::string Probe_ID1_Voltage_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID1_Voltage_type, char > Probe_ID1_Voltage_traits;
 
@@ -13481,7 +13484,7 @@ class Scan1: public ::xml_schema::type
   Probe_ID1_Voltage (::std::auto_ptr< Probe_ID1_Voltage_type > p);
 
   // Probe-ID2-Reread
-  //
+  // 
   typedef ::xml_schema::string Probe_ID2_Reread_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID2_Reread_type, char > Probe_ID2_Reread_traits;
 
@@ -13498,7 +13501,7 @@ class Scan1: public ::xml_schema::type
   Probe_ID2_Reread (::std::auto_ptr< Probe_ID2_Reread_type > p);
 
   // Probe-ID2-Valid
-  //
+  // 
   typedef ::xml_schema::string Probe_ID2_Valid_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID2_Valid_type, char > Probe_ID2_Valid_traits;
 
@@ -13515,7 +13518,7 @@ class Scan1: public ::xml_schema::type
   Probe_ID2_Valid (::std::auto_ptr< Probe_ID2_Valid_type > p);
 
   // Probe-ID2-Voltage
-  //
+  // 
   typedef ::xml_schema::string Probe_ID2_Voltage_type;
   typedef ::xsd::cxx::tree::traits< Probe_ID2_Voltage_type, char > Probe_ID2_Voltage_traits;
 
@@ -13532,7 +13535,7 @@ class Scan1: public ::xml_schema::type
   Probe_ID2_Voltage (::std::auto_ptr< Probe_ID2_Voltage_type > p);
 
   // V-Scan-Rate
-  //
+  // 
   typedef ::V_Scan_Rate1 V_Scan_Rate_type;
   typedef ::xsd::cxx::tree::traits< V_Scan_Rate_type, char > V_Scan_Rate_traits;
 
@@ -13549,7 +13552,7 @@ class Scan1: public ::xml_schema::type
   V_Scan_Rate (::std::auto_ptr< V_Scan_Rate_type > p);
 
   // Position-Counter-Lock
-  //
+  // 
   typedef ::xml_schema::string Position_Counter_Lock_type;
   typedef ::xsd::cxx::tree::traits< Position_Counter_Lock_type, char > Position_Counter_Lock_traits;
 
@@ -13566,7 +13569,7 @@ class Scan1: public ::xml_schema::type
   Position_Counter_Lock (::std::auto_ptr< Position_Counter_Lock_type > p);
 
   // Scan-Width
-  //
+  // 
   typedef ::Scan_Width1 Scan_Width_type;
   typedef ::xsd::cxx::tree::traits< Scan_Width_type, char > Scan_Width_traits;
 
@@ -13583,7 +13586,7 @@ class Scan1: public ::xml_schema::type
   Scan_Width (::std::auto_ptr< Scan_Width_type > p);
 
   // Position-Counter-Reset
-  //
+  // 
   typedef ::xml_schema::string Position_Counter_Reset_type;
   typedef ::xsd::cxx::tree::traits< Position_Counter_Reset_type, char > Position_Counter_Reset_traits;
 
@@ -13647,7 +13650,7 @@ class Scan1: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Scan1 ();
 
   // Implementation.
@@ -13680,7 +13683,7 @@ class Motor1: public ::xml_schema::type
 {
   public:
   // Settle-Time-3d
-  //
+  // 
   typedef ::xml_schema::string Settle_Time_3d_type;
   typedef ::xsd::cxx::tree::traits< Settle_Time_3d_type, char > Settle_Time_3d_traits;
 
@@ -13697,7 +13700,7 @@ class Motor1: public ::xml_schema::type
   Settle_Time_3d (::std::auto_ptr< Settle_Time_3d_type > p);
 
   // Position
-  //
+  // 
   typedef ::Position1 Position_type;
   typedef ::xsd::cxx::tree::traits< Position_type, char > Position_traits;
 
@@ -13714,7 +13717,7 @@ class Motor1: public ::xml_schema::type
   Position (::std::auto_ptr< Position_type > p);
 
   // R-Scan-Move-No-Wait
-  //
+  // 
   typedef ::R_Scan_Move_No_Wait1 R_Scan_Move_No_Wait_type;
   typedef ::xsd::cxx::tree::traits< R_Scan_Move_No_Wait_type, char > R_Scan_Move_No_Wait_traits;
 
@@ -13731,7 +13734,7 @@ class Motor1: public ::xml_schema::type
   R_Scan_Move_No_Wait (::std::auto_ptr< R_Scan_Move_No_Wait_type > p);
 
   // Motor-Mode
-  //
+  // 
   typedef ::xml_schema::string Motor_Mode_type;
   typedef ::xsd::cxx::tree::traits< Motor_Mode_type, char > Motor_Mode_traits;
 
@@ -13748,7 +13751,7 @@ class Motor1: public ::xml_schema::type
   Motor_Mode (::std::auto_ptr< Motor_Mode_type > p);
 
   // Acceleration
-  //
+  // 
   typedef ::Acceleration1 Acceleration_type;
   typedef ::xsd::cxx::tree::traits< Acceleration_type, char > Acceleration_traits;
 
@@ -13765,7 +13768,7 @@ class Motor1: public ::xml_schema::type
   Acceleration (::std::auto_ptr< Acceleration_type > p);
 
   // Serial-Port-Mode
-  //
+  // 
   typedef ::xml_schema::string Serial_Port_Mode_type;
   typedef ::xsd::cxx::tree::traits< Serial_Port_Mode_type, char > Serial_Port_Mode_traits;
 
@@ -13782,7 +13785,7 @@ class Motor1: public ::xml_schema::type
   Serial_Port_Mode (::std::auto_ptr< Serial_Port_Mode_type > p);
 
   // Limit-Switch-Mode
-  //
+  // 
   typedef ::xml_schema::string Limit_Switch_Mode_type;
   typedef ::xsd::cxx::tree::traits< Limit_Switch_Mode_type, char > Limit_Switch_Mode_traits;
 
@@ -13799,7 +13802,7 @@ class Motor1: public ::xml_schema::type
   Limit_Switch_Mode (::std::auto_ptr< Limit_Switch_Mode_type > p);
 
   // Breakpoint
-  //
+  // 
   typedef ::xml_schema::string Breakpoint_type;
   typedef ::xsd::cxx::tree::traits< Breakpoint_type, char > Breakpoint_traits;
 
@@ -13816,7 +13819,7 @@ class Motor1: public ::xml_schema::type
   Breakpoint (::std::auto_ptr< Breakpoint_type > p);
 
   // Update
-  //
+  // 
   typedef ::xml_schema::string Update_type;
   typedef ::xsd::cxx::tree::traits< Update_type, char > Update_traits;
 
@@ -13833,7 +13836,7 @@ class Motor1: public ::xml_schema::type
   Update (::std::auto_ptr< Update_type > p);
 
   // Breakpoint-Value
-  //
+  // 
   typedef ::xml_schema::string Breakpoint_Value_type;
   typedef ::xsd::cxx::tree::traits< Breakpoint_Value_type, char > Breakpoint_Value_traits;
 
@@ -13850,7 +13853,7 @@ class Motor1: public ::xml_schema::type
   Breakpoint_Value (::std::auto_ptr< Breakpoint_Value_type > p);
 
   // V-Switch-Limit
-  //
+  // 
   typedef ::xml_schema::string V_Switch_Limit_type;
   typedef ::xsd::cxx::tree::traits< V_Switch_Limit_type, char > V_Switch_Limit_traits;
 
@@ -13867,7 +13870,7 @@ class Motor1: public ::xml_schema::type
   V_Switch_Limit (::std::auto_ptr< V_Switch_Limit_type > p);
 
   // R-Retrieve-Trace
-  //
+  // 
   typedef ::xml_schema::string R_Retrieve_Trace_type;
   typedef ::xsd::cxx::tree::traits< R_Retrieve_Trace_type, char > R_Retrieve_Trace_traits;
 
@@ -13884,7 +13887,7 @@ class Motor1: public ::xml_schema::type
   R_Retrieve_Trace (::std::auto_ptr< R_Retrieve_Trace_type > p);
 
   // Velocity-Stationary
-  //
+  // 
   typedef ::Velocity_Stationary1 Velocity_Stationary_type;
   typedef ::xsd::cxx::tree::traits< Velocity_Stationary_type, char > Velocity_Stationary_traits;
 
@@ -13901,7 +13904,7 @@ class Motor1: public ::xml_schema::type
   Velocity_Stationary (::std::auto_ptr< Velocity_Stationary_type > p);
 
   // Reset-Event-Status
-  //
+  // 
   typedef ::xml_schema::string Reset_Event_Status_type;
   typedef ::xsd::cxx::tree::traits< Reset_Event_Status_type, char > Reset_Event_Status_traits;
 
@@ -13918,7 +13921,7 @@ class Motor1: public ::xml_schema::type
   Reset_Event_Status (::std::auto_ptr< Reset_Event_Status_type > p);
 
   // Actual-Position
-  //
+  // 
   typedef ::xml_schema::string Actual_Position_type;
   typedef ::xsd::cxx::tree::traits< Actual_Position_type, char > Actual_Position_traits;
 
@@ -13935,7 +13938,7 @@ class Motor1: public ::xml_schema::type
   Actual_Position (::std::auto_ptr< Actual_Position_type > p);
 
   // Buffer-Length
-  //
+  // 
   typedef ::xml_schema::string Buffer_Length_type;
   typedef ::xsd::cxx::tree::traits< Buffer_Length_type, char > Buffer_Length_traits;
 
@@ -13952,7 +13955,7 @@ class Motor1: public ::xml_schema::type
   Buffer_Length (::std::auto_ptr< Buffer_Length_type > p);
 
   // R-Scan-Move2
-  //
+  // 
   typedef ::R_Scan_Move21 R_Scan_Move2_type;
   typedef ::xsd::cxx::tree::traits< R_Scan_Move2_type, char > R_Scan_Move2_traits;
 
@@ -13969,7 +13972,7 @@ class Motor1: public ::xml_schema::type
   R_Scan_Move2 (::std::auto_ptr< R_Scan_Move2_type > p);
 
   // Position-Reverse
-  //
+  // 
   typedef ::Position_Reverse1 Position_Reverse_type;
   typedef ::xsd::cxx::tree::traits< Position_Reverse_type, char > Position_Reverse_traits;
 
@@ -13986,7 +13989,7 @@ class Motor1: public ::xml_schema::type
   Position_Reverse (::std::auto_ptr< Position_Reverse_type > p);
 
   // Reset
-  //
+  // 
   typedef ::xml_schema::string Reset_type;
   typedef ::xsd::cxx::tree::traits< Reset_type, char > Reset_traits;
 
@@ -14003,7 +14006,7 @@ class Motor1: public ::xml_schema::type
   Reset (::std::auto_ptr< Reset_type > p);
 
   // Trace-Count
-  //
+  // 
   typedef ::xml_schema::string Trace_Count_type;
   typedef ::xsd::cxx::tree::traits< Trace_Count_type, char > Trace_Count_traits;
 
@@ -14020,7 +14023,7 @@ class Motor1: public ::xml_schema::type
   Trace_Count (::std::auto_ptr< Trace_Count_type > p);
 
   // R-Initialize
-  //
+  // 
   typedef ::xml_schema::string R_Initialize_type;
   typedef ::xsd::cxx::tree::traits< R_Initialize_type, char > R_Initialize_traits;
 
@@ -14037,7 +14040,7 @@ class Motor1: public ::xml_schema::type
   R_Initialize (::std::auto_ptr< R_Initialize_type > p);
 
   // Output-Mode
-  //
+  // 
   typedef ::xml_schema::string Output_Mode_type;
   typedef ::xsd::cxx::tree::traits< Output_Mode_type, char > Output_Mode_traits;
 
@@ -14054,7 +14057,7 @@ class Motor1: public ::xml_schema::type
   Output_Mode (::std::auto_ptr< Output_Mode_type > p);
 
   // Position2
-  //
+  // 
   typedef ::Position21 Position2_type;
   typedef ::xsd::cxx::tree::traits< Position2_type, char > Position2_traits;
 
@@ -14071,7 +14074,7 @@ class Motor1: public ::xml_schema::type
   Position2 (::std::auto_ptr< Position2_type > p);
 
   // Integration-Limit
-  //
+  // 
   typedef ::xml_schema::string Integration_Limit_type;
   typedef ::xsd::cxx::tree::traits< Integration_Limit_type, char > Integration_Limit_traits;
 
@@ -14088,7 +14091,7 @@ class Motor1: public ::xml_schema::type
   Integration_Limit (::std::auto_ptr< Integration_Limit_type > p);
 
   // R-Home
-  //
+  // 
   typedef ::xml_schema::string R_Home_type;
   typedef ::xsd::cxx::tree::traits< R_Home_type, char > R_Home_traits;
 
@@ -14105,7 +14108,7 @@ class Motor1: public ::xml_schema::type
   R_Home (::std::auto_ptr< R_Home_type > p);
 
   // Error
-  //
+  // 
   typedef ::xml_schema::string Error_type;
   typedef ::xsd::cxx::tree::traits< Error_type, char > Error_traits;
 
@@ -14122,7 +14125,7 @@ class Motor1: public ::xml_schema::type
   Error (::std::auto_ptr< Error_type > p);
 
   // R-Reset-Limit-Switch
-  //
+  // 
   typedef ::xml_schema::string R_Reset_Limit_Switch_type;
   typedef ::xsd::cxx::tree::traits< R_Reset_Limit_Switch_type, char > R_Reset_Limit_Switch_traits;
 
@@ -14139,7 +14142,7 @@ class Motor1: public ::xml_schema::type
   R_Reset_Limit_Switch (::std::auto_ptr< R_Reset_Limit_Switch_type > p);
 
   // Settle-Window-3d
-  //
+  // 
   typedef ::xml_schema::string Settle_Window_3d_type;
   typedef ::xsd::cxx::tree::traits< Settle_Window_3d_type, char > Settle_Window_3d_traits;
 
@@ -14156,7 +14159,7 @@ class Motor1: public ::xml_schema::type
   Settle_Window_3d (::std::auto_ptr< Settle_Window_3d_type > p);
 
   // Interrupt-Mask
-  //
+  // 
   typedef ::xml_schema::string Interrupt_Mask_type;
   typedef ::xsd::cxx::tree::traits< Interrupt_Mask_type, char > Interrupt_Mask_traits;
 
@@ -14173,7 +14176,7 @@ class Motor1: public ::xml_schema::type
   Interrupt_Mask (::std::auto_ptr< Interrupt_Mask_type > p);
 
   // Scan-Move-Control
-  //
+  // 
   typedef ::xml_schema::string Scan_Move_Control_type;
   typedef ::xsd::cxx::tree::traits< Scan_Move_Control_type, char > Scan_Move_Control_traits;
 
@@ -14190,7 +14193,7 @@ class Motor1: public ::xml_schema::type
   Scan_Move_Control (::std::auto_ptr< Scan_Move_Control_type > p);
 
   // Axis-Out-Source
-  //
+  // 
   typedef ::xml_schema::string Axis_Out_Source_type;
   typedef ::xsd::cxx::tree::traits< Axis_Out_Source_type, char > Axis_Out_Source_traits;
 
@@ -14207,7 +14210,7 @@ class Motor1: public ::xml_schema::type
   Axis_Out_Source (::std::auto_ptr< Axis_Out_Source_type > p);
 
   // Trace-Stop
-  //
+  // 
   typedef ::xml_schema::string Trace_Stop_type;
   typedef ::xsd::cxx::tree::traits< Trace_Stop_type, char > Trace_Stop_traits;
 
@@ -14224,7 +14227,7 @@ class Motor1: public ::xml_schema::type
   Trace_Stop (::std::auto_ptr< Trace_Stop_type > p);
 
   // Velocity
-  //
+  // 
   typedef ::Velocity1 Velocity_type;
   typedef ::xsd::cxx::tree::traits< Velocity_type, char > Velocity_traits;
 
@@ -14241,7 +14244,7 @@ class Motor1: public ::xml_schema::type
   Velocity (::std::auto_ptr< Velocity_type > p);
 
   // R-Setup
-  //
+  // 
   typedef ::xml_schema::string R_Setup_type;
   typedef ::xsd::cxx::tree::traits< R_Setup_type, char > R_Setup_traits;
 
@@ -14258,7 +14261,7 @@ class Motor1: public ::xml_schema::type
   R_Setup (::std::auto_ptr< R_Setup_type > p);
 
   // Buffer-Start
-  //
+  // 
   typedef ::xml_schema::string Buffer_Start_type;
   typedef ::xsd::cxx::tree::traits< Buffer_Start_type, char > Buffer_Start_traits;
 
@@ -14275,7 +14278,7 @@ class Motor1: public ::xml_schema::type
   Buffer_Start (::std::auto_ptr< Buffer_Start_type > p);
 
   // Signal-Sense
-  //
+  // 
   typedef ::xml_schema::string Signal_Sense_type;
   typedef ::xsd::cxx::tree::traits< Signal_Sense_type, char > Signal_Sense_traits;
 
@@ -14292,7 +14295,7 @@ class Motor1: public ::xml_schema::type
   Signal_Sense (::std::auto_ptr< Signal_Sense_type > p);
 
   // R-Scan-Move
-  //
+  // 
   typedef ::R_Scan_Move1 R_Scan_Move_type;
   typedef ::xsd::cxx::tree::traits< R_Scan_Move_type, char > R_Scan_Move_traits;
 
@@ -14309,7 +14312,7 @@ class Motor1: public ::xml_schema::type
   R_Scan_Move (::std::auto_ptr< R_Scan_Move_type > p);
 
   // Position-Forward
-  //
+  // 
   typedef ::Position_Forward1 Position_Forward_type;
   typedef ::xsd::cxx::tree::traits< Position_Forward_type, char > Position_Forward_traits;
 
@@ -14326,7 +14329,7 @@ class Motor1: public ::xml_schema::type
   Position_Forward (::std::auto_ptr< Position_Forward_type > p);
 
   // Derivative-Time
-  //
+  // 
   typedef ::xml_schema::string Derivative_Time_type;
   typedef ::xsd::cxx::tree::traits< Derivative_Time_type, char > Derivative_Time_traits;
 
@@ -14343,7 +14346,7 @@ class Motor1: public ::xml_schema::type
   Derivative_Time (::std::auto_ptr< Derivative_Time_type > p);
 
   // Settle-Window
-  //
+  // 
   typedef ::xml_schema::string Settle_Window_type;
   typedef ::xsd::cxx::tree::traits< Settle_Window_type, char > Settle_Window_traits;
 
@@ -14360,7 +14363,7 @@ class Motor1: public ::xml_schema::type
   Settle_Window (::std::auto_ptr< Settle_Window_type > p);
 
   // Trace-Variable1
-  //
+  // 
   typedef ::xml_schema::string Trace_Variable1_type;
   typedef ::xsd::cxx::tree::traits< Trace_Variable1_type, char > Trace_Variable1_traits;
 
@@ -14377,7 +14380,7 @@ class Motor1: public ::xml_schema::type
   Trace_Variable1 (::std::auto_ptr< Trace_Variable1_type > p);
 
   // Trace-Variable2
-  //
+  // 
   typedef ::xml_schema::string Trace_Variable2_type;
   typedef ::xsd::cxx::tree::traits< Trace_Variable2_type, char > Trace_Variable2_traits;
 
@@ -14394,7 +14397,7 @@ class Motor1: public ::xml_schema::type
   Trace_Variable2 (::std::auto_ptr< Trace_Variable2_type > p);
 
   // Buffer-Read-Index
-  //
+  // 
   typedef ::xml_schema::string Buffer_Read_Index_type;
   typedef ::xsd::cxx::tree::traits< Buffer_Read_Index_type, char > Buffer_Read_Index_traits;
 
@@ -14411,7 +14414,7 @@ class Motor1: public ::xml_schema::type
   Buffer_Read_Index (::std::auto_ptr< Buffer_Read_Index_type > p);
 
   // Signal-Status
-  //
+  // 
   typedef ::xml_schema::string Signal_Status_type;
   typedef ::xsd::cxx::tree::traits< Signal_Status_type, char > Signal_Status_traits;
 
@@ -14428,7 +14431,7 @@ class Motor1: public ::xml_schema::type
   Signal_Status (::std::auto_ptr< Signal_Status_type > p);
 
   // Alarm-Clear
-  //
+  // 
   typedef ::xml_schema::string Alarm_Clear_type;
   typedef ::xsd::cxx::tree::traits< Alarm_Clear_type, char > Alarm_Clear_traits;
 
@@ -14445,7 +14448,7 @@ class Motor1: public ::xml_schema::type
   Alarm_Clear (::std::auto_ptr< Alarm_Clear_type > p);
 
   // Motion-Complete-Mode
-  //
+  // 
   typedef ::xml_schema::string Motion_Complete_Mode_type;
   typedef ::xsd::cxx::tree::traits< Motion_Complete_Mode_type, char > Motion_Complete_Mode_traits;
 
@@ -14462,7 +14465,7 @@ class Motor1: public ::xml_schema::type
   Motion_Complete_Mode (::std::auto_ptr< Motion_Complete_Mode_type > p);
 
   // R-Setup-Abort
-  //
+  // 
   typedef ::xml_schema::string R_Setup_Abort_type;
   typedef ::xsd::cxx::tree::traits< R_Setup_Abort_type, char > R_Setup_Abort_traits;
 
@@ -14479,7 +14482,7 @@ class Motor1: public ::xml_schema::type
   R_Setup_Abort (::std::auto_ptr< R_Setup_Abort_type > p);
 
   // Read-Buffer
-  //
+  // 
   typedef ::xml_schema::string Read_Buffer_type;
   typedef ::xsd::cxx::tree::traits< Read_Buffer_type, char > Read_Buffer_traits;
 
@@ -14496,7 +14499,7 @@ class Motor1: public ::xml_schema::type
   Read_Buffer (::std::auto_ptr< Read_Buffer_type > p);
 
   // Kd
-  //
+  // 
   typedef ::xml_schema::string Kd_type;
   typedef ::xsd::cxx::tree::traits< Kd_type, char > Kd_traits;
 
@@ -14513,7 +14516,7 @@ class Motor1: public ::xml_schema::type
   Kd (::std::auto_ptr< Kd_type > p);
 
   // Clear-Interrupt
-  //
+  // 
   typedef ::xml_schema::string Clear_Interrupt_type;
   typedef ::xsd::cxx::tree::traits< Clear_Interrupt_type, char > Clear_Interrupt_traits;
 
@@ -14530,7 +14533,7 @@ class Motor1: public ::xml_schema::type
   Clear_Interrupt (::std::auto_ptr< Clear_Interrupt_type > p);
 
   // Profile-Mode
-  //
+  // 
   typedef ::xml_schema::string Profile_Mode_type;
   typedef ::xsd::cxx::tree::traits< Profile_Mode_type, char > Profile_Mode_traits;
 
@@ -14547,7 +14550,7 @@ class Motor1: public ::xml_schema::type
   Profile_Mode (::std::auto_ptr< Profile_Mode_type > p);
 
   // R-Setup-Trace
-  //
+  // 
   typedef ::xml_schema::string R_Setup_Trace_type;
   typedef ::xsd::cxx::tree::traits< R_Setup_Trace_type, char > R_Setup_Trace_traits;
 
@@ -14564,7 +14567,7 @@ class Motor1: public ::xml_schema::type
   R_Setup_Trace (::std::auto_ptr< R_Setup_Trace_type > p);
 
   // No-Operation
-  //
+  // 
   typedef ::xml_schema::string No_Operation_type;
   typedef ::xsd::cxx::tree::traits< No_Operation_type, char > No_Operation_traits;
 
@@ -14581,7 +14584,7 @@ class Motor1: public ::xml_schema::type
   No_Operation (::std::auto_ptr< No_Operation_type > p);
 
   // Ki
-  //
+  // 
   typedef ::xml_schema::string Ki_type;
   typedef ::xsd::cxx::tree::traits< Ki_type, char > Ki_traits;
 
@@ -14598,7 +14601,7 @@ class Motor1: public ::xml_schema::type
   Ki (::std::auto_ptr< Ki_type > p);
 
   // Sample-Time
-  //
+  // 
   typedef ::xml_schema::string Sample_Time_type;
   typedef ::xsd::cxx::tree::traits< Sample_Time_type, char > Sample_Time_traits;
 
@@ -14615,7 +14618,7 @@ class Motor1: public ::xml_schema::type
   Sample_Time (::std::auto_ptr< Sample_Time_type > p);
 
   // Event-Status
-  //
+  // 
   typedef ::xml_schema::string Event_Status_type;
   typedef ::xsd::cxx::tree::traits< Event_Status_type, char > Event_Status_traits;
 
@@ -14632,7 +14635,7 @@ class Motor1: public ::xml_schema::type
   Event_Status (::std::auto_ptr< Event_Status_type > p);
 
   // Kp
-  //
+  // 
   typedef ::xml_schema::string Kp_type;
   typedef ::xsd::cxx::tree::traits< Kp_type, char > Kp_traits;
 
@@ -14649,7 +14652,7 @@ class Motor1: public ::xml_schema::type
   Kp (::std::auto_ptr< Kp_type > p);
 
   // R-Wait-Finish-Scan-Move
-  //
+  // 
   typedef ::xml_schema::string R_Wait_Finish_Scan_Move_type;
   typedef ::xsd::cxx::tree::traits< R_Wait_Finish_Scan_Move_type, char > R_Wait_Finish_Scan_Move_traits;
 
@@ -14666,7 +14669,7 @@ class Motor1: public ::xml_schema::type
   R_Wait_Finish_Scan_Move (::std::auto_ptr< R_Wait_Finish_Scan_Move_type > p);
 
   // Settle-Time
-  //
+  // 
   typedef ::xml_schema::string Settle_Time_type;
   typedef ::xsd::cxx::tree::traits< Settle_Time_type, char > Settle_Time_traits;
 
@@ -14683,7 +14686,7 @@ class Motor1: public ::xml_schema::type
   Settle_Time (::std::auto_ptr< Settle_Time_type > p);
 
   // Acceleration-Stationary
-  //
+  // 
   typedef ::Acceleration_Stationary1 Acceleration_Stationary_type;
   typedef ::xsd::cxx::tree::traits< Acceleration_Stationary_type, char > Acceleration_Stationary_traits;
 
@@ -14700,7 +14703,7 @@ class Motor1: public ::xml_schema::type
   Acceleration_Stationary (::std::auto_ptr< Acceleration_Stationary_type > p);
 
   // Trace-Mode
-  //
+  // 
   typedef ::xml_schema::string Trace_Mode_type;
   typedef ::xsd::cxx::tree::traits< Trace_Mode_type, char > Trace_Mode_traits;
 
@@ -14717,7 +14720,7 @@ class Motor1: public ::xml_schema::type
   Trace_Mode (::std::auto_ptr< Trace_Mode_type > p);
 
   // Trace-Period
-  //
+  // 
   typedef ::xml_schema::string Trace_Period_type;
   typedef ::xsd::cxx::tree::traits< Trace_Period_type, char > Trace_Period_traits;
 
@@ -14734,7 +14737,7 @@ class Motor1: public ::xml_schema::type
   Trace_Period (::std::auto_ptr< Trace_Period_type > p);
 
   // Trace-Start
-  //
+  // 
   typedef ::xml_schema::string Trace_Start_type;
   typedef ::xsd::cxx::tree::traits< Trace_Start_type, char > Trace_Start_traits;
 
@@ -14892,7 +14895,7 @@ class Motor1: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Motor1 ();
 
   // Implementation.
@@ -14972,7 +14975,7 @@ class ContrastDlg: public ::xml_schema::type
 {
   public:
   // Contrast-YAxis-Auto-Scale
-  //
+  // 
   typedef ::xml_schema::string Contrast_YAxis_Auto_Scale_type;
   typedef ::xsd::cxx::tree::traits< Contrast_YAxis_Auto_Scale_type, char > Contrast_YAxis_Auto_Scale_traits;
 
@@ -14989,7 +14992,7 @@ class ContrastDlg: public ::xml_schema::type
   Contrast_YAxis_Auto_Scale (::std::auto_ptr< Contrast_YAxis_Auto_Scale_type > p);
 
   // Draw-Cardiac-Average
-  //
+  // 
   typedef ::xml_schema::string Draw_Cardiac_Average_type;
   typedef ::xsd::cxx::tree::traits< Draw_Cardiac_Average_type, char > Draw_Cardiac_Average_traits;
 
@@ -15006,7 +15009,7 @@ class ContrastDlg: public ::xml_schema::type
   Draw_Cardiac_Average (::std::auto_ptr< Draw_Cardiac_Average_type > p);
 
   // Average-Frames
-  //
+  // 
   typedef ::xml_schema::string Average_Frames_type;
   typedef ::xsd::cxx::tree::traits< Average_Frames_type, char > Average_Frames_traits;
 
@@ -15023,7 +15026,7 @@ class ContrastDlg: public ::xml_schema::type
   Average_Frames (::std::auto_ptr< Average_Frames_type > p);
 
   // Contrast-YAxis-Max
-  //
+  // 
   typedef ::xml_schema::string Contrast_YAxis_Max_type;
   typedef ::xsd::cxx::tree::traits< Contrast_YAxis_Max_type, char > Contrast_YAxis_Max_traits;
 
@@ -15040,7 +15043,7 @@ class ContrastDlg: public ::xml_schema::type
   Contrast_YAxis_Max (::std::auto_ptr< Contrast_YAxis_Max_type > p);
 
   // Draw-Destroy-Markers
-  //
+  // 
   typedef ::xml_schema::string Draw_Destroy_Markers_type;
   typedef ::xsd::cxx::tree::traits< Draw_Destroy_Markers_type, char > Draw_Destroy_Markers_traits;
 
@@ -15057,7 +15060,7 @@ class ContrastDlg: public ::xml_schema::type
   Draw_Destroy_Markers (::std::auto_ptr< Draw_Destroy_Markers_type > p);
 
   // Draw-Time-Axis
-  //
+  // 
   typedef ::xml_schema::string Draw_Time_Axis_type;
   typedef ::xsd::cxx::tree::traits< Draw_Time_Axis_type, char > Draw_Time_Axis_traits;
 
@@ -15074,7 +15077,7 @@ class ContrastDlg: public ::xml_schema::type
   Draw_Time_Axis (::std::auto_ptr< Draw_Time_Axis_type > p);
 
   // Draw-Cardiac-Grayscale
-  //
+  // 
   typedef ::xml_schema::string Draw_Cardiac_Grayscale_type;
   typedef ::xsd::cxx::tree::traits< Draw_Cardiac_Grayscale_type, char > Draw_Cardiac_Grayscale_traits;
 
@@ -15091,7 +15094,7 @@ class ContrastDlg: public ::xml_schema::type
   Draw_Cardiac_Grayscale (::std::auto_ptr< Draw_Cardiac_Grayscale_type > p);
 
   // Draw-Grayscale
-  //
+  // 
   typedef ::xml_schema::string Draw_Grayscale_type;
   typedef ::xsd::cxx::tree::traits< Draw_Grayscale_type, char > Draw_Grayscale_traits;
 
@@ -15108,7 +15111,7 @@ class ContrastDlg: public ::xml_schema::type
   Draw_Grayscale (::std::auto_ptr< Draw_Grayscale_type > p);
 
   // Draw-Markers
-  //
+  // 
   typedef ::xml_schema::string Draw_Markers_type;
   typedef ::xsd::cxx::tree::traits< Draw_Markers_type, char > Draw_Markers_traits;
 
@@ -15125,7 +15128,7 @@ class ContrastDlg: public ::xml_schema::type
   Draw_Markers (::std::auto_ptr< Draw_Markers_type > p);
 
   // Contrast-Linear
-  //
+  // 
   typedef ::xml_schema::string Contrast_Linear_type;
   typedef ::xsd::cxx::tree::traits< Contrast_Linear_type, char > Contrast_Linear_traits;
 
@@ -15142,7 +15145,7 @@ class ContrastDlg: public ::xml_schema::type
   Contrast_Linear (::std::auto_ptr< Contrast_Linear_type > p);
 
   // Cardiac-YAxis-Max
-  //
+  // 
   typedef ::xml_schema::string Cardiac_YAxis_Max_type;
   typedef ::xsd::cxx::tree::traits< Cardiac_YAxis_Max_type, char > Cardiac_YAxis_Max_traits;
 
@@ -15159,7 +15162,7 @@ class ContrastDlg: public ::xml_schema::type
   Cardiac_YAxis_Max (::std::auto_ptr< Cardiac_YAxis_Max_type > p);
 
   // Cardiac-YAxis-Auto-Scale
-  //
+  // 
   typedef ::xml_schema::string Cardiac_YAxis_Auto_Scale_type;
   typedef ::xsd::cxx::tree::traits< Cardiac_YAxis_Auto_Scale_type, char > Cardiac_YAxis_Auto_Scale_traits;
 
@@ -15176,7 +15179,7 @@ class ContrastDlg: public ::xml_schema::type
   Cardiac_YAxis_Auto_Scale (::std::auto_ptr< Cardiac_YAxis_Auto_Scale_type > p);
 
   // Draw-Moving-Average
-  //
+  // 
   typedef ::xml_schema::string Draw_Moving_Average_type;
   typedef ::xsd::cxx::tree::traits< Draw_Moving_Average_type, char > Draw_Moving_Average_traits;
 
@@ -15193,7 +15196,7 @@ class ContrastDlg: public ::xml_schema::type
   Draw_Moving_Average (::std::auto_ptr< Draw_Moving_Average_type > p);
 
   // Draw-Percent-Area
-  //
+  // 
   typedef ::xml_schema::string Draw_Percent_Area_type;
   typedef ::xsd::cxx::tree::traits< Draw_Percent_Area_type, char > Draw_Percent_Area_traits;
 
@@ -15210,7 +15213,7 @@ class ContrastDlg: public ::xml_schema::type
   Draw_Percent_Area (::std::auto_ptr< Draw_Percent_Area_type > p);
 
   // Percent-Area-Thresh
-  //
+  // 
   typedef ::xml_schema::string Percent_Area_Thresh_type;
   typedef ::xsd::cxx::tree::traits< Percent_Area_Thresh_type, char > Percent_Area_Thresh_traits;
 
@@ -15227,7 +15230,7 @@ class ContrastDlg: public ::xml_schema::type
   Percent_Area_Thresh (::std::auto_ptr< Percent_Area_Thresh_type > p);
 
   // Cardiac-Display-Frame
-  //
+  // 
   typedef ::xml_schema::string Cardiac_Display_Frame_type;
   typedef ::xsd::cxx::tree::traits< Cardiac_Display_Frame_type, char > Cardiac_Display_Frame_traits;
 
@@ -15274,7 +15277,7 @@ class ContrastDlg: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~ContrastDlg ();
 
   // Implementation.
@@ -15307,7 +15310,7 @@ class Diag1: public ::xml_schema::type
 {
   public:
   // Mem-Pagefile
-  //
+  // 
   typedef ::xml_schema::string Mem_Pagefile_type;
   typedef ::xsd::cxx::tree::traits< Mem_Pagefile_type, char > Mem_Pagefile_traits;
 
@@ -15324,7 +15327,7 @@ class Diag1: public ::xml_schema::type
   Mem_Pagefile (::std::auto_ptr< Mem_Pagefile_type > p);
 
   // Monitor-3point3V
-  //
+  // 
   typedef ::Monitor_3point3V1 Monitor_3point3V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_3point3V_type, char > Monitor_3point3V_traits;
 
@@ -15341,7 +15344,7 @@ class Diag1: public ::xml_schema::type
   Monitor_3point3V (::std::auto_ptr< Monitor_3point3V_type > p);
 
   // USER-Objects
-  //
+  // 
   typedef ::xml_schema::string USER_Objects_type;
   typedef ::xsd::cxx::tree::traits< USER_Objects_type, char > USER_Objects_traits;
 
@@ -15358,7 +15361,7 @@ class Diag1: public ::xml_schema::type
   USER_Objects (::std::auto_ptr< USER_Objects_type > p);
 
   // Motor-FPGA-Revision
-  //
+  // 
   typedef ::xml_schema::string Motor_FPGA_Revision_type;
   typedef ::xsd::cxx::tree::traits< Motor_FPGA_Revision_type, char > Motor_FPGA_Revision_traits;
 
@@ -15375,7 +15378,7 @@ class Diag1: public ::xml_schema::type
   Motor_FPGA_Revision (::std::auto_ptr< Motor_FPGA_Revision_type > p);
 
   // Product-Name
-  //
+  // 
   typedef ::xml_schema::string Product_Name_type;
   typedef ::xsd::cxx::tree::traits< Product_Name_type, char > Product_Name_traits;
 
@@ -15392,7 +15395,7 @@ class Diag1: public ::xml_schema::type
   Product_Name (::std::auto_ptr< Product_Name_type > p);
 
   // Build-Version
-  //
+  // 
   typedef ::xml_schema::string Build_Version_type;
   typedef ::xsd::cxx::tree::traits< Build_Version_type, char > Build_Version_traits;
 
@@ -15409,7 +15412,7 @@ class Diag1: public ::xml_schema::type
   Build_Version (::std::auto_ptr< Build_Version_type > p);
 
   // ICB-PCB-ID
-  //
+  // 
   typedef ::xml_schema::string ICB_PCB_ID_type;
   typedef ::xsd::cxx::tree::traits< ICB_PCB_ID_type, char > ICB_PCB_ID_traits;
 
@@ -15426,7 +15429,7 @@ class Diag1: public ::xml_schema::type
   ICB_PCB_ID (::std::auto_ptr< ICB_PCB_ID_type > p);
 
   // Software-Version
-  //
+  // 
   typedef ::xml_schema::string Software_Version_type;
   typedef ::xsd::cxx::tree::traits< Software_Version_type, char > Software_Version_traits;
 
@@ -15443,7 +15446,7 @@ class Diag1: public ::xml_schema::type
   Software_Version (::std::auto_ptr< Software_Version_type > p);
 
   // Receive-PCB-ID
-  //
+  // 
   typedef ::xml_schema::string Receive_PCB_ID_type;
   typedef ::xsd::cxx::tree::traits< Receive_PCB_ID_type, char > Receive_PCB_ID_traits;
 
@@ -15460,7 +15463,7 @@ class Diag1: public ::xml_schema::type
   Receive_PCB_ID (::std::auto_ptr< Receive_PCB_ID_type > p);
 
   // Mem-Private
-  //
+  // 
   typedef ::xml_schema::string Mem_Private_type;
   typedef ::xsd::cxx::tree::traits< Mem_Private_type, char > Mem_Private_traits;
 
@@ -15477,7 +15480,7 @@ class Diag1: public ::xml_schema::type
   Mem_Private (::std::auto_ptr< Mem_Private_type > p);
 
   // Monitor-5V
-  //
+  // 
   typedef ::Monitor_5V1 Monitor_5V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_5V_type, char > Monitor_5V_traits;
 
@@ -15494,7 +15497,7 @@ class Diag1: public ::xml_schema::type
   Monitor_5V (::std::auto_ptr< Monitor_5V_type > p);
 
   // Motor-PCB-Revision
-  //
+  // 
   typedef ::xml_schema::string Motor_PCB_Revision_type;
   typedef ::xsd::cxx::tree::traits< Motor_PCB_Revision_type, char > Motor_PCB_Revision_traits;
 
@@ -15511,7 +15514,7 @@ class Diag1: public ::xml_schema::type
   Motor_PCB_Revision (::std::auto_ptr< Motor_PCB_Revision_type > p);
 
   // NE1619
-  //
+  // 
   typedef ::xml_schema::string NE1619_type;
   typedef ::xsd::cxx::tree::traits< NE1619_type, char > NE1619_traits;
 
@@ -15528,7 +15531,7 @@ class Diag1: public ::xml_schema::type
   NE1619 (::std::auto_ptr< NE1619_type > p);
 
   // Motor-PCB-ID
-  //
+  // 
   typedef ::xml_schema::string Motor_PCB_ID_type;
   typedef ::xsd::cxx::tree::traits< Motor_PCB_ID_type, char > Motor_PCB_ID_traits;
 
@@ -15545,7 +15548,7 @@ class Diag1: public ::xml_schema::type
   Motor_PCB_ID (::std::auto_ptr< Motor_PCB_ID_type > p);
 
   // Transmit-PCB-Revision
-  //
+  // 
   typedef ::xml_schema::string Transmit_PCB_Revision_type;
   typedef ::xsd::cxx::tree::traits< Transmit_PCB_Revision_type, char > Transmit_PCB_Revision_traits;
 
@@ -15562,7 +15565,7 @@ class Diag1: public ::xml_schema::type
   Transmit_PCB_Revision (::std::auto_ptr< Transmit_PCB_Revision_type > p);
 
   // MAX1137
-  //
+  // 
   typedef ::xml_schema::string MAX1137_type;
   typedef ::xsd::cxx::tree::traits< MAX1137_type, char > MAX1137_traits;
 
@@ -15579,7 +15582,7 @@ class Diag1: public ::xml_schema::type
   MAX1137 (::std::auto_ptr< MAX1137_type > p);
 
   // Monitor-Neg15V
-  //
+  // 
   typedef ::Monitor_Neg15V1 Monitor_Neg15V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_Neg15V_type, char > Monitor_Neg15V_traits;
 
@@ -15596,7 +15599,7 @@ class Diag1: public ::xml_schema::type
   Monitor_Neg15V (::std::auto_ptr< Monitor_Neg15V_type > p);
 
   // Monitor-Neg5V
-  //
+  // 
   typedef ::Monitor_Neg5V1 Monitor_Neg5V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_Neg5V_type, char > Monitor_Neg5V_traits;
 
@@ -15613,7 +15616,7 @@ class Diag1: public ::xml_schema::type
   Monitor_Neg5V (::std::auto_ptr< Monitor_Neg5V_type > p);
 
   // Switch-PCB-Revision
-  //
+  // 
   typedef ::xml_schema::string Switch_PCB_Revision_type;
   typedef ::xsd::cxx::tree::traits< Switch_PCB_Revision_type, char > Switch_PCB_Revision_traits;
 
@@ -15630,7 +15633,7 @@ class Diag1: public ::xml_schema::type
   Switch_PCB_Revision (::std::auto_ptr< Switch_PCB_Revision_type > p);
 
   // Receive-PCB-Revision
-  //
+  // 
   typedef ::xml_schema::string Receive_PCB_Revision_type;
   typedef ::xsd::cxx::tree::traits< Receive_PCB_Revision_type, char > Receive_PCB_Revision_traits;
 
@@ -15647,7 +15650,7 @@ class Diag1: public ::xml_schema::type
   Receive_PCB_Revision (::std::auto_ptr< Receive_PCB_Revision_type > p);
 
   // ICB-PCB-Revision
-  //
+  // 
   typedef ::xml_schema::string ICB_PCB_Revision_type;
   typedef ::xsd::cxx::tree::traits< ICB_PCB_Revision_type, char > ICB_PCB_Revision_traits;
 
@@ -15664,7 +15667,7 @@ class Diag1: public ::xml_schema::type
   ICB_PCB_Revision (::std::auto_ptr< ICB_PCB_Revision_type > p);
 
   // Transmit-PCB-ID
-  //
+  // 
   typedef ::xml_schema::string Transmit_PCB_ID_type;
   typedef ::xsd::cxx::tree::traits< Transmit_PCB_ID_type, char > Transmit_PCB_ID_traits;
 
@@ -15681,7 +15684,7 @@ class Diag1: public ::xml_schema::type
   Transmit_PCB_ID (::std::auto_ptr< Transmit_PCB_ID_type > p);
 
   // Monitor-Temperature
-  //
+  // 
   typedef ::xml_schema::string Monitor_Temperature_type;
   typedef ::xsd::cxx::tree::traits< Monitor_Temperature_type, char > Monitor_Temperature_traits;
 
@@ -15698,7 +15701,7 @@ class Diag1: public ::xml_schema::type
   Monitor_Temperature (::std::auto_ptr< Monitor_Temperature_type > p);
 
   // Receive-FPGA-Revision
-  //
+  // 
   typedef ::xml_schema::string Receive_FPGA_Revision_type;
   typedef ::xsd::cxx::tree::traits< Receive_FPGA_Revision_type, char > Receive_FPGA_Revision_traits;
 
@@ -15715,7 +15718,7 @@ class Diag1: public ::xml_schema::type
   Receive_FPGA_Revision (::std::auto_ptr< Receive_FPGA_Revision_type > p);
 
   // Monitor-15V
-  //
+  // 
   typedef ::Monitor_15V1 Monitor_15V_type;
   typedef ::xsd::cxx::tree::traits< Monitor_15V_type, char > Monitor_15V_traits;
 
@@ -15732,7 +15735,7 @@ class Diag1: public ::xml_schema::type
   Monitor_15V (::std::auto_ptr< Monitor_15V_type > p);
 
   // ICB-FPGA-Revision
-  //
+  // 
   typedef ::xml_schema::string ICB_FPGA_Revision_type;
   typedef ::xsd::cxx::tree::traits< ICB_FPGA_Revision_type, char > ICB_FPGA_Revision_traits;
 
@@ -15749,7 +15752,7 @@ class Diag1: public ::xml_schema::type
   ICB_FPGA_Revision (::std::auto_ptr< ICB_FPGA_Revision_type > p);
 
   // GDI-Objects
-  //
+  // 
   typedef ::xml_schema::string GDI_Objects_type;
   typedef ::xsd::cxx::tree::traits< GDI_Objects_type, char > GDI_Objects_traits;
 
@@ -15766,7 +15769,7 @@ class Diag1: public ::xml_schema::type
   GDI_Objects (::std::auto_ptr< GDI_Objects_type > p);
 
   // Mem-WorkingSet
-  //
+  // 
   typedef ::xml_schema::string Mem_WorkingSet_type;
   typedef ::xsd::cxx::tree::traits< Mem_WorkingSet_type, char > Mem_WorkingSet_traits;
 
@@ -15783,7 +15786,7 @@ class Diag1: public ::xml_schema::type
   Mem_WorkingSet (::std::auto_ptr< Mem_WorkingSet_type > p);
 
   // Switch-PCB-ID
-  //
+  // 
   typedef ::xml_schema::string Switch_PCB_ID_type;
   typedef ::xsd::cxx::tree::traits< Switch_PCB_ID_type, char > Switch_PCB_ID_traits;
 
@@ -15873,7 +15876,7 @@ class Diag1: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Diag1 ();
 
   // Implementation.
@@ -15919,7 +15922,7 @@ class ECG1: public ::xml_schema::type
 {
   public:
   // Respiration-Threshold-Change
-  //
+  // 
   typedef ::Respiration_Threshold_Change1 Respiration_Threshold_Change_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Threshold_Change_type, char > Respiration_Threshold_Change_traits;
 
@@ -15936,7 +15939,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Threshold_Change (::std::auto_ptr< Respiration_Threshold_Change_type > p);
 
   // Respiration-Threshold
-  //
+  // 
   typedef ::xml_schema::string Respiration_Threshold_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Threshold_type, char > Respiration_Threshold_traits;
 
@@ -15953,7 +15956,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Threshold (::std::auto_ptr< Respiration_Threshold_type > p);
 
   // Pressure-Range
-  //
+  // 
   typedef ::Pressure_Range1 Pressure_Range_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Range_type, char > Pressure_Range_traits;
 
@@ -15970,7 +15973,7 @@ class ECG1: public ::xml_schema::type
   Pressure_Range (::std::auto_ptr< Pressure_Range_type > p);
 
   // Respiration-Gate-Delay
-  //
+  // 
   typedef ::Respiration_Gate_Delay1 Respiration_Gate_Delay_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Gate_Delay_type, char > Respiration_Gate_Delay_traits;
 
@@ -15987,7 +15990,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Gate_Delay (::std::auto_ptr< Respiration_Gate_Delay_type > p);
 
   // Respiration-Timeout
-  //
+  // 
   typedef ::Respiration_Timeout1 Respiration_Timeout_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Timeout_type, char > Respiration_Timeout_traits;
 
@@ -16004,7 +16007,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Timeout (::std::auto_ptr< Respiration_Timeout_type > p);
 
   // RWave-Max-Change-Factor-Percent
-  //
+  // 
   typedef ::RWave_Max_Change_Factor_Percent1 RWave_Max_Change_Factor_Percent_type;
   typedef ::xsd::cxx::tree::traits< RWave_Max_Change_Factor_Percent_type, char > RWave_Max_Change_Factor_Percent_traits;
 
@@ -16021,7 +16024,7 @@ class ECG1: public ::xml_schema::type
   RWave_Max_Change_Factor_Percent (::std::auto_ptr< RWave_Max_Change_Factor_Percent_type > p);
 
   // Respiration-Period
-  //
+  // 
   typedef ::Respiration_Period1 Respiration_Period_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Period_type, char > Respiration_Period_traits;
 
@@ -16038,7 +16041,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Period (::std::auto_ptr< Respiration_Period_type > p);
 
   // Respiration-Subsample-Rate
-  //
+  // 
   typedef ::Respiration_Subsample_Rate1 Respiration_Subsample_Rate_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Subsample_Rate_type, char > Respiration_Subsample_Rate_traits;
 
@@ -16055,7 +16058,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Subsample_Rate (::std::auto_ptr< Respiration_Subsample_Rate_type > p);
 
   // Show-RWaves
-  //
+  // 
   typedef ::xml_schema::string Show_RWaves_type;
   typedef ::xsd::cxx::tree::traits< Show_RWaves_type, char > Show_RWaves_traits;
 
@@ -16072,7 +16075,7 @@ class ECG1: public ::xml_schema::type
   Show_RWaves (::std::auto_ptr< Show_RWaves_type > p);
 
   // Respiration-Minimal-Peak-2-Peak
-  //
+  // 
   typedef ::xml_schema::string Respiration_Minimal_Peak_2_Peak_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Minimal_Peak_2_Peak_type, char > Respiration_Minimal_Peak_2_Peak_traits;
 
@@ -16089,7 +16092,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Minimal_Peak_2_Peak (::std::auto_ptr< Respiration_Minimal_Peak_2_Peak_type > p);
 
   // Respiration-Window
-  //
+  // 
   typedef ::Respiration_Window1 Respiration_Window_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Window_type, char > Respiration_Window_traits;
 
@@ -16106,7 +16109,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Window (::std::auto_ptr< Respiration_Window_type > p);
 
   // Pressure-Zeroed
-  //
+  // 
   typedef ::xml_schema::string Pressure_Zeroed_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Zeroed_type, char > Pressure_Zeroed_traits;
 
@@ -16123,7 +16126,7 @@ class ECG1: public ::xml_schema::type
   Pressure_Zeroed (::std::auto_ptr< Pressure_Zeroed_type > p);
 
   // Pressure-Systolic
-  //
+  // 
   typedef ::Pressure_Systolic1 Pressure_Systolic_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Systolic_type, char > Pressure_Systolic_traits;
 
@@ -16140,7 +16143,7 @@ class ECG1: public ::xml_schema::type
   Pressure_Systolic (::std::auto_ptr< Pressure_Systolic_type > p);
 
   // Respiration-Show-Window
-  //
+  // 
   typedef ::xml_schema::string Respiration_Show_Window_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Show_Window_type, char > Respiration_Show_Window_traits;
 
@@ -16157,7 +16160,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Show_Window (::std::auto_ptr< Respiration_Show_Window_type > p);
 
   // Frequency
-  //
+  // 
   typedef ::Frequency5 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
@@ -16174,7 +16177,7 @@ class ECG1: public ::xml_schema::type
   Frequency (::std::auto_ptr< Frequency_type > p);
 
   // Respiration-Blank-Period
-  //
+  // 
   typedef ::Respiration_Blank_Period1 Respiration_Blank_Period_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Blank_Period_type, char > Respiration_Blank_Period_traits;
 
@@ -16191,7 +16194,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Blank_Period (::std::auto_ptr< Respiration_Blank_Period_type > p);
 
   // Respiration-Range
-  //
+  // 
   typedef ::Respiration_Range1 Respiration_Range_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Range_type, char > Respiration_Range_traits;
 
@@ -16208,7 +16211,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Range (::std::auto_ptr< Respiration_Range_type > p);
 
   // Pressure-Zero
-  //
+  // 
   typedef ::Pressure_Zero1 Pressure_Zero_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Zero_type, char > Pressure_Zero_traits;
 
@@ -16225,7 +16228,7 @@ class ECG1: public ::xml_schema::type
   Pressure_Zero (::std::auto_ptr< Pressure_Zero_type > p);
 
   // Temperature-Amplification
-  //
+  // 
   typedef ::xml_schema::string Temperature_Amplification_type;
   typedef ::xsd::cxx::tree::traits< Temperature_Amplification_type, char > Temperature_Amplification_traits;
 
@@ -16242,7 +16245,7 @@ class ECG1: public ::xml_schema::type
   Temperature_Amplification (::std::auto_ptr< Temperature_Amplification_type > p);
 
   // P-Wave-Start
-  //
+  // 
   typedef ::P_Wave_Start1 P_Wave_Start_type;
   typedef ::xsd::cxx::tree::traits< P_Wave_Start_type, char > P_Wave_Start_traits;
 
@@ -16259,7 +16262,7 @@ class ECG1: public ::xml_schema::type
   P_Wave_Start (::std::auto_ptr< P_Wave_Start_type > p);
 
   // ECG-Filter-Taps
-  //
+  // 
   typedef ::xml_schema::string ECG_Filter_Taps_type;
   typedef ::xsd::cxx::tree::traits< ECG_Filter_Taps_type, char > ECG_Filter_Taps_traits;
 
@@ -16276,7 +16279,7 @@ class ECG1: public ::xml_schema::type
   ECG_Filter_Taps (::std::auto_ptr< ECG_Filter_Taps_type > p);
 
   // Respiration-Percent-Peak
-  //
+  // 
   typedef ::Respiration_Percent_Peak1 Respiration_Percent_Peak_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Percent_Peak_type, char > Respiration_Percent_Peak_traits;
 
@@ -16293,7 +16296,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Percent_Peak (::std::auto_ptr< Respiration_Percent_Peak_type > p);
 
   // T-Wave-Start
-  //
+  // 
   typedef ::T_Wave_Start1 T_Wave_Start_type;
   typedef ::xsd::cxx::tree::traits< T_Wave_Start_type, char > T_Wave_Start_traits;
 
@@ -16310,7 +16313,7 @@ class ECG1: public ::xml_schema::type
   T_Wave_Start (::std::auto_ptr< T_Wave_Start_type > p);
 
   // Strain-Rate-RR-Diff-Ratio
-  //
+  // 
   typedef ::Strain_Rate_RR_Diff_Ratio1 Strain_Rate_RR_Diff_Ratio_type;
   typedef ::xsd::cxx::tree::traits< Strain_Rate_RR_Diff_Ratio_type, char > Strain_Rate_RR_Diff_Ratio_traits;
 
@@ -16327,7 +16330,7 @@ class ECG1: public ::xml_schema::type
   Strain_Rate_RR_Diff_Ratio (::std::auto_ptr< Strain_Rate_RR_Diff_Ratio_type > p);
 
   // Pressure-Calibration-Min-Level
-  //
+  // 
   typedef ::xml_schema::string Pressure_Calibration_Min_Level_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Calibration_Min_Level_type, char > Pressure_Calibration_Min_Level_traits;
 
@@ -16344,7 +16347,7 @@ class ECG1: public ::xml_schema::type
   Pressure_Calibration_Min_Level (::std::auto_ptr< Pressure_Calibration_Min_Level_type > p);
 
   // DPDT-Range
-  //
+  // 
   typedef ::xml_schema::string DPDT_Range_type;
   typedef ::xsd::cxx::tree::traits< DPDT_Range_type, char > DPDT_Range_traits;
 
@@ -16361,7 +16364,7 @@ class ECG1: public ::xml_schema::type
   DPDT_Range (::std::auto_ptr< DPDT_Range_type > p);
 
   // Respiration-Show-Event
-  //
+  // 
   typedef ::xml_schema::string Respiration_Show_Event_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Show_Event_type, char > Respiration_Show_Event_traits;
 
@@ -16378,7 +16381,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Show_Event (::std::auto_ptr< Respiration_Show_Event_type > p);
 
   // Pressure-Diastolic
-  //
+  // 
   typedef ::Pressure_Diastolic1 Pressure_Diastolic_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Diastolic_type, char > Pressure_Diastolic_traits;
 
@@ -16395,7 +16398,7 @@ class ECG1: public ::xml_schema::type
   Pressure_Diastolic (::std::auto_ptr< Pressure_Diastolic_type > p);
 
   // Temperature-Calibration
-  //
+  // 
   typedef ::Temperature_Calibration1 Temperature_Calibration_type;
   typedef ::xsd::cxx::tree::traits< Temperature_Calibration_type, char > Temperature_Calibration_traits;
 
@@ -16412,7 +16415,7 @@ class ECG1: public ::xml_schema::type
   Temperature_Calibration (::std::auto_ptr< Temperature_Calibration_type > p);
 
   // Temperature
-  //
+  // 
   typedef ::Temperature1 Temperature_type;
   typedef ::xsd::cxx::tree::traits< Temperature_type, char > Temperature_traits;
 
@@ -16429,7 +16432,7 @@ class ECG1: public ::xml_schema::type
   Temperature (::std::auto_ptr< Temperature_type > p);
 
   // Respiration-Beats-To-Average
-  //
+  // 
   typedef ::Respiration_Beats_To_Average1 Respiration_Beats_To_Average_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Beats_To_Average_type, char > Respiration_Beats_To_Average_traits;
 
@@ -16446,7 +16449,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Beats_To_Average (::std::auto_ptr< Respiration_Beats_To_Average_type > p);
 
   // RWave-Thresh-Trigger-Percent
-  //
+  // 
   typedef ::RWave_Thresh_Trigger_Percent1 RWave_Thresh_Trigger_Percent_type;
   typedef ::xsd::cxx::tree::traits< RWave_Thresh_Trigger_Percent_type, char > RWave_Thresh_Trigger_Percent_traits;
 
@@ -16463,7 +16466,7 @@ class ECG1: public ::xml_schema::type
   RWave_Thresh_Trigger_Percent (::std::auto_ptr< RWave_Thresh_Trigger_Percent_type > p);
 
   // Respiration-Time-To-Average
-  //
+  // 
   typedef ::Respiration_Time_To_Average1 Respiration_Time_To_Average_type;
   typedef ::xsd::cxx::tree::traits< Respiration_Time_To_Average_type, char > Respiration_Time_To_Average_traits;
 
@@ -16480,7 +16483,7 @@ class ECG1: public ::xml_schema::type
   Respiration_Time_To_Average (::std::auto_ptr< Respiration_Time_To_Average_type > p);
 
   // Pressure-Amplification
-  //
+  // 
   typedef ::xml_schema::string Pressure_Amplification_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Amplification_type, char > Pressure_Amplification_traits;
 
@@ -16497,7 +16500,7 @@ class ECG1: public ::xml_schema::type
   Pressure_Amplification (::std::auto_ptr< Pressure_Amplification_type > p);
 
   // Heart-Period
-  //
+  // 
   typedef ::Heart_Period1 Heart_Period_type;
   typedef ::xsd::cxx::tree::traits< Heart_Period_type, char > Heart_Period_traits;
 
@@ -16514,7 +16517,7 @@ class ECG1: public ::xml_schema::type
   Heart_Period (::std::auto_ptr< Heart_Period_type > p);
 
   // Pressure-Show-Event
-  //
+  // 
   typedef ::xml_schema::string Pressure_Show_Event_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Show_Event_type, char > Pressure_Show_Event_traits;
 
@@ -16531,7 +16534,7 @@ class ECG1: public ::xml_schema::type
   Pressure_Show_Event (::std::auto_ptr< Pressure_Show_Event_type > p);
 
   // RWave-Default-Threshold
-  //
+  // 
   typedef ::xml_schema::string RWave_Default_Threshold_type;
   typedef ::xsd::cxx::tree::traits< RWave_Default_Threshold_type, char > RWave_Default_Threshold_traits;
 
@@ -16548,7 +16551,7 @@ class ECG1: public ::xml_schema::type
   RWave_Default_Threshold (::std::auto_ptr< RWave_Default_Threshold_type > p);
 
   // Show-Filtered-Data
-  //
+  // 
   typedef ::xml_schema::string Show_Filtered_Data_type;
   typedef ::xsd::cxx::tree::traits< Show_Filtered_Data_type, char > Show_Filtered_Data_traits;
 
@@ -16565,7 +16568,7 @@ class ECG1: public ::xml_schema::type
   Show_Filtered_Data (::std::auto_ptr< Show_Filtered_Data_type > p);
 
   // ECG-Range
-  //
+  // 
   typedef ::ECG_Range1 ECG_Range_type;
   typedef ::xsd::cxx::tree::traits< ECG_Range_type, char > ECG_Range_traits;
 
@@ -16582,7 +16585,7 @@ class ECG1: public ::xml_schema::type
   ECG_Range (::std::auto_ptr< ECG_Range_type > p);
 
   // RWave-Maxima-Block-Time
-  //
+  // 
   typedef ::RWave_Maxima_Block_Time1 RWave_Maxima_Block_Time_type;
   typedef ::xsd::cxx::tree::traits< RWave_Maxima_Block_Time_type, char > RWave_Maxima_Block_Time_traits;
 
@@ -16599,7 +16602,7 @@ class ECG1: public ::xml_schema::type
   RWave_Maxima_Block_Time (::std::auto_ptr< RWave_Maxima_Block_Time_type > p);
 
   // RWave-Noise-Threshold
-  //
+  // 
   typedef ::xml_schema::string RWave_Noise_Threshold_type;
   typedef ::xsd::cxx::tree::traits< RWave_Noise_Threshold_type, char > RWave_Noise_Threshold_traits;
 
@@ -16616,7 +16619,7 @@ class ECG1: public ::xml_schema::type
   RWave_Noise_Threshold (::std::auto_ptr< RWave_Noise_Threshold_type > p);
 
   // Pressure-Calibration-Level
-  //
+  // 
   typedef ::Pressure_Calibration_Level1 Pressure_Calibration_Level_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Calibration_Level_type, char > Pressure_Calibration_Level_traits;
 
@@ -16633,7 +16636,7 @@ class ECG1: public ::xml_schema::type
   Pressure_Calibration_Level (::std::auto_ptr< Pressure_Calibration_Level_type > p);
 
   // ECG-HP-Filter
-  //
+  // 
   typedef ::ECG_HP_Filter1 ECG_HP_Filter_type;
   typedef ::xsd::cxx::tree::traits< ECG_HP_Filter_type, char > ECG_HP_Filter_traits;
 
@@ -16650,7 +16653,7 @@ class ECG1: public ::xml_schema::type
   ECG_HP_Filter (::std::auto_ptr< ECG_HP_Filter_type > p);
 
   // ECG-LP-Filter
-  //
+  // 
   typedef ::ECG_LP_Filter1 ECG_LP_Filter_type;
   typedef ::xsd::cxx::tree::traits< ECG_LP_Filter_type, char > ECG_LP_Filter_traits;
 
@@ -16667,7 +16670,7 @@ class ECG1: public ::xml_schema::type
   ECG_LP_Filter (::std::auto_ptr< ECG_LP_Filter_type > p);
 
   // RWave-Max-Change-Period
-  //
+  // 
   typedef ::RWave_Max_Change_Period1 RWave_Max_Change_Period_type;
   typedef ::xsd::cxx::tree::traits< RWave_Max_Change_Period_type, char > RWave_Max_Change_Period_traits;
 
@@ -16684,7 +16687,7 @@ class ECG1: public ::xml_schema::type
   RWave_Max_Change_Period (::std::auto_ptr< RWave_Max_Change_Period_type > p);
 
   // Pressure-Time-Out
-  //
+  // 
   typedef ::xml_schema::string Pressure_Time_Out_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Time_Out_type, char > Pressure_Time_Out_traits;
 
@@ -16701,7 +16704,7 @@ class ECG1: public ::xml_schema::type
   Pressure_Time_Out (::std::auto_ptr< Pressure_Time_Out_type > p);
 
   // Pressure-Calibration
-  //
+  // 
   typedef ::Pressure_Calibration1 Pressure_Calibration_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Calibration_type, char > Pressure_Calibration_traits;
 
@@ -16718,7 +16721,7 @@ class ECG1: public ::xml_schema::type
   Pressure_Calibration (::std::auto_ptr< Pressure_Calibration_type > p);
 
   // RWave-Blank-Time
-  //
+  // 
   typedef ::RWave_Blank_Time1 RWave_Blank_Time_type;
   typedef ::xsd::cxx::tree::traits< RWave_Blank_Time_type, char > RWave_Blank_Time_traits;
 
@@ -16735,7 +16738,7 @@ class ECG1: public ::xml_schema::type
   RWave_Blank_Time (::std::auto_ptr< RWave_Blank_Time_type > p);
 
   // RWave-Future-Search-Time
-  //
+  // 
   typedef ::RWave_Future_Search_Time1 RWave_Future_Search_Time_type;
   typedef ::xsd::cxx::tree::traits< RWave_Future_Search_Time_type, char > RWave_Future_Search_Time_traits;
 
@@ -16752,7 +16755,7 @@ class ECG1: public ::xml_schema::type
   RWave_Future_Search_Time (::std::auto_ptr< RWave_Future_Search_Time_type > p);
 
   // Pressure-Calibrated
-  //
+  // 
   typedef ::xml_schema::string Pressure_Calibrated_type;
   typedef ::xsd::cxx::tree::traits< Pressure_Calibrated_type, char > Pressure_Calibrated_traits;
 
@@ -16884,7 +16887,7 @@ class ECG1: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~ECG1 ();
 
   // Implementation.
@@ -16951,7 +16954,7 @@ class TX1: public ::xml_schema::type
 {
   public:
   // V-Position-Table
-  //
+  // 
   typedef ::xml_schema::string V_Position_Table_type;
   typedef ::xsd::cxx::tree::traits< V_Position_Table_type, char > V_Position_Table_traits;
 
@@ -16968,7 +16971,7 @@ class TX1: public ::xml_schema::type
   V_Position_Table (::std::auto_ptr< V_Position_Table_type > p);
 
   // V-Transmit-Length
-  //
+  // 
   typedef ::V_Transmit_Length1 V_Transmit_Length_type;
   typedef ::xsd::cxx::tree::traits< V_Transmit_Length_type, char > V_Transmit_Length_traits;
 
@@ -16985,7 +16988,7 @@ class TX1: public ::xml_schema::type
   V_Transmit_Length (::std::auto_ptr< V_Transmit_Length_type > p);
 
   // Trigger-Counter-Clear
-  //
+  // 
   typedef ::xml_schema::string Trigger_Counter_Clear_type;
   typedef ::xsd::cxx::tree::traits< Trigger_Counter_Clear_type, char > Trigger_Counter_Clear_traits;
 
@@ -17002,7 +17005,7 @@ class TX1: public ::xml_schema::type
   Trigger_Counter_Clear (::std::auto_ptr< Trigger_Counter_Clear_type > p);
 
   // Trigger-Counter
-  //
+  // 
   typedef ::xml_schema::string Trigger_Counter_type;
   typedef ::xsd::cxx::tree::traits< Trigger_Counter_type, char > Trigger_Counter_traits;
 
@@ -17019,7 +17022,7 @@ class TX1: public ::xml_schema::type
   Trigger_Counter (::std::auto_ptr< Trigger_Counter_type > p);
 
   // RF-Amp
-  //
+  // 
   typedef ::xml_schema::string RF_Amp_type;
   typedef ::xsd::cxx::tree::traits< RF_Amp_type, char > RF_Amp_traits;
 
@@ -17036,7 +17039,7 @@ class TX1: public ::xml_schema::type
   RF_Amp (::std::auto_ptr< RF_Amp_type > p);
 
   // Trigger-Control
-  //
+  // 
   typedef ::xml_schema::string Trigger_Control_type;
   typedef ::xsd::cxx::tree::traits< Trigger_Control_type, char > Trigger_Control_traits;
 
@@ -17053,7 +17056,7 @@ class TX1: public ::xml_schema::type
   Trigger_Control (::std::auto_ptr< Trigger_Control_type > p);
 
   // V-Pulse-Rep-Freq
-  //
+  // 
   typedef ::V_Pulse_Rep_Freq1 V_Pulse_Rep_Freq_type;
   typedef ::xsd::cxx::tree::traits< V_Pulse_Rep_Freq_type, char > V_Pulse_Rep_Freq_traits;
 
@@ -17070,7 +17073,7 @@ class TX1: public ::xml_schema::type
   V_Pulse_Rep_Freq (::std::auto_ptr< V_Pulse_Rep_Freq_type > p);
 
   // Phase
-  //
+  // 
   typedef ::xml_schema::string Phase_type;
   typedef ::xsd::cxx::tree::traits< Phase_type, char > Phase_traits;
 
@@ -17087,7 +17090,7 @@ class TX1: public ::xml_schema::type
   Phase (::std::auto_ptr< Phase_type > p);
 
   // Frequency
-  //
+  // 
   typedef ::Frequency6 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
@@ -17104,7 +17107,7 @@ class TX1: public ::xml_schema::type
   Frequency (::std::auto_ptr< Frequency_type > p);
 
   // V-Unblank-Time
-  //
+  // 
   typedef ::V_Unblank_Time1 V_Unblank_Time_type;
   typedef ::xsd::cxx::tree::traits< V_Unblank_Time_type, char > V_Unblank_Time_traits;
 
@@ -17121,7 +17124,7 @@ class TX1: public ::xml_schema::type
   V_Unblank_Time (::std::auto_ptr< V_Unblank_Time_type > p);
 
   // V-Frequency
-  //
+  // 
   typedef ::V_Frequency2 V_Frequency_type;
   typedef ::xsd::cxx::tree::traits< V_Frequency_type, char > V_Frequency_traits;
 
@@ -17138,7 +17141,7 @@ class TX1: public ::xml_schema::type
   V_Frequency (::std::auto_ptr< V_Frequency_type > p);
 
   // Pulse-Rep-Frequency
-  //
+  // 
   typedef ::Pulse_Rep_Frequency1 Pulse_Rep_Frequency_type;
   typedef ::xsd::cxx::tree::traits< Pulse_Rep_Frequency_type, char > Pulse_Rep_Frequency_traits;
 
@@ -17155,7 +17158,7 @@ class TX1: public ::xml_schema::type
   Pulse_Rep_Frequency (::std::auto_ptr< Pulse_Rep_Frequency_type > p);
 
   // Multi-Trigger
-  //
+  // 
   typedef ::xml_schema::string Multi_Trigger_type;
   typedef ::xsd::cxx::tree::traits< Multi_Trigger_type, char > Multi_Trigger_traits;
 
@@ -17172,7 +17175,7 @@ class TX1: public ::xml_schema::type
   Multi_Trigger (::std::auto_ptr< Multi_Trigger_type > p);
 
   // Trig-Tbl-Trigs
-  //
+  // 
   typedef ::Trig_Tbl_Trigs1 Trig_Tbl_Trigs_type;
   typedef ::xsd::cxx::tree::traits< Trig_Tbl_Trigs_type, char > Trig_Tbl_Trigs_traits;
 
@@ -17189,7 +17192,7 @@ class TX1: public ::xml_schema::type
   Trig_Tbl_Trigs (::std::auto_ptr< Trig_Tbl_Trigs_type > p);
 
   // Width
-  //
+  // 
   typedef ::xml_schema::string Width_type;
   typedef ::xsd::cxx::tree::traits< Width_type, char > Width_traits;
 
@@ -17206,7 +17209,7 @@ class TX1: public ::xml_schema::type
   Width (::std::auto_ptr< Width_type > p);
 
   // Unblank-Cycles
-  //
+  // 
   typedef ::Unblank_Cycles1 Unblank_Cycles_type;
   typedef ::xsd::cxx::tree::traits< Unblank_Cycles_type, char > Unblank_Cycles_traits;
 
@@ -17223,7 +17226,7 @@ class TX1: public ::xml_schema::type
   Unblank_Cycles (::std::auto_ptr< Unblank_Cycles_type > p);
 
   // V-Width
-  //
+  // 
   typedef ::xml_schema::string V_Width_type;
   typedef ::xsd::cxx::tree::traits< V_Width_type, char > V_Width_traits;
 
@@ -17240,7 +17243,7 @@ class TX1: public ::xml_schema::type
   V_Width (::std::auto_ptr< V_Width_type > p);
 
   // Unblank-Time
-  //
+  // 
   typedef ::Unblank_Time1 Unblank_Time_type;
   typedef ::xsd::cxx::tree::traits< Unblank_Time_type, char > Unblank_Time_traits;
 
@@ -17257,7 +17260,7 @@ class TX1: public ::xml_schema::type
   Unblank_Time (::std::auto_ptr< Unblank_Time_type > p);
 
   // Attenuation
-  //
+  // 
   typedef ::Attenuation1 Attenuation_type;
   typedef ::xsd::cxx::tree::traits< Attenuation_type, char > Attenuation_traits;
 
@@ -17274,7 +17277,7 @@ class TX1: public ::xml_schema::type
   Attenuation (::std::auto_ptr< Attenuation_type > p);
 
   // V-Power
-  //
+  // 
   typedef ::V_Power1 V_Power_type;
   typedef ::xsd::cxx::tree::traits< V_Power_type, char > V_Power_traits;
 
@@ -17291,7 +17294,7 @@ class TX1: public ::xml_schema::type
   V_Power (::std::auto_ptr< V_Power_type > p);
 
   // Computer-Trigger
-  //
+  // 
   typedef ::xml_schema::string Computer_Trigger_type;
   typedef ::xsd::cxx::tree::traits< Computer_Trigger_type, char > Computer_Trigger_traits;
 
@@ -17308,7 +17311,7 @@ class TX1: public ::xml_schema::type
   Computer_Trigger (::std::auto_ptr< Computer_Trigger_type > p);
 
   // Multi-Trigger-Freq
-  //
+  // 
   typedef ::xml_schema::string Multi_Trigger_Freq_type;
   typedef ::xsd::cxx::tree::traits< Multi_Trigger_Freq_type, char > Multi_Trigger_Freq_traits;
 
@@ -17384,7 +17387,7 @@ class TX1: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~TX1 ();
 
   // Implementation.
@@ -17423,7 +17426,7 @@ class ContrastDestroy: public ::xml_schema::type
 {
   public:
   // Tx-Width
-  //
+  // 
   typedef ::xml_schema::string Tx_Width_type;
   typedef ::xsd::cxx::tree::traits< Tx_Width_type, char > Tx_Width_traits;
 
@@ -17440,7 +17443,7 @@ class ContrastDestroy: public ::xml_schema::type
   Tx_Width (::std::auto_ptr< Tx_Width_type > p);
 
   // Destroy-External
-  //
+  // 
   typedef ::xml_schema::string Destroy_External_type;
   typedef ::xsd::cxx::tree::traits< Destroy_External_type, char > Destroy_External_traits;
 
@@ -17457,7 +17460,7 @@ class ContrastDestroy: public ::xml_schema::type
   Destroy_External (::std::auto_ptr< Destroy_External_type > p);
 
   // Frames
-  //
+  // 
   typedef ::Frames Frames_type;
   typedef ::xsd::cxx::tree::traits< Frames_type, char > Frames_traits;
 
@@ -17474,7 +17477,7 @@ class ContrastDestroy: public ::xml_schema::type
   Frames (::std::auto_ptr< Frames_type > p);
 
   // Frame-Rate
-  //
+  // 
   typedef ::Frame_Rate Frame_Rate_type;
   typedef ::xsd::cxx::tree::traits< Frame_Rate_type, char > Frame_Rate_traits;
 
@@ -17491,7 +17494,7 @@ class ContrastDestroy: public ::xml_schema::type
   Frame_Rate (::std::auto_ptr< Frame_Rate_type > p);
 
   // Tx-PRF
-  //
+  // 
   typedef ::Tx_PRF Tx_PRF_type;
   typedef ::xsd::cxx::tree::traits< Tx_PRF_type, char > Tx_PRF_traits;
 
@@ -17508,7 +17511,7 @@ class ContrastDestroy: public ::xml_schema::type
   Tx_PRF (::std::auto_ptr< Tx_PRF_type > p);
 
   // Tx-Power
-  //
+  // 
   typedef ::Tx_Power Tx_Power_type;
   typedef ::xsd::cxx::tree::traits< Tx_Power_type, char > Tx_Power_traits;
 
@@ -17525,7 +17528,7 @@ class ContrastDestroy: public ::xml_schema::type
   Tx_Power (::std::auto_ptr< Tx_Power_type > p);
 
   // Duration
-  //
+  // 
   typedef ::Duration Duration_type;
   typedef ::xsd::cxx::tree::traits< Duration_type, char > Duration_traits;
 
@@ -17542,7 +17545,7 @@ class ContrastDestroy: public ::xml_schema::type
   Duration (::std::auto_ptr< Duration_type > p);
 
   // Control
-  //
+  // 
   typedef ::xml_schema::string Control_type;
   typedef ::xsd::cxx::tree::traits< Control_type, char > Control_traits;
 
@@ -17559,7 +17562,7 @@ class ContrastDestroy: public ::xml_schema::type
   Control (::std::auto_ptr< Control_type > p);
 
   // Tx-Frequency
-  //
+  // 
   typedef ::Tx_Frequency Tx_Frequency_type;
   typedef ::xsd::cxx::tree::traits< Tx_Frequency_type, char > Tx_Frequency_traits;
 
@@ -17576,7 +17579,7 @@ class ContrastDestroy: public ::xml_schema::type
   Tx_Frequency (::std::auto_ptr< Tx_Frequency_type > p);
 
   // Destroy-Sequence-Active
-  //
+  // 
   typedef ::xml_schema::string Destroy_Sequence_Active_type;
   typedef ::xsd::cxx::tree::traits< Destroy_Sequence_Active_type, char > Destroy_Sequence_Active_traits;
 
@@ -17593,7 +17596,7 @@ class ContrastDestroy: public ::xml_schema::type
   Destroy_Sequence_Active (::std::auto_ptr< Destroy_Sequence_Active_type > p);
 
   // Destroy-Sequence-Position
-  //
+  // 
   typedef ::Destroy_Sequence_Position Destroy_Sequence_Position_type;
   typedef ::xsd::cxx::tree::traits< Destroy_Sequence_Position_type, char > Destroy_Sequence_Position_traits;
 
@@ -17647,7 +17650,7 @@ class ContrastDestroy: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~ContrastDestroy ();
 
   // Implementation.
@@ -17675,7 +17678,7 @@ class X_3D1: public ::xml_schema::type
 {
   public:
   // Speed
-  //
+  // 
   typedef ::xml_schema::string Speed_type;
   typedef ::xsd::cxx::tree::traits< Speed_type, char > Speed_traits;
 
@@ -17692,7 +17695,7 @@ class X_3D1: public ::xml_schema::type
   Speed (::std::auto_ptr< Speed_type > p);
 
   // Status
-  //
+  // 
   typedef ::xml_schema::string Status_type;
   typedef ::xsd::cxx::tree::traits< Status_type, char > Status_traits;
 
@@ -17709,7 +17712,7 @@ class X_3D1: public ::xml_schema::type
   Status (::std::auto_ptr< Status_type > p);
 
   // Motor-Enable
-  //
+  // 
   typedef ::xml_schema::string Motor_Enable_type;
   typedef ::xsd::cxx::tree::traits< Motor_Enable_type, char > Motor_Enable_traits;
 
@@ -17726,7 +17729,7 @@ class X_3D1: public ::xml_schema::type
   Motor_Enable (::std::auto_ptr< Motor_Enable_type > p);
 
   // Scan-Distance
-  //
+  // 
   typedef ::Scan_Distance1 Scan_Distance_type;
   typedef ::xsd::cxx::tree::traits< Scan_Distance_type, char > Scan_Distance_traits;
 
@@ -17743,7 +17746,7 @@ class X_3D1: public ::xml_schema::type
   Scan_Distance (::std::auto_ptr< Scan_Distance_type > p);
 
   // Error
-  //
+  // 
   typedef ::xml_schema::string Error_type;
   typedef ::xsd::cxx::tree::traits< Error_type, char > Error_traits;
 
@@ -17760,7 +17763,7 @@ class X_3D1: public ::xml_schema::type
   Error (::std::auto_ptr< Error_type > p);
 
   // Steps
-  //
+  // 
   typedef ::xml_schema::string Steps_type;
   typedef ::xsd::cxx::tree::traits< Steps_type, char > Steps_traits;
 
@@ -17777,7 +17780,7 @@ class X_3D1: public ::xml_schema::type
   Steps (::std::auto_ptr< Steps_type > p);
 
   // Action
-  //
+  // 
   typedef ::xml_schema::string Action_type;
   typedef ::xsd::cxx::tree::traits< Action_type, char > Action_traits;
 
@@ -17794,7 +17797,7 @@ class X_3D1: public ::xml_schema::type
   Action (::std::auto_ptr< Action_type > p);
 
   // Clear-Error
-  //
+  // 
   typedef ::xml_schema::string Clear_Error_type;
   typedef ::xsd::cxx::tree::traits< Clear_Error_type, char > Clear_Error_traits;
 
@@ -17811,7 +17814,7 @@ class X_3D1: public ::xml_schema::type
   Clear_Error (::std::auto_ptr< Clear_Error_type > p);
 
   // Direction
-  //
+  // 
   typedef ::xml_schema::string Direction_type;
   typedef ::xsd::cxx::tree::traits< Direction_type, char > Direction_traits;
 
@@ -17828,7 +17831,7 @@ class X_3D1: public ::xml_schema::type
   Direction (::std::auto_ptr< Direction_type > p);
 
   // Step-Size
-  //
+  // 
   typedef ::Step_Size1 Step_Size_type;
   typedef ::xsd::cxx::tree::traits< Step_Size_type, char > Step_Size_traits;
 
@@ -17845,7 +17848,7 @@ class X_3D1: public ::xml_schema::type
   Step_Size (::std::auto_ptr< Step_Size_type > p);
 
   // Max-Scan-Steps
-  //
+  // 
   typedef ::xml_schema::string Max_Scan_Steps_type;
   typedef ::xsd::cxx::tree::traits< Max_Scan_Steps_type, char > Max_Scan_Steps_traits;
 
@@ -17862,7 +17865,7 @@ class X_3D1: public ::xml_schema::type
   Max_Scan_Steps (::std::auto_ptr< Max_Scan_Steps_type > p);
 
   // Position
-  //
+  // 
   typedef ::xml_schema::string Position_type;
   typedef ::xsd::cxx::tree::traits< Position_type, char > Position_traits;
 
@@ -17918,7 +17921,7 @@ class X_3D1: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~X_3D1 ();
 
   // Implementation.
@@ -17947,7 +17950,7 @@ class X_3DSoft: public ::xml_schema::type
 {
   public:
   // Acquire-Persist-3DMIP
-  //
+  // 
   typedef ::xml_schema::string Acquire_Persist_3DMIP_type;
   typedef ::xsd::cxx::tree::traits< Acquire_Persist_3DMIP_type, char > Acquire_Persist_3DMIP_traits;
 
@@ -17964,7 +17967,7 @@ class X_3DSoft: public ::xml_schema::type
   Acquire_Persist_3DMIP (::std::auto_ptr< Acquire_Persist_3DMIP_type > p);
 
   // Acquire-Persist-3D-Frames
-  //
+  // 
   typedef ::xml_schema::string Acquire_Persist_3D_Frames_type;
   typedef ::xsd::cxx::tree::traits< Acquire_Persist_3D_Frames_type, char > Acquire_Persist_3D_Frames_traits;
 
@@ -17981,7 +17984,7 @@ class X_3DSoft: public ::xml_schema::type
   Acquire_Persist_3D_Frames (::std::auto_ptr< Acquire_Persist_3D_Frames_type > p);
 
   // Acquire-Persist-3DAVR
-  //
+  // 
   typedef ::xml_schema::string Acquire_Persist_3DAVR_type;
   typedef ::xsd::cxx::tree::traits< Acquire_Persist_3DAVR_type, char > Acquire_Persist_3DAVR_traits;
 
@@ -17998,7 +18001,7 @@ class X_3DSoft: public ::xml_schema::type
   Acquire_Persist_3DAVR (::std::auto_ptr< Acquire_Persist_3DAVR_type > p);
 
   // Rotational-Direction
-  //
+  // 
   typedef ::xml_schema::string Rotational_Direction_type;
   typedef ::xsd::cxx::tree::traits< Rotational_Direction_type, char > Rotational_Direction_traits;
 
@@ -18015,7 +18018,7 @@ class X_3DSoft: public ::xml_schema::type
   Rotational_Direction (::std::auto_ptr< Rotational_Direction_type > p);
 
   // Sigma
-  //
+  // 
   typedef ::xml_schema::string Sigma_type;
   typedef ::xsd::cxx::tree::traits< Sigma_type, char > Sigma_traits;
 
@@ -18032,7 +18035,7 @@ class X_3DSoft: public ::xml_schema::type
   Sigma (::std::auto_ptr< Sigma_type > p);
 
   // Dilation-Iteration
-  //
+  // 
   typedef ::xml_schema::string Dilation_Iteration_type;
   typedef ::xsd::cxx::tree::traits< Dilation_Iteration_type, char > Dilation_Iteration_traits;
 
@@ -18049,7 +18052,7 @@ class X_3DSoft: public ::xml_schema::type
   Dilation_Iteration (::std::auto_ptr< Dilation_Iteration_type > p);
 
   // Parallel-Direction
-  //
+  // 
   typedef ::xml_schema::string Parallel_Direction_type;
   typedef ::xsd::cxx::tree::traits< Parallel_Direction_type, char > Parallel_Direction_traits;
 
@@ -18066,7 +18069,7 @@ class X_3DSoft: public ::xml_schema::type
   Parallel_Direction (::std::auto_ptr< Parallel_Direction_type > p);
 
   // Class
-  //
+  // 
   typedef ::xml_schema::string Class_type;
   typedef ::xsd::cxx::tree::traits< Class_type, char > Class_traits;
 
@@ -18083,7 +18086,7 @@ class X_3DSoft: public ::xml_schema::type
   Class (::std::auto_ptr< Class_type > p);
 
   // Orientation-Length
-  //
+  // 
   typedef ::xml_schema::string Orientation_Length_type;
   typedef ::xsd::cxx::tree::traits< Orientation_Length_type, char > Orientation_Length_traits;
 
@@ -18100,7 +18103,7 @@ class X_3DSoft: public ::xml_schema::type
   Orientation_Length (::std::auto_ptr< Orientation_Length_type > p);
 
   // External-Force
-  //
+  // 
   typedef ::xml_schema::string External_Force_type;
   typedef ::xsd::cxx::tree::traits< External_Force_type, char > External_Force_traits;
 
@@ -18117,7 +18120,7 @@ class X_3DSoft: public ::xml_schema::type
   External_Force (::std::auto_ptr< External_Force_type > p);
 
   // Interpolation-Resolution
-  //
+  // 
   typedef ::xml_schema::string Interpolation_Resolution_type;
   typedef ::xsd::cxx::tree::traits< Interpolation_Resolution_type, char > Interpolation_Resolution_traits;
 
@@ -18134,7 +18137,7 @@ class X_3DSoft: public ::xml_schema::type
   Interpolation_Resolution (::std::auto_ptr< Interpolation_Resolution_type > p);
 
   // Steps
-  //
+  // 
   typedef ::xml_schema::string Steps_type;
   typedef ::xsd::cxx::tree::traits< Steps_type, char > Steps_traits;
 
@@ -18151,7 +18154,7 @@ class X_3DSoft: public ::xml_schema::type
   Steps (::std::auto_ptr< Steps_type > p);
 
   // Parallel-Recon-Resolution
-  //
+  // 
   typedef ::xml_schema::string Parallel_Recon_Resolution_type;
   typedef ::xsd::cxx::tree::traits< Parallel_Recon_Resolution_type, char > Parallel_Recon_Resolution_traits;
 
@@ -18168,7 +18171,7 @@ class X_3DSoft: public ::xml_schema::type
   Parallel_Recon_Resolution (::std::auto_ptr< Parallel_Recon_Resolution_type > p);
 
   // Iteration
-  //
+  // 
   typedef ::xml_schema::string Iteration_type;
   typedef ::xsd::cxx::tree::traits< Iteration_type, char > Iteration_traits;
 
@@ -18185,7 +18188,7 @@ class X_3DSoft: public ::xml_schema::type
   Iteration (::std::auto_ptr< Iteration_type > p);
 
   // Type
-  //
+  // 
   typedef ::xml_schema::string Type_type;
   typedef ::xsd::cxx::tree::traits< Type_type, char > Type_traits;
 
@@ -18202,7 +18205,7 @@ class X_3DSoft: public ::xml_schema::type
   Type (::std::auto_ptr< Type_type > p);
 
   // Rotational-Step-Size
-  //
+  // 
   typedef ::xml_schema::string Rotational_Step_Size_type;
   typedef ::xsd::cxx::tree::traits< Rotational_Step_Size_type, char > Rotational_Step_Size_traits;
 
@@ -18219,7 +18222,7 @@ class X_3DSoft: public ::xml_schema::type
   Rotational_Step_Size (::std::auto_ptr< Rotational_Step_Size_type > p);
 
   // Internal-Force
-  //
+  // 
   typedef ::xml_schema::string Internal_Force_type;
   typedef ::xsd::cxx::tree::traits< Internal_Force_type, char > Internal_Force_traits;
 
@@ -18236,7 +18239,7 @@ class X_3DSoft: public ::xml_schema::type
   Internal_Force (::std::auto_ptr< Internal_Force_type > p);
 
   // Parallel-Step-Size
-  //
+  // 
   typedef ::Parallel_Step_Size Parallel_Step_Size_type;
   typedef ::xsd::cxx::tree::traits< Parallel_Step_Size_type, char > Parallel_Step_Size_traits;
 
@@ -18304,7 +18307,7 @@ class X_3DSoft: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~X_3DSoft ();
 
   // Implementation.
@@ -18339,7 +18342,7 @@ class RX1: public ::xml_schema::type
 {
   public:
   // AD-IF
-  //
+  // 
   typedef ::xml_schema::string AD_IF_type;
   typedef ::xsd::cxx::tree::traits< AD_IF_type, char > AD_IF_traits;
 
@@ -18356,7 +18359,7 @@ class RX1: public ::xml_schema::type
   AD_IF (::std::auto_ptr< AD_IF_type > p);
 
   // Sector-Width-Target
-  //
+  // 
   typedef ::Sector_Width_Target1 Sector_Width_Target_type;
   typedef ::xsd::cxx::tree::traits< Sector_Width_Target_type, char > Sector_Width_Target_traits;
 
@@ -18373,7 +18376,7 @@ class RX1: public ::xml_schema::type
   Sector_Width_Target (::std::auto_ptr< Sector_Width_Target_type > p);
 
   // RF-Gain
-  //
+  // 
   typedef ::RF_Gain1 RF_Gain_type;
   typedef ::xsd::cxx::tree::traits< RF_Gain_type, char > RF_Gain_traits;
 
@@ -18390,7 +18393,7 @@ class RX1: public ::xml_schema::type
   RF_Gain (::std::auto_ptr< RF_Gain_type > p);
 
   // TGC-Enable
-  //
+  // 
   typedef ::xml_schema::string TGC_Enable_type;
   typedef ::xsd::cxx::tree::traits< TGC_Enable_type, char > TGC_Enable_traits;
 
@@ -18407,7 +18410,7 @@ class RX1: public ::xml_schema::type
   TGC_Enable (::std::auto_ptr< TGC_Enable_type > p);
 
   // V-Digi-Depth-Imaging
-  //
+  // 
   typedef ::V_Digi_Depth_Imaging1 V_Digi_Depth_Imaging_type;
   typedef ::xsd::cxx::tree::traits< V_Digi_Depth_Imaging_type, char > V_Digi_Depth_Imaging_traits;
 
@@ -18424,7 +18427,7 @@ class RX1: public ::xml_schema::type
   V_Digi_Depth_Imaging (::std::auto_ptr< V_Digi_Depth_Imaging_type > p);
 
   // RF-Bandwidth
-  //
+  // 
   typedef ::xml_schema::string RF_Bandwidth_type;
   typedef ::xsd::cxx::tree::traits< RF_Bandwidth_type, char > RF_Bandwidth_traits;
 
@@ -18441,7 +18444,7 @@ class RX1: public ::xml_schema::type
   RF_Bandwidth (::std::auto_ptr< RF_Bandwidth_type > p);
 
   // Test-Freq
-  //
+  // 
   typedef ::Test_Freq1 Test_Freq_type;
   typedef ::xsd::cxx::tree::traits< Test_Freq_type, char > Test_Freq_traits;
 
@@ -18458,7 +18461,7 @@ class RX1: public ::xml_schema::type
   Test_Freq (::std::auto_ptr< Test_Freq_type > p);
 
   // V-TGC
-  //
+  // 
   typedef ::xml_schema::string V_TGC_type;
   typedef ::xsd::cxx::tree::traits< V_TGC_type, char > V_TGC_traits;
 
@@ -18475,7 +18478,7 @@ class RX1: public ::xml_schema::type
   V_TGC (::std::auto_ptr< V_TGC_type > p);
 
   // Current-Channel
-  //
+  // 
   typedef ::xml_schema::string Current_Channel_type;
   typedef ::xsd::cxx::tree::traits< Current_Channel_type, char > Current_Channel_traits;
 
@@ -18492,7 +18495,7 @@ class RX1: public ::xml_schema::type
   Current_Channel (::std::auto_ptr< Current_Channel_type > p);
 
   // AD-In
-  //
+  // 
   typedef ::xml_schema::string AD_In_type;
   typedef ::xsd::cxx::tree::traits< AD_In_type, char > AD_In_traits;
 
@@ -18509,7 +18512,7 @@ class RX1: public ::xml_schema::type
   AD_In (::std::auto_ptr< AD_In_type > p);
 
   // Image-FIFO-Status
-  //
+  // 
   typedef ::xml_schema::string Image_FIFO_Status_type;
   typedef ::xsd::cxx::tree::traits< Image_FIFO_Status_type, char > Image_FIFO_Status_traits;
 
@@ -18526,7 +18529,7 @@ class RX1: public ::xml_schema::type
   Image_FIFO_Status (::std::auto_ptr< Image_FIFO_Status_type > p);
 
   // RF-Filter
-  //
+  // 
   typedef ::RF_Filter1 RF_Filter_type;
   typedef ::xsd::cxx::tree::traits< RF_Filter_type, char > RF_Filter_traits;
 
@@ -18543,7 +18546,7 @@ class RX1: public ::xml_schema::type
   RF_Filter (::std::auto_ptr< RF_Filter_type > p);
 
   // DDRS
-  //
+  // 
   typedef ::xml_schema::string DDRS_type;
   typedef ::xsd::cxx::tree::traits< DDRS_type, char > DDRS_traits;
 
@@ -18560,7 +18563,7 @@ class RX1: public ::xml_schema::type
   DDRS (::std::auto_ptr< DDRS_type > p);
 
   // ADCA-Out
-  //
+  // 
   typedef ::xml_schema::string ADCA_Out_type;
   typedef ::xsd::cxx::tree::traits< ADCA_Out_type, char > ADCA_Out_traits;
 
@@ -18577,7 +18580,7 @@ class RX1: public ::xml_schema::type
   ADCA_Out (::std::auto_ptr< ADCA_Out_type > p);
 
   // AD-Clock-Div
-  //
+  // 
   typedef ::xml_schema::string AD_Clock_Div_type;
   typedef ::xsd::cxx::tree::traits< AD_Clock_Div_type, char > AD_Clock_Div_traits;
 
@@ -18594,7 +18597,7 @@ class RX1: public ::xml_schema::type
   AD_Clock_Div (::std::auto_ptr< AD_Clock_Div_type > p);
 
   // Imaging-Mode
-  //
+  // 
   typedef ::xml_schema::string Imaging_Mode_type;
   typedef ::xsd::cxx::tree::traits< Imaging_Mode_type, char > Imaging_Mode_traits;
 
@@ -18611,7 +18614,7 @@ class RX1: public ::xml_schema::type
   Imaging_Mode (::std::auto_ptr< Imaging_Mode_type > p);
 
   // V-RF-Filter
-  //
+  // 
   typedef ::V_RF_Filter1 V_RF_Filter_type;
   typedef ::xsd::cxx::tree::traits< V_RF_Filter_type, char > V_RF_Filter_traits;
 
@@ -18628,7 +18631,7 @@ class RX1: public ::xml_schema::type
   V_RF_Filter (::std::auto_ptr< V_RF_Filter_type > p);
 
   // ADCB-Out
-  //
+  // 
   typedef ::xml_schema::string ADCB_Out_type;
   typedef ::xsd::cxx::tree::traits< ADCB_Out_type, char > ADCB_Out_traits;
 
@@ -18645,7 +18648,7 @@ class RX1: public ::xml_schema::type
   ADCB_Out (::std::auto_ptr< ADCB_Out_type > p);
 
   // Delay
-  //
+  // 
   typedef ::Delay1 Delay_type;
   typedef ::xsd::cxx::tree::traits< Delay_type, char > Delay_traits;
 
@@ -18662,7 +18665,7 @@ class RX1: public ::xml_schema::type
   Delay (::std::auto_ptr< Delay_type > p);
 
   // AD-Gate-Width
-  //
+  // 
   typedef ::AD_Gate_Width1 AD_Gate_Width_type;
   typedef ::xsd::cxx::tree::traits< AD_Gate_Width_type, char > AD_Gate_Width_traits;
 
@@ -18679,7 +18682,7 @@ class RX1: public ::xml_schema::type
   AD_Gate_Width (::std::auto_ptr< AD_Gate_Width_type > p);
 
   // Frequency
-  //
+  // 
   typedef ::Frequency7 Frequency_type;
   typedef ::xsd::cxx::tree::traits< Frequency_type, char > Frequency_traits;
 
@@ -18696,7 +18699,7 @@ class RX1: public ::xml_schema::type
   Frequency (::std::auto_ptr< Frequency_type > p);
 
   // V-Frequency
-  //
+  // 
   typedef ::V_Frequency3 V_Frequency_type;
   typedef ::xsd::cxx::tree::traits< V_Frequency_type, char > V_Frequency_traits;
 
@@ -18713,7 +18716,7 @@ class RX1: public ::xml_schema::type
   V_Frequency (::std::auto_ptr< V_Frequency_type > p);
 
   // V-Field-Of-View
-  //
+  // 
   typedef ::V_Field_Of_View1 V_Field_Of_View_type;
   typedef ::xsd::cxx::tree::traits< V_Field_Of_View_type, char > V_Field_Of_View_traits;
 
@@ -18730,7 +18733,7 @@ class RX1: public ::xml_schema::type
   V_Field_Of_View (::std::auto_ptr< V_Field_Of_View_type > p);
 
   // Packet-Format
-  //
+  // 
   typedef ::xml_schema::string Packet_Format_type;
   typedef ::xsd::cxx::tree::traits< Packet_Format_type, char > Packet_Format_traits;
 
@@ -18747,7 +18750,7 @@ class RX1: public ::xml_schema::type
   Packet_Format (::std::auto_ptr< Packet_Format_type > p);
 
   // Sector-Height-Target
-  //
+  // 
   typedef ::Sector_Height_Target1 Sector_Height_Target_type;
   typedef ::xsd::cxx::tree::traits< Sector_Height_Target_type, char > Sector_Height_Target_traits;
 
@@ -18764,7 +18767,7 @@ class RX1: public ::xml_schema::type
   Sector_Height_Target (::std::auto_ptr< Sector_Height_Target_type > p);
 
   // Low-Speed-FIFO-Status
-  //
+  // 
   typedef ::xml_schema::string Low_Speed_FIFO_Status_type;
   typedef ::xsd::cxx::tree::traits< Low_Speed_FIFO_Status_type, char > Low_Speed_FIFO_Status_traits;
 
@@ -18781,7 +18784,7 @@ class RX1: public ::xml_schema::type
   Low_Speed_FIFO_Status (::std::auto_ptr< Low_Speed_FIFO_Status_type > p);
 
   // AD-TestIn
-  //
+  // 
   typedef ::AD_TestIn1 AD_TestIn_type;
   typedef ::xsd::cxx::tree::traits< AD_TestIn_type, char > AD_TestIn_traits;
 
@@ -18798,7 +18801,7 @@ class RX1: public ::xml_schema::type
   AD_TestIn (::std::auto_ptr< AD_TestIn_type > p);
 
   // Error
-  //
+  // 
   typedef ::xml_schema::string Error_type;
   typedef ::xsd::cxx::tree::traits< Error_type, char > Error_traits;
 
@@ -18815,7 +18818,7 @@ class RX1: public ::xml_schema::type
   Error (::std::auto_ptr< Error_type > p);
 
   // Test-On
-  //
+  // 
   typedef ::xml_schema::string Test_On_type;
   typedef ::xsd::cxx::tree::traits< Test_On_type, char > Test_On_traits;
 
@@ -18832,7 +18835,7 @@ class RX1: public ::xml_schema::type
   Test_On (::std::auto_ptr< Test_On_type > p);
 
   // AD-DCS
-  //
+  // 
   typedef ::xml_schema::string AD_DCS_type;
   typedef ::xsd::cxx::tree::traits< AD_DCS_type, char > AD_DCS_traits;
 
@@ -18849,7 +18852,7 @@ class RX1: public ::xml_schema::type
   AD_DCS (::std::auto_ptr< AD_DCS_type > p);
 
   // DTB-Tfr-Enable
-  //
+  // 
   typedef ::xml_schema::string DTB_Tfr_Enable_type;
   typedef ::xsd::cxx::tree::traits< DTB_Tfr_Enable_type, char > DTB_Tfr_Enable_traits;
 
@@ -18866,7 +18869,7 @@ class RX1: public ::xml_schema::type
   DTB_Tfr_Enable (::std::auto_ptr< DTB_Tfr_Enable_type > p);
 
   // DTB-Test-Enable
-  //
+  // 
   typedef ::xml_schema::string DTB_Test_Enable_type;
   typedef ::xsd::cxx::tree::traits< DTB_Test_Enable_type, char > DTB_Test_Enable_traits;
 
@@ -18883,7 +18886,7 @@ class RX1: public ::xml_schema::type
   DTB_Test_Enable (::std::auto_ptr< DTB_Test_Enable_type > p);
 
   // V-Delay-Length
-  //
+  // 
   typedef ::V_Delay_Length1 V_Delay_Length_type;
   typedef ::xsd::cxx::tree::traits< V_Delay_Length_type, char > V_Delay_Length_traits;
 
@@ -18900,7 +18903,7 @@ class RX1: public ::xml_schema::type
   V_Delay_Length (::std::auto_ptr< V_Delay_Length_type > p);
 
   // Current-Mode
-  //
+  // 
   typedef ::xml_schema::string Current_Mode_type;
   typedef ::xsd::cxx::tree::traits< Current_Mode_type, char > Current_Mode_traits;
 
@@ -18917,7 +18920,7 @@ class RX1: public ::xml_schema::type
   Current_Mode (::std::auto_ptr< Current_Mode_type > p);
 
   // Line-Number
-  //
+  // 
   typedef ::xml_schema::string Line_Number_type;
   typedef ::xsd::cxx::tree::traits< Line_Number_type, char > Line_Number_traits;
 
@@ -18934,7 +18937,7 @@ class RX1: public ::xml_schema::type
   Line_Number (::std::auto_ptr< Line_Number_type > p);
 
   // IF-Filter
-  //
+  // 
   typedef ::IF_Filter1 IF_Filter_type;
   typedef ::xsd::cxx::tree::traits< IF_Filter_type, char > IF_Filter_traits;
 
@@ -18951,7 +18954,7 @@ class RX1: public ::xml_schema::type
   IF_Filter (::std::auto_ptr< IF_Filter_type > p);
 
   // Track-Width
-  //
+  // 
   typedef ::Track_Width1 Track_Width_type;
   typedef ::xsd::cxx::tree::traits< Track_Width_type, char > Track_Width_traits;
 
@@ -18968,7 +18971,7 @@ class RX1: public ::xml_schema::type
   Track_Width (::std::auto_ptr< Track_Width_type > p);
 
   // DTB-Error-Clr
-  //
+  // 
   typedef ::xml_schema::string DTB_Error_Clr_type;
   typedef ::xsd::cxx::tree::traits< DTB_Error_Clr_type, char > DTB_Error_Clr_traits;
 
@@ -18985,7 +18988,7 @@ class RX1: public ::xml_schema::type
   DTB_Error_Clr (::std::auto_ptr< DTB_Error_Clr_type > p);
 
   // V-IF-Filter
-  //
+  // 
   typedef ::V_IF_Filter1 V_IF_Filter_type;
   typedef ::xsd::cxx::tree::traits< V_IF_Filter_type, char > V_IF_Filter_traits;
 
@@ -19002,7 +19005,7 @@ class RX1: public ::xml_schema::type
   V_IF_Filter (::std::auto_ptr< V_IF_Filter_type > p);
 
   // IQ-Select
-  //
+  // 
   typedef ::xml_schema::string IQ_Select_type;
   typedef ::xsd::cxx::tree::traits< IQ_Select_type, char > IQ_Select_traits;
 
@@ -19019,7 +19022,7 @@ class RX1: public ::xml_schema::type
   IQ_Select (::std::auto_ptr< IQ_Select_type > p);
 
   // HP-Clutter
-  //
+  // 
   typedef ::HP_Clutter1 HP_Clutter_type;
   typedef ::xsd::cxx::tree::traits< HP_Clutter_type, char > HP_Clutter_traits;
 
@@ -19036,7 +19039,7 @@ class RX1: public ::xml_schema::type
   HP_Clutter (::std::auto_ptr< HP_Clutter_type > p);
 
   // V-TGC-Copy
-  //
+  // 
   typedef ::xml_schema::string V_TGC_Copy_type;
   typedef ::xsd::cxx::tree::traits< V_TGC_Copy_type, char > V_TGC_Copy_traits;
 
@@ -19152,7 +19155,7 @@ class RX1: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RX1 ();
 
   // Implementation.
@@ -19211,7 +19214,7 @@ class Display1: public ::xml_schema::type
 {
   public:
   // Direction
-  //
+  // 
   typedef ::xml_schema::string Direction_type;
   typedef ::xsd::cxx::tree::traits< Direction_type, char > Direction_traits;
 
@@ -19228,7 +19231,7 @@ class Display1: public ::xml_schema::type
   Direction (::std::auto_ptr< Direction_type > p);
 
   // V-SV-TissueMode
-  //
+  // 
   typedef ::xml_schema::string V_SV_TissueMode_type;
   typedef ::xsd::cxx::tree::traits< V_SV_TissueMode_type, char > V_SV_TissueMode_traits;
 
@@ -19245,7 +19248,7 @@ class Display1: public ::xml_schema::type
   V_SV_TissueMode (::std::auto_ptr< V_SV_TissueMode_type > p);
 
   // V-SV-MMode
-  //
+  // 
   typedef ::xml_schema::string V_SV_MMode_type;
   typedef ::xsd::cxx::tree::traits< V_SV_MMode_type, char > V_SV_MMode_traits;
 
@@ -19262,7 +19265,7 @@ class Display1: public ::xml_schema::type
   V_SV_MMode (::std::auto_ptr< V_SV_MMode_type > p);
 
   // X_3D-Gain
-  //
+  // 
   typedef ::xml_schema::string X_3D_Gain_type;
   typedef ::xsd::cxx::tree::traits< X_3D_Gain_type, char > X_3D_Gain_traits;
 
@@ -19279,7 +19282,7 @@ class Display1: public ::xml_schema::type
   X_3D_Gain (::std::auto_ptr< X_3D_Gain_type > p);
 
   // X_3D-Dynamic-Range
-  //
+  // 
   typedef ::xml_schema::string X_3D_Dynamic_Range_type;
   typedef ::xsd::cxx::tree::traits< X_3D_Dynamic_Range_type, char > X_3D_Dynamic_Range_traits;
 
@@ -19296,7 +19299,7 @@ class Display1: public ::xml_schema::type
   X_3D_Dynamic_Range (::std::auto_ptr< X_3D_Dynamic_Range_type > p);
 
   // Gain
-  //
+  // 
   typedef ::xml_schema::string Gain_type;
   typedef ::xsd::cxx::tree::traits< Gain_type, char > Gain_traits;
 
@@ -19313,7 +19316,7 @@ class Display1: public ::xml_schema::type
   Gain (::std::auto_ptr< Gain_type > p);
 
   // V-SV-RfMode
-  //
+  // 
   typedef ::xml_schema::string V_SV_RfMode_type;
   typedef ::xsd::cxx::tree::traits< V_SV_RfMode_type, char > V_SV_RfMode_traits;
 
@@ -19330,7 +19333,7 @@ class Display1: public ::xml_schema::type
   V_SV_RfMode (::std::auto_ptr< V_SV_RfMode_type > p);
 
   // V-SV-EkvMode
-  //
+  // 
   typedef ::xml_schema::string V_SV_EkvMode_type;
   typedef ::xsd::cxx::tree::traits< V_SV_EkvMode_type, char > V_SV_EkvMode_traits;
 
@@ -19347,7 +19350,7 @@ class Display1: public ::xml_schema::type
   V_SV_EkvMode (::std::auto_ptr< V_SV_EkvMode_type > p);
 
   // Dynamic-Range
-  //
+  // 
   typedef ::xml_schema::string Dynamic_Range_type;
   typedef ::xsd::cxx::tree::traits< Dynamic_Range_type, char > Dynamic_Range_traits;
 
@@ -19364,7 +19367,7 @@ class Display1: public ::xml_schema::type
   Dynamic_Range (::std::auto_ptr< Dynamic_Range_type > p);
 
   // Window-Time
-  //
+  // 
   typedef ::Window_Time1 Window_Time_type;
   typedef ::xsd::cxx::tree::traits< Window_Time_type, char > Window_Time_traits;
 
@@ -19381,7 +19384,7 @@ class Display1: public ::xml_schema::type
   Window_Time (::std::auto_ptr< Window_Time_type > p);
 
   // V-SV-DopplerMode
-  //
+  // 
   typedef ::xml_schema::string V_SV_DopplerMode_type;
   typedef ::xsd::cxx::tree::traits< V_SV_DopplerMode_type, char > V_SV_DopplerMode_traits;
 
@@ -19398,7 +19401,7 @@ class Display1: public ::xml_schema::type
   V_SV_DopplerMode (::std::auto_ptr< V_SV_DopplerMode_type > p);
 
   // V-SV-NeedleGuide
-  //
+  // 
   typedef ::xml_schema::string V_SV_NeedleGuide_type;
   typedef ::xsd::cxx::tree::traits< V_SV_NeedleGuide_type, char > V_SV_NeedleGuide_traits;
 
@@ -19415,7 +19418,7 @@ class Display1: public ::xml_schema::type
   V_SV_NeedleGuide (::std::auto_ptr< V_SV_NeedleGuide_type > p);
 
   // V-SV-ColorMode
-  //
+  // 
   typedef ::xml_schema::string V_SV_ColorMode_type;
   typedef ::xsd::cxx::tree::traits< V_SV_ColorMode_type, char > V_SV_ColorMode_traits;
 
@@ -19473,7 +19476,7 @@ class Display1: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Display1 ();
 
   // Implementation.
@@ -19503,7 +19506,7 @@ class EKVModeSoft: public ::xml_schema::type
 {
   public:
   // RWave-Time-Tollerance
-  //
+  // 
   typedef ::xml_schema::string RWave_Time_Tollerance_type;
   typedef ::xsd::cxx::tree::traits< RWave_Time_Tollerance_type, char > RWave_Time_Tollerance_traits;
 
@@ -19520,7 +19523,7 @@ class EKVModeSoft: public ::xml_schema::type
   RWave_Time_Tollerance (::std::auto_ptr< RWave_Time_Tollerance_type > p);
 
   // EKV-Start
-  //
+  // 
   typedef ::EKV_Start EKV_Start_type;
   typedef ::xsd::cxx::tree::traits< EKV_Start_type, char > EKV_Start_traits;
 
@@ -19537,7 +19540,7 @@ class EKVModeSoft: public ::xml_schema::type
   EKV_Start (::std::auto_ptr< EKV_Start_type > p);
 
   // EKV-Stop
-  //
+  // 
   typedef ::EKV_Stop EKV_Stop_type;
   typedef ::xsd::cxx::tree::traits< EKV_Stop_type, char > EKV_Stop_traits;
 
@@ -19554,7 +19557,7 @@ class EKVModeSoft: public ::xml_schema::type
   EKV_Stop (::std::auto_ptr< EKV_Stop_type > p);
 
   // EKV-Quality-Times
-  //
+  // 
   typedef ::EKV_Quality_Times EKV_Quality_Times_type;
   typedef ::xsd::cxx::tree::traits< EKV_Quality_Times_type, char > EKV_Quality_Times_traits;
 
@@ -19571,7 +19574,7 @@ class EKVModeSoft: public ::xml_schema::type
   EKV_Quality_Times (::std::auto_ptr< EKV_Quality_Times_type > p);
 
   // EKV-Quality
-  //
+  // 
   typedef ::EKV_Quality EKV_Quality_type;
   typedef ::xsd::cxx::tree::traits< EKV_Quality_type, char > EKV_Quality_traits;
 
@@ -19588,7 +19591,7 @@ class EKVModeSoft: public ::xml_schema::type
   EKV_Quality (::std::auto_ptr< EKV_Quality_type > p);
 
   // EKV-Quality-Resolution
-  //
+  // 
   typedef ::EKV_Quality_Resolution EKV_Quality_Resolution_type;
   typedef ::xsd::cxx::tree::traits< EKV_Quality_Resolution_type, char > EKV_Quality_Resolution_traits;
 
@@ -19605,7 +19608,7 @@ class EKVModeSoft: public ::xml_schema::type
   EKV_Quality_Resolution (::std::auto_ptr< EKV_Quality_Resolution_type > p);
 
   // Difference-Percent-Periods-Keep
-  //
+  // 
   typedef ::xml_schema::string Difference_Percent_Periods_Keep_type;
   typedef ::xsd::cxx::tree::traits< Difference_Percent_Periods_Keep_type, char > Difference_Percent_Periods_Keep_traits;
 
@@ -19622,7 +19625,7 @@ class EKVModeSoft: public ::xml_schema::type
   Difference_Percent_Periods_Keep (::std::auto_ptr< Difference_Percent_Periods_Keep_type > p);
 
   // EKV-Advanced
-  //
+  // 
   typedef ::xml_schema::string EKV_Advanced_type;
   typedef ::xsd::cxx::tree::traits< EKV_Advanced_type, char > EKV_Advanced_traits;
 
@@ -19639,7 +19642,7 @@ class EKVModeSoft: public ::xml_schema::type
   EKV_Advanced (::std::auto_ptr< EKV_Advanced_type > p);
 
   // EKV-Variance
-  //
+  // 
   typedef ::EKV_Variance EKV_Variance_type;
   typedef ::xsd::cxx::tree::traits< EKV_Variance_type, char > EKV_Variance_traits;
 
@@ -19656,7 +19659,7 @@ class EKVModeSoft: public ::xml_schema::type
   EKV_Variance (::std::auto_ptr< EKV_Variance_type > p);
 
   // EKV-Triggers
-  //
+  // 
   typedef ::EKV_Triggers EKV_Triggers_type;
   typedef ::xsd::cxx::tree::traits< EKV_Triggers_type, char > EKV_Triggers_traits;
 
@@ -19708,7 +19711,7 @@ class EKVModeSoft: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~EKVModeSoft ();
 
   // Implementation.
@@ -19735,7 +19738,7 @@ class BModeLVAnalysis: public ::xml_schema::type
 {
   public:
   // Cycles-Cardiac-Region
-  //
+  // 
   typedef ::xml_schema::string Cycles_Cardiac_Region_type;
   typedef ::xsd::cxx::tree::traits< Cycles_Cardiac_Region_type, char > Cycles_Cardiac_Region_traits;
 
@@ -19752,7 +19755,7 @@ class BModeLVAnalysis: public ::xml_schema::type
   Cycles_Cardiac_Region (::std::auto_ptr< Cycles_Cardiac_Region_type > p);
 
   // Cycles
-  //
+  // 
   typedef ::xml_schema::string Cycles_type;
   typedef ::xsd::cxx::tree::traits< Cycles_type, char > Cycles_traits;
 
@@ -19769,7 +19772,7 @@ class BModeLVAnalysis: public ::xml_schema::type
   Cycles (::std::auto_ptr< Cycles_type > p);
 
   // Spline-Process-Points
-  //
+  // 
   typedef ::xml_schema::string Spline_Process_Points_type;
   typedef ::xsd::cxx::tree::traits< Spline_Process_Points_type, char > Spline_Process_Points_traits;
 
@@ -19786,7 +19789,7 @@ class BModeLVAnalysis: public ::xml_schema::type
   Spline_Process_Points (::std::auto_ptr< Spline_Process_Points_type > p);
 
   // Speckle-Search-Size
-  //
+  // 
   typedef ::xml_schema::string Speckle_Search_Size_type;
   typedef ::xsd::cxx::tree::traits< Speckle_Search_Size_type, char > Speckle_Search_Size_traits;
 
@@ -19803,7 +19806,7 @@ class BModeLVAnalysis: public ::xml_schema::type
   Speckle_Search_Size (::std::auto_ptr< Speckle_Search_Size_type > p);
 
   // Speckle-Compare-Size
-  //
+  // 
   typedef ::xml_schema::string Speckle_Compare_Size_type;
   typedef ::xsd::cxx::tree::traits< Speckle_Compare_Size_type, char > Speckle_Compare_Size_traits;
 
@@ -19820,7 +19823,7 @@ class BModeLVAnalysis: public ::xml_schema::type
   Speckle_Compare_Size (::std::auto_ptr< Speckle_Compare_Size_type > p);
 
   // EKV-Frames
-  //
+  // 
   typedef ::xml_schema::string EKV_Frames_type;
   typedef ::xsd::cxx::tree::traits< EKV_Frames_type, char > EKV_Frames_traits;
 
@@ -19837,7 +19840,7 @@ class BModeLVAnalysis: public ::xml_schema::type
   EKV_Frames (::std::auto_ptr< EKV_Frames_type > p);
 
   // Axis
-  //
+  // 
   typedef ::xml_schema::string Axis_type;
   typedef ::xsd::cxx::tree::traits< Axis_type, char > Axis_traits;
 
@@ -19854,7 +19857,7 @@ class BModeLVAnalysis: public ::xml_schema::type
   Axis (::std::auto_ptr< Axis_type > p);
 
   // Cardinal-Tension
-  //
+  // 
   typedef ::xml_schema::string Cardinal_Tension_type;
   typedef ::xsd::cxx::tree::traits< Cardinal_Tension_type, char > Cardinal_Tension_traits;
 
@@ -19893,7 +19896,7 @@ class BModeLVAnalysis: public ::xml_schema::type
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~BModeLVAnalysis ();
 
   // Implementation.
@@ -19918,7 +19921,7 @@ class Sample_Time: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -19951,7 +19954,7 @@ class Sample_Time: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sample_Time ();
 
   // Implementation.
@@ -19969,7 +19972,7 @@ class Focal_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20002,7 +20005,7 @@ class Focal_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Focal_Length ();
 
   // Implementation.
@@ -20020,7 +20023,7 @@ class Default_Scan_Speed: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20053,7 +20056,7 @@ class Default_Scan_Speed: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Default_Scan_Speed ();
 
   // Implementation.
@@ -20071,7 +20074,7 @@ class Cutoff_Scan_Speed: public ::xsd::cxx::tree::fundamental_base< ::xml_schema
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20104,7 +20107,7 @@ class Cutoff_Scan_Speed: public ::xsd::cxx::tree::fundamental_base< ::xml_schema
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Cutoff_Scan_Speed ();
 
   // Implementation.
@@ -20122,7 +20125,7 @@ class Frequency_Low: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20155,7 +20158,7 @@ class Frequency_Low: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency_Low ();
 
   // Implementation.
@@ -20173,7 +20176,7 @@ class Default_FOV: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20206,7 +20209,7 @@ class Default_FOV: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Default_FOV ();
 
   // Implementation.
@@ -20224,7 +20227,7 @@ class Frequency_Doppler_Default: public ::xsd::cxx::tree::fundamental_base< ::xm
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20257,7 +20260,7 @@ class Frequency_Doppler_Default: public ::xsd::cxx::tree::fundamental_base< ::xm
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency_Doppler_Default ();
 
   // Implementation.
@@ -20275,7 +20278,7 @@ class Frequency_Doppler: public ::xsd::cxx::tree::fundamental_base< ::xml_schema
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20308,7 +20311,7 @@ class Frequency_Doppler: public ::xsd::cxx::tree::fundamental_base< ::xml_schema
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency_Doppler ();
 
   // Implementation.
@@ -20326,7 +20329,7 @@ class Axial_Res: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20367,7 +20370,7 @@ class Axial_Res: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Axial_Res ();
 
   // Implementation.
@@ -20385,7 +20388,7 @@ class Filter_High: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20418,7 +20421,7 @@ class Filter_High: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Filter_High ();
 
   // Implementation.
@@ -20436,7 +20439,7 @@ class Pivot_Encoder_Dist: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20469,7 +20472,7 @@ class Pivot_Encoder_Dist: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pivot_Encoder_Dist ();
 
   // Implementation.
@@ -20487,7 +20490,7 @@ class Encoder_Range_Max: public ::xsd::cxx::tree::fundamental_base< ::xml_schema
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20520,7 +20523,7 @@ class Encoder_Range_Max: public ::xsd::cxx::tree::fundamental_base< ::xml_schema
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Encoder_Range_Max ();
 
   // Implementation.
@@ -20538,7 +20541,7 @@ class Encoder_Range_Min: public ::xsd::cxx::tree::fundamental_base< ::xml_schema
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20571,7 +20574,7 @@ class Encoder_Range_Min: public ::xsd::cxx::tree::fundamental_base< ::xml_schema
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Encoder_Range_Min ();
 
   // Implementation.
@@ -20589,7 +20592,7 @@ class Lateral_Res: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20630,7 +20633,7 @@ class Lateral_Res: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Lateral_Res ();
 
   // Implementation.
@@ -20648,7 +20651,7 @@ class Motor_Overhead: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20689,7 +20692,7 @@ class Motor_Overhead: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Motor_Overhead ();
 
   // Implementation.
@@ -20707,7 +20710,7 @@ class Max_Scan_Distance: public ::xsd::cxx::tree::fundamental_base< ::xml_schema
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20740,7 +20743,7 @@ class Max_Scan_Distance: public ::xsd::cxx::tree::fundamental_base< ::xml_schema
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Max_Scan_Distance ();
 
   // Implementation.
@@ -20758,7 +20761,7 @@ class Default_Rx_Gain: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20799,7 +20802,7 @@ class Default_Rx_Gain: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Default_Rx_Gain ();
 
   // Implementation.
@@ -20817,7 +20820,7 @@ class Filter_Low: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20850,7 +20853,7 @@ class Filter_Low: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Filter_Low ();
 
   // Implementation.
@@ -20868,7 +20871,7 @@ class Frequency_High: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20901,7 +20904,7 @@ class Frequency_High: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency_High ();
 
   // Implementation.
@@ -20919,7 +20922,7 @@ class Scan_Speeds: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -20952,7 +20955,7 @@ class Scan_Speeds: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Scan_Speeds ();
 
   // Implementation.
@@ -20970,7 +20973,7 @@ class Filter_Doppler_Cutoff: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21011,7 +21014,7 @@ class Filter_Doppler_Cutoff: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Filter_Doppler_Cutoff ();
 
   // Implementation.
@@ -21029,7 +21032,7 @@ class Frequency_Doppler_Low: public ::xsd::cxx::tree::fundamental_base< ::xml_sc
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21062,7 +21065,7 @@ class Frequency_Doppler_Low: public ::xsd::cxx::tree::fundamental_base< ::xml_sc
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency_Doppler_Low ();
 
   // Implementation.
@@ -21080,7 +21083,7 @@ class Pivot_Transducer_Face_Dist: public ::xsd::cxx::tree::fundamental_base< ::x
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21113,7 +21116,7 @@ class Pivot_Transducer_Face_Dist: public ::xsd::cxx::tree::fundamental_base< ::x
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pivot_Transducer_Face_Dist ();
 
   // Implementation.
@@ -21131,7 +21134,7 @@ class Filter_Doppler: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21164,7 +21167,7 @@ class Filter_Doppler: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Filter_Doppler ();
 
   // Implementation.
@@ -21182,7 +21185,7 @@ class Frequency: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21215,7 +21218,7 @@ class Frequency: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency ();
 
   // Implementation.
@@ -21233,7 +21236,7 @@ class Encoder_Separation: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21266,7 +21269,7 @@ class Encoder_Separation: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Encoder_Separation ();
 
   // Implementation.
@@ -21284,7 +21287,7 @@ class Overshoot: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21317,7 +21320,7 @@ class Overshoot: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Overshoot ();
 
   // Implementation.
@@ -21335,7 +21338,7 @@ class Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, c
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21368,7 +21371,7 @@ class Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, c
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Filter ();
 
   // Implementation.
@@ -21386,7 +21389,7 @@ class Default_Rx_Gain_Doppler: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21427,7 +21430,7 @@ class Default_Rx_Gain_Doppler: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Default_Rx_Gain_Doppler ();
 
   // Implementation.
@@ -21445,7 +21448,7 @@ class Filter_Doppler_Low: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21478,7 +21481,7 @@ class Filter_Doppler_Low: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Filter_Doppler_Low ();
 
   // Implementation.
@@ -21496,7 +21499,7 @@ class Buffer_Size: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21537,7 +21540,7 @@ class Buffer_Size: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Buffer_Size ();
 
   // Implementation.
@@ -21555,7 +21558,7 @@ class BMode_Size_Default: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21596,7 +21599,7 @@ class BMode_Size_Default: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~BMode_Size_Default ();
 
   // Implementation.
@@ -21614,7 +21617,7 @@ class Refresh_Rate: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21655,7 +21658,7 @@ class Refresh_Rate: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Refresh_Rate ();
 
   // Implementation.
@@ -21673,7 +21676,7 @@ class Power_Size_Default: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21714,7 +21717,7 @@ class Power_Size_Default: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Power_Size_Default ();
 
   // Implementation.
@@ -21732,7 +21735,7 @@ class Target_Field_Of_View: public ::xsd::cxx::tree::fundamental_base< ::xml_sch
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21765,7 +21768,7 @@ class Target_Field_Of_View: public ::xsd::cxx::tree::fundamental_base< ::xml_sch
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Target_Field_Of_View ();
 
   // Implementation.
@@ -21783,7 +21786,7 @@ class Sound_Speed: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21824,7 +21827,7 @@ class Sound_Speed: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sound_Speed ();
 
   // Implementation.
@@ -21842,7 +21845,7 @@ class Pipeline_Delay: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21883,7 +21886,7 @@ class Pipeline_Delay: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pipeline_Delay ();
 
   // Implementation.
@@ -21901,7 +21904,7 @@ class Center: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, c
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21934,7 +21937,7 @@ class Center: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, c
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Center ();
 
   // Implementation.
@@ -21952,7 +21955,7 @@ class V_Scan_Speed: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -21993,7 +21996,7 @@ class V_Scan_Speed: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Scan_Speed ();
 
   // Implementation.
@@ -22011,7 +22014,7 @@ class V_Scan_Rate: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22044,7 +22047,7 @@ class V_Scan_Rate: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Scan_Rate ();
 
   // Implementation.
@@ -22062,7 +22065,7 @@ class Scan_Width: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22095,7 +22098,7 @@ class Scan_Width: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Scan_Width ();
 
   // Implementation.
@@ -22113,7 +22116,7 @@ class Position: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22154,7 +22157,7 @@ class Position: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Position ();
 
   // Implementation.
@@ -22172,7 +22175,7 @@ class R_Scan_Move_No_Wait: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22213,7 +22216,7 @@ class R_Scan_Move_No_Wait: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~R_Scan_Move_No_Wait ();
 
   // Implementation.
@@ -22231,7 +22234,7 @@ class Acceleration: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22272,7 +22275,7 @@ class Acceleration: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Acceleration ();
 
   // Implementation.
@@ -22290,7 +22293,7 @@ class Velocity_Stationary: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22331,7 +22334,7 @@ class Velocity_Stationary: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Velocity_Stationary ();
 
   // Implementation.
@@ -22349,7 +22352,7 @@ class R_Scan_Move2: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22390,7 +22393,7 @@ class R_Scan_Move2: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~R_Scan_Move2 ();
 
   // Implementation.
@@ -22408,7 +22411,7 @@ class Acceleration_Stationary: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22449,7 +22452,7 @@ class Acceleration_Stationary: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Acceleration_Stationary ();
 
   // Implementation.
@@ -22467,7 +22470,7 @@ class Position_Reverse: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22508,7 +22511,7 @@ class Position_Reverse: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Position_Reverse ();
 
   // Implementation.
@@ -22526,7 +22529,7 @@ class Position2: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22567,7 +22570,7 @@ class Position2: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Position2 ();
 
   // Implementation.
@@ -22585,7 +22588,7 @@ class Velocity: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22626,7 +22629,7 @@ class Velocity: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Velocity ();
 
   // Implementation.
@@ -22644,7 +22647,7 @@ class R_Scan_Move: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22685,7 +22688,7 @@ class R_Scan_Move: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~R_Scan_Move ();
 
   // Implementation.
@@ -22703,7 +22706,7 @@ class Position_Forward: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22744,7 +22747,7 @@ class Position_Forward: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Position_Forward ();
 
   // Implementation.
@@ -22762,7 +22765,7 @@ class Monitor_3point3V: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22803,7 +22806,7 @@ class Monitor_3point3V: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Monitor_3point3V ();
 
   // Implementation.
@@ -22821,7 +22824,7 @@ class Monitor_15V: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22862,7 +22865,7 @@ class Monitor_15V: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Monitor_15V ();
 
   // Implementation.
@@ -22880,7 +22883,7 @@ class Monitor_5V: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22921,7 +22924,7 @@ class Monitor_5V: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Monitor_5V ();
 
   // Implementation.
@@ -22939,7 +22942,7 @@ class Monitor_Neg15V: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -22980,7 +22983,7 @@ class Monitor_Neg15V: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Monitor_Neg15V ();
 
   // Implementation.
@@ -22998,7 +23001,7 @@ class Monitor_Neg5V: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23039,7 +23042,7 @@ class Monitor_Neg5V: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Monitor_Neg5V ();
 
   // Implementation.
@@ -23057,7 +23060,7 @@ class Respiration_Threshold_Change: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23098,7 +23101,7 @@ class Respiration_Threshold_Change: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Threshold_Change ();
 
   // Implementation.
@@ -23116,7 +23119,7 @@ class Pressure_Range: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23157,7 +23160,7 @@ class Pressure_Range: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pressure_Range ();
 
   // Implementation.
@@ -23175,7 +23178,7 @@ class Respiration_Gate_Delay: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23216,7 +23219,7 @@ class Respiration_Gate_Delay: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Gate_Delay ();
 
   // Implementation.
@@ -23234,7 +23237,7 @@ class Respiration_Timeout: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23275,7 +23278,7 @@ class Respiration_Timeout: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Timeout ();
 
   // Implementation.
@@ -23293,7 +23296,7 @@ class RWave_Max_Change_Factor_Percent: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23334,7 +23337,7 @@ class RWave_Max_Change_Factor_Percent: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RWave_Max_Change_Factor_Percent ();
 
   // Implementation.
@@ -23352,7 +23355,7 @@ class Respiration_Period: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23393,7 +23396,7 @@ class Respiration_Period: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Period ();
 
   // Implementation.
@@ -23411,7 +23414,7 @@ class Respiration_Subsample_Rate: public ::xsd::cxx::tree::fundamental_base< ::x
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23444,7 +23447,7 @@ class Respiration_Subsample_Rate: public ::xsd::cxx::tree::fundamental_base< ::x
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Subsample_Rate ();
 
   // Implementation.
@@ -23462,7 +23465,7 @@ class Respiration_Window: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23503,7 +23506,7 @@ class Respiration_Window: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Window ();
 
   // Implementation.
@@ -23521,7 +23524,7 @@ class Pressure_Systolic: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23562,7 +23565,7 @@ class Pressure_Systolic: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pressure_Systolic ();
 
   // Implementation.
@@ -23580,7 +23583,7 @@ class Frequency1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23613,7 +23616,7 @@ class Frequency1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency1 ();
 
   // Implementation.
@@ -23631,7 +23634,7 @@ class Respiration_Blank_Period: public ::xsd::cxx::tree::fundamental_base< ::xml
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23664,7 +23667,7 @@ class Respiration_Blank_Period: public ::xsd::cxx::tree::fundamental_base< ::xml
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Blank_Period ();
 
   // Implementation.
@@ -23682,7 +23685,7 @@ class Respiration_Range: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23723,7 +23726,7 @@ class Respiration_Range: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Range ();
 
   // Implementation.
@@ -23741,7 +23744,7 @@ class Pressure_Zero: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23782,7 +23785,7 @@ class Pressure_Zero: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pressure_Zero ();
 
   // Implementation.
@@ -23800,7 +23803,7 @@ class P_Wave_Start: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23841,7 +23844,7 @@ class P_Wave_Start: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~P_Wave_Start ();
 
   // Implementation.
@@ -23859,7 +23862,7 @@ class RWave_Future_Search_Time: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23900,7 +23903,7 @@ class RWave_Future_Search_Time: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RWave_Future_Search_Time ();
 
   // Implementation.
@@ -23918,7 +23921,7 @@ class Respiration_Percent_Peak: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -23959,7 +23962,7 @@ class Respiration_Percent_Peak: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Percent_Peak ();
 
   // Implementation.
@@ -23977,7 +23980,7 @@ class T_Wave_Start: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24018,7 +24021,7 @@ class T_Wave_Start: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~T_Wave_Start ();
 
   // Implementation.
@@ -24036,7 +24039,7 @@ class Strain_Rate_RR_Diff_Ratio: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24077,7 +24080,7 @@ class Strain_Rate_RR_Diff_Ratio: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Strain_Rate_RR_Diff_Ratio ();
 
   // Implementation.
@@ -24095,7 +24098,7 @@ class Pressure_Diastolic: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24136,7 +24139,7 @@ class Pressure_Diastolic: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pressure_Diastolic ();
 
   // Implementation.
@@ -24154,7 +24157,7 @@ class Temperature_Calibration: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24195,7 +24198,7 @@ class Temperature_Calibration: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Temperature_Calibration ();
 
   // Implementation.
@@ -24213,7 +24216,7 @@ class Temperature: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24254,7 +24257,7 @@ class Temperature: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Temperature ();
 
   // Implementation.
@@ -24272,7 +24275,7 @@ class Respiration_Beats_To_Average: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24313,7 +24316,7 @@ class Respiration_Beats_To_Average: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Beats_To_Average ();
 
   // Implementation.
@@ -24331,7 +24334,7 @@ class RWave_Thresh_Trigger_Percent: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24372,7 +24375,7 @@ class RWave_Thresh_Trigger_Percent: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RWave_Thresh_Trigger_Percent ();
 
   // Implementation.
@@ -24390,7 +24393,7 @@ class Respiration_Time_To_Average: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24431,7 +24434,7 @@ class Respiration_Time_To_Average: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Time_To_Average ();
 
   // Implementation.
@@ -24449,7 +24452,7 @@ class Heart_Period: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24490,7 +24493,7 @@ class Heart_Period: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Heart_Period ();
 
   // Implementation.
@@ -24508,7 +24511,7 @@ class ECG_Range: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24549,7 +24552,7 @@ class ECG_Range: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~ECG_Range ();
 
   // Implementation.
@@ -24567,7 +24570,7 @@ class RWave_Maxima_Block_Time: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24608,7 +24611,7 @@ class RWave_Maxima_Block_Time: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RWave_Maxima_Block_Time ();
 
   // Implementation.
@@ -24626,7 +24629,7 @@ class Pressure_Calibration_Level: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24667,7 +24670,7 @@ class Pressure_Calibration_Level: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pressure_Calibration_Level ();
 
   // Implementation.
@@ -24685,7 +24688,7 @@ class ECG_HP_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24718,7 +24721,7 @@ class ECG_HP_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~ECG_HP_Filter ();
 
   // Implementation.
@@ -24736,7 +24739,7 @@ class ECG_LP_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24769,7 +24772,7 @@ class ECG_LP_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~ECG_LP_Filter ();
 
   // Implementation.
@@ -24787,7 +24790,7 @@ class RWave_Max_Change_Period: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24828,7 +24831,7 @@ class RWave_Max_Change_Period: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RWave_Max_Change_Period ();
 
   // Implementation.
@@ -24846,7 +24849,7 @@ class Pressure_Calibration: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24887,7 +24890,7 @@ class Pressure_Calibration: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pressure_Calibration ();
 
   // Implementation.
@@ -24905,7 +24908,7 @@ class RWave_Blank_Time: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -24946,7 +24949,7 @@ class RWave_Blank_Time: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RWave_Blank_Time ();
 
   // Implementation.
@@ -24964,7 +24967,7 @@ class Magnitude_Origin: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25005,7 +25008,7 @@ class Magnitude_Origin: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Magnitude_Origin ();
 
   // Implementation.
@@ -25023,7 +25026,7 @@ class Frequency_Origin: public ::xsd::cxx::tree::fundamental_base< ::xml_schema:
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25056,7 +25059,7 @@ class Frequency_Origin: public ::xsd::cxx::tree::fundamental_base< ::xml_schema:
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency_Origin ();
 
   // Implementation.
@@ -25074,7 +25077,7 @@ class Length_Origin: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25107,7 +25110,7 @@ class Length_Origin: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Length_Origin ();
 
   // Implementation.
@@ -25125,7 +25128,7 @@ class Vertical_Scale: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25166,7 +25169,7 @@ class Vertical_Scale: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Vertical_Scale ();
 
   // Implementation.
@@ -25184,7 +25187,7 @@ class SamplesPerSec: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25217,7 +25220,7 @@ class SamplesPerSec: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~SamplesPerSec ();
 
   // Implementation.
@@ -25235,7 +25238,7 @@ class Magnitude_Height: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25276,7 +25279,7 @@ class Magnitude_Height: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Magnitude_Height ();
 
   // Implementation.
@@ -25294,7 +25297,7 @@ class Length_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25327,7 +25330,7 @@ class Length_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Length_Length ();
 
   // Implementation.
@@ -25345,7 +25348,7 @@ class Frequency_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema:
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25378,7 +25381,7 @@ class Frequency_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema:
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency_Length ();
 
   // Implementation.
@@ -25396,7 +25399,7 @@ class SV_Center: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25429,7 +25432,7 @@ class SV_Center: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~SV_Center ();
 
   // Implementation.
@@ -25447,7 +25450,7 @@ class RF_Path_15Mhz_Time_Correction: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25488,7 +25491,7 @@ class RF_Path_15Mhz_Time_Correction: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RF_Path_15Mhz_Time_Correction ();
 
   // Implementation.
@@ -25506,7 +25509,7 @@ class RF_Path_23Mhz_Time_Correction: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25547,7 +25550,7 @@ class RF_Path_23Mhz_Time_Correction: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RF_Path_23Mhz_Time_Correction ();
 
   // Implementation.
@@ -25565,7 +25568,7 @@ class SV_Length_Limits: public ::xsd::cxx::tree::fundamental_base< ::xml_schema:
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25598,7 +25601,7 @@ class SV_Length_Limits: public ::xsd::cxx::tree::fundamental_base< ::xml_schema:
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~SV_Length_Limits ();
 
   // Implementation.
@@ -25616,7 +25619,7 @@ class V_Transmit_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25649,7 +25652,7 @@ class V_Transmit_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Transmit_Length ();
 
   // Implementation.
@@ -25667,7 +25670,7 @@ class V_Pulse_Rep_Freq: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25708,7 +25711,7 @@ class V_Pulse_Rep_Freq: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Pulse_Rep_Freq ();
 
   // Implementation.
@@ -25726,7 +25729,7 @@ class Frequency2: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25759,7 +25762,7 @@ class Frequency2: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency2 ();
 
   // Implementation.
@@ -25777,7 +25780,7 @@ class V_Unblank_Time: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25818,7 +25821,7 @@ class V_Unblank_Time: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Unblank_Time ();
 
   // Implementation.
@@ -25836,7 +25839,7 @@ class V_Frequency: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25869,7 +25872,7 @@ class V_Frequency: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Frequency ();
 
   // Implementation.
@@ -25887,7 +25890,7 @@ class Pulse_Rep_Frequency: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25928,7 +25931,7 @@ class Pulse_Rep_Frequency: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pulse_Rep_Frequency ();
 
   // Implementation.
@@ -25946,7 +25949,7 @@ class Trig_Tbl_Trigs: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::p
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -25979,7 +25982,7 @@ class Trig_Tbl_Trigs: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::p
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Trig_Tbl_Trigs ();
 
   // Implementation.
@@ -25997,7 +26000,7 @@ class Unblank_Cycles: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26038,7 +26041,7 @@ class Unblank_Cycles: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Unblank_Cycles ();
 
   // Implementation.
@@ -26056,7 +26059,7 @@ class Unblank_Time: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26097,7 +26100,7 @@ class Unblank_Time: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Unblank_Time ();
 
   // Implementation.
@@ -26115,7 +26118,7 @@ class Attenuation: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26156,7 +26159,7 @@ class Attenuation: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Attenuation ();
 
   // Implementation.
@@ -26174,7 +26177,7 @@ class V_Power: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26215,7 +26218,7 @@ class V_Power: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Power ();
 
   // Implementation.
@@ -26233,7 +26236,7 @@ class Scan_Distance: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26266,7 +26269,7 @@ class Scan_Distance: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Scan_Distance ();
 
   // Implementation.
@@ -26284,7 +26287,7 @@ class Step_Size: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26317,7 +26320,7 @@ class Step_Size: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Step_Size ();
 
   // Implementation.
@@ -26335,7 +26338,7 @@ class Ref_Probe_Focal_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_s
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26368,7 +26371,7 @@ class Ref_Probe_Focal_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_s
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Ref_Probe_Focal_Length ();
 
   // Implementation.
@@ -26386,7 +26389,7 @@ class Ref_Tx_Frequency: public ::xsd::cxx::tree::fundamental_base< ::xml_schema:
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26419,7 +26422,7 @@ class Ref_Tx_Frequency: public ::xsd::cxx::tree::fundamental_base< ::xml_schema:
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Ref_Tx_Frequency ();
 
   // Implementation.
@@ -26437,7 +26440,7 @@ class Normalized_Height: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26478,7 +26481,7 @@ class Normalized_Height: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Normalized_Height ();
 
   // Implementation.
@@ -26496,7 +26499,7 @@ class Normalized_Origin: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26537,7 +26540,7 @@ class Normalized_Origin: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Normalized_Origin ();
 
   // Implementation.
@@ -26555,7 +26558,7 @@ class Ref_Tx_Power: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26596,7 +26599,7 @@ class Ref_Tx_Power: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Ref_Tx_Power ();
 
   // Implementation.
@@ -26614,7 +26617,7 @@ class Freq_Range_Max: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26647,7 +26650,7 @@ class Freq_Range_Max: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Freq_Range_Max ();
 
   // Implementation.
@@ -26665,7 +26668,7 @@ class Freq_Range_Min: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26698,7 +26701,7 @@ class Freq_Range_Min: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Freq_Range_Min ();
 
   // Implementation.
@@ -26716,7 +26719,7 @@ class Sector_Width_Target: public ::xsd::cxx::tree::fundamental_base< ::xml_sche
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26749,7 +26752,7 @@ class Sector_Width_Target: public ::xsd::cxx::tree::fundamental_base< ::xml_sche
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sector_Width_Target ();
 
   // Implementation.
@@ -26767,7 +26770,7 @@ class RF_Gain: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26808,7 +26811,7 @@ class RF_Gain: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RF_Gain ();
 
   // Implementation.
@@ -26826,7 +26829,7 @@ class V_Digi_Depth_Imaging: public ::xsd::cxx::tree::fundamental_base< ::xml_sch
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26859,7 +26862,7 @@ class V_Digi_Depth_Imaging: public ::xsd::cxx::tree::fundamental_base< ::xml_sch
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Digi_Depth_Imaging ();
 
   // Implementation.
@@ -26877,7 +26880,7 @@ class Test_Freq: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26918,7 +26921,7 @@ class Test_Freq: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Test_Freq ();
 
   // Implementation.
@@ -26936,7 +26939,7 @@ class IF_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -26969,7 +26972,7 @@ class IF_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~IF_Filter ();
 
   // Implementation.
@@ -26987,7 +26990,7 @@ class Track_Width: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27028,7 +27031,7 @@ class Track_Width: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Track_Width ();
 
   // Implementation.
@@ -27046,7 +27049,7 @@ class V_IF_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27079,7 +27082,7 @@ class V_IF_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_IF_Filter ();
 
   // Implementation.
@@ -27097,7 +27100,7 @@ class HP_Clutter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27130,7 +27133,7 @@ class HP_Clutter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~HP_Clutter ();
 
   // Implementation.
@@ -27148,7 +27151,7 @@ class RF_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27181,7 +27184,7 @@ class RF_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RF_Filter ();
 
   // Implementation.
@@ -27199,7 +27202,7 @@ class V_RF_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27232,7 +27235,7 @@ class V_RF_Filter: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_RF_Filter ();
 
   // Implementation.
@@ -27250,7 +27253,7 @@ class Delay: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, ch
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27283,7 +27286,7 @@ class Delay: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, ch
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Delay ();
 
   // Implementation.
@@ -27301,7 +27304,7 @@ class AD_Gate_Width: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::po
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27334,7 +27337,7 @@ class AD_Gate_Width: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::po
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~AD_Gate_Width ();
 
   // Implementation.
@@ -27352,7 +27355,7 @@ class Frequency3: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27385,7 +27388,7 @@ class Frequency3: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency3 ();
 
   // Implementation.
@@ -27403,7 +27406,7 @@ class V_Frequency1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27436,7 +27439,7 @@ class V_Frequency1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Frequency1 ();
 
   // Implementation.
@@ -27454,7 +27457,7 @@ class V_Field_Of_View: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27487,7 +27490,7 @@ class V_Field_Of_View: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Field_Of_View ();
 
   // Implementation.
@@ -27505,7 +27508,7 @@ class Sector_Height_Target: public ::xsd::cxx::tree::fundamental_base< ::xml_sch
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27538,7 +27541,7 @@ class Sector_Height_Target: public ::xsd::cxx::tree::fundamental_base< ::xml_sch
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sector_Height_Target ();
 
   // Implementation.
@@ -27556,7 +27559,7 @@ class AD_TestIn: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27597,7 +27600,7 @@ class AD_TestIn: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~AD_TestIn ();
 
   // Implementation.
@@ -27615,7 +27618,7 @@ class V_Delay_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27648,7 +27651,7 @@ class V_Delay_Length: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Delay_Length ();
 
   // Implementation.
@@ -27666,7 +27669,7 @@ class Window_Time: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27707,7 +27710,7 @@ class Window_Time: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Window_Time ();
 
   // Implementation.
@@ -27725,7 +27728,7 @@ class Sample_Time1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27758,7 +27761,7 @@ class Sample_Time1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sample_Time1 ();
 
   // Implementation.
@@ -27776,7 +27779,7 @@ class Focal_Length1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27809,7 +27812,7 @@ class Focal_Length1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::fl
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Focal_Length1 ();
 
   // Implementation.
@@ -27827,7 +27830,7 @@ class Default_Scan_Speed1: public ::xsd::cxx::tree::fundamental_base< ::xml_sche
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27860,7 +27863,7 @@ class Default_Scan_Speed1: public ::xsd::cxx::tree::fundamental_base< ::xml_sche
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Default_Scan_Speed1 ();
 
   // Implementation.
@@ -27878,7 +27881,7 @@ class Cutoff_Scan_Speed1: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27911,7 +27914,7 @@ class Cutoff_Scan_Speed1: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Cutoff_Scan_Speed1 ();
 
   // Implementation.
@@ -27929,7 +27932,7 @@ class Frequency_Low1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -27962,7 +27965,7 @@ class Frequency_Low1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency_Low1 ();
 
   // Implementation.
@@ -27980,7 +27983,7 @@ class Default_FOV1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28013,7 +28016,7 @@ class Default_FOV1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Default_FOV1 ();
 
   // Implementation.
@@ -28031,7 +28034,7 @@ class Frequency_Doppler_Default1: public ::xsd::cxx::tree::fundamental_base< ::x
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28064,7 +28067,7 @@ class Frequency_Doppler_Default1: public ::xsd::cxx::tree::fundamental_base< ::x
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency_Doppler_Default1 ();
 
   // Implementation.
@@ -28082,7 +28085,7 @@ class Axial_Res1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28123,7 +28126,7 @@ class Axial_Res1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Axial_Res1 ();
 
   // Implementation.
@@ -28141,7 +28144,7 @@ class Pivot_Encoder_Dist1: public ::xsd::cxx::tree::fundamental_base< ::xml_sche
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28174,7 +28177,7 @@ class Pivot_Encoder_Dist1: public ::xsd::cxx::tree::fundamental_base< ::xml_sche
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pivot_Encoder_Dist1 ();
 
   // Implementation.
@@ -28192,7 +28195,7 @@ class Encoder_Range_Max1: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28225,7 +28228,7 @@ class Encoder_Range_Max1: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Encoder_Range_Max1 ();
 
   // Implementation.
@@ -28243,7 +28246,7 @@ class Encoder_Range_Min1: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28276,7 +28279,7 @@ class Encoder_Range_Min1: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Encoder_Range_Min1 ();
 
   // Implementation.
@@ -28294,7 +28297,7 @@ class Lateral_Res1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28335,7 +28338,7 @@ class Lateral_Res1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Lateral_Res1 ();
 
   // Implementation.
@@ -28353,7 +28356,7 @@ class Max_Scan_Distance1: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28386,7 +28389,7 @@ class Max_Scan_Distance1: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Max_Scan_Distance1 ();
 
   // Implementation.
@@ -28404,7 +28407,7 @@ class Default_Rx_Gain1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28445,7 +28448,7 @@ class Default_Rx_Gain1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Default_Rx_Gain1 ();
 
   // Implementation.
@@ -28463,7 +28466,7 @@ class Frequency_High1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28496,7 +28499,7 @@ class Frequency_High1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency_High1 ();
 
   // Implementation.
@@ -28514,7 +28517,7 @@ class Scan_Speeds1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28547,7 +28550,7 @@ class Scan_Speeds1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Scan_Speeds1 ();
 
   // Implementation.
@@ -28565,7 +28568,7 @@ class Filter_Doppler_Cutoff1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28606,7 +28609,7 @@ class Filter_Doppler_Cutoff1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Filter_Doppler_Cutoff1 ();
 
   // Implementation.
@@ -28624,7 +28627,7 @@ class Frequency_Doppler_Low1: public ::xsd::cxx::tree::fundamental_base< ::xml_s
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28657,7 +28660,7 @@ class Frequency_Doppler_Low1: public ::xsd::cxx::tree::fundamental_base< ::xml_s
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency_Doppler_Low1 ();
 
   // Implementation.
@@ -28675,7 +28678,7 @@ class Pivot_Transducer_Face_Dist1: public ::xsd::cxx::tree::fundamental_base< ::
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28708,7 +28711,7 @@ class Pivot_Transducer_Face_Dist1: public ::xsd::cxx::tree::fundamental_base< ::
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pivot_Transducer_Face_Dist1 ();
 
   // Implementation.
@@ -28726,7 +28729,7 @@ class Filter_Doppler1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28759,7 +28762,7 @@ class Filter_Doppler1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Filter_Doppler1 ();
 
   // Implementation.
@@ -28777,7 +28780,7 @@ class Frequency4: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28810,7 +28813,7 @@ class Frequency4: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency4 ();
 
   // Implementation.
@@ -28828,7 +28831,7 @@ class Encoder_Separation1: public ::xsd::cxx::tree::fundamental_base< ::xml_sche
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28861,7 +28864,7 @@ class Encoder_Separation1: public ::xsd::cxx::tree::fundamental_base< ::xml_sche
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Encoder_Separation1 ();
 
   // Implementation.
@@ -28879,7 +28882,7 @@ class Overshoot1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28912,7 +28915,7 @@ class Overshoot1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Overshoot1 ();
 
   // Implementation.
@@ -28930,7 +28933,7 @@ class Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, 
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -28963,7 +28966,7 @@ class Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, 
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Filter1 ();
 
   // Implementation.
@@ -28981,7 +28984,7 @@ class Default_Rx_Gain_Doppler1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29022,7 +29025,7 @@ class Default_Rx_Gain_Doppler1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Default_Rx_Gain_Doppler1 ();
 
   // Implementation.
@@ -29040,7 +29043,7 @@ class Filter_Doppler_Low1: public ::xsd::cxx::tree::fundamental_base< ::xml_sche
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29073,7 +29076,7 @@ class Filter_Doppler_Low1: public ::xsd::cxx::tree::fundamental_base< ::xml_sche
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Filter_Doppler_Low1 ();
 
   // Implementation.
@@ -29091,7 +29094,7 @@ class Frequency_Doppler1: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29124,7 +29127,7 @@ class Frequency_Doppler1: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency_Doppler1 ();
 
   // Implementation.
@@ -29142,7 +29145,7 @@ class Filter_High1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29175,7 +29178,7 @@ class Filter_High1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Filter_High1 ();
 
   // Implementation.
@@ -29193,7 +29196,7 @@ class Motor_Overhead1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29234,7 +29237,7 @@ class Motor_Overhead1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Motor_Overhead1 ();
 
   // Implementation.
@@ -29252,7 +29255,7 @@ class Filter_Low1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29285,7 +29288,7 @@ class Filter_Low1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Filter_Low1 ();
 
   // Implementation.
@@ -29303,7 +29306,7 @@ class Buffer_Size1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29344,7 +29347,7 @@ class Buffer_Size1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Buffer_Size1 ();
 
   // Implementation.
@@ -29362,7 +29365,7 @@ class BMode_Size_Default1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29403,7 +29406,7 @@ class BMode_Size_Default1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~BMode_Size_Default1 ();
 
   // Implementation.
@@ -29421,7 +29424,7 @@ class Overlay_Mode: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29462,7 +29465,7 @@ class Overlay_Mode: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Overlay_Mode ();
 
   // Implementation.
@@ -29480,7 +29483,7 @@ class Refresh_Rate1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29521,7 +29524,7 @@ class Refresh_Rate1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Refresh_Rate1 ();
 
   // Implementation.
@@ -29539,7 +29542,7 @@ class Acquisition_Mode: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29580,7 +29583,7 @@ class Acquisition_Mode: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Acquisition_Mode ();
 
   // Implementation.
@@ -29598,7 +29601,7 @@ class Actual_Scan_Rate: public ::xsd::cxx::tree::fundamental_base< ::xml_schema:
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29631,7 +29634,7 @@ class Actual_Scan_Rate: public ::xsd::cxx::tree::fundamental_base< ::xml_schema:
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Actual_Scan_Rate ();
 
   // Implementation.
@@ -29649,7 +29652,7 @@ class Sector_X_Res: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29690,7 +29693,7 @@ class Sector_X_Res: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sector_X_Res ();
 
   // Implementation.
@@ -29708,7 +29711,7 @@ class Sector_Y_Res: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29749,7 +29752,7 @@ class Sector_Y_Res: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sector_Y_Res ();
 
   // Implementation.
@@ -29767,7 +29770,7 @@ class Power_Size_Default1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29808,7 +29811,7 @@ class Power_Size_Default1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Power_Size_Default1 ();
 
   // Implementation.
@@ -29826,7 +29829,7 @@ class Sector_X_Start: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29867,7 +29870,7 @@ class Sector_X_Start: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sector_X_Start ();
 
   // Implementation.
@@ -29885,7 +29888,7 @@ class Sector_Y_Start: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29926,7 +29929,7 @@ class Sector_Y_Start: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sector_Y_Start ();
 
   // Implementation.
@@ -29944,7 +29947,7 @@ class Target_Field_Of_View1: public ::xsd::cxx::tree::fundamental_base< ::xml_sc
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -29977,7 +29980,7 @@ class Target_Field_Of_View1: public ::xsd::cxx::tree::fundamental_base< ::xml_sc
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Target_Field_Of_View1 ();
 
   // Implementation.
@@ -29995,7 +29998,7 @@ class Sound_Speed1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30036,7 +30039,7 @@ class Sound_Speed1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sound_Speed1 ();
 
   // Implementation.
@@ -30054,7 +30057,7 @@ class Pipeline_Delay1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30095,7 +30098,7 @@ class Pipeline_Delay1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pipeline_Delay1 ();
 
   // Implementation.
@@ -30113,7 +30116,7 @@ class Reference_3D_Step_Size: public ::xsd::cxx::tree::fundamental_base< ::xml_s
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30146,7 +30149,7 @@ class Reference_3D_Step_Size: public ::xsd::cxx::tree::fundamental_base< ::xml_s
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Reference_3D_Step_Size ();
 
   // Implementation.
@@ -30164,7 +30167,7 @@ class Contrast_Size_Default: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30205,7 +30208,7 @@ class Contrast_Size_Default: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Contrast_Size_Default ();
 
   // Implementation.
@@ -30223,7 +30226,7 @@ class Reference_3D_Scan_Distance: public ::xsd::cxx::tree::fundamental_base< ::x
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30256,7 +30259,7 @@ class Reference_3D_Scan_Distance: public ::xsd::cxx::tree::fundamental_base< ::x
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Reference_3D_Scan_Distance ();
 
   // Implementation.
@@ -30274,7 +30277,7 @@ class Center1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, 
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30307,7 +30310,7 @@ class Center1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, 
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Center1 ();
 
   // Implementation.
@@ -30325,7 +30328,7 @@ class V_Scan_Speed1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30366,7 +30369,7 @@ class V_Scan_Speed1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Scan_Speed1 ();
 
   // Implementation.
@@ -30384,7 +30387,7 @@ class V_Scan_Rate1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30417,7 +30420,7 @@ class V_Scan_Rate1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Scan_Rate1 ();
 
   // Implementation.
@@ -30435,7 +30438,7 @@ class Scan_Width1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30468,7 +30471,7 @@ class Scan_Width1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Scan_Width1 ();
 
   // Implementation.
@@ -30486,7 +30489,7 @@ class Position1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30527,7 +30530,7 @@ class Position1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Position1 ();
 
   // Implementation.
@@ -30545,7 +30548,7 @@ class R_Scan_Move_No_Wait1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30586,7 +30589,7 @@ class R_Scan_Move_No_Wait1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~R_Scan_Move_No_Wait1 ();
 
   // Implementation.
@@ -30604,7 +30607,7 @@ class Acceleration1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30645,7 +30648,7 @@ class Acceleration1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Acceleration1 ();
 
   // Implementation.
@@ -30663,7 +30666,7 @@ class Velocity_Stationary1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30704,7 +30707,7 @@ class Velocity_Stationary1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Velocity_Stationary1 ();
 
   // Implementation.
@@ -30722,7 +30725,7 @@ class R_Scan_Move21: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30763,7 +30766,7 @@ class R_Scan_Move21: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~R_Scan_Move21 ();
 
   // Implementation.
@@ -30781,7 +30784,7 @@ class Position_Reverse1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30822,7 +30825,7 @@ class Position_Reverse1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Position_Reverse1 ();
 
   // Implementation.
@@ -30840,7 +30843,7 @@ class Position21: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30881,7 +30884,7 @@ class Position21: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Position21 ();
 
   // Implementation.
@@ -30899,7 +30902,7 @@ class Velocity1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30940,7 +30943,7 @@ class Velocity1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Velocity1 ();
 
   // Implementation.
@@ -30958,7 +30961,7 @@ class R_Scan_Move1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -30999,7 +31002,7 @@ class R_Scan_Move1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~R_Scan_Move1 ();
 
   // Implementation.
@@ -31017,7 +31020,7 @@ class Position_Forward1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31058,7 +31061,7 @@ class Position_Forward1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Position_Forward1 ();
 
   // Implementation.
@@ -31076,7 +31079,7 @@ class Acceleration_Stationary1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31117,7 +31120,7 @@ class Acceleration_Stationary1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Acceleration_Stationary1 ();
 
   // Implementation.
@@ -31135,7 +31138,7 @@ class Monitor_3point3V1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31176,7 +31179,7 @@ class Monitor_3point3V1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Monitor_3point3V1 ();
 
   // Implementation.
@@ -31194,7 +31197,7 @@ class Monitor_5V1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31235,7 +31238,7 @@ class Monitor_5V1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Monitor_5V1 ();
 
   // Implementation.
@@ -31253,7 +31256,7 @@ class Monitor_Neg15V1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31294,7 +31297,7 @@ class Monitor_Neg15V1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Monitor_Neg15V1 ();
 
   // Implementation.
@@ -31312,7 +31315,7 @@ class Monitor_Neg5V1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31353,7 +31356,7 @@ class Monitor_Neg5V1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Monitor_Neg5V1 ();
 
   // Implementation.
@@ -31371,7 +31374,7 @@ class Monitor_15V1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31412,7 +31415,7 @@ class Monitor_15V1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Monitor_15V1 ();
 
   // Implementation.
@@ -31430,7 +31433,7 @@ class Respiration_Threshold_Change1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31471,7 +31474,7 @@ class Respiration_Threshold_Change1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Threshold_Change1 ();
 
   // Implementation.
@@ -31489,7 +31492,7 @@ class Pressure_Range1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31530,7 +31533,7 @@ class Pressure_Range1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pressure_Range1 ();
 
   // Implementation.
@@ -31548,7 +31551,7 @@ class Respiration_Gate_Delay1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31589,7 +31592,7 @@ class Respiration_Gate_Delay1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Gate_Delay1 ();
 
   // Implementation.
@@ -31607,7 +31610,7 @@ class Respiration_Timeout1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31648,7 +31651,7 @@ class Respiration_Timeout1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Timeout1 ();
 
   // Implementation.
@@ -31666,7 +31669,7 @@ class RWave_Max_Change_Factor_Percent1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31707,7 +31710,7 @@ class RWave_Max_Change_Factor_Percent1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RWave_Max_Change_Factor_Percent1 ();
 
   // Implementation.
@@ -31725,7 +31728,7 @@ class Respiration_Period1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31766,7 +31769,7 @@ class Respiration_Period1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Period1 ();
 
   // Implementation.
@@ -31784,7 +31787,7 @@ class Respiration_Subsample_Rate1: public ::xsd::cxx::tree::fundamental_base< ::
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31817,7 +31820,7 @@ class Respiration_Subsample_Rate1: public ::xsd::cxx::tree::fundamental_base< ::
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Subsample_Rate1 ();
 
   // Implementation.
@@ -31835,7 +31838,7 @@ class Respiration_Window1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31876,7 +31879,7 @@ class Respiration_Window1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Window1 ();
 
   // Implementation.
@@ -31894,7 +31897,7 @@ class Pressure_Systolic1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31935,7 +31938,7 @@ class Pressure_Systolic1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pressure_Systolic1 ();
 
   // Implementation.
@@ -31953,7 +31956,7 @@ class Frequency5: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -31986,7 +31989,7 @@ class Frequency5: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency5 ();
 
   // Implementation.
@@ -32004,7 +32007,7 @@ class Respiration_Blank_Period1: public ::xsd::cxx::tree::fundamental_base< ::xm
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32037,7 +32040,7 @@ class Respiration_Blank_Period1: public ::xsd::cxx::tree::fundamental_base< ::xm
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Blank_Period1 ();
 
   // Implementation.
@@ -32055,7 +32058,7 @@ class Respiration_Range1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32096,7 +32099,7 @@ class Respiration_Range1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Range1 ();
 
   // Implementation.
@@ -32114,7 +32117,7 @@ class Pressure_Zero1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32155,7 +32158,7 @@ class Pressure_Zero1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pressure_Zero1 ();
 
   // Implementation.
@@ -32173,7 +32176,7 @@ class P_Wave_Start1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32214,7 +32217,7 @@ class P_Wave_Start1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~P_Wave_Start1 ();
 
   // Implementation.
@@ -32232,7 +32235,7 @@ class Respiration_Percent_Peak1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32273,7 +32276,7 @@ class Respiration_Percent_Peak1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Percent_Peak1 ();
 
   // Implementation.
@@ -32291,7 +32294,7 @@ class T_Wave_Start1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32332,7 +32335,7 @@ class T_Wave_Start1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~T_Wave_Start1 ();
 
   // Implementation.
@@ -32350,7 +32353,7 @@ class Strain_Rate_RR_Diff_Ratio1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32391,7 +32394,7 @@ class Strain_Rate_RR_Diff_Ratio1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Strain_Rate_RR_Diff_Ratio1 ();
 
   // Implementation.
@@ -32409,7 +32412,7 @@ class Pressure_Diastolic1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32450,7 +32453,7 @@ class Pressure_Diastolic1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pressure_Diastolic1 ();
 
   // Implementation.
@@ -32468,7 +32471,7 @@ class Temperature_Calibration1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32509,7 +32512,7 @@ class Temperature_Calibration1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Temperature_Calibration1 ();
 
   // Implementation.
@@ -32527,7 +32530,7 @@ class Temperature1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32568,7 +32571,7 @@ class Temperature1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Temperature1 ();
 
   // Implementation.
@@ -32586,7 +32589,7 @@ class Respiration_Beats_To_Average1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32627,7 +32630,7 @@ class Respiration_Beats_To_Average1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Beats_To_Average1 ();
 
   // Implementation.
@@ -32645,7 +32648,7 @@ class RWave_Thresh_Trigger_Percent1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32686,7 +32689,7 @@ class RWave_Thresh_Trigger_Percent1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RWave_Thresh_Trigger_Percent1 ();
 
   // Implementation.
@@ -32704,7 +32707,7 @@ class Respiration_Time_To_Average1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32745,7 +32748,7 @@ class Respiration_Time_To_Average1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Respiration_Time_To_Average1 ();
 
   // Implementation.
@@ -32763,7 +32766,7 @@ class Heart_Period1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32804,7 +32807,7 @@ class Heart_Period1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Heart_Period1 ();
 
   // Implementation.
@@ -32822,7 +32825,7 @@ class ECG_Range1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32863,7 +32866,7 @@ class ECG_Range1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~ECG_Range1 ();
 
   // Implementation.
@@ -32881,7 +32884,7 @@ class RWave_Maxima_Block_Time1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32922,7 +32925,7 @@ class RWave_Maxima_Block_Time1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RWave_Maxima_Block_Time1 ();
 
   // Implementation.
@@ -32940,7 +32943,7 @@ class Pressure_Calibration_Level1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -32981,7 +32984,7 @@ class Pressure_Calibration_Level1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pressure_Calibration_Level1 ();
 
   // Implementation.
@@ -32999,7 +33002,7 @@ class ECG_HP_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33032,7 +33035,7 @@ class ECG_HP_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~ECG_HP_Filter1 ();
 
   // Implementation.
@@ -33050,7 +33053,7 @@ class ECG_LP_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33083,7 +33086,7 @@ class ECG_LP_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~ECG_LP_Filter1 ();
 
   // Implementation.
@@ -33101,7 +33104,7 @@ class RWave_Max_Change_Period1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33142,7 +33145,7 @@ class RWave_Max_Change_Period1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RWave_Max_Change_Period1 ();
 
   // Implementation.
@@ -33160,7 +33163,7 @@ class Pressure_Calibration1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33201,7 +33204,7 @@ class Pressure_Calibration1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pressure_Calibration1 ();
 
   // Implementation.
@@ -33219,7 +33222,7 @@ class RWave_Blank_Time1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33260,7 +33263,7 @@ class RWave_Blank_Time1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RWave_Blank_Time1 ();
 
   // Implementation.
@@ -33278,7 +33281,7 @@ class RWave_Future_Search_Time1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33319,7 +33322,7 @@ class RWave_Future_Search_Time1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RWave_Future_Search_Time1 ();
 
   // Implementation.
@@ -33337,7 +33340,7 @@ class V_Transmit_Length1: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33370,7 +33373,7 @@ class V_Transmit_Length1: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Transmit_Length1 ();
 
   // Implementation.
@@ -33388,7 +33391,7 @@ class V_Pulse_Rep_Freq1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33429,7 +33432,7 @@ class V_Pulse_Rep_Freq1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Pulse_Rep_Freq1 ();
 
   // Implementation.
@@ -33447,7 +33450,7 @@ class Frequency6: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33480,7 +33483,7 @@ class Frequency6: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency6 ();
 
   // Implementation.
@@ -33498,7 +33501,7 @@ class V_Unblank_Time1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33539,7 +33542,7 @@ class V_Unblank_Time1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Unblank_Time1 ();
 
   // Implementation.
@@ -33557,7 +33560,7 @@ class V_Frequency2: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33590,7 +33593,7 @@ class V_Frequency2: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Frequency2 ();
 
   // Implementation.
@@ -33608,7 +33611,7 @@ class Pulse_Rep_Frequency1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33649,7 +33652,7 @@ class Pulse_Rep_Frequency1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Pulse_Rep_Frequency1 ();
 
   // Implementation.
@@ -33667,7 +33670,7 @@ class Trig_Tbl_Trigs1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33700,7 +33703,7 @@ class Trig_Tbl_Trigs1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Trig_Tbl_Trigs1 ();
 
   // Implementation.
@@ -33718,7 +33721,7 @@ class Unblank_Cycles1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33759,7 +33762,7 @@ class Unblank_Cycles1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Unblank_Cycles1 ();
 
   // Implementation.
@@ -33777,7 +33780,7 @@ class Unblank_Time1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33818,7 +33821,7 @@ class Unblank_Time1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Unblank_Time1 ();
 
   // Implementation.
@@ -33836,7 +33839,7 @@ class Attenuation1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33877,7 +33880,7 @@ class Attenuation1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Attenuation1 ();
 
   // Implementation.
@@ -33895,7 +33898,7 @@ class V_Power1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33936,7 +33939,7 @@ class V_Power1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Power1 ();
 
   // Implementation.
@@ -33954,7 +33957,7 @@ class Frames: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -33995,7 +33998,7 @@ class Frames: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frames ();
 
   // Implementation.
@@ -34013,7 +34016,7 @@ class Frame_Rate: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34054,7 +34057,7 @@ class Frame_Rate: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frame_Rate ();
 
   // Implementation.
@@ -34072,7 +34075,7 @@ class Tx_PRF: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34113,7 +34116,7 @@ class Tx_PRF: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Tx_PRF ();
 
   // Implementation.
@@ -34131,7 +34134,7 @@ class Tx_Power: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34172,7 +34175,7 @@ class Tx_Power: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Tx_Power ();
 
   // Implementation.
@@ -34190,7 +34193,7 @@ class Duration: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34231,7 +34234,7 @@ class Duration: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Duration ();
 
   // Implementation.
@@ -34249,7 +34252,7 @@ class Tx_Frequency: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34282,7 +34285,7 @@ class Tx_Frequency: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Tx_Frequency ();
 
   // Implementation.
@@ -34300,7 +34303,7 @@ class Destroy_Sequence_Position: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34341,7 +34344,7 @@ class Destroy_Sequence_Position: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Destroy_Sequence_Position ();
 
   // Implementation.
@@ -34359,7 +34362,7 @@ class Scan_Distance1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34392,7 +34395,7 @@ class Scan_Distance1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::f
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Scan_Distance1 ();
 
   // Implementation.
@@ -34410,7 +34413,7 @@ class Step_Size1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34443,7 +34446,7 @@ class Step_Size1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Step_Size1 ();
 
   // Implementation.
@@ -34461,7 +34464,7 @@ class Parallel_Step_Size: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34494,7 +34497,7 @@ class Parallel_Step_Size: public ::xsd::cxx::tree::fundamental_base< ::xml_schem
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Parallel_Step_Size ();
 
   // Implementation.
@@ -34512,7 +34515,7 @@ class Sector_Width_Target1: public ::xsd::cxx::tree::fundamental_base< ::xml_sch
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34545,7 +34548,7 @@ class Sector_Width_Target1: public ::xsd::cxx::tree::fundamental_base< ::xml_sch
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sector_Width_Target1 ();
 
   // Implementation.
@@ -34563,7 +34566,7 @@ class RF_Gain1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34604,7 +34607,7 @@ class RF_Gain1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RF_Gain1 ();
 
   // Implementation.
@@ -34622,7 +34625,7 @@ class V_Digi_Depth_Imaging1: public ::xsd::cxx::tree::fundamental_base< ::xml_sc
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34655,7 +34658,7 @@ class V_Digi_Depth_Imaging1: public ::xsd::cxx::tree::fundamental_base< ::xml_sc
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Digi_Depth_Imaging1 ();
 
   // Implementation.
@@ -34673,7 +34676,7 @@ class Test_Freq1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34714,7 +34717,7 @@ class Test_Freq1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Test_Freq1 ();
 
   // Implementation.
@@ -34732,7 +34735,7 @@ class RF_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34765,7 +34768,7 @@ class RF_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~RF_Filter1 ();
 
   // Implementation.
@@ -34783,7 +34786,7 @@ class V_RF_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34816,7 +34819,7 @@ class V_RF_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_RF_Filter1 ();
 
   // Implementation.
@@ -34834,7 +34837,7 @@ class Delay1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, c
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34867,7 +34870,7 @@ class Delay1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_, c
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Delay1 ();
 
   // Implementation.
@@ -34885,7 +34888,7 @@ class AD_Gate_Width1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::p
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34918,7 +34921,7 @@ class AD_Gate_Width1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::p
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~AD_Gate_Width1 ();
 
   // Implementation.
@@ -34936,7 +34939,7 @@ class Frequency7: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -34969,7 +34972,7 @@ class Frequency7: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Frequency7 ();
 
   // Implementation.
@@ -34987,7 +34990,7 @@ class V_Frequency3: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35020,7 +35023,7 @@ class V_Frequency3: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Frequency3 ();
 
   // Implementation.
@@ -35038,7 +35041,7 @@ class V_Field_Of_View1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema:
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35071,7 +35074,7 @@ class V_Field_Of_View1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema:
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Field_Of_View1 ();
 
   // Implementation.
@@ -35089,7 +35092,7 @@ class Sector_Height_Target1: public ::xsd::cxx::tree::fundamental_base< ::xml_sc
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35122,7 +35125,7 @@ class Sector_Height_Target1: public ::xsd::cxx::tree::fundamental_base< ::xml_sc
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Sector_Height_Target1 ();
 
   // Implementation.
@@ -35140,7 +35143,7 @@ class AD_TestIn1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35181,7 +35184,7 @@ class AD_TestIn1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~AD_TestIn1 ();
 
   // Implementation.
@@ -35199,7 +35202,7 @@ class V_Delay_Length1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35232,7 +35235,7 @@ class V_Delay_Length1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_Delay_Length1 ();
 
   // Implementation.
@@ -35250,7 +35253,7 @@ class IF_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35283,7 +35286,7 @@ class IF_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~IF_Filter1 ();
 
   // Implementation.
@@ -35301,7 +35304,7 @@ class Track_Width1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35342,7 +35345,7 @@ class Track_Width1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Track_Width1 ();
 
   // Implementation.
@@ -35360,7 +35363,7 @@ class V_IF_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35393,7 +35396,7 @@ class V_IF_Filter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::flo
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~V_IF_Filter1 ();
 
   // Implementation.
@@ -35411,7 +35414,7 @@ class HP_Clutter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35444,7 +35447,7 @@ class HP_Clutter1: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::floa
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~HP_Clutter1 ();
 
   // Implementation.
@@ -35462,7 +35465,7 @@ class Window_Time1: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35503,7 +35506,7 @@ class Window_Time1: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~Window_Time1 ();
 
   // Implementation.
@@ -35521,7 +35524,7 @@ class EKV_Start: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35554,7 +35557,7 @@ class EKV_Start: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~EKV_Start ();
 
   // Implementation.
@@ -35572,7 +35575,7 @@ class EKV_Stop: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_,
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35605,7 +35608,7 @@ class EKV_Stop: public ::xsd::cxx::tree::fundamental_base< ::xml_schema::float_,
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~EKV_Stop ();
 
   // Implementation.
@@ -35623,7 +35626,7 @@ class EKV_Quality_Times: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35664,7 +35667,7 @@ class EKV_Quality_Times: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~EKV_Quality_Times ();
 
   // Implementation.
@@ -35682,7 +35685,7 @@ class EKV_Quality: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35723,7 +35726,7 @@ class EKV_Quality: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~EKV_Quality ();
 
   // Implementation.
@@ -35741,7 +35744,7 @@ class EKV_Quality_Resolution: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35782,7 +35785,7 @@ class EKV_Quality_Resolution: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~EKV_Quality_Resolution ();
 
   // Implementation.
@@ -35800,7 +35803,7 @@ class EKV_Variance: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35841,7 +35844,7 @@ class EKV_Variance: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~EKV_Variance ();
 
   // Implementation.
@@ -35859,7 +35862,7 @@ class EKV_Triggers: public ::xml_schema::string
 {
   public:
   // units
-  //
+  // 
   typedef ::xml_schema::string units_type;
   typedef ::xsd::cxx::tree::traits< units_type, char > units_traits;
 
@@ -35900,7 +35903,7 @@ class EKV_Triggers: public ::xml_schema::string
   _clone (::xml_schema::flags f = 0,
           ::xml_schema::container* c = 0) const;
 
-  virtual
+  virtual 
   ~EKV_Triggers ();
 
   // Implementation.
@@ -37028,14 +37031,14 @@ operator<< (::xercesc::DOMElement&, const rdi_t&);
 
 void
 rdi (::std::ostream& os,
-     const ::rdi_t& x,
+     const ::rdi_t& x, 
      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
      const ::std::string& e = "UTF-8",
      ::xml_schema::flags f = 0);
 
 void
 rdi (::std::ostream& os,
-     const ::rdi_t& x,
+     const ::rdi_t& x, 
      ::xml_schema::error_handler& eh,
      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
      const ::std::string& e = "UTF-8",
@@ -37043,7 +37046,7 @@ rdi (::std::ostream& os,
 
 void
 rdi (::std::ostream& os,
-     const ::rdi_t& x,
+     const ::rdi_t& x, 
      ::xercesc::DOMErrorHandler& eh,
      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
      const ::std::string& e = "UTF-8",
@@ -37054,14 +37057,14 @@ rdi (::std::ostream& os,
 
 void
 rdi (::xercesc::XMLFormatTarget& ft,
-     const ::rdi_t& x,
+     const ::rdi_t& x, 
      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
      const ::std::string& e = "UTF-8",
      ::xml_schema::flags f = 0);
 
 void
 rdi (::xercesc::XMLFormatTarget& ft,
-     const ::rdi_t& x,
+     const ::rdi_t& x, 
      ::xml_schema::error_handler& eh,
      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
      const ::std::string& e = "UTF-8",
@@ -37069,7 +37072,7 @@ rdi (::xercesc::XMLFormatTarget& ft,
 
 void
 rdi (::xercesc::XMLFormatTarget& ft,
-     const ::rdi_t& x,
+     const ::rdi_t& x, 
      ::xercesc::DOMErrorHandler& eh,
      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
      const ::std::string& e = "UTF-8",
@@ -37087,7 +37090,7 @@ rdi (::xercesc::DOMDocument& d,
 //
 
 ::xml_schema::dom::auto_ptr< ::xercesc::DOMDocument >
-rdi (const ::rdi_t& x,
+rdi (const ::rdi_t& x, 
      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
      ::xml_schema::flags f = 0);
 

@@ -41,7 +41,7 @@
 #include "rdi.hxx"
 
 // image_info_t
-//
+// 
 
 const image_info_t::Study_Name_type& image_info_t::
 Study_Name () const
@@ -67,22 +67,28 @@ Study_Name (::std::auto_ptr< Study_Name_type > x)
   this->Study_Name_.set (x);
 }
 
-const image_info_t::Image_Id_type& image_info_t::
+const image_info_t::Image_Id_optional& image_info_t::
 Image_Id () const
 {
-  return this->Image_Id_.get ();
+  return this->Image_Id_;
 }
 
-image_info_t::Image_Id_type& image_info_t::
+image_info_t::Image_Id_optional& image_info_t::
 Image_Id ()
 {
-  return this->Image_Id_.get ();
+  return this->Image_Id_;
 }
 
 void image_info_t::
 Image_Id (const Image_Id_type& x)
 {
   this->Image_Id_.set (x);
+}
+
+void image_info_t::
+Image_Id (const Image_Id_optional& x)
+{
+  this->Image_Id_ = x;
 }
 
 void image_info_t::
@@ -309,11 +315,11 @@ Acquisition_Operator (::std::auto_ptr< Acquisition_Operator_type > x)
 
 
 // image_data_t
-//
+// 
 
 
 // image_parameters_t
-//
+// 
 
 const image_parameters_t::RF_Mode_type& image_parameters_t::
 RF_Mode () const
@@ -365,7 +371,7 @@ B_Mode (::std::auto_ptr< B_Mode_type > x)
 
 
 // rdi_t
-//
+// 
 
 const rdi_t::image_info_type& rdi_t::
 image_info () const
@@ -441,7 +447,7 @@ image_parameters (::std::auto_ptr< image_parameters_type > x)
 
 
 // RF_Mode
-//
+// 
 
 const RF_Mode::ActiveProbe_type& RF_Mode::
 ActiveProbe () const
@@ -805,7 +811,7 @@ Acqiris (::std::auto_ptr< Acqiris_type > x)
 
 
 // B_Mode
-//
+// 
 
 const B_Mode::ActiveProbe_type& B_Mode::
 ActiveProbe () const
@@ -1241,7 +1247,7 @@ BModeLVAnalysis (::std::auto_ptr< BModeLVAnalysis_type > x)
 
 
 // ActiveProbe
-//
+// 
 
 const ActiveProbe::Notes_type& ActiveProbe::
 Notes () const
@@ -2613,7 +2619,7 @@ Filter_Doppler_Low (::std::auto_ptr< Filter_Doppler_Low_type > x)
 
 
 // BModeSoft
-//
+// 
 
 const BModeSoft::V_Relative_Frame_Rate_type& BModeSoft::
 V_Relative_Frame_Rate () const
@@ -2953,7 +2959,7 @@ Processing_Command (::std::auto_ptr< Processing_Command_type > x)
 
 
 // Sys
-//
+// 
 
 const Sys::Query_Discard_Loop_On_Save_Frame_type& Sys::
 Query_Discard_Loop_On_Save_Frame () const
@@ -3461,7 +3467,7 @@ Mode (::std::auto_ptr< Mode_type > x)
 
 
 // MIS
-//
+// 
 
 const MIS::ECG_Gain_type& MIS::
 ECG_Gain () const
@@ -3657,7 +3663,7 @@ Temperature_Available (::std::auto_ptr< Temperature_Available_type > x)
 
 
 // Scan
-//
+// 
 
 const Scan::Encoder_Position_type& Scan::
 Encoder_Position () const
@@ -4045,7 +4051,7 @@ Position_Counter_Reset (::std::auto_ptr< Position_Counter_Reset_type > x)
 
 
 // Motor
-//
+// 
 
 const Motor::Settle_Time_3d_type& Motor::
 Settle_Time_3d () const
@@ -5561,7 +5567,7 @@ Sample_Time (::std::auto_ptr< Sample_Time_type > x)
 
 
 // Diag
-//
+// 
 
 const Diag::Mem_Pagefile_type& Diag::
 Mem_Pagefile () const
@@ -6261,7 +6267,7 @@ Monitor_Temperature (::std::auto_ptr< Monitor_Temperature_type > x)
 
 
 // ECG
-//
+// 
 
 const ECG::Respiration_Threshold_Change_type& ECG::
 Respiration_Threshold_Change () const
@@ -7465,7 +7471,7 @@ RWave_Blank_Time (::std::auto_ptr< RWave_Blank_Time_type > x)
 
 
 // RfModeSoft
-//
+// 
 
 const RfModeSoft::Amplitude_Height_type& RfModeSoft::
 Amplitude_Height () const
@@ -8285,7 +8291,7 @@ SV_Length_Limits (::std::auto_ptr< SV_Length_Limits_type > x)
 
 
 // TX
-//
+// 
 
 const TX::V_Position_Table_type& TX::
 V_Position_Table () const
@@ -8817,7 +8823,7 @@ Computer_Trigger (::std::auto_ptr< Computer_Trigger_type > x)
 
 
 // X_3D
-//
+// 
 
 const X_3D::Speed_type& X_3D::
 Speed () const
@@ -9109,7 +9115,7 @@ Step_Size (::std::auto_ptr< Step_Size_type > x)
 
 
 // RfAnalysis
-//
+// 
 
 const RfAnalysis::Reference_type& RfAnalysis::
 Reference () const
@@ -9497,7 +9503,7 @@ Ref_Offset (::std::auto_ptr< Ref_Offset_type > x)
 
 
 // RX
-//
+// 
 
 const RX::AD_IF_type& RX::
 AD_IF () const
@@ -10509,7 +10515,7 @@ Current_Mode (::std::auto_ptr< Current_Mode_type > x)
 
 
 // Display
-//
+// 
 
 const Display::Direction_type& Display::
 Direction () const
@@ -10681,7 +10687,7 @@ Window_Time (::std::auto_ptr< Window_Time_type > x)
 
 
 // Acqiris
-//
+// 
 
 const Acqiris::SamplesNom_type& Acqiris::
 SamplesNom () const
@@ -10901,7 +10907,7 @@ Wait_Acq (::std::auto_ptr< Wait_Acq_type > x)
 
 
 // ActiveProbe1
-//
+// 
 
 const ActiveProbe1::Notes_type& ActiveProbe1::
 Notes () const
@@ -12273,7 +12279,7 @@ Filter_Low (::std::auto_ptr< Filter_Low_type > x)
 
 
 // BModeSoft1
-//
+// 
 
 const BModeSoft1::Anti_Aliasing_type& BModeSoft1::
 Anti_Aliasing () const
@@ -12853,7 +12859,7 @@ Processing_Command (::std::auto_ptr< Processing_Command_type > x)
 
 
 // Sys1
-//
+// 
 
 const Sys1::Query_Discard_Loop_On_Save_Frame_type& Sys1::
 Query_Discard_Loop_On_Save_Frame () const
@@ -13361,7 +13367,7 @@ Review_Setup_Dialog (::std::auto_ptr< Review_Setup_Dialog_type > x)
 
 
 // Contrast
-//
+// 
 
 const Contrast::Acquisition_3D_Volume_type& Contrast::
 Acquisition_3D_Volume () const
@@ -14277,7 +14283,7 @@ Reference_3D_Steps (::std::auto_ptr< Reference_3D_Steps_type > x)
 
 
 // MIS1
-//
+// 
 
 const MIS1::ECG_Gain_type& MIS1::
 ECG_Gain () const
@@ -14473,7 +14479,7 @@ Control (::std::auto_ptr< Control_type > x)
 
 
 // Scan1
-//
+// 
 
 const Scan1::Encoder_Position_type& Scan1::
 Encoder_Position () const
@@ -14861,7 +14867,7 @@ Position_Counter_Reset (::std::auto_ptr< Position_Counter_Reset_type > x)
 
 
 // Motor1
-//
+// 
 
 const Motor1::Settle_Time_3d_type& Motor1::
 Settle_Time_3d () const
@@ -16377,7 +16383,7 @@ Trace_Start (::std::auto_ptr< Trace_Start_type > x)
 
 
 // ContrastDlg
-//
+// 
 
 const ContrastDlg::Contrast_YAxis_Auto_Scale_type& ContrastDlg::
 Contrast_YAxis_Auto_Scale () const
@@ -16765,7 +16771,7 @@ Cardiac_Display_Frame (::std::auto_ptr< Cardiac_Display_Frame_type > x)
 
 
 // Diag1
-//
+// 
 
 const Diag1::Mem_Pagefile_type& Diag1::
 Mem_Pagefile () const
@@ -17465,7 +17471,7 @@ Switch_PCB_ID (::std::auto_ptr< Switch_PCB_ID_type > x)
 
 
 // ECG1
-//
+// 
 
 const ECG1::Respiration_Threshold_Change_type& ECG1::
 Respiration_Threshold_Change () const
@@ -18669,7 +18675,7 @@ Pressure_Calibrated (::std::auto_ptr< Pressure_Calibrated_type > x)
 
 
 // TX1
-//
+// 
 
 const TX1::V_Position_Table_type& TX1::
 V_Position_Table () const
@@ -19201,7 +19207,7 @@ Multi_Trigger_Freq (::std::auto_ptr< Multi_Trigger_Freq_type > x)
 
 
 // ContrastDestroy
-//
+// 
 
 const ContrastDestroy::Tx_Width_type& ContrastDestroy::
 Tx_Width () const
@@ -19469,7 +19475,7 @@ Destroy_Sequence_Position (::std::auto_ptr< Destroy_Sequence_Position_type > x)
 
 
 // X_3D1
-//
+// 
 
 const X_3D1::Speed_type& X_3D1::
 Speed () const
@@ -19761,7 +19767,7 @@ Position (::std::auto_ptr< Position_type > x)
 
 
 // X_3DSoft
-//
+// 
 
 const X_3DSoft::Acquire_Persist_3DMIP_type& X_3DSoft::
 Acquire_Persist_3DMIP () const
@@ -20197,7 +20203,7 @@ Parallel_Step_Size (::std::auto_ptr< Parallel_Step_Size_type > x)
 
 
 // RX1
-//
+// 
 
 const RX1::AD_IF_type& RX1::
 AD_IF () const
@@ -21209,7 +21215,7 @@ V_TGC_Copy (::std::auto_ptr< V_TGC_Copy_type > x)
 
 
 // Display1
-//
+// 
 
 const Display1::Direction_type& Display1::
 Direction () const
@@ -21525,7 +21531,7 @@ V_SV_ColorMode (::std::auto_ptr< V_SV_ColorMode_type > x)
 
 
 // EKVModeSoft
-//
+// 
 
 const EKVModeSoft::RWave_Time_Tollerance_type& EKVModeSoft::
 RWave_Time_Tollerance () const
@@ -21769,7 +21775,7 @@ EKV_Triggers (::std::auto_ptr< EKV_Triggers_type > x)
 
 
 // BModeLVAnalysis
-//
+// 
 
 const BModeLVAnalysis::Cycles_Cardiac_Region_type& BModeLVAnalysis::
 Cycles_Cardiac_Region () const
@@ -21965,7 +21971,7 @@ Cardinal_Tension (::std::auto_ptr< Cardinal_Tension_type > x)
 
 
 // Sample_Time
-//
+// 
 
 const Sample_Time::units_type& Sample_Time::
 units () const
@@ -21993,7 +21999,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Focal_Length
-//
+// 
 
 const Focal_Length::units_type& Focal_Length::
 units () const
@@ -22021,7 +22027,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Default_Scan_Speed
-//
+// 
 
 const Default_Scan_Speed::units_type& Default_Scan_Speed::
 units () const
@@ -22049,7 +22055,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Cutoff_Scan_Speed
-//
+// 
 
 const Cutoff_Scan_Speed::units_type& Cutoff_Scan_Speed::
 units () const
@@ -22077,7 +22083,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency_Low
-//
+// 
 
 const Frequency_Low::units_type& Frequency_Low::
 units () const
@@ -22105,7 +22111,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Default_FOV
-//
+// 
 
 const Default_FOV::units_type& Default_FOV::
 units () const
@@ -22133,7 +22139,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency_Doppler_Default
-//
+// 
 
 const Frequency_Doppler_Default::units_type& Frequency_Doppler_Default::
 units () const
@@ -22161,7 +22167,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency_Doppler
-//
+// 
 
 const Frequency_Doppler::units_type& Frequency_Doppler::
 units () const
@@ -22189,7 +22195,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Axial_Res
-//
+// 
 
 const Axial_Res::units_type& Axial_Res::
 units () const
@@ -22217,7 +22223,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Filter_High
-//
+// 
 
 const Filter_High::units_type& Filter_High::
 units () const
@@ -22245,7 +22251,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pivot_Encoder_Dist
-//
+// 
 
 const Pivot_Encoder_Dist::units_type& Pivot_Encoder_Dist::
 units () const
@@ -22273,7 +22279,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Encoder_Range_Max
-//
+// 
 
 const Encoder_Range_Max::units_type& Encoder_Range_Max::
 units () const
@@ -22301,7 +22307,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Encoder_Range_Min
-//
+// 
 
 const Encoder_Range_Min::units_type& Encoder_Range_Min::
 units () const
@@ -22329,7 +22335,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Lateral_Res
-//
+// 
 
 const Lateral_Res::units_type& Lateral_Res::
 units () const
@@ -22357,7 +22363,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Motor_Overhead
-//
+// 
 
 const Motor_Overhead::units_type& Motor_Overhead::
 units () const
@@ -22385,7 +22391,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Max_Scan_Distance
-//
+// 
 
 const Max_Scan_Distance::units_type& Max_Scan_Distance::
 units () const
@@ -22413,7 +22419,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Default_Rx_Gain
-//
+// 
 
 const Default_Rx_Gain::units_type& Default_Rx_Gain::
 units () const
@@ -22441,7 +22447,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Filter_Low
-//
+// 
 
 const Filter_Low::units_type& Filter_Low::
 units () const
@@ -22469,7 +22475,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency_High
-//
+// 
 
 const Frequency_High::units_type& Frequency_High::
 units () const
@@ -22497,7 +22503,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Scan_Speeds
-//
+// 
 
 const Scan_Speeds::units_type& Scan_Speeds::
 units () const
@@ -22525,7 +22531,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Filter_Doppler_Cutoff
-//
+// 
 
 const Filter_Doppler_Cutoff::units_type& Filter_Doppler_Cutoff::
 units () const
@@ -22553,7 +22559,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency_Doppler_Low
-//
+// 
 
 const Frequency_Doppler_Low::units_type& Frequency_Doppler_Low::
 units () const
@@ -22581,7 +22587,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pivot_Transducer_Face_Dist
-//
+// 
 
 const Pivot_Transducer_Face_Dist::units_type& Pivot_Transducer_Face_Dist::
 units () const
@@ -22609,7 +22615,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Filter_Doppler
-//
+// 
 
 const Filter_Doppler::units_type& Filter_Doppler::
 units () const
@@ -22637,7 +22643,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency
-//
+// 
 
 const Frequency::units_type& Frequency::
 units () const
@@ -22665,7 +22671,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Encoder_Separation
-//
+// 
 
 const Encoder_Separation::units_type& Encoder_Separation::
 units () const
@@ -22693,7 +22699,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Overshoot
-//
+// 
 
 const Overshoot::units_type& Overshoot::
 units () const
@@ -22721,7 +22727,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Filter
-//
+// 
 
 const Filter::units_type& Filter::
 units () const
@@ -22749,7 +22755,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Default_Rx_Gain_Doppler
-//
+// 
 
 const Default_Rx_Gain_Doppler::units_type& Default_Rx_Gain_Doppler::
 units () const
@@ -22777,7 +22783,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Filter_Doppler_Low
-//
+// 
 
 const Filter_Doppler_Low::units_type& Filter_Doppler_Low::
 units () const
@@ -22805,7 +22811,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Buffer_Size
-//
+// 
 
 const Buffer_Size::units_type& Buffer_Size::
 units () const
@@ -22833,7 +22839,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // BMode_Size_Default
-//
+// 
 
 const BMode_Size_Default::units_type& BMode_Size_Default::
 units () const
@@ -22861,7 +22867,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Refresh_Rate
-//
+// 
 
 const Refresh_Rate::units_type& Refresh_Rate::
 units () const
@@ -22889,7 +22895,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Power_Size_Default
-//
+// 
 
 const Power_Size_Default::units_type& Power_Size_Default::
 units () const
@@ -22917,7 +22923,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Target_Field_Of_View
-//
+// 
 
 const Target_Field_Of_View::units_type& Target_Field_Of_View::
 units () const
@@ -22945,7 +22951,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Sound_Speed
-//
+// 
 
 const Sound_Speed::units_type& Sound_Speed::
 units () const
@@ -22973,7 +22979,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pipeline_Delay
-//
+// 
 
 const Pipeline_Delay::units_type& Pipeline_Delay::
 units () const
@@ -23001,7 +23007,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Center
-//
+// 
 
 const Center::units_type& Center::
 units () const
@@ -23029,7 +23035,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Scan_Speed
-//
+// 
 
 const V_Scan_Speed::units_type& V_Scan_Speed::
 units () const
@@ -23057,7 +23063,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Scan_Rate
-//
+// 
 
 const V_Scan_Rate::units_type& V_Scan_Rate::
 units () const
@@ -23085,7 +23091,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Scan_Width
-//
+// 
 
 const Scan_Width::units_type& Scan_Width::
 units () const
@@ -23113,7 +23119,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Position
-//
+// 
 
 const Position::units_type& Position::
 units () const
@@ -23141,7 +23147,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // R_Scan_Move_No_Wait
-//
+// 
 
 const R_Scan_Move_No_Wait::units_type& R_Scan_Move_No_Wait::
 units () const
@@ -23169,7 +23175,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Acceleration
-//
+// 
 
 const Acceleration::units_type& Acceleration::
 units () const
@@ -23197,7 +23203,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Velocity_Stationary
-//
+// 
 
 const Velocity_Stationary::units_type& Velocity_Stationary::
 units () const
@@ -23225,7 +23231,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // R_Scan_Move2
-//
+// 
 
 const R_Scan_Move2::units_type& R_Scan_Move2::
 units () const
@@ -23253,7 +23259,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Acceleration_Stationary
-//
+// 
 
 const Acceleration_Stationary::units_type& Acceleration_Stationary::
 units () const
@@ -23281,7 +23287,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Position_Reverse
-//
+// 
 
 const Position_Reverse::units_type& Position_Reverse::
 units () const
@@ -23309,7 +23315,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Position2
-//
+// 
 
 const Position2::units_type& Position2::
 units () const
@@ -23337,7 +23343,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Velocity
-//
+// 
 
 const Velocity::units_type& Velocity::
 units () const
@@ -23365,7 +23371,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // R_Scan_Move
-//
+// 
 
 const R_Scan_Move::units_type& R_Scan_Move::
 units () const
@@ -23393,7 +23399,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Position_Forward
-//
+// 
 
 const Position_Forward::units_type& Position_Forward::
 units () const
@@ -23421,7 +23427,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Monitor_3point3V
-//
+// 
 
 const Monitor_3point3V::units_type& Monitor_3point3V::
 units () const
@@ -23449,7 +23455,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Monitor_15V
-//
+// 
 
 const Monitor_15V::units_type& Monitor_15V::
 units () const
@@ -23477,7 +23483,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Monitor_5V
-//
+// 
 
 const Monitor_5V::units_type& Monitor_5V::
 units () const
@@ -23505,7 +23511,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Monitor_Neg15V
-//
+// 
 
 const Monitor_Neg15V::units_type& Monitor_Neg15V::
 units () const
@@ -23533,7 +23539,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Monitor_Neg5V
-//
+// 
 
 const Monitor_Neg5V::units_type& Monitor_Neg5V::
 units () const
@@ -23561,7 +23567,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Threshold_Change
-//
+// 
 
 const Respiration_Threshold_Change::units_type& Respiration_Threshold_Change::
 units () const
@@ -23589,7 +23595,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pressure_Range
-//
+// 
 
 const Pressure_Range::units_type& Pressure_Range::
 units () const
@@ -23617,7 +23623,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Gate_Delay
-//
+// 
 
 const Respiration_Gate_Delay::units_type& Respiration_Gate_Delay::
 units () const
@@ -23645,7 +23651,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Timeout
-//
+// 
 
 const Respiration_Timeout::units_type& Respiration_Timeout::
 units () const
@@ -23673,7 +23679,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RWave_Max_Change_Factor_Percent
-//
+// 
 
 const RWave_Max_Change_Factor_Percent::units_type& RWave_Max_Change_Factor_Percent::
 units () const
@@ -23701,7 +23707,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Period
-//
+// 
 
 const Respiration_Period::units_type& Respiration_Period::
 units () const
@@ -23729,7 +23735,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Subsample_Rate
-//
+// 
 
 const Respiration_Subsample_Rate::units_type& Respiration_Subsample_Rate::
 units () const
@@ -23757,7 +23763,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Window
-//
+// 
 
 const Respiration_Window::units_type& Respiration_Window::
 units () const
@@ -23785,7 +23791,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pressure_Systolic
-//
+// 
 
 const Pressure_Systolic::units_type& Pressure_Systolic::
 units () const
@@ -23813,7 +23819,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency1
-//
+// 
 
 const Frequency1::units_type& Frequency1::
 units () const
@@ -23841,7 +23847,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Blank_Period
-//
+// 
 
 const Respiration_Blank_Period::units_type& Respiration_Blank_Period::
 units () const
@@ -23869,7 +23875,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Range
-//
+// 
 
 const Respiration_Range::units_type& Respiration_Range::
 units () const
@@ -23897,7 +23903,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pressure_Zero
-//
+// 
 
 const Pressure_Zero::units_type& Pressure_Zero::
 units () const
@@ -23925,7 +23931,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // P_Wave_Start
-//
+// 
 
 const P_Wave_Start::units_type& P_Wave_Start::
 units () const
@@ -23953,7 +23959,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RWave_Future_Search_Time
-//
+// 
 
 const RWave_Future_Search_Time::units_type& RWave_Future_Search_Time::
 units () const
@@ -23981,7 +23987,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Percent_Peak
-//
+// 
 
 const Respiration_Percent_Peak::units_type& Respiration_Percent_Peak::
 units () const
@@ -24009,7 +24015,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // T_Wave_Start
-//
+// 
 
 const T_Wave_Start::units_type& T_Wave_Start::
 units () const
@@ -24037,7 +24043,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Strain_Rate_RR_Diff_Ratio
-//
+// 
 
 const Strain_Rate_RR_Diff_Ratio::units_type& Strain_Rate_RR_Diff_Ratio::
 units () const
@@ -24065,7 +24071,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pressure_Diastolic
-//
+// 
 
 const Pressure_Diastolic::units_type& Pressure_Diastolic::
 units () const
@@ -24093,7 +24099,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Temperature_Calibration
-//
+// 
 
 const Temperature_Calibration::units_type& Temperature_Calibration::
 units () const
@@ -24121,7 +24127,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Temperature
-//
+// 
 
 const Temperature::units_type& Temperature::
 units () const
@@ -24149,7 +24155,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Beats_To_Average
-//
+// 
 
 const Respiration_Beats_To_Average::units_type& Respiration_Beats_To_Average::
 units () const
@@ -24177,7 +24183,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RWave_Thresh_Trigger_Percent
-//
+// 
 
 const RWave_Thresh_Trigger_Percent::units_type& RWave_Thresh_Trigger_Percent::
 units () const
@@ -24205,7 +24211,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Time_To_Average
-//
+// 
 
 const Respiration_Time_To_Average::units_type& Respiration_Time_To_Average::
 units () const
@@ -24233,7 +24239,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Heart_Period
-//
+// 
 
 const Heart_Period::units_type& Heart_Period::
 units () const
@@ -24261,7 +24267,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // ECG_Range
-//
+// 
 
 const ECG_Range::units_type& ECG_Range::
 units () const
@@ -24289,7 +24295,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RWave_Maxima_Block_Time
-//
+// 
 
 const RWave_Maxima_Block_Time::units_type& RWave_Maxima_Block_Time::
 units () const
@@ -24317,7 +24323,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pressure_Calibration_Level
-//
+// 
 
 const Pressure_Calibration_Level::units_type& Pressure_Calibration_Level::
 units () const
@@ -24345,7 +24351,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // ECG_HP_Filter
-//
+// 
 
 const ECG_HP_Filter::units_type& ECG_HP_Filter::
 units () const
@@ -24373,7 +24379,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // ECG_LP_Filter
-//
+// 
 
 const ECG_LP_Filter::units_type& ECG_LP_Filter::
 units () const
@@ -24401,7 +24407,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RWave_Max_Change_Period
-//
+// 
 
 const RWave_Max_Change_Period::units_type& RWave_Max_Change_Period::
 units () const
@@ -24429,7 +24435,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pressure_Calibration
-//
+// 
 
 const Pressure_Calibration::units_type& Pressure_Calibration::
 units () const
@@ -24457,7 +24463,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RWave_Blank_Time
-//
+// 
 
 const RWave_Blank_Time::units_type& RWave_Blank_Time::
 units () const
@@ -24485,7 +24491,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Magnitude_Origin
-//
+// 
 
 const Magnitude_Origin::units_type& Magnitude_Origin::
 units () const
@@ -24513,7 +24519,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency_Origin
-//
+// 
 
 const Frequency_Origin::units_type& Frequency_Origin::
 units () const
@@ -24541,7 +24547,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Length_Origin
-//
+// 
 
 const Length_Origin::units_type& Length_Origin::
 units () const
@@ -24569,7 +24575,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Vertical_Scale
-//
+// 
 
 const Vertical_Scale::units_type& Vertical_Scale::
 units () const
@@ -24597,7 +24603,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // SamplesPerSec
-//
+// 
 
 const SamplesPerSec::units_type& SamplesPerSec::
 units () const
@@ -24625,7 +24631,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Magnitude_Height
-//
+// 
 
 const Magnitude_Height::units_type& Magnitude_Height::
 units () const
@@ -24653,7 +24659,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Length_Length
-//
+// 
 
 const Length_Length::units_type& Length_Length::
 units () const
@@ -24681,7 +24687,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency_Length
-//
+// 
 
 const Frequency_Length::units_type& Frequency_Length::
 units () const
@@ -24709,7 +24715,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // SV_Center
-//
+// 
 
 const SV_Center::units_type& SV_Center::
 units () const
@@ -24737,7 +24743,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RF_Path_15Mhz_Time_Correction
-//
+// 
 
 const RF_Path_15Mhz_Time_Correction::units_type& RF_Path_15Mhz_Time_Correction::
 units () const
@@ -24765,7 +24771,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RF_Path_23Mhz_Time_Correction
-//
+// 
 
 const RF_Path_23Mhz_Time_Correction::units_type& RF_Path_23Mhz_Time_Correction::
 units () const
@@ -24793,7 +24799,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // SV_Length_Limits
-//
+// 
 
 const SV_Length_Limits::units_type& SV_Length_Limits::
 units () const
@@ -24821,7 +24827,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Transmit_Length
-//
+// 
 
 const V_Transmit_Length::units_type& V_Transmit_Length::
 units () const
@@ -24849,7 +24855,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Pulse_Rep_Freq
-//
+// 
 
 const V_Pulse_Rep_Freq::units_type& V_Pulse_Rep_Freq::
 units () const
@@ -24877,7 +24883,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency2
-//
+// 
 
 const Frequency2::units_type& Frequency2::
 units () const
@@ -24905,7 +24911,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Unblank_Time
-//
+// 
 
 const V_Unblank_Time::units_type& V_Unblank_Time::
 units () const
@@ -24933,7 +24939,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Frequency
-//
+// 
 
 const V_Frequency::units_type& V_Frequency::
 units () const
@@ -24961,7 +24967,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pulse_Rep_Frequency
-//
+// 
 
 const Pulse_Rep_Frequency::units_type& Pulse_Rep_Frequency::
 units () const
@@ -24989,7 +24995,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Trig_Tbl_Trigs
-//
+// 
 
 const Trig_Tbl_Trigs::units_type& Trig_Tbl_Trigs::
 units () const
@@ -25017,7 +25023,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Unblank_Cycles
-//
+// 
 
 const Unblank_Cycles::units_type& Unblank_Cycles::
 units () const
@@ -25045,7 +25051,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Unblank_Time
-//
+// 
 
 const Unblank_Time::units_type& Unblank_Time::
 units () const
@@ -25073,7 +25079,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Attenuation
-//
+// 
 
 const Attenuation::units_type& Attenuation::
 units () const
@@ -25101,7 +25107,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Power
-//
+// 
 
 const V_Power::units_type& V_Power::
 units () const
@@ -25129,7 +25135,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Scan_Distance
-//
+// 
 
 const Scan_Distance::units_type& Scan_Distance::
 units () const
@@ -25157,7 +25163,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Step_Size
-//
+// 
 
 const Step_Size::units_type& Step_Size::
 units () const
@@ -25185,7 +25191,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Ref_Probe_Focal_Length
-//
+// 
 
 const Ref_Probe_Focal_Length::units_type& Ref_Probe_Focal_Length::
 units () const
@@ -25213,7 +25219,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Ref_Tx_Frequency
-//
+// 
 
 const Ref_Tx_Frequency::units_type& Ref_Tx_Frequency::
 units () const
@@ -25241,7 +25247,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Normalized_Height
-//
+// 
 
 const Normalized_Height::units_type& Normalized_Height::
 units () const
@@ -25269,7 +25275,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Normalized_Origin
-//
+// 
 
 const Normalized_Origin::units_type& Normalized_Origin::
 units () const
@@ -25297,7 +25303,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Ref_Tx_Power
-//
+// 
 
 const Ref_Tx_Power::units_type& Ref_Tx_Power::
 units () const
@@ -25325,7 +25331,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Freq_Range_Max
-//
+// 
 
 const Freq_Range_Max::units_type& Freq_Range_Max::
 units () const
@@ -25353,7 +25359,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Freq_Range_Min
-//
+// 
 
 const Freq_Range_Min::units_type& Freq_Range_Min::
 units () const
@@ -25381,7 +25387,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Sector_Width_Target
-//
+// 
 
 const Sector_Width_Target::units_type& Sector_Width_Target::
 units () const
@@ -25409,7 +25415,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RF_Gain
-//
+// 
 
 const RF_Gain::units_type& RF_Gain::
 units () const
@@ -25437,7 +25443,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Digi_Depth_Imaging
-//
+// 
 
 const V_Digi_Depth_Imaging::units_type& V_Digi_Depth_Imaging::
 units () const
@@ -25465,7 +25471,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Test_Freq
-//
+// 
 
 const Test_Freq::units_type& Test_Freq::
 units () const
@@ -25493,7 +25499,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // IF_Filter
-//
+// 
 
 const IF_Filter::units_type& IF_Filter::
 units () const
@@ -25521,7 +25527,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Track_Width
-//
+// 
 
 const Track_Width::units_type& Track_Width::
 units () const
@@ -25549,7 +25555,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_IF_Filter
-//
+// 
 
 const V_IF_Filter::units_type& V_IF_Filter::
 units () const
@@ -25577,7 +25583,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // HP_Clutter
-//
+// 
 
 const HP_Clutter::units_type& HP_Clutter::
 units () const
@@ -25605,7 +25611,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RF_Filter
-//
+// 
 
 const RF_Filter::units_type& RF_Filter::
 units () const
@@ -25633,7 +25639,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_RF_Filter
-//
+// 
 
 const V_RF_Filter::units_type& V_RF_Filter::
 units () const
@@ -25661,7 +25667,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Delay
-//
+// 
 
 const Delay::units_type& Delay::
 units () const
@@ -25689,7 +25695,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // AD_Gate_Width
-//
+// 
 
 const AD_Gate_Width::units_type& AD_Gate_Width::
 units () const
@@ -25717,7 +25723,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency3
-//
+// 
 
 const Frequency3::units_type& Frequency3::
 units () const
@@ -25745,7 +25751,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Frequency1
-//
+// 
 
 const V_Frequency1::units_type& V_Frequency1::
 units () const
@@ -25773,7 +25779,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Field_Of_View
-//
+// 
 
 const V_Field_Of_View::units_type& V_Field_Of_View::
 units () const
@@ -25801,7 +25807,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Sector_Height_Target
-//
+// 
 
 const Sector_Height_Target::units_type& Sector_Height_Target::
 units () const
@@ -25829,7 +25835,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // AD_TestIn
-//
+// 
 
 const AD_TestIn::units_type& AD_TestIn::
 units () const
@@ -25857,7 +25863,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Delay_Length
-//
+// 
 
 const V_Delay_Length::units_type& V_Delay_Length::
 units () const
@@ -25885,7 +25891,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Window_Time
-//
+// 
 
 const Window_Time::units_type& Window_Time::
 units () const
@@ -25913,7 +25919,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Sample_Time1
-//
+// 
 
 const Sample_Time1::units_type& Sample_Time1::
 units () const
@@ -25941,7 +25947,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Focal_Length1
-//
+// 
 
 const Focal_Length1::units_type& Focal_Length1::
 units () const
@@ -25969,7 +25975,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Default_Scan_Speed1
-//
+// 
 
 const Default_Scan_Speed1::units_type& Default_Scan_Speed1::
 units () const
@@ -25997,7 +26003,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Cutoff_Scan_Speed1
-//
+// 
 
 const Cutoff_Scan_Speed1::units_type& Cutoff_Scan_Speed1::
 units () const
@@ -26025,7 +26031,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency_Low1
-//
+// 
 
 const Frequency_Low1::units_type& Frequency_Low1::
 units () const
@@ -26053,7 +26059,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Default_FOV1
-//
+// 
 
 const Default_FOV1::units_type& Default_FOV1::
 units () const
@@ -26081,7 +26087,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency_Doppler_Default1
-//
+// 
 
 const Frequency_Doppler_Default1::units_type& Frequency_Doppler_Default1::
 units () const
@@ -26109,7 +26115,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Axial_Res1
-//
+// 
 
 const Axial_Res1::units_type& Axial_Res1::
 units () const
@@ -26137,7 +26143,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pivot_Encoder_Dist1
-//
+// 
 
 const Pivot_Encoder_Dist1::units_type& Pivot_Encoder_Dist1::
 units () const
@@ -26165,7 +26171,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Encoder_Range_Max1
-//
+// 
 
 const Encoder_Range_Max1::units_type& Encoder_Range_Max1::
 units () const
@@ -26193,7 +26199,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Encoder_Range_Min1
-//
+// 
 
 const Encoder_Range_Min1::units_type& Encoder_Range_Min1::
 units () const
@@ -26221,7 +26227,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Lateral_Res1
-//
+// 
 
 const Lateral_Res1::units_type& Lateral_Res1::
 units () const
@@ -26249,7 +26255,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Max_Scan_Distance1
-//
+// 
 
 const Max_Scan_Distance1::units_type& Max_Scan_Distance1::
 units () const
@@ -26277,7 +26283,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Default_Rx_Gain1
-//
+// 
 
 const Default_Rx_Gain1::units_type& Default_Rx_Gain1::
 units () const
@@ -26305,7 +26311,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency_High1
-//
+// 
 
 const Frequency_High1::units_type& Frequency_High1::
 units () const
@@ -26333,7 +26339,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Scan_Speeds1
-//
+// 
 
 const Scan_Speeds1::units_type& Scan_Speeds1::
 units () const
@@ -26361,7 +26367,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Filter_Doppler_Cutoff1
-//
+// 
 
 const Filter_Doppler_Cutoff1::units_type& Filter_Doppler_Cutoff1::
 units () const
@@ -26389,7 +26395,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency_Doppler_Low1
-//
+// 
 
 const Frequency_Doppler_Low1::units_type& Frequency_Doppler_Low1::
 units () const
@@ -26417,7 +26423,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pivot_Transducer_Face_Dist1
-//
+// 
 
 const Pivot_Transducer_Face_Dist1::units_type& Pivot_Transducer_Face_Dist1::
 units () const
@@ -26445,7 +26451,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Filter_Doppler1
-//
+// 
 
 const Filter_Doppler1::units_type& Filter_Doppler1::
 units () const
@@ -26473,7 +26479,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency4
-//
+// 
 
 const Frequency4::units_type& Frequency4::
 units () const
@@ -26501,7 +26507,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Encoder_Separation1
-//
+// 
 
 const Encoder_Separation1::units_type& Encoder_Separation1::
 units () const
@@ -26529,7 +26535,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Overshoot1
-//
+// 
 
 const Overshoot1::units_type& Overshoot1::
 units () const
@@ -26557,7 +26563,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Filter1
-//
+// 
 
 const Filter1::units_type& Filter1::
 units () const
@@ -26585,7 +26591,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Default_Rx_Gain_Doppler1
-//
+// 
 
 const Default_Rx_Gain_Doppler1::units_type& Default_Rx_Gain_Doppler1::
 units () const
@@ -26613,7 +26619,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Filter_Doppler_Low1
-//
+// 
 
 const Filter_Doppler_Low1::units_type& Filter_Doppler_Low1::
 units () const
@@ -26641,7 +26647,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency_Doppler1
-//
+// 
 
 const Frequency_Doppler1::units_type& Frequency_Doppler1::
 units () const
@@ -26669,7 +26675,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Filter_High1
-//
+// 
 
 const Filter_High1::units_type& Filter_High1::
 units () const
@@ -26697,7 +26703,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Motor_Overhead1
-//
+// 
 
 const Motor_Overhead1::units_type& Motor_Overhead1::
 units () const
@@ -26725,7 +26731,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Filter_Low1
-//
+// 
 
 const Filter_Low1::units_type& Filter_Low1::
 units () const
@@ -26753,7 +26759,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Buffer_Size1
-//
+// 
 
 const Buffer_Size1::units_type& Buffer_Size1::
 units () const
@@ -26781,7 +26787,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // BMode_Size_Default1
-//
+// 
 
 const BMode_Size_Default1::units_type& BMode_Size_Default1::
 units () const
@@ -26809,7 +26815,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Overlay_Mode
-//
+// 
 
 const Overlay_Mode::units_type& Overlay_Mode::
 units () const
@@ -26837,7 +26843,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Refresh_Rate1
-//
+// 
 
 const Refresh_Rate1::units_type& Refresh_Rate1::
 units () const
@@ -26865,7 +26871,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Acquisition_Mode
-//
+// 
 
 const Acquisition_Mode::units_type& Acquisition_Mode::
 units () const
@@ -26893,7 +26899,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Actual_Scan_Rate
-//
+// 
 
 const Actual_Scan_Rate::units_type& Actual_Scan_Rate::
 units () const
@@ -26921,7 +26927,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Sector_X_Res
-//
+// 
 
 const Sector_X_Res::units_type& Sector_X_Res::
 units () const
@@ -26949,7 +26955,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Sector_Y_Res
-//
+// 
 
 const Sector_Y_Res::units_type& Sector_Y_Res::
 units () const
@@ -26977,7 +26983,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Power_Size_Default1
-//
+// 
 
 const Power_Size_Default1::units_type& Power_Size_Default1::
 units () const
@@ -27005,7 +27011,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Sector_X_Start
-//
+// 
 
 const Sector_X_Start::units_type& Sector_X_Start::
 units () const
@@ -27033,7 +27039,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Sector_Y_Start
-//
+// 
 
 const Sector_Y_Start::units_type& Sector_Y_Start::
 units () const
@@ -27061,7 +27067,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Target_Field_Of_View1
-//
+// 
 
 const Target_Field_Of_View1::units_type& Target_Field_Of_View1::
 units () const
@@ -27089,7 +27095,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Sound_Speed1
-//
+// 
 
 const Sound_Speed1::units_type& Sound_Speed1::
 units () const
@@ -27117,7 +27123,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pipeline_Delay1
-//
+// 
 
 const Pipeline_Delay1::units_type& Pipeline_Delay1::
 units () const
@@ -27145,7 +27151,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Reference_3D_Step_Size
-//
+// 
 
 const Reference_3D_Step_Size::units_type& Reference_3D_Step_Size::
 units () const
@@ -27173,7 +27179,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Contrast_Size_Default
-//
+// 
 
 const Contrast_Size_Default::units_type& Contrast_Size_Default::
 units () const
@@ -27201,7 +27207,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Reference_3D_Scan_Distance
-//
+// 
 
 const Reference_3D_Scan_Distance::units_type& Reference_3D_Scan_Distance::
 units () const
@@ -27229,7 +27235,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Center1
-//
+// 
 
 const Center1::units_type& Center1::
 units () const
@@ -27257,7 +27263,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Scan_Speed1
-//
+// 
 
 const V_Scan_Speed1::units_type& V_Scan_Speed1::
 units () const
@@ -27285,7 +27291,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Scan_Rate1
-//
+// 
 
 const V_Scan_Rate1::units_type& V_Scan_Rate1::
 units () const
@@ -27313,7 +27319,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Scan_Width1
-//
+// 
 
 const Scan_Width1::units_type& Scan_Width1::
 units () const
@@ -27341,7 +27347,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Position1
-//
+// 
 
 const Position1::units_type& Position1::
 units () const
@@ -27369,7 +27375,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // R_Scan_Move_No_Wait1
-//
+// 
 
 const R_Scan_Move_No_Wait1::units_type& R_Scan_Move_No_Wait1::
 units () const
@@ -27397,7 +27403,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Acceleration1
-//
+// 
 
 const Acceleration1::units_type& Acceleration1::
 units () const
@@ -27425,7 +27431,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Velocity_Stationary1
-//
+// 
 
 const Velocity_Stationary1::units_type& Velocity_Stationary1::
 units () const
@@ -27453,7 +27459,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // R_Scan_Move21
-//
+// 
 
 const R_Scan_Move21::units_type& R_Scan_Move21::
 units () const
@@ -27481,7 +27487,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Position_Reverse1
-//
+// 
 
 const Position_Reverse1::units_type& Position_Reverse1::
 units () const
@@ -27509,7 +27515,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Position21
-//
+// 
 
 const Position21::units_type& Position21::
 units () const
@@ -27537,7 +27543,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Velocity1
-//
+// 
 
 const Velocity1::units_type& Velocity1::
 units () const
@@ -27565,7 +27571,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // R_Scan_Move1
-//
+// 
 
 const R_Scan_Move1::units_type& R_Scan_Move1::
 units () const
@@ -27593,7 +27599,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Position_Forward1
-//
+// 
 
 const Position_Forward1::units_type& Position_Forward1::
 units () const
@@ -27621,7 +27627,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Acceleration_Stationary1
-//
+// 
 
 const Acceleration_Stationary1::units_type& Acceleration_Stationary1::
 units () const
@@ -27649,7 +27655,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Monitor_3point3V1
-//
+// 
 
 const Monitor_3point3V1::units_type& Monitor_3point3V1::
 units () const
@@ -27677,7 +27683,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Monitor_5V1
-//
+// 
 
 const Monitor_5V1::units_type& Monitor_5V1::
 units () const
@@ -27705,7 +27711,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Monitor_Neg15V1
-//
+// 
 
 const Monitor_Neg15V1::units_type& Monitor_Neg15V1::
 units () const
@@ -27733,7 +27739,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Monitor_Neg5V1
-//
+// 
 
 const Monitor_Neg5V1::units_type& Monitor_Neg5V1::
 units () const
@@ -27761,7 +27767,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Monitor_15V1
-//
+// 
 
 const Monitor_15V1::units_type& Monitor_15V1::
 units () const
@@ -27789,7 +27795,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Threshold_Change1
-//
+// 
 
 const Respiration_Threshold_Change1::units_type& Respiration_Threshold_Change1::
 units () const
@@ -27817,7 +27823,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pressure_Range1
-//
+// 
 
 const Pressure_Range1::units_type& Pressure_Range1::
 units () const
@@ -27845,7 +27851,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Gate_Delay1
-//
+// 
 
 const Respiration_Gate_Delay1::units_type& Respiration_Gate_Delay1::
 units () const
@@ -27873,7 +27879,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Timeout1
-//
+// 
 
 const Respiration_Timeout1::units_type& Respiration_Timeout1::
 units () const
@@ -27901,7 +27907,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RWave_Max_Change_Factor_Percent1
-//
+// 
 
 const RWave_Max_Change_Factor_Percent1::units_type& RWave_Max_Change_Factor_Percent1::
 units () const
@@ -27929,7 +27935,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Period1
-//
+// 
 
 const Respiration_Period1::units_type& Respiration_Period1::
 units () const
@@ -27957,7 +27963,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Subsample_Rate1
-//
+// 
 
 const Respiration_Subsample_Rate1::units_type& Respiration_Subsample_Rate1::
 units () const
@@ -27985,7 +27991,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Window1
-//
+// 
 
 const Respiration_Window1::units_type& Respiration_Window1::
 units () const
@@ -28013,7 +28019,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pressure_Systolic1
-//
+// 
 
 const Pressure_Systolic1::units_type& Pressure_Systolic1::
 units () const
@@ -28041,7 +28047,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency5
-//
+// 
 
 const Frequency5::units_type& Frequency5::
 units () const
@@ -28069,7 +28075,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Blank_Period1
-//
+// 
 
 const Respiration_Blank_Period1::units_type& Respiration_Blank_Period1::
 units () const
@@ -28097,7 +28103,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Range1
-//
+// 
 
 const Respiration_Range1::units_type& Respiration_Range1::
 units () const
@@ -28125,7 +28131,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pressure_Zero1
-//
+// 
 
 const Pressure_Zero1::units_type& Pressure_Zero1::
 units () const
@@ -28153,7 +28159,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // P_Wave_Start1
-//
+// 
 
 const P_Wave_Start1::units_type& P_Wave_Start1::
 units () const
@@ -28181,7 +28187,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Percent_Peak1
-//
+// 
 
 const Respiration_Percent_Peak1::units_type& Respiration_Percent_Peak1::
 units () const
@@ -28209,7 +28215,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // T_Wave_Start1
-//
+// 
 
 const T_Wave_Start1::units_type& T_Wave_Start1::
 units () const
@@ -28237,7 +28243,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Strain_Rate_RR_Diff_Ratio1
-//
+// 
 
 const Strain_Rate_RR_Diff_Ratio1::units_type& Strain_Rate_RR_Diff_Ratio1::
 units () const
@@ -28265,7 +28271,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pressure_Diastolic1
-//
+// 
 
 const Pressure_Diastolic1::units_type& Pressure_Diastolic1::
 units () const
@@ -28293,7 +28299,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Temperature_Calibration1
-//
+// 
 
 const Temperature_Calibration1::units_type& Temperature_Calibration1::
 units () const
@@ -28321,7 +28327,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Temperature1
-//
+// 
 
 const Temperature1::units_type& Temperature1::
 units () const
@@ -28349,7 +28355,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Beats_To_Average1
-//
+// 
 
 const Respiration_Beats_To_Average1::units_type& Respiration_Beats_To_Average1::
 units () const
@@ -28377,7 +28383,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RWave_Thresh_Trigger_Percent1
-//
+// 
 
 const RWave_Thresh_Trigger_Percent1::units_type& RWave_Thresh_Trigger_Percent1::
 units () const
@@ -28405,7 +28411,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Respiration_Time_To_Average1
-//
+// 
 
 const Respiration_Time_To_Average1::units_type& Respiration_Time_To_Average1::
 units () const
@@ -28433,7 +28439,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Heart_Period1
-//
+// 
 
 const Heart_Period1::units_type& Heart_Period1::
 units () const
@@ -28461,7 +28467,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // ECG_Range1
-//
+// 
 
 const ECG_Range1::units_type& ECG_Range1::
 units () const
@@ -28489,7 +28495,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RWave_Maxima_Block_Time1
-//
+// 
 
 const RWave_Maxima_Block_Time1::units_type& RWave_Maxima_Block_Time1::
 units () const
@@ -28517,7 +28523,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pressure_Calibration_Level1
-//
+// 
 
 const Pressure_Calibration_Level1::units_type& Pressure_Calibration_Level1::
 units () const
@@ -28545,7 +28551,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // ECG_HP_Filter1
-//
+// 
 
 const ECG_HP_Filter1::units_type& ECG_HP_Filter1::
 units () const
@@ -28573,7 +28579,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // ECG_LP_Filter1
-//
+// 
 
 const ECG_LP_Filter1::units_type& ECG_LP_Filter1::
 units () const
@@ -28601,7 +28607,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RWave_Max_Change_Period1
-//
+// 
 
 const RWave_Max_Change_Period1::units_type& RWave_Max_Change_Period1::
 units () const
@@ -28629,7 +28635,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pressure_Calibration1
-//
+// 
 
 const Pressure_Calibration1::units_type& Pressure_Calibration1::
 units () const
@@ -28657,7 +28663,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RWave_Blank_Time1
-//
+// 
 
 const RWave_Blank_Time1::units_type& RWave_Blank_Time1::
 units () const
@@ -28685,7 +28691,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RWave_Future_Search_Time1
-//
+// 
 
 const RWave_Future_Search_Time1::units_type& RWave_Future_Search_Time1::
 units () const
@@ -28713,7 +28719,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Transmit_Length1
-//
+// 
 
 const V_Transmit_Length1::units_type& V_Transmit_Length1::
 units () const
@@ -28741,7 +28747,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Pulse_Rep_Freq1
-//
+// 
 
 const V_Pulse_Rep_Freq1::units_type& V_Pulse_Rep_Freq1::
 units () const
@@ -28769,7 +28775,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency6
-//
+// 
 
 const Frequency6::units_type& Frequency6::
 units () const
@@ -28797,7 +28803,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Unblank_Time1
-//
+// 
 
 const V_Unblank_Time1::units_type& V_Unblank_Time1::
 units () const
@@ -28825,7 +28831,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Frequency2
-//
+// 
 
 const V_Frequency2::units_type& V_Frequency2::
 units () const
@@ -28853,7 +28859,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Pulse_Rep_Frequency1
-//
+// 
 
 const Pulse_Rep_Frequency1::units_type& Pulse_Rep_Frequency1::
 units () const
@@ -28881,7 +28887,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Trig_Tbl_Trigs1
-//
+// 
 
 const Trig_Tbl_Trigs1::units_type& Trig_Tbl_Trigs1::
 units () const
@@ -28909,7 +28915,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Unblank_Cycles1
-//
+// 
 
 const Unblank_Cycles1::units_type& Unblank_Cycles1::
 units () const
@@ -28937,7 +28943,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Unblank_Time1
-//
+// 
 
 const Unblank_Time1::units_type& Unblank_Time1::
 units () const
@@ -28965,7 +28971,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Attenuation1
-//
+// 
 
 const Attenuation1::units_type& Attenuation1::
 units () const
@@ -28993,7 +28999,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Power1
-//
+// 
 
 const V_Power1::units_type& V_Power1::
 units () const
@@ -29021,7 +29027,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frames
-//
+// 
 
 const Frames::units_type& Frames::
 units () const
@@ -29049,7 +29055,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frame_Rate
-//
+// 
 
 const Frame_Rate::units_type& Frame_Rate::
 units () const
@@ -29077,7 +29083,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Tx_PRF
-//
+// 
 
 const Tx_PRF::units_type& Tx_PRF::
 units () const
@@ -29105,7 +29111,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Tx_Power
-//
+// 
 
 const Tx_Power::units_type& Tx_Power::
 units () const
@@ -29133,7 +29139,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Duration
-//
+// 
 
 const Duration::units_type& Duration::
 units () const
@@ -29161,7 +29167,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Tx_Frequency
-//
+// 
 
 const Tx_Frequency::units_type& Tx_Frequency::
 units () const
@@ -29189,7 +29195,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Destroy_Sequence_Position
-//
+// 
 
 const Destroy_Sequence_Position::units_type& Destroy_Sequence_Position::
 units () const
@@ -29217,7 +29223,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Scan_Distance1
-//
+// 
 
 const Scan_Distance1::units_type& Scan_Distance1::
 units () const
@@ -29245,7 +29251,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Step_Size1
-//
+// 
 
 const Step_Size1::units_type& Step_Size1::
 units () const
@@ -29273,7 +29279,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Parallel_Step_Size
-//
+// 
 
 const Parallel_Step_Size::units_type& Parallel_Step_Size::
 units () const
@@ -29301,7 +29307,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Sector_Width_Target1
-//
+// 
 
 const Sector_Width_Target1::units_type& Sector_Width_Target1::
 units () const
@@ -29329,7 +29335,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RF_Gain1
-//
+// 
 
 const RF_Gain1::units_type& RF_Gain1::
 units () const
@@ -29357,7 +29363,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Digi_Depth_Imaging1
-//
+// 
 
 const V_Digi_Depth_Imaging1::units_type& V_Digi_Depth_Imaging1::
 units () const
@@ -29385,7 +29391,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Test_Freq1
-//
+// 
 
 const Test_Freq1::units_type& Test_Freq1::
 units () const
@@ -29413,7 +29419,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // RF_Filter1
-//
+// 
 
 const RF_Filter1::units_type& RF_Filter1::
 units () const
@@ -29441,7 +29447,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_RF_Filter1
-//
+// 
 
 const V_RF_Filter1::units_type& V_RF_Filter1::
 units () const
@@ -29469,7 +29475,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Delay1
-//
+// 
 
 const Delay1::units_type& Delay1::
 units () const
@@ -29497,7 +29503,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // AD_Gate_Width1
-//
+// 
 
 const AD_Gate_Width1::units_type& AD_Gate_Width1::
 units () const
@@ -29525,7 +29531,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Frequency7
-//
+// 
 
 const Frequency7::units_type& Frequency7::
 units () const
@@ -29553,7 +29559,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Frequency3
-//
+// 
 
 const V_Frequency3::units_type& V_Frequency3::
 units () const
@@ -29581,7 +29587,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Field_Of_View1
-//
+// 
 
 const V_Field_Of_View1::units_type& V_Field_Of_View1::
 units () const
@@ -29609,7 +29615,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Sector_Height_Target1
-//
+// 
 
 const Sector_Height_Target1::units_type& Sector_Height_Target1::
 units () const
@@ -29637,7 +29643,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // AD_TestIn1
-//
+// 
 
 const AD_TestIn1::units_type& AD_TestIn1::
 units () const
@@ -29665,7 +29671,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_Delay_Length1
-//
+// 
 
 const V_Delay_Length1::units_type& V_Delay_Length1::
 units () const
@@ -29693,7 +29699,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // IF_Filter1
-//
+// 
 
 const IF_Filter1::units_type& IF_Filter1::
 units () const
@@ -29721,7 +29727,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Track_Width1
-//
+// 
 
 const Track_Width1::units_type& Track_Width1::
 units () const
@@ -29749,7 +29755,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // V_IF_Filter1
-//
+// 
 
 const V_IF_Filter1::units_type& V_IF_Filter1::
 units () const
@@ -29777,7 +29783,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // HP_Clutter1
-//
+// 
 
 const HP_Clutter1::units_type& HP_Clutter1::
 units () const
@@ -29805,7 +29811,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // Window_Time1
-//
+// 
 
 const Window_Time1::units_type& Window_Time1::
 units () const
@@ -29833,7 +29839,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // EKV_Start
-//
+// 
 
 const EKV_Start::units_type& EKV_Start::
 units () const
@@ -29861,7 +29867,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // EKV_Stop
-//
+// 
 
 const EKV_Stop::units_type& EKV_Stop::
 units () const
@@ -29889,7 +29895,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // EKV_Quality_Times
-//
+// 
 
 const EKV_Quality_Times::units_type& EKV_Quality_Times::
 units () const
@@ -29917,7 +29923,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // EKV_Quality
-//
+// 
 
 const EKV_Quality::units_type& EKV_Quality::
 units () const
@@ -29945,7 +29951,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // EKV_Quality_Resolution
-//
+// 
 
 const EKV_Quality_Resolution::units_type& EKV_Quality_Resolution::
 units () const
@@ -29973,7 +29979,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // EKV_Variance
-//
+// 
 
 const EKV_Variance::units_type& EKV_Variance::
 units () const
@@ -30001,7 +30007,7 @@ units (::std::auto_ptr< units_type > x)
 
 
 // EKV_Triggers
-//
+// 
 
 const EKV_Triggers::units_type& EKV_Triggers::
 units () const
@@ -30035,7 +30041,6 @@ units (::std::auto_ptr< units_type > x)
 
 image_info_t::
 image_info_t (const Study_Name_type& Study_Name,
-              const Image_Id_type& Image_Id,
               const Image_Label_type& Image_Label,
               const Image_Frames_type& Image_Frames,
               const Image_Lines_type& Image_Lines,
@@ -30048,7 +30053,7 @@ image_info_t (const Study_Name_type& Study_Name,
               const Acquisition_Operator_type& Acquisition_Operator)
 : ::xml_schema::type (),
   Study_Name_ (Study_Name, ::xml_schema::flags (), this),
-  Image_Id_ (Image_Id, ::xml_schema::flags (), this),
+  Image_Id_ (::xml_schema::flags (), this),
   Image_Label_ (Image_Label, ::xml_schema::flags (), this),
   Image_Frames_ (Image_Frames, ::xml_schema::flags (), this),
   Image_Lines_ (Image_Lines, ::xml_schema::flags (), this),
@@ -30138,7 +30143,7 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       ::std::auto_ptr< Image_Id_type > r (
         Image_Id_traits::create (i, f, this));
 
-      if (!Image_Id_.present ())
+      if (!this->Image_Id_)
       {
         this->Image_Id_.set (r);
         continue;
@@ -30280,13 +30285,6 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
   {
     throw ::xsd::cxx::tree::expected_element< char > (
       "Study_Name",
-      "");
-  }
-
-  if (!Image_Id_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "Image_Id",
       "");
   }
 
@@ -81806,7 +81804,11 @@ EKV_Triggers::
 operator<< (::std::ostream& o, const image_info_t& i)
 {
   o << ::std::endl << "Study_Name: " << i.Study_Name ();
-  o << ::std::endl << "Image_Id: " << i.Image_Id ();
+  if (i.Image_Id ())
+  {
+    o << ::std::endl << "Image_Id: " << *i.Image_Id ();
+  }
+
   o << ::std::endl << "Image_Label: " << i.Image_Label ();
   o << ::std::endl << "Image_Frames: " << i.Image_Frames ();
   o << ::std::endl << "Image_Lines: " << i.Image_Lines ();
@@ -85836,13 +85838,14 @@ operator<< (::xercesc::DOMElement& e, const image_info_t& i)
 
   // Image_Id
   //
+  if (i.Image_Id ())
   {
     ::xercesc::DOMElement& s (
       ::xsd::cxx::xml::dom::create_element (
         "Image_Id",
         e));
 
-    s << i.Image_Id ();
+    s << *i.Image_Id ();
   }
 
   // Image_Label

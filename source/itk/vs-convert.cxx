@@ -99,7 +99,7 @@ Args parse_args( int argc, char* argv[] )
   command.SetOptionLongTag("frame_num", "frame");
   command.AddOptionField("frame_num", "num", MetaCommand::INT, true);
 
-  command.SetDescription("Read an VisualSonics file from the Seimens machine and convert it into an ITK supported image format");
+  command.SetDescription("Read an VisualSonics Raw Data file and convert it into an ITK supported image format");
 
   if( !command.Parse(argc, argv) )
     {

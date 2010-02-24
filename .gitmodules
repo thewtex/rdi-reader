@@ -1,3 +1,3 @@
-[submodule "data"]
-	path = tests/data
-	url = git://128.104.2.60/test_data
+[submodule "tests/data/input"]
+	path = tests/data/input
+	url = git://gitorious.org/ultrasound-b-mode/visualsonics-test-data.git

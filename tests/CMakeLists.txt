@@ -2,7 +2,7 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 set(RDI_TESTING_FILEPATH
-  ${RDI_READER_SOURCE_DIR}/tests/data/machine/visualsonics/vevo770/rmv710b/uniform_phantom_0dB_2.rdi
+  ${RDI_READER_SOURCE_DIR}/tests/data/input/us_uniform_phantom_w_surface.rdi
   )
 
 if(ANALYZE_RDI_FORMAT)

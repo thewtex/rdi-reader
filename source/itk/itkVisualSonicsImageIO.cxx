@@ -1,6 +1,7 @@
 #include "itkVisualSonicsImageIO.h"
 
 #include <fstream>
+#include <iomanip>
 
 #include "itkArray.h"
 #include "itkMetaDataObject.h"
@@ -104,18 +105,20 @@ ReadImageInformation()
 
   itk::MetaDataDictionary& thisMetaDict = this->GetMetaDataDictionary();
 
-  itk::EncapsulateMetaData< double >( thisMetaDict, "Radius",
-    static_cast< double >(
+  double radius = static_cast< double >(
       ( m_rdi->image_parameters().RF_Mode().ActiveProbe().Pivot_Transducer_Face_Dist() +
       m_rdi->image_parameters().RF_Mode().RX().V_Delay_Length() )
-      * 0.001
-      )
-  );
+      * 0.001 );
+  itk::EncapsulateMetaData< double >( thisMetaDict, "Radius", radius );
+  std::ostringstream radiusStringOstrm;
+  radiusStringOstrm << std::setprecision(20) << radius;
+  itk::EncapsulateMetaData< std::string >( thisMetaDict, "RadiusString", radiusStringOstrm.str() );
 
   typedef itk::Array< double > ThetaType;
   ThetaType theta( this->m_Dimensions[1] );
   std::string encoderPosStr( m_rdi->image_parameters().RF_Mode().RfModeSoft().V_Lines_Pos());
   std::replace( encoderPosStr.begin(), encoderPosStr.end(), ',', ' ' );
+  itk::EncapsulateMetaData< std::string >( thisMetaDict, "ThetaString", encoderPosStr );
   std::istringstream encoderPosIstrm( encoderPosStr );
   double encoderPos;
   double pivotToEncoderDist = m_rdi->image_parameters().RF_Mode().ActiveProbe().Pivot_Encoder_Dist();

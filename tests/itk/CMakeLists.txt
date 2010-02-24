@@ -56,5 +56,5 @@ add_test( vs-convert-b-mode-series
 add_test( vs-convert
   ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/vs-convert
   ${RDI_TESTING_FILEPATH}
-  -o vs-covert_output.mhd
+  -o vs-convert_output.nrrd
   )

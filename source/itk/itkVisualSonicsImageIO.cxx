@@ -118,15 +118,18 @@ ReadImageInformation()
   ThetaType theta( this->m_Dimensions[1] );
   std::string encoderPosStr( m_rdi->image_parameters().RF_Mode().RfModeSoft().V_Lines_Pos());
   std::replace( encoderPosStr.begin(), encoderPosStr.end(), ',', ' ' );
-  itk::EncapsulateMetaData< std::string >( thisMetaDict, "ThetaString", encoderPosStr );
   std::istringstream encoderPosIstrm( encoderPosStr );
   double encoderPos;
   double pivotToEncoderDist = m_rdi->image_parameters().RF_Mode().ActiveProbe().Pivot_Encoder_Dist();
+  ostringstream thetaOstrm;
+  thetaOstrm.precision( 10 );
   for( unsigned int i=0; i < this->m_Dimensions[1]; i++ )
     {
       encoderPosIstrm >> encoderPos;
       theta[i] = encoderPos / pivotToEncoderDist;
+      thetaOstrm << theta[i] << ' ';
     }
+  itk::EncapsulateMetaData< std::string >( thisMetaDict, "ThetaString", thetaOstrm.str() );
   itk::EncapsulateMetaData< ThetaType >( thisMetaDict, "Theta", theta );
 
 }

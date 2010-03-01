@@ -9,6 +9,7 @@
 #include <memory>
 using namespace std;
 
+#include "itkArchetypeSeriesFileNames.h"
 #include "itkExtractImageFilter.h"
 #include "itkImage.h"
 #include "itkImageFileReader.h"
@@ -18,6 +19,7 @@ using namespace std;
 
 #include "itkVisualSonicsImageIO.h"
 #include "itkVisualSonicsImageIOFactory.h"
+#include "itkVisualSonicsSeriesReader.h"
 
 /**
  * @brief hold the results of command line argument parsing.
@@ -27,9 +29,15 @@ struct Args
   string in_file;
   string out_file;
   int frame_num;
+  double start_of_aquisition_speed_of_sound;
+  double acquisition_speed_of_sound;
+  double speed_of_sound;
 
   Args():
-    frame_num(-1)
+    frame_num(-1),
+    start_of_aquisition_speed_of_sound( -1. ),
+    acquisition_speed_of_sound( -1. ),
+    speed_of_sound( -1. )
   {};
 };
 
@@ -99,6 +107,18 @@ Args parse_args( int argc, char* argv[] )
   command.SetOptionLongTag("frame_num", "frame");
   command.AddOptionField("frame_num", "num", MetaCommand::INT, true);
 
+  command.SetOption( "start_of_aquisition_speed_of_sound", "s", false, "Set the assumed speed of sound from the start of the transducer face to the start of data aquisition. [m/s]" );
+  command.SetOptionLongTag( "start_of_aquisition_speed_of_sound", "soa-sos" );
+  command.AddOptionField( "start_of_aquisition_speed_of_sound", "start_of_aquisition_speed_of_sound", MetaCommand::FLOAT, true );
+
+  command.SetOption( "acquisition_speed_of_sound", "a", false, "Set the assumed speed of sound in the medium. [m/s]" );
+  command.SetOptionLongTag( "acquisition_speed_of_sound", "a-sos" );
+  command.AddOptionField( "acquisition_speed_of_sound", "acquisition_speed_of_sound", MetaCommand::FLOAT, true );
+
+  command.SetOption( "speed_of_sound", "c", false, "Set the assumed speed of sound.  This sets the StartOfAquisitionSpeedOfSound and the AcquisitionSpeedOfSound." );
+  command.SetOptionLongTag( "speed_of_sound", "sos" );
+  command.AddOptionField( "speed_of_sound", "speed_of_sound", MetaCommand::FLOAT, true );
+
   command.SetDescription("Read an VisualSonics Raw Data file and convert it into an ITK supported image format");
 
   if( !command.Parse(argc, argv) )
@@ -130,6 +150,16 @@ Args parse_args( int argc, char* argv[] )
     }
   else
     args.out_file = command.GetValueAsString("out_file", "out_file");
+
+  if( command.GetOptionWasSet( "start_of_aquisition_speed_of_sound" ) )
+    args.start_of_aquisition_speed_of_sound = command.GetValueAsFloat( "start_of_aquisition_speed_of_sound", "start_of_aquisition_speed_of_sound" );
+
+  if( command.GetOptionWasSet( "acquisition_speed_of_sound" ) )
+    args.acquisition_speed_of_sound = command.GetValueAsFloat( "acquisition_speed_of_sound", "acquisition_speed_of_sound" );
+
+  if( command.GetOptionWasSet( "speed_of_sound" ) )
+    args.speed_of_sound = command.GetValueAsFloat( "speed_of_sound", "speed_of_sound" );
+
 
   return args;
 }
@@ -168,7 +198,28 @@ int  convert_frame( const Args& args )
   desired_region.SetIndex( index );
   extractor->SetExtractionRegion( desired_region );
 
-  extractor->SetInput( reader->GetOutput() );
+  typedef itk::VisualSonicsSeriesReader< InputImageType > VisualSonicsReaderType;
+  VisualSonicsReaderType::Pointer vsReader = VisualSonicsReaderType::New();
+  if( vsReader->GetImageIO()->CanReadFile( args.in_file.c_str() ) )
+    {
+    typedef itk::ArchetypeSeriesFileNames NameGeneratorType;
+    NameGeneratorType::Pointer nameGenerator = NameGeneratorType::New();
+    nameGenerator->SetArchetype( args.in_file.c_str() );
+    vsReader->SetFileNames( nameGenerator->GetFileNames() );
+    itk::VisualSonicsImageIO * vs_image_io = dynamic_cast< itk::VisualSonicsImageIO * >( vsReader->GetImageIO() );
+    if ( args.speed_of_sound > 0. )
+      vs_image_io->SetSpeedOfSound( args.speed_of_sound );
+    if ( args.start_of_aquisition_speed_of_sound > 0. )
+      vs_image_io->SetStartOfAquisitionSpeedOfSound( args.start_of_aquisition_speed_of_sound );
+    if ( args.acquisition_speed_of_sound > 0. )
+      vs_image_io->SetAcquisitionSpeedOfSound( args.acquisition_speed_of_sound );
+    extractor->SetInput( vsReader->GetOutput() );
+    }
+  else
+    {
+    extractor->SetInput( reader->GetOutput() );
+    }
+
   writer->SetInput( extractor->GetOutput() );
 
   writer->Update();
@@ -188,10 +239,30 @@ int  convert_all( const Args& args )
   ReaderType::Pointer reader = ReaderType::New();
   WriterType::Pointer writer = WriterType::New();
 
+  typedef itk::VisualSonicsSeriesReader< ImageType > VisualSonicsReaderType;
+  VisualSonicsReaderType::Pointer vsReader = VisualSonicsReaderType::New();
+  if( vsReader->GetImageIO()->CanReadFile( args.in_file.c_str() ) )
+    {
+    typedef itk::ArchetypeSeriesFileNames NameGeneratorType;
+    NameGeneratorType::Pointer nameGenerator = NameGeneratorType::New();
+    nameGenerator->SetArchetype( args.in_file.c_str() );
+    vsReader->SetFileNames( nameGenerator->GetFileNames() );
+    itk::VisualSonicsImageIO * vs_image_io = dynamic_cast< itk::VisualSonicsImageIO * >( vsReader->GetImageIO() );
+    if ( args.speed_of_sound > 0. )
+      vs_image_io->SetSpeedOfSound( args.speed_of_sound );
+    if ( args.start_of_aquisition_speed_of_sound > 0. )
+      vs_image_io->SetStartOfAquisitionSpeedOfSound( args.start_of_aquisition_speed_of_sound );
+    if ( args.acquisition_speed_of_sound > 0. )
+      vs_image_io->SetAcquisitionSpeedOfSound( args.acquisition_speed_of_sound );
+    writer->SetInput( vsReader->GetOutput() );
+    }
+  else
+    {
+    writer->SetInput( reader->GetOutput() );
+    }
+
   reader->SetFileName( args.in_file.c_str() );
   writer->SetFileName( args.out_file.c_str() );
-
-  writer->SetInput( reader->GetOutput() );
 
   writer->Update();
 

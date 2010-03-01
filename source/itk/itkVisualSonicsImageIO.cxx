@@ -11,7 +11,9 @@
 namespace itk
 {
 
-VisualSonicsImageIO::VisualSonicsImageIO()
+VisualSonicsImageIO::VisualSonicsImageIO():
+  m_StartOfAquisitionSpeedOfSound( 1540.0 ),
+  m_AcquisitionSpeedOfSound( 1540.0 )
 {
   this->AddSupportedReadExtension(".rdi");
 }
@@ -87,7 +89,7 @@ ReadImageInformation()
   this->m_ComponentType = SHORT;
   this->m_PixelType = SCALAR;
   this->SetSpacing( 0,
-    1540.0 / 2.0 / 1.0e6 /
+    m_AcquisitionSpeedOfSound / 2.0 / 1.0e6 /
     static_cast< double >( m_rdi->image_parameters().RF_Mode().RfModeSoft().SamplesPerSec() )
   );
   this->SetSpacing( 1,
@@ -107,7 +109,7 @@ ReadImageInformation()
 
   double radius = static_cast< double >(
       ( m_rdi->image_parameters().RF_Mode().ActiveProbe().Pivot_Transducer_Face_Dist() +
-      m_rdi->image_parameters().RF_Mode().RX().V_Delay_Length() )
+      m_rdi->image_parameters().RF_Mode().RX().Delay() * m_StartOfAquisitionSpeedOfSound / 1000. / 2.0 )
       * 0.001 );
   itk::EncapsulateMetaData< double >( thisMetaDict, "Radius", radius );
   std::ostringstream radiusStringOstrm;

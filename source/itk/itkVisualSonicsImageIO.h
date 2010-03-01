@@ -89,12 +89,36 @@ public:
   virtual ~VisualSonicsImageIO();
   void PrintSelf(std::ostream& os, Indent indent) const;
 
+  /** Set the assumed speed of sound from the start of the transducer face to
+   * the start of data aquisition.
+   *
+   * This may be useful when there is a large water path between the transducer
+   * and the sample, for example. */
+  itkSetMacro( StartOfAquisitionSpeedOfSound, double );
+  itkGetConstMacro( StartOfAquisitionSpeedOfSound, double );
+
+  /** Set the assumed speed of sound in the medium. */
+  itkSetMacro( AcquisitionSpeedOfSound, double );
+  itkGetConstMacro( AcquisitionSpeedOfSound, double );
+
+  /** Set the assumed speed of sound.  This sets the
+   * StartOfAquisitionSpeedOfSound and the AcquisitionSpeedOfSound. */
+  void SetSpeedOfSound( const double &sos )
+    {
+    this->SetStartOfAquisitionSpeedOfSound( sos );
+    this->SetAcquisitionSpeedOfSound( sos );
+    this->Modified();
+    }
+
 private:
   VisualSonicsImageIO(const Self&); //purposely not implemented
   void operator=(const Self&); //purposely not implemented
 
   /** we need this here because of the memory management in Xerces-C */
   std::auto_ptr< rdiReader > m_rdiReader;
+
+  double m_StartOfAquisitionSpeedOfSound;
+  double m_AcquisitionSpeedOfSound;
 
 protected:
   /**

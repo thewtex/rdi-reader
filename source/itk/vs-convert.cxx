@@ -14,6 +14,8 @@ using namespace std;
 #include "itkImage.h"
 #include "itkImageFileReader.h"
 #include "itkImageFileWriter.h"
+#include "itkImageIOBase.h"
+#include "itkImageIOFactory.h"
 
 #include "metaCommand.h"
 
@@ -238,10 +240,13 @@ int  convert_all( const Args& args )
 
   ReaderType::Pointer reader = ReaderType::New();
   WriterType::Pointer writer = WriterType::New();
+  reader->SetFileName( args.in_file.c_str() );
+  writer->SetFileName( args.out_file.c_str() );
 
   typedef itk::VisualSonicsSeriesReader< ImageType > VisualSonicsReaderType;
   VisualSonicsReaderType::Pointer vsReader = VisualSonicsReaderType::New();
-  if( vsReader->GetImageIO()->CanReadFile( args.in_file.c_str() ) )
+  bool isVisualSonicsFile = vsReader->GetImageIO()->CanReadFile( args.in_file.c_str() ); 
+  if( isVisualSonicsFile )
     {
     typedef itk::ArchetypeSeriesFileNames NameGeneratorType;
     NameGeneratorType::Pointer nameGenerator = NameGeneratorType::New();
@@ -255,14 +260,18 @@ int  convert_all( const Args& args )
     if ( args.acquisition_speed_of_sound > 0. )
       vs_image_io->SetAcquisitionSpeedOfSound( args.acquisition_speed_of_sound );
     writer->SetInput( vsReader->GetOutput() );
+    vsReader->UpdateOutputInformation();
+    writer->UseInputMetaDataDictionaryOff();
+    itk::ImageIOBase::Pointer imageIO = itk::ImageIOFactory::CreateImageIO( args.out_file.c_str(),
+      itk::ImageIOFactory::WriteMode );  
+    imageIO->SetMetaDataDictionary( vsReader->GetImageIO()->GetMetaDataDictionary() );
+
+    writer->SetImageIO( imageIO );
     }
   else
     {
     writer->SetInput( reader->GetOutput() );
     }
-
-  reader->SetFileName( args.in_file.c_str() );
-  writer->SetFileName( args.out_file.c_str() );
 
   writer->Update();
 

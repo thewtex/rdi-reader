@@ -126,7 +126,7 @@ Args parse_args( int argc, char* argv[] )
       if(!args.in_file.compare(file_base_l - 4, 1, "."))
 	file_base = file_base.substr(0, file_base_l - 4);
       }
-    args.out_file = file_base + ".mhd";
+    args.out_file = file_base + ".nrrd";
     }
   else
     args.out_file = command.GetValueAsString("out_file", "out_file");

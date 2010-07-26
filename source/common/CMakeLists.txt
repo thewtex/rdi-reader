@@ -8,7 +8,7 @@ target_link_libraries( rdiReader
   ${XERCESC_LIBRARIES}
   )
 install( TARGETS rdiReader
-  LIBRARY DESTINATION lib
+  DESTINATION lib
   )
 install( FILES
   rdiReader.h

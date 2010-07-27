@@ -1,5 +1,6 @@
 set( CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/modules )
 find_package( XercesC REQUIRED )
+include_directories( ${XERCESC_INCLUDE_DIR} )
 
 add_subdirectory( common )
 add_subdirectory( modules )

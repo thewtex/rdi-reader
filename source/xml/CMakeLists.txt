@@ -15,7 +15,8 @@ install(TARGETS rdi2xml
 
 if(BUILD_RDI2HTML)
   find_package(XalanC REQUIRED)
-
+  include_directories(${XALANC_INCLUDE_DIR})
+  
   add_custom_command(
     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/rdi2html.xsl.cstringliteral
     COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/file2cstringliteral.py rdi2html.xsl

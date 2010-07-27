@@ -6,6 +6,9 @@ endif(COMMAND cmake_policy)
 
 project(RDI_READER)
 
+set( BUILD_SHARED_LIBS OFF CACHE BOOL
+  "Build static or shared libraries.  Shared libraries might not work on Windows at the moment." )
+
 set(ANALYZE_RDI_FORMAT OFF CACHE BOOL
   "Analyze rdi format from example sources to generate parsing code.")
 

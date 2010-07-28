@@ -1,4 +1,5 @@
 find_package(Xsd REQUIRED)
+include_directories( ${XSD_INCLUDE_DIR} )
 
 set(XSD_ARGS "cxx-tree" "--generate-ostream" "--generate-serialization")
 

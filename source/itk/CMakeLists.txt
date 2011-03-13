@@ -3,7 +3,7 @@ include_directories( ${RDI_READER_SOURCE_DIR}/source/itk )
 
 include( ${ITK_USE_FILE} )
 
-add_library( ITKVisualSonicsImageIO 
+add_library( ITKVisualSonicsImageIO
   itkVisualSonicsImageIO.cxx
   itkVisualSonicsImageIOFactory.cxx
   )

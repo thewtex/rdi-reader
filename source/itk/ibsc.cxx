@@ -2,12 +2,11 @@
 #include <string>
 #include <vector>
 
-//#include "itkComplexToImaginaryImageFilter.h"
-//#include "itkComplexToRealImageFilter.h"
+#include "tclap/CmdLine.h"
+
 #include "itkAbsImageFilter.h"
 #include "itkAddConstantToImageFilter.h"
 #include "itkBSC.h"
-//#include "itkBSplineInterpolateImageFunction.h"
 #include "itkComplexToModulusImageFilter.h"
 #include "itkFrequencyVectorImageFilter.h"
 #include "itkHammingWindowImageFilter.h"
@@ -17,9 +16,7 @@
 #include "itkLog10ImageFilter.h"
 #include "itkMeanAcrossDirection.h"
 #include "itkMultiplyByConstantImageFilter.h"
-//#include "itkRealAndImaginaryToComplexImageFilter.h"
 #include "itkRegionOfInterestImageFilter.h"
-//#include "itkFFTW1DComplexConjugateToRealImageFilter.h"
 #include "itkFFTW1DRealToComplexConjugateImageFilter.h"
 #include "itkRecursiveGaussianImageFilter.h"
 #include "itkResampleImageFilter.h"
@@ -27,13 +24,6 @@
 #include "itkVector.h"
 #include "itkVectorImage.h"
 #include "itkIntensityWindowingImageFilter.h"
-
-
-#include "common/VisualSonicsTransform.h"
-#include "common/spirit_parse/rdiParserData.h"
-#include "common/spirit_parse/rdiParser.h"
-#include "common/MetadataReaderBase.h"
-#include "common/sized_ints.h"
 
 using std::string;
 using std::cout;
@@ -46,52 +36,47 @@ typedef float PixelType;
 const unsigned int Dimension = 3;
 typedef itk::Image< PixelType, Dimension > ImageType;
 
-void fill_in_image( const ImageType* target, vector<PixelType>& in_image, const unsigned int & frame, const unsigned int & cols, const unsigned int& rows )
-{
-  ImageType::IndexType target_index;
-  target_index[0] = 0;
-  target_index[1] = 0;
-  target_index[2] = frame;
-  for( unsigned int i = 0; i < cols; i++ )
-    {
-    for( unsigned int j = 0; j < rows; j++ )
-      {
-      in_image[ j + i*rows ] = target->GetPixel(target_index) ;
-//      in_image[ j*cols + i ] = target->GetPixel(target_index) ;
-      target_index[1] += 1;
-      }
-    target_index[1] = 0;
-    target_index[0] += 1;
-    }
-}
-
-void fill_out_image( const vector< PixelType>& out_image, PixelType* out_image_full, const unsigned int & frame, const unsigned int & cols, const unsigned int& rows )
-{
-  PixelType* offset = out_image_full + frame*rows*cols;
-  for( unsigned int i = 0; i < cols; i++ )
-    {
-    for( unsigned int j = 0; j < rows; j++ )
-      {
-      *(offset + i +j*cols ) = out_image[ j + i*rows ];
-      }
-    }
-}
-
 int main(int argc, char ** argv )
 {
-  typedef itk::ImageFileReader< ImageType > ReaderType;
   const unsigned int window_length = 128;
-  const unsigned int roi_length = 2048;
+  //const unsigned int roi_length = 2048; // necessary?
   typedef itk::Vector< PixelType, window_length > VectorType;
 
-  ReaderType::Pointer reader = ReaderType::New();
+  try
+    {
+    TCLAP::CmdLine commandLine( "Calculates an integrated absolute backscatter coefficient image from a set of VisualSonics RF volumes." );
+
+    TCLAP::UnlabeledValueArg< std::string > rdiFile( "rdiFile",
+      "Input *.rdi that is the first segment in the to-be concatenated volume.",
+      true,
+      "",
+      "file_seg1.rdi",
+      commandLine );
+
+    TCLAP::UnlabeledValueArg< std::string > bscFile( "bscFile",
+      "Output filename tot place the bsc image.",
+      true,
+      "",
+      "ibsc.mha",
+      commandLine );
+
+    commandLine.parse( argc, argv );
+    }
+  catch( const TCLAP::ArgException &e )
+    {
+    std::cerr << "Error: " << e.error() << " for arg " << e.argId() << std::endl;
+    return 1;
+    }
 
   string in_file = "p4.mhd";
   string rdi_filename = "/mnt/datab/research/Research/in_vivo/pat144/visual_sonics/pat144_seg3";
   //string in_file = "phantom10dB.mhd";
   //string rdi_filename = "/mnt/dataa/visualsonics/@VisualSonics2mat/private/linux64/bin/3mmtop_seg2_10dBtgc";
-  reader->SetFileName( in_file.c_str() );
 
+  // VisualSonics File Reader?
+  typedef itk::ImageFileReader< ImageType > ReaderType;
+  ReaderType::Pointer reader = ReaderType::New();
+  reader->SetFileName( in_file.c_str() );
   reader->UpdateOutputInformation();
 
 

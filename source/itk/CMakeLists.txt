@@ -33,3 +33,18 @@ install( TARGETS vs-convert
   RUNTIME DESTINATION bin
   )
 
+
+find_path( TCLAP_INCLUDE_DIR tclap/CmdLine.h )
+if( TCLAP_INCLUDE_DIR-NOTFOUND )
+  message( SEND_ERROR "Tclap was not found.  Either install it or download it
+  and specify TCLAP_INCLUDE_DIR." )
+endif()
+include_directories( ${TCLAP_INCLUDE_DIR} )
+add_executable( ibsc
+  ibsc.cxx
+  )
+target_link_libraries( ibsc
+  ITKVisualSonicsImageIO
+  IOCommon
+  ITKIO
+  )

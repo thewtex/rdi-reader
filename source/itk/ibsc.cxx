@@ -20,9 +20,11 @@
 #include "itkFFTW1DRealToComplexConjugateImageFilter.h"
 #include "itkRecursiveGaussianImageFilter.h"
 #include "itkResampleImageFilter.h"
-#include "itkSquareImageFilter.h"
+//#include "itkSquareImageFilter.h"
 #include "itkVector.h"
 #include "itkVectorImage.h"
+#include "itkVisualSonicsImageIOFactory.h"
+#include "itkVisualSonicsSeriesReader.h"
 #include "itkIntensityWindowingImageFilter.h"
 
 using std::string;
@@ -42,24 +44,24 @@ int main(int argc, char ** argv )
   //const unsigned int roi_length = 2048; // necessary?
   typedef itk::Vector< PixelType, window_length > VectorType;
 
+  TCLAP::CmdLine commandLine( "Calculates an integrated absolute backscatter coefficient image from a set of VisualSonics RF volumes." );
+
+  TCLAP::UnlabeledValueArg< std::string > rdiFile( "rdiFile",
+    "Input *.rdi that is the first segment in the to-be concatenated volume.",
+    true,
+    "",
+    "file_seg1.rdi",
+    commandLine );
+
+  TCLAP::UnlabeledValueArg< std::string > bscFile( "bscFile",
+    "Output filename tot place the bsc image.",
+    true,
+    "",
+    "ibsc.mha",
+    commandLine );
+
   try
     {
-    TCLAP::CmdLine commandLine( "Calculates an integrated absolute backscatter coefficient image from a set of VisualSonics RF volumes." );
-
-    TCLAP::UnlabeledValueArg< std::string > rdiFile( "rdiFile",
-      "Input *.rdi that is the first segment in the to-be concatenated volume.",
-      true,
-      "",
-      "file_seg1.rdi",
-      commandLine );
-
-    TCLAP::UnlabeledValueArg< std::string > bscFile( "bscFile",
-      "Output filename tot place the bsc image.",
-      true,
-      "",
-      "ibsc.mha",
-      commandLine );
-
     commandLine.parse( argc, argv );
     }
   catch( const TCLAP::ArgException &e )
@@ -73,12 +75,11 @@ int main(int argc, char ** argv )
   //string in_file = "phantom10dB.mhd";
   //string rdi_filename = "/mnt/dataa/visualsonics/@VisualSonics2mat/private/linux64/bin/3mmtop_seg2_10dBtgc";
 
-  // VisualSonics File Reader?
-  typedef itk::ImageFileReader< ImageType > ReaderType;
+  itk::VisualSonicsImageIOFactory::RegisterOneFactory();
+  typedef itk::VisualSonicsSeriesReader< ImageType > ReaderType;
   ReaderType::Pointer reader = ReaderType::New();
-  reader->SetFileName( in_file.c_str() );
+  reader->SetFileName( rdiFile.getValue().c_str() );
   reader->UpdateOutputInformation();
-
 
   typedef itk::RegionOfInterestImageFilter< ImageType, ImageType > ROIType;
   ROIType::Pointer roi_filter = ROIType::New();
@@ -89,35 +90,35 @@ int main(int argc, char ** argv )
   ImageType::IndexType start = in_region.GetIndex();
   ImageType::SpacingType spacing = reader->GetOutput()->GetSpacing();
   //size[1] = window_length;
-  size[1] = roi_length;
+  //size[1] = roi_length;
   //size[2] = 4;
-  start[2] = 43;
-  start[2] = 0;
+  //start[2] = 43;
+  //start[2] = 0;
   ImageType::RegionType desired_region;
   desired_region.SetSize( size );
   desired_region.SetIndex( start );
   roi_filter->SetRegionOfInterest( desired_region );
 
   /*************** window ***************/
-  typedef itk::HammingWindowImageFilter< ImageType, ImageType> WindowType;
+  typedef itk::HammingWindowImageFilter< ImageType, ImageType > WindowType;
   WindowType::Pointer window = WindowType::New();
-  window->SetDirection(1);
+  window->SetDirection(0);
   window->SetInput( roi_filter->GetOutput() );
 
   /*************** fft ***************/
-  typedef itk::FFTW1DRealToComplexConjugateImageFilter< PixelType, Dimension > FFT1DFilterType;
-  FFT1DFilterType::Pointer fft1d_filter = FFT1DFilterType::New();
-  fft1d_filter->SetInput( window->GetOutput() );
-  fft1d_filter->SetDirection(1);
-  typedef FFT1DFilterType::OutputImageType ComplexType;
+  //typedef itk::FFTW1DRealToComplexConjugateImageFilter< PixelType, Dimension > FFT1DFilterType;
+  //FFT1DFilterType::Pointer fft1d_filter = FFT1DFilterType::New();
+  //fft1d_filter->SetInput( window->GetOutput() );
+  //fft1d_filter->SetDirection(0);
+  //typedef FFT1DFilterType::OutputImageType ComplexType;
 
-  typedef itk::ComplexToModulusImageFilter< ComplexType, ImageType > ModulusFilter;
-  ModulusFilter::Pointer modulus = ModulusFilter::New();
-  modulus->SetInput( fft1d_filter->GetOutput() );
+  //typedef itk::ComplexToModulusImageFilter< ComplexType, ImageType > ModulusFilter;
+  //ModulusFilter::Pointer modulus = ModulusFilter::New();
+  //modulus->SetInput( fft1d_filter->GetOutput() );
 
-  typedef itk::SquareImageFilter < ImageType, ImageType > SquareFilter;
-  SquareFilter::Pointer square = SquareFilter::New();
-  square->SetInput( modulus->GetOutput() );
+  //typedef itk::SquareImageFilter < ImageType, ImageType > SquareFilter;
+  //SquareFilter::Pointer square = SquareFilter::New();
+  //square->SetInput( modulus->GetOutput() );
 
   /*************** frequency vector ***************/
   typedef itk::FrequencyVectorImageFilter< ImageType > FrequencyVectorFilter;

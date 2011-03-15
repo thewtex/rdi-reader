@@ -9,7 +9,7 @@ using std::endl;
 
 #include "itkImageRegionConstIterator.h"
 #include "itkListSample.h"
-#include "itkMeanCalculator.h"
+#include "itkMeanSampleFilter.h"
 #include "itkVector.h"
 
 namespace itk
@@ -208,10 +208,10 @@ MeanAcrossDirection<TInputImage,TOutputImage>
   sample->SetMeasurementVectorSize( vector_length );
   sample->Resize( sample_size );
 
-  typedef itk::Statistics::MeanCalculator< SampleType > MeanAlgorithmType;
+  typedef itk::Statistics::MeanSampleFilter< SampleType > MeanAlgorithmType;
   MeanAlgorithmType::Pointer meanAlgorithm = MeanAlgorithmType::New();
-  meanAlgorithm->SetInputSample( sample );
-  MeanAlgorithmType::OutputType* mean;
+  meanAlgorithm->SetInput( sample );
+  MeanAlgorithmType::MeasurementVectorType mean;
 
   typedef itk::ImageRegionConstIterator< InputImageType > ConstIteratorType;
 
@@ -238,10 +238,10 @@ MeanAcrossDirection<TInputImage,TOutputImage>
       sample->SetMeasurementVector(j, mv);
       }
     meanAlgorithm->Update();
-    mean = meanAlgorithm->GetOutput();
+    mean = meanAlgorithm->GetMean();
     for( k = 0; k < vector_length; k++ )
 	{
-	outpixmean[k] = static_cast<typename OutputImageType::InternalPixelType >(  (*mean)[k] );
+	outpixmean[k] = static_cast<typename OutputImageType::InternalPixelType >(  mean[k] );
 	}
     outIndex[0] = outputStartIndex[0] + i;
     //cout << "outpixmean: " << outpixmean << endl;

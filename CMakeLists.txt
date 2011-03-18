@@ -51,11 +51,6 @@ add_subdirectory(source)
 
 include(CTest)
 if(BUILD_TESTING)
-  if(NOT EXISTS ${RDI_READER_SOURCE_DIR}/tests/data/input/.git)
-    message(SEND_ERROR "In order to run tests, the tests/data/input must be
-    downloaded.  Try 'git submodule init && git submodule update' in the source
-    directory.  If you do not want to run tests, turn BUILD_TESTING OFF.")
-  endif()
   enable_testing()
   add_subdirectory(tests)
 endif(BUILD_TESTING)

@@ -40,11 +40,21 @@ if( TCLAP_INCLUDE_DIR-NOTFOUND )
   and specify TCLAP_INCLUDE_DIR." )
 endif()
 include_directories( ${TCLAP_INCLUDE_DIR} )
-add_executable( ibsc
-  ibsc.cxx
+#add_executable( ibsc
+  #ibsc.cxx
+  #)
+#target_link_libraries( ibsc
+  #ITKVisualSonicsImageIO
+  #IOCommon
+  #ITKIO
+  #)
+
+add_executable( phantom-spectrum
+  phantomSpectrum.cxx
   )
-target_link_libraries( ibsc
+target_link_libraries( phantom-spectrum
   ITKVisualSonicsImageIO
-  IOCommon
+  ITKCommon
   ITKIO
+  ITKAlgorithms
   )

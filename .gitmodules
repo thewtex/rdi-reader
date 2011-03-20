@@ -1,3 +1,6 @@
 [submodule "tests/data/input"]
 	path = tests/data/input
 	url = git://gitorious.org/ultrasound-b-mode/visualsonics-test-data.git
+[submodule "submodules/gdb-pretty-itk-cmake"]
+	path = submodules/gdb-pretty-itk-cmake
+	url = http://git.gitorious.org/gdb-pretty/gdb-pretty-itk-cmake.git

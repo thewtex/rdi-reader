@@ -48,6 +48,7 @@ include_directories( ${TCLAP_INCLUDE_DIR} )
   #IOCommon
   #ITKIO
   #)
+#GDB_PRETTY_ITK( ibsc )
 
 add_executable( phantom-spectrum
   phantomSpectrum.cxx
@@ -58,3 +59,4 @@ target_link_libraries( phantom-spectrum
   ITKIO
   ITKAlgorithms
   )
+GDB_PRETTY_ITK( phantom-spectrum )

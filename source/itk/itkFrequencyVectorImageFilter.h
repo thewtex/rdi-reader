@@ -12,22 +12,17 @@
 namespace itk
 {
   /** @class FrequencyVectorImageFilter
-   * @brief Create a VectorImage where each pixel contains a vector of frequency components.
+   * @brief Create an image where each pixel contains a vector of frequency components.
    *
    */
-
-template < class TInputImage >
+template < class TInputImage, class TOutputImage >
 class FrequencyVectorImageFilter :
-  public ImageToImageFilter<TInputImage,
-    VectorImage< ITK_TYPENAME TInputImage::InternalPixelType,
-    itk::GetImageDimension<TInputImage>::ImageDimension> >
+  public ImageToImageFilter<TInputImage,TOutputImage >
 {
 public:
   /** Standard class typedefs. */
   typedef FrequencyVectorImageFilter Self;
-  typedef ImageToImageFilter<TInputImage,
-    VectorImage< ITK_TYPENAME TInputImage::InternalPixelType,
-    itk::GetImageDimension<TInputImage>::ImageDimension> >
+  typedef ImageToImageFilter<TInputImage, TOutputImage >
       Superclass;
   typedef SmartPointer<Self>  Pointer;
   typedef SmartPointer<const Self> ConstPointer;
@@ -42,7 +37,7 @@ public:
 
   /**Typedefs from the superclass */
   typedef typename Superclass::InputImageType  InputImageType;
-  typedef VectorImage< typename TInputImage::InternalPixelType, itkGetStaticConstMacro(Dimension) > OutputImageType;
+  typedef TOutputImage OutputImageType;
 
   /** The pixel type of the output image will be used in computations.
    * Inherited from the superclass. */
@@ -72,11 +67,6 @@ public:
   /** Set the starting frequency point for extraction. */
   itkSetMacro(FrequencyExtractStartIndex, unsigned int);
 
-  /** Get the number of frequency points to extract starting from the FrequencyStartIndex. */
-  itkGetMacro(FrequencyExtractSize, unsigned int);
-  /** Set the number of frequency points to extract starting from the FrequencyStartIndex. */
-  itkSetMacro(FrequencyExtractSize, unsigned int);
-
   /** @todo -- threadify */
   virtual void GenerateData();  // generates output from input
 protected:
@@ -99,8 +89,6 @@ protected:
   float m_FFTOverlap;
   /** The frequency point to start extraction from. */
   unsigned int m_FrequencyExtractStartIndex;
-  /** The number of frequency points to extract starting from m_FrequencyStartIndex. */
-  unsigned int m_FrequencyExtractSize;
 
   typedef RegionOfInterestImageFilter< TInputImage, TInputImage > ROIFilterType;
   typedef HammingWindowImageFilter< TInputImage, TInputImage > WindowType;

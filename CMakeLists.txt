@@ -47,7 +47,7 @@ set( CMAKE_LIBRARY_OUTPUT_DIRECTORY
   ${RDI_READER_BINARY_DIR}/lib )
 
 add_subdirectory( submodules/gdb-pretty-itk-cmake )
-
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/submodules/itk-fft-extensions/Code )
 add_subdirectory(source)
 
 include(CTest)

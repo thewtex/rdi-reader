@@ -22,7 +22,6 @@
 #include "itkResampleImageFilter.h"
 //#include "itkSquareImageFilter.h"
 #include "itkVector.h"
-#include "itkVectorImage.h"
 #include "itkVisualSonicsImageIOFactory.h"
 #include "itkVisualSonicsSeriesReader.h"
 #include "itkIntensityWindowingImageFilter.h"
@@ -37,13 +36,15 @@ using std::vector;
 typedef float PixelType;
 const unsigned int Dimension = 3;
 typedef itk::Image< PixelType, Dimension > ImageType;
+const unsigned int window_length = 128;
+const unsigned int extraction_size = 8; // do not forget to change vector_length in itkMeanAcrossDirection.txx !!!!
+//const unsigned int roi_length = 2048; // necessary?
+typedef itk::Vector< PixelType, extraction_size > ExtractedVectorType;
+typedef itk::Image< ExtractedVectorType, Dimension > ExtractedImageType;
+typedef itk::Image< ExtractedVectorType, 1 > ExtractedMeanImageType;
 
 int main(int argc, char ** argv )
 {
-  const unsigned int window_length = 128;
-  const unsigned int extraction_size = 8; // do not forget to change vector_length in itkMeanAcrossDirection.txx !!!!
-  //const unsigned int roi_length = 2048; // necessary?
-  typedef itk::Vector< PixelType, window_length > VectorType;
 
   TCLAP::CmdLine commandLine( "Calculates the mean reflector spectrum of phantom data for use with the reference phantom method." );
 
@@ -77,21 +78,21 @@ int main(int argc, char ** argv )
   reader->SetFileName( rdiFile.getValue().c_str() );
   reader->UpdateOutputInformation();
 
-  typedef itk::RegionOfInterestImageFilter< ImageType, ImageType > ROIType;
-  ROIType::Pointer roi_filter = ROIType::New();
-  roi_filter->SetInput( reader->GetOutput());
+  //typedef itk::RegionOfInterestImageFilter< ImageType, ImageType > ROIType;
+  //ROIType::Pointer roi_filter = ROIType::New();
+  //roi_filter->SetInput( reader->GetOutput());
 
-  ImageType::RegionType in_region = reader->GetOutput()->GetLargestPossibleRegion();
+  //ImageType::RegionType in_region = reader->GetOutput()->GetLargestPossibleRegion();
 
   /*************** frequency vector ***************/
-  typedef itk::FrequencyVectorImageFilter< ImageType > FrequencyVectorFilter;
+  typedef itk::FrequencyVectorImageFilter< ImageType, ExtractedImageType > FrequencyVectorFilter;
   FrequencyVectorFilter::Pointer freq_vect = FrequencyVectorFilter::New();
-  freq_vect->SetInput( roi_filter->GetOutput() );
+  //freq_vect->SetInput( roi_filter->GetOutput() );
+  freq_vect->SetInput( reader->GetOutput() );
   freq_vect->SetFrequencyExtractStartIndex( 2 );
-  freq_vect->SetFrequencyExtractSize( extraction_size );
 
   //[>************** mean across direction **************<]
-  typedef itk::MeanAcrossDirection< FrequencyVectorFilter::OutputImageType, itk::VectorImage< PixelType, 1 > > MeanAcrossDirectionType;
+  typedef itk::MeanAcrossDirection< FrequencyVectorFilter::OutputImageType, ExtractedMeanImageType  > MeanAcrossDirectionType;
   MeanAcrossDirectionType::Pointer mean_across_d = MeanAcrossDirectionType::New();
   mean_across_d->SetInput( freq_vect->GetOutput() );
 
@@ -99,7 +100,7 @@ int main(int argc, char ** argv )
   typedef itk::ImageFileWriter< MeanAcrossDirectionType::OutputImageType > WriterType;
   WriterType::Pointer writer = WriterType::New();
   writer->SetInput( mean_across_d->GetOutput() );
-  writer->SetFileName( meanSpectrumFile.getValue() ) ;
+  writer->SetFileName( meanSpectrumFile.getValue() );
 
   try
     {

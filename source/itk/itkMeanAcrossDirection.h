@@ -3,12 +3,11 @@
 
 #include "itkImageToImageFilter.h"
 #include "itkRegionOfInterestImageFilter.h"
-#include "itkVectorImage.h"
 
 namespace itk
 {
   /** @class MeanAcrossDirection
-   * @brief Create a VectorImage where each pixel contains a vector of frequency components.
+   * @brief Create a image where each pixel contains a vector of frequency components.
    *
    */
 

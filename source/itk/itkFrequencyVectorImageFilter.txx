@@ -8,8 +8,8 @@
 namespace itk
 {
 
-template <class TInputImage >
-FrequencyVectorImageFilter<TInputImage>
+template <class TInputImage, class TOutputImage >
+FrequencyVectorImageFilter<TInputImage, TOutputImage>
 ::FrequencyVectorImageFilter()
 : m_Direction(0),
   m_FFTSize(128),
@@ -17,7 +17,6 @@ FrequencyVectorImageFilter<TInputImage>
   m_FrequencyExtractStartIndex(0)
 {
   // DC to nyquist
-  m_FrequencyExtractSize = m_FFTSize/2 + 1;
   this->SetNumberOfRequiredInputs( 1 );
 
   m_ROIFilter = ROIFilterType::New();
@@ -32,9 +31,9 @@ FrequencyVectorImageFilter<TInputImage>
   m_SquareFilter->SetInput( m_ModulusFilter->GetOutput() );
 }
 
-template <class TInputImage >
+template <class TInputImage, class TOutputImage >
 void
-FrequencyVectorImageFilter<TInputImage>
+FrequencyVectorImageFilter<TInputImage, TOutputImage>
 ::PrintSelf(std::ostream& os, Indent indent) const
 {
   Superclass::PrintSelf(os,indent);
@@ -42,13 +41,12 @@ FrequencyVectorImageFilter<TInputImage>
   os << indent << "FFTSize: " << m_FFTSize << std::endl;
   os << indent << "FFTOverlap: " << m_FFTOverlap << std::endl;
   os << indent << "FrequencyExtractStartIndex: " << m_FrequencyExtractStartIndex << std::endl;
-  os << indent << "FrequencyExtractSize: " << m_FrequencyExtractSize << std::endl;
   os << std::endl;
 }
 
-template < class TInputImage >
+template < class TInputImage, class TOutputImage >
 void
-FrequencyVectorImageFilter< TInputImage >
+FrequencyVectorImageFilter< TInputImage, TOutputImage >
 ::GenerateOutputInformation()
 {
   this->Superclass::GenerateOutputInformation();
@@ -103,9 +101,9 @@ FrequencyVectorImageFilter< TInputImage >
 
 }
 
-template < class TInputImage >
+template < class TInputImage, class TOutputImage >
 void
-FrequencyVectorImageFilter< TInputImage >
+FrequencyVectorImageFilter< TInputImage, TOutputImage >
 ::GenerateInputRequestedRegion()
 {
   this->Superclass::GenerateInputRequestedRegion();
@@ -161,20 +159,18 @@ FrequencyVectorImageFilter< TInputImage >
   inputPtr->SetRequestedRegion( inputRequestedRegion );
 }
 
-template < class TInputImage >
+template < class TInputImage, class TOutputImage >
 void
-FrequencyVectorImageFilter< TInputImage >
+FrequencyVectorImageFilter< TInputImage, TOutputImage >
 ::AllocateOutputs()
 {
   // override the method in itkImageSource
-  OutputImageType* output = this->GetOutput();
-  output->SetVectorLength( this->m_FrequencyExtractSize );
   this->Superclass::AllocateOutputs();
 }
 
-template <class TInputImage >
+template <class TInputImage, class TOutputImage >
 void
-FrequencyVectorImageFilter<TInputImage>
+FrequencyVectorImageFilter<TInputImage, TOutputImage>
 ::GenerateData()
 {
   this->AllocateOutputs();
@@ -223,7 +219,6 @@ FrequencyVectorImageFilter<TInputImage>
   typedef itk::ImageLinearConstIteratorWithIndex< typename SquareFilterType::OutputImageType >  SubregionIteratorType;
 
   OutputPixelType outpix;
-  outpix.SetSize( this->m_FrequencyExtractSize );
   typename OutputImageType::IndexType outIndex;
 
   unsigned int j = 0;
@@ -243,7 +238,7 @@ FrequencyVectorImageFilter<TInputImage>
 	++it;
 	}
       // copy the frequencies to our output Vector
-      for( j = 0; j < this->m_FrequencyExtractSize; j++ )
+      for( j = 0; j < OutputPixelType::Dimension; j++ )
 	{
 	outpix[j] = it.Get();
 	++it;

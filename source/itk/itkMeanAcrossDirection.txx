@@ -18,7 +18,7 @@ namespace itk
 template <class TInputImage, class TOutputImage >
 MeanAcrossDirection<TInputImage,TOutputImage>
 ::MeanAcrossDirection()
-: m_Direction(1)
+: m_Direction(0)
 {
   this->SetNumberOfRequiredInputs( 1 );
 
@@ -130,9 +130,6 @@ MeanAcrossDirection<TInputImage,TOutputImage>
 ::AllocateOutputs()
 {
   // override the method in itkImageSource
-  OutputImageType* output = this->GetOutput();
-  const InputImageType* input = this->GetInput();
-  output->SetVectorLength( input->GetVectorLength() );
   this->Superclass::AllocateOutputs();
 }
 
@@ -183,11 +180,12 @@ MeanAcrossDirection<TInputImage,TOutputImage>
    * (8 of 23): error: ‘vector_length’ cannot appear in a constant-expression
    */
   //const unsigned int vector_length = inputPtr->GetVectorLength();
-  const unsigned int vector_length = 8;
+  const unsigned int vector_length = InputPixelType::Dimension;
   //PixelType outpix;
   //outpix.SetSize( vector_length );
-  PixelType outpixmean( vector_length );
-  const typename PixelType::ValueType* outpix ;
+  //PixelType outpixmean( vector_length );
+  PixelType outpixmean;
+  //const typename PixelType::ValueType* outpix ;
   typename OutputImageType::IndexType outIndex;
 
   //typedef itk::Vector< typename InputImageType::InternalPixelType, vector_length > MeasurementVectorType;
@@ -196,7 +194,7 @@ MeanAcrossDirection<TInputImage,TOutputImage>
   typedef itk::Vector< float, vector_length > MeasurementVectorType;
   MeasurementVectorType mv;
   typedef itk::Statistics::ListSample< MeasurementVectorType > SampleType;
-  SampleType::Pointer sample = SampleType::New();
+  typename SampleType::Pointer sample = SampleType::New();
 
   unsigned int i;
   unsigned int sample_size = 1;
@@ -209,9 +207,9 @@ MeanAcrossDirection<TInputImage,TOutputImage>
   sample->Resize( sample_size );
 
   typedef itk::Statistics::MeanSampleFilter< SampleType > MeanAlgorithmType;
-  MeanAlgorithmType::Pointer meanAlgorithm = MeanAlgorithmType::New();
+  typename MeanAlgorithmType::Pointer meanAlgorithm = MeanAlgorithmType::New();
   meanAlgorithm->SetInput( sample );
-  MeanAlgorithmType::MeasurementVectorType mean;
+  typename MeanAlgorithmType::MeasurementVectorType mean;
 
   typedef itk::ImageRegionConstIterator< InputImageType > ConstIteratorType;
 
@@ -230,18 +228,19 @@ MeanAcrossDirection<TInputImage,TOutputImage>
       //cout << "roi_it.Get(): " << roi_it.Get() << endl;
       //cout << "roi_it.Get().GetDataPointer(): " << roi_it.Get().GetDataPointer() << endl;
       //outpix = roi_it.Get();
-      outpix = roi_it.Get().GetDataPointer();
-      for( k = 0; k < vector_length; k++ )
-	{
-	mv[k] = outpix[k];
-	}
-      sample->SetMeasurementVector(j, mv);
+      //outpix = roi_it.Get().GetDataPointer();
+      //for( k = 0; k < vector_length; k++ )
+	//{
+	//mv[k] = outpix[k];
+	//}
+      //sample->SetMeasurementVector(j, mv);
+      sample->SetMeasurementVector(j, roi_it.Get());
       }
     meanAlgorithm->Update();
     mean = meanAlgorithm->GetMean();
     for( k = 0; k < vector_length; k++ )
 	{
-	outpixmean[k] = static_cast<typename OutputImageType::InternalPixelType >(  mean[k] );
+	outpixmean[k] = mean[k];
 	}
     outIndex[0] = outputStartIndex[0] + i;
     //cout << "outpixmean: " << outpixmean << endl;

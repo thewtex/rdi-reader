@@ -1,9 +1,7 @@
 #ifndef  __itkBSC_h
 #define  __itkBSC_h
 
-#include "itkImageFileReader.h"
 #include "itkImageToImageFilter.h"
-#include "itkVectorImage.h"
 
 namespace itk
 {
@@ -12,7 +10,7 @@ namespace itk
    *
    */
 
-template <class TInputImage, class TOutputImage>
+template <class TInputImage, class TReferenceSpectrum, class TOutputImage>
 class BSC :
   public ImageToImageFilter<TInputImage, TOutputImage>
 {
@@ -31,6 +29,7 @@ public:
 
   /**Typedefs from the superclass */
   typedef typename Superclass::InputImageType  InputImageType;
+  typedef TReferenceSpectrum ReferenceSpectrumType;
   typedef typename Superclass::OutputImageType OutputImageType;
 
   itkStaticConstMacro(InputImageDimension, unsigned int, TInputImage::ImageDimension);
@@ -55,6 +54,9 @@ public:
   /** Set the direction in which the filter is to be applied. */
   itkSetMacro(Direction, unsigned int);
 
+  void SetReferenceSpectrum( const ReferenceSpectrumType * refSpec );
+  const ReferenceSpectrumType * GetReferenceSpectrum() const;
+
 
   /** @todo -- threadify */
   virtual void GenerateData();  // generates output from input
@@ -66,13 +68,6 @@ protected:
   /** Direction in which the filter is to be applied
    * this should be in the range [0,ImageDimension-1]. */
   unsigned int m_Direction;
-
-  typedef VectorImage< PixelType, 1 > ReferenceVectorImageReaderInType;
-  typedef itk::ImageFileReader< ReferenceVectorImageReaderInType > ReferenceReaderType;
-  typedef typename ReferenceReaderType::OutputImageType ReferenceVectorImageType;
-
-  typename ReferenceReaderType::Pointer m_ReferenceReader;
-  std::string reference_filename;
 
 private:
   BSC( const Self& ); // purposely not implemented

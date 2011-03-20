@@ -87,6 +87,11 @@ int main(int argc, char ** argv )
   reader->SetFileNames( nameGenerator->GetFileNames() );
   reader->UpdateOutputInformation();
 
+  // Reference phantom spectrum reader
+  typedef itk::ImageFileReader< ExtractedMeanImageType > ReferenceReaderType;
+  ReferenceReaderType::Pointer refReader = ReferenceReaderType::New();
+  refReader->SetFileName( refFile.getValue() );
+
   typedef itk::RegionOfInterestImageFilter< ImageType, ImageType > ROIType;
   ROIType::Pointer roi_filter = ROIType::New();
   roi_filter->SetInput( reader->GetOutput());
@@ -133,10 +138,10 @@ int main(int argc, char ** argv )
   freq_vect->SetFrequencyExtractStartIndex( 2 );
 
   /*************** bsc ***************/
-  typedef itk::BSC< FrequencyVectorFilter::OutputImageType, ImageType > BSCFilterType;
+  typedef itk::BSC< FrequencyVectorFilter::OutputImageType, ExtractedMeanImageType, ImageType > BSCFilterType;
   BSCFilterType::Pointer bsc = BSCFilterType::New();
   bsc->SetInput( freq_vect->GetOutput() );
-
+  bsc->SetReferenceSpectrum( refReader->GetOutput() );
 
   //typedef itk::IntensityWindowingImageFilter< ImageType > WindowingType;
   //WindowingType::Pointer intensity_window = WindowingType::New();
@@ -145,7 +150,6 @@ int main(int argc, char ** argv )
   //intensity_window->SetWindowMaximum(255.0);
   //intensity_window->SetOutputMinimum( 0.0000000001 );
   //intensity_window->SetOutputMaximum( 255.0 );
-
 
   /*************** writer  ***************/
   typedef itk::ImageFileWriter< ImageType > WriterType;
@@ -163,7 +167,7 @@ int main(int argc, char ** argv )
   //writer->SetInput( mean_across_d->GetOutput() );
   writer->SetInput( bsc->GetOutput() );
   //writer->SetInput( resample->GetOutput() );
-  writer->SetFileName( "out.mhd" ) ;
+  writer->SetFileName( bscFile.getValue() ) ;
 
   try
     {

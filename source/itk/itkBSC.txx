@@ -16,23 +16,18 @@ using std::endl;
 namespace itk
 {
 
-template <class TInputImage, class TOutputImage >
-BSC<TInputImage,TOutputImage>
+template <class TInputImage, class TReferenceSpectrum, class TOutputImage >
+BSC<TInputImage,TReferenceSpectrum,TOutputImage>
 ::BSC()
 : m_Direction(0)
 {
   // @todo change to 2 so that the reference can be specified
   this->SetNumberOfRequiredInputs( 2 );
-
-  m_ReferenceReader = ReferenceReaderType::New();
-  reference_filename = "phantom0dBfreqs.mhd";
-  m_ReferenceReader->SetFileName( reference_filename.c_str() );
-  m_ReferenceReader->Update();
 }
 
-template <class TInputImage, class TOutputImage >
+template <class TInputImage, class TReferenceSpectrum, class TOutputImage >
 void
-BSC<TInputImage,TOutputImage>
+BSC<TInputImage,TReferenceSpectrum,TOutputImage>
 ::PrintSelf(std::ostream& os, Indent indent) const
 {
   Superclass::PrintSelf(os,indent);
@@ -40,15 +35,33 @@ BSC<TInputImage,TOutputImage>
   os << std::endl;
 }
 
-
-template <class TInputImage, class TOutputImage >
+template <class TInputImage, class TReferenceSpectrum, class TOutputImage >
 void
-BSC<TInputImage,TOutputImage>
+BSC<TInputImage,TReferenceSpectrum,TOutputImage>
+::SetReferenceSpectrum( const TReferenceSpectrum * refSpec )
+{
+  this->ProcessObject::SetNthInput( 1, const_cast< TReferenceSpectrum * >( refSpec ));
+}
+
+template <class TInputImage, class TReferenceSpectrum, class TOutputImage >
+const TReferenceSpectrum *
+BSC<TInputImage,TReferenceSpectrum,TOutputImage>
+::GetReferenceSpectrum() const
+{
+  return const_cast< const TReferenceSpectrum * >( this->ProcessObject::GetInput( 1 ));
+}
+
+template <class TInputImage, class TReferenceSpectrum, class TOutputImage >
+void
+BSC<TInputImage,TReferenceSpectrum,TOutputImage>
 ::GenerateData()
 {
 
   // get pointers to the input and output
   typename TInputImage::ConstPointer  inputPtr  = this->GetInput();
+  typename TReferenceSpectrum::Pointer refSpecPtr = static_cast< ReferenceSpectrumType * >(
+    this->ProcessObject::GetInput( 1 ));
+  //refSpecPtr->Update();
   typename TOutputImage::Pointer      outputPtr = this->GetOutput();
 
   if ( !inputPtr || !outputPtr )
@@ -67,7 +80,7 @@ BSC<TInputImage,TOutputImage>
 
   const unsigned int direction = this->m_Direction;
 
-  const unsigned int num_components = this->m_ReferenceReader->GetOutput()->GetVectorLength();
+  const unsigned int num_components = ReferenceSpectrumType::PixelType::Dimension;
 
   outputPtr->FillBuffer( 0.0 );
 
@@ -79,15 +92,15 @@ BSC<TInputImage,TOutputImage>
   OutputIteratorType output_it( outputPtr, inputPtr->GetRequestedRegion() );
   output_it.SetDirection( direction );
 
-  typename ReferenceVectorImageType::IndexType refIndex;
-  typename ReferenceVectorImageType::SizeType refSize;
+  typename ReferenceSpectrumType::IndexType refIndex;
+  typename ReferenceSpectrumType::SizeType refSize;
   refIndex[0] = inputIndex[direction];
   refSize[0] = inputSize[direction];
-  typename ReferenceVectorImageType::RegionType refRegion;
+  typename ReferenceSpectrumType::RegionType refRegion;
   refRegion.SetIndex( refIndex );
   refRegion.SetSize( refSize );
-  typedef itk::ImageLinearConstIteratorWithIndex< ReferenceVectorImageType > ReferenceIteratorType;
-  ReferenceIteratorType ref_it( this->m_ReferenceReader->GetOutput(), refRegion );
+  typedef itk::ImageLinearConstIteratorWithIndex< ReferenceSpectrumType > ReferenceIteratorType;
+  ReferenceIteratorType ref_it( refSpecPtr, refRegion );
   ref_it.SetDirection(0);
 
   const PixelType freq_start = 6.5625;

@@ -4,16 +4,12 @@
 
 #include "tclap/CmdLine.h"
 
-#include "itkAbsImageFilter.h"
-#include "itkAddConstantToImageFilter.h"
-#include "itkBSC.h"
+#include "itkArchetypeSeriesFileNames.h"
 #include "itkComplexToModulusImageFilter.h"
 #include "itkFrequencyVectorImageFilter.h"
-#include "itkHammingWindowImageFilter.h"
 #include "itkImageFileReader.h"
 #include "itkImageFileWriter.h"
 #include "itkImportImageFilter.h"
-#include "itkLog10ImageFilter.h"
 #include "itkMeanAcrossDirection.h"
 #include "itkMultiplyByConstantImageFilter.h"
 #include "itkRegionOfInterestImageFilter.h"
@@ -75,7 +71,10 @@ int main(int argc, char ** argv )
   itk::VisualSonicsImageIOFactory::RegisterOneFactory();
   typedef itk::VisualSonicsSeriesReader< ImageType > ReaderType;
   ReaderType::Pointer reader = ReaderType::New();
-  reader->SetFileName( rdiFile.getValue().c_str() );
+  typedef itk::ArchetypeSeriesFileNames NameGeneratorType;
+  NameGeneratorType::Pointer nameGenerator = NameGeneratorType::New();
+  nameGenerator->SetArchetype( rdiFile.getValue().c_str() );
+  reader->SetFileNames( nameGenerator->GetFileNames() );
   reader->UpdateOutputInformation();
 
   //typedef itk::RegionOfInterestImageFilter< ImageType, ImageType > ROIType;

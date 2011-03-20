@@ -53,6 +53,13 @@ int main(int argc, char ** argv )
     "file_seg1.rdi",
     commandLine );
 
+  TCLAP::UnlabeledValueArg< std::string > refFile( "refFile",
+    "Input *.rdi that is the first reference phantom data.",
+    true,
+    "",
+    "ref_file_seg1.rdi",
+    commandLine );
+
   TCLAP::UnlabeledValueArg< std::string > bscFile( "bscFile",
     "Output filename tot place the bsc image.",
     true,
@@ -100,10 +107,10 @@ int main(int argc, char ** argv )
   roi_filter->SetRegionOfInterest( desired_region );
 
   /*************** window ***************/
-  typedef itk::HammingWindowImageFilter< ImageType, ImageType > WindowType;
-  WindowType::Pointer window = WindowType::New();
-  window->SetDirection(0);
-  window->SetInput( roi_filter->GetOutput() );
+  //typedef itk::HammingWindowImageFilter< ImageType, ImageType > WindowType;
+  //WindowType::Pointer window = WindowType::New();
+  //window->SetDirection(0);
+  //window->SetInput( roi_filter->GetOutput() );
 
   /*************** fft ***************/
   //typedef itk::FFTW1DRealToComplexConjugateImageFilter< PixelType, Dimension > FFT1DFilterType;

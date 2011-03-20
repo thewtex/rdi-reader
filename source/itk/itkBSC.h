@@ -8,7 +8,7 @@
 namespace itk
 {
   /** @class BSC
-   * @brief Create a VectorImage where each pixel contains a vector of frequency components.
+   * @brief calculate the integrated backscatter coefficient
    *
    */
 

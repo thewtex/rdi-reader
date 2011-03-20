@@ -19,10 +19,10 @@ namespace itk
 template <class TInputImage, class TOutputImage >
 BSC<TInputImage,TOutputImage>
 ::BSC()
-: m_Direction(1)
+: m_Direction(0)
 {
   // @todo change to 2 so that the reference can be specified
-  this->SetNumberOfRequiredInputs( 1 );
+  this->SetNumberOfRequiredInputs( 2 );
 
   m_ReferenceReader = ReferenceReaderType::New();
   reference_filename = "phantom0dBfreqs.mhd";

@@ -38,6 +38,7 @@ const unsigned int extraction_size = 8; // do not forget to change vector_length
 typedef itk::Vector< PixelType, extraction_size > ExtractedVectorType;
 typedef itk::Image< ExtractedVectorType, Dimension > ExtractedImageType;
 typedef itk::Image< ExtractedVectorType, 1 > ExtractedMeanImageType;
+typedef itk::Image< PixelType, 1 > ReferenceBSCImageType;
 
 int main(int argc, char ** argv )
 {
@@ -59,6 +60,13 @@ int main(int argc, char ** argv )
     true,
     "",
     "ref_spec.mha",
+    commandLine );
+
+  TCLAP::UnlabeledValueArg< std::string > refBSC( "refBSC",
+    "'Image' with the reference phantom BSC versus frequency.'",
+    true,
+    "",
+    "ref_bsc.mha",
     commandLine );
 
   TCLAP::UnlabeledValueArg< std::string > bscFile( "bscFile",
@@ -92,9 +100,14 @@ int main(int argc, char ** argv )
   ReferenceReaderType::Pointer refReader = ReferenceReaderType::New();
   refReader->SetFileName( refFile.getValue() );
 
+  // Reference phantom bsc reader
+  typedef itk::ImageFileReader< ReferenceBSCImageType > ReferenceBSCReaderType;
+  ReferenceBSCReaderType::Pointer refBSCReader = ReferenceBSCReaderType::New();
+  refBSCReader->SetFileName( refBSC.getValue() );
+
   typedef itk::RegionOfInterestImageFilter< ImageType, ImageType > ROIType;
   ROIType::Pointer roi_filter = ROIType::New();
-  roi_filter->SetInput( reader->GetOutput());
+  roi_filter->SetInput( reader->GetOutput() );
 
   ImageType::RegionType in_region = reader->GetOutput()->GetLargestPossibleRegion();
   ImageType::SizeType size = in_region.GetSize();
@@ -138,10 +151,11 @@ int main(int argc, char ** argv )
   freq_vect->SetFrequencyExtractStartIndex( 2 );
 
   /*************** bsc ***************/
-  typedef itk::BSC< FrequencyVectorFilter::OutputImageType, ExtractedMeanImageType, ImageType > BSCFilterType;
+  typedef itk::BSC< FrequencyVectorFilter::OutputImageType, ExtractedMeanImageType, ReferenceBSCImageType, ImageType > BSCFilterType;
   BSCFilterType::Pointer bsc = BSCFilterType::New();
   bsc->SetInput( freq_vect->GetOutput() );
   bsc->SetReferenceSpectrum( refReader->GetOutput() );
+  bsc->SetReferenceBSC( refBSCReader->GetOutput() );
 
   //typedef itk::IntensityWindowingImageFilter< ImageType > WindowingType;
   //WindowingType::Pointer intensity_window = WindowingType::New();

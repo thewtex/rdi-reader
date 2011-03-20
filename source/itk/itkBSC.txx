@@ -16,18 +16,17 @@ using std::endl;
 namespace itk
 {
 
-template <class TInputImage, class TReferenceSpectrum, class TOutputImage >
-BSC<TInputImage,TReferenceSpectrum,TOutputImage>
+template <class TInputImage, class TReferenceSpectrum, class TReferenceBSC, class TOutputImage >
+BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
 ::BSC()
 : m_Direction(0)
 {
-  // @todo change to 2 so that the reference can be specified
-  this->SetNumberOfRequiredInputs( 2 );
+  this->SetNumberOfRequiredInputs( 3 );
 }
 
-template <class TInputImage, class TReferenceSpectrum, class TOutputImage >
+template <class TInputImage, class TReferenceSpectrum, class TReferenceBSC, class TOutputImage >
 void
-BSC<TInputImage,TReferenceSpectrum,TOutputImage>
+BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
 ::PrintSelf(std::ostream& os, Indent indent) const
 {
   Superclass::PrintSelf(os,indent);
@@ -35,25 +34,41 @@ BSC<TInputImage,TReferenceSpectrum,TOutputImage>
   os << std::endl;
 }
 
-template <class TInputImage, class TReferenceSpectrum, class TOutputImage >
+template <class TInputImage, class TReferenceSpectrum, class TReferenceBSC, class TOutputImage >
 void
-BSC<TInputImage,TReferenceSpectrum,TOutputImage>
+BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
 ::SetReferenceSpectrum( const TReferenceSpectrum * refSpec )
 {
   this->ProcessObject::SetNthInput( 1, const_cast< TReferenceSpectrum * >( refSpec ));
 }
 
-template <class TInputImage, class TReferenceSpectrum, class TOutputImage >
+template <class TInputImage, class TReferenceSpectrum, class TReferenceBSC, class TOutputImage >
 const TReferenceSpectrum *
-BSC<TInputImage,TReferenceSpectrum,TOutputImage>
+BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
 ::GetReferenceSpectrum() const
 {
   return const_cast< const TReferenceSpectrum * >( this->ProcessObject::GetInput( 1 ));
 }
 
-template <class TInputImage, class TReferenceSpectrum, class TOutputImage >
+template <class TInputImage, class TReferenceSpectrum, class TReferenceBSC, class TOutputImage >
 void
-BSC<TInputImage,TReferenceSpectrum,TOutputImage>
+BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
+::SetReferenceBSC( const TReferenceBSC * refSpec )
+{
+  this->ProcessObject::SetNthInput( 1, const_cast< TReferenceBSC * >( refSpec ));
+}
+
+template <class TInputImage, class TReferenceSpectrum, class TReferenceBSC, class TOutputImage >
+const TReferenceBSC *
+BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
+::GetReferenceBSC() const
+{
+  return const_cast< const TReferenceBSC * >( this->ProcessObject::GetInput( 1 ));
+}
+
+template <class TInputImage, class TReferenceSpectrum, class TReferenceBSC, class TOutputImage >
+void
+BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
 ::GenerateData()
 {
 

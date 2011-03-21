@@ -2,6 +2,7 @@
 #define  __itkBSC_h
 
 #include "itkImageToImageFilter.h"
+#include "itkLinearInterpolateImageFunction.h"
 
 namespace itk
 {
@@ -71,6 +72,9 @@ protected:
   BSC();
   virtual ~BSC(){};
   void PrintSelf(std::ostream& os, Indent indent) const;
+
+  typedef  LinearInterpolateImageFunction< TReferenceBSC > ReferenceBSCInterpolatorType;
+  typename ReferenceBSCInterpolatorType::Pointer m_ReferenceBSCInterpolator;
 
   /** Direction in which the filter is to be applied
    * this should be in the range [0,ImageDimension-1]. */

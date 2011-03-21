@@ -176,10 +176,6 @@ MeanAcrossDirection<TInputImage,TOutputImage>
 
   typename ROIFilterType::OutputImageType::ConstPointer roi_out = this->m_ROIFilter->GetOutput();
 
-  /** @todo fix me
-   * (8 of 23): error: ‘vector_length’ cannot appear in a constant-expression
-   */
-  //const unsigned int vector_length = inputPtr->GetVectorLength();
   const unsigned int vector_length = InputPixelType::Dimension;
   //PixelType outpix;
   //outpix.SetSize( vector_length );

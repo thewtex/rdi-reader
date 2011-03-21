@@ -22,6 +22,8 @@ BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
 : m_Direction(0)
 {
   this->SetNumberOfRequiredInputs( 3 );
+
+  m_ReferenceBSCInterpolator = ReferenceBSCInterpolatorType::New();
 }
 
 template <class TInputImage, class TReferenceSpectrum, class TReferenceBSC, class TOutputImage >
@@ -55,7 +57,7 @@ void
 BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
 ::SetReferenceBSC( const TReferenceBSC * refSpec )
 {
-  this->ProcessObject::SetNthInput( 1, const_cast< TReferenceBSC * >( refSpec ));
+  this->ProcessObject::SetNthInput( 2, const_cast< TReferenceBSC * >( refSpec ));
 }
 
 template <class TInputImage, class TReferenceSpectrum, class TReferenceBSC, class TOutputImage >
@@ -63,7 +65,7 @@ const TReferenceBSC *
 BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
 ::GetReferenceBSC() const
 {
-  return const_cast< const TReferenceBSC * >( this->ProcessObject::GetInput( 1 ));
+  return const_cast< const TReferenceBSC * >( this->ProcessObject::GetInput( 2 ));
 }
 
 template <class TInputImage, class TReferenceSpectrum, class TReferenceBSC, class TOutputImage >
@@ -76,6 +78,8 @@ BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
   typename TInputImage::ConstPointer  inputPtr  = this->GetInput();
   typename TReferenceSpectrum::Pointer refSpecPtr = static_cast< ReferenceSpectrumType * >(
     this->ProcessObject::GetInput( 1 ));
+  typename TReferenceBSC::Pointer refBSCPtr = static_cast< ReferenceBSCType * >(
+    this->ProcessObject::GetInput( 2 ));
   //refSpecPtr->Update();
   typename TOutputImage::Pointer      outputPtr = this->GetOutput();
 
@@ -118,20 +122,42 @@ BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
   ReferenceIteratorType ref_it( refSpecPtr, refRegion );
   ref_it.SetDirection(0);
 
+  // @todo fix hard coding
   const PixelType freq_start = 6.5625;
   //const PixelType freq_end = 29.53125;
   const PixelType freq_step = 210.0 / 64.0;
   // assume rayleigh scattering, sigma = A*f^4
-  const PixelType rayleigh_coeff = 1.5625e-6;
-  std::vector< PixelType > bsc_r(num_components);
-  std::vector< PixelType > freqs(num_components);
+  //const PixelType rayleigh_coeff = 1.5625e-6;
+  //std::vector< PixelType > bsc_r(num_components);
+  //std::vector< PixelType > freqs(num_components);
   unsigned int i;
-  for( i = 0; i< num_components; i++ )
-    {
-    freqs[i] = freq_start + i* freq_step;
-    bsc_r[i] = rayleigh_coeff * ( freqs[i] * freqs[i] * freqs[i] * freqs[i] );
-    }
+  //for( i = 0; i < num_components; i++ )
+    //{
+    //freqs[i] = freq_start + i* freq_step;
+    //bsc_r[i] = rayleigh_coeff * ( freqs[i] * freqs[i] * freqs[i] * freqs[i] );
+    //}
   //const PixelType freq_range = freqs[ num_components-1 ] - freqs[0] ;
+  m_ReferenceBSCInterpolator->SetInputImage( refBSCPtr );
+  typename ReferenceBSCInterpolatorType::PointType freqPoint;
+  freqPoint[0] = freq_start;
+  InputPixelType refBSC;
+  typename ReferenceBSCType::IndexType refbscidx;
+  for( i = 0; i < num_components; ++i )
+    {
+    if( m_ReferenceBSCInterpolator->IsInsideBuffer( freqPoint ))
+      {
+      refbscidx[0] = i;
+      refBSC[i] = m_ReferenceBSCInterpolator->Evaluate( freqPoint );
+      }
+    else
+      {
+      // do something better here
+      //refBSC[i] = 0.0;
+      itkExceptionMacro(<< "Requested frequency for the reference is outside that given for the BSC.");
+      }
+    freqPoint[0] += freq_step;
+    }
+
 
   const PixelType* sample_p;
   const PixelType* ref_p;
@@ -147,7 +173,7 @@ BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
 	ref_p = ref_it.Get().GetDataPointer();
         for( i = 0; i < num_components; i++ )
           {
-	  output_it.Set( bsc_r[i] * sample_p[i] / ref_p[i] + output_it.Get() );
+	  output_it.Set( refBSC[i] * sample_p[i] / ref_p[i] + output_it.Get() );
           }
 	++sample_it;
 	++output_it;

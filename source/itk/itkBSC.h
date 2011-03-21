@@ -3,6 +3,7 @@
 
 #include "itkImageToImageFilter.h"
 #include "itkLinearInterpolateImageFunction.h"
+#include "itkVectorLinearInterpolateNearestNeighborExtrapolateImageFunction.h"
 
 namespace itk
 {
@@ -66,6 +67,9 @@ public:
   void SetReferenceBSC( const ReferenceBSCType * refSpec );
   const ReferenceBSCType * GetReferenceBSC() const;
 
+  itkSetMacro( SampleRadius, double );
+  itkGetConstMacro( SampleRadius, double );
+
   /** @todo -- threadify */
   virtual void GenerateData();  // generates output from input
 protected:
@@ -76,9 +80,14 @@ protected:
   typedef  LinearInterpolateImageFunction< TReferenceBSC > ReferenceBSCInterpolatorType;
   typename ReferenceBSCInterpolatorType::Pointer m_ReferenceBSCInterpolator;
 
+  typedef VectorLinearInterpolateNearestNeighborExtrapolateImageFunction< ReferenceSpectrumType > ReferenceSpectrumInterpolaterType;
+  typename ReferenceSpectrumInterpolaterType::Pointer m_ReferenceSpectrumInterpolator;
+
   /** Direction in which the filter is to be applied
    * this should be in the range [0,ImageDimension-1]. */
   unsigned int m_Direction;
+
+  double m_SampleRadius;
 
 private:
   BSC( const Self& ); // purposely not implemented

@@ -14,6 +14,7 @@
 #include "itkMeanAcrossDirection.h"
 #include "itkMultiplyByConstantImageFilter.h"
 #include "itkRegionOfInterestImageFilter.h"
+#include "itkResampleRThetaToCartesianImageFilter.h"
 #include "itkFFTW1DRealToComplexConjugateImageFilter.h"
 #include "itkRecursiveGaussianImageFilter.h"
 //#include "itkSquareImageFilter.h"
@@ -156,14 +157,35 @@ int main(int argc, char ** argv )
   bsc->SetInput( freq_vect->GetOutput() );
   bsc->SetReferenceSpectrum( refReader->GetOutput() );
   bsc->SetReferenceBSC( refBSCReader->GetOutput() );
+  const itk::MetaDataDictionary* dict = reader->GetMetaDataDictionaryArray()->at(0);
+  typedef const itk::MetaDataObject< double >* MetaDoubleType;
+  MetaDoubleType r = dynamic_cast< MetaDoubleType >( (*dict)["Radius"] );
+  double radius;
+  if( r != NULL )
+    {
+    radius = r->GetMetaDataObjectValue();
+    }
+  else
+    {
+    std::cerr << "could not get radius metadata dictionary value!" << std::endl;
+    return 1;
+    }
+  bsc->SetSampleRadius( radius );
 
   //typedef itk::IntensityWindowingImageFilter< ImageType > WindowingType;
   //WindowingType::Pointer intensity_window = WindowingType::New();
   //intensity_window->SetInput( bsc->GetOutput() );
   //intensity_window->SetWindowMinimum( 0.0 );
-  //intensity_window->SetWindowMaximum(255.0);
+  //intensity_window->SetWindowMaximum( 255.0 );
   //intensity_window->SetOutputMinimum( 0.0000000001 );
   //intensity_window->SetOutputMaximum( 255.0 );
+  //
+
+  // scan convert
+  typedef itk::ResampleRThetaToCartesianImageFilter< ImageType, ImageType, float > ScanConvertType;
+  ScanConvertType::Pointer scanConvert = ScanConvertType::New();
+  bsc->GetOutput()->SetMetaDataDictionary( *dict );
+  scanConvert->SetInput( bsc->GetOutput() );
 
   /*************** writer  ***************/
   typedef itk::ImageFileWriter< ImageType > WriterType;
@@ -179,7 +201,7 @@ int main(int argc, char ** argv )
   //writer->SetInput( square->GetOutput() );
   //writer->SetInput( freq_vect->GetOutput() );
   //writer->SetInput( mean_across_d->GetOutput() );
-  writer->SetInput( bsc->GetOutput() );
+  writer->SetInput( scanConvert->GetOutput() );
   //writer->SetInput( resample->GetOutput() );
   writer->SetFileName( bscFile.getValue() ) ;
 

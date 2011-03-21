@@ -7,3 +7,6 @@
 [submodule "submodules/itk-fft-extensions"]
 	path = submodules/itk-fft-extensions
 	url = git://gitorious.org/ultrasound-b-mode/itk-fft-extensions.git
+[submodule "submodules/curvilinear-scan-convert"]
+	path = submodules/curvilinear-scan-convert
+	url = git://gitorious.org/ultrasound-b-mode/curvilinear-scan-convert.git

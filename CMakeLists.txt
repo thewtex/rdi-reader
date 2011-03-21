@@ -48,6 +48,9 @@ set( CMAKE_LIBRARY_OUTPUT_DIRECTORY
 
 add_subdirectory( submodules/gdb-pretty-itk-cmake )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/submodules/itk-fft-extensions/Code )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/submodules/curvilinear-scan-convert/Code )
+include_directories(
+  ${CMAKE_CURRENT_SOURCE_DIR}/submodules/curvilinear-scan-convert/Submodules/itkStreamingResampleImageFilter/Code )
 add_subdirectory(source)
 
 include(CTest)

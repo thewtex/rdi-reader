@@ -5,6 +5,7 @@
 #include "tclap/CmdLine.h"
 
 #include "itkArchetypeSeriesFileNames.h"
+#include "itkChangeInformationImageFilter.h"
 #include "itkComplexToModulusImageFilter.h"
 #include "itkFrequencyVectorImageFilter.h"
 #include "itkImageFileReader.h"
@@ -95,10 +96,30 @@ int main(int argc, char ** argv )
   MeanAcrossDirectionType::Pointer mean_across_d = MeanAcrossDirectionType::New();
   mean_across_d->SetInput( freq_vect->GetOutput() );
 
+  // Hack to add in the radius information.
+  typedef itk::ChangeInformationImageFilter< MeanAcrossDirectionType::OutputImageType > OriginSetterType;
+  OriginSetterType::Pointer originSetter = OriginSetterType::New();
+  originSetter->SetInput( mean_across_d->GetOutput() );
+  const itk::MetaDataDictionary* dict = reader->GetMetaDataDictionaryArray()->at(0);
+  typedef const itk::MetaDataObject< double >* MetaDoubleType;
+  MetaDoubleType r = dynamic_cast< MetaDoubleType >( (*dict)["Radius"] );
+  ExtractedMeanImageType::PointType origin;
+  if( r != NULL )
+    {
+    origin[0] = r->GetMetaDataObjectValue();
+    }
+  else
+    {
+    std::cerr << "could not get radius metadata dictionary value!" << std::endl;
+    return 1;
+    }
+  originSetter->ChangeOriginOn();
+  originSetter->SetOutputOrigin( origin );
+
   /*************** writer  ***************/
   typedef itk::ImageFileWriter< MeanAcrossDirectionType::OutputImageType > WriterType;
   WriterType::Pointer writer = WriterType::New();
-  writer->SetInput( mean_across_d->GetOutput() );
+  writer->SetInput( originSetter->GetOutput() );
   writer->SetFileName( meanSpectrumFile.getValue() );
 
   try

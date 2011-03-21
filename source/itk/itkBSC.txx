@@ -11,6 +11,7 @@ using std::endl;
 #include "itkImageLinearConstIteratorWithIndex.h"
 #include "itkImageLinearIteratorWithIndex.h"
 #include "itkImageRegionIterator.h"
+#include "itkMetaDataObject.h"
 #include "itkVector.h"
 
 namespace itk
@@ -19,11 +20,13 @@ namespace itk
 template <class TInputImage, class TReferenceSpectrum, class TReferenceBSC, class TOutputImage >
 BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
 ::BSC()
-: m_Direction(0)
+: m_Direction(0),
+  m_SampleRadius( 0.0 )
 {
   this->SetNumberOfRequiredInputs( 3 );
 
   m_ReferenceBSCInterpolator = ReferenceBSCInterpolatorType::New();
+  m_ReferenceSpectrumInterpolator = ReferenceSpectrumInterpolaterType::New();
 }
 
 template <class TInputImage, class TReferenceSpectrum, class TReferenceBSC, class TOutputImage >
@@ -92,11 +95,6 @@ BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
   outputPtr->SetBufferedRegion( outputPtr->GetRequestedRegion() );
   outputPtr->Allocate();
 
-  const typename InputImageType::IndexType& inputIndex
-    = inputPtr->GetRequestedRegion().GetIndex();
-  const typename InputImageType::SizeType& inputSize
-    = inputPtr->GetRequestedRegion().GetSize();
-
   const unsigned int direction = this->m_Direction;
 
   const unsigned int num_components = ReferenceSpectrumType::PixelType::Dimension;
@@ -110,17 +108,6 @@ BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
   typedef itk::ImageLinearIteratorWithIndex< OutputImageType > OutputIteratorType;
   OutputIteratorType output_it( outputPtr, inputPtr->GetRequestedRegion() );
   output_it.SetDirection( direction );
-
-  typename ReferenceSpectrumType::IndexType refIndex;
-  typename ReferenceSpectrumType::SizeType refSize;
-  refIndex[0] = inputIndex[direction];
-  refSize[0] = inputSize[direction];
-  typename ReferenceSpectrumType::RegionType refRegion;
-  refRegion.SetIndex( refIndex );
-  refRegion.SetSize( refSize );
-  typedef itk::ImageLinearConstIteratorWithIndex< ReferenceSpectrumType > ReferenceIteratorType;
-  ReferenceIteratorType ref_it( refSpecPtr, refRegion );
-  ref_it.SetDirection(0);
 
   // @todo fix hard coding
   const PixelType freq_start = 6.5625;
@@ -159,25 +146,27 @@ BSC<TInputImage,TReferenceSpectrum,TReferenceBSC,TOutputImage>
     }
 
 
-  const PixelType* sample_p;
-  const PixelType* ref_p;
+  InputPixelType sample_p;
+  InputPixelType ref_p;
+  m_ReferenceSpectrumInterpolator->SetInputImage( refSpecPtr );
+  double rSpacing = inputPtr->GetSpacing()[0];
+  typename ReferenceSpectrumType::PointType refPoint;
 
   for( sample_it.GoToBegin(), output_it.GoToBegin(); !sample_it.IsAtEnd(); sample_it.NextLine(), output_it.NextLine() )
     {
     sample_it.GoToBeginOfLine();
     output_it.GoToBeginOfLine();
-    ref_it.GoToBeginOfLine();
     while( !sample_it.IsAtEndOfLine() )
 	{
-	sample_p = sample_it.Get().GetDataPointer();
-	ref_p = ref_it.Get().GetDataPointer();
+	sample_p = sample_it.Get();
+        refPoint[0] = m_SampleRadius + rSpacing * sample_it.GetIndex()[0];
+	ref_p = m_ReferenceSpectrumInterpolator->Evaluate( refPoint );
         for( i = 0; i < num_components; i++ )
           {
 	  output_it.Set( refBSC[i] * sample_p[i] / ref_p[i] + output_it.Get() );
           }
 	++sample_it;
 	++output_it;
-	++ref_it;
 	}
     }
 

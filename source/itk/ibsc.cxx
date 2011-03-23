@@ -11,6 +11,7 @@
 #include "itkHammingWindowImageFilter.h"
 #include "itkImageFileReader.h"
 #include "itkImageFileWriter.h"
+#include "itkLog10ImageFilter.h"
 #include "itkMeanAcrossDirection.h"
 #include "itkMultiplyByConstantImageFilter.h"
 #include "itkRegionOfInterestImageFilter.h"
@@ -40,6 +41,7 @@ typedef itk::Vector< PixelType, extraction_size > ExtractedVectorType;
 typedef itk::Image< ExtractedVectorType, Dimension > ExtractedImageType;
 typedef itk::Image< ExtractedVectorType, 1 > ExtractedMeanImageType;
 typedef itk::Image< PixelType, 1 > ReferenceBSCImageType;
+typedef itk::Image< unsigned char, Dimension > OutputImageType;
 
 int main(int argc, char ** argv )
 {
@@ -172,36 +174,41 @@ int main(int argc, char ** argv )
     }
   bsc->SetSampleRadius( radius );
 
-  //typedef itk::IntensityWindowingImageFilter< ImageType > WindowingType;
-  //WindowingType::Pointer intensity_window = WindowingType::New();
-  //intensity_window->SetInput( bsc->GetOutput() );
-  //intensity_window->SetWindowMinimum( 0.0 );
-  //intensity_window->SetWindowMaximum( 255.0 );
-  //intensity_window->SetOutputMinimum( 0.0000000001 );
-  //intensity_window->SetOutputMaximum( 255.0 );
-  //
+  typedef itk::IntensityWindowingImageFilter< ImageType > WindowingType;
+  WindowingType::Pointer intensity_window = WindowingType::New();
+  intensity_window->SetInput( bsc->GetOutput() );
+  intensity_window->SetWindowMinimum( 0.0 );
+  intensity_window->SetWindowMaximum( 255.0 );
+  intensity_window->SetOutputMinimum( 0.0000000001 );
+  intensity_window->SetOutputMaximum( 255.0 );
+
+  typedef itk::Log10ImageFilter< ImageType, ImageType > LogType;
+  LogType::Pointer log = LogType::New();
+  log->SetInput( intensity_window->GetOutput() );
 
   // scan convert
   typedef itk::ResampleRThetaToCartesianImageFilter< ImageType, ImageType, float > ScanConvertType;
   ScanConvertType::Pointer scanConvert = ScanConvertType::New();
-  bsc->GetOutput()->SetMetaDataDictionary( *dict );
-  scanConvert->SetInput( bsc->GetOutput() );
+  log->GetOutput()->SetMetaDataDictionary( *dict );
+  scanConvert->SetInput( log->GetOutput() );
+  scanConvert->SetDefaultPixelValue( -5.0 );
+
+  typedef itk::IntensityWindowingImageFilter< ImageType, OutputImageType > OutputWindowingType;
+  OutputWindowingType::Pointer output_intensity_window = OutputWindowingType::New();
+  output_intensity_window->SetInput( scanConvert->GetOutput() );
+  output_intensity_window->SetWindowMinimum( -3.5 );
+  output_intensity_window->SetWindowMaximum( 0.5 );
+  //intensity_window->SetOutputMinimum( 0.0000000001 );
+  //intensity_window->SetOutputMaximum( 255.0 );
 
   /*************** writer  ***************/
-  typedef itk::ImageFileWriter< ImageType > WriterType;
+  //typedef itk::ImageFileWriter< ImageType > WriterType;
+  typedef itk::ImageFileWriter< OutputImageType > WriterType;
   //typedef itk::ImageFileWriter< FrequencyVectorFilter::OutputImageType > WriterType;
   //typedef itk::ImageFileWriter< MeanAcrossDirectionType::OutputImageType > WriterType;
   WriterType::Pointer writer = WriterType::New();
-  //writer->SetInput( window->GetOutput() );
-  //writer->SetInput( complex_to_real->GetOutput() );
-  //writer->SetInput( ifft1d_filter->GetOutput() );
-  //writer->SetInput( log->GetOutput() );
-  //writer->SetInput( import_filter->GetOutput() );
-  //writer->SetInput( modulus->GetOutput() );
-  //writer->SetInput( square->GetOutput() );
-  //writer->SetInput( freq_vect->GetOutput() );
-  //writer->SetInput( mean_across_d->GetOutput() );
-  writer->SetInput( scanConvert->GetOutput() );
+  //writer->SetInput( scanConvert->GetOutput() );
+  writer->SetInput( output_intensity_window->GetOutput() );
   //writer->SetInput( resample->GetOutput() );
   writer->SetFileName( bscFile.getValue() ) ;
 

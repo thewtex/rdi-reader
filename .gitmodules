@@ -1,12 +1,9 @@
-[submodule "tests/data/input"]
-	path = tests/data/input
-	url = git://gitorious.org/ultrasound-b-mode/visualsonics-test-data.git
 [submodule "submodules/gdb-pretty-itk-cmake"]
 	path = submodules/gdb-pretty-itk-cmake
-	url = http://git.gitorious.org/gdb-pretty/gdb-pretty-itk-cmake.git
+	url = https://github.com/thewtex/gdb-pretty-itk-cmake.git
 [submodule "submodules/itk-fft-extensions"]
 	path = submodules/itk-fft-extensions
-	url = git://gitorious.org/ultrasound-b-mode/itk-fft-extensions.git
+	url = https://github.com/thewtex/itk-fft-extensions.git
 [submodule "submodules/curvilinear-scan-convert"]
 	path = submodules/curvilinear-scan-convert
-	url = git://gitorious.org/ultrasound-b-mode/curvilinear-scan-convert.git
+	url = https://github.com/thewtex/curvilinear-scan-convert.git

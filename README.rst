@@ -18,6 +18,8 @@ Build time dependencies:
 
   - >= `cmake`_-2.8
   - >= `python`_-3.0
+  - tclap_
+  - gtest_
 
 .. _cmake: http://www.cmake.org/
 .. _lxml: http://codespeak.net/lxml/
@@ -25,4 +27,5 @@ Build time dependencies:
 .. _xalan-c: http://xml.apache.org/xalan-c/
 .. _xerces-c: http://xerces.apache.org/xerces-c/
 .. _CodeSynthesis xsd: http://www.codesynthesis.com/projects/xsd/
-
+.. _tclap: http://tclap.sourceforge.net/
+.. _gtest: https://code.google.com/p/googletest/

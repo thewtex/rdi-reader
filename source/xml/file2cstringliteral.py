@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.1
+#!/usr/bin/env python3
 
 # transform an input file to an c/c++ string literal
 # usage: <input file> <output file>

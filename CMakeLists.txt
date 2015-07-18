@@ -25,6 +25,9 @@ if( USE_ITK )
   if( NOT ITK_USE_REVIEW )
     message( SEND_ERROR "ITK must be built with ITK_USE_REVIEW" )
   endif()
+  if( NOT ITK_USE_REVIEW_STATISTICS )
+    message( SEND_ERROR "ITK must be built with ITK_USE_REVIEW_STATISTICS" )
+  endif()
 endif()
 
 

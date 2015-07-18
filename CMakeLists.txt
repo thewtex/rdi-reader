@@ -22,6 +22,9 @@ set( USE_ITK ON CACHE BOOL
   "Build capabilities related to the Insight Toolkit www.itk.org" )
 if( USE_ITK )
   find_package( ITK REQUIRED )
+  if( NOT ITK_USE_REVIEW )
+    message( SEND_ERROR "ITK must be built with ITK_USE_REVIEW" )
+  endif()
 endif()
 
 

@@ -199,13 +199,17 @@ rdiReader::parse_IMAGE_PARAMETERS_section(std::ifstream& infile,
       text = domdoc->createTextNode(X(m_line_parser.content.c_str()));
       new_child->appendChild(text);
       if(m_line_parser.units.size() > 0)
+        {
 	new_child->setAttribute(UNITS, X(m_line_parser.units.c_str()));
+        }
       } // end parsing and handling a line
     }
   catch(const ifstream::failure& e)
     {
     if(!infile.eof())
+      {
       throw e;
+      }
     }
   return domdoc;
 }
@@ -247,7 +251,16 @@ bool rdiReader::LineParser::parse_line(istream& f)
 
   getline(f, content, '"');
 
-  getline(f, m_subline, '"');
+  try
+    {
+    getline(f, m_subline, '"');
+    }
+  catch(const ifstream::failure& e)
+    {
+    f.seekg(3, ios::cur);
+    f.clear();
+    return true;
+    }
   if(m_subline == ",")
     {
     getline(f, units, '"');
